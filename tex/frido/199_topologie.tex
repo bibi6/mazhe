@@ -193,6 +193,18 @@ En termes savants, ce corollaire signifie que la fermeture $\bar A$ est composé
 \end{definition}
 \index{espace!vectoriel topologique!métrisable}
 
+\begin{proposition}     \label{PropGULUooNzqZKj}
+    Soient \( (X,d) \) un espace topologique métrique et \( F\) un fermé de \( X\). Nous avons \( d(x,F)=0\) si et seulement si \( x\in F\).
+\end{proposition}
+
+\begin{proof}
+    Si \( x\in F\) alors \( d(x,F)=0\) parce que \( d(x,x)\) fait partie de l'ensemble sur lequel nous prenons l'infimum.
+
+    Si réciproquement \( d(x,F)=0\), cela signifie que pour tout \( \epsilon\), il existe \( x_{\epsilon}\in F\) tel que \( d(x_{\epsilon},x)\leq \psi\). En prenant \(\epsilon=1/k\) nous construisons une suite \( (x_k)\) d'éléments dans \( F\) vérifiant \( d(x_k,x)=\frac{1}{ k }\). Cela signifie que \( \lim_{k\to \infty} x_k=x\) par la proposition~\ref{PropooUEEOooLeIImr}\ref{ItemooROYMooAQCXnj}.
+
+    Par la caractérisation séquentielle des fermés (un fermé contient les limites de toutes ses suites, proposition~\ref{PropLFBXIjt}), la suite \( (x_k)\) étant dans \( F\), la limite est dans \( F\). Donc \( x\in F\).
+\end{proof}
+
 \begin{proposition}[\cite{ooCGEHooVTyTuY}]      \label{PROPooXWBTooCvGLOj}
     Soit un espace topologique métrisable \( X\).
     \begin{enumerate}
@@ -217,7 +229,7 @@ En termes savants, ce corollaire signifie que la fermeture $\bar A$ est composé
             \end{equation}
             Nous pouvons donc choisir \( \epsilon\) de telle sorte que \( d(y,a)<\epsilon\) pour tout \( a\in B(x,\epsilon)\). Cela prouve que \( V_n\) est ouvert.
         \item[\( A\) est l'intersection des \( V_n\)]
-            Nous avons évidemment \( A\subset V_n\) pour tout \( n\). Et d'autre part, si \( a\in\bigcap_{n\in \eN} V_n\) alors \( d(a,A)<\frac{1}{ n }\) pour tout \( n\). Cela implique \( d(a,A)=0\), c'est à dire \( a\in A\).
+            Nous avons évidemment \( A\subset V_n\) pour tout \( n\). Et d'autre part, si \( a\in\bigcap_{n\in \eN} V_n\) alors \( d(a,A)<\frac{1}{ n }\) pour tout \( n\). Cela implique \( d(a,A)=0\), c'est à dire \( a\in A\) par la proposition~\ref{PropGULUooNzqZKj}.
         \end{subproof}
     En ce qui concerne la seconde partie, nous passons au complémentaire. Si \( \mO\) est ouvert, \( \mO^c\) est fermé et
     \begin{equation}
@@ -231,7 +243,7 @@ En termes savants, ce corollaire signifie que la fermeture $\bar A$ est composé
 \end{proof}
 
 \begin{probleme}
-Il faut sans doute mettre un peu plus de rigueur dans la preuve ci-dessus (surtout si on veut la resservir à un jury). Notamment, justifier proprement le fait que $d(a, A ) =0$ pour $A$ fermé implique $a \in A$.
+Il faut sans doute mettre un peu plus de rigueur dans la preuve ci-dessus (surtout si on veut la resservir à un jury).
 \end{probleme}
 
 
@@ -692,7 +704,7 @@ Nous voulons formaliser les notions de «taille» et de distance dans $\eR^n$, e
 %///////////////////////////////
 
 \begin{lemma}
-    Une suite de Cauchy\footnote{Définition \ref{}<++>}<++> dans un espace vectoriel normé admettant une sous-suite convergente est elle-même convergente vers la même limite.
+    Une suite de Cauchy\footnote{Définition~\ref{DefZSnlbPc}.} dans un espace vectoriel normé admettant une sous-suite convergente est elle-même convergente vers la même limite.
 \end{lemma}
 
 \begin{proof}

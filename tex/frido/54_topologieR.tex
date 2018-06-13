@@ -16,6 +16,16 @@
 \end{definition}
 
 
+\begin{definition}		\label{DefCvSuiteEGVN}
+	Soit une suite $(x_n)$ dans un espace vectoriel normé $V$. Nous disons qu'elle est
+    \defe{convergente}{convergence!dans un espace vectoriel normé} s'il existe un élément $\ell\in V$ tel que
+	\begin{equation}
+		\forall \varepsilon>0,\,\exists N\in\eN\tq n\geq N\Rightarrow \| x_n-l \|<\varepsilon.
+	\end{equation}
+	Dans ce cas, $\ell$ est appelé la \defe{limite}{limite!suite} de la suite $(x_n)$.
+\end{definition}
+
+
 \begin{proposition} \label{PROPooKNVUooMbLZoy}
     Une fonction séquentiellement continue sur un espace métrisable et à valeurs dans un espace métrique est continue.
 \end{proposition}
@@ -106,18 +116,6 @@ La proposition~\ref{PropNGjQnqF} nous montrera que ces équivalences tiennent en
             d(x_n,a)\leq \diam F_n\to 0.
         \end{equation}
     \end{subproof}
-\end{proof}
-
-\begin{proposition}     \label{PropGULUooNzqZKj}
-    Soient \( (X,d) \) un espace topologique métrique et \( F\) un fermé de \( X\). Nous avons \( d(x,F)=0\) si et seulement si \( x\in F\).
-\end{proposition}
-
-\begin{proof}
-    Si \( x\in F\) alors \( d(x,F)=0\) parce que \( d(x,x)\) fait partie de l'ensemble sur lequel nous prenons l'infimum.
-
-    Si réciproquement \( d(x,F)=0\), cela signifie que pour tout \( \epsilon\), il existe \( x_{\epsilon}\in F\) tel que \( d(x_{\epsilon},x)\leq \psi\). En prenant \(\epsilon=1/k\) nous construisons une suite \( (x_k)\) d'éléments dans \( F\) vérifiant \( d(x_k,x)=\frac{1}{ k }\). Cela signifie que \( \lim_{k\to \infty} x_k=x\) par la proposition~\ref{PropooUEEOooLeIImr}\ref{ItemooROYMooAQCXnj}.
-
-    Par la caractérisation séquentielle des fermés (un fermé contient les limites de toutes ses suites, proposition~\ref{PropLFBXIjt}), la suite \( (x_k)\) étant dans \( F\), la limite est dans \( F\). Donc \( x\in F\).
 \end{proof}
 
 
