@@ -760,45 +760,15 @@ Pour $A \subset \eR^n$, nous avons
 \end{equation*}
 \end{proposition}
 
-\begin{definition}      \label{DEFooACVLooRwehTl}
-  La \defe{frontière}{frontière} ou le \defe{bord}{bord} de $A$ est défini par $\partial A = \Adh A \setminus \Int A$. L'ensemble $A$ est un \defe{ouvert}{ouvert} si $A = \Int A$, et c'est un \defe{fermé}{fermé} si $A = \Adh A$.
-\end{definition}
-
-\begin{lemma}[Caractérisation équivalente de la frontière]      \label{LEMooEUYEooYcUfKr}
-    Soient \( X\) un espace topologique et \( S\subset X\). Un point \( x\in X\) est dans \( \partial S\) si et seulement si tout voisinage de \( x\) contient un point de \( S\) et un point de \( S^c\).
-\end{lemma}
-
-\begin{proof}
-    Supposons que tout voisinage de \( x\) contienne un point de \( S\) et un point de \( S^c\). Alors \( x\in Adh(S)\) (définition~\ref{DEFooSVWMooLpAVZR}), mais pas dans l'intérieur de \( S\) parce que \( x\) ne possède pas de voisinage contenu dans \( S\). Donc \( x\in \partial S\).
-
-    À l'inverse, si \( x\in\partial S\) alors \( x\) est dans l'adhérence de \( S\) et tout voisinage de \( x\) contient un point de \( S\). Mais \( x\) n'est pas dans l'intérieur de \( S\) et tout voisinage de \( x\) contient un point qui n'est pas dans \( S\), aka un point de \( S^c\).
-\end{proof}
-
-\begin{corollary}
-    Un ensemble et son complémentaire ont même frontière.
-\end{corollary}
-
-\begin{proof}
-    Conséquence du lemme~\ref{LEMooEUYEooYcUfKr}. Les points de \( \partial(S^c)\) sont caractérisés par le fait que tout voisinage contient un point de \( S^c\) et un point de \( (S^c)^c=S\).
-\end{proof}
-
-\begin{example}
-    Soit \( X=\mathopen[ 0 , 1 \mathclose]\) muni de la topologie de la distance \( | x-y |\) (définition~\ref{ThoORdLYUu}). Les points \( 0\) et \( 1\) \emph{ne sont pas} dans la frontière de $X$. En effet une boule ouverte autour de \( 1\) est un ensemble de la forme
+\begin{remark}
+    Petite remarque à propos des frontières. Soit \( X=\mathopen[ 0 , 1 \mathclose]\) muni de la topologie de la distance \( | x-y |\) (définition~\ref{ThoORdLYUu}). Les points \( 0\) et \( 1\) \emph{ne sont pas} dans la frontière de $X$. En effet une boule ouverte autour de \( 1\) est un ensemble de la forme
     \begin{equation}
         B(1,r)=\{ x\in X\tq | x-1 |<r \}=\mathopen] 1-r , 1 \mathclose]
     \end{equation}
     où nous avons supposé \( r<1\).
 
     Les points \( 0\) et \( 1\) sont par contre sur la frontière de \( \mathopen[ 0 , 1 \mathclose]\) lorsque cet ensemble est vu comme partie de l'espace métrique \( \eR\).
-\end{example}
-
-\begin{lemma}[Passage de douane\cite{ooDKEWooFqlDyN,ooWBUCooAdPjMK}]        \label{LEMooLKWEooItGnkP}
-    Dans un espace topologique, toute partie connexe qui rencontre à la fois une partie \( A\) et son complémentaire rencontre nécessairement la frontière de \( A\).
-\end{lemma}
-
-\begin{proof}
-    Nommons \( \gamma\) la partie connexe qui intersecte \( A\) et \( A^c\). Les ouverts \( \Int(A)\) et \( X\setminus \bar A\) ne peuvent pas recouvrir \( \gamma\) parce que ce sont deux ouverts disjoints alors que \( \gamma\) est connexe (voir la définition~\ref{DefIRKNooJJlmiD} de la connexité). Donc \( \gamma\) doit contenir des points qui sont dans \( \bar A\) mais pas dans \( \Int(A)\). C'est à dire des points de \( \partial A\).
-\end{proof}
+\end{remark}
 
 On vérifiera que les notations et les dénominations sont cohérentes en prouvant la proposition suivante.
 \begin{proposition}Pour $\epsilon > 0$,

@@ -68,6 +68,28 @@ Ainsi, $A$ est égal à une union d'ouverts, cela prouve que $A$ est un ouvert.
 \end{proof}
 Le lemme \ref{LemMESSExh} est une version particulière de celui-ci, pour l'espace topologique \( \eR \). Une autre application typique est la proposition~\ref{PropMMKBjgY} et le théorème~\ref{ThoESCaraB}.
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Base de topologie}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}[Base de topologie]   \label{DefQELfbBEyiB}
+    Une famille \( \mB\) d'ouverts de \( X\) est une \defe{base de la topologie}{base!de topologie} de \( X\) si pour tout \( x\in X\) et pour tout voisinage \( V\) de \( x\), il existe \( A\in \mB\) tel que \( x\in A\subset V\).
+\end{definition}
+
+\begin{proposition} \label{PropMMKBjgY}
+    Si \( \mB\) est une base de la topologie de \( X\) alors tout ouvert de \( X\) est une union d'éléments de \( \mB\).
+\end{proposition}
+
+\begin{proof}
+    Soit \( \mO\) un ouvert de \( X\); pour chaque \( x\in\mO\) nous considérons un ouvert \( U(x)\) tel que \( x\in U(x)\subset \mO\) (possible par le théorème~\ref{ThoPartieOUvpartouv}). Nous prenons alors \( B(x)\in\mB\) tel que
+    \begin{equation}
+        x\in B(x)\subset U(x)\subset \mO.
+    \end{equation}
+    Alors nous avons \( \mO=\bigcup_{x\in \mO}B(x)\).
+\end{proof}
+Notons toutefois que nous sommes loin d'avoir une union dénombrable en général.
+
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Quelques exemples}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -255,6 +277,24 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
   \end{equation}
 \end{definition}
 
+\begin{lemma}[Caractérisation équivalente de la frontière]      \label{LEMooEUYEooYcUfKr}
+    Soient \( X\) un espace topologique et \( S\subset X\). Un point \( x\in X\) est dans \( \partial S\) si et seulement si tout voisinage de \( x\) contient un point de \( S\) et un point de \( S^c\).
+\end{lemma}
+
+\begin{proof}
+    Supposons que tout voisinage de \( x\) contienne un point de \( S\) et un point de \( S^c\). Alors \( x\in \Adh(S)\) (définition~\ref{DEFooSVWMooLpAVZR}), mais pas dans l'intérieur de \( S\) parce que \( x\) ne possède pas de voisinage contenu dans \( S\). Donc \( x\in \partial S\).
+
+    À l'inverse, si \( x\in\partial S\) alors \( x\) est dans l'adhérence de \( S\) et tout voisinage de \( x\) contient un point de \( S\). Mais \( x\) n'est pas dans l'intérieur de \( S\) et tout voisinage de \( x\) contient un point qui n'est pas dans \( S\), aka un point de \( S^c\).
+\end{proof}
+
+\begin{corollary}
+    Un ensemble et son complémentaire ont même frontière.
+\end{corollary}
+
+\begin{proof}
+    Conséquence du lemme~\ref{LEMooEUYEooYcUfKr}. Les points de \( \partial(S^c)\) sont caractérisés par le fait que tout voisinage contient un point de \( S^c\) et un point de \( (S^c)^c=S\).
+\end{proof}
+
 \subsubsection{Points d'accumulation et isolés}
 %/////////////////////////
 
@@ -431,6 +471,13 @@ Nous verrons plus tard (proposition~\ref{PropConnexiteViaFonction}) une autre ca
     \end{enumerate}
 \end{proof}
 
+\begin{lemma}[Passage de douane\cite{ooDKEWooFqlDyN,ooWBUCooAdPjMK}]        \label{LEMooLKWEooItGnkP}
+    Dans un espace topologique, toute partie connexe qui rencontre à la fois une partie \( A\) et son complémentaire rencontre nécessairement la frontière de \( A\).
+\end{lemma}
+
+\begin{proof}
+    Nommons \( \gamma\) la partie connexe qui intersecte \( A\) et \( A^c\). Les ouverts \( \Int(A)\) et \( X\setminus \bar A\) ne peuvent pas recouvrir \( \gamma\) parce que ce sont deux ouverts disjoints alors que \( \gamma\) est connexe (voir la définition~\ref{DefIRKNooJJlmiD} de la connexité). Donc \( \gamma\) doit contenir des points qui sont dans \( \bar A\) mais pas dans \( \Int(A)\). C'est à dire des points de \( \partial A\).
+\end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Compacité}
@@ -501,27 +548,6 @@ La compacité est le thème~\ref{THEMEooQQBHooLcqoKB}.
 
     L'implication~\ref{ItemXYmGHFaii} \( \Rightarrow\)~\ref{ItemXYmGHFai} est la même histoire de passage aux complémentaires.
 \end{proof}
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Base de topologie}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}[Base de topologie]   \label{DefQELfbBEyiB}
-    Une famille \( \mB\) d'ouverts de \( X\) est une \defe{base de la topologie}{base!de topologie} de \( X\) si pour tout \( x\in X\) et pour tout voisinage \( V\) de \( x\), il existe \( A\in \mB\) tel que \( x\in A\subset V\).
-\end{definition}
-
-\begin{proposition} \label{PropMMKBjgY}
-    Si \( \mB\) est une base de la topologie de \( X\) alors tout ouvert de \( X\) est une union d'éléments de \( \mB\).
-\end{proposition}
-
-\begin{proof}
-    Soit \( \mO\) un ouvert de \( X\); pour chaque \( x\in\mO\) nous considérons un ouvert \( U(x)\) tel que \( x\in U(x)\subset \mO\) (possible par le théorème~\ref{ThoPartieOUvpartouv}). Nous prenons alors \( B(x)\in\mB\) tel que
-    \begin{equation}
-        x\in B(x)\subset U(x)\subset \mO.
-    \end{equation}
-    Alors nous avons \( \mO=\bigcup_{x\in \mO}B(x)\).
-\end{proof}
-Notons toutefois que nous sommes loin d'avoir une union dénombrable en général.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Quelques propriétés}
@@ -1021,7 +1047,7 @@ Un résultat important dans la théorie des fonctions sur les espaces vectoriels
 \end{lemma}
 
 \begin{proof}
-    Par l'absurde, nous supposons que pour tout \( n\), il existe un \( x_n\in X\) tel que la boule \( B(x_n,\frac{1}{ n })\) n'est contenue dans aucun des \( V_i\). Ce des \( x_n\) nous extrayons une sous-suite convergente (que nous nommons encore \( (x_n)\)) et nous posons \( x_n\to x\). Pour \( n\) assez grand (\( \frac{1}{ n }<\epsilon\)) nous avons \( x_n\in B(x,\epsilon)\), donc tous les \( x_n\) suivants sont dans le \( V_i\) qui contient \( x\).
+    Par l'absurde, nous supposons que pour tout \( n\), il existe un \( x_n\in X\) tel que la boule \( B(x_n,\frac{1}{ n })\) n'est contenue dans aucun des \( V_i\). De ces \( x_n\) nous extrayons une sous-suite convergente (que nous nommons encore \( (x_n)\)) et nous posons \( x_n\to x\). Pour \( n\) assez grand (\( \frac{1}{ n }<\epsilon\)) nous avons \( x_n\in B(x,\epsilon)\), donc tous les \( x_n\) suivants sont dans le \( V_i\) qui contient \( x\).
 \end{proof}
 
 \begin{lemma}[\cite{AntoniniAndAl-EspacesMetriquesCompacts}]   \label{LemMGQqgDG}
