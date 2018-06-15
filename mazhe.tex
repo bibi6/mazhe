@@ -52,6 +52,10 @@
 \boolfalse{isEnVolume}      % This list is hard-coded in 'gardeVolume.tex'.
 \boolfalse{isBook}
 
+% The following line is changed by pytex. You can change the title
+% but not the exact string ``\newcommand{\pdftitle}''.
+\newcommand{\pdftitle}{(almost) Everything I know in mathematics}
+
 \input{e_mazhe}
 
 % TODO : enlever les \cite{} qui citent mes documents qui ont été fusionnés.
@@ -159,6 +163,7 @@
 
 \chapter{Topologie générale}
 \input{53_topologie}
+\input{188_EspacesVectos}
 
 \chapter{Topologie sur les réels}
 \input{185_topologie}
@@ -172,8 +177,10 @@
 
 \chapter{Espaces vectoriels (encore)}
 \input{56_EspacesVectos}
-\input{188_EspacesVectos}
 \input{57_EspacesVectos}
+
+\chapter{Diagonalisation}
+\input{58_diagonalisation}
 \input{59_EspacesVectos}
 \input{138_EspacesVectos}
 \input{141_EspacesVectos}

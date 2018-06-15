@@ -15,7 +15,7 @@
 %  Lire http://www.les-mathematiques.net/phorum/read.php?2,302266
 
 \begin{definition}\index{déterminant!forme linéaire alternée}
-    Soit \( E\), un \( \eK\)-espace vectoriel. Une forme linéaire \defe{alternée}{forme linéaire!alternée}\index{alternée!forme linéaire} sur \( E\) est une application linéaire \( f\colon E\to \eK\) telle que \( f(v_1,\ldots, v_k)=0\) dès que \( v_i=v_j\) pour certains \( i\neq j\).
+    Soit \( E\), un \( \eK\)-espace vectoriel. Une forme linéaire \defe{alternée}{forme linéaire!alternée}\index{alternée!forme linéaire} sur \( E\) est une application multilinéaire \( f\colon E\to \eK\) telle que \( f(v_1,\ldots, v_k)=0\) dès que \( v_i=v_j\) pour certains \( i\neq j\).
 \end{definition}
 
 \begin{lemma}   \label{LemHiHNey}
@@ -768,11 +768,11 @@ Un tel polynôme s'écrit sous la forme
     \end{equation}
     Mais comme \( b_k\in \eZ\), nous avons
     \begin{equation}
-        b_k\in\big\{    -\binom{ n }{ n-k },-\binom{ n }{ n-k }+1,\ldots, 0,\cdots,\binom{ n }{ n-k }   \big\}
+        b_k\in\big\{    -\binom{ n }{ n-k },-\binom{ n }{ n-k }+1,\cdots, 0,\cdots,\binom{ n }{ n-k }   \big\},
     \end{equation}
-    qui est de cardinal \( \binom{ n }{ n-k }+1\). Nous avons donc
+    qui est un ensemble de cardinal \( 2 \binom{ n }{ n-k }+1\). Nous avons donc
     \begin{equation}
-        \Card(K_n)\leq\prod_{k=0}^{n-1}\big( 1+\binom{ n }{ n-k } \big)<\infty.
+        \Card(K_n)\leq\prod_{k=0}^{n-1}\bigg( 1+2 \binom{ n }{ n-k } \bigg)<\infty.
     \end{equation}
     La conclusion jusqu'ici est que \( K_n\) est un ensemble fini.
 
@@ -957,7 +957,7 @@ Nous commençons par prouver qu'un produit scalaire étant donné, nous pouvons 
 \end{proof}
 
 \begin{normaltext}
-    Un produit scalaire fourni donc toujours une norme et donc une topologie. Il ne faudrait cependant pas croire que toute norme dérive d'un produit scalaire, même pas en dimension finie. Et ce, malgré l'équivalence de toutes les normes du théorème~\ref{ThoNormesEquiv} dont vous avez déjà peut-être entendu parler.
+    Un produit scalaire fournit donc toujours une norme et donc une topologie. Il ne faudrait cependant pas croire que toute norme dérive d'un produit scalaire, même pas en dimension finie. Et ce, malgré l'équivalence de toutes les normes du théorème~\ref{ThoNormesEquiv} dont vous avez déjà peut-être entendu parler.
 \end{normaltext}
 
 \begin{example}     \label{EXooCAPYooMgOSyH}
@@ -1024,7 +1024,7 @@ Nous commençons par prouver qu'un produit scalaire étant donné, nous pouvons 
 
 
 \begin{proposition}			\label{PropVectsOrthLibres}
-	si $v_1,\cdots,v_k$ sont des vecteurs non nuls, orthogonaux deux à deux, alors ces vecteurs forment une famille libre.
+	Si $v_1,\cdots,v_k$ sont des vecteurs non nuls, orthogonaux deux à deux, alors ces vecteurs forment une famille libre.
 \end{proposition}
 
 \begin{definition}[Isométrie, thème~\ref{THMooVUCLooCrdbxm}]      \label{DEFooGGTYooXsHIZj}
@@ -1666,7 +1666,7 @@ La matrice $A$ s'écrit maintenant en mettant les trois images trouvées en colo
 
 Le principe est exactement le même : il faut trouver trois vecteurs $f_1$, $f_2$ et $f_3$ sur lesquels on connaît l'action de la symétrie. Ensuite il faudra exprimer $e_1$, $e_2$ et $e_3$ en termes de $f_1$, $f_2$ et $f_3$.
 
-Le seul problème est de trouver les trois vecteurs $f_i$. Le premier est tout trouvé : c'est n'importe quel vecteur sur la droite. Pour les deux autres, il faut un peu ruser parce qu'il faut impérativement qu'ils soient perpendiculaire à la droite. Pour trouver $f_2$, on peut écrire
+Le seul problème est de trouver les trois vecteurs $f_i$. Le premier est tout trouvé : c'est n'importe quel vecteur sur la droite. Pour les deux autres, il faut un peu ruser parce qu'il faut impérativement qu'ils soient perpendiculaires à la droite. Pour trouver $f_2$, on peut écrire
 \begin{equation}
 	f_2=\begin{pmatrix}
 		1	\\
