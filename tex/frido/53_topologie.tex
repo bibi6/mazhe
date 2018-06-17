@@ -223,13 +223,19 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
     \end{enumerate}
 \end{definition}
 
+\begin{example}
+	Dans $\eR$, l'infimum et le supremum d'un ensemble sont des points adhérents. En effet si $M$ est le supremum de $A\subset\eR$, pour tout $\varepsilon$, il existe un $a\in A$ tel que $a>M-\varepsilon$, tandis que $M>a$. Donc, pour tout $\varepsilon$, l'intervalle \( \mathopen ] M - \varepsilon, M + \varepsilon \mathclose[ \) a une intersection non-vide avec $A$.
+
+	Le même raisonnement montre que l'infimum est également dans l'adhérence de $A$.
+\end{example}
+
 \begin{lemma}       \label{LEMooILNCooOFZaTe}
     L'adhérence de \( A\) est l'ensemble des points adhérents :
     \begin{equation}
         \Adh(A)=\bar A.
     \end{equation}
     Par ailleurs, on a le lien
-    \begin{equation}
+    \begin{equation} \label{PropCompleIntBar}
       (\mathring A)^c = \widebar{A^c}.
     \end{equation}
 \end{lemma}
@@ -255,12 +261,83 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
     \end{subproof}
 \end{proof}
 
-\begin{remark}\label{RemAdhFerme}
+\begin{remark}\label{RemAdhFerme}\label{EXooICLBooJzQFNY}
   Comme corollaire du lemme précédent, et grâce aux remarques faites pour les intérieurs, on obtient que pour \( A \subset X \) :
   \begin{enumerate}
   \item l'ensemble \( \bar A \) est fermé: c'est en effet le complémentaire d'un ouvert, précisément l'intérieur de \( A^c \);
+  \item
+    l'ensemble $\bar A$ est le plus petit fermé contenant $A$. Cela signifie que si $B$ est un fermé qui contient $A$, alors $\bar A\subset B$. Cela est fondamentalement le sens de la définition~\ref{DEFooSVWMooLpAVZR}.
   \item \( A \) est fermé si et seulement si \( \bar A = A \): en effet, \( A \) est fermé si et seulement si \( A^c \) est ouvert, si et seulement si l'intérieur de \( A^c \) est \( A^c \) lui-même; or, l'intérieur de \( A^c \) est le complémentaire de \( \bar A \) par le lemme \ref{LEMooILNCooOFZaTe}, si bien que \( A \) est fermé si et seulement si \( (\bar A)^c  = A^c \), ou encore\dots{} ce qu'on affirmait au début.
   \end{enumerate}
+\end{remark}
+
+\begin{remark}
+  Attention à ne pas confondre $(\bar A)^c$ et
+  $\overline{ A^c }$. Ces deux ensembles ne sont, en général, pas
+  égaux. En effet, en tant que complément d'un fermé, l'ensemble
+  $(\bar A)^c$ est certainement ouvert, tandis que, en tant
+  que fermeture, l'ensemble $\overline{ A^c }$ est
+  fermé. Pouvez-vous trouver des exemples d'ensembles $A$ tels que
+  $(\bar A)^c=\overline{ A^c }$ ?
+\end{remark}
+
+
+\begin{example}		\label{ParlerEncoredeF}
+	Il ne faut pas conclure de l'exemple précédent qu'un point adhérent est automatiquement un minimum ou un maximum. En effet, si nous regardons l'ensemble formé par les points de la suite $x_n=(-1)^n/n$, le nombre zéro est un point adhérent (et une limite, nous définirons cela plus tard) mais il n'est pas un infimum ni un maximum.
+\end{example}
+
+\begin{proposition}
+	Soient $A$ et $B$ deux parties de l'espace topologique $X$.
+	\begin{description}
+		\item [Inclusions:]
+                  si $A\subset B$, alors $\mathring A \subset \mathring B$ et $\bar A\subset\bar B$.
+		\item [Unions:]
+                  $\overline{ A\cup B }=\overline{ A }\cup\overline{ B }$ et $\mathring A \cup \mathring B \subset \Int(A\cup B)$.
+		\item [Intersections:] $\mathring A \cap\mathring B =\Int(A\cap B)$ et $\overline{ A\cap B }\subset\bar A\cap\bar B$.
+	\end{description}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item
+                  Si $a$ est dans l'intérieur de $A$, il existe un ouvert autour de $a$ contenu dans $A$. Cet ouvert est alors contenu dans $B$ et donc $a$ est dans l'intérieur de $B$. Si maintenant $a$ est dans l'adhérence de $A$, tout ouvert contenant $a$ contient un élément de $A$ et donc un élément de $B$, ce qui prouve que $a$ est dans l'adhérence de $B$.
+		\item
+                  Nous avons $A\subset A\cup B$ et donc, en utilisant le premier point, $\bar A\subset\overline{ A\cup B }$. De la même manière, $\bar B\subset\overline{ A\cup B }$. En prenant l'union, $\bar A\cup\bar B\subset\overline{ A\cup B }$. De la même façon, on obtient $\mathring A \cup \mathring B \subset \Int(A\cup B)$..
+
+                  Montrons l'inclusion $\overline{ A\cup B }\subset \bar A\cup\bar B$ par contraposée. Supposons que $a$ ne soit ni dans $\bar A$ ni dans $\bar B$. Il existe donc des ouverts $\mO_A$ et $\mO_B$ contenant tous les deux $a$, et tels que
+			\begin{equation}
+				\begin{aligned}[]
+					\mO_A\cap A&=\emptyset,\\
+					\mO_B \cap B&=\emptyset.
+				\end{aligned}
+			\end{equation}
+                        On considère alors $\mO = \mO_A \cap \mO_B$: c'est un ouvert non-vide, puisque $a$ est dedans; et il n'intersecte ni $A$, ni $B$, donc $\mO \cap (A \cup B) = \emptyset$, et $a\notin\overline{ A\cup B }$.
+
+		\item
+			Si nous appliquons le second point à $A^c$ et $B^c$, nous trouvons
+			\begin{equation}
+				\overline{ A^c\cup B^c }=\overline{A^c}\cup\overline{ B^c}.
+			\end{equation}
+			En utilisant les propriétés du lemme~\ref{LemPropsComplement}, le membre de gauche devient
+			\begin{equation}	\label{Eq2707CACBCAB}
+				\overline{ A^c\cup B^c }=\overline{(A\cap B)^c }=(\Int(A\cap B))^c,
+			\end{equation}
+			tandis que le membre de droite devient
+			\begin{equation}		\label{Eq2707cAcBACAACB}
+				\overline{ A^c }\cup\overline{ B^c }=(\mathring A)^c\cup(\mathring B)^c=\Big( \Int(A)\cap\Int(B) \Big)^c.
+			\end{equation}
+			En égalant le membre de droite de \eqref{Eq2707CACBCAB} avec celui de \eqref{Eq2707cAcBACAACB} et en passant au complémentaire nous trouvons
+			\begin{equation}
+				\Int(A\cap B)=\mathring A \cap\mathring B,
+			\end{equation}
+			comme annoncé.
+
+			La dernière affirmation provient du fait que $\mathring A \subset \Int(A\cup B)$ et de la propriété équivalente pour $B$.
+	\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	Nous avons prouvé que $\overline{ A\cap B }\subset\bar A\cap\bar B$. Il arrive que l'inclusion soit stricte, comme dans l'exemple suivant. Si nous prenons $A=\mathopen[ 0 , 1 \mathclose]$ et $B=\mathopen] 1 , 2 \mathclose]$, nous avons $A\cap B=\emptyset$ et donc $\overline{ A\cap B }=\emptyset$. Par contre nous avons $\bar A\cap\bar B=\{ 1 \}$.
 \end{remark}
 
 \begin{definition}\label{DefEnsembleDense}
@@ -270,11 +347,12 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 \subsubsection{Frontière}
 %/////////////////////////
 
-\begin{definition}
+\begin{definition}	\label{PropDescFrpbsmI}
   Soit \( X \) un espace topologique, et \( A \subset X \). La \defe{frontière}{frontière} de \( A \), notée \( \partial A \), est l'ensemble des points adhérents de \( A \) qui ne sont pas intérieurs à \( A \). Ainsi,
   \begin{equation}
     \partial A = \bar A \setminus \mathring A.
   \end{equation}
+\nomenclature[T]{$\partial A$}{La frontière de l'ensemble $A$}
 \end{definition}
 
 \begin{lemma}[Caractérisation équivalente de la frontière]      \label{LEMooEUYEooYcUfKr}
@@ -295,6 +373,37 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
     Conséquence du lemme~\ref{LEMooEUYEooYcUfKr}. Les points de \( \partial(S^c)\) sont caractérisés par le fait que tout voisinage d'un tel point contient un point de \( S^c\) et un point de \( (S^c)^c=S\).
 \end{proof}
 
+\begin{lemma}
+	La frontière de $A$ peut également s'exprimer des façons suivantes :
+	\begin{equation}
+		\partial A= \bar A\cap(\mathring A)^c = \bar A\cap\overline{ A^c}.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	En partant de $\partial A=\bar A\setminus \mathring A$, la première égalité est une application de la propriété~\ref{ItemLemPropComplementiii} du lemme~\ref{LemPropsComplement}. La seconde égalité est alors~\eqref{PropCompleIntBar}.
+\end{proof}
+
+\begin{example}
+	Dans $\eR$, la frontière d'un intervalle est la paire constituée des points extrêmes. En effet
+	\begin{equation}
+		\partial\mathopen[ a , b [=\overline{ \mathopen[ a , b [ }\setminus\Int\big( \mathopen[ a , b [ \big)=\mathopen[ a , b \mathclose]\setminus\mathopen] a , b \mathclose[=\{ a,b \}.
+	\end{equation}
+
+	Toujours dans $\eR$ nous avons
+	\begin{equation}
+		\partial\eR=\bar\eR\setminus\Int(\eR)=\eR\setminus\eR=\emptyset,
+	\end{equation}
+	et
+	\begin{equation}
+		\partial\eQ=\bar\eQ\setminus\Int(\eQ)=\eR\setminus\emptyset=\eR.
+	\end{equation}
+\end{example}
+
+\begin{remark}
+    Il serait toutefois faux de croire que \( \partial A=\partial \bar A\) pour toute partie \( A\) de \( \eR^n\). En effet si \( A=\eR\setminus\{ 0 \}\) nous avons \( \partial A=\{ 0 \}\) et \( \bar A=\eR\), donc \( \partial \bar A=\emptyset\).
+\end{remark}
+
 \subsubsection{Points d'accumulation et isolés}
 %/////////////////////////
 
@@ -303,6 +412,7 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 \end{definition}
 
 Quelle est la différence entre un point d'accumulation et un point d'adhérence ? La différence est que tous les points de \( A\) sont des points d'adhérence de \( A\), parce que tout voisinage de \( a\in A\) contient au moins \( a\) lui-même, alors que certains points de \( A\) peuvent ne pas être des points d'accumulation de \( A\). Voir l'exemple \ref{EXooWOYQooJolaTV}.
+
 
 \begin{definition}      \label{DEFooXIOWooWUKJhN}
     Soient un espace topologique \( X\) et une partie \( A\) de \( X\). Un point \( s\in A \) est un \defe{point isolé}{point isolé} de \( A\) si il existe un voisinage ouvert \( \mO\) de \( s\) dans \( X\) tel que \( A\cap\mO=\{ s \}\).
@@ -574,7 +684,7 @@ Remarquons que la partie qui est réellement à prouver est que, si \og ça marc
 \index{compact!implique fermé}
 
 \begin{proof}
-    Soient \( X\) un espace séparé et \( K\) compact dans \( X\). Nous considérons \( y \in\complement K\) et, par hypothèse de séparation, pour chaque \( x\in K\) nous considérons un voisinage ouvert \( V_x\) de \( x\) et un voisinage ouvert~\footnote{Oui, la notation du voisinage peut surprendre, mais elle est quand même pratique pour ce qu'on veut en faire.} \( W_x\) de \( y\) tels que \( V_x\cap W_x=\emptyset\). Bien entendu les \( V_x\) forment un recouvrement ouvert de \( K\) dont nous pouvons extraire un sous-recouvrement fini : soit \( S\) fini dans \( K\) tel que
+    Soient \( X\) un espace séparé et \( K\) compact dans \( X\). Nous considérons \( y \in K^c\) et, par hypothèse de séparation, pour chaque \( x\in K\) nous considérons un voisinage ouvert \( V_x\) de \( x\) et un voisinage ouvert~\footnote{Oui, la notation du voisinage peut surprendre, mais elle est quand même pratique pour ce qu'on veut en faire.} \( W_x\) de \( y\) tels que \( V_x\cap W_x=\emptyset\). Bien entendu les \( V_x\) forment un recouvrement ouvert de \( K\) dont nous pouvons extraire un sous-recouvrement fini : soit \( S\) fini dans \( K\) tel que
     \begin{equation}
         K\subset\bigcup_{x\in S}V_x.
     \end{equation}
@@ -1055,7 +1165,6 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
 			Notez que la sphère est un exemple d'ensemble non vide mais d'intérieur vide.
 	\end{enumerate}
 \end{example}
-
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Les boules, une base de topologie}
 %---------------------------------------------------------------------------------------------------------------------------

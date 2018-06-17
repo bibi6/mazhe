@@ -95,7 +95,7 @@ Un espace vectoriel normé est un espace vectoriel topologique : en d'autres mot
 \end{proposition}
 
 \begin{proof}
-  L'addition est continue en \( x + y \) car \( \| x + y - (x' + y') \| \leq \|x - x' \| + \| y - y' \|  \); la multiplication est continue en \( \lambda x \) car  \( \| \lambda x - \lambda' x' \| \leq \| x \| \| \lambda - \lambda' \| + \& \lambda' \| \| x - x' \| \).
+  L'addition est continue en \( x + y \) car \( \| x + y - (x' + y') \| \leq \|x - x' \| + \| y - y' \|  \); la multiplication est continue en \( \lambda x \) car  \( \| \lambda x - \lambda' x' \| \leq \| x \| \| \lambda - \lambda' \| + \| \lambda' \| \| x - x' \| \).
 \end{proof}
 
 Nous étudierons plus en détail les espaces vectoriels topologiques à partir de la définition~\ref{DefEVTopologique}.
@@ -105,9 +105,17 @@ Nous étudierons plus en détail les espaces vectoriels topologiques à partir d
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{proposition}\label{PropEnsembleBorneEVN}
-	Une partie $A$ d'un espace vectoriel normée $V$ est \defe{bornée}{borné!dans un espace vectoriel normé} s'il existe un réel $R$ tel que $A\subset B(0_V,R)$.
+	Une partie $A$ d'un espace vectoriel normé $V$ est \defe{bornée}{borné!dans un espace vectoriel normé}\footnote{Définition~\ref{DefEnsembleBorne}} si et seulement s'il existe un réel $R$ tel que $A\subset B(0_V,R)$.
 \end{proposition}
 Une partie est donc bornée si elle est contenue dans une boule de rayon fini.
+\begin{proof}
+  Il suffit de montrer que l'on peut avoir une boule centrée en \( 0_V \). Rien de bien compliqué: si \(A \) est borné (au sens de la définition \ref{DefEnsembleBorne}, soit \( x \in V\) et \( r > 0 \) tels que \( A \subset B(x, r) \). Alors, pour tout \(a \in A\):
+  \begin{equation}
+    \| a \| \leq \| a - x \| + \| x \| < r + \|x \|,
+  \end{equation}
+et on conclut en prenant\( R = r + \| x \| \).
+\end{proof}
+
 
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -206,11 +214,6 @@ Chacun des ensembles $\mathopen] -\frac{1}{ n } , \frac{1}{ n } \mathclose[$ est
 Nous reportons à la proposition~\ref{DefSupeA} la preuve du fait que tout ensemble borné de $\eR$ possède un infimum et un supremum.
 
 
-
-\begin{definition}
-	L'ensemble des ouverts de $V$ est la \defe{topologie}{topologie} de $V$. La topologie dont nous parlons ici est dite \defe{induite}{induite!topologie} par la norme $\| . \|$ de $V$ (parce que cette norme définit la notion de boule et qu'à son tour la notion de boule définit la notion d'ouverts). Un \defe{voisinage}{voisinage} de $a$ dans $V$ est un ensemble contenant un ouvert contenant $a$.
-\end{definition}
-
 Il existe de nombreuses topologies sur un espace vectoriel donné, mais certaines sont plus fameuses que d'autres. Dans le cas de $V=\eR^n$, la topologie \defe{usuelle}{topologie!usuelle sur $\eR^n$} est celle induite par la norme euclidienne. Lorsque nous parlons de boules, de fermés, de voisinages ou d'autres notions topologiques (y compris de convergence, voir plus bas) dans $\eR^n$, nous sous-entendons toujours la topologie de la norme euclidienne.
 
 \begin{example}
@@ -234,51 +237,11 @@ Il existe de nombreuses topologies sur un espace vectoriel donné, mais certaine
 	\end{itemize}
 \end{example}
 
-\begin{proposition}
-	Dans un espace vectoriel normé,
-	\begin{enumerate}
-		\item
-			toute intersection de fermés est fermée;
-		\item
-			toute union \emph{finie} de fermés est fermée.
-	\end{enumerate}
-\end{proposition}
 Encore une fois, l'hypothèse de finitude de l'intersection est indispensable comme le montre l'exemple suivant :
 \begin{equation}
 	\bigcup_{n=1}^{\infty}\mathopen[ -1+\frac{1}{ n } , 1-\frac{1}{ n } \mathclose]=\mathopen] -1 , 1 \mathclose[.
 \end{equation}
 Chacun des intervalles dont on prend l'union est fermé tandis que l'union est ouverte.
-
-\begin{definition}
-	Soit $A$, une partie de l'espace vectoriel normé $V$. Un point $a\in V$ est dit \defe{adhérent}{adhérence} à $A$ dans $V$ si pour tout $\varepsilon>0$,
-	\begin{equation}
-		B(a,\varepsilon)\cap A\neq\emptyset.
-	\end{equation}
-	Nous notons $\bar A$ l'ensemble des points adhérents à $a$ et nous disons que $\bar A$ est l'adhérence de $A$. L'ensemble $\bar A$ sera aussi souvent nommé \defe{fermeture}{fermeture} de l'ensemble $A$.
-\end{definition}
-Un point peut être adhérent à $A$ sans faire partie de $A$, et nous avons toujours $A\subset\bar A$.
-
-\begin{example}     \label{EXooICLBooJzQFNY}
-	La terminologie «fermeture» de $A$ pour désigner $\bar A$ provient de deux origines.
-	\begin{enumerate}
-		\item
-            L'ensemble $\bar A$ est le plus petit fermé contenant $A$. Cela signifie que si $B$ est un fermé qui contient $A$, alors $\bar A\subset A$. Cela est fondamentalement le sens de la définition~\ref{DEFooSVWMooLpAVZR}.
-            % position 25804
-            %Nous allons prouver cette affirmation dans l'exercice~\ref{exoGeomAnal-0008}.
-		\item
-			Pour les intervalles dans $\eR$, trouver $\bar A$ revient à fermer les extrémités qui sont ouvertes, comme on en a parlé dans l'exemple~\ref{ExempleFermeIntevrR}.
-	\end{enumerate}
-\end{example}
-
-\begin{example}
-	Dans $\eR$, l'infimum et le supremum d'un ensemble sont des points adhérents. En effet si $M$ est le supremum de $A\subset\eR$, pour tout $\varepsilon$, il existe un $a\in A$ tel que $a>M-\varepsilon$, tandis que $M>a$. Cela fait que $a\in B(M,\varepsilon)$, et en particulier que pour tout rayon $\varepsilon$, nous avons $B(M,\varepsilon)\cap A\neq\emptyset$.
-
-	Le même raisonnement montre que l'infimum est également dans l'adhérence de $A$.
-\end{example}
-
-\begin{example}		\label{ParlerEncoredeF}
-	Il ne faut pas conclure de l'exemple précédent qu'un point limite ou adhérent est automatiquement un minimum ou un maximum. En effet, si nous regardons l'ensemble formé par les points de la suite $x_n=(-1)^n/n$, le nombre zéro est un point adhérent et une limite, mais pas un infimum ni un maximum.
-\end{example}
 
 \begin{example}
 	Au niveau des intervalles dans $\eR$, prendre l'adhérence consiste à «fermer là où c'est ouvert». Attention cependant à ne pas fermer l'intervalle en l'infini.
@@ -289,175 +252,6 @@ Un point peut être adhérent à $A$ sans faire partie de $A$, et nous avons tou
 			$\overline{ \mathopen] 3 , \infty \mathopen] }=\mathopen[ 3 , \infty [$.
 	\end{enumerate}
 \end{example}
-
-\begin{proposition}
-	Soit $V$ un espace vectoriel normé et $a\in V$. Les trois conditions suivantes sont équivalentes :
-	\begin{enumerate}
-		\item
-			$a\in\bar A$;
-		\item
-			il existe une suite d'éléments $x_n$ dans $A$ qui converge vers $a$;
-		\item
-			$d(a,A)=0$.
-	\end{enumerate}
-\end{proposition}
-Notez que dans cette proposition, nous ne supposons pas que $a$ soit dans $A$.
-
-\begin{proposition}		\label{PropComleIntBar}
-	Pour toute partie $A$ d'un espace vectoriel normé nous avons
-	\begin{enumerate}
-		\item
-			$V\setminus\bar A=\Int(V\setminus A)$,
-		\item
-			$V\setminus\Int(A)=\overline{ V\setminus A }$.
-	\end{enumerate}
-\end{proposition}
-
-En utilisant les notations du complémentaire (\ref{AppComplement}), les deux points de la proposition se récrivent
-\begin{enumerate}
-	\item
-		$\complement \bar A=\Int(\complement A)$,
-	\item\label{ItemLemPropComplementiv}
-		$\complement\Int(A)=\overline{ \complement A }$.
-\end{enumerate}
-
-\begin{proof}
-	Nous avons $a\in V\setminus\bar A$ si et seulement si $a\notin\bar A$. Or ne pas être dans $\bar A$ signifie qu'il existe un rayon $\varepsilon$ tel que la boule $B(a,\varepsilon)$ n'intersecte pas $A$. Le fait que la boule $B(a,\varepsilon)$ n'intersecte pas $A$ est équivalent à dire que $B(a,\varepsilon)\subset V\setminus A$. Or cela est exactement la définition du fait que $a$ est à l'intérieur de $V\setminus A$. Nous avons donc montré que $a\in V\setminus \bar A$ si et seulement si $a\in\Int(V\setminus A)$. Cela prouve la première affirmation.
-
-	Pour prouver la seconde affirmation, nous appliquons la première au complémentaire de $A$ : $\complement(\overline{ \complement A })=\Int(\complement\complement A)$. En prenant le complémentaire des deux membres nous trouvons successivement
-	\begin{equation}
-		\begin{aligned}[]
-			\complement\complement(\overline{ \complement A })&=\complement\Int(\complement\complement A),\\
-			\overline{ \complement A }&=\complement\Int(A),
-		\end{aligned}
-	\end{equation}
-	ce qu'il fallait démontrer.
-\end{proof}
-
-Attention à ne pas confondre $\complement \bar A$ et $\overline{ \complement A }$. Ces deux ensembles ne sont pas égaux. En effet, en tant que complément d'un fermé, l'ensemble $\complement \bar A$ est certainement ouvert, tandis que, en tant que fermeture, l'ensemble $\overline{ \complement A }$ est fermé. Pouvez-vous trouver des exemples d'ensembles $A$ tels que $\complement \bar A=\overline{ \complement A }$ ?
-
-\begin{proposition}
-	Soient $A$ et $B$ deux parties de l'espace vectoriel normé $V$.
-	\begin{enumerate}
-		\item
-			Pour les inclusions, si $A\subset B$, alors $\Int(A)\subset\Int(B)$ et $\bar A\subset\bar B$.
-		\item
-			Pour les unions, $\overline{ A\cup B }=\overline{ A }\cup\overline{ B }$ et $\overline{ A\cap B }\subset\bar A\cap\bar B$.
-		\item
-			Pour les intersections, $\Int(A)\cap\Int(B)=\Int(A\cap B)$ et $\Int(A)\cup\Int(B)\subset\Int(A\cup B)$.
-	\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-	\begin{enumerate}
-		\item
-			Si $a$ est dans l'intérieur de $A$, il existe une boule autour de $a$ contenue dans $A$. Cette boule est alors contenue dans $B$ et donc est une boule autour de $a$ contenue dans $B$, ce qui fait que $a$ est dans l'intérieur de $B$. Si maintenant $a$ est dans l'adhérence de $A$, toute boule centrée en $a$ contient un élément de $A$ et donc un élément de $B$, ce qui prouve que $a$ est dans l'adhérence de $B$.
-		\item
-			Nous avons $A\subset A\cup B$ et donc, en utilisant le premier point, $\bar A\subset\overline{ A\cup B }$. De la même manière, $\bar B\subset\overline{ A\cup B }$. En prenant l'union, $\bar A\cup\bar B\subset\overline{ A\cup B }$.
-
-			Réciproquement, soit $a\in\overline{ A\cup B }$ et montrons que $a\in\bar A\cup\bar B$. Supposons par l'absurde que $a$ ne soit ni dans $\bar A$ ni dans $\bar B$. Il existe donc des rayons $\varepsilon_1$ et $\varepsilon_2$ tels que
-			\begin{equation}
-				\begin{aligned}[]
-					B(a,\varepsilon_1)\cap A&=\emptyset,\\
-					B(a,\varepsilon_2)\cap B&=\emptyset.
-				\end{aligned}
-			\end{equation}
-			En prenant $r=\min\{ \varepsilon_1,\varepsilon_2 \}$, la boule $B(a,r)$ est inclue aux deux boules citées et donc n'intersecte ni $A$ ni $B$. Donc $a\notin\overline{ A\cup B }$, d'où la contradiction.
-
-		\item
-			Si nous appliquons le second point à $\complement A$ et $\complement B$, nous trouvons
-			\begin{equation}
-				\overline{ \complement A\cup\complement B }=\overline{ \complement A}\cup\overline{ \complement B}.
-			\end{equation}
-			En utilisant les propriétés du lemme~\ref{LemPropsComplement}, le membre de gauche devient
-			\begin{equation}	\label{Eq2707CACBCAB}
-				\overline{ \complement A\cup\complement B }=\overline{ \complement(A\cap B) }=\complement\Int(A\cap B),
-			\end{equation}
-			tandis que le membre de droite devient
-			\begin{equation}		\label{Eq2707cAcBACAACB}
-				\overline{ \complement A }\cup\overline{ \complement B }=\complement\Int(A)\cup\complement\Int(A)=\complement\Big( \Int(A)\cap\Int(B) \Big).
-			\end{equation}
-			En égalisant le membre de droite de \eqref{Eq2707CACBCAB} avec celui de \eqref{Eq2707cAcBACAACB} et en passant au complémentaire nous trouvons
-			\begin{equation}
-				\Int(A\cap B)=\Int(A)\cap\Int(B),
-			\end{equation}
-			comme annoncé.
-
-			La dernière affirmation provient du fait que $\Int(A)\subset\Int(A\cup B)$ et de la propriété équivalente pour $B$.
-	\end{enumerate}
-\end{proof}
-
-\begin{remark}
-	Nous avons prouvé que $\overline{ A\cap B }\subset\bar A\cap\bar B$. Il arrive que l'inclusion soit stricte, comme dans l'exemple suivant. Si nous prenons $A=\mathopen[ 0 , 1 \mathclose]$ et $B=\mathopen] 1 , 2 \mathclose]$, nous avons $A\cap B=\emptyset$ et donc $\overline{ A\cap B }=\emptyset$. Par contre nous avons $\bar A\cap\bar B=\{ 1 \}$.
-\end{remark}
-
-\begin{definition}
-	La \defe{frontière}{frontière} d'un sous-ensemble $A$ de l'espace vectoriel normé $V$ est l'ensemble des points $a\in V$ tels que
-	\begin{equation}
-		\begin{aligned}[]
-			B(a,r)\cap A&\neq \emptyset,\\
-			B(a,r)\cap \complement A&\neq \emptyset,
-		\end{aligned}
-	\end{equation}
-	pour tout rayon $r$. En d'autres termes, toute boule autour de $a$ contient des points de $A$ et des points de $\complement A$. La frontière de $A$ se note $\partial A$\nomenclature[T]{$\partial A$}{La frontière de l'ensemble $A$}.
-\end{definition}
-
-\begin{proposition}		\label{PropDescFrpbsmI}
-	La frontière d'une partie $A$ d'un espace vectoriel normé $V$ s'exprime sous la forme
-	\begin{equation}
-		\partial A=\bar A\setminus\Int(A).
-	\end{equation}
-\end{proposition}
-
-\begin{proof}
-	Le fait pour un point $a$ de $V$ d'appartenir à $\bar A$ signifie que toute boule centrée en $a$ intersecte $A$. De la même façon, le fait de ne pas appartenir à $\Int(A)$ signifie que toute boule centrée en $a$ intersecte $\complement A$.
-\end{proof}
-
-La description de la frontière donnée par la proposition~\ref{PropDescFrpbsmI} est celle qu'en pratique nous utilisons le plus souvent. Dans certains textes, elle est prise comme définition de la frontière.
-
-\begin{lemma}
-	La frontière de $A$ peut également s'exprimer des façons suivantes :
-	\begin{equation}
-		\partial A= \bar A\cap\complement\Int(A)=\bar A\cap\overline{ \complement A },
-	\end{equation}
-\end{lemma}
-
-\begin{proof}
-	En partant de $\partial A=\bar A\setminus \Int(A)$, la première égalité est une application de la propriété~\ref{ItemLemPropComplementiii} du lemme~\ref{LemPropsComplement}. La seconde égalité est alors la proposition~\ref{PropComleIntBar}.
-\end{proof}
-
-\begin{example}
-	Dans $\eR$, la frontière d'un intervalle est la paire constituée des points extrêmes. En effet
-	\begin{equation}
-		\partial\mathopen[ a , b [=\overline{ \mathopen[ a , b [ }\setminus\Int\big( \mathopen[ a , b [ \big)=\mathopen[ a , b \mathclose]\setminus\mathopen] a , b \mathclose[=\{ a,b \}.
-	\end{equation}
-
-	Toujours dans $\eR$ nous avons
-	\begin{equation}
-		\partial\eR=\bar\eR\setminus\Int(\eR)=\eR\setminus\eR=\emptyset,
-	\end{equation}
-	et
-	\begin{equation}
-		\partial\eQ=\bar\eQ\setminus\Int(\eQ)=\eR\setminus\emptyset=\eR.
-	\end{equation}
-\end{example}
-
-%TODO : prouver que la boule fermée est la fermeture de la boule ouverte.
-
-\begin{example}
-	Dans $\eR^n$, nous avons
-	\begin{equation}
-		\partial B(a,r)=\partial\bar B(a,r)=S(a,r).
-	\end{equation}
-
-    Cela est un boulot pour la proposition~\ref{PropBoitPtLoin}. Si \( x\in S(a,r)\) alors tout boule autour de \( x\) contient des points à distance strictement plus grande et plus petite que \( d(a,x)\), c'est à dire des points dans \( B(a,r)\) et hors de \( B(a,r)\). Cela prouve que les points de \( S(a,r)\) font partie de \( \partial B(a,r)\), c'est à dire que \( S(a,r)\subset \partial B(a,r)\); et idem pour \( \bar B(a,r)\).
-
-Pour prouver l'inclusion inverse, soit \( x\in \partial B(a,r)\). Vu que toute boule autour de \( x\) contient des points intérieurs à \( B(a,r)\), pour tout \( \epsilon>0\), \( d(a,x)-\epsilon< r \), c'est à dire que \( d(a,x)\leq r\). De la même manière toute boule autour de \( x\) contient des points hors de \( B(a,r)\) signifie que pour tout \( \epsilon\), \( d(a,x)+\epsilon>r\) ou encore que \( d(a,x)\geq r\). Nous avons donc \( d(a,x)=r\).
-\end{example}
-
-\begin{remark}
-    Il serait toutefois faux de croire que \( \partial A=\partial \bar A\) pour toute partie \( A\) de \( \eR^n\). En effet si \( A=\eR\setminus\{ 0 \}\) nous avons \( \partial A=\{ 0 \}\) et \( \bar A=\eR\), donc \( \partial \bar A=\emptyset\).
-\end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Point isolé, point d'accumulation}

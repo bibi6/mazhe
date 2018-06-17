@@ -7,36 +7,6 @@
 \section{Topologie et distance}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{proposition}		\label{PropBoitPtLoin}
-	Soient $E$ un espace vectoriel topologique, $a$ dans $E$ et $x$ tel que $d(a,x)=r$, c'est à dire $x\in S(a,r)$. Dans ce cas, toute boule centrée en $x$ contient un point $P$ tel que $d(P,a)>r$ et un point $Q$ tel que $d(Q,a)<r$.
-\end{proposition}
-
-\begin{proof}
-	Soit une boule de rayon $\delta$ autour de $x$. Le but est de trouver un point $P$ tel que $d(P,a)>r$ et $d(P,x)<\delta$. Pour cela, nous prenons $P$ sur la même droite que $x$ (en partant de $a$), mais juste «un peu plus loin», comme sur la figure suivante :
-
-    \begin{center}
-       \input{auto/pictures_tex/Fig_BoulePtLoin.pstricks}
-    \end{center}
-
-   Plus précisément, nous considérons le point
-	\begin{equation}
-		P=x+\frac{ v }{ N }
-	\end{equation}
-	où $v=x-a$ et $N$ est suffisamment grand pour que $d(x,P)$ soit plus petit que $\delta$. Cela est toujours possible parce que
-	\begin{equation}
-		d(P,x)=d (\frac {x-a}{ N }, 0)
-	\end{equation}
-	peut être rendu aussi petit\quext{OK quand c'est normé: le $N$ sort\dots{} mais quand c'est ``juste'' topologique?} que l'on veut par un choix approprié de $N$. Montrons maintenant que $d(a,P)>d(a,x)$ :
-	\begin{equation}
-		\begin{aligned}[]
-			d(a,P)&=d (a - x, \frac {x-a}{ N }) \\
-			&=d (0, (x-a) ( 1 + \frac 1 N ))\\
-			&>d(a,x).
-		\end{aligned}
-	\end{equation}
-	Nous laissons en exercice le soin de trouver un point $Q$ tel que $d(Q,a)<r$ et $d(Q,x)<\delta$.
-\end{proof}
-
 \begin{lemma}   \label{LemDUJXooWsnmpL}
     Soient \( (X_1,d_1)\) et \( (X_2,d_2)\) des espaces métriques séparables. Alors \( X_1\times X_2\) admet une base dénombrable de topologie constituée de produits de boules de \( X_1\) par des boules de \( X_2\). Plus précisément si $A_i$ est dénombrable et dense dans \( X_i\) alors l'ensemble des produits
     \begin{equation}
@@ -211,15 +181,30 @@ En termes savants, ce corollaire signifie que la fermeture $\bar A$ est composé
 \index{espace!vectoriel topologique!métrisable}
 
 \begin{proposition}     \label{PropGULUooNzqZKj}
-    Soient \( (X,d) \) un espace topologique métrique et \( F\) un fermé de \( X\). Nous avons \( d(x,F)=0\) si et seulement si \( x\in F\).
+    Soient \( (X,d) \) un espace topologique métrique et \( A\) un sous-ensemble de \(X \). Les conditions suivantes sont équivalentes:
+\begin{enumerate}
+		\item \label{PropGULUooNzqZKj_i}
+			$a\in\bar A$;
+		\item \label{PropGULUooNzqZKj_ii}
+			il existe une suite d'éléments $a_n$ dans $A$ qui converge vers $a$;
+		\item \label{PropGULUooNzqZKj_iii}
+			$d(a,A)=0$.
+	\end{enumerate}
 \end{proposition}
+Notez que dans cette proposition, nous ne supposons pas que $a$ soit dans $A$.
 
 \begin{proof}
-    Si \( x\in F\) alors \( d(x,F)=0\) parce que \( d(x,x)\) fait partie de l'ensemble sur lequel nous prenons l'infimum.
+  \begin{itemize}
+  \item [\ref{PropGULUooNzqZKj_ii} $\Rightarrow$ \ref{PropGULUooNzqZKj_i}]: c'est le corollaire \ref{CorLinAbarA}.
+  \item [\ref{PropGULUooNzqZKj_i} $\Rightarrow$ \ref{PropGULUooNzqZKj_ii}]:
+    Si \( a \in \bar A\), cela signifie que pour tout \( \epsilon\), il existe \( a_{\epsilon}\in A\) tel que \( d(a_{\epsilon},a)\leq \epsilon\). En prenant \(\epsilon=1/k\) nous construisons une suite \( (a_k)\) d'éléments dans \( A\) vérifiant \( d(a_k,a)\leq\frac{1}{ k }\). Cela signifie que \( \lim_{k\to \infty} a_k=a\) par la proposition~\ref{PropooUEEOooLeIImr}\ref{ItemooROYMooAQCXnj}.
 
-    Si réciproquement \( d(x,F)=0\), cela signifie que pour tout \( \epsilon\), il existe \( x_{\epsilon}\in F\) tel que \( d(x_{\epsilon},x)\leq \psi\). En prenant \(\epsilon=1/k\) nous construisons une suite \( (x_k)\) d'éléments dans \( F\) vérifiant \( d(x_k,x)=\frac{1}{ k }\). Cela signifie que \( \lim_{k\to \infty} x_k=x\) par la proposition~\ref{PropooUEEOooLeIImr}\ref{ItemooROYMooAQCXnj}.
+  \item [\ref{PropGULUooNzqZKj_iii} $\Rightarrow$ \ref{PropGULUooNzqZKj_ii}]:
+    Si \( d(a,A)=0\), cela signifie que pour tout \( \epsilon\), il existe \( a_{\epsilon}\in A\) tel que \( d(a_{\epsilon},a)\leq \epsilon\). On effectue alors la même construction que ci-dessus.
 
-    Par la caractérisation séquentielle des fermés (un fermé contient les limites de toutes ses suites, proposition~\ref{PropLFBXIjt}), la suite \( (x_k)\) étant dans \( F\), la limite est dans \( F\). Donc \( x\in F\).
+  \item [\ref{PropGULUooNzqZKj_ii} $\Rightarrow$ \ref{PropGULUooNzqZKj_iii}]:
+    Si \( a_n \to a \), alors, pour tout \( \varepsilon > 0 \), il existe \( n_0 \) tel que \( d(a, a_n) < \varepsilon \) pour \(n \geq n_0 \). Comme les \( a_n \) sont dans \( A \), on a \( d (a, A) \leq d(a, a_n) \), si bien que \( d(a, A) < \varepsilon \) quel que soit  \( \varepsilon > 0 \): cette distance est nécessairement nulle.
+  \end{itemize}
 \end{proof}
 
 \begin{proposition}[\cite{ooCGEHooVTyTuY}]      \label{PROPooXWBTooCvGLOj}
@@ -875,4 +860,43 @@ par conséquent,
 		\| u+v \|_2\leq \| u \|_2+\| v \|_2.
 	\end{equation}
 	Ceci explique pourquoi cette propriété des normes est appelée «inégalité triangulaire».
+\end{remark}
+
+\begin{proposition}		\label{PropBoitPtLoin}
+	Soient \( V \) un espace vectoriel normé, \( a \in V \) et \( x\in S(a,r) \) (c'est-à-dire, \( \|x - a \| = r \)). Alors, toute boule centrée en $x$ contient un point $p$ tel que $\|p - a \| > r$ et un point $q$ tel que $\|q - a \|<r$.
+\end{proposition}
+
+\begin{proof}
+	Soit une boule de rayon $\delta$ autour de $x$. Le but est de trouver un point $p$ tel que $\|p - a \|>r$ et $\|p - x \|<\delta$. Pour cela, nous prenons $p$ sur la droite joignant $x$ à $a$, mais nous le prenons juste «un peu plus loin», comme sur la figure suivante :
+
+    \begin{center}
+       \input{auto/pictures_tex/Fig_BoulePtLoin.pstricks}
+    \end{center}
+
+   Plus précisément, nous considérons le point
+	\begin{equation}
+		p = x+\frac{ x - a }{ N }
+	\end{equation}
+	où \( N \) est suffisamment grand pour que \( \|x - p \| \) soit plus petit que \(\delta\). Cela est toujours possible parce que
+	\begin{equation}
+          \|x - p \| =  \biggl\|\frac {x - a} N \biggr\| = \frac 1 N \| x - a \|
+	\end{equation}
+	peut être rendu aussi petit que l'on veut par un choix approprié de \( N \). Montrons maintenant que \( \| p - a \| > r \) :
+	\begin{align}
+          \| p - a \| &= \biggl \| x + \frac{ x - a }{ N } - a \biggr\|\\
+                      &= \biggl \| (x - a) \Bigl ( 1  + \frac 1 { N } \Bigr ) \biggr\|\\
+                      &=\Bigl ( 1  + \frac 1 { N } \Bigr ) \| x - a \|\\
+                      &>\| x - a \| = r.\\
+	\end{align}
+	On procède de manière similaire pour \( q \) tel que \(\|q - a\| < r\) et \(\| q - x \|<\delta \) : faites-le à titre d'exercice.
+\end{proof}
+
+\begin{remark}
+	Dans $\eR^n$, nous avons
+	\begin{equation}
+		\partial B(a,r)=\partial\bar B(a,r)=S(a,r).
+	\end{equation}
+    Cela est un boulot pour la proposition~\ref{PropBoitPtLoin}. Si \( x\in S(a,r)\) alors tout boule autour de \( x\) contient des points à distance strictement plus grande et plus petite que \( d(a,x)\), c'est à dire des points dans \( B(a,r)\) et hors de \( B(a,r)\). Cela prouve que les points de \( S(a,r)\) font partie de \( \partial B(a,r)\), c'est à dire que \( S(a,r)\subset \partial B(a,r)\); et idem pour \( \bar B(a,r)\).
+
+Pour prouver l'inclusion inverse, soit \( x\in \partial B(a,r)\). Vu que toute boule autour de \( x\) contient des points intérieurs à \( B(a,r)\), pour tout \( \epsilon>0\), \( d(a,x)-\epsilon< r \), c'est à dire que \( d(a,x)\leq r\). De la même manière toute boule autour de \( x\) contient des points hors de \( B(a,r)\) signifie que pour tout \( \epsilon\), \( d(a,x)+\epsilon>r\) ou encore que \( d(a,x)\geq r\). Nous avons donc \( d(a,x)=r\).
 \end{remark}
