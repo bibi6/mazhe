@@ -90,9 +90,13 @@ Un espace vectoriel $E$ muni d'une norme est, on l'a déjà dit, un \defe{espace
 \end{proof}
 
 
-\begin{corollary}
-Un espace vectoriel normé est un espace vectoriel topologique : en d'autres mots, l'addition et la multiplication par un élément du corps sont continues.
-\end{corollary}
+\begin{proposition}
+Un espace vectoriel normé est un espace vectoriel topologique : en d'autres mots, l'addition et la multiplication par un élément du corps sont continues pour la topologie induite de la norme.
+\end{proposition}
+
+\begin{proof}
+  L'addition est continue en \( x + y \) car \( \| x + y - (x' + y') \| \leq \|x - x' \| + \| y - y' \|  \); la multiplication est continue en \( \lambda x \) car  \( \| \lambda x - \lambda' x' \| \leq \| x \| \| \lambda - \lambda' \| + \& \lambda' \| \| x - x' \| \).
+\end{proof}
 
 Nous étudierons plus en détail les espaces vectoriels topologiques à partir de la définition~\ref{DefEVTopologique}.
 
@@ -100,102 +104,15 @@ Nous étudierons plus en détail les espaces vectoriels topologiques à partir d
 \subsection{Boules et sphères}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}
-	Soit $(V,\| . \|)$, un espace vectoriel normé, $a\in V$ et $r>0$. Nous allons abondamment nous servir des ensembles suivants :
-	\begin{enumerate}
-
-		\item
-			la \defe{boule ouverte}{boule!ouverte} $B(a,r)=\{ x\in V\tq \| x-a \|<r \}$;
-		\item
-			la \defe{boule fermée}{boule!fermée} $\bar B(a,r)=\{ x\in V\tq \| x-a \|\leq r \}$;
-		\item
-			la \defe{sphère}{sphère} $S(a,r)=\{ x\in V\tq \| x-a \|=r \}$.
-
-	\end{enumerate}
-\end{definition}
-Les différences entre ces trois ensembles sont très importantes. D'abord, les \emph{boules} sont pleines tandis que la \emph{sphère} est creuse. En comparant à une pomme, la boule ouverte serait la pomme «sans la peau», la boule fermée serait «avec la peau» tandis que la sphère serait seulement la peau. Nous avons
-\begin{equation}
-	\bar B(a,r)=B(a,r)\cup S(a,r).
-\end{equation}
-
-\begin{definition}
-	Une partie $A$ de $V$ est dite \defe{bornée}{borné!partie de $V$} s'il existe un réel $R$ tel que $A\subset B(0_V,R)$.
-\end{definition}
-Une partie est donc bornée si elle est contenue dans une boule de rayon fini.
-
-\begin{example}
-	Dans $\eR$, les boules sont  les intervalles ouverts et fermés tandis que la sphère est donnée par les points extrêmes des intervalles :
-	\begin{equation}
-		\begin{aligned}[]
-			B(a,r)&=\mathopen] a-r , a+r \mathclose[,\\
-			\bar B(a,r)&=\mathopen[ a-r , a+b \mathclose],\\
-			S(a,r)&=\{ a-r,a+r \}.
-		\end{aligned}
-	\end{equation}
-\end{example}
-
-\begin{example}
-	Si nous considérons $\eR^2$, la situation est plus riche parce que nous avons plus de normes. Essayons de voir les sphères de centre $(0,0)\in\eR^2$ et de rayon $r$ pour les normes $\| . \|_1$, $\| . \|_2$ et $\| . \|_{\infty}$.
-
-	Pour la norme $\| . \|_1$, la sphère de rayon $r$ est donnée par l'équation
-	\begin{equation}
-		| x |+| y |=r.
-	\end{equation}
-	Pour la norme $\| . \|_2$, l'équation de la sphère de rayon $r$ est
-	\begin{equation}
-		\sqrt{x^2+y^2}=r,
-	\end{equation}
-	et pour la norme supremum, la sphère de rayon $r$ a pour équation
-	\begin{equation}
-		\max\{ | x |,| y | \}=r.
-	\end{equation}
-	Elles sont dessinées sur la figure~\ref{LabelFigLesSpheres}
-\newcommand{\CaptionFigLesSpheres}{Les sphères de rayon $1$ pour les trois normes classiques.}
-\input{auto/pictures_tex/Fig_LesSpheres.pstricks}
-\end{example}
-
-\begin{proposition}		\label{PropBoitPtLoin}
-	Soient $V$ un espace vectoriel normé, $a$ dans $V$ et $x$ tel que $d(a,x)=r$, c'est à dire $x\in S(a,r)$. Dans ce cas, toute boule centrée en $x$ contient un point $P$ tel que $d(P,a)>r$ et un point $Q$ tel que $d(Q,a)<r$.
+\begin{proposition}\label{PropEnsembleBorneEVN}
+	Une partie $A$ d'un espace vectoriel normée $V$ est \defe{bornée}{borné!dans un espace vectoriel normé} s'il existe un réel $R$ tel que $A\subset B(0_V,R)$.
 \end{proposition}
-
-\begin{proof}
-	Soit une boule de rayon $\delta$ autour de $x$. Le but est de trouver un point $P$ tel que $d(P,a)>r$ et $d(P,x)<\delta$. Pour cela, nous prenons $P$ sur la même droite que $x$ (en partant de $a$), mais juste «un peu plus loin», comme sur la figure suivante :
-
-    \begin{center}
-       \input{auto/pictures_tex/Fig_BoulePtLoin.pstricks}
-    \end{center}
-
-   Plus précisément, nous considérons le point
-	\begin{equation}
-		P=x+\frac{ v }{ N }
-	\end{equation}
-	où $v=x-a$ et $N$ est suffisamment grand pour que $d(x,P)$ soit plus petit que $\delta$. Cela est toujours possible parce que
-	\begin{equation}
-		d(P,x)=\| P-x \|=\frac{ \| v \| }{ N }
-	\end{equation}
-	peut être rendu aussi petit que l'on veut par un choix approprié de $N$. Montrons maintenant que $d(a,P)>d(a,x)$ :
-	\begin{equation}
-		\begin{aligned}[]
-			d(a,P)&=\| a-x-\frac{ v }{ N }\| \\
-			&=\| a-x+\frac{ a }{ N }-\frac{ x }{ N } \|\\
-			&=\| \big( 1+\frac{1}{ N }(a-x) \big) \|\\
-			&>\| a-x \|=d(a,x).
-		\end{aligned}
-	\end{equation}
-	Nous laissons en exercice le soin de trouver un point $Q$ tel que $d(Q,a)<r$ et $d(Q,x)<\delta$.
-\end{proof}
+Une partie est donc bornée si elle est contenue dans une boule de rayon fini.
 
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Ouverts, fermés, intérieur et adhérence}
 %---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}
-	Soit $(V,\| . \|)$ un espace vectoriel normé et $A$, une partie de $V$. Un point $a$ est dit \defe{intérieur}{intérieur!point} à $A$ s'il existe une boule ouverte centrée en $a$ et contenue dans $A$.
-
-	On appelle \defe{l'intérieur}{intérieur!d'un ensemble} de $A$ l'ensemble des points qui sont intérieurs à $A$. Nous notons $\Int(A)$ l'intérieur de $A$.
-\end{definition}
-Notons que $\Int(A)\subset A$ parce que si $a\in\Int(A)$, nous avons $B(a,r)\subset A$ pour un certain $r$ et en particulier $a\in A$.
 
 \begin{example}
 	Trouver l'intérieur d'un intervalle dans $\eR$ consiste à «ouvrir là où c'est fermé».
@@ -220,33 +137,9 @@ Notons que $\Int(A)\subset A$ parce que si $a\in\Int(A)$, nous avons $B(a,r)\sub
 
 \end{example}
 
-\begin{example}			\label{ExempleIntBoules}
-	Les intérieurs des boules et sphères sont importantes à savoir.
-	\begin{enumerate}
-		\item
-			$\Int\big( B(a,r) \big)=B(a,r)$. Si $x\in B(a,r)$, nous avons $d(a,x)<r$. Alors la boule $B\big(x,r-d(x,a)\big)$ est incluse à $B(a,r)$, et donc $x$ est dans l'intérieur de $B(a,r)$. Conseil : faire un dessin.
-		\item
-			$\Int\big( \bar B(a,r) \big)=B(a,r)$. Par le point précédent, la boule $B(a,r)$ est certainement dans l'intérieur de la boule fermée. Il reste à montrer que les points de $\bar B(a,r)$ qui ne sont pas dans $B(a,r)$ ne sont pas dans l'intérieur. Ces points sont ceux dont la distance à $a$ est \emph{égale} à $r$. Le résultat découle alors de la proposition~\ref{PropBoitPtLoin}.
-
-		\item
-			$\Int\big( S(a,r) \big)=\emptyset$. Si $x\in S(a,r)$, toute boule centrée en $a$ contient des points qui ne sont pas à distance $r$ de $a$.
-
-			Notez que la sphère est un exemple d'ensemble non vide mais d'intérieur vide.
-	\end{enumerate}
-\end{example}
-
-
-\begin{definition}
-	Une partie $A$ de l'espace vectoriel normé $(V,\| . \|)$ est dite \defe{ouverte}{ouvert} si chacun de ses points est intérieur. La partie $A$ est donc ouverte si $A\subset\Int(A)$. Par convention, nous disons que l'ensemble vide $\emptyset$ est ouvert.
-
-	Une partie est dite \defe{fermée}{fermé} si son complémentaire est ouvert. La partie $A$ est donc fermée si $V\setminus A$ est ouverte.
-\end{definition}
-
-Remarque : un ensemble $A$ est ouvert si et seulement si $\Int(A)=A$.
-
-\begin{definition}
+\begin{proposition}
 	Une partie $A$ de l'espace vectoriel normé $V$ est dite \defe{compacte}{compact} si elle est fermée et bornée.
-\end{definition}
+\end{proposition}
 
 Nous verrons tout au long de ce cours que les ensembles compacts, et les fonctions définies sur ces ensembles ont de nombreuses propriétés agréables.
 
@@ -386,14 +279,6 @@ Un point peut être adhérent à $A$ sans faire partie de $A$, et nous avons tou
 \begin{example}		\label{ParlerEncoredeF}
 	Il ne faut pas conclure de l'exemple précédent qu'un point limite ou adhérent est automatiquement un minimum ou un maximum. En effet, si nous regardons l'ensemble formé par les points de la suite $x_n=(-1)^n/n$, le nombre zéro est un point adhérent et une limite, mais pas un infimum ni un maximum.
 \end{example}
-
-\begin{lemma}
-	Si $B$ est une partie fermée de $V$, alors $B=\bar B$.
-\end{lemma}
-
-\begin{proof}
-	Supposons qu'il existe $a\in\bar B$ tel que $a\notin B$. Alors il n'y a pas d'ouverts autour de $a$ qui soit contenu dans $\complement B$. Cela prouve que $\complement B$ n'est pas ouvert, et par conséquent que $B$ n'est pas fermé. Cela est une contradiction qui montre que tout point de $\bar B$ doit appartenir à $B$ lorsque $B$ est fermé.
-\end{proof}
 
 \begin{example}
 	Au niveau des intervalles dans $\eR$, prendre l'adhérence consiste à «fermer là où c'est ouvert». Attention cependant à ne pas fermer l'intervalle en l'infini.

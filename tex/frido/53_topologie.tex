@@ -948,11 +948,58 @@ Certains ensembles ont plus de structures qu'une topologie. Nous fixons quelques
     \end{enumerate}
     La dernière condition est l'\defe{inégalité triangulaire}{inégalité!triangulaire}.
 
-    Un couple $(E,d)$ formé d'un ensemble et d'une distance est un \defe{espace métrique}{espace!métrique}.
+    Un couple \((E,d)\) formé d'un ensemble et d'une distance est un \defe{espace métrique}{espace!métrique}.
 \end{definition}
 
-La définition-théorème suivante donne une topologie sur les espaces métriques en partant des boules.
+\begin{definition}
+	Soit \((E,d)\) un espace métrique, $a\in E$ et $r>0$. Nous allons abondamment nous servir des ensembles suivants :
+	\begin{enumerate}
+		\item
+			la \defe{boule ouverte}{boule!ouverte} $B(a,r)=\{ x\in E\tq d(x,a)<r \}$;
+		\item
+			la \defe{boule fermée}{boule!fermée} $\bar B(a,r)=\{ x\in E\tq d(x-a)\leq r \}$;
+		\item
+			la \defe{sphère}{sphère} $S(a,r)=\{ x\in E\tq d(x,a)=r \}$.
 
+	\end{enumerate}
+\end{definition}
+Les différences entre ces trois ensembles sont très importantes. D'abord, les \emph{boules} sont pleines tandis que la \emph{sphère} est creuse. En comparant à une pomme, la boule ouverte serait la pomme «sans la peau», la boule fermée serait «avec la peau» tandis que la sphère serait seulement la peau. Nous avons
+\begin{equation}
+	\bar B(a,r)=B(a,r)\cup S(a,r).
+\end{equation}
+
+\begin{example}
+	Dans $\eR$, les boules sont  les intervalles ouverts et fermés tandis que la sphère est donnée par les points extrêmes des intervalles :
+	\begin{equation}
+		\begin{aligned}[]
+			B(a,r)&=\mathopen] a-r , a+r \mathclose[,\\
+			\bar B(a,r)&=\mathopen[ a-r , a+b \mathclose],\\
+			S(a,r)&=\{ a-r,a+r \}.
+		\end{aligned}
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Si nous considérons $\eR^2$, la situation est plus riche parce que nous avons plus de normes. Essayons de voir les sphères de centre $(0,0)\in\eR^2$ et de rayon $r$ pour les normes $\| . \|_1$, $\| . \|_2$ et $\| . \|_{\infty}$.
+
+	Pour la norme $\| . \|_1$, la sphère de rayon $r$ est donnée par l'équation
+	\begin{equation}
+		| x |+| y |=r.
+	\end{equation}
+	Pour la norme $\| . \|_2$, l'équation de la sphère de rayon $r$ est
+	\begin{equation}
+		\sqrt{x^2+y^2}=r,
+	\end{equation}
+	et pour la norme supremum, la sphère de rayon $r$ a pour équation
+	\begin{equation}
+		\max\{ | x |,| y | \}=r.
+	\end{equation}
+	Elles sont dessinées sur la figure~\ref{LabelFigLesSpheres}
+\newcommand{\CaptionFigLesSpheres}{Les sphères de rayon $1$ pour les trois normes classiques.}
+\input{auto/pictures_tex/Fig_LesSpheres.pstricks}
+\end{example}
+
+La définition-théorème suivante donne une topologie sur les espaces métriques en partant des boules.
 \begin{theoremDef}     \label{ThoORdLYUu}
     Soit \( (E,d)\) un espace métrique. Nous définissons les \defe{boules ouvertes}{boule!ouverte} par
     \begin{equation}        \label{EQooYCWSooIhibvd}
@@ -994,6 +1041,20 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
     De plus, les boules définies en~\ref{DefKCGBooLRNdJf} sont alors les mêmes que celles définies en \eqref{EQooYCWSooIhibvd}, ce qui donne à tout corps totalement ordonné une structure d'espace topologique.
 \end{normaltext}
 
+\begin{example}			\label{ExempleIntBoules}
+	Les intérieurs des boules et sphères sont importantes à savoir.
+	\begin{enumerate}
+		\item
+			$\Int\big( B(a,r) \big)=B(a,r)$. Si $x\in B(a,r)$, nous avons $d(a,x)<r$. Alors la boule $B\big(x,r-d(x,a)\big)$ est incluse à $B(a,r)$, et donc $x$ est dans l'intérieur de $B(a,r)$. Conseil : faire un dessin.
+		\item
+			$\Int\big( \bar B(a,r) \big)=B(a,r)$. Par le point précédent, la boule $B(a,r)$ est certainement dans l'intérieur de la boule fermée. Il reste à montrer que les points de $\bar B(a,r)$ qui ne sont pas dans $B(a,r)$ ne sont pas dans l'intérieur. Ces points sont ceux dont la distance à $a$ est \emph{égale} à $r$. Le résultat découle alors de la proposition~\ref{PropBoitPtLoin}.
+
+		\item
+			$\Int\big( S(a,r) \big)=\emptyset$. Si $x\in S(a,r)$, toute boule centrée en $a$ contient des points qui ne sont pas à distance $r$ de $a$.
+
+			Notez que la sphère est un exemple d'ensemble non vide mais d'intérieur vide.
+	\end{enumerate}
+\end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Les boules, une base de topologie}
@@ -1032,7 +1093,7 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
 \end{remark}
 
 \begin{definition}\label{DefEnsembleBorne}
-  Soit \( (X, d) \) un espace métrique. Un sous-ensemble $A \subset X$ est \defe{borné}{borné} s'il existe une boule de $X$ contenant $A$.
+  Soit \( (X, d) \) un espace métrique. Un sous-ensemble \( A \subset X \) est \defe{borné}{borné} s'il existe une boule de \( X \) contenant \( A \).
 \end{definition}
 
 \begin{proposition}
@@ -1079,7 +1140,7 @@ La proposition~\ref{PropNGjQnqF} nous montrera que ces équivalences tiennent en
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Continuité et compacité}
+\subsection{Compacité et espaces métriques}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Un résultat important dans la théorie des fonctions sur les espaces vectoriels normés est qu'une fonction continue sur un compact est bornée et atteint ses bornes. Ce résultat sera (dans d'autres cours) énormément utilisé pour trouver des maxima et minima de fonctions. Le théorème exact est le suivant.
