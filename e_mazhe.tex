@@ -1132,12 +1132,10 @@ Permission is granted to copy, distribute and/or modify this document under the 
 \newcommand*{\tensor}{\otimes}
 \newcommand*{\pder}[2]{\frac{\partial #1}{\partial #2}}
 
+
 \DeclareRobustCommand{\sfrac}[3][\mathrm]{\hspace{0.1em}%
-  \raisebox{0.4ex}{$#1{\scriptstyle
-#2}$}\hspace{-0.1em}/\hspace{-0.07em}%
+  \raisebox{0.4ex}{$#1{\scriptstyle #2}$}\hspace{-0.1em}/\hspace{-0.07em}%
   \mbox{$#1{\scriptstyle #3}$}}
-
-
 
 % The following uses xstring in order to replace specific characters by %xx codes.
 % See the table http://www.utf8-chartable.de/

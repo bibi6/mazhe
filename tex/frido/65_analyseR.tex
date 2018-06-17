@@ -1144,3 +1144,373 @@ Si vous connaissez un autre exemple, plus simple, de difféomorphisme \( f\colon
     Nous aimerions donner le logarithme comme exemple, mais l'exponentielle ne sera définie que dans longtemps à partir des séries entières. Allez voir l'exemple~\ref{ExZLMooMzYqfK} pour le logarithme comme inverse de l'exponentielle.
 \end{example}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Dérivation et croissance}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Supposons une fonction dont la dérivée est positive. Étant donné que la courbe est « collée » à ses tangentes, tant que les tangentes montent, la fonction monte. Or, une tangente qui monte correspond à une dérivée positive, parce que la dérivée est le coefficient directeur de la tangente.
+
+Ce résultat très intuitif peut être prouvé rigoureusement. C'est la tache à laquelle nous allons nous atteler maintenant.
+
+\begin{proposition} \label{PropGFkZMwD}
+    Si $f$ et $f'$ sont des fonctions continues sur l'intervalle $[a,b]$ et si $f'$ est strictement positive sur $[a,b]$, alors $f$ est croissante sur $[a,b]$.
+
+    De la même manière, si $f'$ est strictement négative sur $[a,b]$, alors $f$ est décroissante sur $[a,b]$.
+\end{proposition}
+
+\begin{proof}
+    Nous n'allons prouver que la première partie. La seconde partie se prouve en considérant $-f$ et en invoquant alors la première\footnote{Méditer cela.}. Prenons $x_1$ et $x_2$ dans $[a,b]$ tels que $x_1<x_2$. Par hypothèse, pour tout $x$ dans $[x_1,x_2]$, nous avons
+    \begin{equation}
+        f'(x)=\lim_{\epsilon\to 0}\frac{ f(x+\epsilon)-f(x) }{\epsilon} >0.
+    \end{equation}
+    Maintenant, la proposition~\ref{PropoLimPosFPos} dit que quand une limite est positive, alors la fonction dans la limite est positive sur un voisinage. En appliquant cette proposition à la fonction
+    \begin{equation}
+        r(\epsilon)=\frac{ f(x+\epsilon)-f(x) }{ \epsilon },
+    \end{equation}
+    dont la limite en zéro est positive, nous trouvons que $r(\epsilon)>0$ pour tout $\epsilon$ pas trop éloigné de zéro. En particulier, il existe un $\delta>0$ tel que $\epsilon<\delta$ implique $r(\epsilon)>0$; pour un tel $\epsilon$, nous avons donc
+    \begin{equation}
+        r(\epsilon)=\frac{ f(x+\epsilon)-f(x) }{ \epsilon }>0.
+    \end{equation}
+    Étant donné que $\epsilon>0$, nous avons que $f(x+\epsilon)-f(x)>0$, c'est à dire que $f$ est strictement croissante entre $x$ et $x+\epsilon$.
+
+    Jusqu'ici, nous avons prouvé que la fonction $f$ était strictement croissante dans un voisinage autour de chaque point de $[a,b]$. Cela n'est cependant pas encore tout à fait suffisant pour conclure. Ce que nous voudrions faire, c'est de dire, c'est prendre un voisinage $]a,m_1[$ autour de $a$ sur lequel $f$ est croissante. Donc, $f(m_1)>f(a)$. Ensuite, on prend un voisinage $]m_1,m_2[$ de $m_1$ sur lequel $f$ est croissante. De ce fait, $f(m_2)>f(m_1)>f(a)$. Et ainsi de suite, nous voulons construire des $m_3$, $m_4$,\ldots jusqu'à arriver en $b$. Hélas, rien ne dit que ce processus va fonctionner. Il faut trouver une subtilité. Le problème est que les voisinages sur lesquels la fonction est croissante sont peut-être de plus en plus petits, de telle sorte à ce qu'il faille une infinité d'étapes avant d'arriver à bon port (en $b$).
+
+    Heureusement, nous pouvons drastiquement réduire le nombre d'étapes en nous souvenant du théorème de Borel-Lebesgue~\ref{ThoBOrelLebesgue}. Nous notons par $\mO_x$, un ouvert autour de $x$ tel que $f$ soit strictement croissante sur $\mO_x$. Un tel voisinage existe. Cela fait une infinité d'ouverts tels que
+    \begin{equation}
+        [a,b]\subseteq\bigcup_{x\in[a,b]}\mO_x.
+    \end{equation}
+    Ce que le théorème dit, c'est qu'on peut en choisir un nombre fini qui recouvre encore $[a,b]$. Soient $\{ \mO_{x_1},\ldots,\mO_{x_n} \}$, les heureux élus, que nous supposons pris dans l'ordre : $x_1<x_2<\ldots<x_n$. Nous avons
+    \begin{equation}
+        [a,b]\subseteq\bigcup_{i=1}^n\mO_i.
+    \end{equation}
+    Quitte à les rajouter à la collection, nous supposons que $x_1=a$ et que $x_n=b$. Maintenant nous allons choisir encore un sous-ensemble de cette collection d'ouverts. On pose $\mA_1=\mO_{x_1}$. Nous savons que $\mA_1$ intersecte au moins un des autres $\mO_{x_i}$. Cette affirmation vient du fait que $[a,b]$ est connexe (proposition~\ref{PropInterssiConn}), et que si $\mO_{x_1}$ n'intersectait personne, alors
+    \begin{equation}
+        \begin{aligned}[]
+            \mO_{x_1}&&\text{et}&&\bigcup_{i=2}^n\mO_{x_i}
+        \end{aligned}
+    \end{equation}
+    forment une partition de $[a,b]$ en deux ouverts disjoints, ce qui n'est pas possible parce que $[a,b]$ est connexe. Nous nommons $\mA_2$, un des ouverts $\mO_{x_i}$ qui intersecte $\mA_1$. Disons que c'est $\mO_k$. Notons que $\mA_1\cup\mA_2$ est un intervalle sur lequel $f$ est strictement croissante. En effet, si $y_{12}$ est dans l'intersection, $f(a)<f(y_{12})$ parce que $f$ est strictement croissante sur $\mA_1$, et pour tout $x>y_{12}$ dans $\mA_2$, $f(x)>f(y_{12})$ parce que $f$ est strictement croissante dans $\mA_2$.
+
+    Maintenant, nous éliminons de la liste des $\mO_{x_i}$ tous ceux qui sont inclus dans $\mA_1\cup\mA_2$. Dans ce qu'il reste, il y en a automatiquement un qui intersecte $\mA_1\cup\mA_2$, pour la même raison de connexité que celle invoquée plus haut. Nous appelons cet ouvert $\mA_3$, et pour la même raison qu'avant, $f$ est strictement croissante sur $\mA_1\cup\mA_2\cup\mA_3$.
+
+    En recommençant suffisamment de fois, nous finissons par devoir prendre un des $\mO_{x_i}$ qui contient $b$, parce qu'au moins un des $\mO_{x_i}$ contient $b$. À ce moment, nous avons fini la démonstration.
+\end{proof}
+
+Il est intéressant de noter que ce théorème concerne la croissance d'une fonction sous l'hypothèse que la dérivée est positive. Il nous a fallu très peu de temps, en utilisant la positivité de la dérivée, pour conclure qu'autour de tout point, la fonction était strictement croissante. À partir de là, c'était pour ainsi dire gagné. Mais il a fallu un réel travail de topologie très fine\footnote{et je te rappelle que nous avons utilisé la proposition~\ref{PropInterssiConn}, qui elle même était déjà un très gros boulot !} pour conclure. Étonnant qu'une telle quantité de topologie soit nécessaire pour démontrer un résultat essentiellement analytique dont l'hypothèse est qu'une limite est positive, n'est-ce pas ?
+
+Une petite facile, maintenant.
+\begin{proposition}
+    Si $f$ est croissante sur un intervalle, alors $f'\geq 0$ à l'intérieur de cet intervalle, et si $f$ est décroissante sur l'intervalle, alors $f'\leq 0$ à l'intérieur de l'intervalle.
+\end{proposition}
+
+Note qu'ici, nous demandons juste la croissance de $f$, et non sa \emph{stricte} croissance.
+
+\begin{proof}
+    Soit $f$, une fonction croissante sur l'intervalle $I$, et $x$ un point intérieur de $I$. La dérivée de $f$ en $x$ vaut
+    \begin{equation}
+        f'(x)=\lim_{\epsilon\to 0}\frac{ f(x+\epsilon)-f(x) }{\epsilon},
+    \end{equation}
+    mais, comme $f$ est croissante sur $I$, nous avons toujours que $f(x+\epsilon)-f(x)\geq0$ quand $\epsilon>0$, et $f(x+\epsilon)-f(x)\leq0$ quand $\epsilon<0$, donc cette limite est une limite de nombres positifs ou nuls, qui est donc positive ou nulle. Cela prouve que $f'(x)\geq 0$.
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Théorèmes de Rolle et des accroissements finis}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{theorem}[Théorème de Rolle\cite{ooNRTLooCpjVdc,ooFQESooWuxtpx}]       \label{ThoRolle}
+    Soit $f$, une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$. Si $f(a)=f(b)$, alors il existe un point $c\in]a,b[$ tel que $f'(c)=0$.
+\end{theorem}
+\index{théorème!Rolle}
+
+\begin{proof}
+    Étant donné que $[a,b]$ est un intervalle compact, l'image de $[a,b]$ par $f$ est un intervalle compact, soit $[m,M]$ (théorème~\ref{ThoImCompCotComp}). Si $m=M$, alors le théorème est évident : c'est que la fonction est constante, et la dérivée est par conséquent nulle. Supposons que $M> f(a)$ (il se peut que $M=f(a)$, mais alors si $f$ n'est pas constante, il faut avoir $m<f(a)$ et le reste de la preuve peut être adaptée).
+
+    Comme $M$ est dans l'image de $[a,b]$ par $f$, il existe $c\in ]a,b[$ tel que $f(c)=M$. Considérons maintenant la fonction
+    \begin{equation}
+        \tau(x) =\frac{ f(c+x)-f(c) }{ x }.
+    \end{equation}
+    Par définition, $\lim_{x\to 0}\tau(x)=f'(c)$. Par hypothèse, si $u<c$,
+    \begin{equation}
+        \tau(u-c) = \frac{ f(u)-f(c) }{ u-c }>0
+    \end{equation}
+    parce que $u-c<0$ et $f(u)-f(c)<0$. Par conséquent, $\lim_{x\to 0}\tau(x)\geq 0$. Nous avons aussi, pour $v>c$,
+    \begin{equation}
+        \tau(v-c) = \frac{ f(v)-f(c) }{ v-c }<0
+    \end{equation}
+    parce que $v-c>0$ et $f(v)-f(c)<0$. Par conséquent, $\lim_{x\to 0}\tau(x)\leq 0$. Mettant les deux ensemble, nous avons $f'(c)=\lim_{x\to 0}\tau(x)=0$, et $c$ est le point que nous cherchions.
+\end{proof}
+
+Voici une généralisation du théorème de Rolle, dans le cas où nous n'aurions pas deux points sur lesquels la fonction est identique, mais deux points en lesquels la limite de la fonction est identique. Typiquement, lorsque les points en question sont \( \pm\infty\).
+\begin{theorem}[Généralisation de Rolle\cite{ooNRTLooCpjVdc}]           \label{THOooXDTBooFeSZoK}
+    Soient \( -\infty\leq a<b\leq +\infty\). Soit une fonction dérivable \( f\colon \mathopen] a , b \mathclose[\to \eR\) telle que
+    \begin{equation}
+        \lim_{x\to a} f(x)=\lim_{x\to b} f(x)=\ell
+    \end{equation}
+    avec \( \ell\in \bar \eR\). Alors il existe \( x\in \mathopen] a , b \mathclose[\) tel que \( f'(x)=0\).
+\end{theorem}
+
+\begin{proof}
+    Soit un difféomorphisme\footnote{Définition~\ref{DefAQIQooYqZdya}.} strictement croissant \( \varphi\colon \eR\to \mathopen] \alpha , \beta \mathclose[\). Pour cela vous pouvez bricoler à partir de l'exemple~\ref{EXooGKPNooZtmJen}.
+        Mais n'utilisez pas la fonction arc tangente, parce qu'elle n'est définie qu'au théorème~\ref{THOooUSVGooOAnCvC}.
+
+    Nous posons \( a'=\varphi(a)\), \( b'=\varphi(b)\) et
+    \begin{equation}
+    g= \varphi\circ f\circ \varphi^{-1}\colon \mathopen] a' , b' \mathclose[\to \mathopen] \alpha , \beta \mathclose[.
+    \end{equation}
+    Cela est une fonction dérivable et continue sur \( \mathopen[ a' , b' \mathclose]\) en posant \( g(a')=g(b')=\varphi(\ell)\).
+
+    Donc il existe \( c'\in\mathopen] a' , b' \mathclose[\) tel que \( g'(c')=0\). En posant \( c=\varphi^{-1}(c')\) nous avons \( c\in \mathopen] a , b \mathclose[\) et, en utilisant de nombreuses fois la règle de dérivation des fonctions composées~\ref{PROPooOUZOooEcYKxn}\ref{ITEMooLYZCooVUPTyh},
+    \begin{subequations}
+        \begin{align}
+            f'(c)&=f'\big( \varphi^{-1}(c') \big)\\
+            &=(\varphi^{-1})'\Big( (g\circ \varphi)\big( \varphi^{-1}(c') \big) \Big)(g\circ\varphi)'\big( \varphi^{-1}(c') \big)\\
+            &=(\varphi^{-1})'\big( g(c') \big)\underbrace{g'(c')}_{=0}\varphi'\big( \varphi^{-1}(c') \big)\\
+            &=0.
+        \end{align}
+    \end{subequations}
+\end{proof}
+
+Une autre généralisation de Rolle, avec des dérivées d'ordre supérieur.
+\begin{proposition}[\cite{ooWCFFooRMBEJl}]      \label{PROPooCPCAooJjOZNy}
+Soit un intervalle ouvert \( I\subset \eR\) contenant \( a,b\) (\( a\neq b\)). Soit une fonction \( f\in C^{k+1}(I,\eR)\). Si \( f(a)=f(b)\) et si \( f^{(j)}(a)=0\) pour \( j=1,\ldots, n\), alors il existe \( x\in \mathopen] a , b \mathclose[\) tel que \( f^{(n+1)}(c)=0\).
+\end{proposition}
+
+\begin{proof}
+    Le théorème de Rolle \ref{ThoRolle} nous dit qu'il existe \( c_1\in \mathopen] a , b \mathclose[\) tel que \( f'(c_1)=0\). Mais alors \( f'(a)=f'(x_1)=0\), et le théorème de Rolls appliqué à \( f'\) donne \( c_2\in \mathopen] a , c_1 \mathclose[\) tel que \( f''(c_2)=0\). Continuant ainsi \( n\) fois, il existe \( c\in \mathopen] a ,b\mathclose[\) tel que \( f^{(n+1)}(c)=0\).
+\end{proof}
+
+Le théorème suivant est le théorème des \defe{accroissements finis}{théorème!accroissements finis!dans $\eR$}.
+\begin{theorem}[Accroissements finis]       \label{ThoAccFinis}
+    Soit $f$, une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$.
+        \begin{enumerate}
+            \item       \label{ITEMooFZONooXJqLyX}
+               Il existe au moins un réel $c\in]a,b[$ tel que
+                   \begin{equation}
+                   f(b)-f(a)=(b-a)f'(c) .
+                   \end{equation}
+                   Autrement dit, la tangente en \( c\) est parallèle à la corde entre \( a\) et \( b\).
+               \item       \label{ITEMooXRQKooDBFpdQ}
+               Nous avons la majoration
+               \begin{equation}
+                   \big| f(b)-f(a) \big|\leq \sup_{x\in\mathopen[ a , b \mathclose]}| f'(x) |  | b-a |.
+               \end{equation}
+        \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Considérons la fonction
+    \begin{equation}
+        \tau(x)=f(x)-\big( \frac{ f(b)-f(a) }{ b-a }x + f(a) - a\frac{ f(b)-f(a) }{ b-a } \big),
+    \end{equation}
+    c'est à dire la fonction qui donne la distance entre $f$ et le segment de droite qui lie $(a,f(a))$ à $(b,f(b))$. Par construction, $\tau(a)-\tau(b)=0$, donc le théorème de Rolle s'applique à $\tau$ pour laquelle il existe donc un $c\in]a,b[$ tel que $\tau'(c)=0$.
+
+    En utilisant les règles de dérivation, nous trouvons que la dérivée de $\tau$ vaut
+    \begin{equation}
+        \tau'(x)= f'(x)-\frac{ f(b)-f(a) }{ b-a },
+    \end{equation}
+    donc dire que $\tau'(c)=0$ revient à dire que $f(b)-f(a)=(b-a)f'(c)$, ce qu'il fallait démontrer.
+
+    La majoration est une conséquence immédiate, parce que le supremum de \( | f'(x) |\) est forcément plus grand que \( | f'(c) |\).
+\end{proof}
+
+Une généralisation pour une fonction sur un intervalle \( \mathopen] a , b \mathclose[\) où \( a\) et \( b\) peuvent être infinis.
+\begin{theorem}[Généralisation des accroissements finis] \label{THOooRIIBooOjkzMa}
+    Soient \( -\infty\leq a<b\leq +\infty\) et \( f,g\) des fonctions continues sur \( \mathopen[ a , b \mathclose]\) et dérivables sur \( \mathopen] a , b \mathclose[\).
+
+        Si \( a=-\infty\) :
+        \begin{itemize}
+            \item Nous demandons la continuité sur \( \mathopen] -\infty , b \mathclose]\) et la dérivabilité sur \( \mathopen] -\infty , b \mathclose[\).
+            \item
+                Nous notons \( f(a)\) la limite \( \lim_{x\to -\infty} f(x)\), et nous supposons qu'elle est finie.
+        \end{itemize}
+
+        Mêmes conventions si \( b=+\infty\).
+
+    Alors il existe \( c\in \mathopen] a , b \mathclose[\) tel que
+        \begin{equation}
+            \big( f(b)-f(a) \big)g'(c)=\big( g(b)-g(a) \big)f'(c).
+        \end{equation}
+
+\end{theorem}
+
+
+\begin{proof}
+    Nous posons
+    \begin{equation}
+        h(t)=\big( g(b)-g(a) \big)f(t)-\big( f(b)-f(a) \big)g(t).
+    \end{equation}
+    Nous avons \( \lim_{t\to a} h(t)=\lim_{t\to b} h(t)\), de telle sorte que le théorème de Rolle généralisé~\ref{THOooXDTBooFeSZoK} s'applique et il existe \( c\in \mathopen] a , b \mathclose[\) tel que \( h'(c)=0\). Pour ce \( c\) nous avons
+    \begin{equation}
+        0=h'(c)=\big( f(b)-f(a) \big)g'(c)-\big( g(b)-g(a) \big)f'(c),
+    \end{equation}
+   et donc
+    \begin{equation}
+        \big( f(b)-f(a) \big)g'(c)=\big( g(b)-g(a) \big)f'(c).
+    \end{equation}
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Règle de l'Hospital}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[Règle de l'Hospital pour \( \frac{ 0 }{ 0 }\)\cite{ooHQARooDfptJC}]     \label{PROPooBZHTooHmyGsy}
+Soient des fonctions \( f,g\) dérivables sur \( \mathopen] a , b \mathclose[\) et dont la limite en \( a\) est nulle. Si \( g'\) ne s'annule pas sur \( \mathopen] a , b \mathclose[\) et si
+    \begin{equation}
+        \lim_{x\to a^+} \frac{ f'(x) }{ g'(x) }=\ell
+    \end{equation}
+    alors
+    \begin{equation}        \label{EQooJHWYooLGdbPH}
+        \lim_{x\to a^+} \frac{ f(x) }{ g(x) }=\ell.
+    \end{equation}
+    Ici \( \ell\in \bar \eR\), et les hypothèses garantissent l'existence de la limite \eqref{EQooJHWYooLGdbPH}.
+\end{proposition}
+
+\begin{proof}
+Soit \( x\in\mathopen] a , b \mathclose[\). Les fonctions \( f\) et \( g\) sont dérivables sur \( \mathopen] a , x \mathclose[\) et continues sur \( \mathopen[ a , x \mathclose]\), de telle sorte que le théorème~\ref{THOooRIIBooOjkzMa} s'applique et nous avons \( c_x\in \mathopen] a , x \mathclose[\) tel que
+    \begin{equation}        \label{EQooMALUooNagavh}
+        \big( f(x)-f(a) \big)g'(c_x)=\big( g(x)-g(a) \big)f'(c_x).
+    \end{equation}
+    Nous nous souvenons de ce que signifient les notations dans le théorème : les notations \( f(a)\), \( f(x)\), \( g(a)\) et \( g(x)\) désignent en réalité les limites. Donc dans \eqref{EQooMALUooNagavh}, nous avons \( f(a)=g(a)=0\).
+
+D'autre part nous avons \( g(x)\neq g(a)\), sinon le théorème de Rolle~\ref{THOooXDTBooFeSZoK} annulerait \( g'\) quelque part dans \( \mathopen] a , x \mathclose[\). Nous pouvons donc récrire \eqref{EQooMALUooNagavh} sous la forme
+    \begin{equation}        \label{EQooUCLVooFgAfwC}
+        \frac{ f(x) }{ g(x) }=\frac{ f'(c_x) }{ g'(c_x) }.
+    \end{equation}
+Mais \( \lim_{x\to a^+} c_x=a\) parce que \( c_x\in\mathopen] a , x \mathclose[\). Donc la limite du membre de droite de \eqref{EQooUCLVooFgAfwC} lorsque \( x\to a^+\) existe et vaut \( \ell\). La même limite à gauche doit alors exister et valoir la même valeur.
+\end{proof}
+
+\begin{proposition}
+    Soit \( f\) et \( g\) deux fonctions
+    \begin{enumerate}
+        \item
+            dérivables sur \( \mathopen] a , b \mathclose[\),
+        \item
+                dont les limites en \( a\) sont toutes deux \( \infty\),
+            \item
+            \( g'\neq 0\) sur \( \mathopen] a , b \mathclose[\).
+        \item
+            \begin{equation}        \label{EQooVFYCooMjOGtI}
+                \lim_{x\to a^+} \frac{ f'(x) }{ g'(x) }=\ell\in \bar \eR.
+            \end{equation}
+    \end{enumerate}
+    Alors
+    \begin{equation}
+        \lim_{x\to a^+} \frac{ f(x) }{ g(x) }=\ell.
+    \end{equation}
+    Cette dernière égalité signifie «la limite existe et vaut \( \ell\)».
+\end{proposition}
+
+\begin{proof}
+Soit un intervalle \( \mathopen] x , y \mathclose[\) strictement inclus dans \( \mathopen] a , b \mathclose[\) avec \( x,y\in\eR\). Par le théorème des accroissements finis généralisés~\ref{THOooRIIBooOjkzMa} il existe \( c\in \mathopen] x , y \mathclose[\) tel que
+    \begin{equation}
+        \frac{ f(x)-f(y) }{ g(x)-g(y) }=\frac{ f'(c) }{ g'(c) }.
+    \end{equation}
+    Notons que le dénominateur à gauche n'est pas nul à cause de Rolle et de l'hypothèse que \( g'\) ne s'annule pas sur \( \mathopen[ x , y \mathclose]\). Nous isolons \( f(x)\) :
+    \begin{equation}        \label{EQooDFXNooJhdUca}
+        f(x)=\frac{ f'(c) }{ g'(c) }\Big( g(x)-g(y) \Big)+f(y).
+    \end{equation}
+Avant de diviser par \( g(x)\) nous devons prendre quelques précautions. Soit \( V\), un voisinage de \( \ell\)\footnote{Vous savez ce que signifie un «voisinage de \( \infty\)» ? Allez voir la sous-section~\ref{SUBSECooKRRUooSlZSmM}.}. Vu la limite \eqref{EQooVFYCooMjOGtI}, il existe \( y\in \mathopen] a , b \mathclose[\) tel que
+    \begin{equation}
+        \frac{ f'(t) }{ g'(t) }\in V
+    \end{equation}
+pour tout \( t\in \mathopen] a , y \mathclose[\). Nous utilisons ici avec subtilité le fait que ces intervalles sont une base de la topologie autour de \( \infty\). Maintenant \( f(y)\) et \( g(y)\) sont fixés et sont des nombres réels. Vu que \( \lim_{x\to a} g(x)=0\) nous pouvons choisir \( r<y\) tel que nous ayons simultanément
+    \begin{enumerate}
+        \item
+        \( g(x)\neq 0\) sur \( \mathopen] a , r \mathclose[\),
+        \item
+            \begin{equation}
+                | \frac{ g(y) }{ g(x) } |\leq \epsilon
+            \end{equation}
+            et
+            \begin{equation}
+                | \frac{ f(y) }{ g(x) } |\leq \epsilon
+            \end{equation}
+        pour tout \( x\in \mathopen] a , r \mathclose[\).
+    \end{enumerate}
+Nous sommes maintenant armés de \( y\) et \( r\) satisfaisant tout cela et nous pouvons traiter avec la formule \eqref{EQooDFXNooJhdUca} en ne la considérant que pour \( x\in \mathopen] a , r \mathclose[\). Soit \( x\in \mathopen] a , r \mathclose[\); il existe \( c_x\in \mathopen] a , x \mathclose[\) tel que
+    \begin{equation}        \label{EQooNEZQooYGJmFW}
+        \frac{ f(x) }{ g(x) }=\frac{ f'(c_x) }{ g'(c_x) }\left( 1-\frac{ g(y) }{ g(x) } \right)+\frac{ f(y) }{ g(x) }.
+    \end{equation}
+    Nous avons :
+    \begin{enumerate}
+        \item
+            \( \lim_{x\to a^+} c_x=a\),
+        \item
+            \begin{equation}
+                \lim_{x\to a^+}\frac{ f'(c_x) }{ g'(c_x) }=\lim_{x\to a^+} \frac{ f'(x) }{ g'(x) }=\ell,
+            \end{equation}
+        \item
+            \begin{equation}
+                \lim_{x\to a^+} \left( 1-\frac{ g(y) }{ g(x) } \right)=1,
+            \end{equation}
+        \item
+            \( \lim_{x\to a^+} \frac{ f(y) }{ g(x) }=0\).
+    \end{enumerate}
+    Donc chaque partie du membre de droite de \eqref{EQooNEZQooYGJmFW} a une limite bien déterminée pour \( x\to a^+\). Les règles de calcul s'appliquent et nous avons
+    \begin{equation}
+        \lim_{x\to a^+} \frac{ f(x) }{ g(x) }=\ell\times 1+0=\ell.
+    \end{equation}
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Dérivée et primitive}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{corollary}       \label{CORooEOERooYprteX}
+Soit $f$ une fonction dérivable sur $[a,b]$ telle que $f'(x) = 0$ pour tout $x \in [a,b]$. Alors $f$ est constante sur $[a,b]$.
+\end{corollary}
+
+\begin{proof}
+    Si $f$ n'était pas constante sur $[a,b]$, il existerait un $x_1\in ]a,b[$ tel que $f(a)\neq f(x_1)$, et dans ce cas, il existerait, par le théorème des accroissements finis~\ref{ThoAccFinis}, un $c\in]a,x_1[$ tel que
+    \begin{equation}
+        f'(c)=\frac{ f(x_1)-f(a) }{ x_1-a }\neq 0,
+    \end{equation}
+    ce qui contredirait les hypothèses.
+\end{proof}
+
+\begin{corollary}   \label{CorNErEgcQ}
+    Soient $f$ et $g$, deux fonctions dérivables sur $[a,b]$ telles que
+    \begin{equation}
+        f'(x) = g'(x)
+    \end{equation}
+    pour tout $x \in [a,b]$. Alors existe un réel $C$ tel que $f (x) = g (x) + C$ pour tout $x\in [a,b]$.
+\end{corollary}
+
+\begin{proof}
+    Considérons la fonction $h(x)=f(x)-g(x)$, dont la dérivée est, par hypothèse, nulle. L'annulation de la dérivée entraine par le corollaire~\ref{CorNErEgcQ} que $h$ est  constante. Si $h(x)=C$, alors $f(x)=g(x)+C$, ce qu'il fallait prouver.
+\end{proof}
+
+\begin{definition}  \label{DefXVMVooWhsfuI}
+    Soit \( I\) un intervalle ouvert de \( \eR\) et une fonction \( f\colon I\to \eR\). La fonction \( F\colon I\to \eR\) est une \defe{primitive}{primitive!fonction} de \( f\) si \( F\) est dérivable sur \( I\) et si \( F'(x)=f(x)\) pour tout \( x\) dans \( I\).
+\end{definition}
+
+Exprimé en termes des primitives, le corollaire~\ref{CorNErEgcQ} signifie que
+\begin{corollary}  \label{CorZeroCst}
+    Si $F$ et $G$ sont deux primitives de la même fonction $f$ sur un intervalle, alors il existe une constante $C$ pour laquelle $F(x)=G(x)+C$.
+\end{corollary}
+Cela signifie qu'il n'y a, en réalité, pas des milliards de primitives différentes à une fonction. Il y en a essentiellement une seule, et puis les autres, ce sont juste les mêmes, mais décalées d'une constante.
+
+\begin{remark}
+    L'hypothèse de se limiter à un intervalle est importante parce que si on considère la fonction sur deux intervalles disjoints, nous pouvons choisir la constante indépendamment dans l'un et dans l'autre. Par exemple la fonction
+    \begin{equation}
+        F(x)=\begin{cases}
+            \ln(x)+1    &   \text{si } x>0\\
+            \ln(x)-7    &    \text{si } x<0
+        \end{cases}
+    \end{equation}
+    est une primitive de \( \frac{1}{ x }\) sur l'ensemble \( \eR\setminus\{ 0 \}\).
+
+    Certains ne s'en privent pas. Le logiciel \href{https://www.sagemath.org}{ Sage } par exemple fait ceci :
+    \begin{verbatim}
+sage: f(x)=1/x
+sage: F=f.integrate(x)
+sage: A=F(x)-F(-x)
+sage: A.full_simplify()
+I*pi
+    \end{verbatim}
+    En réalité lorsque \( x>0\), Sage définit \( \ln(-x)=\ln(x)+i\pi\). Cela a une certaine logique parce que \( \ln(-1)=i\pi\) (du fait que \(  e^{i\pi}=-1\)), mais si on ne le sait pas, ça peut étonner.
+\end{remark}
+
+\begin{normaltext}
+    Il existe plusieurs primitives à une fonction donnée. En physique, la constante arbitraire est souvent fixée par une condition initiale, comme nous le verrons dans la section~\ref{SecMRUAsecondeGGdQoT}.
+\end{normaltext}

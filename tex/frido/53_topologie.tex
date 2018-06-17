@@ -921,7 +921,7 @@ Dans le cadre des espaces vectoriels normés, ce théorème est démontré en la
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Topologie, distances et normes}
+\section{Topologie et distance}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Certains ensembles ont plus de structures qu'une topologie. Nous fixons quelques bases maintenant, et nous détaillerons certains résultats plus tard.
 
@@ -994,8 +994,10 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
     De plus, les boules définies en~\ref{DefKCGBooLRNdJf} sont alors les mêmes que celles définies en \eqref{EQooYCWSooIhibvd}, ce qui donne à tout corps totalement ordonné une structure d'espace topologique.
 \end{normaltext}
 
-\subsubsection{Les boules, une base de topologie}
-%////////////////////////////
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Les boules, une base de topologie}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{proposition} \label{PropNBSooraAFr}
     Un espace métrique séparable\footnote{Qui possède une partie dense dénombrable, définition~\ref{DefUADooqilFK}.} accepte une base de topologie dénombrable.
@@ -1037,8 +1039,48 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
   Toute réunion finie d'ensembles bornés est un ensemble borné. Toute partie d'un ensemble borné est un ensemble borné.
 \end{proposition}
 
-\subsubsection{Continuité et compacité}
-%/////////////////
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Continuité et espaces métriques}
+%---------------------------------------------------------------------------------------------------------------------------
+
+La propriété suivante donne des caractérisations importantes de la continuité dans le cas des espaces métriques.
+\begin{proposition}[Continuité, ouverts et voisinages et limite\cite{DHpsZoY}] \label{PropQZRNpMn}
+    Soient \( f\colon E\to F\) une application entre espaces métriques et \( a\in E\). Alors nous avons équivalence entre les choses suivantes :
+    \begin{enumerate}
+        \item\label{ItemCBUoRWJi}
+            \( f\) est continue en \( a\),
+        \item\label{ItemCBUoRWJii}
+            Pour tout voisinage ouvert \( W\) de \( f(a)\), il existe un voisinage ouvert \( V\) de \( a\) tel que \( f(V)\subset W\).
+        \item\label{ItemCBUoRWJiii}
+            Pour toute boule \( W'=B\big( f(a),\epsilon \big)\), il existe une boule \( V'=B(a,\delta)\) telle que \( f(V)\subset W\).
+        \item\label{ItemCBUoRWJiv}
+            $\forall \epsilon>0,\,\exists \delta>0\,\tq f\big( B(a,\delta) \big)\subset B\big( f(a),\epsilon \big)$.
+        \item\label{ItemYNQpikrii}
+            \( \lim_{x\to a}f(x)=f(a)\) où la limite est donnée par la définition~\ref{DefYNVoWBx},
+        \item\label{ItemYNQpikriii}
+            Pour tout \( \epsilon>0\), il existe \( \delta>0\) tel que \( \| x-a \|<\delta\) implique \( \| f(x)-f(a) \|<\epsilon\).
+    \end{enumerate}
+\end{proposition}
+\index{continue!fonction entre espaces métriques}
+La proposition~\ref{PropNGjQnqF} nous montrera que ces équivalences tiennent encore lorsque l'espace a une topologie de semi-normes.
+
+\begin{proof}
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemCBUoRWJii} est la définition~\ref{DefOLNtrxB}. L'équivalence~\ref{ItemCBUoRWJiii} \( \Leftrightarrow\)~\ref{ItemCBUoRWJiv} est une simple paraphrase.
+
+    Montrons~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemCBUoRWJiii}. Si \( W'=B\big( f(a),\delta \big)\), nous avons un voisinage \( V\) de \( a\) tel que \( f(V)\subset W\). L'ensemble \( V\) contenant une boule autour de chacun de ses points\footnote{Cela est le théorème-définition~\ref{ThoORdLYUu} des ouverts dans un espace métrique, à ne pas confondre avec le théorème~\ref{ThoPartieOUvpartouv}.}, il en contient un autour de \( a\) : \( V'=B(a,\delta)\subset V\). A fortiori nous avons \( f(V')\subset W\).
+
+    Montrons~\ref{ItemCBUoRWJiii} \( \Rightarrow\)~\ref{ItemCBUoRWJii}. Si \( W\) est un ouvert autour de \( f(a)\), il contient une boule autour de \( f(a)\) : \( B\big( f(a),\epsilon \big)\subset W\). Il existe donc une boule \( V'=B(a,\delta)\) telle que \( f(V')\subset B\big( f(a),\epsilon \big)\subset W\).
+
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemYNQpikrii} est la définition~\ref{DefOLNtrxB} de la continuité en un point couplée à l'unicité de la limite due à la proposition~\ref{PropFObayrf} parce qu'un espace métrique est séparé.
+
+    Prouvons~\ref{ItemYNQpikrii} \( \Rightarrow\)~\ref{ItemYNQpikriii}. Soient \( \epsilon>0\) et \( V=B\big( f(a),\epsilon \big)\). Étant donné que \( f(a)\) est une limite de \( f\) pour \( x\to a\), il existe un voisinage \( W\) de \( a\) tel que \( f(W)\subset V\). Soit \( \delta>0\) tel que \( B(a,\delta)\subset W\); alors si \( \| x-a \|<\delta\) nous avons \( x\in B(x,\delta)\subset W\) et donc \( f(x)\in B\big( f(a),\epsilon \big)\), c'est à dire \( \| f(a)-f(x) \|<\epsilon\).
+
+    Enfin l'implication~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemYNQpikrii} est une réécriture de la définition de la limite en un point.
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Continuité et compacité}
+%---------------------------------------------------------------------------------------------------------------------------
 
 Un résultat important dans la théorie des fonctions sur les espaces vectoriels normés est qu'une fonction continue sur un compact est bornée et atteint ses bornes. Ce résultat sera (dans d'autres cours) énormément utilisé pour trouver des maxima et minima de fonctions. Le théorème exact est le suivant.
 
@@ -1128,92 +1170,18 @@ Le théorème de Bolzano–Weierstrass~\ref{ThoBWFTXAZNH} a l'importante conséq
 	et donc $f(x)=M$, ce qui prouve que $f$ atteint sa borne $M$ au point $x\in K$.
 \end{proof}
 
-%------------------------------------------------------------------------------------------------------
-\subsection{Norme}
-%------------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Distance point-ensemble}
+%---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}[\cite{BrunelleMatricielle}, thème~\ref{THEMEooUJVXooZdlmHj}]  \label{DefNorme}	\label{DefEVNetDistance}
-    Soit \( E\) un espace vectoriel (pas spécialement de dimension finie) sur le corps \( \eK\) (\( =\eR\) ou \( \eC\)). Une  \defe{norme}{norme} sur $E$ est une application $N\colon E\to \eR^+$ telle que
-	\begin{enumerate}
-		\item
-            \( N(x)=0\) si et seulement si \( x=0\);
-		\item\label{ItemDefNormeii}
-			$N(\lambda x)=| \lambda |N(x)$ pour tout $\lambda\in\eR$ et $x\in E$;
-		\item\label{ItemDefNormeiii}
-			$N(x+y)\leq N(x)+N(y)$
-	\end{enumerate}
-    pour tout $x,y\in E$ et pour tout $\lambda\in\eK$.
-
-    La propriété~\ref{ItemDefNormeiii} est appelée \defe{inégalité triangulaire}{inégalité!triangulaire}.
-
-    Un espace vectoriel muni d'une norme est un \defe{espace vectoriel normé}{espace vectoriel normé}.
+\begin{definition}
+	Si $A$ est une partie de l'espace métrique $(X,d)$ et si $x\in X$, nous disons que la \defe{distance}{distance!point et ensemble} entre $A$ et $x$ est le nombre
+	\begin{equation}		\label{EqdefDistaA}
+		d(x,A)=\inf_{a\in A}d(x,a).
+	\end{equation}
 \end{definition}
-En prenant $\lambda=-1$ dans la propriété~\ref{ItemDefNormeii}, nous trouvons immédiatement que $N(-x)=N(x)$.
-
-\begin{proposition}		\label{PropNmNNm}
-	Toute norme $N$ sur l'espace vectoriel $E$ vérifie l'inégalité
-	\begin{equation}
-		\big| N(x)-N(y) \big|\leq N(x-y)
-	\end{equation}
-	pour tout $x,y\in E$.
-\end{proposition}
-
-\begin{proof}
-	Nous avons, en utilisant le point~\ref{ItemDefNormeiii} de la définition~\ref{DefNorme},
-	\begin{subequations}
-		\begin{align}
-			N(x)&=N(x-y+y)\leq N(x-y)+N(y),	\label{subEqNNNxxyyya}\\
-			N(y)&=N(y-x+x)\leq N(y-x)+N(x).	\label{subEqNNNxxyyyb}
-		\end{align}
-	\end{subequations}
-	Supposons d'abord que $N(x)\geq N(y)$. Dans ce cas, en utilisant \eqref{subEqNNNxxyyya},
-	\begin{equation}
-		\big| N(x)-N(y) \big|=N(x)-N(y)\leq N(x-y)+N(y)-N(y)=N(x-y).
-	\end{equation}
-	Si par contre $N(x)\leq N(y)$, alors nous utilisons \eqref{subEqNNNxxyyyb} et nous trouvons
-	\begin{equation}
-		\big| N(x)-N(y) \big|=N(y)-N(x)\leq N(y-x)+N(x)-N(x)=N(y-x).
-	\end{equation}
-	Dans les deux cas, nous avons retrouvé l'inégalité annoncée.
-\end{proof}
-Cette proposition signifie aussi que
-\begin{equation}	\label{EqNleqNNleqNvqlqbs}
-	-N(x-y)\leq N(x)-N(y)\leq N(x-y).
-\end{equation}
-
-\begin{normaltext}	
-Afin de suivre une notation proche de celle de la valeur absolue, à partir de maintenant, la norme d'un vecteur $v$ sera notée $\| v\|$ au lieu de $N(v)$. La proposition~\ref{PropNmNNm} s'énoncera donc
-\begin{equation}
-\big| \| x \|-\| y \| \big|\leq \| x-y \|.
-\end{equation}
-Un espace vectoriel $E$ muni d'une norme est, on l'a déjà dit, un \defe{espace vectoriel normé}{normé!espace vectoriel}; on le notera $(E,\| . \|)$ pour distinguer la norme fixée.
-\end{normaltext}
-
-\begin{lemmaDef}[Distance induite par une norme]        \label{LEMooWGBJooYTDYIK}
-    Soit un espace vectoriel normé \( (E,\| . \|)\). Nous posons
-    \begin{equation}        \label{EQooZYJRooAHnsIG}
-        d(x,y)=\| x-y \| .
-    \end{equation}
-    Alors
-    \begin{enumerate}
-        \item       \label{ITEMooLITDooPeReOk}
-            \( d\) est invariante par translations : $d(a,b)=d(a+u,b+u)$
-        \item
-            \( d\) est une distance\footnote{Définition~\ref{DefMVNVFsX}.} sur \( E\).
-    \end{enumerate}
-    C'est la \defe{distance induite}{distance!associée à une norme} par la norme.
-\end{lemmaDef}
-
-\begin{proof}
-    Le fait que la formule \eqref{EQooZYJRooAHnsIG} soit invariante par translations est immédiat. En ce qui concerne le fait que ce soit une distance, le seul point délicat à vérifier est l'inégalité triangulaire. Mais, pour tous \( x, y, z \in E\), on a
-    \begin{equation}
-            d(x,y)=\| x-y \| = \| x-z+z-y \|  \leq\| x - z \|+\| z - y\| =d(x,z)+d(z,y).
-    \end{equation}
-\end{proof}
+%The result is on the figure~\ref{LabelFigDistanceEnsemble}
+\newcommand{\CaptionFigDistanceEnsemble}{La distance entre $x$ et $A$ est donnée par la distance entre $x$ et $p$. Les distances entre $x$ et les autres points de $A$ sont plus grandes que $d(x,p)$.}
+\input{auto/pictures_tex/Fig_DistanceEnsemble.pstricks}
 
 
-\begin{corollary}
-Un espace vectoriel normé est un espace vectoriel topologique : en d'autres mots, l'addition et la multiplication par un élément du corps sont continues.
-\end{corollary}
-
-Nous étudierons plus en détail les espaces vectoriels topologiques à partir de la définition~\ref{DefEVTopologique}.

@@ -9,10 +9,10 @@ Ici encore \( \eK\) est un corps commutatif.
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[matrices semblables] \label{DefCQNFooSDhDpB}
-    Sur l'ensemble \( \eM_n(\eK)\) des matrices \( n\times n\) à coefficients dans \(\eK\) nous introduisons la relation d'équivalence \( A\sim B\) si et seulement s'il existe une matrice \( P\in\GL(n,\eK)\) telle que \( B=P^{-1}AP\). Deux matrices équivalentes en ce sens sont dites \defe{semblables}{semblables!matrices}.
+    Sur l'ensemble \( \eM_n(\eK)\) des matrices \( n\times n\) Ã  coefficients dans \(\eK\) nous introduisons la relation d'Ã©quivalence \( A\sim B\) si et seulement s'il existe une matrice \( P\in\GL(n,\eK)\) telle que \( B=P^{-1}AP\). Deux matrices Ã©quivalentes en ce sens sont dites \defe{semblables}{semblables!matrices}.
 \end{definition}
 
-Le polynôme caractéristique\footnote{Définition~\ref{DefOWQooXbybYD}.} est un invariant sous les similitudes. En effet si \( P\) est une matrice inversible,
+Le polynÃ´me caractÃ©ristique\footnote{DÃ©finition~\ref{DefOWQooXbybYD}.} est un invariant sous les similitudes. En effet si \( P\) est une matrice inversible,
 \begin{subequations}
     \begin{align}
         \chi_{PAP^{-1}}&=\det(PAP^{-1}-\lambda X)\\
@@ -34,19 +34,19 @@ La permutation de lignes ou de colonnes ne sont pas de similitudes, comme le mon
         \end{pmatrix}.
     \end{aligned}
 \end{equation}
-Nous avons \( \chi_A=x^2-5x-2\) tandis que \( \chi_B=x^2-5x+2\) alors que le polynôme caractéristique est un invariant de similitude.
+Nous avons \( \chi_A=x^2-5x-2\) tandis que \( \chi_B=x^2-5x+2\) alors que le polynÃ´me caractÃ©ristique est un invariant de similitude.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Endomorphismes nilpotents}
 %---------------------------------------------------------------------------------------------------------------------------
 
-La \defe{trace}{trace!matrice} d'une matrice \( A\in \eM(n,\eK)\) est la somme de ses éléments diagonaux :
+La \defe{trace}{trace!matrice} d'une matrice \( A\in \eM(n,\eK)\) est la somme de ses Ã©lÃ©ments diagonaux :
 \begin{equation}
     \tr(A)=\sum_{i=1}^nA_{ii}.
 \end{equation}
-Une propriété importante est son invariance cyclique.
+Une propriÃ©tÃ© importante est son invariance cyclique.
 \begin{lemma}   \label{LemhbZTay}
-    Si \( A\) et \( B\) sont des matrices carrées, alors \( \tr(AB)=\tr(BA)\).
+    Si \( A\) et \( B\) sont des matrices carrÃ©es, alors \( \tr(AB)=\tr(BA)\).
 
     La trace est un invariant de similitude.
 \end{lemma}
@@ -60,32 +60,32 @@ Une propriété importante est son invariance cyclique.
             =\sum_i(BA)_{ii}
             =\tr(BA)
     \end{equation}
-    où nous avons simplement renommé les indices \( i\leftrightarrow k\).
+    oÃ¹ nous avons simplement renommÃ© les indices \( i\leftrightarrow k\).
 
     En particulier, la trace est un invariant de similitude parce que \( \tr(ABA^{-1})=\tr(A^{-1} AB)=\tr(B)\).
 \end{proof}
-La trace étant un invariant de similitude, nous pouvons donc définir la \defe{trace}{trace!endomorphisme} comme étant la trace de sa matrice dans une base quelconque. Si la matrice est diagonalisable, alors la trace est la somme des valeurs propres.
+La trace Ã©tant un invariant de similitude, nous pouvons donc dÃ©finir la \defe{trace}{trace!endomorphisme} comme Ã©tant la trace de sa matrice dans une base quelconque. Si la matrice est diagonalisable, alors la trace est la somme des valeurs propres.
 
 \begin{lemma}[\cite{fJhCTE}]   \label{LemzgNOjY}
     L'endomorphisme \( u\in\End(\eC^n)\) est nilpotent si et seulement si \( \tr(u^p)=0\) pour tout \( p\).
 \end{lemma}
 
 \begin{proof}
-    Supposons que \( u\) est nilpotent. Alors ses valeurs propres sont toutes nulles et celles de \( u^p\) le sont également. La trace étant la somme des valeurs propres, nous avons alors tout de suite \( \tr(u^p)=0\).
+    Supposons que \( u\) est nilpotent. Alors ses valeurs propres sont toutes nulles et celles de \( u^p\) le sont Ã©galement. La trace Ã©tant la somme des valeurs propres, nous avons alors tout de suite \( \tr(u^p)=0\).
 
-    Supposons maintenant que \( \tr(u^p)=0\) pour tout \( p\). Le polynôme caractéristique \eqref{Eqkxbdfu} est
+    Supposons maintenant que \( \tr(u^p)=0\) pour tout \( p\). Le polynÃ´me caractÃ©ristique \eqref{Eqkxbdfu} est
     \begin{equation}    \label{EqfnCqWq}
         \chi_u=(-1)^nX^{\alpha}(X-\lambda_1)^{\alpha_1}\ldots (X-\alpha_r)^{\alpha_r}.
     \end{equation}
-    où les \( \lambda_i\) (\( i=1,\ldots, r\)) sont les valeurs propres non nulles distinctes de \( u\).
+    oÃ¹ les \( \lambda_i\) (\( i=1,\ldots, r\)) sont les valeurs propres non nulles distinctes de \( u\).
 
-    Il est vite vu que le coefficient de \( X^{n-1}\) dans \( \chi_u\) est \( -\tr(u)\) parce que le coefficient de \( X^{n-1}\) se calcule en prenant tous les $X$ sauf une fois \( -\lambda_i\). D'autre part le polynôme caractéristique de \( u^p \) est le même que celui de \( u\), en remplaçant \( \lambda_i\) par \( \lambda_i^p\); cela est dû au fait que si \( v\) est vecteur propre de valeur propre \( \lambda\), alors \( u^pv=\lambda^pv\).
+    Il est vite vu que le coefficient de \( X^{n-1}\) dans \( \chi_u\) est \( -\tr(u)\) parce que le coefficient de \( X^{n-1}\) se calcule en prenant tous les $X$ sauf une fois \( -\lambda_i\). D'autre part le polynÃ´me caractÃ©ristique de \( u^p \) est le mÃªme que celui de \( u\), en remplaÃ§ant \( \lambda_i\) par \( \lambda_i^p\); cela est dÃ» au fait que si \( v\) est vecteur propre de valeur propre \( \lambda\), alors \( u^pv=\lambda^pv\).
 
-    Par l'équation \eqref{EqfnCqWq}, nous voyons que le coefficient du terme \( X^{n-1}\) dans les polynôme caractéristique est
+    Par l'Ã©quation \eqref{EqfnCqWq}, nous voyons que le coefficient du terme \( X^{n-1}\) dans les polynÃ´me caractÃ©ristique est
     \begin{equation}        \label{eqSoDSKH}
         0=\tr(u^p)=\alpha_1\lambda_1^p+\cdots +\alpha_r\lambda_r^p.
     \end{equation}
-    Donc les nombres \( (\alpha_1,\ldots, \alpha_r)\) est une solution non triviale\footnote{Si \( \alpha_1=\ldots=\alpha_r=0\), alors les valeurs propres sont toutes nulles et la matrice est en réalité nulle dès le départ.} du système
+    Donc les nombres \( (\alpha_1,\ldots, \alpha_r)\) est une solution non triviale\footnote{Si \( \alpha_1=\ldots=\alpha_r=0\), alors les valeurs propres sont toutes nulles et la matrice est en rÃ©alitÃ© nulle dÃ¨s le dÃ©part.} du systÃ¨me
     \begin{subequations}    \label{EqDpvTnu}
         \begin{numcases}{}
             \alpha_1X_1+\cdots +\lambda_rX_r=0\\
@@ -93,7 +93,7 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
             \lambda^r_1X_1+\cdots +\lambda_r^rX_r=0.
         \end{numcases}
     \end{subequations}
-    Cela sont les équations \eqref{eqSoDSKH} écrites avec \( p=1,\ldots, r\). Le déterminant de ce système est
+    Cela sont les Ã©quations \eqref{eqSoDSKH} Ã©crites avec \( p=1,\ldots, r\). Le dÃ©terminant de ce systÃ¨me est
     \begin{equation}
         \lambda_1\ldots\lambda_r\det\begin{pmatrix}
              1   &   \ldots    &   1    \\
@@ -102,27 +102,27 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
              \lambda_1^{r-1}   &   \ldots    &   \lambda_r^{r-1}
          \end{pmatrix}\neq 0,
     \end{equation}
-    qui est un déterminant de Vandermonde (proposition~\ref{PropnuUvtj}) valant
+    qui est un dÃ©terminant de Vandermonde (proposition~\ref{PropnuUvtj}) valant
     \begin{equation}
         0=\lambda_1\ldots\lambda_r\prod_{1\leq i\leq j\leq r}(\lambda_i-\lambda_j).
     \end{equation}
-    Étant donné que les \( \lambda_i\) sont distincts et non nuls, nous avons une contradiction et nous devons conclure que \( (\alpha_1,\ldots, \alpha_r)\) était une solution triviale du système \eqref{EqDpvTnu}.
+    Ã‰tant donnÃ© que les \( \lambda_i\) sont distincts et non nuls, nous avons une contradiction et nous devons conclure que \( (\alpha_1,\ldots, \alpha_r)\) Ã©tait une solution triviale du systÃ¨me \eqref{EqDpvTnu}.
 \end{proof}
 
 \begin{proposition}[\cite{SVSFooIOYShq}]    \label{PropMWWJooVIXdJp}
-    Soit un \( \eK\)-espace vectoriel \( E\). Un endomorphisme \( u\in\End(E)\) est nilpotent si et seulement s'il existe une base de \( E\) dans laquelle la matrice de \( u\) est strictement triangulaire supérieure.
+    Soit un \( \eK\)-espace vectoriel \( E\). Un endomorphisme \( u\in\End(E)\) est nilpotent si et seulement s'il existe une base de \( E\) dans laquelle la matrice de \( u\) est strictement triangulaire supÃ©rieure.
 \end{proposition}
 
 \begin{proof}
     \begin{subproof}
        \item[\( \Rightarrow\)]
-           Nous faisons la démonstration par récurrence sur la dimension de \( E\). Lorsque \( n=1\) nous avons \( u=(a)\) avec \( a\in \eK\). Vu que \( a^k=0\) pour un certain \( k\) nous avons \( a=0\) parce qu'un corps est toujours un anneau intègre\footnote{Lemme~\ref{LemAnnCorpsnonInterdivzer}.}.
+           Nous faisons la dÃ©monstration par rÃ©currence sur la dimension de \( E\). Lorsque \( n=1\) nous avons \( u=(a)\) avec \( a\in \eK\). Vu que \( a^k=0\) pour un certain \( k\) nous avons \( a=0\) parce qu'un corps est toujours un anneau intÃ¨gre\footnote{Lemme~\ref{LemAnnCorpsnonInterdivzer}.}.
 
-           Lorsque \( \dim(E)=n\) nous savons que \( u\) a un noyau non réduit au vecteur nul (parce qu'il est nilpotent). Soit donc un vecteur non nul \( x\in\ker(u)\) et une base
+           Lorsque \( \dim(E)=n\) nous savons que \( u\) a un noyau non rÃ©duit au vecteur nul (parce qu'il est nilpotent). Soit donc un vecteur non nul \( x\in\ker(u)\) et une base
            \begin{equation}
                \{ x,e_2,\ldots, e_n \}
            \end{equation}
-           donnée par le théorème de la base incomplète~\ref{ThonmnWKs}. La matrice de \( u\) dans cette base s'écrit
+           donnÃ©e par le thÃ©orÃ¨me de la base incomplÃ¨te~\ref{ThonmnWKs}. La matrice de \( u\) dans cette base s'Ã©crit
            \begin{equation}
                \begin{pmatrix}
                        \begin{array}[]{c|c}
@@ -164,46 +164,46 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
                        \end{array}
                \end{pmatrix}.
            \end{equation}
-           Étant donné que \( u\) est nilpotente, la matrice \( A\) l'est aussi. L'hypothèse de récurrence dit alors que \( A\) est strictement triangulaire supérieure (ou en tout cas peut le devenir par un changement de base adéquat).
+           Ã‰tant donnÃ© que \( u\) est nilpotente, la matrice \( A\) l'est aussi. L'hypothÃ¨se de rÃ©currence dit alors que \( A\) est strictement triangulaire supÃ©rieure (ou en tout cas peut le devenir par un changement de base adÃ©quat).
 
        \item[\( \Leftarrow\)]
 
-            Lorsqu'une matrice est triangulaire supérieure stricte, elle applique
+            Lorsqu'une matrice est triangulaire supÃ©rieure stricte, elle applique
             \begin{equation}
                 \Span\{ e_1,\ldots, e_k \}\to\Span\{ e_1,\ldots, e_{k-1} \}.
             \end{equation}
-            Donc tout vecteur finit sur zéro si on lui applique \( u\) assez souvent.
+            Donc tout vecteur finit sur zÃ©ro si on lui applique \( u\) assez souvent.
     \end{subproof}
 \end{proof}
 
-\begin{proposition}[Thème~\ref{THEMEooPQKDooTAVKFH}]     \label{PROPooWTFWooXHlmhp}
-    Soit \( E\) un espace de Banach (espace vectoriel normé complet). Si \( A\in\aL(E,E)\) est nilpotente, alors \( (\mtu-A)\) est inversible et son inverse est donné par
+\begin{proposition}[ThÃ¨me~\ref{THEMEooPQKDooTAVKFH}]     \label{PROPooWTFWooXHlmhp}
+    Soit \( E\) un espace de Banach (espace vectoriel normÃ© complet). Si \( A\in\aL(E,E)\) est nilpotente, alors \( (\mtu-A)\) est inversible et son inverse est donnÃ© par
     \begin{equation}
         (\mtu-A)^{-1}=\sum_{k=0}^{\infty}A^k,
     \end{equation}
-    où l'infini peut évidemment être remplacé par l'ordre de nilpotence de \( A\).
+    oÃ¹ l'infini peut Ã©videmment Ãªtre remplacÃ© par l'ordre de nilpotence de \( A\).
 \end{proposition}
 
 \begin{proof}
-    En ce qui concerne la convergence de la somme, elle ne fait pas de doutes parce que \( A\) étant nilpotente, la somme contient seulement une quantité finie de termes non nuls.
+    En ce qui concerne la convergence de la somme, elle ne fait pas de doutes parce que \( A\) Ã©tant nilpotente, la somme contient seulement une quantitÃ© finie de termes non nuls.
 
-    Montrons à présent que la somme est l'inverse de \( \mtu-A\) en multipliant terme à terme :
+    Montrons Ã  prÃ©sent que la somme est l'inverse de \( \mtu-A\) en multipliant terme Ã  terme :
     \begin{equation}
         \sum_{k=0}^nA^k(\mtu-A)=\sum_{k=0}^n(A^k-A^{k+1})=\mtu-A^{n+1}.
     \end{equation}
-    Par conséquent
+    Par consÃ©quent
     \begin{equation}
         \| \mtu-\sum_{k=0}^nA^k(\mtu-A) \|=\| A^{n+1} \|\to 0.
     \end{equation}
-    La dernière limite est en réalité une égalité pour \( n\) assez grand.
+    La derniÃ¨re limite est en rÃ©alitÃ© une Ã©galitÃ© pour \( n\) assez grand.
 \end{proof}
 
 \begin{proposition}
-    Soit \( A\in\GL(n,\eC)\). La suite \( (A^k)_{k\in \eZ}\) est bornée si et seulement si \( A\) est diagonalisable et \( \Spec(A)\subset \gS^1\).
+    Soit \( A\in\GL(n,\eC)\). La suite \( (A^k)_{k\in \eZ}\) est bornÃ©e si et seulement si \( A\) est diagonalisable et \( \Spec(A)\subset \gS^1\).
 \end{proposition}
 
 \begin{proof}
-    Si \( A\) est diagonalisable avec les valeurs propres \( \lambda_i\) de norme \( 1\) dans \( \eC\), alors \( A^k\) est la matrice diagonale avec les \( \lambda_i^k\) sur la diagonale. Cela reste borné pour toute valeur entière de \( k\).
+    Si \( A\) est diagonalisable avec les valeurs propres \( \lambda_i\) de norme \( 1\) dans \( \eC\), alors \( A^k\) est la matrice diagonale avec les \( \lambda_i^k\) sur la diagonale. Cela reste bornÃ© pour toute valeur entiÃ¨re de \( k\).
 
     En ce qui concerne l'autre sens, nous supposons encore que
     \begin{equation}
@@ -215,11 +215,11 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
     \end{equation}
     et nous regardons un des blocs. Nous voulons prouver que \( N=0\) et que \( | \lambda |=1\).
 
-    Nous commençons par regarder ce qu'implique le fait que \( (\lambda \mtu+N)^n\) reste borné pour \( n>0\). En notant \( r\) l'ordre de nilpotence de \( N\), nous avons le développement
+    Nous commenÃ§ons par regarder ce qu'implique le fait que \( (\lambda \mtu+N)^n\) reste bornÃ© pour \( n>0\). En notant \( r\) l'ordre de nilpotence de \( N\), nous avons le dÃ©veloppement
     \begin{equation}
         (\lambda\mtu+N)^n=\sum_{k=0}^{r-1}\binom{ n }{ k }N^k\lambda^{n-k}.
     \end{equation}
-    Par la proposition~\ref{PropMWWJooVIXdJp}, une matrice nilpotente s'écrit dans une base sous la forme
+    Par la proposition~\ref{PropMWWJooVIXdJp}, une matrice nilpotente s'Ã©crit dans une base sous la forme
     \begin{equation}
         N=\begin{pmatrix}
              0   &   1    &       &       \\
@@ -229,34 +229,34 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
                 &&       &      &   0
          \end{pmatrix}
     \end{equation}
-    et effectuer \( A^k\) revient à décaler la diagonale de \( 1\). Donc la famille
+    et effectuer \( A^k\) revient Ã  dÃ©caler la diagonale de \( 1\). Donc la famille
     \begin{equation}
         \{ \mtu,N,\ldots, N^{r-1} \}
     \end{equation}
-    est libre. Par conséquent la suite \( (\lambda\mtu+N)^n\) restera bornée si et seulement si chacun des termes
+    est libre. Par consÃ©quent la suite \( (\lambda\mtu+N)^n\) restera bornÃ©e si et seulement si chacun des termes
     \begin{equation}    \label{EqXRDVDCM}
         \binom{ n }{ k }N^k\lambda^{n-k}
     \end{equation}
-    reste borné. Le premier terme étant \( \lambda^n\mtu\), nous avons obligatoirement \( | \lambda |\leq 1\). Si \( | \lambda |<1\), alors le coefficient \( \binom{ n }{ k }\lambda^{n-k}\) tend vers zéro. Si \( | \lambda |=1\) par contre ce coefficient tend vers l'infini et la seule façon pour que \eqref{EqXRDVDCM} reste borné est que \( N=0\). Nous avons donc deux possibilités :
+    reste bornÃ©. Le premier terme Ã©tant \( \lambda^n\mtu\), nous avons obligatoirement \( | \lambda |\leq 1\). Si \( | \lambda |<1\), alors le coefficient \( \binom{ n }{ k }\lambda^{n-k}\) tend vers zÃ©ro. Si \( | \lambda |=1\) par contre ce coefficient tend vers l'infini et la seule faÃ§on pour que \eqref{EqXRDVDCM} reste bornÃ© est que \( N=0\). Nous avons donc deux possibilitÃ©s :
     \begin{itemize}
         \item \( | \lambda |<1\)
         \item \( | \lambda |=1\) et \( N=0\).
     \end{itemize}
 
-    Nous nous tournons maintenant sur la contrainte que \( (\lambda\mtu+N)^n\) doive rester borné pour \( n<0\). Nous avons
+    Nous nous tournons maintenant sur la contrainte que \( (\lambda\mtu+N)^n\) doive rester bornÃ© pour \( n<0\). Nous avons
     \begin{equation}
         \lambda\mtu+N=\lambda(\mtu+\lambda^{-1}N),
     \end{equation}
-    et nous pouvons appliquer la proposition~\ref{PROPooWTFWooXHlmhp} à l'opérateur nilpotent \( -\lambda^{-1} N\) pour avoir
+    et nous pouvons appliquer la proposition~\ref{PROPooWTFWooXHlmhp} Ã  l'opÃ©rateur nilpotent \( -\lambda^{-1} N\) pour avoir
     \begin{equation}
         (\mtu+\lambda^{-1}N)^{-1}=\mtu+\sum_{k=1}^{\infty}(-\lambda)^{-1}N^k.
     \end{equation}
-    Ceci pour dire que \( (\lambda\mtu+N)^{-1}=\lambda^{-1}(\mtu+\lambda^{-1}N')\) pour une autre matrice nilpotente \( N'\). Le travail déjà fait, appliqué à \( \lambda^{-1}\) et \( N'\), nous donne deux possibilités :
+    Ceci pour dire que \( (\lambda\mtu+N)^{-1}=\lambda^{-1}(\mtu+\lambda^{-1}N')\) pour une autre matrice nilpotente \( N'\). Le travail dÃ©jÃ  fait, appliquÃ© Ã  \( \lambda^{-1}\) et \( N'\), nous donne deux possibilitÃ©s :
     \begin{itemize}
         \item \( | \lambda^{-1} |<1\)
         \item \( | \lambda^{-1} |=1\) et \( N'=0\).
     \end{itemize}
-    La possibilité \( | \lambda^{-1} |<1\) est exclue parce qu'elle impliquerait \( | \lambda |>1\) qui avait déjà été exclu. Il ne reste donc que la possibilité \( | \lambda |=1\) et \( N=N'=0\).
+    La possibilitÃ© \( | \lambda^{-1} |<1\) est exclue parce qu'elle impliquerait \( | \lambda |>1\) qui avait dÃ©jÃ  Ã©tÃ© exclu. Il ne reste donc que la possibilitÃ© \( | \lambda |=1\) et \( N=N'=0\).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -264,69 +264,69 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}  \label{DefCNJqsmo}
-    Une matrice est \defe{diagonalisable}{diagonalisable} si elle est semblable\footnote{Définition~\ref{DefCQNFooSDhDpB}.} à une matrice diagonale.
+    Une matrice est \defe{diagonalisable}{diagonalisable} si elle est semblable\footnote{DÃ©finition~\ref{DefCQNFooSDhDpB}.} Ã  une matrice diagonale.
 \end{definition}
 
 \begin{lemma}
-    Une matrice triangulaire supérieure avec des \( 1\) sur la diagonale n'est diagonalisable que si elle est diagonale (c'est à dire si elle est la matrice unité).
+    Une matrice triangulaire supÃ©rieure avec des \( 1\) sur la diagonale n'est diagonalisable que si elle est diagonale (c'est Ã  dire si elle est la matrice unitÃ©).
 \end{lemma}
 
 \begin{proof}
-    Si \( A\) est une matrice triangulaire supérieure de taille \( n\) telle que \( A_{ii}=1\), alors \( \det(A-\lambda\mtu)=(1-\lambda)^n\), ce qui signifie que \( \Spec(A)=\{ 1 \}\). Pour la diagonaliser, il faudrait une matrice \( P\in\GL(n,\eK)\) telle que \( \mtu=P^{-1}AP\), ce qui est uniquement possible si \( A=\mtu\).
+    Si \( A\) est une matrice triangulaire supÃ©rieure de taille \( n\) telle que \( A_{ii}=1\), alors \( \det(A-\lambda\mtu)=(1-\lambda)^n\), ce qui signifie que \( \Spec(A)=\{ 1 \}\). Pour la diagonaliser, il faudrait une matrice \( P\in\GL(n,\eK)\) telle que \( \mtu=P^{-1}AP\), ce qui est uniquement possible si \( A=\mtu\).
 \end{proof}
 
 \begin{lemma}       \label{LemgnaEOk}
-    Soit \( F\) un sous-espace stable par \( u\). Soit une décomposition du polynôme minimal
+    Soit \( F\) un sous-espace stable par \( u\). Soit une dÃ©composition du polynÃ´me minimal
     \begin{equation}
         \mu_u=P_1^{n_1}\ldots P_r^{n_r}
     \end{equation}
-    où les \( P_i\) sont des polynômes irréductibles unitaires distincts. Si nous posons \( E_i=\ker P_i^{n_i}\), alors
+    oÃ¹ les \( P_i\) sont des polynÃ´mes irrÃ©ductibles unitaires distincts. Si nous posons \( E_i=\ker P_i^{n_i}\), alors
     \begin{equation}
         F=(F\cap E_1)\oplus\ldots \oplus(F\cap E_r).
     \end{equation}
 \end{lemma}
 
 \begin{theorem}     \label{ThoDigLEQEXR}
-    Soit \( E\), un espace vectoriel de dimension \( n\) sur le corps commutatif \( \eK\) et \( u\in\End(E)\). Les propriétés suivantes sont équivalentes.
+    Soit \( E\), un espace vectoriel de dimension \( n\) sur le corps commutatif \( \eK\) et \( u\in\End(E)\). Les propriÃ©tÃ©s suivantes sont Ã©quivalentes.
     \begin{enumerate}
         \item\label{ItemThoDigLEQEXRiv}
             L'endomorphisme \( u\) est diagonalisable.
         \item       \label{ItemThoDigLEQEXRi}
-            Il existe un polynôme \( P\in\eK[X]\) non constant, scindé sur \(\eK\) dont toutes les racines sont simples tel que \( P(u)=0\).
+            Il existe un polynÃ´me \( P\in\eK[X]\) non constant, scindÃ© sur \(\eK\) dont toutes les racines sont simples tel que \( P(u)=0\).
         \item\label{ItemThoDigLEQEXRii}
-            Le polynôme minimal \( \mu_u\) est scindé sur \(\eK\) et toutes ses racines sont simples\footnote{Le polynôme \emph{caractéristique}, lui, n'a pas spécialement ses racines simples; il peut encore être de la forme
+            Le polynÃ´me minimal \( \mu_u\) est scindÃ© sur \(\eK\) et toutes ses racines sont simples\footnote{Le polynÃ´me \emph{caractÃ©ristique}, lui, n'a pas spÃ©cialement ses racines simples; il peut encore Ãªtre de la forme
             \begin{equation}
                 \chi_u(X)=\prod_{i=1}^r(X-\lambda_i)^{\alpha_i},
         \end{equation}
         mais alors \( \dim(E_{\lambda_i})=\alpha_i\). }.
         \item\label{ItemThoDigLEQEXRiii}
-            Tout sous-espace de \( E\) possède un supplémentaire stable par \( u\).
+            Tout sous-espace de \( E\) possÃ¨de un supplÃ©mentaire stable par \( u\).
         \item       \label{ITEMooZNJFooEiqDYp}
-            Dans une base adaptée, la matrice de \( u\) est diagonale et les éléments diagonaux sont ses valeurs propres.
+            Dans une base adaptÃ©e, la matrice de \( u\) est diagonale et les Ã©lÃ©ments diagonaux sont ses valeurs propres.
     \end{enumerate}
 \end{theorem}
-\index{diagonalisable!et polynôme minimum scindé}
+\index{diagonalisable!et polynÃ´me minimum scindÃ©}
 
 \begin{proof}
-    Plein d'implications à prouver.
+    Plein d'implications Ã  prouver.
     \begin{subproof}
-    \item[\ref{ItemThoDigLEQEXRi} implique~\ref{ItemThoDigLEQEXRii}] Étant donné que \( P(u)=0\), il est dans l'idéal des polynômes annulateurs de \( u\), et le polynôme minimal \( \mu_u\) le divise parce que l'idéal des polynômes annulateurs est généré par \( \mu_u\) par le théorème~\ref{ThoCCHkoU}.
+    \item[\ref{ItemThoDigLEQEXRi} implique~\ref{ItemThoDigLEQEXRii}] Ã‰tant donnÃ© que \( P(u)=0\), il est dans l'idÃ©al des polynÃ´mes annulateurs de \( u\), et le polynÃ´me minimal \( \mu_u\) le divise parce que l'idÃ©al des polynÃ´mes annulateurs est gÃ©nÃ©rÃ© par \( \mu_u\) par le thÃ©orÃ¨me~\ref{ThoCCHkoU}.
 
-    \item[\ref{ItemThoDigLEQEXRii} implique~\ref{ItemThoDigLEQEXRiv}] Étant donné que le polynôme minimal est scindé à racines simples, il s'écrit sous forme de produits de monômes tous distincts, c'est à dire
+    \item[\ref{ItemThoDigLEQEXRii} implique~\ref{ItemThoDigLEQEXRiv}] Ã‰tant donnÃ© que le polynÃ´me minimal est scindÃ© Ã  racines simples, il s'Ã©crit sous forme de produits de monÃ´mes tous distincts, c'est Ã  dire
     \begin{equation}
         \mu_u(X)=(X-\lambda_1)\ldots(X-\lambda_r)
     \end{equation}
-    où les \( \lambda_i\) sont des éléments distincts de \( \eK\). Étant donné que \( \mu_u(u)=0\), le théorème de décomposition des noyaux (théorème~\ref{ThoDecompNoyayzzMWod}) nous enseigne que
+    oÃ¹ les \( \lambda_i\) sont des Ã©lÃ©ments distincts de \( \eK\). Ã‰tant donnÃ© que \( \mu_u(u)=0\), le thÃ©orÃ¨me de dÃ©composition des noyaux (thÃ©orÃ¨me~\ref{ThoDecompNoyayzzMWod}) nous enseigne que
     \begin{equation}
         E=\ker(u-\lambda_1)\oplus\ldots\oplus\ker(u-\lambda_r).
     \end{equation}
     Mais \( \ker(u-\lambda_i)\) est l'espace propre \( E_{\lambda_i}(u)\). Donc \( u\) est diagonalisable.
 
-\item[\ref{ItemThoDigLEQEXRiv} implique~\ref{ItemThoDigLEQEXRiii}] Soit \( \{ e_1,\ldots, e_n \}\) une base qui diagonalise \( u\), soit \( F\) un sous-espace de \( E\) un \( \{ f_1,\ldots, f_r \}\) une base de \( F\). Par le théorème~\ref{ThoBaseIncompjblieG} (qui généralise le théorème de la base incomplète), nous pouvons compléter la base de \( F\) par des éléments de la base \( \{ e_i \}\). Le complément ainsi construit est invariant par \( u\).
+\item[\ref{ItemThoDigLEQEXRiv} implique~\ref{ItemThoDigLEQEXRiii}] Soit \( \{ e_1,\ldots, e_n \}\) une base qui diagonalise \( u\), soit \( F\) un sous-espace de \( E\) un \( \{ f_1,\ldots, f_r \}\) une base de \( F\). Par le thÃ©orÃ¨me~\ref{ThoBaseIncompjblieG} (qui gÃ©nÃ©ralise le thÃ©orÃ¨me de la base incomplÃ¨te), nous pouvons complÃ©ter la base de \( F\) par des Ã©lÃ©ments de la base \( \{ e_i \}\). Le complÃ©ment ainsi construit est invariant par \( u\).
 
-\item[\ref{ItemThoDigLEQEXRiii} implique~\ref{ItemThoDigLEQEXRiv}] En dimension un, tout endomorphisme est diagonalisable, nous supposons donc que \( \dim E=n\geq 2\). Nous procédons par récurrence sur le nombre de vecteurs propres connus de \( u\). Supposons avoir déjà trouvé \( p\) vecteurs propres \( e_1,\ldots, e_p\) de \( u\). Considérons \( H\), un hyperplan qui contient les vecteurs \( e_1,\ldots, e_p\). Soit \( F\) un supplémentaire de \( H\) stable par \( u\); par construction \( \dim F=1\) et si \( e_{p+1}\in F\), il doit être vecteur propre de \( u\).
+\item[\ref{ItemThoDigLEQEXRiii} implique~\ref{ItemThoDigLEQEXRiv}] En dimension un, tout endomorphisme est diagonalisable, nous supposons donc que \( \dim E=n\geq 2\). Nous procÃ©dons par rÃ©currence sur le nombre de vecteurs propres connus de \( u\). Supposons avoir dÃ©jÃ  trouvÃ© \( p\) vecteurs propres \( e_1,\ldots, e_p\) de \( u\). ConsidÃ©rons \( H\), un hyperplan qui contient les vecteurs \( e_1,\ldots, e_p\). Soit \( F\) un supplÃ©mentaire de \( H\) stable par \( u\); par construction \( \dim F=1\) et si \( e_{p+1}\in F\), il doit Ãªtre vecteur propre de \( u\).
 
-\item[\ref{ItemThoDigLEQEXRiv} implique~\ref{ItemThoDigLEQEXRi}] Nous supposons maintenant que \( u\) est diagonalisable. Soient \( \lambda_1,\ldots, \lambda_r\) les valeurs propres deux à deux distinctes, et considérons le polynôme
+\item[\ref{ItemThoDigLEQEXRiv} implique~\ref{ItemThoDigLEQEXRi}] Nous supposons maintenant que \( u\) est diagonalisable. Soient \( \lambda_1,\ldots, \lambda_r\) les valeurs propres deux Ã  deux distinctes, et considÃ©rons le polynÃ´me
     \begin{equation}
         P(x)=(X-\lambda_1)\ldots (X-\lambda_r).
     \end{equation}
@@ -334,12 +334,12 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
     \begin{equation}
         P(u)e_i=\prod_{j\neq i}(u-\lambda_j)\circ(u-\lambda_i)e_i=0
     \end{equation}
-    par le lemme~\ref{LemQWvhYb}. Par conséquent \( P(u)\) s'annule sur une base.
+    par le lemme~\ref{LemQWvhYb}. Par consÃ©quent \( P(u)\) s'annule sur une base.
 
 \item[\ref{ITEMooZNJFooEiqDYp} implique~\ref{ItemThoDigLEQEXRi}]
-    Si la matrice \( A\) est diagonale alors le polynôme \( P=\prod_{i=1}^n(A-A_{ii}\mtu)\) est annulateur de \( A\).
+    Si la matrice \( A\) est diagonale alors le polynÃ´me \( P=\prod_{i=1}^n(A-A_{ii}\mtu)\) est annulateur de \( A\).
         \item[\ref{ItemThoDigLEQEXRii} implique~\ref{ITEMooZNJFooEiqDYp}]
-            le polynôme minimal de \( u\) s'écrit
+            le polynÃ´me minimal de \( u\) s'Ã©crit
             \begin{equation}
                 \mu=(X-\lambda_1)\ldots(X-\lambda_r),
             \end{equation}
@@ -347,7 +347,7 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
             \begin{equation}
                 E=E_1\oplus\ldots\oplus E_r.
             \end{equation}
-            Dans chacun des espaces propres, $u$ a une matrice diagonale avec la valeur propre correspondante sur la diagonale. Une base de \( E\) constituée d'une base de chacun des espaces propres est donc une base comme nous en cherchons.
+            Dans chacun des espaces propres, $u$ a une matrice diagonale avec la valeur propre correspondante sur la diagonale. Une base de \( E\) constituÃ©e d'une base de chacun des espaces propres est donc une base comme nous en cherchons.
     \end{subproof}
 \end{proof}
 
@@ -356,17 +356,17 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
     \begin{equation}
         F=\bigoplus_{\lambda}E_{\lambda}(u)\cap F
     \end{equation}
-    où \( E_{\lambda}(u)\) est l'espace propre de \( u\) pour la valeur propre \( \lambda\). En particulier la restriction de \( u\) à \( F\), \( u|_F\) est diagonalisable.
+    oÃ¹ \( E_{\lambda}(u)\) est l'espace propre de \( u\) pour la valeur propre \( \lambda\). En particulier la restriction de \( u\) Ã  \( F\), \( u|_F\) est diagonalisable.
 \end{corollary}
 
 \begin{proof}
-    Par le théorème~\ref{ThoDigLEQEXR}, le polynôme \( \mu_u\) est scindé et ne possède que des racines simples. Notons le
+    Par le thÃ©orÃ¨me~\ref{ThoDigLEQEXR}, le polynÃ´me \( \mu_u\) est scindÃ© et ne possÃ¨de que des racines simples. Notons le
     \begin{equation}
         \mu_u(X)=(X-\lambda_1)\ldots (X-\lambda_r).
     \end{equation}
     Les espaces \( E_i\) du lemme~\ref{LemgnaEOk} sont maintenant les espaces propres.
 
-    En ce qui concerne la diagonalisabilité de \( u|_F\), notons que nous avons une base de \( F\) composée de vecteurs dans les espaces \( E_{\lambda}(u)\). Cette base de \( F\) est une base de vecteurs propres de \( u\).
+    En ce qui concerne la diagonalisabilitÃ© de \( u|_F\), notons que nous avons une base de \( F\) composÃ©e de vecteurs dans les espaces \( E_{\lambda}(u)\). Cette base de \( F\) est une base de vecteurs propres de \( u\).
 \end{proof}
 
 \begin{lemma}
@@ -374,51 +374,51 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{tr
 \end{lemma}
 
 \begin{proof}
-    Soient \( \lambda_1,\ldots, \lambda_n\) les valeurs propres distinctes de \( u\). Nous savons que les espaces propres correspondants sont en somme directe (lemme~\ref{LemjcztYH}). Par conséquent \( \Span\{ E_{\lambda_i}(u) \}\) est de dimension \( n\) est \( u\) est diagonalisable.
+    Soient \( \lambda_1,\ldots, \lambda_n\) les valeurs propres distinctes de \( u\). Nous savons que les espaces propres correspondants sont en somme directe (lemme~\ref{LemjcztYH}). Par consÃ©quent \( \Span\{ E_{\lambda_i}(u) \}\) est de dimension \( n\) est \( u\) est diagonalisable.
 \end{proof}
 
-Voici un résultat de diagonalisation simultanée. Nous donnerons un résultat de trigonalisation simultanée dans le lemme~\ref{LemSLGPooIghEPI}.
-\begin{proposition}[Diagonalisation simultanée]     \label{PropGqhAMei}
-    Soit \( (u_i)_{i\in I}\) une famille d'endomorphismes qui commutent deux à deux.
+Voici un rÃ©sultat de diagonalisation simultanÃ©e. Nous donnerons un rÃ©sultat de trigonalisation simultanÃ©e dans le lemme~\ref{LemSLGPooIghEPI}.
+\begin{proposition}[Diagonalisation simultanÃ©e]     \label{PropGqhAMei}
+    Soit \( (u_i)_{i\in I}\) une famille d'endomorphismes qui commutent deux Ã  deux.
     \begin{enumerate}
         \item       \label{ItemGqhAMei}
             Si \( i,j\in I\) alors tout sous-espace propre de \( u_i\) est stable par \( u_j\). Autrement dit \( u_j\big(E_{\lambda}(u)\big)\subset E_{\lambda}(u)\).
         \item
-            Si les \( u_i\) sont diagonalisables, alors ils le sont simultanément.
+            Si les \( u_i\) sont diagonalisables, alors ils le sont simultanÃ©ment.
     \end{enumerate}
 \end{proposition}
-\index{diagonalisation!simultanée}
+\index{diagonalisation!simultanÃ©e}
 
 \begin{proof}
     Supposons que \( u_i\) et \( u_j\) commutent et soit \( x\) un vecteur propre de \( u_i\) : \( u_ix=\lambda x\). Nous montrons que \( u_jx\in E_{\lambda}(u)\). Nous avons
     \begin{equation}
         u_i\big( u_j(x) \big)=u_j\big( u_i(x) \big)=\lambda u_j(x).
     \end{equation}
-    Par conséquent \( u_j(x)\) est vecteur propre de \( u_i\) de valeur propre \( \lambda\).
+    Par consÃ©quent \( u_j(x)\) est vecteur propre de \( u_i\) de valeur propre \( \lambda\).
 
-    Montrons maintenant l'affirmation à propos des endomorphismes simultanément diagonalisables. Si \( \dim E=1\), le résultat est évident. Nous supposons également qu'aucun des \( u_i\) n'est multiple de l'identité. Nous effectuons une récurrence sur la dimension.
+    Montrons maintenant l'affirmation Ã  propos des endomorphismes simultanÃ©ment diagonalisables. Si \( \dim E=1\), le rÃ©sultat est Ã©vident. Nous supposons Ã©galement qu'aucun des \( u_i\) n'est multiple de l'identitÃ©. Nous effectuons une rÃ©currence sur la dimension.
 
-    Soit \( u_0\) un des \( u_i\) et considérons ses valeurs propres deux à deux distinctes \( \lambda_1,\ldots, \lambda_r\). Pour chaque \( k\) nous avons
+    Soit \( u_0\) un des \( u_i\) et considÃ©rons ses valeurs propres deux Ã  deux distinctes \( \lambda_1,\ldots, \lambda_r\). Pour chaque \( k\) nous avons
     \begin{equation}
         E_{\lambda_k}(u_0)\neq E,
     \end{equation}
-    sinon \( u_0\) serait un multiple de l'identité. Par contre le fait que \( u_0\) soit diagonalisable permet de décomposer \( E\) en espaces propres de \( u_0\) :
+    sinon \( u_0\) serait un multiple de l'identitÃ©. Par contre le fait que \( u_0\) soit diagonalisable permet de dÃ©composer \( E\) en espaces propres de \( u_0\) :
     \begin{equation}
         E=\bigoplus_{k}E_{\lambda_k}(u_0).
     \end{equation}
-    Ce que nous allons faire est de simultanément diagonaliser les \( (u_i)_{i\in I}\) sur chacun des \( E_{\lambda_k}\) séparément. Par le point~\ref{ItemGqhAMei}, nous avons \( u_i\colon E_{\lambda_k}(u_0)\to E_{\lambda_k}(u_0)\), et nous pouvons considérer la famille d'opérateurs
+    Ce que nous allons faire est de simultanÃ©ment diagonaliser les \( (u_i)_{i\in I}\) sur chacun des \( E_{\lambda_k}\) sÃ©parÃ©ment. Par le point~\ref{ItemGqhAMei}, nous avons \( u_i\colon E_{\lambda_k}(u_0)\to E_{\lambda_k}(u_0)\), et nous pouvons considÃ©rer la famille d'opÃ©rateurs
     \begin{equation}
         \left( u_i|_{E_{\lambda_k}(u_0)} \right)_{i\in I}.
     \end{equation}
-    Ce sont tous des opérateurs qui commutent et qui agissent sur un espace de dimension plus petite. Par hypothèse de récurrence nous avons une base de \( E_{\lambda_k}(u_0)\) qui diagonalise tous les \( u_i\).
+    Ce sont tous des opÃ©rateurs qui commutent et qui agissent sur un espace de dimension plus petite. Par hypothÃ¨se de rÃ©currence nous avons une base de \( E_{\lambda_k}(u_0)\) qui diagonalise tous les \( u_i\).
 \end{proof}
 
 \begin{example}     \label{ExewINgYo}
-    Soit un espace vectoriel sur un corps \( \eK\). Un opérateur \defe{involutif}{involution} est un opérateur différent de l'identité dont le carré est l'identité. Typiquement une symétrie orthogonale dans \( \eR^3\). Le polynôme caractéristique d'une involution est \( X^2-1=(X+1)(X-1)\).
+    Soit un espace vectoriel sur un corps \( \eK\). Un opÃ©rateur \defe{involutif}{involution} est un opÃ©rateur diffÃ©rent de l'identitÃ© dont le carrÃ© est l'identitÃ©. Typiquement une symÃ©trie orthogonale dans \( \eR^3\). Le polynÃ´me caractÃ©ristique d'une involution est \( X^2-1=(X+1)(X-1)\).
 
-    Tant que \( 1\neq -1\), \( X^1-1\) est donc scindé à racines simples et les involutions sont diagonalisables (\ref{ThoDigLEQEXR}). Cependant si le corps est de caractéristique \( 2\), alors \( X^2-1=(X+1)^2\) et l'involution n'est plus diagonalisable.
+    Tant que \( 1\neq -1\), \( X^1-1\) est donc scindÃ© Ã  racines simples et les involutions sont diagonalisables (\ref{ThoDigLEQEXR}). Cependant si le corps est de caractÃ©ristique \( 2\), alors \( X^2-1=(X+1)^2\) et l'involution n'est plus diagonalisable.
 
-    Par exemple si le corps est de caractéristique \( 2\), nous avons
+    Par exemple si le corps est de caractÃ©ristique \( 2\), nous avons
     \begin{subequations}
         \begin{align}
             A&=\begin{pmatrix}
@@ -441,7 +441,7 @@ Voici un résultat de diagonalisation simultanée. Nous donnerons un résultat de t
 \subsection{Diagonalisation : cas complexe, pas toujours}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Il n'est pas vrai qu'une matrice de \( \eM(n,\eC)\) soit toujours diagonalisable. En effet le théorème~\ref{ThoDigLEQEXR}\ref{ItemThoDigLEQEXRii} dit qu'une matrice est diagonalisable si et seulement si son polynôme minimal est scindé à racines simples. Certes sur \( \eC\) le polynôme minimal sera scindé, mais il ne sera pas spécialement à racines simples.
+Il n'est pas vrai qu'une matrice de \( \eM(n,\eC)\) soit toujours diagonalisable. En effet le thÃ©orÃ¨me~\ref{ThoDigLEQEXR}\ref{ItemThoDigLEQEXRii} dit qu'une matrice est diagonalisable si et seulement si son polynÃ´me minimal est scindÃ© Ã  racines simples. Certes sur \( \eC\) le polynÃ´me minimal sera scindÃ©, mais il ne sera pas spÃ©cialement Ã  racines simples.
 
 \begin{example}
     La matrice
@@ -451,72 +451,72 @@ Il n'est pas vrai qu'une matrice de \( \eM(n,\eC)\) soit toujours diagonalisable
             0    &   0
         \end{pmatrix}
     \end{equation}
-    a pour polynôme caractéristique \( \chi_A(X)=X^2\). Cela est également son polynôme minimal, et ce n'est pas à racine simple.
+    a pour polynÃ´me caractÃ©ristique \( \chi_A(X)=X^2\). Cela est Ã©galement son polynÃ´me minimal, et ce n'est pas Ã  racine simple.
 
-    Il est par ailleurs facile de voir que le seul espace propre de \( A\) est \( \Span\{ (1,0) \}\) (ici le span est sur \( \eC\)). Donc l'espace \( \eC^2\) ne possède pas de base de vecteurs propres de \( A\).
+    Il est par ailleurs facile de voir que le seul espace propre de \( A\) est \( \Span\{ (1,0) \}\) (ici le span est sur \( \eC\)). Donc l'espace \( \eC^2\) ne possÃ¨de pas de base de vecteurs propres de \( A\).
 \end{example}
 
-Ce qui est vrai, c'est que le polynôme caractéristique a des racines, et que ces racines correspondent à des vecteurs propres. Mais il n'y a pas toujours autant de vecteurs propres que la multiplicité des racines.
+Ce qui est vrai, c'est que le polynÃ´me caractÃ©ristique a des racines, et que ces racines correspondent Ã  des vecteurs propres. Mais il n'y a pas toujours autant de vecteurs propres que la multiplicitÃ© des racines.
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Trigonalisation : généralités}
+\subsection{Trigonalisation : gÃ©nÃ©ralitÃ©s}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[\cite{MQMKooPBfnZN}]
-    Une matrice dans \( \eM(n,\eK)\) est \defe{trigonalisable}{matrice!trigonalisable} lorsqu'elle est semblable\footnote{Définition~\ref{DefCQNFooSDhDpB}.} à une matrice triangulaire supérieure.
+    Une matrice dans \( \eM(n,\eK)\) est \defe{trigonalisable}{matrice!trigonalisable} lorsqu'elle est semblable\footnote{DÃ©finition~\ref{DefCQNFooSDhDpB}.} Ã  une matrice triangulaire supÃ©rieure.
 \end{definition}
 
-\begin{proposition}[Trigonalisation et polynôme caractéristique scindé] \label{PropKNVFooQflQsJ}
-    Soit \( u\) un endomorphisme d'un espace vectoriel \( E\) sur le corps \( \eK\). Les faits suivants sont équivalents.
+\begin{proposition}[Trigonalisation et polynÃ´me caractÃ©ristique scindÃ©] \label{PropKNVFooQflQsJ}
+    Soit \( u\) un endomorphisme d'un espace vectoriel \( E\) sur le corps \( \eK\). Les faits suivants sont Ã©quivalents.
     \begin{enumerate}
         \item   \label{ItemZKDMooOrTHkwi}
             L'endomorphisme \( u\) est trigonalisable (auquel cas les valeurs propres sont sur la diagonale).
         \item   \label{ItemZKDMooOrTHkwii}
-            Le polynôme caractéristique de \( u\) est scindé\footnote{Définition~\ref{DefCPLSooQaHJKQ}.}.
+            Le polynÃ´me caractÃ©ristique de \( u\) est scindÃ©\footnote{DÃ©finition~\ref{DefCPLSooQaHJKQ}.}.
     \end{enumerate}
 \end{proposition}
-\index{trigonalisation!et polynôme caractéristique}
+\index{trigonalisation!et polynÃ´me caractÃ©ristique}
 
 \begin{proof}
     \begin{subproof}
         \item[\ref{ItemZKDMooOrTHkwii}\( \Rightarrow\)\ref{ItemZKDMooOrTHkwi}]
-            Nous avons par hypothèse que
+            Nous avons par hypothÃ¨se que
             \begin{equation}
                 \chi_u(X)=\prod_{i=1}^r(X-\lambda_i)^{\alpha_i}
             \end{equation}
-            où les \( \lambda_i\) sont les valeurs propres de \( u\). Le théorème de Cayley-Hamilton~\ref{ThoCalYWLbJQ} dit que \( \chi_u(u)=0\), ce qui permet d'utiliser le théorème de décomposition des noyaux~\ref{ThoDecompNoyayzzMWod} :
+            oÃ¹ les \( \lambda_i\) sont les valeurs propres de \( u\). Le thÃ©orÃ¨me de Cayley-Hamilton~\ref{ThoCalYWLbJQ} dit que \( \chi_u(u)=0\), ce qui permet d'utiliser le thÃ©orÃ¨me de dÃ©composition des noyaux~\ref{ThoDecompNoyayzzMWod} :
             \begin{equation}
                 E=\ker(X-\lambda_1)^{\alpha_1}\oplus\ldots\oplus\ker(X-\lambda_r)^{\alpha_r}.
             \end{equation}
-            Les espaces \( F_{\lambda_i}(u)=\ker(X-\lambda_i)^{\alpha_i}\) sont les espaces caractéristiques de \( u\), ce qui fait que \( u-\lambda_i\mtu\) est nilpotent sur \( F_{\lambda_i}(u)\). L'endomorphisme \( u-\lambda_i\mtu\) est donc strictement trigonalisable supérieur sur son bloc\footnote{Proposition~\ref{PropMWWJooVIXdJp}.}. Cela signifie que \( u\) est triangulaire supérieure avec les valeurs propres sur la diagonale.
+            Les espaces \( F_{\lambda_i}(u)=\ker(X-\lambda_i)^{\alpha_i}\) sont les espaces caractÃ©ristiques de \( u\), ce qui fait que \( u-\lambda_i\mtu\) est nilpotent sur \( F_{\lambda_i}(u)\). L'endomorphisme \( u-\lambda_i\mtu\) est donc strictement trigonalisable supÃ©rieur sur son bloc\footnote{Proposition~\ref{PropMWWJooVIXdJp}.}. Cela signifie que \( u\) est triangulaire supÃ©rieure avec les valeurs propres sur la diagonale.
 
         \item[\ref{ItemZKDMooOrTHkwi}\( \Rightarrow\)\ref{ItemZKDMooOrTHkwii}]
 
-            C'est immédiat parce que le déterminant d'une matrice triangulaire est le produit des éléments de sa diagonale.
+            C'est immÃ©diat parce que le dÃ©terminant d'une matrice triangulaire est le produit des Ã©lÃ©ments de sa diagonale.
     \end{subproof}
 \end{proof}
 
 \begin{remark}
-    La méthode des pivots de Gauss\footnote{Le lemme~\ref{LemZMxxnfM}.} certes permet de trigonaliser n'importe quoi, mais elle ne correspond pas à un changement de base. Autrement dit, les pivots de Gauss ne sont pas de similitudes.
+    La mÃ©thode des pivots de Gauss\footnote{Le lemme~\ref{LemZMxxnfM}.} certes permet de trigonaliser n'importe quoi, mais elle ne correspond pas Ã  un changement de base. Autrement dit, les pivots de Gauss ne sont pas de similitudes.
 
-    C'est là qu'il faut bien avoir en tête la différence entre \emph{équivalence} et \emph{similarité} (définition~\ref{DefBLELooTvlHoB}). Lorsqu'on parle de changement de base, de matrice trigonalisable ou diagonalisable, nous parlons de similarité et non d'équivalence.
+    C'est lÃ  qu'il faut bien avoir en tÃªte la diffÃ©rence entre \emph{Ã©quivalence} et \emph{similaritÃ©} (dÃ©finition~\ref{DefBLELooTvlHoB}). Lorsqu'on parle de changement de base, de matrice trigonalisable ou diagonalisable, nous parlons de similaritÃ© et non d'Ã©quivalence.
 \end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Trigonalisation : cas complexe}
 %---------------------------------------------------------------------------------------------------------------------------
 
-La proposition~\ref{PropKNVFooQflQsJ} dit déjà que tous les endomorphismes sont trigonalisables sur \( \eC\). Nous allons aller plus loin et montrer que la trigonalisation peut être effectuée à l'aide d'une matrice unitaire.
+La proposition~\ref{PropKNVFooQflQsJ} dit dÃ©jÃ  que tous les endomorphismes sont trigonalisables sur \( \eC\). Nous allons aller plus loin et montrer que la trigonalisation peut Ãªtre effectuÃ©e Ã  l'aide d'une matrice unitaire.
 
-Une démonstration alternative passant par le polynôme caractéristique sera présentée dans la remarque~\ref{RemXFZTooXkGzQg} utilisant la proposition~\ref{PropKNVFooQflQsJ}.
+Une dÃ©monstration alternative passant par le polynÃ´me caractÃ©ristique sera prÃ©sentÃ©e dans la remarque~\ref{RemXFZTooXkGzQg} utilisant la proposition~\ref{PropKNVFooQflQsJ}.
 \begin{lemma}[Lemme de Schur complexe, trigonisation\cite{NormHKNPKRqV}]  \label{LemSchurComplHAftTq}
-    Si \( A\in\eM(n,\eC)\), il existe une matrice unitaire \( U\) telle que \( UAU^{-1}\) soit triangulaire supérieure.
+    Si \( A\in\eM(n,\eC)\), il existe une matrice unitaire \( U\) telle que \( UAU^{-1}\) soit triangulaire supÃ©rieure.
 \end{lemma}
 \index{lemme!Schur complexe}
-%TODO : Le lemme de Schur est souvent énoncé en disant que si p est une représentation irréductible, alors les seuls endomorphismes de V commutant avec tous les p(g) sont les multiples de l'idenditié. Quel est le lien avec ceci ?
+%TODO : Le lemme de Schur est souvent Ã©noncÃ© en disant que si p est une reprÃ©sentation irrÃ©ductible, alors les seuls endomorphismes de V commutant avec tous les p(g) sont les multiples de l'idenditiÃ©. Quel est le lien avec ceci ?
 
 \begin{proof}
-    Étant donné que \( \eC\) est algébriquement clos, nous pouvons toujours considérer un vecteur propre \( v_1\) de \( A\), de valeur propre \( \lambda_1\). Nous pouvons utiliser un procédé de Gram-Schmidt pour construire une base orthonormée \( \{ v,u_2,\ldots, u_n \}\) de \( \eR^n\), et la matrice (unitaire)
+    Ã‰tant donnÃ© que \( \eC\) est algÃ©briquement clos, nous pouvons toujours considÃ©rer un vecteur propre \( v_1\) de \( A\), de valeur propre \( \lambda_1\). Nous pouvons utiliser un procÃ©dÃ© de Gram-Schmidt pour construire une base orthonormÃ©e \( \{ v,u_2,\ldots, u_n \}\) de \( \eR^n\), et la matrice (unitaire)
     \begin{equation}
         Q=\begin{pmatrix}
              \uparrow   &   \uparrow    &       &   \uparrow    \\
@@ -524,53 +524,53 @@ Une démonstration alternative passant par le polynôme caractéristique sera prése
              \downarrow   &   \downarrow    &       &   \downarrow
          \end{pmatrix}.
     \end{equation}
-    Nous avons \( Q^{-1}AQe_1=Q^{-1} Av=\lambda Q^{-1} v=\lambda e_1\), par conséquent la matrice \( Q^{-1} AQ\) est de la forme
+    Nous avons \( Q^{-1}AQe_1=Q^{-1} Av=\lambda Q^{-1} v=\lambda e_1\), par consÃ©quent la matrice \( Q^{-1} AQ\) est de la forme
     \begin{equation}
         Q^{-1}AQ=\begin{pmatrix}
             \lambda_1    &   *    \\
             0    &   A_1
         \end{pmatrix}
     \end{equation}
-    où \( *\) représente une ligne quelconque et \( A_1\) est une matrice de \( \eM(n-1,\eC)\). Nous pouvons donc répéter le processus sur \( A_1\) et obtenir une matrice triangulaire supérieure (nous utilisons le fait qu'un produit de matrices orthogonales est une matrice orthogonale).
+    oÃ¹ \( *\) reprÃ©sente une ligne quelconque et \( A_1\) est une matrice de \( \eM(n-1,\eC)\). Nous pouvons donc rÃ©pÃ©ter le processus sur \( A_1\) et obtenir une matrice triangulaire supÃ©rieure (nous utilisons le fait qu'un produit de matrices orthogonales est une matrice orthogonale).
 \end{proof}
-En particulier les matrices hermitiennes, anti-hermitiennes et unitaires sont trigonalisables par une matrice unitaire, qui peut être choisie de déterminant \( 1\).
+En particulier les matrices hermitiennes, anti-hermitiennes et unitaires sont trigonalisables par une matrice unitaire, qui peut Ãªtre choisie de dÃ©terminant \( 1\).
 
 \begin{lemma}       \label{LEMooRCFGooPPXiKi}
-    Soit \( A\in \eM(n,\eC)\) et une matrice unitaire \( U\) telle que \( A=UTU^{-1}\) où \( T\) est triangulaire.
+    Soit \( A\in \eM(n,\eC)\) et une matrice unitaire \( U\) telle que \( A=UTU^{-1}\) oÃ¹ \( T\) est triangulaire.
     \begin{enumerate}
         \item
-            En ce qui concerne les polynômes caractéristiques, \( \chi_A=\chi_T\).
+            En ce qui concerne les polynÃ´mes caractÃ©ristiques, \( \chi_A=\chi_T\).
         \item
             Pour les spectres, \( \Spec(A)=\Spec(T)\).
         \item
-            Les valeurs propres de \( A\) sont les éléments diagonaux de \( T\).
+            Les valeurs propres de \( A\) sont les Ã©lÃ©ments diagonaux de \( T\).
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    Vu que \( U\) commute évidemment avec \( \mtu\) nous avons
+    Vu que \( U\) commute Ã©videmment avec \( \mtu\) nous avons
     \begin{equation}
         \chi_A(\lambda)=\det(A-\lambda \mtu)=\det(UTU^{-1}-\lambda\mtu)=\det\big( U(T-\lambda\mtu)U^{-1} \big).
     \end{equation}
-    À ce niveau nous utilisons le fait que le déterminant soit multiplicatif~\ref{PropYQNMooZjlYlA} pour conclure :
+    Ã€ ce niveau nous utilisons le fait que le dÃ©terminant soit multiplicatif~\ref{PropYQNMooZjlYlA} pour conclure :
     \begin{equation}
         \chi_A(\lambda)=\det\big( U(T-\lambda\mtu)U^{-1} \big)=\det(U)\det(T-\lambda\mtu)\det(U^{-1})=\det(T-\lambda\mtu)=\chi_T(\lambda).
     \end{equation}
 
-    Pour les spectres, l'égalité des polynômes caractéristique implique l'égalité des spectres parce que les valeurs propres sont les racines du polynôme caractéristique par le théorème~\ref{ThoWDGooQUGSTL}.
+    Pour les spectres, l'Ã©galitÃ© des polynÃ´mes caractÃ©ristique implique l'Ã©galitÃ© des spectres parce que les valeurs propres sont les racines du polynÃ´me caractÃ©ristique par le thÃ©orÃ¨me~\ref{ThoWDGooQUGSTL}.
 
     Les valeurs propres d'une matrice triangulaire sont les valeurs sur la diagonale.
 \end{proof}
 
 \begin{remark}
-    Le lemme mentionne le fait que les valeurs propres de \( A\) sont les éléments diagonaux de \( T\). Mais attention : ceci ne dit rien au niveau des multiplicités géométriques. Un nombre peut être cinq fois sur la diagonale de \( T\) alors que l'espace propre correspondant pour \( A\) n'est que de dimension \( 1\). Exemple : la matrice
+    Le lemme mentionne le fait que les valeurs propres de \( A\) sont les Ã©lÃ©ments diagonaux de \( T\). Mais attention : ceci ne dit rien au niveau des multiplicitÃ©s gÃ©omÃ©triques. Un nombre peut Ãªtre cinq fois sur la diagonale de \( T\) alors que l'espace propre correspondant pour \( A\) n'est que de dimension \( 1\). Exemple : la matrice
     \begin{equation}
         A=\begin{pmatrix}
             1    &   1    \\
             0    &   1
         \end{pmatrix}
     \end{equation}
-    a deux \( 1\) sur la diagonale. Le nombre \( 1\) est bien une valeur propre de \( A\), mais le système
+    a deux \( 1\) sur la diagonale. Le nombre \( 1\) est bien une valeur propre de \( A\), mais le systÃ¨me
     \begin{equation}
         A\begin{pmatrix}
             x    \\
@@ -584,14 +584,14 @@ En particulier les matrices hermitiennes, anti-hermitiennes et unitaires sont tr
 \end{remark}
 
 \begin{remark}  \label{RemXFZTooXkGzQg}
-    Si \( \eK\) est algébriquement clos (comme \( \eC\) par exemple), alors tous les polynômes sont scindés et toutes les matrices sont trigonalisables\footnote{La proposition~\ref{PropKNVFooQflQsJ} montre cela, et le lemme de Schur complexe~\ref{LemSchurComplHAftTq} va un peu plus loin et précise que la trigonalisation peut être faite par une matrice unitaire.}. Un exemple un peu simple de cela est la matrice
+    Si \( \eK\) est algÃ©briquement clos (comme \( \eC\) par exemple), alors tous les polynÃ´mes sont scindÃ©s et toutes les matrices sont trigonalisables\footnote{La proposition~\ref{PropKNVFooQflQsJ} montre cela, et le lemme de Schur complexe~\ref{LemSchurComplHAftTq} va un peu plus loin et prÃ©cise que la trigonalisation peut Ãªtre faite par une matrice unitaire.}. Un exemple un peu simple de cela est la matrice
     \begin{equation}
         u=\begin{pmatrix}
             0    &   -1    \\
             1    &   0
         \end{pmatrix}.
     \end{equation}
-    Le polynôme caractéristique est \( \chi_u(X)=X^2+1\) et les valeurs propres sont \( \pm i\). Il est vite vu que dans la base
+    Le polynÃ´me caractÃ©ristique est \( \chi_u(X)=X^2+1\) et les valeurs propres sont \( \pm i\). Il est vite vu que dans la base
     \begin{equation}
         \{ \begin{pmatrix}
         i    \\
@@ -608,19 +608,19 @@ i
 \end{remark}
 
 \begin{remark}  \label{RemREOSooGEDJWX}
-    Cela nous donne une autre façon de prouver qu'une matrice nilpotente de \( \eM(n,\eC)\) ou \( \eM(n,\eR)\) est trigonalisable\cite{KDUFooVxwqlC}. D'abord dans \( \eM(n,\eC)\), toutes les matrices sont trigonalisables\footnote{Parce que le polynôme caractéristique est scindé, voir la proposition~\ref{PropKNVFooQflQsJ}..}, et les valeurs propres arrivent sur la diagonale. Mais comme les valeurs propres d'une matrice nilpotente sont zéro, elle est triangulaire stricte. Par ailleurs son polynôme caractéristique est alors \( X^n\).
+    Cela nous donne une autre faÃ§on de prouver qu'une matrice nilpotente de \( \eM(n,\eC)\) ou \( \eM(n,\eR)\) est trigonalisable\cite{KDUFooVxwqlC}. D'abord dans \( \eM(n,\eC)\), toutes les matrices sont trigonalisables\footnote{Parce que le polynÃ´me caractÃ©ristique est scindÃ©, voir la proposition~\ref{PropKNVFooQflQsJ}..}, et les valeurs propres arrivent sur la diagonale. Mais comme les valeurs propres d'une matrice nilpotente sont zÃ©ro, elle est triangulaire stricte. Par ailleurs son polynÃ´me caractÃ©ristique est alors \( X^n\).
 
-    Ensuite si \( u\in \eM(n,\eR)\) nous pouvons voir \( u\) comme une matrice dans \( \eM(n,\eC)\) et y calculer son polynôme caractéristique qui sera tout de même \( X^n\). Ce polynôme étant scindé, la proposition~\ref{PropKNVFooQflQsJ} nous assure que \( u\) est trigonalisable. Une fois de plus, les valeurs propres étant sur la diagonale, elle est triangulaire supérieure stricte.
+    Ensuite si \( u\in \eM(n,\eR)\) nous pouvons voir \( u\) comme une matrice dans \( \eM(n,\eC)\) et y calculer son polynÃ´me caractÃ©ristique qui sera tout de mÃªme \( X^n\). Ce polynÃ´me Ã©tant scindÃ©, la proposition~\ref{PropKNVFooQflQsJ} nous assure que \( u\) est trigonalisable. Une fois de plus, les valeurs propres Ã©tant sur la diagonale, elle est triangulaire supÃ©rieure stricte.
 \end{remark}
 
 \begin{corollary}   \label{CorUNZooAZULXT}
-    Le polynôme caractéristique\footnote{Définition~\ref{DefOWQooXbybYD}.} sur \( \eC\) d'une matrice s'écrit sous la forme
+    Le polynÃ´me caractÃ©ristique\footnote{DÃ©finition~\ref{DefOWQooXbybYD}.} sur \( \eC\) d'une matrice s'Ã©crit sous la forme
     \begin{equation}
         \chi_A(X)=\prod_{i=1}^r(X-\lambda_i)^{m_i}
     \end{equation}
-    où les \( \lambda_i\) sont les valeurs propres distinctes de \( A\) et \( m_i\) sont les multiplicités correspondantes.
+    oÃ¹ les \( \lambda_i\) sont les valeurs propres distinctes de \( A\) et \( m_i\) sont les multiplicitÃ©s correspondantes.
 \end{corollary}
-\index{polynôme!caractéristique}
+\index{polynÃ´me!caractÃ©ristique}
 
 \begin{proof}
     Le lemme~\ref{LemSchurComplHAftTq} nous donne l'existence d'une base de trigonalisation; dans cette base les valeurs propres de \( A\) sont sur la diagonale et nous avons
@@ -631,7 +631,7 @@ i
             0    &   0    &   X-\lambda_r
         \end{pmatrix},
     \end{equation}
-    qui vaut bien le produit annoncé.
+    qui vaut bien le produit annoncÃ©.
 \end{proof}
 
 \begin{corollary}       \label{CORooTPDHooXazTuZ}
@@ -642,24 +642,24 @@ i
 \end{corollary}
 
 \begin{proof}
-    Par le lemme~\ref{LemSchurComplHAftTq} nous avons une matrice unitaire \( U\) et une triangulaire \( T\) telles que \( A=UTU^{-1}\). En passant à a puissance \( k\) nous avons aussi
+    Par le lemme~\ref{LemSchurComplHAftTq} nous avons une matrice unitaire \( U\) et une triangulaire \( T\) telles que \( A=UTU^{-1}\). En passant Ã  a puissance \( k\) nous avons aussi
     \begin{equation}
         A^k=UT^kU^{-1}.
     \end{equation}
-    Donc le spectre de \( A^k\) est celui de \( T^k\) (lemme~\ref{LEMooRCFGooPPXiKi} et le fait qu'une puissance d'une matrice triangulaire est encore triangulaire). Or les éléments diagonaux de \( T^k\) sont les puissances \( k\)\ieme des éléments diagonaux de \( T\), qui sont les valeurs propres de \( A\).
+    Donc le spectre de \( A^k\) est celui de \( T^k\) (lemme~\ref{LEMooRCFGooPPXiKi} et le fait qu'une puissance d'une matrice triangulaire est encore triangulaire). Or les Ã©lÃ©ments diagonaux de \( T^k\) sont les puissances \( k\)\ieme des Ã©lÃ©ments diagonaux de \( T\), qui sont les valeurs propres de \( A\).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Diagonalisation : cas complexe, ce qu'on a}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}[Théorème spectral hermitien]      \label{LEMooVCEOooIXnTpp}
-    Pour un opérateur hermitien\footnote{Définition~\ref{DEFooKEBHooWwCKRK}.},
+\begin{lemma}[ThÃ©orÃ¨me spectral hermitien]      \label{LEMooVCEOooIXnTpp}
+    Pour un opÃ©rateur hermitien\footnote{DÃ©finition~\ref{DEFooKEBHooWwCKRK}.},
     \begin{enumerate}
         \item
-            le spectre est réel,
+            le spectre est rÃ©el,
         \item
-            deux vecteurs propres à des valeurs propres distinctes sont orthogonales\footnote{Pour la forme \eqref{EqFormSesqQrjyPH}.}.
+            deux vecteurs propres Ã  des valeurs propres distinctes sont orthogonales\footnote{Pour la forme \eqref{EqFormSesqQrjyPH}.}.
     \end{enumerate}
 \end{lemma}
 \index{spectre!matrice hermitienne}
@@ -673,7 +673,7 @@ i
     \begin{equation}
         \langle Av, v\rangle =\langle v, A^*v\rangle =\langle v, Av\rangle =\bar\lambda\| v \|^2,
     \end{equation}
-    par conséquent \( \lambda=\bar\lambda\) parce que \( v\neq 0\).
+    par consÃ©quent \( \lambda=\bar\lambda\) parce que \( v\neq 0\).
 
     Soient \( \lambda_i\) et \( v_i\) (\( i=1,2\)) deux valeurs propres de \( A\) avec leurs vecteurs propres correspondants. Alors d'une part
     \begin{equation}
@@ -683,11 +683,11 @@ i
     \begin{equation}
         \langle Av_1, v_2\rangle =\langle v_1, Av_2\rangle =\lambda_2\langle v_1, v_2\rangle .
     \end{equation}
-    Nous avons utilisé le fait que \( \lambda_2\) était réel. Par conséquent, soit \( \lambda_1=\lambda_2\), soit \( \langle v_1, v_2\rangle =0\).
+    Nous avons utilisÃ© le fait que \( \lambda_2\) Ã©tait rÃ©el. Par consÃ©quent, soit \( \lambda_1=\lambda_2\), soit \( \langle v_1, v_2\rangle =0\).
 \end{proof}
 
 \begin{remark}      \label{REMooMLBCooTuKFmz}
-    Un opérateur de la forme \( A^*A\) est évidemment hermitien. De plus ses valeurs propres sont toutes positives parce que si \( A^*Ax=\lambda v\) alors
+    Un opÃ©rateur de la forme \( A^*A\) est Ã©videmment hermitien. De plus ses valeurs propres sont toutes positives parce que si \( A^*Ax=\lambda v\) alors
     \begin{equation}
         0\leq \langle Av, Av\rangle =\langle A^*Av, v\rangle =\lambda\langle v, v\rangle .
     \end{equation}
@@ -698,8 +698,8 @@ i
     Un endomorphisme est \defe{normal}{normal!endomorphisme}\index{matrice!normale} s'il commute avec son adjoint.
 \end{definition}
 
-\begin{theorem}[Théorème spectral pour les matrices normales\footnote{Définition~\ref{DefWQNooKEeJzv}}\cite{LecLinAlgAllen,OMzxpxE,HOQzXCw}]\index{théorème!spectral!matrices normales}  \index{diagonalisation!cas complexe}  \label{ThogammwA}
-    Soit \( A\in\eM(n,\eC)\) une matrice de valeurs propres \( \lambda_1,\ldots, \lambda_n\) (non spécialement distinctes). Alors les conditions suivantes sont équivalentes :
+\begin{theorem}[ThÃ©orÃ¨me spectral pour les matrices normales\footnote{DÃ©finition~\ref{DefWQNooKEeJzv}}\cite{LecLinAlgAllen,OMzxpxE,HOQzXCw}]\index{thÃ©orÃ¨me!spectral!matrices normales}  \index{diagonalisation!cas complexe}  \label{ThogammwA}
+    Soit \( A\in\eM(n,\eC)\) une matrice de valeurs propres \( \lambda_1,\ldots, \lambda_n\) (non spÃ©cialement distinctes). Alors les conditions suivantes sont Ã©quivalentes :
     \begin{enumerate}
         \item   \label{ItemJZhFPSi}
             \( A\) est normale,
@@ -716,15 +716,15 @@ i
     Nous allons nous contenter de prouver~\ref{ItemJZhFPSi}\( \Leftrightarrow\)\ref{ItemJZhFPSii}.
     %TODO : le reste.
 
-    Soit \( Q\) la matrice unitaire donnée par la décomposition de Schur (lemme~\ref{LemSchurComplHAftTq}) : \( A=QTQ^{-1}\). Étant donné que \( A\) est normale nous avons
+    Soit \( Q\) la matrice unitaire donnÃ©e par la dÃ©composition de Schur (lemme~\ref{LemSchurComplHAftTq}) : \( A=QTQ^{-1}\). Ã‰tant donnÃ© que \( A\) est normale nous avons
     \begin{equation}
         QTT^*Q^{-1}=QT^*TQ^{-1},
     \end{equation}
-    ce qui montre que \( T\) est également normale. Or une matrice triangulaire supérieure normale est diagonale. En effet nous avons \( T_{ij}=0\) lorsque \( i>j\) et
+    ce qui montre que \( T\) est Ã©galement normale. Or une matrice triangulaire supÃ©rieure normale est diagonale. En effet nous avons \( T_{ij}=0\) lorsque \( i>j\) et
     \begin{equation}
         (TT^*)_{ii}=(T^*T)_{ii}=\sum_{k=1}^n| T_{ki} |^2=\sum_{k=1}^n| T_{ik} |^2.
     \end{equation}
-    Écrivons cela pour \( i=1\) en tenant compte de \( | T_{k1} |^2=0\) pour \( k=2,\ldots, n\),
+    Ã‰crivons cela pour \( i=1\) en tenant compte de \( | T_{k1} |^2=0\) pour \( k=2,\ldots, n\),
     \begin{equation}
         | T_{11} |^2=| T_{11} |^2+| T_{12} |^2+\cdots+| T_{1n} |^2,
     \end{equation}
@@ -741,32 +741,32 @@ i
     qui ce prouve que \( A\) est normale.
 \end{proof}
 
-Tant que nous en sommes à parler de spectre de matrices hermitiennes\ldots Soit une matrice inversible \( A\in \GL(n,\eC)\). La matrice \( A^*A\) est hermitienne\footnote{Définition~\ref{DEFooKEBHooWwCKRK}.} et le théorème~\ref{LEMooVCEOooIXnTpp} nous assure que ses valeurs propres sont réelles. Par la remarque~\ref{REMooMLBCooTuKFmz}, ses valeurs propres sont même positives.
+Tant que nous en sommes Ã  parler de spectre de matrices hermitiennes\ldots Soit une matrice inversible \( A\in \GL(n,\eC)\). La matrice \( A^*A\) est hermitienne\footnote{DÃ©finition~\ref{DEFooKEBHooWwCKRK}.} et le thÃ©orÃ¨me~\ref{LEMooVCEOooIXnTpp} nous assure que ses valeurs propres sont rÃ©elles. Par la remarque~\ref{REMooMLBCooTuKFmz}, ses valeurs propres sont mÃªme positives.
 
 \begin{lemma}[\cite{ooLMMRooUXhOdx}]   \label{LEMooHUGEooVYhZdZ}
-    Si \( A\) est une matrice carrée et inversible,
+    Si \( A\) est une matrice carrÃ©e et inversible,
     \begin{equation}
         \Spec(A^*A)=\Spec(AA^*)
     \end{equation}
 \end{lemma}
 
 \begin{proof}
-    Nous allons montrer l'égalité des polynômes caractéristiques. D'abord une simple multiplication montre que
+    Nous allons montrer l'Ã©galitÃ© des polynÃ´mes caractÃ©ristiques. D'abord une simple multiplication montre que
     \begin{equation}
         (A^*A-\lambda\mtu)A^{-1}=A^{-1}(AA^*-\lambda\mtu).
     \end{equation}
-    Nous prenons le déterminant de cette égalité en utilisant les propriétés~\ref{PropYQNMooZjlYlA}\ref{ItemUPLNooYZMRJy} et~\ref{ITEMooZMVXooLGjvCy} :
+    Nous prenons le dÃ©terminant de cette Ã©galitÃ© en utilisant les propriÃ©tÃ©s~\ref{PropYQNMooZjlYlA}\ref{ItemUPLNooYZMRJy} et~\ref{ITEMooZMVXooLGjvCy} :
     \begin{equation}
         \det(A^*A-\lambda\mtu)\det(A^{-1})=\det(A^{-1})\det(AA^*-\lambda\mtu).
     \end{equation}
-    En simplifiant par \( \det(A^{-1})\) (qui est non nul parce que \( A\) est inversible) nous obtenons l'égalité des polynômes caractéristiques et donc l'égalité des spectres.
+    En simplifiant par \( \det(A^{-1})\) (qui est non nul parce que \( A\) est inversible) nous obtenons l'Ã©galitÃ© des polynÃ´mes caractÃ©ristiques et donc l'Ã©galitÃ© des spectres.
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Diagonalisation : cas réel}
+\subsection{Diagonalisation : cas rÃ©el}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}[Lemme de Schur réel]  \label{LemSchureRelnrqfiy}
+\begin{lemma}[Lemme de Schur rÃ©el]  \label{LemSchureRelnrqfiy}
     Soit \( A\in\eM(n,\eR)\). Il existe une matrice orthogonale \( Q\) telle que \( Q^{-1}AQ\) soit de la forme
     \begin{equation}        \label{EqMtrTSqRTA}
         QAQ^{-1}=\begin{pmatrix}
@@ -783,25 +783,25 @@ Tant que nous en sommes à parler de spectre de matrices hermitiennes\ldots Soit 
             \end{pmatrix}
         \end{pmatrix}.
     \end{equation}
-    Le déterminant de \( A\) est le produit des déterminants des blocs diagonaux et les valeurs propres de \( A\) sont les \( \lambda_1,\ldots, \lambda_r\) et celles de ces blocs.
+    Le dÃ©terminant de \( A\) est le produit des dÃ©terminants des blocs diagonaux et les valeurs propres de \( A\) sont les \( \lambda_1,\ldots, \lambda_r\) et celles de ces blocs.
 \end{lemma}
-\index{lemme!Schur réel}
+\index{lemme!Schur rÃ©el}
 
 \begin{proof}
-    Si la matrice \( A\) a des valeurs propres réelles, nous procédons comme dans le cas complexe. Cela nous fournit le partie véritablement triangulaire avec les valeurs propres \( \lambda_1,\ldots, \lambda_r\) sur la diagonale. Supposons donc que \( A\) n'a pas de valeurs propres réelles. Soit donc \( \alpha+i\beta \) une valeur propre (\( \beta\neq 0\)) et \( u+iv\) un vecteur propre correspondant où \( u\) et \( v\) sont des vecteurs réels. Nous avons
+    Si la matrice \( A\) a des valeurs propres rÃ©elles, nous procÃ©dons comme dans le cas complexe. Cela nous fournit le partie vÃ©ritablement triangulaire avec les valeurs propres \( \lambda_1,\ldots, \lambda_r\) sur la diagonale. Supposons donc que \( A\) n'a pas de valeurs propres rÃ©elles. Soit donc \( \alpha+i\beta \) une valeur propre (\( \beta\neq 0\)) et \( u+iv\) un vecteur propre correspondant oÃ¹ \( u\) et \( v\) sont des vecteurs rÃ©els. Nous avons
     \begin{equation}
         Au+iAv=A(u+iv)=(\alpha+i\beta)(u+iv)=\alpha u-\beta v+i(\alpha v+\beta v),
     \end{equation}
-    et en égalisant les parties réelles et imaginaires,
+    et en Ã©galisant les parties rÃ©elles et imaginaires,
     \begin{subequations}
         \begin{align}
             Au&=\alpha u-\beta v\\
             Av&=\alpha v+\beta u.
         \end{align}
     \end{subequations}
-    Sur ces relations nous voyons que ni \( u\) ni \( v\) ne sont nuls. De plus \( u\) et \( v\) sont linéairement indépendants (sur \( \eR\)), en effet si \( v=\lambda u\) nous aurions \( Au=\alpha u-\beta\lambda u=(\alpha-\beta\lambda)u\), ce qui serait une valeur propre réelle alors que nous avions supposé avoir déjà épuisé toutes les valeurs propres réelles.
+    Sur ces relations nous voyons que ni \( u\) ni \( v\) ne sont nuls. De plus \( u\) et \( v\) sont linÃ©airement indÃ©pendants (sur \( \eR\)), en effet si \( v=\lambda u\) nous aurions \( Au=\alpha u-\beta\lambda u=(\alpha-\beta\lambda)u\), ce qui serait une valeur propre rÃ©elle alors que nous avions supposÃ© avoir dÃ©jÃ  Ã©puisÃ© toutes les valeurs propres rÃ©elles.
 
-    Étant donné que \( u\) et \( v\) sont deux vecteurs réels non nuls et linéairement indépendants, nous pouvons trouver une base orthonormée \( \{ q_1,q_2 \}\) de \( \Span\{ u,v \}\). Nous pouvons étendre ces deux vecteurs en une base orthonormée \( \{ q_1,q_2,q_3,\ldots, q_n \}\) de \( \eR^n\). Nous considérons à présent la matrice orthogonale dont les colonnes sont formées de ces vecteurs : \( Q=[q_1\,q_2\,\ldots q_n]\).
+    Ã‰tant donnÃ© que \( u\) et \( v\) sont deux vecteurs rÃ©els non nuls et linÃ©airement indÃ©pendants, nous pouvons trouver une base orthonormÃ©e \( \{ q_1,q_2 \}\) de \( \Span\{ u,v \}\). Nous pouvons Ã©tendre ces deux vecteurs en une base orthonormÃ©e \( \{ q_1,q_2,q_3,\ldots, q_n \}\) de \( \eR^n\). Nous considÃ©rons Ã  prÃ©sent la matrice orthogonale dont les colonnes sont formÃ©es de ces vecteurs : \( Q=[q_1\,q_2\,\ldots q_n]\).
 
     L'espace \( \Span\{ e_1,e_2 \}\) est stable par \( Q^{-1} AQ\), en effet nous avons
     \begin{equation}
@@ -817,50 +817,50 @@ Tant que nous en sommes à parler de spectre de matrices hermitiennes\ldots Soit 
             0    &   A_1
         \end{pmatrix}
     \end{equation}
-    où \( C_1\) est une matrice réelle \( 2\times (n-1)\) quelconque et \( A_1\) est une matrice réelle \( (n-2)\times (n-2)\). Nous pouvons appliquer une récurrence sur la dimension pour poursuivre.
+    oÃ¹ \( C_1\) est une matrice rÃ©elle \( 2\times (n-1)\) quelconque et \( A_1\) est une matrice rÃ©elle \( (n-2)\times (n-2)\). Nous pouvons appliquer une rÃ©currence sur la dimension pour poursuivre.
 
-    Notons que si \( A\) n'a pas de valeurs propres réelles, elle est automatiquement d'ordre pair parce que les valeurs propres complexes viennent par couple complexes conjuguées.
+    Notons que si \( A\) n'a pas de valeurs propres rÃ©elles, elle est automatiquement d'ordre pair parce que les valeurs propres complexes viennent par couple complexes conjuguÃ©es.
 
-    En ce qui concerne les valeurs propres, il est facile de voir en regardant \eqref{EqMtrTSqRTA} que les valeurs propres sont celles des blocs diagonaux. Étant donné que \( QAQ^{-1}\) et \( A\) ont même polynôme caractéristique, ce sont les valeurs propres de \( A\).
+    En ce qui concerne les valeurs propres, il est facile de voir en regardant \eqref{EqMtrTSqRTA} que les valeurs propres sont celles des blocs diagonaux. Ã‰tant donnÃ© que \( QAQ^{-1}\) et \( A\) ont mÃªme polynÃ´me caractÃ©ristique, ce sont les valeurs propres de \( A\).
 \end{proof}
 
-\begin{theorem}[Théorème spectral, matrice symétrique\cite{KXjFWKA}] \label{ThoeTMXla}
-    Une matrice symétrique réelle,
+\begin{theorem}[ThÃ©orÃ¨me spectral, matrice symÃ©trique\cite{KXjFWKA}] \label{ThoeTMXla}
+    Une matrice symÃ©trique rÃ©elle,
     \begin{enumerate}
         \item       \label{ITEMooJWHLooSfhNSW}
             a un spectre contenu dans \( \eR\)
         \item
             est diagonalisable par une matrice orthogonale.
     \end{enumerate}
-    Si \( M\) est une matrice symétrique réelle alors \( \eR^n\) possède une base orthonormée de vecteurs propres de \( M\).
+    Si \( M\) est une matrice symÃ©trique rÃ©elle alors \( \eR^n\) possÃ¨de une base orthonormÃ©e de vecteurs propres de \( M\).
 \end{theorem}
-\index{diagonalisation!cas réel}
+\index{diagonalisation!cas rÃ©el}
 \index{rang!diagonalisation}
 \index{endomorphisme!diagonalisation}
-\index{spectre!matrice symétrique réelle}
-\index{théorème!spectral!matrice symétrique}
+\index{spectre!matrice symÃ©trique rÃ©elle}
+\index{thÃ©orÃ¨me!spectral!matrice symÃ©trique}
 
 \begin{proof}
-    Soit \( A\) une matrice réelle symétrique. Si \( \lambda\) est une valeur propre complexe pour le vecteur propre complexe \( v\), alors d'une part \( \langle Av, v\rangle =\lambda\langle v, v\rangle \) et d'autre part \( \langle Av, v\rangle =\langle v, Av\rangle =\bar\lambda\langle v, v\rangle \). Par conséquent \( \lambda=\bar\lambda\).
+    Soit \( A\) une matrice rÃ©elle symÃ©trique. Si \( \lambda\) est une valeur propre complexe pour le vecteur propre complexe \( v\), alors d'une part \( \langle Av, v\rangle =\lambda\langle v, v\rangle \) et d'autre part \( \langle Av, v\rangle =\langle v, Av\rangle =\bar\lambda\langle v, v\rangle \). Par consÃ©quent \( \lambda=\bar\lambda\).
 
-    Le lemme de Schur réel~\ref{LemSchureRelnrqfiy} donne une matrice orthogonale qui trigonalise \( A\). Les valeurs propres étant toutes réelles, la matrice \( QAQ^{-1}\) est même triangulaire (il n'y a pas de blocs dans la forme \eqref{EqMtrTSqRTA}). Prouvons que \( QAQ^{-1}\) est symétrique :
+    Le lemme de Schur rÃ©el~\ref{LemSchureRelnrqfiy} donne une matrice orthogonale qui trigonalise \( A\). Les valeurs propres Ã©tant toutes rÃ©elles, la matrice \( QAQ^{-1}\) est mÃªme triangulaire (il n'y a pas de blocs dans la forme \eqref{EqMtrTSqRTA}). Prouvons que \( QAQ^{-1}\) est symÃ©trique :
     \begin{equation}
         (QAQ^{-1})^t=(Q^{-1})^tA^tQ^t=QA^tQ^{-1}=QAQ^{-1}
     \end{equation}
-    où nous avons utilisé le fait que \( Q\) était orthogonale (\( Q^{-1}=Q^t\)) et que \( A\) était symétrique (\( A^t=A\)). Une matrice triangulaire supérieure symétrique est obligatoirement une matrice diagonale.
+    oÃ¹ nous avons utilisÃ© le fait que \( Q\) Ã©tait orthogonale (\( Q^{-1}=Q^t\)) et que \( A\) Ã©tait symÃ©trique (\( A^t=A\)). Une matrice triangulaire supÃ©rieure symÃ©trique est obligatoirement une matrice diagonale.
 
-    En ce qui concerne la base de vecteurs propres, soit \( \{ e_i \}_{i=1,\ldots, n}\) la base canonique de \( \eR^n\) et \( Q\) une matrice orthogonale e telle que \( A=Q^tDQ\) avec \( D\) diagonale. Nous posons \( f_i=Q^te_i\) et en tenant compte du fait que \( Q^t=Q^{-1}\) nous avons \( Af_i=Q^tDQQ^te_i=Q^t\lambda_i e_i=\lambda_if_i\). Donc les \( f_i\) sont des vecteurs propres de \( A\). De plus ils sont orthonormés parce que
+    En ce qui concerne la base de vecteurs propres, soit \( \{ e_i \}_{i=1,\ldots, n}\) la base canonique de \( \eR^n\) et \( Q\) une matrice orthogonale e telle que \( A=Q^tDQ\) avec \( D\) diagonale. Nous posons \( f_i=Q^te_i\) et en tenant compte du fait que \( Q^t=Q^{-1}\) nous avons \( Af_i=Q^tDQQ^te_i=Q^t\lambda_i e_i=\lambda_if_i\). Donc les \( f_i\) sont des vecteurs propres de \( A\). De plus ils sont orthonormÃ©s parce que
     \begin{equation}
         \langle f_i, f_j\rangle =\langle Q^te_i, Q^te_j\rangle =\langle e_i, Q^tQe_j\rangle =\langle e_i, e_j\rangle =\delta_{ij}.
     \end{equation}
 \end{proof}
-Le théorème spectral pour les opérateurs auto-adjoints sera traité plus bas parce qu'il a besoin de choses sur les formes bilinéaires, théorème~\ref{ThoRSBahHH}.
-% et les choses sur la dégénérescences utilisent le théorème spectral, cas réel. Donc l'enchaînement est très loumapotiste.
+Le thÃ©orÃ¨me spectral pour les opÃ©rateurs auto-adjoints sera traitÃ© plus bas parce qu'il a besoin de choses sur les formes bilinÃ©aires, thÃ©orÃ¨me~\ref{ThoRSBahHH}.
+% et les choses sur la dÃ©gÃ©nÃ©rescences utilisent le thÃ©orÃ¨me spectral, cas rÃ©el. Donc l'enchaÃ®nement est trÃ¨s loumapotiste.
 
 \begin{remark}  \label{RemGKDZfxu}
-    Une matrice symétrique est diagonalisable par une matrice orthogonale. Nous pouvons en réalité nous arranger pour diagonaliser par une matrice de \( \SO(n)\). Plus généralement si \( A\) est une matrice diagonalisable par une matrice \( P\in\GL^+(n,\eR)\) alors elle est diagonalisable par une matrice de \( \GL^-(n,\eR)\) en changeant le signe de la première ligne de \( P\). Et inversement.
+    Une matrice symÃ©trique est diagonalisable par une matrice orthogonale. Nous pouvons en rÃ©alitÃ© nous arranger pour diagonaliser par une matrice de \( \SO(n)\). Plus gÃ©nÃ©ralement si \( A\) est une matrice diagonalisable par une matrice \( P\in\GL^+(n,\eR)\) alors elle est diagonalisable par une matrice de \( \GL^-(n,\eR)\) en changeant le signe de la premiÃ¨re ligne de \( P\). Et inversement.
 
-    En effet, si nous avons \( P^tDP=A\), alors en notant \( *\) les quantités qui ne dépendent pas de \( a\), \( b\) ou~\( c\),
+    En effet, si nous avons \( P^tDP=A\), alors en notant \( *\) les quantitÃ©s qui ne dÃ©pendent pas de \( a\), \( b\) ou~\( c\),
     \begin{equation}
         \begin{aligned}[]
         \begin{pmatrix}
@@ -895,80 +895,80 @@ Le théorème spectral pour les opérateurs auto-adjoints sera traité plus bas parc
         \end{pmatrix}.
         \end{aligned}
     \end{equation}
-    Nous voyons donc que si nous changeons les signes de \( a\), \( b\) et \( c\) en même temps, le résultat ne change pas.
+    Nous voyons donc que si nous changeons les signes de \( a\), \( b\) et \( c\) en mÃªme temps, le rÃ©sultat ne change pas.
 \end{remark}
 
-\begin{definition}[Matrice définie positive, opérateur définit positif]    \label{DefAWAooCMPuVM}
-    Un opérateur sur un espace vectoriel sur \( \eC\) ou \( \eR\) est \defe{définit positif}{opérateur!définit positif} si toutes ses valeurs propres sont réelles et strictement positives.  Il est \defe{semi-définie positive}{semi-définie positive} si ses valeurs propres sont réelles positives ou nulles.
+\begin{definition}[Matrice dÃ©finie positive, opÃ©rateur dÃ©finit positif]    \label{DefAWAooCMPuVM}
+    Un opÃ©rateur sur un espace vectoriel sur \( \eC\) ou \( \eR\) est \defe{dÃ©finit positif}{opÃ©rateur!dÃ©finit positif} si toutes ses valeurs propres sont rÃ©elles et strictement positives.  Il est \defe{semi-dÃ©finie positive}{semi-dÃ©finie positive} si ses valeurs propres sont rÃ©elles positives ou nulles.
 \end{definition}
-Afin d'éviter l'une ou l'autre confusion, nous disons souvent \emph{strictement} définie positive pour positive.
+Afin d'Ã©viter l'une ou l'autre confusion, nous disons souvent \emph{strictement} dÃ©finie positive pour positive.
 
 \begin{normaltext}      \label{NORMooAJLHooQhwpvr}
-    Nous nommons \( S^+(n,\eR)\) l'ensemble des matrices réelles symétriques \( n\times n\) et \( S^{++}(n,\eR)\) le sous-ensemble de \( S^+(n,\eR)\) des matrices strictement définies positives.
+    Nous nommons \( S^+(n,\eR)\) l'ensemble des matrices rÃ©elles symÃ©triques \( n\times n\) et \( S^{++}(n,\eR)\) le sous-ensemble de \( S^+(n,\eR)\) des matrices strictement dÃ©finies positives.
 \end{normaltext}
-    \nomenclature[B]{$ S^+(n,\eR)$}{matrices symétriques définies positives}
-    \nomenclature[B]{$ S^{++}(n,\eR)$}{matrices symétriques strictement définies positives}
+    \nomenclature[B]{$ S^+(n,\eR)$}{matrices symÃ©triques dÃ©finies positives}
+    \nomenclature[B]{$ S^{++}(n,\eR)$}{matrices symÃ©triques strictement dÃ©finies positives}
 
 \begin{remark}
-    Nous ne définissons pas la notion de matrice définie positive pour une matrice non symétrique.
+    Nous ne dÃ©finissons pas la notion de matrice dÃ©finie positive pour une matrice non symÃ©trique.
 \end{remark}
 
 \begin{proposition}     \label{PropcnJyXZ}
-    Soit $M$, une matrice symétrique. Nous avons
+    Soit $M$, une matrice symÃ©trique. Nous avons
     \begin{enumerate}
         \item
-            $\det M>0$ et $\tr(M)>0$ implique $M$ définie positive\footnote{Défintion~\ref{DefAWAooCMPuVM}.},
+            $\det M>0$ et $\tr(M)>0$ implique $M$ dÃ©finie positive\footnote{DÃ©fintion~\ref{DefAWAooCMPuVM}.},
         \item
-        $\det M>0$ et $\tr(M)<0$ implique $M$ définie négative,
+        $\det M>0$ et $\tr(M)<0$ implique $M$ dÃ©finie nÃ©gative,
     \item   \label{ItemluuFPN}
-        $\det M<0$ implique ni semi-définie positive, ni définie négative
+        $\det M<0$ implique ni semi-dÃ©finie positive, ni dÃ©finie nÃ©gative
         \item
-        $\det M=0$ implique $M$ semi-définie positive ou semi-définie négative.
+        $\det M=0$ implique $M$ semi-dÃ©finie positive ou semi-dÃ©finie nÃ©gative.
     \end{enumerate}
 \end{proposition}
 
 \begin{proposition}     \label{PROPooUAAFooEGVDRC}
-    Une application linéaire est définie positive\footnote{Définition~\ref{DefAWAooCMPuVM}.} si et seulement si sa matrice associée l'est.
+    Une application linÃ©aire est dÃ©finie positive\footnote{DÃ©finition~\ref{DefAWAooCMPuVM}.} si et seulement si sa matrice associÃ©e l'est.
 \end{proposition}
 
-Lorsqu'un énoncé parle d'une matrice symétrique, le premier réflexe est de la diagonaliser : considérer une matrice orthogonale \( T\) telle que \( T^tMT=D\) avec \( D\) diagonale. Et les valeurs propres sur la diagonale : \( D_{kl}=\delta_{kl}\lambda_k\). Les matrices symétriques définies positives ont cependant des propriétés même en dehors de leur base de diagonalisation.
+Lorsqu'un Ã©noncÃ© parle d'une matrice symÃ©trique, le premier rÃ©flexe est de la diagonaliser : considÃ©rer une matrice orthogonale \( T\) telle que \( T^tMT=D\) avec \( D\) diagonale. Et les valeurs propres sur la diagonale : \( D_{kl}=\delta_{kl}\lambda_k\). Les matrices symÃ©triques dÃ©finies positives ont cependant des propriÃ©tÃ©s mÃªme en dehors de leur base de diagonalisation.
 
 \begin{lemma}   \label{LemWZFSooYvksjw}
-    Soit une matrice symétrique \( M\).
+    Soit une matrice symÃ©trique \( M\).
     \begin{enumerate}
         \item       \label{ITEMooSKRAooOgHbGA}
-           Elle est strictement définie positive si et seulement si \( \langle x, Mx\rangle >0\) pour tout \( x\) non nul dans \( \eR^n\).
+           Elle est strictement dÃ©finie positive si et seulement si \( \langle x, Mx\rangle >0\) pour tout \( x\) non nul dans \( \eR^n\).
         \item       \label{ITEMooMOZYooWcrewZ}
-           Elle est semi-définie positive si et seulement si \( \langle x, Mx\rangle \geq 0\) pour tout \( x\) non nul dans \( \eR^n\).
+           Elle est semi-dÃ©finie positive si et seulement si \( \langle x, Mx\rangle \geq 0\) pour tout \( x\) non nul dans \( \eR^n\).
        \item        \label{ITEMooRRMFooHSOHxZ}
-           Si elle est seulement définie positive, alors \( \langle x, Mx\rangle \geq \lambda\| x \|^2\) dès que \( \lambda\geq 0\) minore toutes les valeurs propres.
+           Si elle est seulement dÃ©finie positive, alors \( \langle x, Mx\rangle \geq \lambda\| x \|^2\) dÃ¨s que \( \lambda\geq 0\) minore toutes les valeurs propres.
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    Démonstration en trois parties.
+    DÃ©monstration en trois parties.
     \begin{subproof}
     \item[\ref{ITEMooSKRAooOgHbGA}]
-    Soit \( \{ e_i \}_{i=1,\ldots, n}\) une base orthonormée de vecteurs propres de \( M\) dont l'existence est assurée par le théorème spectral~\ref{ThoeTMXla}. Nous nommons \( x_i\) les coordonnées de \( x\) dans cette base. Alors,
+    Soit \( \{ e_i \}_{i=1,\ldots, n}\) une base orthonormÃ©e de vecteurs propres de \( M\) dont l'existence est assurÃ©e par le thÃ©orÃ¨me spectral~\ref{ThoeTMXla}. Nous nommons \( x_i\) les coordonnÃ©es de \( x\) dans cette base. Alors,
     \begin{equation}
         \langle x,Mx \rangle =\sum_{i,j}x_i\langle e_i, x_jMe_j\rangle =\sum_{i,j}x_ix_j\langle e_i, \lambda_je_j\rangle =\sum_{ij}x_ix_j\lambda_j\delta_{ij}=\sum_i\lambda_ix_i^2
     \end{equation}
-    où les \( \lambda_i\) sont les valeurs propres de \( M\). Cela est strictement positif pour tout \( x\) si et seulement si tous les \( \lambda_i\) sont strictement positifs.
+    oÃ¹ les \( \lambda_i\) sont les valeurs propres de \( M\). Cela est strictement positif pour tout \( x\) si et seulement si tous les \( \lambda_i\) sont strictement positifs.
 \item[\ref{ITEMooMOZYooWcrewZ}]
 
     Nous avons encore
     \begin{equation}
         \langle x, Mx\rangle =\sum_{i}\lambda_ix_i^2.
     \end{equation}
-    Cela est plus grand ou égal à zéro si et seulement si tous les \( \lambda_i\) sont plus grands ou égaux à zéro.
+    Cela est plus grand ou Ã©gal Ã  zÃ©ro si et seulement si tous les \( \lambda_i\) sont plus grands ou Ã©gaux Ã  zÃ©ro.
 
 \item[\ref{ITEMooRRMFooHSOHxZ}]
 
-        Soit une matrice orthogonale \( T\) diagonalisant \( M\), c'est à dire telle que \( T^tMT=D\) avec \( D\) diagonale. Nous allons vérifier que
+        Soit une matrice orthogonale \( T\) diagonalisant \( M\), c'est Ã  dire telle que \( T^tMT=D\) avec \( D\) diagonale. Nous allons vÃ©rifier que
         \begin{equation}
             \langle Tx, Mtx\rangle \geq \lambda\| Tx \|^2
         \end{equation}
-        pour tout \( x\). Vu que \( T\) est une bijection \footnote{Une matrice orthogonale a un déterminant $\pm 1$.}, cela impliquera le résultat pour tout \( x\). Si nous considérons la base de diagonalisation \( \{ e_k \}\) pour les valeurs propres \( \lambda_k\), nous avons le calcul
+        pour tout \( x\). Vu que \( T\) est une bijection \footnote{Une matrice orthogonale a un dÃ©terminant $\pm 1$.}, cela impliquera le rÃ©sultat pour tout \( x\). Si nous considÃ©rons la base de diagonalisation \( \{ e_k \}\) pour les valeurs propres \( \lambda_k\), nous avons le calcul
        \begin{subequations}
             \begin{align}
                 \langle Tx, MTx\rangle &=\langle x, T^tMTx\rangle \\
@@ -980,56 +980,56 @@ Lorsqu'un énoncé parle d'une matrice symétrique, le premier réflexe est de la di
                 &=\lambda\| Tx \|^2.
             \end{align}
         \end{subequations}
-        Au dernier passage nous avons utilisé le fait que \( T\) est une isométrie (proposition~\ref{PropKBCXooOuEZcS}).
+        Au dernier passage nous avons utilisÃ© le fait que \( T\) est une isomÃ©trie (proposition~\ref{PropKBCXooOuEZcS}).
     \end{subproof}
 \end{proof}
 
-Les personnes qui aiment les vecteurs lignes et colonnes écriront des inégalités comme
+Les personnes qui aiment les vecteurs lignes et colonnes Ã©criront des inÃ©galitÃ©s comme
 \begin{equation}
     x^tMx\geq x^tx.
 \end{equation}
-Tout à l'autre bout du spectre des personnes névrosées des notations, on trouvera des inégalités comme
+Tout Ã  l'autre bout du spectre des personnes nÃ©vrosÃ©es des notations, on trouvera des inÃ©galitÃ©s comme
 \begin{equation}
     M(x\otimes x)\geq x\cdot x.
 \end{equation}
-Le penchant personnel de l'auteur de ces lignes est la notation avec le produit tensoriel. Si vous aimez ça, vous pouvez lire~\ref{SeOOpHsn}.
+Le penchant personnel de l'auteur de ces lignes est la notation avec le produit tensoriel. Si vous aimez Ã§a, vous pouvez lire~\ref{SeOOpHsn}.
 
-La notation adoptée ici avec le produit scalaire \( \langle x, Mx\rangle \) est entre les deux. Elle a l'avantage de n'être pas technologique comme le produit tensoriel (si vous y mettez les pieds, vous devez savoir ce que vous faites), tout en évitant de se casser la tête à savoir qui est un vecteur ligne ou un vecteur colonne.
+La notation adoptÃ©e ici avec le produit scalaire \( \langle x, Mx\rangle \) est entre les deux. Elle a l'avantage de n'Ãªtre pas technologique comme le produit tensoriel (si vous y mettez les pieds, vous devez savoir ce que vous faites), tout en Ã©vitant de se casser la tÃªte Ã  savoir qui est un vecteur ligne ou un vecteur colonne.
 
 \begin{corollary}
-    Une matrice symétrique strictement définie positive est inversible.
+    Une matrice symÃ©trique strictement dÃ©finie positive est inversible.
 \end{corollary}
 
 \begin{proof}
-    Si \( Ax=0\) alors \( \langle Ax, x\rangle =0\). Mais dans le cas d'une matrice strictement définie positive, cela implique \( x=0\) par le lemme~\ref{LemWZFSooYvksjw}.
+    Si \( Ax=0\) alors \( \langle Ax, x\rangle =0\). Mais dans le cas d'une matrice strictement dÃ©finie positive, cela implique \( x=0\) par le lemme~\ref{LemWZFSooYvksjw}.
 \end{proof}
 
 \begin{lemma}
-    Pour une base quelconque, les éléments diagonaux d'une matrice symétrique semi-définie positive sont positifs. Si la matrice est strictement définie positive, alors les éléments diagonaux sont strictement positifs.
+    Pour une base quelconque, les Ã©lÃ©ments diagonaux d'une matrice symÃ©trique semi-dÃ©finie positive sont positifs. Si la matrice est strictement dÃ©finie positive, alors les Ã©lÃ©ments diagonaux sont strictement positifs.
 \end{lemma}
 
 \begin{proof}
-    Il s'agit d'une application du lemme~\ref{LemWZFSooYvksjw}. Si \( A\) est définie positive et que \( \{ e_i \}\) est une base, alors
+    Il s'agit d'une application du lemme~\ref{LemWZFSooYvksjw}. Si \( A\) est dÃ©finie positive et que \( \{ e_i \}\) est une base, alors
     \begin{equation}
         A_{ii}=\langle Ae_i, e_i\rangle \geq \lambda\| e_i \|^2=\lambda\geq 0.
     \end{equation}
-    Si \( A\) est strictement définie positive, alors \( \lambda\) peut être choisi strictement positif.
+    Si \( A\) est strictement dÃ©finie positive, alors \( \lambda\) peut Ãªtre choisi strictement positif.
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Pseudo-réduction simultanée}
+\subsection{Pseudo-rÃ©duction simultanÃ©e}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{corollary}[Pseudo-réduction simultanée\cite{JMYQgLO}]  \label{CorNHKnLVA}
-    Soient \( A,B\in \gS(n,\eR)\) avec \( A\) définie positive\footnote{Définition~\ref{DefAWAooCMPuVM}.}. Alors il existe \( Q\in \GL(n,\eR)\) telle que \( Q^tBQ\) soit diagonale et \( Q^tAQ=\mtu\).
+\begin{corollary}[Pseudo-rÃ©duction simultanÃ©e\cite{JMYQgLO}]  \label{CorNHKnLVA}
+    Soient \( A,B\in \gS(n,\eR)\) avec \( A\) dÃ©finie positive\footnote{DÃ©finition~\ref{DefAWAooCMPuVM}.}. Alors il existe \( Q\in \GL(n,\eR)\) telle que \( Q^tBQ\) soit diagonale et \( Q^tAQ=\mtu\).
 \end{corollary}
 
 \begin{proof}
     Nous allons noter \( x\cdot y\) le produit scalaire usuel de \( \eR^n\) et \( \{ e_i \}_{i=1,\ldots, n}\) sa base canonique.
 
-    Vu que \( A\) est définie positive, nous avons que l'expression\footnote{On peut aussi l'écrire de façon plus matricielle sous la forme \( \langle x, y\rangle =x^tAy\).} \( \langle x, y\rangle =x\cdot Ay\) est un produit scalaire sur \( \eR^n\). Autrement dit, \( E\) muni de cette forme bilinéaire symétrique est un espace euclidien, ce qui fait dire à la proposition~\ref{PropUMtEqkb} qu'il existe une base de \( \eR^n\) orthonormée \( \{ f_i \}_{i=1,\ldots, n}\) pour ce produit scalaire, c'est à dire qu'il existe une matrice \( P\in \GL(n,\eR)\) telle que \( P^tAP=\mtu\). Ici, \( P\) est la matrice de changement de base de la base canonique à notre base orthonormée, c'est à dire la matrice qui fait \( Pe_i=f_i\) pour tout \( i\). Voyons cela avec un peu de détails.
+    Vu que \( A\) est dÃ©finie positive, nous avons que l'expression\footnote{On peut aussi l'Ã©crire de faÃ§on plus matricielle sous la forme \( \langle x, y\rangle =x^tAy\).} \( \langle x, y\rangle =x\cdot Ay\) est un produit scalaire sur \( \eR^n\). Autrement dit, \( E\) muni de cette forme bilinÃ©aire symÃ©trique est un espace euclidien, ce qui fait dire Ã  la proposition~\ref{PropUMtEqkb} qu'il existe une base de \( \eR^n\) orthonormÃ©e \( \{ f_i \}_{i=1,\ldots, n}\) pour ce produit scalaire, c'est Ã  dire qu'il existe une matrice \( P\in \GL(n,\eR)\) telle que \( P^tAP=\mtu\). Ici, \( P\) est la matrice de changement de base de la base canonique Ã  notre base orthonormÃ©e, c'est Ã  dire la matrice qui fait \( Pe_i=f_i\) pour tout \( i\). Voyons cela avec un peu de dÃ©tails.
 
-    Pour savoir ce que valent les éléments de la matrice \( P^tAP\), nous nous souvenons que \( P^tAPe_j\) est un vecteur dont les coordonnées sont les éléments de la \( j\)\ieme colonne de \( P^tAP\). Nous avons donc \( (P^tAP)_{ij}=e_i\cdot P^tAPe_i\). Calculons :
+    Pour savoir ce que valent les Ã©lÃ©ments de la matrice \( P^tAP\), nous nous souvenons que \( P^tAPe_j\) est un vecteur dont les coordonnÃ©es sont les Ã©lÃ©ments de la \( j\)\ieme colonne de \( P^tAP\). Nous avons donc \( (P^tAP)_{ij}=e_i\cdot P^tAPe_i\). Calculons :
     \begin{equation}
             (P^tAP)_{ij}=e_i\cdot P^tAPe_i
             =Pe_i\cdot APe_j
@@ -1037,9 +1037,9 @@ La notation adoptée ici avec le produit scalaire \( \langle x, Mx\rangle \) est 
         =\langle f_i, f_j\rangle
         =\delta_{ij}
     \end{equation}
-    où nous avons utilisé le fait que \( A\) était auto-adjointe pour la passer de l'autre côté du produit scalaire (usuel). Au final nous avons effectivement \( P^tAP=\mtu\).
+    oÃ¹ nous avons utilisÃ© le fait que \( A\) Ã©tait auto-adjointe pour la passer de l'autre cÃ´tÃ© du produit scalaire (usuel). Au final nous avons effectivement \( P^tAP=\mtu\).
 
-    La matrice \( P^tBP\) est une matrice symétrique, donc le théorème spectral~\ref{ThoeTMXla} nous donne une matrice \( R\in \gO(n,\eR)\) telle que \( R^tP^tBPR\) soit diagonale. En posant maintenant \( Q=PR\) nous avons la matrice cherchée.
+    La matrice \( P^tBP\) est une matrice symÃ©trique, donc le thÃ©orÃ¨me spectral~\ref{ThoeTMXla} nous donne une matrice \( R\in \gO(n,\eR)\) telle que \( R^tP^tBPR\) soit diagonale. En posant maintenant \( Q=PR\) nous avons la matrice cherchÃ©e.
 \end{proof}
 
 \begin{remark}
@@ -1047,18 +1047,18 @@ La notation adoptée ici avec le produit scalaire \( \langle x, Mx\rangle \) est 
     \begin{enumerate}
         \item
 
-            Nous n'avons pas prouvé l'existence d'une matrice \( P\) telle que \( P^{-1}BP\) et \( P^{-1}AP\) soient diagonales. Au contraire, nous avons \( Q^tBQ\) et \( Q^tAQ\) qui sont diagonales. Tant que \( Q\) n'est pas orthogonales, ce n'est pas la même chose.
+            Nous n'avons pas prouvÃ© l'existence d'une matrice \( P\) telle que \( P^{-1}BP\) et \( P^{-1}AP\) soient diagonales. Au contraire, nous avons \( Q^tBQ\) et \( Q^tAQ\) qui sont diagonales. Tant que \( Q\) n'est pas orthogonales, ce n'est pas la mÃªme chose.
 
-            Autrement dit, nous n'avons pas ici une réelle diagonalisation, parce que les matrices \( A\) et \( B\) ne sont pas semblables à des matrices diagonales. Voir les définitions~\ref{DefCNJqsmo} (diagonalisable) et~\ref{DefCQNFooSDhDpB} (semblable).
+            Autrement dit, nous n'avons pas ici une rÃ©elle diagonalisation, parce que les matrices \( A\) et \( B\) ne sont pas semblables Ã  des matrices diagonales. Voir les dÃ©finitions~\ref{DefCNJqsmo} (diagonalisable) et~\ref{DefCQNFooSDhDpB} (semblable).
 
             C'est pour cela que nous parlons de \emph{pseudo}-diagonalisation.
 
         \item
 
-            Dans le même ordre d'idée, la démonstration de la pseudo-diagonalisation simultanée parle clairement de formes bilinéaires, et non d'endomorphismes. Or en comparant les lois de transformations \eqref{ooWKTYooOJfclT} et \eqref{EQooZUVTooKjqnJj}, nous voyons bien que la réduction en passant par \( Q^tAQ\) est bien une réduction de forme bilinéaire et non une réduction d'endomorphismes.
+            Dans le mÃªme ordre d'idÃ©e, la dÃ©monstration de la pseudo-diagonalisation simultanÃ©e parle clairement de formes bilinÃ©aires, et non d'endomorphismes. Or en comparant les lois de transformations \eqref{ooWKTYooOJfclT} et \eqref{EQooZUVTooKjqnJj}, nous voyons bien que la rÃ©duction en passant par \( Q^tAQ\) est bien une rÃ©duction de forme bilinÃ©aire et non une rÃ©duction d'endomorphismes.
 
         \item
 
-            Nous avons prouvé la pseudo-réduction simultanée comme corollaire du théorème de diagonalisation des matrices symétriques~\ref{ThoeTMXla}. Il aurait aussi pu être vu comme un corollaire du théorème spectral~\ref{ThoRSBahHH} sur les opérateurs auto-adjoints via son corollaire~\ref{CorSMHpoVK}.
+            Nous avons prouvÃ© la pseudo-rÃ©duction simultanÃ©e comme corollaire du thÃ©orÃ¨me de diagonalisation des matrices symÃ©triques~\ref{ThoeTMXla}. Il aurait aussi pu Ãªtre vu comme un corollaire du thÃ©orÃ¨me spectral~\ref{ThoRSBahHH} sur les opÃ©rateurs auto-adjoints via son corollaire~\ref{CorSMHpoVK}.
     \end{enumerate}
 \end{remark}
