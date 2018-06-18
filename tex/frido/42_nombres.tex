@@ -629,23 +629,41 @@ Le lemme suivant montre que définir un morphisme de corps comme étant simpleme
 \subsection{Corps des fractions}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}[\cite{ooGSDHooLgtHCb}]       \label{DEFooGJYXooOiJQvP}
-    Soit un anneau commutatif et intègre\footnote{Définition~\ref{DEFooTAOPooWDPYmd}.} \( A\) et \( E=A\times A\setminus\{ 0 \}\). Nous y définissons les deux opérations suivantes :
+\begin{definition}
+  Soit \( A \) un anneau. Une \defe{partie multiplicative}{anneau!partie multiplicative} \( S \) de \( A \) est un sous-ensemble de \( A \) qui contient \( 1_A \) et qui est stable par multiplication (le produit de deux éléments de \( S \) est dans \( S \).
+\end{definition}
+
+\begin{propositiondef}       \label{DEFLocaliseDunAnneau}
+    Soit \( A\) un anneau commutatif et \( S \subset A \) une partie multiplicative sans diviseurs de zéro. Sur l'ensemble \( A\times S\), nous y définissons les deux opérations suivantes :
     \begin{enumerate}
         \item
             \( (a,b)+(c,d)=(ad+cb,bd)\);
         \item
-            \( (a,b)(c,d)=(ac,bd)\).
+            \( (a,b)(c,d)=(ac,bd)\);
     \end{enumerate}
-    Et aussi la relation d'équivalence \( (a,b)\sim(c,d)\) si et seulement si \( ad=bc\).
+    ainsi que la relation d'équivalence \( (a,b)\sim(c,d)\) si et seulement si \( ad=bc\) dans \( A \).
 
-    Le \defe{corps des fractions}{corps!des fractions} de \( A\) est le quotient
+    Alors on confère à l'ensemble
     \begin{equation}
-        \Frac(A)=\big( A\times A\setminus\{ 0 \} \big)/\sim.
+        S^{-1}A=\big( A\times S \big)/\sim.
     \end{equation}
-    Nous notons \( a/b\) la classe de \( (a,b)\).
+    une structure d'anneau, dans lequel tous les éléments de \( S \) sont inversibles. Nous notons \( a/b\) la classe de \( (a,b)\), et nous appelons \(S^{-1}A\) le \defe{localisé}{localisé d'un anneau} de \( A \) en \( S \).
+\end{propositiondef}
 
-    Les éléments de \( \Frac(A)\) sont des \defe{fractions rationnelles}{fractions!rationnelles} de \( A\).
+Le fait d'imposer que \( S \) n'a pas de diviseurs de zéro permet de s'assurer que les «dénominateurs» \( bd \) ne sont jamais nuls lorsque \( b \) et \( d \) ne sont pas nuls.
+
+\begin{proposition}
+  Soit \( A \) un anneau et \(S \) une partie multiplicative. Alors \( A \) se plonge dans le localisé \( S^{-1}A \) par le morphisme \( a \mapsto a/1 \).
+\end{proposition}
+
+\begin{definition}[\cite{ooGSDHooLgtHCb}]       \label{DEFooGJYXooOiJQvP}
+    Soit un anneau commutatif et intègre\footnote{Définition~\ref{DEFooTAOPooWDPYmd}.} Le \defe{corps des fractions}{corps!des fractions} de \( A\) est le localisé de \( A \) en \( A \setminus \{ 0 \} \); en d'autres termes, c'est le quotient
+    \begin{equation}
+        \Frac(A)=\big( A\times A\setminus\{ 0 \} \big)/\sim,
+    \end{equation}
+    avec la relation d'équivalence  \( (a,b)\sim(c,d)\) si et seulement si \( ad=bc\) dans \( A \).
+
+    Les éléments de \( \Frac(A)\) sont des \defe{fractions rationnelles}{fractions!rationnelles!d'un anneau} de \( A\).
 \end{definition}
 Le fait que \( A\) soit intègre est important pour être certain que \( bd\neq 0\) sous l'hypothèse que \( b,d\neq 0\).
 
@@ -809,6 +827,8 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
           \( | x |\geq 0\)
         \item
           \( | x |=0\) si et seulement si \( x=0\)
+        \item
+          \( ||x|| = |x|\);
         \item\label{ItemooOMKNooRlanvk}
           \( | x+y |\leq | x |+| y |\).
         \item\label{ItemooOMKNooRlanvki}
@@ -824,7 +844,7 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
         \item
             Si \( x\geq 0\) alors c'est vrai. Sinon, \( x\leq 0\) et \( | x |=-x\geq 0\) par le point~\ref{ItemooNVDIooSuiSoB}.
         \item
-            Si \( x=0\) alors \( x=-x\) et \( | x |=0\). Au contraire si \(x\neq 0\) alors \( -x\neq 0\) et que \( x\) soit positif ou négatif, nous aurons toujours \( \pm x\neq 0\).
+            Si \( x=0\), alors clairement \( | x |=0\) par définition. Réciproquement, si \( | x | = 0 \), alors soit \( | x | = x = 0 \), soit \( | x | = -x = 0\), et dans ce deuxième cas, en ajoutant \( x \) aux deux membres, on obtient \( 0 = x \).
         \item
             Nous supposons que \( x\leq y\) et nous distinguons divers cas suivant la positivité de \( x\) et \( y\).
             \begin{enumerate}
@@ -999,7 +1019,7 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
 \end{proof}
 
 \begin{proposition}\label{PropSuiteDInverses}
-            Soit \( (x_n)\) une suite de Cauchy dans le corps totalement ordonné \(\eK\), qui ne converge pas vers zéro\footnote{Elle peut donc converger vers autre chose que 0, voire même ne pas converger dans $\eK$.}. Alors il existe \( k_0 \in \eN \) tel que la suite \( (y_n) \) définie par \( y_n = \frac{1}{ x_{n+k_0} } \) soit de Cauchy.
+            Soit \( (x_n)\) une suite de Cauchy dans le corps totalement ordonnéet archimédien \(\eK\), qui ne converge pas vers zéro\footnote{Elle peut donc converger vers autre chose que 0, voire même ne pas converger dans $\eK$.}. Alors il existe \( k_0 \in \eN \) tel que la suite \( (y_n) \) définie par \( y_n = \frac{1}{ x_{n+k_0} } \) soit de Cauchy.
 \end{proposition}
 
 \begin{proof}
@@ -1013,14 +1033,18 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
             \end{equation}
 et en particulier \( x_p\neq 0\).
 
-            Nous venons de prouver que la suite ne s'annule plus à partir de l'indice \( k_0\), et même que \( | x_p |\geq\alpha/2\) pour tout \( p\geq k_0\). La suite  \( (y_n) \) telle que \( y_n = 1/x_{n+k_0}\) est donc bien définie. Montrons à présent qu'elle est de Cauchy. Soit \( \epsilon>0\). On doit trouver \( m_0 \) tel que, pour \( m, k \geq m_0 \), on ait \( | y_m - y_k | < \epsilon| \).
+            Nous venons de prouver que la suite ne s'annule plus à partir de l'indice \( k_0\), et même que \( | x_p |\geq\alpha/2\) pour tout \( p\geq k_0\). La suite  \( (y_n) \) telle que \( y_n = 1/x_{n+k_0}\) est donc bien définie. Montrons à présent qu'elle est de Cauchy. Soit \( \epsilon>0\). On doit trouver \( m_0 \) tel que, pour \( m, k \geq m_0 \), on ait \( | y_m - y_k | < \epsilon \).
 
-Comme \( (x_n) \) est de Cauchy, il existe \( n_0\) tel que \( | x_p-x_q |< \alpha^2\epsilon / 4 \) pour tout \( p,q>n_0\). Posons \( m_0 = \max \{ n_0 - k_0; 1 \} \). Soit \( m,k\geq m_0\); en posant pour simplifier \( p = m + k_0 \) et \( q = k + k_0 \), nous avons \( |  x_p|>\frac{ \alpha }{2}\) et \( | x_q |>\frac{ \alpha }{2}\), si bien que
-            \begin{equation}
-                | y_m - y_k | \left| \frac{1}{ x_p }-\frac{1}{ x_q } \right| \leq \frac{ | x_q-x_p | }{ | x_px_q | }\leq | x_q-x_p |\frac 1{| x_p|} \frac 1 {| x_q|} \leq \frac{ \alpha^2 \epsilon }{ 4 } \frac 2 \alpha \frac 2 \alpha \leq \epsilon.
-            \end{equation}
-            Donc \( (y_n) \) est de Cauchy.
-    \end{enumerate}
+Comme \( \eK \) est archimédien, il existe un naturel \( M \) tel que \( 2 /\alpha < M \). Comme \( (x_n) \) est de Cauchy, il existe \( n_0\) tel que \( | x_p-x_q |< \epsilon / M^2 \) pour tout \( p,q>n_0\). Posons \( m_0 = \max \{ n_0 - k_0; 1 \} \). Soit \( m,k\geq m_0\); en posant pour simplifier \( p = m + k_0 \) et \( q = k + k_0 \), nous avons \( |  x_p|>\frac{ \alpha }{2}\) et \( | x_q |>\frac{ \alpha }{2}\). Il s'ensuit que \( 1/ |  x_p| < M \) et que  \( 1/ |  x_q| < M \), si bien que
+\begin{align}
+  | y_m - y_k | &= \left| \frac{1}{ x_p }-\frac{1}{ x_q } \right|\\
+                &= \left|\frac{  x_q-x_p  }{  x_px_q }\right|\\
+                &\leq \left| |x_q-x_p| \frac 1{| x_p|} \frac 1 {| x_q|}\right|\\
+                & \leq \left| |x_q-x_p| M^2\right| \\
+                &\leq M^2 \frac \epsilon{M^2}
+                &\leq \epsilon.
+\end{align}
+Donc \( (y_n) \) est de Cauchy.
 \end{proof}
 
 
@@ -1035,14 +1059,31 @@ Une construction très explicite est faite dans \cite{RWWJooJdjxEK}. Ici nous al
 
 Les résultats énoncés ici sont utilisés plus bas et servent de guide à un éventuel contributeur qui voudrait écrire une partie dédiée à \( \eQ\) et ses propriétés de base\quext{Par exemple, définir une relation d'ordre sur \( \eQ\) et expliciter l'inclusion de \( \eZ\) dans \( \eQ\).}. Nous espérons que des preuves se trouvent dans \cite{RWWJooJdjxEK}. En tout cas, le lecteur est invité à ne rien prendre comme évident.
 
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{De l'ordre dans les rationnels}
+%---------------------------------------------------------------------------------------------------------------------------
+Comme \( \eZ \) se plonge dans \( \eQ \), on a un ordre sur certains rationnels. Cet ordre s'étend à tous les rationnels.
+\begin{propositiondef}
+  L'ordre sur \( \eQ \) qui étend celui de \( \eZ \) est construit de la manière suivante:
+  \begin{enumerate}
+  \item Le rationnel \( a/b \) est positif ( \(a/b \geq 0 \) ) si \( ab \geq 0 \). 
+  \item On dit que \( a/b \geq c/d \)  lorsque le rationnel \( ad - bc / bd \) est positif. 
+  \end{enumerate}
+  Cet ordre confère à \(\eQ \) une structure de corps totalement ordonné\footnote{Définition~\ref{DefKCGBooLRNdJf}~\ref{ITEMooOOOVooJWwIQr}.}.
+\end{propositiondef}
+
 \begin{lemma} \label{LEMooEBTIooGMoHsj}
-    Tout rationnel est majoré par un naturel.
+  Le corps \( \eQ \) est archimédien.
 \end{lemma}
+\begin{proof}
+  Soient \( a/b \) et \( c/d \) deux rationnels, supposons que \( c/d > 0\). On a \(n c/d > a/b \) si et seulement si \( n > ad / bc \), après avoir multiplié par \( d/c \) qui existe et qui est positif. Il suffit de prendre \(n = \max\{0; ad + 1\}\).
+\end{proof}
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Suites de Cauchy dans les rationnels}
 %---------------------------------------------------------------------------------------------------------------------------
-Comme \( \eQ \) est un corps archimédien et donc totalement ordonné, les propriétés sur les suites de Cauchy que l'on a démontrées restent vraies dans \( \eQ\). Récrivons-les dans ce cadre.
+Comme \( \eQ \) est un corps archimédien et totalement ordonné, les propriétés sur les suites de Cauchy que l'on a démontrées restent vraies dans \( \eQ\). Récrivons-les dans ce cadre.
 \begin{proposition}[\cite{RWWJooJdjxEK}]        \label{PropFFDJooAapQlP}
   Dans \( \eQ \):
     \begin{enumerate}
