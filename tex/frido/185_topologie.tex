@@ -45,34 +45,6 @@ et donc, les conditions de la définition \ref{DefNorme} sont immédiatement vé
     Soient \( r\in \eR\) et \( \epsilon\in \eR^+\). Nous devons prouver l'existence d'un rationnel dans \( B(x,\epsilon)\). Le lemme~\ref{LemooHLHTooTyCZYL} dit qu'il existe un rationnel dans \( \mathopen] x-\epsilon/2 , x+\epsilon/2 \mathclose[\) et donc dans \( B(x,\epsilon)\).
 \end{proof}
 
-\begin{proposition}[\cite{MonCerveau}] \label{PropSLCUooUFgiSR}
-    Quel que soit le réel \( r\), il existe une suite croissante de rationnels convergente vers \( r\).
-\end{proposition}
-
-\begin{proof}
-    Soient \( x\in \eR\) et \( \delta\in \eR\); vu que \( x-\delta\) et \( x\) sont des réels, le lemme~\ref{LemooHLHTooTyCZYL} donne un élément \( x_{\delta}\in \eQ \) tel que
-    \begin{equation}
-        x-\delta<x_{\delta}<x.
-    \end{equation}
-    Il suffit alors de pêcher parmi ces \( x_{\delta}\) pour trouver une suite croissante, et on montrera que cette suite converge vers \( x \).
-
-    Soit \( x_0\) un rationnel plus petit que \( x\). Nous posons \( \delta_0=x-x_0\) et ensuite :
-    \begin{subequations}
-        \begin{numcases}{}
-            \delta_i=x-x_i\\
-            x_{i+1}=x_{\delta_i/2} \in \eQ.
-        \end{numcases}
-    \end{subequations}
-    Ainsi nous avons pour tout \( i\) les inégalités
-    \begin{equation}
-        x_i=x-\delta_i<x-\frac{ \delta_i }{ 2 }<x_{i+1}<x.
-    \end{equation}
-    La suite \( (x_i) \) est donc une suite de rationnels, croissante et toujours plus petite que \( x\). Mais nous avons à chaque étape \( \delta_{i+1}<\frac{ \delta_i }{ 2 }\), ce qui implique que la suite des  \( \delta_i \) converge vers \( 0 \). Soit \( \epsilon>0\). Il existe \( k_0\) tel que pour tout \( k > k_0 \), \( \delta_k<\epsilon\). Pour un tel \( k \), nous avons alors
-    \begin{equation}
-        x_{k+1}\in B(x,\frac{ \delta_k }{ 2 })\subset B(x,\epsilon).
-    \end{equation}
-Tous les \( x_k \), pour \( k > k_0 + 1 \), sont tels que \( |x - x_k| < \epsilon \): la suite des \( x_k \) converge donc vers \( x \).
-\end{proof}
 
 %----------------------------------------------------------------------------------------------------------------------
 \subsection{Compacité pour les réels}
@@ -819,19 +791,8 @@ Les définitions de point d'accumulation et de point isolé sont \ref{DEFooGHUUo
     Autrement dit, quel que soit l'intervalle autour de  $a$ que l'on considère, le point $a$ n'est pas tout seul dans $D$.
 \end{lemma}
 
-\begin{example}
-	Prenons $D=\mathopen[ 0 , 1 [\cup\mathopen] 2 , 3 \mathclose]$. Cet ensemble n'a pas de points isolés, et l'ensemble de ses points d'accumulation est $\mathopen[ 0 , 1 \mathclose]\cup\mathopen[ 2,3  \mathclose]$.
 
-	Notez que les points $1$ et $2$ sont des points d'accumulation de $D$ qui ne font pas partie de $D$. Il est possible d'être un point d'accumulation de $D$ sans être dans $D$, mais pour être un point isolé dans $D$, il faut être dans $D$.
-\end{example}
 
-\begin{example}
-	Soit $D=\{ \frac{1}{ n }\}_{n\in\eN}$. Tous les points de cet ensemble sont des points isolés (vérifier !).  Aucun point de $D$ n'est point d'accumulation. Cependant $0$ est un point d'accumulation.
-\end{example}
-
-\begin{example}     \label{EXooWOYQooJolaTV}
-    Soit \( D=\mathopen] 1 , 2 \mathclose[\cup\{ 12 \}\). Le point \( 12\) est adhérence, mais pas d'accumulation parce que le voisinage \( \mathopen] 9 , 14 \mathclose[\) n'intersection pas \( D\setminus \{ 12 \}\).
-\end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Limite de suite}

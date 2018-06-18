@@ -1,0 +1,694 @@
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Les réels}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Une construction des réels via les coupures de Dedekind est donnée dans \cite{PaulinTopGmVegN}.
+
+\begin{normaltext}      \label{NormooHRDZooRGGtCd}
+    La construction des réels va nécessiter un petit «\wikipedia{fr}{bootstrap}{bootstrap}» au niveau de la topologie. En effet la notion de suite de Cauchy est, de manière générale, une notion topologique (définition~\ref{DefZSnlbPc}) alors que la topologie des espaces métriques (dont celle usuelle de \( \eQ\)) ne sera définie que par le théorème~\ref{ThoORdLYUu}. Nous avons donc dû définir en la définition~\ref{DefKCGBooLRNdJf} \emph{ex nihilo} les notions de
+\begin{itemize}
+    \item
+        suite de Cauchy
+    \item
+        suite convergente
+    \item
+        complétude
+\end{itemize}
+et nous allons construire un minimum de topologie histoire d'obtenir les résultats essentiels sur le corps des réels.
+
+Mais avant cela, construisons \( \eR\): ce sera l'ensemble des classes d'équivalence de suites de Cauchy dans \( \eQ\). Ce ne sera que plus tard, après avoir défini la notion d'espace métrique que nous allons voir que sur \( \eR\), ces trois notions coïncident avec celles topologiques\footnote{Proposition~\ref{PropooUEEOooLeIImr}.}. Et par conséquent que \( \eR\) sera un espace métrique complet\footnote{Théorème~\ref{THOooUFVJooYJlieh} pour la complétude en tant que corps et théorème~\ref{PROPooTFVOooFoSHPg} pour la complétude en tant que espace métrique.}.
+% position 11144-30436
+% position 13984-18006
+
+Dans cette optique, il est intéressant de lire ce que dit Wikipédia à propos des suites de Cauchy dans \wikipedia{fr}{Construction_des_nombres_réels}{l'article consacré} à la construction des nombres réels.
+\end{normaltext}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{L'ensemble}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Soit \( \modE\) l'ensemble des suites de Cauchy\footnote{Définition~\ref{DefKCGBooLRNdJf}\ref{ItemVXOZooTYpcYN}} dans \( \eQ\). Soit aussi l'ensemble \( \modE_0\) constituée des suites qui convergent vers zéro\footnote{Nous rappelons qu'à ce niveau nous n'avons pas encore prouvé que toutes les suites de Cauchy convergent.}.
+
+En posant
+\begin{equation}
+    x+y=(x_n+y_n)
+\end{equation}
+et
+\begin{equation}
+    xy=(x_ny_n),
+\end{equation}
+l'ensemble \( \modE\) devient un anneau\footnote{Définition~\ref{DefHXJUooKoovob}.} commutatif dont le neutre de l'addition est la suite constante \( x_n=0\) et le neutre pour la multiplication est la suite constante \( x_n=1\).
+
+\begin{proposition}
+    La partie \( \modE_0\) est un idéal\footnote{Définition~\ref{DefooQULAooREUIU}.} de l'anneau \( \modE\).
+\end{proposition}
+
+\begin{proof}
+    Nous savons par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdji} que les suites convergentes sont de Cauchy; par conséquent \( \modE_0\subset\modE\).
+
+    L'ensemble structuré \( (\modE_0,+)\) est un sous-groupe de \( \modE\) par les propriétés de la proposition~\ref{PropFFDJooAapQlP} (il s'agit du fait que la somme de deux suites convergent vers zéro est une suite convergente vers zéro).
+
+    En ce qui concerne la propriété fondamentale des idéaux, si \( x\in\modE_0\) et \( y\in\modE\) nous devons prouver que \( xy\in \modE_0\). Vu que \( (\modE_0,\cdot)\) est commutatif, cela suffira pour être un idéal bilatère. Vu que \( y\) est une suite de Cauchy, elle est bornée; et étant donné que \( x\to 0\) nous avons alors \( xy\to 0\) (par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdjiii}).
+\end{proof}
+
+\begin{theoremDef}[L'anneau des réels\cite{RWWJooJdjxEK}]       \label{DefooFKYKooOngSCB}
+    Sur l'ensemble quotient \( \modE/\modE_0\), les opérations
+    \begin{enumerate}
+        \item
+            \( \bar u+\bar v=\overline{ u+v }\)
+        \item
+            \( \bar u\cdot \bar v=\overline{ uv }\)
+    \end{enumerate}
+    sont bien définies et donnent à \( \modE/\modE_0\) une structure de corps commutatif appelé \defe{corps des réels}{réel} et noté \( \eR\)\nomenclature[Y]{\( \eR\)}{l'ensemble des réels}
+\end{theoremDef}
+\index{construction!des réels}
+
+\begin{proof}
+    Nous divisons la preuve en plusieurs parties.
+    \begin{subproof}
+    \item[Les opérations sont bien définies]
+    Si \( u,v\in \modE\) et \( h,k\in \modE_0\) alors \( h+k\in\modE_0\) et nous avons
+    \begin{equation}
+        \overline{ u+h }+\overline{ v+k }=\overline{ u+v+h+k }=\overline{ u+v }.
+    \end{equation}
+    ainsi que
+    \begin{equation}
+        \overline{ u+h }\cdot \overline{ v+k }=\overline{ (u+h)(v+k) }=\overline{ uv+uk+hv+hk }=\overline{ uv }
+    \end{equation}
+    parce que les suites des Cauchy \( u\) et \( v\) sont bornées, ce qui donne que \( uk\), \( hv\) et \( hk\) sont des éléments de \( \modE_0\) par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdjiii}. Cela prouve que les définitions proposées sont bonnes.
+
+    \item[Caractérisation des classes]
+        Soit \( q\in \eQ\) et une suite \( x\) convergente vers \( q\). Cette suite est de Cauchy comme toute suite convergente. Montrons que
+        \begin{equation}
+            \bar x=\{ \text{suites qui convergent vers } q \}.
+        \end{equation}
+        Si \( y\in\bar x\) alors \( y=x+h\) avec \( h\in \modE_0\), et comme \( h_n\to 0\), on a \( y_n\to q\). Réciproquement, si \( y_n\to q\) alors pour chaque \( n\) nous avons
+        \begin{equation}
+            y_n=x_n+(y_n-x_n),
+        \end{equation}
+        mais \( y_n-x_n\to 0\). Donc la suite \( y-x\in\modE_0\) ce qui signifie que \( y\in\bar x\).
+    \item[Neutre et unité]
+        Il est vite vérifié que \( \bar 0\), la classe de la suite constante égale à zéro est neutre pour l'addition. De même, \( \bar 1\), est un neutre pour la multiplication.
+    \item[Corps]
+        Nous devons prouver que tout élément non nul est inversible. C'est à dire que si \( x\in\modE\) ne converge pas vers zéro\footnote{\( x\in\modE\) peut soit ne pas converger du tout, soit converger vers autre chose que zéro.} alors il existe \( y\in \modE\) tel que \( xy\in\bar 1\).
+
+        Nous savons par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdjvi} que \( x\) étant une suite de Cauchy dans \( \eQ\), il existe \( n_0\in \eN\) tel que \( \left( \frac{1}{ x_n } \right)_{n\geq n_0}\) est une suite de Cauchy. Nous posons alors
+        \begin{equation}
+            y_n=\begin{cases}
+                0    &   \text{si } n\leq n_0\\
+                \frac{1}{ x_n }    &    \text{si } n>n_0.
+            \end{cases}
+        \end{equation}
+        Nous avons alors
+        \begin{equation}
+            (xy)_n=\begin{cases}
+                0    &   \text{si } n\leq n_0\\
+                1    &    \text{si } n>n_0
+            \end{cases}
+        \end{equation}
+        et donc \( xy\in\bar 1\).
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}     \label{PropooEPFCooMtDOfP}
+    Soit l'application
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \eQ&\to \eR \\
+            q&\mapsto \bar q .
+        \end{aligned}
+    \end{equation}
+    où par \( \bar q\) nous entendons la classe de la suite constante égale à \( q\) (qui est de Cauchy).
+    \begin{enumerate}
+        \item
+            C'est un homomorphisme injectif.
+        \item
+            \( \Image(\varphi)\) est un sous-corps de \( \eR\)
+        \item
+            \( \varphi\colon \eQ\to \Image(\varphi)\) est un isomorphisme de corps.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Le fait que ce soit un homomorphisme est simplement
+    \begin{itemize}
+        \item \( \varphi(q+q')=\overline{ q+q' }=\bar q+\overline{ q' }\)
+        \item \( \varphi(qq')=\overline{ qq' }=\overline{ q }\overline{ q' }\).
+    \end{itemize}
+    En ce qui concerne l'injectivité, si \( q\) est tel que \( \varphi(q)=\bar 0=\modE_0\), c'est que
+    \begin{equation}
+        \varphi(q)=\{ \text{suites de Cauchy qui convergent vers zéro} \}
+    \end{equation}
+    Mais nous savons aussi que\footnote{Voir dans la démonstration du théorème~\ref{DefooFKYKooOngSCB}.}
+    \begin{equation}
+        \varphi(q)=\bar q=\{ \text{suites de Cauchy qui convergent vers } q \}
+    \end{equation}
+    Nous en déduisons que \( q=0\).
+\end{proof}
+Lorsque dans la suite nous parlerons d'un élément de \( \eQ\) comme étant un réel, nous aurons en tête l'image de cet élément par \( \varphi\).
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Relation d'ordre}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous définissons les parties \( \modE^+\) et \( \modE^-\) de \( \modE\) par
+\begin{enumerate}
+    \item
+        \( x\in  \modE^+\) si et seulement si pour tout \( \epsilon>0\), il existe \( N_{\epsilon}\) tel que \( n>N_{\epsilon}\) implique \( x_n>-\epsilon\).
+    \item
+        \( x\in  \modE^-\) si et seulement si pour tout \( \epsilon>0\), il existe \( N_{\epsilon}\) tel que \( n>N_{\epsilon}\) implique \( x_n<\epsilon\).
+\end{enumerate}
+Nous notons aussi \( \modE^{++}=\modE^+\setminus\modE_0\).
+
+\begin{lemma}
+    Les parties \( \modE^+\) et \( \modE^-\) partitionnent \( \modE\) de la façon suivante :
+    \begin{enumerate}
+        \item
+            \( \modE^+\cap\modE^-=\modE_0\)
+        \item
+            \( \modE^+\cup\modE^-=\modE\)
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    On prouve d'abord que \( \modE^+\cap\modE^-\subset\modE_0\), l'inclusion inverse est évidente. Soit \( \epsilon>0\) et \( x\in \modE^+\cap\modE^-\). Il existe un \( N\in \eN\) tel que \( x_n>-\epsilon\) et \( x_n<\epsilon\) pour tout \( n\geq N\). Par conséquent, \( | x_n |\leq \epsilon\) pour tout \( n\geq N\) et la suite \( x\) converge vers zéro, c'est à dire \( x\in\modE_0\).
+
+    Pour prouver le second point, soit \( x\in \modE\setminus\modE^-\), et prouvons que \( x\in\modE^+\). La condition \( x\notin \modE^-\) donne qu'il existe un \( \alpha>0\) (dans \( \eQ\)) tel que pour tout \( n\), il existe \( p>n\) avec \( x_p>\alpha\). Mais \( x\) est une suite de Cauchy, donc nous avons un \( n_0\) tel que si \( n,p\geq n_0\) alors \( | x_n-x_p |\leq \frac{ \alpha }{2}\). En particulier, si \( n\geq n_0\), et si \( p>n\) est tel que \( x_p>\alpha\), on obtient
+    \begin{equation}
+        x_n>\frac{ \alpha }{2}>0
+    \end{equation}
+    Par conséquent \( x\in\modE^+\) parce que \( x\in\modE\) et les \( x_n \) sont tous positifs à partir d'un certain rang.
+\end{proof}
+
+\begin{lemma}[\cite{RWWJooJdjxEK}]
+    Quelques propriétés du partitionnement.
+    \begin{enumerate}
+        \item
+            \( x\in\modE^-\) si et seulement si \( (-x)\in\modE^+\)
+        \item
+            \( x\in\modE^+\) et \( y\in\modE^+\) implique \( x+y\in\modE^+\)
+        \item
+            \( x\in\modE^+\) et \( y\in\modE^+\) implique \( xy\in\modE^+\)
+        \item
+            Si \( x,y\in\modE\) sont tels que \( x-y\in\modE_0\) alors soit \( x,y\in\modE^+\) soit \( x,y\in\modE^-\).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Point par point.
+    \begin{enumerate}
+        \item
+            Définition de \( \modE^+\) et \( \modE^-\).
+        \item
+            Pour \( n\geq N_{\epsilon/2}\) nous avons \( x_n>-\epsilon/2\) et \( y_n>-\epsilon/2\). Donc \( x_n+y_n>-\epsilon\).
+        \item
+            Si \( x\) ou \( y\) est dans \( \modE_0\) alors \( xy\in\modE_0\) et c'est bon. Si par contre \( x,y\in\modE^{++}\) alors pour \( n\) suffisamment grand, \( x_n>0\) et \( y_n>0\). Et dans ce cas, \( (xy)_n> 0\), c'est à dire \( xy\in\modE^+\).
+        \item
+            Supposons que \( x-y\in\modE_0\) avec \( x\in\modE^+\) et prouvons qu'alors \( y\in\modE^+\). Soit donc \( \epsilon>0\); il existe \( n_1\) tel que \( x_n>-\frac{ \epsilon }{2}\) dès que \( n\geq n_1\). Mais \( x-y\in\modE_0\), donc il existe \( n_2\) tel que \( | x_n-y_n |<\frac{ \epsilon }{2}\) dès que \( n\geq n_2\). En prenant \( n\) plus grand que \( n_1\) et \( n_2\), nous avons en même temps
+            \begin{subequations}
+                \begin{numcases}{}
+                    x_n>-\frac{ \epsilon }{2}\\
+                    | x_n-y_n |<\frac{ \epsilon }{2}.
+                \end{numcases}
+            \end{subequations}
+            Cela implique que \( y_n>-\epsilon\) et donc que \( y\in\modE^+\).
+
+            Nous pouvons de même prouver que si \( x\in\modE^-\) alors \( y\in\modE^-\).
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[Positivité dans \( \eR\)]        \label{DefooLMQIooTgzZXd}
+    Vocabulaire et notations.
+    \begin{enumerate}
+        \item
+            Nous notons \( \eR=\modE/\modE_0\).
+        \item
+            Nous notons \( \eR^+=\modE^+\).\nomenclature[Y]{\( \eR^+\)}{les réels positifs ou nuls}
+        \item
+            Nous notons \( \eR^-=\modE^-\).
+        \item
+            Un élément de \( \eR\) est \defe{positif}{positif} s'il est la classe d'une suite de Cauchy appartenant à \( \modE^+\).
+        \item
+            Un élément de \( \eR\) est \defe{négatif}{négatif} s'il est la classe d'une suite de Cauchy appartenant à \( \modE^-\).
+        \item
+            Lorsque nous parlons de nombres réels, le symbole «\( 0\)» signifie \( \modE_0\) ou plus précisément la classe d'un élément de \( \modE_0\) modulo \( \modE_0\).
+    \end{enumerate}
+\end{definition}
+
+\begin{normaltext}\label{REMooOCXLooKQrDoq}
+    Avec les conventions de la définition~\ref{DefooLMQIooTgzZXd}, et en anticipant sur nos connaissances à propos des réels,
+    \begin{enumerate}
+        \item
+            zéro est positif et négatif.
+        \item
+            L'intersection entre \( \eR^+\) et \( \eR^-\) est le singleton \( \{ 0 \}\).
+        \item
+            L'ensemble des nombres \emph{strictement} positifs est noté \( (\eR^+)^*\) ou \( \eR^+\setminus\{ 0 \}\).
+        \item
+            Le mot «positif» signifie «positif ou nul»; le mot «négatif» signifie «négatif ou nul».
+    \end{enumerate}
+
+    Cela vient des conventions de la remarque \ref{REMooOCXLooKQrDoq} qui sont également celles de Wikipédia\cite{ooSBSSooTlnuKi}.
+\end{normaltext}
+
+\begin{definition}[Ordre dans \( \eR\)]     \label{DefooYALBooHSXZqB}
+    Si \( a,b\in \eR\) nous notons \( a\leq b\) si et seulement si \( b-a\) est positif. Nous notons aussi \( a>b\) si et seulement si \( b-a\in \eR^+\setminus\{ 0 \}\), etc.
+\end{definition}
+
+\begin{lemma}       \label{LemooRordonne}
+    Les premières propriétés de l'ordre.
+    \begin{enumerate}
+        \item
+            L'ensemble \( (\eR,\leq)\) est un corps totalement ordonné (définitions~\ref{DEFooVGYQooUhUZGr} et~\ref{DefKCGBooLRNdJf}).
+        \item
+            L'application
+            \begin{equation}
+                \begin{aligned}
+                    \varphi\colon \eQ&\to \eR \\
+                    q&\mapsto \bar q
+                \end{aligned}
+            \end{equation}
+            dont nous avons déjà parlé dans la proposition~\ref{PropooEPFCooMtDOfP} est strictement croissante.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Nous prouvons la stricte croissance de \( \varphi\). Si \( q< l\) alors \( \varphi(q)-\varphi(l)=\overline{ q-l }\) est la classe de la suite constante \( q-l\) qui est un élément strictement positif de \( \eQ\). Nous avons donc \( \overline{ q-l }\in \eR^+\), et donc \( \varphi(q)<\varphi(l)\).
+\end{proof}
+
+\begin{remark}
+    Comme déjà mentionné plus haut, à chaque fois que nous parlerons d'un élément de \( \eQ\) comme étant un élément de \( \eR\), nous considérons la classe de la suite constante.
+\end{remark}
+
+\begin{lemma}       \label{LemooYNOVooOwoRwD}
+    Si \( x,y,z\in \eR\) avec \( x>0\) sont tels que \( z>y/x\) alors \( zx>y\).
+\end{lemma}
+
+\begin{proof}
+    Nous savons que
+    \begin{equation}
+        z-\frac{ y }{ x }\in \modE^+\setminus\{ 0 \}=\modE^{++}.
+    \end{equation}
+    Vu que \( x\in\modE^{++}\), multiplier par \( x\) fait rester dans \( \modE^{++}\) :
+    \begin{equation}
+        zx-x\frac{ y }{ x }\in \modE^{++}.
+    \end{equation}
+    Un représentant de \( x\frac{ y }{ x }\) est la suite \( n\mapsto x_n\frac{ y_n }{ x_n }=y_n\). Donc \( x\frac{ y }{ x }=y\). Cela signifie que \( zx-y\in\modE^{++}\) et donc que \( zx>y\).
+\end{proof}
+
+\begin{lemma}       \label{LemooMWOUooVWgaEi}
+    Pour tout \( a\in \eR\), il existe \( p\in \eN\) tel que \( p>a\).
+\end{lemma}
+
+\begin{proof}
+    Nous allons donner deux preuves différentes de ce lemme.
+    \begin{subproof}
+    \item[Première façon]
+
+        L'élément \( a\) de \( \eR\) admet un représentant \( (a_n)\) qui est une suite de Cauchy dans \( \eQ\). C'est donc une suite bornée, c'est-à-dire qu'il existe \( m,q\in \eN\) tels que \( | a_n |\leq m/q\) pour tout \( n\) (proposition~\ref{PropFFDJooAapQlP}~\ref{ItemRKCIooJguHdjii}). Soit \( M\) un naturel strictement plus grand que \( m/q\)\footnote{Lemme~\ref{LEMooEBTIooGMoHsj}.}.
+
+    La suite de Cauchy \( (M-a_n)_{n\in \eN}\) est constituée de rationnels positifs et est donc dans \( \modE^+\). La classe de \( M-a\) est donc un réel positif\footnote{Et nous allons d'ailleurs arrêter de toujours préciser «la classe de» lorsque ce n'est pas nécessaire.}. Par définition de la relation d'ordre, \( M\geq a\).
+\item[Seconde façon]
+
+    La suite \( (a_n)\) est majorée par \( \frac{ m }{ q }\), donc on a dans \( \eQ\) et pour tout \( n\) :
+    \begin{equation}
+        a_n\leq \frac{ m }{ q }=M\leq qM.
+    \end{equation}
+    L'application \( \varphi\colon \eQ\to \eR\) est croissante, donc
+    \begin{equation}
+        \varphi\big( (a_n) \big)\leq \varphi(qM).
+    \end{equation}
+    \end{subproof}
+\end{proof}
+
+En corollaire, nous avons
+\begin{lemma}      \label{LEMooMWOUooVWgbFi}
+    Pour tout \( x\in \eR\), il existe \( q\in \eZ\) tel que \( q < x\).
+\end{lemma}
+\begin{proof}
+    Utilisation du lemme précédent avec \( a = -x \): on prend \( q = -p \).
+\end{proof}
+
+\begin{theorem}[\cite{RWWJooJdjxEK}]        \label{ThoooKJTTooCaxEny}
+    Le corps \( \eR\) est archimédien\footnote{Définition~\ref{DefKCGBooLRNdJf}\ref{ItemooDZQKooPsqeRf}.}.
+\end{theorem}
+
+\begin{proof}
+    Le lemme~\ref{LemooRordonne} dit que \( \eR\) est totalement ordonné. Soient \( x,y\in \eR\) avec \( x>0\); posons \( a=\frac{ y }{ x }\). Le lemme~\ref{LemooMWOUooVWgaEi} nous donne un \( p \in \eN\) tel que \(p > a\).Nous concluons alors avec le lemme~\ref{LemooYNOVooOwoRwD} :
+    \begin{equation}
+        px>ax=\frac{ y }{ x }x=y.
+    \end{equation}
+\end{proof}
+
+Le lemme suivant n'est pas loin de dire que \( \eQ\) est dense dans \( \eR\), à part que nous n'avons pas encore donné de topologie sur \( \eR\).
+\begin{lemma}       \label{LemooHLHTooTyCZYL}
+    Si \( x,y\in \eR\) sont tels que \( x<y\), alors il existe \( s\in \eQ\) tel que \( x<s<y\).
+\end{lemma}
+
+\begin{proof}
+    Nous avons par hypothèse que \( y-x>0\) et donc le fait que \( \eR\) soit archimédien (théorème~\ref{ThoooKJTTooCaxEny}) nous donne \( q\in \eN\) tel que \( q(y-x)>1\). Soit
+    \begin{equation}
+        E=\{ n\in \eZ\tq \frac{ n }{ q }\leq x \}.
+    \end{equation}
+    Cet ensemble n'est pas vide à cause du lemme~\ref{LEMooMWOUooVWgbFi}; de plus, comme \( |x|q \leq n_0\) pour un certain \( n_0 \) (à cause du lemme~\ref{LemooMWOUooVWgaEi}), l'ensemble \( E\) est majoré par \( n_0\). Donc \( E\) possède un plus grand élément\footnote{Lemme~\ref{LEMooMYEIooNFwNVI}.} \( p\) qui vérifie
+    \begin{equation}
+        \frac{ p }{ q }\leq x<\frac{ p+1 }{ q }.
+    \end{equation}
+    De plus \( (p+1)/q<y\). En effet nous avons
+    \begin{equation}
+        \frac{ p+1 }{ q }=\frac{ p }{ q }+\frac{1}{ q }\leq x+\frac{1}{ q }<x+y-x=y
+    \end{equation}
+    où nous avons utilisé l'inégalité stricte \( y-x>\frac{1}{ q }\).
+
+    Nous avons donc
+    \begin{equation}
+        x<\frac{ p+1 }{ q }<y,
+    \end{equation}
+    et le nombre \( (p+1)/q\) convient comme \( s\).
+\end{proof}
+
+\begin{remark}      \label{REMooXOIOooHjwMvA}
+    Le lemme~\ref{LemooHLHTooTyCZYL} a également pour conséquence que des ensembles comme \( \mathopen[ -1 , 1 \mathclose]\) ne sont pas bien ordonnés (définition~\ref{DEFooVGYQooUhUZGr}). En effet la partie \( \mathopen] 0 , 1 \mathclose[\) ne possède pas de minimum parce que si \( x\in \mathopen] 0 , 1 \mathclose[\) alors \( 0<x\) et il existe \( s\in \eQ\) (a fortiori \( s\in \eR\)) tel que \( 0<s<x\), c'est à dire que \( x\) n'est pas un minimum de \( \mathopen] 0 , 1 \mathclose[\).
+\end{remark}
+
+Tant que nous y sommes dans les encadrements de réels\dots
+\begin{normaltext}
+  Soit \(q_0 \in \eQ \) tel que \( 0 \leq q_0 < 1 \). On définit alors \( d_1 \in \{0, 1\} \) comme valant \( 1 \) si \( 2 q_0 \geq 1 \) et \(0 \) sinon. Puis on pose \( q_1 = 2 q_0 - d_1 \).
+
+  Poursuivant de la sorte, on crée une suite \( (d_n)_{n\geq 1} \): c'est le \defe{développement dyadique}{dyadique!développement} de \( q_0 \).
+\end{normaltext}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooRSLIooVrZMxM}
+  Soit \( q,\ q' \) deux rationnels tels que \( 0 \leq q < q' < 1 \). Il existe deux entiers naturels \( a \) et \( N \) tels que \( q < \frac a {2^N} < q' \).
+\end{lemma}
+\begin{proof}
+  On crée les développements dyadiques de \( q \) et \( q' \), que l'on note respectivement \( (d_n)_{n\geq 1} \) et \( (d'_n)_{n\geq 1} \). Notons
+  \begin{equation}
+    E = \{ n \in \eN \tq d_n \neq d'_n \}.
+  \end{equation}
+Comme \( q \neq q' \), les développements dyadiques sont différents\quext{À vérifier tout de même\dots}, l'ensemble \(E\) est non-vide, et il admet un plus petit élément \(N \). Or, \( q < q' \), et donc nécessairement \( d_N < d'_N \). On construit alors \( a = \sum_{i=1}^{N} d_i 2^i \). 
+\end{proof}
+
+\begin{corollary}\label{CorDensiteDyadiques}
+  Pour tous réels \(x,\ y\) tels que \( 0 \leq x < y \leq 1 \), il existe un nombre de la forme \( d = a / 2^n \), avec \( n \in \eN \) et \( a \in \eN,\ a \leq 2^n\), tel que \( x < d < y \).
+\end{corollary}
+
+\begin{proof}
+  On utilise deux fois le lemme~\ref{LemooHLHTooTyCZYL}, d'abord avec \( x \) et \( \frac {x+y} 2 \), ce qui nous donne un rationnel \( q \), puis avec \( \frac {x+y} 2 \) et \( y \), ce qui nous donne un rationnel \( q' > q \). On conclut alors avec le lemme~\ref{LEMooRSLIooVrZMxM}.
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Un peu de topologie}
+%---------------------------------------------------------------------------------------------------------------------------
+Les notions de topologie générale ne seront abordées qu'au chapitre~\ref{ChapTopologieGenerale}. Toutefois, nous pouvons créer de la topologie sur le corps que l'on vient de créer, ce qui nous permettra de donner quelques résultats qui paraissent évidents au premier abord, mais qui se doivent tout de même d'être prouvés.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Complétude}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{MonCerveau}] \label{PropSLCUooUFgiSR}
+    Quel que soit le réel \( r\), il existe une suite croissante de rationnels convergente vers \( r\).
+\end{proposition}
+
+\begin{proof}
+    Soient \( x\in \eR\) et \( \delta\in \eR\); vu que \( x-\delta\) et \( x\) sont des réels, le lemme~\ref{LemooHLHTooTyCZYL} donne un élément \( x_{\delta}\in \eQ \) tel que
+    \begin{equation}
+        x-\delta<x_{\delta}<x.
+    \end{equation}
+    Il suffit alors de pêcher parmi ces \( x_{\delta}\) pour trouver une suite croissante, et on montrera que cette suite converge vers \( x \).
+
+    Soit \( x_0\) un rationnel plus petit que \( x\). Nous posons \( \delta_0=x-x_0\) et ensuite :
+    \begin{subequations}
+        \begin{numcases}{}
+            \delta_i=x-x_i\\
+            x_{i+1}=x_{\delta_i/2} \in \eQ.
+        \end{numcases}
+    \end{subequations}
+    Ainsi nous avons pour tout \( i\) les inégalités
+    \begin{equation}
+        x_i=x-\delta_i<x-\frac{ \delta_i }{ 2 }<x_{i+1}<x.
+    \end{equation}
+    La suite \( (x_i) \) est donc une suite de rationnels, croissante et toujours plus petite que \( x\). Mais nous avons à chaque étape \( \delta_{i+1}<\frac{ \delta_i }{ 2 }\), ce qui implique que la suite des  \( \delta_i \) converge vers \( 0 \). Soit \( \epsilon>0\). Il existe \( k_0\) tel que pour tout \( k > k_0 \), \( \delta_k<\epsilon\). Pour un tel \( k \), nous avons alors
+    \begin{equation}
+        x_{k+1}\in B(x,\frac{ \delta_k }{ 2 })\subset B(x,\epsilon).
+    \end{equation}
+Tous les \( x_k \), pour \( k > k_0 + 1 \), sont tels que \( |x - x_k| < \epsilon \): la suite des \( x_k \) converge donc vers \( x \).
+\end{proof}
+
+\begin{lemma}[\cite{RWWJooJdjxEK}]      \label{LemooRTGFooYVstwS}
+    Toute suite de Cauchy dans \( \eQ\) converge dans \( \eR\) vers le réel qu'elle représente.
+\end{lemma}
+
+\begin{proof}
+    Soit \( (x_n)\) une suite de Cauchy de \( \eQ\), c'est à dire que \( x_k\in \eQ\) pour tout \( k\) et qu'elle est de Cauchy. Elle représente un réel \( \bar x\in \eR\), et nous voulons prouver que pour la topologie de \( \eR\) nous avons \( \lim_{n\to \infty} x_n=\bar x\). Dans cette dernière limite, chacun des \( x_n\) est vu dans \( \eR\).
+
+
+    Si \( \epsilon\in \eQ\) est donné, il existe \( N_{\epsilon}\) tel que si \( p,q\geq N_{\epsilon}\) alors \( | x_p-x_q |< \epsilon\), c'est à dire
+    \begin{equation}
+        x_p-\epsilon<x_q<x_p+\epsilon.
+    \end{equation}
+    Soit \( p\geq N_{\epsilon}\) fixé. Pour tout \( q\geq N_{\epsilon}\) nous avons \(  x_p-\epsilon<x_q<x_p+\epsilon \). Par conséquent, la suite \( n\mapsto (x_p-\epsilon)-q_n\) est un élément de \( \modE^-\) et au niveau des classes nous pouvons écrire
+    \begin{equation}
+        \overline{ n\mapsto (x_p-\epsilon)-x_n }\leq 0.
+    \end{equation}
+    Vu que \( x_p-\epsilon\) représente la suite constante nous avons l'inégalité suivante dans \( \eR\) :
+    \begin{equation}
+        x_p-\epsilon-\bar x\leq 0
+    \end{equation}
+    ou encore : \( \bar x\geq x_p-\epsilon\). En faisant de même avec l'autre partie de l'inégalité, \( x_p-\epsilon\leq \bar x\leq x_p+\epsilon\), ce qui implique que
+    \begin{equation}
+        x_p\in B(\bar x,\epsilon)
+    \end{equation}
+    dès que \( p\geq N_{\epsilon}\). Cela signifie que \( x_p\to \bar x\) dans \( \eR\).
+\end{proof}
+
+\begin{proposition}     \label{PROPooFGBOooHiZqbs}
+    Soit un réel \( x\). Il existe une suite de rationnels strictement croissante qui converge vers \( x\).
+
+    Si de plus \( x>0\), alors la suite peut être choisie parmi les rationnels strictement positifs.
+\end{proposition}
+
+\begin{theorem}[Complétude de \( \eR\), critère de Cauchy\cite{RWWJooJdjxEK}] \label{THOooUFVJooYJlieh}
+    Nous avons :
+    \begin{enumerate}
+        \item
+            Le corps \( \eR\) est un corps complet (définition~\ref{DefKCGBooLRNdJf}\ref{ITEMooKZZYooDaidGU})
+        \item
+            Une suite dans \( \eR\) est convergente (définition~\ref{DefKCGBooLRNdJf}\ref{ITEMooDERQooLmJwFR}) si et seulement si elle est de Cauchy (définition~\ref{DefKCGBooLRNdJf}\ref{ItemVXOZooTYpcYN}).
+    \end{enumerate}
+\end{theorem}
+\index{complet!$\eR$!corps}
+\index{critère!de Cauchy}
+Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFooYUqQYo}. Ils ne sont pas équivalents, ne parlent pas exactement du même objet «\( \eR\)», ni des mêmes notions de suites de Cauchy et de complétude.
+
+\begin{proof}
+    Soit \( (x_n)\) une suite de Cauchy dans \( \eR\). Pour chaque \( n\), il existe par le lemme~\ref{LemooHLHTooTyCZYL} un \( y_n\in \eQ\) tel que
+    \begin{equation}
+        x_n-\frac{1}{ n }<y_n<x_n+\frac{1}{ n }.
+    \end{equation}
+    \begin{subproof}
+        \item[\( (y_n)\) est une suite de Cauchy dans \( \eQ\)]
+            Nous prouvons que \( (y_n)\) est une suite de Cauchy dans \( \eQ\) (définition~\ref{DefKCGBooLRNdJf}\ref{ItemVXOZooTYpcYN}). Vu que \( (x_n)\) est de Cauchy pour le corps \( \eR\), si \( \epsilon>0\) dans \( \eR\) est donné, il existe \( n_{\epsilon}\) tel que si \( p,q\geq n_{\epsilon}\), alors \( | x_p-x_q |<\epsilon\).
+
+        Nous avons :
+        \begin{equation}
+            | y_p-y_q |\leq | y_p-x_p |+| x_p-x_q |+| x_q-y_q |<\frac{1}{ p }+\epsilon+\frac{1}{ q }.
+        \end{equation}
+        En choisissant \( N_{\epsilon}>\max\{ n_{\epsilon},\frac{1}{ \epsilon } \}\) (ce qui est possible par le lemme~\ref{LemooMWOUooVWgaEi}), et en prenant \( p,q>N_{\epsilon}\), nous avons
+        \begin{equation}
+            | y_p-y_q |\leq 3\epsilon,
+        \end{equation}
+        ce qui prouve que \( (y_p)\) est une suite de Cauchy dans \( \eQ\), pour la notion de suite de Cauchy dans \( \eQ\).
+
+    \item[Le réel représenté]
+
+        Vu que \( (y_p)\) est de Cauchy dans \( \eQ\), elle représente un réel que nous notons \( \bar y\).
+
+    \item[Convergence de \( (x_n)\)]
+
+        Nous prouvons que \(     x_n\stackrel{\eR}{\longrightarrow}\bar y \).
+
+        Nous savons qu'une suite de Cauchy de rationnels converge dans \( \eR\) vers le réel qu'elle représente, c'est à dire : \( y_n\stackrel{\eR}{\longrightarrow}\bar y\) où chaque \( y_n\in \eQ\) est vu comme la suite constante (cela est le lemme~\ref{LemooRTGFooYVstwS}). Autrement dit, pour \( \epsilon>0\), il existe un \( N_{\epsilon}\in \eN\) tel que si \( p>N_{\epsilon}\) alors \( | \bar y-y_p |<\epsilon\). Pour un tel \( p\) nous avons
+        \begin{equation}
+            | \bar y-x_p |\leq| \bar y-y_p |+| y_p-x_p |\leq \epsilon+\frac{1}{ p }.
+        \end{equation}
+        Donc dès que \( p\) est plus grand que \( \max\{ N_{\epsilon},\frac{1}{ \epsilon } \}\), nous avons \( | \bar y-x_p |<2\epsilon\), ce qui signifie que la suite \( (x_n) \) converge vers \( \bar y\) dans \( \eR\).
+
+        Ceci achève de prouver que \( \eR\) est un corps complet.
+        \end{subproof}
+
+        En ce qui concerne l'équivalence entre les suites convergentes et de Cauchy, nous venons de prouver que toute suite de Cauchy dans \( \eR\) est convergente. La réciproque est la proposition~\ref{PROPooTFVOooFoSHPg}.
+
+\end{proof}
+
+Nous avons terminé avec la construction des réels. Les propriétés topologiques arrivent en la section~\ref{SECooGKHYooMwHQaD}. En particulier le théorème~\ref{THOooNULFooYUqQYo} pour la complétude de \( \eR\) en tant qu'espace métrique.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Maximum, supremum et compagnie}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Ce n'est un secret pour personne que $\eR$ est un \href{http://fr.wikipedia.org/wiki/Relation_d'ordre}{ensemble totalement ordonné}\footnote{Définition~\ref{DefooYALBooHSXZqB}.} : il y a des éléments plus grands que d'autres, et mieux : à chaque fois que je prends deux éléments différents dans $\eR$, il y en a un des deux qui est plus grand que l'autre. Il n'y a pas d'\emph{ex æquo} dans $\eR$.
+
+  Si je regarde l'intervalle $I=[0,1]$, je peux même dire que $10$ est plus grand que tous les éléments de $I$. Nous disons que $10$ est un \emph{majorant} de $[0,1]$. La définition est la suivante.
+\begin{definition}
+    Soit \( A\), une partie de \( \eR\). 
+    \begin{enumerate}
+        \item
+            Un nombre \( M\) est un \defe{majorant}{majorant} de \( A\) si \( M\) est plus grand que tous les éléments de \( A\) : pour tout \( x\in A\), \( M\geq x\).
+        \item
+            Un nombre \( m\) est un \defe{minorant}{minorant} de \( A\) si \( m\) est plus petit que tous les éléments de \( A\) : pour tout \( x\in A\), \( m\leq x\).
+    \end{enumerate}
+    Nous parons de majorant ou de minorants \emph{stricts} lorsque les inégalités sont strictes.
+\end{definition}
+
+Nous insistons sur le fait que l'inégalité n'est pas stricte. Ainsi, $1$ est un majorant de $[0,1]$. Dès qu'un ensemble a un majorant, il en a plein. Si $s$ majore l'ensemble $A$, alors $s+1$, $s+4$ et \( s+\frac{ 3 }{ 7 }\) majorent également $A$.
+
+\begin{example}
+Une petite galerie d'exemples de majorants.
+\begin{itemize}
+\item L'intervalle fermé $[4,8]$ admet entre autres $8$ et $130$ comme majorants,
+\item l'intervalle ouvert $]4,8[$ admet également $8$ et $130$ comme majorants,
+\item $7$ n'est pas un majorant de $[1,5]\cup]8,32]$,
+\item $10/10$ majore les notes qu'on peut obtenir à un devoir.
+\item l'intervalle $[4,\infty[$ n'a pas de majorants.
+\end{itemize}
+\end{example}
+
+\begin{propositionDef}[\wikipedia{en}{http://en.wikipedia.org/wiki/Least_upper_bound_principle}{Least upper bound principle}.]		\label{DefSupeA}
+    Soit $A$ une partie majorée de $\eR$. Il existe un unique élément \( M\in \eR\) tel que
+    \begin{enumerate}
+        \item
+            $M\geq x$ pour tout $x\in A$,
+        \item
+            pour tout $\varepsilon$, le nombre $M-\varepsilon$ n'est pas un majorant de $a$, c'est à dire qu'il existe un élément $x\in A$ tel que $x>M-\varepsilon$.
+    \end{enumerate}
+
+    Cet élément est nommé \defe{supremum}{supremum} de $A$ et est noté \( \sup(A)\). De la même façon, \defe{l'infimum}{infimum} de $A$, noté $\inf A$, est le plus grand de ses minorants.
+\end{propositionDef}
+
+Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son supremum n'existe pas, ou bien qu'il est égal à $+\infty$, suivant les contextes. Pour votre culture générale, sachez toutefois que $\infty\notin\eR$.
+
+\begin{proof}
+    Nous faisons la preuve pour l'infimum.
+
+    \begin{subproof}
+    \item[Unicité]
+
+    En ce qui concerne l'unicité, soient \( m_1\) et \( m_2\), deux infimums de \( A\). Supposons \( m_1>m_2\). Alors il existe \( \epsilon>0\) tel que \( m_2<m_2+\epsilon<m_1\) (c'est le lemme~\ref{LemooHLHTooTyCZYL}). Cela prouve que \( m_2+\epsilon\) est un minorant de \( A\) et donc que \( m_2\) n'est pas un infimum.
+
+\item[Existence]
+
+	Soit $A$, une partie de $\eR$. Nous allons trouver son infimum en suivant une méthode de dichotomie. Pour cela nous allons construire trois suites en même temps de la façon suivante. D'abord nous choisissons un point $x_0$ de $A$ et un point $x_1$ qui minore $A$ (qui existe par hypothèse) :
+	\begin{equation}
+		\begin{aligned}[]
+			x_0&\text{ est un élément de }A,\\
+			x_1&\text{ est un minorant de }A,\\
+			a_0&=x_0\\
+			b_0&=x_1\\
+			b_1&=x_1.
+		\end{aligned}
+	\end{equation}
+	Ensuite, nous faisons la récurrence suivante :
+	\begin{equation}
+		\begin{aligned}[]
+			x_{n+1}&=\frac{ a_n+b_n }{2},\\
+			a_{n+1}&=\begin{cases}
+                a_{n}	&	\text{si }x_{n+1} \text{ minore } A \\
+				x_{n+1}	&	 \text{sinon},
+			\end{cases}\\
+			b_{n+1}&=\begin{cases}
+                x_{n+1}	&	\text{si }x_{n+1} \text{ minore } A\\
+				b_n	&	 \text{sinon}.
+			\end{cases}
+		\end{aligned}
+	\end{equation}
+    Nous allons montrer que \( (a_n)\) et \( (b_n)\) sont des suites convergentes de même limite et que cette limite est l'infimum de \( A\).
+
+	Soit $n\in\eN$; il y a deux possibilités. Soit $a_n=a_{n-1}$ et $b_n=x_n$, soit $a_n=x_n$ et $b_n=b_{n-1}$. Supposons que nous soyons dans le premier cas (le second se traite de façon similaire). Alors nous avons
+	\begin{equation}
+		\begin{aligned}[]
+			| a_n-b_n |&=| a_{n-1}-x_n |\\
+			&=\left| a_{n-1}-\frac{ a_{n-1}+b_{n-1} }{2} \right| \\
+			&=\frac{ 1 }{2}| a_{n-1}-b_{n-1} |,
+		\end{aligned}
+	\end{equation}
+	ce qui prouve que $| a_n-b_n |\to 0$. Nous montrons maintenant que la suite \( (a_n)\) est de Cauchy. En effet nous avons
+    \begin{equation}
+        | a_n-a_{n-1} |=\begin{cases}
+          0\\
+          \left| \frac{ a_n -b_n}{ 2} \right|
+      \end{cases}\leq \frac{1}{ 2n }.
+    \end{equation}
+    Il en est de même pour la suite \( (b_n)\). Ce sont deux suites de Cauchy (donc convergentes par la proposition~\ref{PROPooTFVOooFoSHPg}) qui convergent vers la même limite. Soit \( \ell\) cette limite.
+
+	Le nombre $\ell$ minore $A$. En effet si $a\in A$ est plus petit que $\ell$, les éléments $b_n$ tels que $| b_n-\ell |<| a-\ell |$ ne peuvent pas minorer $A$. D'autre part, pour tout $\epsilon$, le nombre $\ell+\epsilon$ ne peut pas minorer $A$. En effet, $\ell$ est la limite de la suite décroissante $(a_n)$, donc il existe $a_n$ entre $\ell$ et $\ell+\epsilon$. Mais $a_n$ ne minore pas $A$, donc $\ell+\epsilon$ ne minore pas non plus $A$.
+
+	Nous avons prouvé que toute partie minorée de $\eR$ possède un infimum.
+    \end{subproof}
+
+    La preuve que toute partie majorée possède un supremum se fait de la même façon.
+\end{proof}
+
+\subsubsection{\ldots et quelques exemples}
+%//////////////////////
+
+En matières de notations, le maximum de l'ensemble $A$ est noté $\max A$, le supremum est noté $\sup A$. Le minimum et l'infimum sont notés $\min A$ et $\inf A$.
+
+\begin{example}
+Exemples de différence entre majorant, supremum et maximum.
+\begin{itemize}
+\item Le nombre $10$ est un supremum, majorant et maximum de l'intervalle fermé $[0,10]$,
+\item Le nombre $10$ est un majorant et un supremum, mais pas un maximum de l'intervalle ouvert $]0,10[$,
+\item Le nombre $136$ est un majorant, mais ni un maximum ni un supremum de l'intervalle $[0,10]$.
+\end{itemize}
+\end{example}
+
+En utilisant les notations concises, ces différents cas s'écrivent ainsi :
+\begin{align*}
+10&=\max[0,10]=\sup[0,10]	& 10&=\sup[0,10[
+\end{align*}
+
+
+\begin{example}
+Si on dit que un pont s'effondre à partir d'une charge de $10$ tonnes, alors $10$ tonnes est un \emph{supremum} des charges que le pont peut supporter : si on met $9,999999$ tonnes dessus, il tient encore le coup, mais si on ajoute un gramme, alors il s'effondre (on sort de l'ensemble des charges acceptables).
+\end{example}
+
+\begin{example}
+Si on dit qu'un pont résiste jusqu'à $10$ tonnes, alors $10$ tonnes est un \emph{maximum} de la charge acceptable. Sur ce pont-ci, on peut ajouter le dernier gramme. Mais à partir de là, le moindre truc qu'on ajoute, il s'effondre.
+\end{example}
+
+
+
+\begin{example}
+	Pour les intervalles, ces notions sont simples : les bornes de l'intervalle sont les supremum et infimum, et ce sont des minima et maxima si l'intervalle est fermé.
+	\begin{enumerate}
+		\item
+			$A=\mathopen[ 1 , 2 \mathclose]$. Tous les nombres plus petits ou égaux à $1$ sont minorants, $1$ est infimum et minimum. Le nombre $2$ est un majorant, le maximum et le supremum.
+		\item
+			$B=\mathopen] 3 , \pi \mathclose[$. Le nombre $\pi$ est le supremum et est un majorant, mais n'est pas le maximum (parce que $\pi\notin B$). L'ensemble $B$ n'a pas de maximum. Bien entendu, $-1000$ est un minorant.
+	\end{enumerate}
+    Dans les deux cas, le nombre $53$ est un majorant.
+\end{example}
+
+Il existe évidemment de nombreux exemples plus vicieux.
+
+\begin{example}
+	Prenons $E=\{ \frac{1}{ n }\tq n\in\eN_0 \}$, dont les premiers points sont indiqués sur la figure~\ref{LabelFigSuiteUnSurn}. Cet ensemble est constitué des nombres $1$, $\frac{ 1 }{2}$, $\frac{1}{ 3 }$, \ldots Le plus grand d'entre eux est $1$ parce que tous les nombres de la forme $\frac{1}{ n }$ avec $n\geq 1$ sont plus petits ou égaux à $1$. Le nombre $1$ est donc maximum de $E$.
+
+	L'ensemble $E$ n'a par contre pas de minimum parce que tout élément de $E$ s'écrit $\frac{1}{ n }$ pour un certain $n$ et est plus grand que $\frac{1}{ n+1 }$ qui est également dans $E$.
+
+	Prouvons que zéro est l'infimum de $E$. D'abord, tous les éléments de $E$ sont strictement positifs, donc zéro est certainement un minorant de $E$. Ensuite, nous savons que pour tout $\varepsilon>0$, il existe un $n$ tel que $\frac{1}{ n }$ est plus petit que $\varepsilon$. L'ensemble $E$ possède donc un élément plus petit que $0+\varepsilon$, et zéro est bien l'infimum.
+\end{example}
+
+\newcommand{\CaptionFigSuiteUnSurn}{Les premiers points du type $x_n=1/n$.}
+\input{auto/pictures_tex/Fig_SuiteUnSurn.pstricks}
+
+L'exemple suivant est une source classique d'erreurs en ce qui concerne l'infimum. Il sera à relire après avoir vu la définition de limite (définition~\ref{PropLimiteSuiteNum}).
+
+\begin{example}
+	Les premiers points de l'ensemble $F=\{ \frac{ (-1)^n }{ n }\tq n\in\eN_0 \}$ sont représentés à la figure~\ref{LabelFigSuiteInverseAlterne}. Bien que (comme nous le verrons plus tard) la limite de la suite $x_n=(-1)^n/n$ soit zéro, il n'est pas correct de dire que zéro est l'infimum de l'ensemble $F$. Le dessin, au contraire, montre bien que $-1$ est le minium (aucun point est plus bas que $-1$), tandis que le maximum est $1/2$.
+
+	Nous reviendrons avec cet exemple dans la suite. Pour l'instant, ayez bien en tête que zéro n'est rien de spécial pour l'ensemble $F$ en ce qui concerne les notions de maximum, minimum et compagnie.
+\end{example}
+\newcommand{\CaptionFigSuiteInverseAlterne}{Les quelques premiers points du type $(-1)^n/n$.}
+\input{auto/pictures_tex/Fig_SuiteInverseAlterne.pstricks}

@@ -201,11 +201,12 @@ Prendre la topologie induite de \( \eR\) vers un fermé de \( \eR\) donne des bo
 \begin{remark}\label{RemIntOuvert}
 Quelques remarques en vrac.
 \begin{enumerate}
-\item Pour tout \( A \subset X\), l'ensemble \( \mathring A\) est un ouvert, comme union quelconque d'ouverts.
+\item Pour tout \( A \subset X\), l'ensemble \( \mathring A\) est un ouvert, comme union quelconque d'ouverts. C'est même le plus grand ouvert contenu dans \( A \), puisque, si \( O \) est un ouvert inclus à \( A \), alors \( O \subset \mathring A\).
 
 \item Par ailleurs, on a \( \mathring A = \Int A \): en effet, \( x \in \Int A \) si et seulement s'il existe un ouvert contenant \( x \) et inclus à \( A \), si et seulement si \( x \) est dans l'union de tous les ouverts contenus dans \( A \), si et seulement si \( x \in \mathring A \).
 
 \item On a  \( \mathring A \subset A \), et \( \mathring A = A \) si et seulement si $A$ est un ouvert: en sens direct, c'est clair par égalité d'ensembles; en sens inverse, c'est aussi clair puisque $A$ est alors un ouvert contenu à $A$, donc  \( A \subset \mathring A \).
+
 \end{enumerate}
 \end{remark}
 
@@ -411,13 +412,25 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
     Soient un espace topologique \( X\) et une partie \( A\) de \( X\). Un point \( s\in X \) est un \defe{point d'accumulation}{point d'accumulation} de \( A\) si tout ouvert contenant \( s\) contient au moins un élément de \( A\setminus\{ s \}\).
 \end{definition}
 
-Quelle est la différence entre un point d'accumulation et un point d'adhérence ? La différence est que tous les points de \( A\) sont des points d'adhérence de \( A\), parce que tout voisinage de \( a\in A\) contient au moins \( a\) lui-même, alors que certains points de \( A\) peuvent ne pas être des points d'accumulation de \( A\). Voir l'exemple \ref{EXooWOYQooJolaTV}.
+Quelle est la différence entre un point d'accumulation et un point d'adhérence ? La différence est que tous les points de \( A\) sont des points d'adhérence de \( A\), parce que tout voisinage de \( a\in A\) contient au moins \( a\) lui-même, alors que certains points de \( A\) peuvent ne pas être des points d'accumulation de \( A\).
 
+\begin{example}     \label{EXooWOYQooJolaTV}
+    Soit \( D=\mathopen] 1 , 2 \mathclose[\cup\{ 12 \}\). Le point \( 12\) est d'adhérence, mais pas d'accumulation parce que le voisinage \( \mathopen] 9 , 14 \mathclose[\) n'intersecte pas \( D\setminus \{ 12 \}\).
+\end{example}
 
 \begin{definition}      \label{DEFooXIOWooWUKJhN}
     Soient un espace topologique \( X\) et une partie \( A\) de \( X\). Un point \( s\in A \) est un \defe{point isolé}{point isolé} de \( A\) si il existe un voisinage ouvert \( \mO\) de \( s\) dans \( X\) tel que \( A\cap\mO=\{ s \}\).
 \end{definition}
 
+\begin{example}
+	Soit $D=\{ \frac{1}{ n }\}_{n\in\eN}$. Tous les points de cet ensemble sont des points isolés (vérifier !).  Aucun point de $D$ n'est point d'accumulation. Cependant $0$ est un point d'accumulation.
+\end{example}
+
+\begin{example}
+	Prenons $D=\mathopen[ 0 , 1 [\cup\mathopen] 2 , 3 \mathclose]$. Cet ensemble n'a pas de points isolés, et l'ensemble de ses points d'accumulation est $\mathopen[ 0 , 1 \mathclose]\cup\mathopen[ 2,3  \mathclose]$.
+
+	Notez que les points $1$ et $2$ sont des points d'accumulation de $D$ qui ne font pas partie de $D$. Il est possible d'être un point d'accumulation de $D$ sans être dans $D$, mais pour être un point isolé dans $D$, il faut être dans $D$.
+\end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Suites et convergence}
