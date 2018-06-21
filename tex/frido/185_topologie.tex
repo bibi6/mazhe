@@ -36,15 +36,6 @@ et donc, les conditions de la définition \ref{DefNorme} sont immédiatement vé
     Nous verrons plus tard que cette norme donne lieu à une structure d'espace topologique. Tant sur \( \eQ\) que sur \( \eR\), nous considérons la topologie métrique correspondant à cette norme (hors cas rarissimes qui seront signalés). De plus, nous utiliserons toujours les caractérisations de la proposition~\ref{PropooUEEOooLeIImr} pour parler de suites convergentes et de suites de Cauchy.
 \end{normaltext}
 
-\begin{proposition}     \label{PropooUHNZooOUYIkn}
-    Les rationnels sont denses dans les réels.
-\end{proposition}
-\index{densité!de \( \eQ\) dans \( \eR\)}
-
-\begin{proof}
-    Soient \( r\in \eR\) et \( \epsilon\in \eR^+\). Nous devons prouver l'existence d'un rationnel dans \( B(x,\epsilon)\). Le lemme~\ref{LemooHLHTooTyCZYL} dit qu'il existe un rationnel dans \( \mathopen] x-\epsilon/2 , x+\epsilon/2 \mathclose[\) et donc dans \( B(x,\epsilon)\).
-\end{proof}
-
 
 %----------------------------------------------------------------------------------------------------------------------
 \subsection{Compacité pour les réels}
@@ -461,47 +452,6 @@ Il faut observer que le segment $[a,b]$ est une courbe orientée : certes en tan
 
 Le segment $[b,a]$ est l'image de l'application $r\colon [0,1]\to \eR^p$ donnée par $r(t)=(1-t)b+ta$.
 
-Une des nombreuses propositions qui vont servir à prouver le théorème des \href{http://fr.wikipedia.org/wiki/Théorème_des_valeurs_intermédiaires}{valeurs intermédiaires}~\ref{ThoValInter} est la suivante.
-\begin{proposition} \label{PropInterssiConn}
-    Une partie de $\eR$ est connexe si et seulement si c'est un intervalle.
-\end{proposition}
-\index{connexité!et intervalles}
-
-\begin{proof}
-    La preuve est en deux parties. D'abord nous démontrons que si un sous-ensemble de $\eR$ est connexe, alors c'est un intervalle; et ensuite nous démontrons que tout intervalle est connexe.
-
-    Afin de prouver qu'un ensemble connexe est toujours un intervalle, nous allons prouver que si un ensemble n'est pas un intervalle, alors il n'est pas connexe. Prenons $A$, une partie de $\eR$ qui n'est pas un intervalle. Il existe donc $a$, $b\in A$ et un $x_0$ entre $a$ et $b$ qui n'est pas dans $A$. Comme le but est de prouver que $A$ n'est pas connexe, il faut couper $A$ en deux ouverts disjoints. L'élément $x_0$ qui n'est pas dans $A$ est le bon candidat pour effectuer cette coupure. Prenons $M$, un majorant de $A$ et $m$, un minorant de $A$, et définissons
-    \begin{align*}
-        \mO_1&=]m,x_0[\\
-        \mO_2&=]x_0,M[.
-    \end{align*}
-    Si $A$ n'a pas de minorant, nous remplaçons la définition de $\mO_1$ par $]-\infty,x_0[$, et si $A$ n'a pas de majorant, nous remplaçons la définition de $\mO_2$ par $]x_0,\infty[$. Dans tous les cas, ce sont deux ensembles ouverts dont l'union recouvre tout $A$. En effet, $\mO_1\cup \mO_2$ contient tous les nombres entre un minorant de $A$ et un majorant sauf $x_0$, mais on sait que $x_0$ n'est pas dans $A$. Cela prouve que $A$ n'est pas connexe.
-
-    Jusqu'à présent nous avons prouvé que si un ensemble n'est pas un intervalle, alors il ne peut pas être connexe. Pour remettre les choses à l'endroit, prenons un ensemble connexe, et demandons-nous s'il peut être autre chose qu'un intervalle ? La réponse est \emph{non} parce que s'il était autre chose, il ne serait pas connexe.
-
-    Prouvons à présent que tout intervalle est connexe. Pour cela, nous refaisons le coup de \href{http://fr.wikipedia.org/wiki/Contraposée}{la contraposée}. Nous allons donc prendre une partie $A$ de $\eR$, supposer qu'elle n'est pas connexe et puis prouver qu'elle n'est alors pas un intervalle. Nous avons deux ouverts disjoints $\mO_1$ et $\mO_2$ tels que $A\subset \mO_1\cup \mO_2$. Notons \( A_1 = A \cap \mO_1 \) et  \( A_2 = A \cap \mO_2 \); et prenons $a\in A_1$ et $b\in A_2$. Pour fixer les idées, on suppose que $a<b$. Maintenant, le jeu est de montrer qu'il existe une point $x_0$ entre $a$ et $b$ qui ne soit pas dans $A$ (cela montrerait que $A$ n'est pas un intervalle). Nous allons prouver que c'est le cas du point
-    \[
-      x_0=\sup\{ x\in\mO_1\tq x<b \}.
-    \]
-    Étant donné que l'ensemble $\mA=\{ x\in\mO_1\tq x<b \}$ est ouvert\footnote{C'est l'intersection entre l'ouvert $\mO_1$ et l'ouvert $\{x\tq x<b \}$.}, le point $x_0$ n'est pas dans l'ensemble par le lemme~\ref{LemSupOuvPas}. Nous avons donc
-    \begin{itemize}
-        \item soit $x_0$ n'est pas dans $\mO_1$,
-        \item soit $x_0\leq b$,
-        \item soit les deux en même temps.
-    \end{itemize}
-    Nous allons montrer qu'un tel $x_0$ ne peut pas être dans $A$. D'abord, remarquons que $\sup\mA\leq\sup\mO$ parce que $\mA$ est une intersection de $\mO$ avec quelque chose. Ensuite, il n'est pas possible que $x_0$ soit dans $\mO_2$ parce que tout élément de $\mO_2$ possède un voisinage contenu dans $\mO_2$. Un point de $\mO_2$ est donc toujours strictement plus grand que le supremum de $\mO_1$.
-
-    Maintenant, remarque que si $x_0\leq b$, alors $x_0=b$, sinon $b$ serait un majorant de $\mA$ plus petit que $x_0$, ce qui n'est pas possible vu que $x_0$ est le supremum de $\mA$ et donc le plus petit majorant. Oui mais si $x_0=b$, c'est que $x_0\in\mO_2$, ce qu'on vient de montrer être impossible. Nous voilà déjà débarrassé des deuxièmes et troisièmes possibilités.
-
-    Si la première possibilité est vraie, alors $x_0$ n'est pas dans $A$ parce qu'on a aussi prouvé que $x_0\notin\mO_2$. Or n'être ni dans $\mO_1$ ni dans $\mO_2$ implique de ne pas être dans $A$. Ce point $x_0=\sup\mA$ est donc hors de $A$.
-
-    Oui, mais comme $a\in\mA$, on a obligatoirement que $x_0\geq a$. Mais par construction, on a aussi que $x_0\leq b$ (ici, l'inégalité est même stricte, mais ce n'est pas important). Donc
-    \[
-      a\leq x_0\leq b
-    \]
-    avec $a$, $b\in A$, et $x_0\notin A$. Cela finit de prouver que $A$ n'est pas un intervalle.
-\end{proof}
-
 \begin{example} \label{EXooJFDPooBZADKs}
     L'application
     \begin{equation}
@@ -725,23 +675,6 @@ La notion d'adhérence a déjà été définie en~\ref{DEFooSVWMooLpAVZR}, et pr
 \end{equation}
 \end{normaltext}
 
-\begin{proposition}
-Pour $A \subset \eR^n$, nous avons
-\begin{equation*}
-	\Int A \subseteq A  \subseteq \Adh A
-\end{equation*}
-\end{proposition}
-
-\begin{remark}
-    Petite remarque à propos des frontières. Soit \( X=\mathopen[ 0 , 1 \mathclose]\) muni de la topologie de la distance \( | x-y |\) (définition~\ref{ThoORdLYUu}). Les points \( 0\) et \( 1\) \emph{ne sont pas} dans la frontière de $X$. En effet une boule ouverte autour de \( 1\) est un ensemble de la forme
-    \begin{equation}
-        B(1,r)=\{ x\in X\tq | x-1 |<r \}=\mathopen] 1-r , 1 \mathclose]
-    \end{equation}
-    où nous avons supposé \( r<1\).
-
-    Les points \( 0\) et \( 1\) sont par contre sur la frontière de \( \mathopen[ 0 , 1 \mathclose]\) lorsque cet ensemble est vu comme partie de l'espace métrique \( \eR\).
-\end{remark}
-
 On vérifiera que les notations et les dénominations sont cohérentes en prouvant la proposition suivante.
 \begin{proposition}Pour $\epsilon > 0$,
   \begin{enumerate}
@@ -764,10 +697,6 @@ Si $A \subset \eR^n$ et $A^c = \eR^n\setminus A$, nous
   \item $\Adh A$ est le plus petit fermé contenant $A$,
   \end{enumerate}
 \end{proposition}
-
-\begin{example} \label{ExBFLooUNyvbw}
-    Il n'est en général pas vrai que \( \overline{ A\cap B }=\bar A\cap \bar B\). Par exemple si \( A=\mathopen[ 0 , 1 [\) et \( B=\mathopen] 1 , 2 \mathclose]\). Dans ce cas, \( A\cap B=\emptyset\) alors que \( \bar A\cap\bar B=\{ 1 \}\).
-\end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Point d'accumulation, point isolé}

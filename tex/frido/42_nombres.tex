@@ -47,8 +47,17 @@ Une petite définition cependant, que l'on utilisera :
 \end{normaltext}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Ensemble ordonné}
+\subsection{Fonctions}
 %---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}[Fonction, domaine, image, graphe]
+  Soient $X$ et $Y$ deux ensembles. Une \defe{fonction}{fonction} $f$ définie sur $X$ et à valeurs dans $Y$ est une correspondence qui associe à chaque élément $x$ dans $X$ \emph{au plus} un élément $y$ dans $Y$. On écrit $y= f(x)$.
+  \begin{itemize}
+  \item La partie de $X$ qui contient tous les $x$ sur lesquels $f$ peut opérer est dite \defe{domaine}{domaine} de $f$. Le domaine de $f$ est indiqué par $\Dom f$.
+  \item L'élément de $y\in Y$ associé par $f$ à un élément $x\in \Dom f$ (c'est à dire $f(x) = y$)  est appellé \defe{image}{image} de $x$ par $f$. L'\defe{image}{fonction!image} de la fonction $f$ est la partie de $Y$ qui contient les images de tous les éléments de $\Dom f$. L'image de $f$ est indiquée par $\Im f$.
+  \item Le \defe{graphe}{graphe} de $f$ est l'ensemble de toutes les couples $(x, f(x))$ pour $x\in \Dom f$. Le graphe de $f$ est une partie de l'ensemble noté $X\times Y$ et il est indiqué par $\Graph f$.
+  \end{itemize}
+\end{definition}
 
 \begin{definition}
     Soient deux ensembles \( E\) et \( F\). Une application \( f\colon E\to F\) est
@@ -61,9 +70,14 @@ Une petite définition cependant, que l'on utilisera :
             \defe{bijective}{bijection} si elle est à la fois injective et surjective.
     \end{enumerate}
 \end{definition}
+
 La méthode la plus courante pour démontrer qu'une application \( f\colon E\to F\) est injective est de considérer \( x,y\in E\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et obtenir une contradiction.
 
 La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=g(x)\) implique une équation faisant intervenir \( 1/(x-y)\).
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Ensembles ordonnés}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{normaltext}\label{NORooLMBYooYjUoju}
 L'\defe{axiome du choix}{axiome!du choix} que nous acceptons peut s'énoncer comme ceci\cite{ooKLIXooHbpufL} : Étant donné un ensemble X d'ensembles non vides, il existe une fonction définie sur X, appelée fonction de choix, qui à chacun d'entre eux associe un de ses éléments.
@@ -633,7 +647,7 @@ Le lemme suivant montre que définir un morphisme de corps comme étant simpleme
   Soit \( A \) un anneau. Une \defe{partie multiplicative}{anneau!partie multiplicative} \( S \) de \( A \) est un sous-ensemble de \( A \) qui contient \( 1_A \) et qui est stable par multiplication (le produit de deux éléments de \( S \) est dans \( S \).
 \end{definition}
 
-\begin{propositiondef}       \label{DEFLocaliseDunAnneau}
+\begin{propositionDef}       \label{DEFLocaliseDunAnneau}
     Soit \( A\) un anneau commutatif et \( S \subset A \) une partie multiplicative sans diviseurs de zéro. Sur l'ensemble \( A\times S\), nous y définissons les deux opérations suivantes :
     \begin{enumerate}
         \item
@@ -648,7 +662,7 @@ Le lemme suivant montre que définir un morphisme de corps comme étant simpleme
         S^{-1}A=\big( A\times S \big)/\sim.
     \end{equation}
     une structure d'anneau, dans lequel tous les éléments de \( S \) sont inversibles. Nous notons \( a/b\) la classe de \( (a,b)\), et nous appelons \(S^{-1}A\) le \defe{localisé}{localisé d'un anneau} de \( A \) en \( S \).
-\end{propositiondef}
+\end{propositionDef}
 
 Le fait d'imposer que \( S \) n'a pas de diviseurs de zéro permet de s'assurer que les «dénominateurs» \( bd \) ne sont jamais nuls lorsque \( b \) et \( d \) ne sont pas nuls.
 
@@ -828,11 +842,11 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
         \item
           \( | x |=0\) si et seulement si \( x=0\)
         \item
-          \( ||x|| = |x|\);
+          \( \bigl|| x |\bigr| = |x|\);
         \item\label{ItemooOMKNooRlanvk}
-          \( | x+y |\leq | x |+| y |\).
+          \( | x+y |\leq | x |+| y |\);
         \item\label{ItemooOMKNooRlanvki}
-          pour tout entier naturel \(n\), \( |nx| \leq n |x| \); et pour tout entier \( n \),  \( |nx| \leq |n| |x| \). \quext{Ça serait génial si on avait l'égalité, mais a priori je ne vois pas pourquoi on l'aurait. Contre-exemple, ou preuve?}
+         \( | xy | = |x || y | \).
     \end{enumerate}
 \end{lemma}
 
@@ -844,16 +858,15 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
         \item
             Si \( x\geq 0\) alors c'est vrai. Sinon, \( x\leq 0\) et \( | x |=-x\geq 0\) par le point~\ref{ItemooNVDIooSuiSoB}.
         \item
-            Si \( x=0\), alors clairement \( | x |=0\) par définition. Réciproquement, si \( | x | = 0 \), alors soit \( | x | = x = 0 \), soit \( | x | = -x = 0\), et dans ce deuxième cas, en ajoutant \( x \) aux deux membres, on obtient \( 0 = x \).
+          Si \( x=0\), alors clairement \( | x |=0\) par définition. Réciproquement, si \( | x | = 0 \), alors soit \( | x | = x = 0 \), soit \( | x | = -x = 0\), et dans ce deuxième cas, en ajoutant \( x \) aux deux membres, on obtient \( 0 = x \).
+        \item
+          Comme \(| x | \geq 0 \), l'égalité \( \bigl|| x |\bigr| = |x|  \) s'ensuit. 
         \item
             Nous supposons que \( x\leq y\) et nous distinguons divers cas suivant la positivité de \( x\) et \( y\).
-            \begin{enumerate}
-                \item
-                    Si \( x,y\geq 0\). Dans ce cas, \( x+y\geq y\geq 0\), donc \( | x+y |=x+y=| x |+| y |\).
-                \item
-                    Si \( x,y\leq 0\). Dans ce cas, \( x+y\leq 0\) et nous avons \( | x+y |=-x-y=| x |+| y |\).
-                \item
-                    Si \( x\leq 0\) et \( y\geq 0\). Nous subdivisons encore en deux cas suivant que \( x+y\) est positif ou négatif. Si \( x+y\geq 0\), alors nous écrivons successivement
+            \begin{subproof}
+                \item [Si \( x,y\geq 0\):]  dans ce cas, \( x+y\geq y\geq 0\), donc \( | x+y |=x+y=| x |+| y |\).
+                \item [Si \( x,y\leq 0\):] alors, \( x+y\leq 0\) et nous avons \( | x+y |=-x-y=| x |+| y |\).
+                \item [Si \( x\leq 0\) et \( y\geq 0\):] nous subdivisons encore en deux cas suivant que \( x+y\) est positif ou négatif. Si \( x+y\geq 0\), alors nous écrivons successivement
                     \begin{subequations}
                         \begin{align}
                             x&\leq 0\\
@@ -863,13 +876,18 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
                     et donc \( | x+y |=x+y\leq | x |+| y |\).
 
                     Nous supposons à présent que \( x\leq 0\), \( y\geq 0\) et \( x+y\leq 0\). Dans ce cas il suffit d'écrire \( | x+y |=| (-x)+(-y) |\) pour retomber dans le cas précédent à inversion près de \( x\) et \( y\).
-            \end{enumerate}
+            \end{subproof}
             \item
-              Se démontre par récurrence à l'aide de la propriété précédente.
+              On a \( |xy| = xy \) si \( xy \geq 0 \) (c'est-à-dire, si \( x \) et \( y \) ont même signe) et \( |xy| = -xy \) sinon.
+              Selon les signes de \( x \) et \( y \), on a:
+              \begin{subproof}
+                \item[\( x \geq 0, y \geq 0 \):] alors \( | x || y | = xy = | xy | \);        
+                \item[\( x \geq 0, y \leq 0 \):] alors \( | x || y | = -xy = | xy | \);
+                \item[\( x \leq 0, y \geq 0 \):] alors \( | x || y | = -xy = | xy | \);        
+                \item[\( x \leq 0, y \leq 0 \):] alors \( | x || y | = (-x)(-y) = xy = | xy | \).
+              \end{subproof}
     \end{enumerate}
 \end{proof}
-
-%TODO: preuve par récurrence à faire.
 
 \begin{remark}      \label{RemooJCAUooKkuglX}
     La partie~\ref{ItemooOMKNooRlanvk} est très importante parce que c'est elle qui fera presque toutes les majorations dont nous aurons besoin en analyse. En effet elle donne l'inégalité triangulaire de la façon suivante : si \( x,y,z\in \eK\) nous avons
@@ -925,12 +943,12 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
 
     Vu que \( (x_n)\) converge vers \( x\), il existe \( N\in \eN\) tel que pour tout \( k>N\),
     \begin{equation}
-        | x_k-x |<\epsilon.
+        | x_k-x |<\frac \epsilon 2.
     \end{equation}
 
     Soient \( p,q>N\). Alors en utilisant la majoration du lemme~\ref{LemooANTJooYxQZDw}\ref{ItemooOMKNooRlanvk},
     \begin{equation}
-        | x_p-x_q |=\big| (x_p-x)+(x-x_q) \big|\leq | x_p-x |+| x-x_q |\leq 2\epsilon.
+        | x_p-x_q |=\big| (x_p-x)+(x-x_q) \big|\leq | x_p-x |+| x-x_q |\leq \frac \epsilon 2 + \frac \epsilon 2 \leq \epsilon.
     \end{equation}
     Donc la suite \( (x_n)\) est de Cauchy.
 \end{proof}
@@ -944,7 +962,7 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
             \begin{equation}
                 | x_n-x_{N_1} |\leq 1.
             \end{equation}
-            Et donc pour tout \( n\) plus grand que \( N_1\), \( x_N-1\leq x_q\leq x_N+1\), ou encore, pour tout \( n  \in \eN \) :
+            Et donc pour tout \( n\) plus grand que \( N_1\), \( x_N-1\leq x_n\leq x_N+1\), ou encore, pour tout \( n  \in \eN \) :
             \begin{equation}
                 | x_n |\leq\max\{ | x_1 |,| x_2 |,\ldots,| x_N |,| x_N+1 | \}.
             \end{equation}
@@ -965,8 +983,7 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
 \end{proof}
 
 \begin{proposition}[Suites de Cauchy et opérations]\label{PROPCauchyKetOperations}
-   Soient \( (x_n)\) et \( (y_n)\) deux suites de Cauchy dans un corps totalement ordonné \( \eK \). Alors les suites \( (x_n+y_n)\) et \( (x_n-y_n)\) sont de Cauchy.
-   Si de plus \( \eK \) est archimédien, alors \( (x_ny_n)\) est également de Cauchy.
+   Soient \( (x_n)\) et \( (y_n)\) deux suites de Cauchy dans un corps totalement ordonné \( \eK \). Alors les suites \( (x_n+y_n)\), \( (x_n-y_n)\) et \( (x_ny_n)\) sont de Cauchy.
 \end{proposition}
 
 \begin{proof}
@@ -976,25 +993,22 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
   \end{equation}
   et qu'il nous suffit donc de «contrôler» chacun des termes. Soit \( \epsilon > 0 \), alors on peut contrôler chaque terme par \( \epsilon / 2 \). En effet, on a \( N_1\) tel que si \( p,q\geq N_1\) alors \( | x_p-x_q |\leq \epsilon/2\), et on a aussi \( N_2\) tel que si \( p,q\geq N_2\) alors \( | y_p-y_q |\leq \epsilon/2\). En prenant \( N=\max\{ N_1,N_2 \}\), la somme \eqref{EqDCNBooAzrrBi} est plus petite que \(\epsilon\) dès que \( p,q\geq N\).
 
-  Passons à la démonstration du fait que le produit de deux suites de Cauchy est de Cauchy. Soit \( \epsilon > 0 \). Pour tous \(p, q \in \eN \), on a:
+  Passons à la démonstration du fait que le produit de deux suites de Cauchy est de Cauchy. Soit \( \epsilon > 0 \). Pour tous \(p, q \in \eN \), on a, par les propriétés du lemme~\ref{LemooANTJooYxQZDw}:
             \begin{equation}
-                | x_py_p-x_qy_q |\leq | x_py_p-x_qy_p |+| x_qy_p-x_qy_q |\leq | y_p (x_p-x_q) |+| x_q(y_p-y_q) | \leq \bigl| y_p |x_p-x_q| \bigr|+ \bigl| x_q |x_p-x_q| \bigr|.
+                | x_py_p-x_qy_q |\leq | x_py_p-x_qy_p |+| x_qy_p-x_qy_q |\leq | y_p (x_p-x_q) |+| x_q(y_p-y_q) | \leq | y_p| |x_p-x_q| + | x_q | |x_p-x_q|.
             \end{equation}
-            Par la proposition~\ref{PROPCauchyKdoncBornee}, les suites \( (x_n)\) et \( (y_n)\) sont bornées et quitte à prendre le maximum, puis l'entier qui le dépasse\footnote{$\eK$ est supposé archimédien.}, nous disons qu'elles sont toutes les deux bornées par l'entier naturel \( M\) : pour tout \( n\) nous avons \( | x_n |\leq M\) et \( | y_n |\leq M\). Par ailleurs, \( (x_n)\) et \( (y_n)\) sont de Cauchy, si \( p\) et \( q\) sont assez grands (disons plus grands qu'un entier naturel \( N \)), les deux différences sont majorées par \( \epsilon / 2M\). Ainsi, par le lemme~\ref{LemooANTJooYxQZDw}~\ref{ItemooOMKNooRlanvki}, nous obtenons, pour \( p, q > N \):
-            \begin{align}
-              | x_py_p-x_qy_q |%
-              & \leq\bigl| y_p |x_p-x_q| \bigr|+ \bigl| x_q |x_p-x_q| \bigr|\\
-              & \leq\bigl| M |x_p-x_q| \bigr|+ \bigl| M |x_p-x_q| \bigr|\\
-              & \leq M \frac \epsilon{2M}+M\frac \epsilon{2M} =\epsilon,
-            \end{align}
+            Par la proposition~\ref{PROPCauchyKdoncBornee}, les suites \( (x_n)\) et \( (y_n)\) sont bornées et quitte à prendre le maximum, nous disons qu'elles sont toutes les deux bornées par \( M\) : pour tout \( n\) nous avons \( | x_n |\leq M\) et \( | y_n |\leq M\). Par ailleurs, \( (x_n)\) et \( (y_n)\) sont de Cauchy, donc si \( p\) et \( q\) sont assez grands (disons plus grands qu'un entier naturel \( N \)), les deux différences sont majorées par \( \epsilon / 2M\). Ainsi, nous obtenons, pour \( p, q > N \):
+            \begin{equation}
+              | x_py_p-x_qy_q |  \leq  M |x_p-x_q| + M |x_p-x_q|
+              \leq M \frac \epsilon{2M}+M\frac \epsilon{2M} =\epsilon,
+            \end{equation}
             ce qui prouve que \( (x_ny_n)\) est de Cauchy.
 \end{proof}
 
 \begin{proposition}[Convergence de suites et opérations]
    Soient \( (x_n)\) et \( (y_n)\) deux suites de Cauchy dans un corps totalement ordonné \( \eK \). Supposons que \((x_n)\) converge vers \(a\) et que \( (y_n) \) converge vers \( b \).
 
-   Alors les suites \( (x_n+y_n)\) et \( (x_n-y_n)\) convergent respectivement vers \( a+b \) et \( a - b \).
-   Si de plus \( \eK \) est archimédien, alors \( (x_ny_n)\) converge vers \( ab\).
+   Alors les suites \( (x_n+y_n)\), \( (x_n-y_n)\) et  \( (x_ny_n)\) convergent respectivement vers \( a+b \), \( a - b \) et \( ab\).
 \end{proposition}
 
 \begin{proof}
@@ -1006,11 +1020,11 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
 
             En ce qui concerne le produit,
             \begin{equation}
-                | x_ny_n-ab |\leq | x_ny_n-ay_n |+| ay_n-ab |\leq \bigl| y_n | x_n-a |\bigr|+\bigl| a | y_n-b |\bigr|.
+                | x_ny_n-ab |\leq | x_ny_n-ay_n |+| ay_n-ab |\leq | y_n | | x_n-a |+ | a | | y_n-b |
             \end{equation}
-            La suite \( (y_n)\) est bornée parce que convergente (corollaire~\ref{CorSuiteConvergenteKBornee}). Comme \( \eK \) est archimédien, posons \( M \) un entier naturel qui majore \(|a|\) et tous les éléments de cette suite. Par  le lemme~\ref{LemooANTJooYxQZDw}~\ref{ItemooOMKNooRlanvki}, nous avons
+            La suite \( (y_n)\) est bornée parce que convergente (corollaire~\ref{CorSuiteConvergenteKBornee}). Posons \( M \in \eK \) qui majore \(|a|\) et tous les éléments de cette suite. Nous avons alors
             \begin{equation}
-                | x_ny_n-ab |\leq  \bigl| M | x_n-a |\bigr|+\bigl| M | y_n-b |\bigr| \leq M | x_n-a | + M | y_n-b |.
+                | x_ny_n-ab |\leq  M | x_n-a | +  M | y_n-b |.
             \end{equation}
             Et comme les suites \( (x_n) \) et \( (y_n)\) convergent toutes deux respectivement vers \( a \) et \( b \), il existe un entier naturel \( N \) tel que, pour \( n > N \), on ait \( | x_n-a | < \epsilon/2M \) et \( | y_n-b | < \epsilon/2M \). Ainsi, pour  \( n > N \),
             \begin{equation}
@@ -1019,7 +1033,7 @@ Parmi ces définitions, celles de suite convergente, de Cauchy et de corps compl
 \end{proof}
 
 \begin{proposition}\label{PropSuiteDInverses}
-            Soit \( (x_n)\) une suite de Cauchy dans le corps totalement ordonnéet archimédien \(\eK\), qui ne converge pas vers zéro\footnote{Elle peut donc converger vers autre chose que 0, voire même ne pas converger dans $\eK$.}. Alors il existe \( k_0 \in \eN \) tel que la suite \( (y_n) \) définie par \( y_n = \frac{1}{ x_{n+k_0} } \) soit de Cauchy.
+            Soit \( (x_n)\) une suite de Cauchy dans le corps totalement ordonné \(\eK\), qui ne converge pas vers zéro\footnote{Elle peut donc converger vers autre chose que 0, voire même ne pas converger dans $\eK$.}. Alors il existe \( k_0 \in \eN \) tel que la suite \( (y_n) \) définie par \( y_n = \frac{1}{ x_{n+k_0} } \) soit de Cauchy.
 \end{proposition}
 
 \begin{proof}
@@ -1035,13 +1049,13 @@ et en particulier \( x_p\neq 0\).
 
             Nous venons de prouver que la suite ne s'annule plus à partir de l'indice \( k_0\), et même que \( | x_p |\geq\alpha/2\) pour tout \( p\geq k_0\). La suite  \( (y_n) \) telle que \( y_n = 1/x_{n+k_0}\) est donc bien définie. Montrons à présent qu'elle est de Cauchy. Soit \( \epsilon>0\). On doit trouver \( m_0 \) tel que, pour \( m, k \geq m_0 \), on ait \( | y_m - y_k | < \epsilon \).
 
-Comme \( \eK \) est archimédien, il existe un naturel \( M \) tel que \( 2 /\alpha < M \). Comme \( (x_n) \) est de Cauchy, il existe \( n_0\) tel que \( | x_p-x_q |< \epsilon / M^2 \) pour tout \( p,q>n_0\). Posons \( m_0 = \max \{ n_0 - k_0; 1 \} \). Soit \( m,k\geq m_0\); en posant pour simplifier \( p = m + k_0 \) et \( q = k + k_0 \), nous avons \( |  x_p|>\frac{ \alpha }{2}\) et \( | x_q |>\frac{ \alpha }{2}\). Il s'ensuit que \( 1/ |  x_p| < M \) et que  \( 1/ |  x_q| < M \), si bien que
+Comme \( (x_n) \) est de Cauchy, il existe \( n_0\) tel que \( | x_p-x_q |< \alpha^2 \epsilon / 4 \) pour tout \( p,q>n_0\). Posons \( m_0 = \max \{ n_0 - k_0; 1 \} \). Soit \( m,k\geq m_0\); en posant pour simplifier \( p = m + k_0 \) et \( q = k + k_0 \), nous avons \( |  x_p|>\frac{ \alpha }{2}\) et \( | x_q |>\frac{ \alpha }{2}\), si bien que
 \begin{align}
   | y_m - y_k | &= \left| \frac{1}{ x_p }-\frac{1}{ x_q } \right|\\
                 &= \left|\frac{  x_q-x_p  }{  x_px_q }\right|\\
-                &\leq \left| |x_q-x_p| \frac 1{| x_p|} \frac 1 {| x_q|}\right|\\
-                & \leq \left| |x_q-x_p| M^2\right| \\
-                &\leq M^2 \frac \epsilon{M^2}
+                &\leq  |x_q-x_p| \frac 1{| x_p|} \frac 1 {| x_q|}\\
+                & \leq |x_q-x_p| \frac 2 \alpha \frac 2 \alpha \\
+                &\leq \frac {\alpha^2 \epsilon } 4 \frac 4 {\alpha^2}\\
                 &\leq \epsilon.
 \end{align}
 Donc \( (y_n) \) est de Cauchy.
@@ -1063,14 +1077,14 @@ Les résultats énoncés ici sont utilisés plus bas et servent de guide à un �
 \subsection{De l'ordre dans les rationnels}
 %---------------------------------------------------------------------------------------------------------------------------
 Comme \( \eZ \) se plonge dans \( \eQ \), on a un ordre sur certains rationnels. Cet ordre s'étend à tous les rationnels.
-\begin{propositiondef}
+\begin{propositionDef}
   L'ordre sur \( \eQ \) qui étend celui de \( \eZ \) est construit de la manière suivante:
   \begin{enumerate}
   \item Le rationnel \( a/b \) est positif ( \(a/b \geq 0 \) ) si \( ab \geq 0 \). 
   \item On dit que \( a/b \geq c/d \)  lorsque le rationnel \( ad - bc / bd \) est positif. 
   \end{enumerate}
   Cet ordre confère à \(\eQ \) une structure de corps totalement ordonné\footnote{Définition~\ref{DefKCGBooLRNdJf}~\ref{ITEMooOOOVooJWwIQr}.}.
-\end{propositiondef}
+\end{propositionDef}
 
 \begin{lemma} \label{LEMooEBTIooGMoHsj}
   Le corps \( \eQ \) est archimédien.

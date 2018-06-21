@@ -109,7 +109,7 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
   On pose \( X = \{1, 2, 3\} \). Alors on peut munir \( X \) de 29 topologies différentes\footnote{Remercions Erwann Aubry d'en avoir fourni la liste exhaustive!  \url{https://math.unice.fr/~eaubry/Enseignement/L3/rappelstopo.pdf}}; saurez-vous les retrouver toutes?
 \end{example}
 
-\subsubsection{Topologie engendrée, topologie produit}
+\subsubsection{Topologie engendrée}
 %//////////////////////////
 
 \begin{example}\label{DefTopologieEngendree}
@@ -121,6 +121,42 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
   Alors \(\mT \) est une topologie\footnote{Ce n'est pas un résultat évident: l'annoncer à un jury nécessite d'en avoir écrit la preuve.} sur \(X\), qu'on appelle \defe{topologie engendrée}{topologie!engendrée par une famille} par \( \mT_0 \).
 \end{example}
 
+\begin{definition}[Topologie réelle engendrée par les intervalles ouverts] \label{DefTopologieREngendree}
+  Pour \( X = \eR \), considérons \( \mT_0 \) l'ensemble constitué de tous les intervalles ouverts (de la forme \( \mathopen] a, b \mathclose[ \), avec \( a, b \in \eR \)). La topologie ainsi engendrée est alors la topologie usuelle sur \( \eR \).
+\end{definition}
+
+\begin{example}[Voisinages de réels]
+  Pour qu'un ensemble soit un voisinage de $x \in \eR$, il faut et il suffit qu'il contienne un intervalle ouvert\footnote{Pouvez-vous le justifier? Pensez à la proposition~\ref{PropMMKBjgY}\dots}. Ainsi, les ensembles suivants sont des voisinages de $3$ dans $\eR$ :
+  \begin{itemize}
+  \item
+    $\mathopen] 1 , 5 \mathclose[$;
+  \item
+    $\mathopen[ 0 , 10 \mathclose]$;
+  \item
+    $\eR$;
+  \end{itemize}
+  tandis que les ensembles suivants ne sont pas des voisinages de $3$ dans $\eR$ :
+  \begin{itemize}
+  \item
+    $\mathopen] 1 , 3 \mathclose[$;
+  \item
+    $\mathopen] 1 , 3 \mathclose]$;
+  \item
+    $\mathopen[ 0 , 5 [\setminus\{ 3 \}$.
+  \end{itemize}
+\end{example}
+
+\begin{remark}
+  L'hypothèse de finitude de l'intersection est indispensable en termes de topologie. L'exemple suivant :
+  \begin{equation}
+    \bigcap_{n=1}^{\infty}\mathopen] -\frac{1}{ n } , \frac{1}{ n } \mathclose[ = \{ 0 \},
+  \end{equation}
+  est une intersection (infinie) d'intervalles ouverts (aux sens de la définition~\ref{DefIntervallesReels} et de l'exemple~\ref{DefTopologieREngendree}), égale à un singleton, qui est en fait un intervalle fermé.
+\end{remark}
+
+
+\subsubsection{Topologie produit}
+%/////////////////////////////
 \begin{definition}[Produit d'espaces topologiques, thème~\ref{THEMEooYRIWooDXZnhX}]      \label{DefIINHooAAjTdY}
     Soient \( X_1\),\ldots, \( X_n\) des espaces topologiques. Leur \defe{produit}{produit!espaces topologiques}\index{topologie!produit} est l'ensemble
     \begin{equation}
@@ -129,13 +165,14 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
     muni de la topologie engendrée par les produits \(A_1\times \cdots\times A_n\), avec \( A_i\in X_i \) ouverts de chacun des ensembles.
 \end{definition}
 
+% TODO: \eR^n.
+
 \subsubsection{Topologie induite}
 %//////////////////////////
 
 \begin{example} [Topologie induite] \label{DefVLrgWDB}
   Soit un espace topologique \( (X, \mT) \), et soit \( Y \subset X \). Alors on peut munir \( Y \) de la topologie constituée des \( Y \cap \mO \), pour \( \mO \in \mT \): c'est ce qu'on appelle la \defe{topologie induite}{topologie!induite}.
 \end{example}
-
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LemBWSUooCCGvax}
     Soit \( (X,\tau_X)\) un espace topologique et \( S\subset X\), un fermé de \( X\) sur lequel nous considérons la topologie induite \( \tau_S\). Si \( F\) est un fermé de \( (S,\tau_S)\) alors \( F\) est fermé de \( (X,\tau_X)\).
@@ -149,36 +186,17 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
     Vu que \( \Omega\) et \( S^c\) sont des ouverts de \( X\), l'union est un ouvert. Donc \( F^c\in \tau_X\) et \( F\) est un fermé de \( X\).
 \end{proof}
 
-\begin{lemma}       \label{LemkUYkQt}
-    Si \( B\subset A\) alors la fermeture de \( B\) pour la topologie de \( A\) (induite de \( X\)) que nous noterons \( \tilde B\) est
-    \begin{equation}
-        \tilde B=\bar B\cap A
-    \end{equation}
-    où \( \bar B\) est la fermeture de \( B\) pour la topologie de \( X\).
-\end{lemma}
 
-\begin{proof}
-    Si \( a\in \bar B\cap A\), un ouvert de \( A\) autour de \( a\) est un ensemble de la forme \( \mO\cap A\) où \( \mO\) est un ouvert de \( X\). Vu que \( a\in\bar B\), l'ensemble \( \mO\) intersecte \( B\) et donc \( (\mO\cap A)\cap B\neq \emptyset\). Donc \( a\) est bien dans l'adhérence de \( B\) au sens de la topologie de \( A\).
-
-    Pour l'inclusion inverse, soit \( a\in \tilde  B\), et montrons que \( a\in \bar B\cap A\). Par définition \( a\in A\), parce que \( \tilde B\) est une fermeture dans l'espace topologique \( A\). Il faut donc seulement montrer que \( a\in\bar B\). Soit donc \( \mO\) un ouvert de \( X\) contenant \( a\); par hypothèse \( \mO\cap A\) intersecte \( B\) (parce que tout ouvert de \( A\) contenant \( a\) intersecte \( B\)). Donc \( \mO\) intersecte \( B\). Cela signifie que tout ouvert (de \( X\)) contenant \( a\) intersecte \( B\), ou encore que \( a\in \bar B\).
-\end{proof}
-
-Si \( A\) est un ouvert de \( X\), on pourrait croire que la topologie induite n'a rien de spécial. Il est vrai que \( B\) sera ouvert dans \( A\) si et seulement s'il est ouvert dans \( X\), mais certaines choses surprenantes se produisent tout de même.
-
-\begin{example} \label{ExloeyoR}
-Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \frac{ 1 }{2} , 1 \mathclose[ \), alors la fermeture de \( B\) dans \( A\) sera \( \tilde B=\mathopen[ \frac{ 1 }{2} , 1 [\) et non \( \mathopen[ \frac{ 1 }{2} , 1 \mathclose]\) comme on l'aurait dans \( \eR\).
-\end{example}
-
-Prendre la topologie induite de \( \eR\) vers un fermé de \( \eR\) donne des boules un peu spéciales comme le montre l'exemple suivant.
+Si \( A\) est un ouvert de \( X\), on pourrait croire que la topologie induite n'a rien de spécial. Il est vrai que \( B\) sera ouvert dans \( A\) si et seulement s'il est ouvert dans \( X\), mais certaines choses surprenantes se produisent tout de même. Par exemple, prendre la topologie induite de \( \eR\) vers un fermé de \( \eR\) donne des ouverts un peu inhabituels\dots
 
 \begin{example}  \label{ExKYZwYxn}
-    Quid de la boule ouverte \( B(1,\epsilon)\) dans le compact \( \mathopen[ 0 , 1 \mathclose]\) ? Par définition c'est
+    Considérons, pour un \(\epsilon > 0 \), l'intervalle ouvert \( I = \mathopen]1 - \epsilon, 1 + \epsilon\mathclose[\); et considérons le sous-ensemble \(A = \mathopen[ 0 , 1 \mathclose]\). L'ouvert que \( I \) induit dans \( A \) est
     \begin{equation}
-        B(1,\epsilon)=\{ x\in\mathopen[ 0 , 1 \mathclose]\tq | x-1 |<\epsilon \}=\mathopen] 1-\epsilon , 1 \mathclose].
+        \tilde I =\{ x\in\mathopen[ 0 , 1 \mathclose]\tq x \in I \}=\mathopen] 1-\epsilon , 1 \mathclose].
     \end{equation}
     Oui, cela est \emph{ouvert} dans \( \mathopen[ 0 , 1 \mathclose]\). C'est d'ailleurs un des ouverts de la topologie induite de \( \eR\) sur \( \mathopen[ 0 , 1 \mathclose]\).
 
-    Donc pour la topologie de \( \mathopen[ 0 , 1 \mathclose]\), toutes les boules ouvertes \( B(x,\delta)\) avec \( x\in\mathopen[ 0 , 1 \mathclose]\) sont incluses à \( \mathopen[ 0 , 1 \mathclose]\).
+    Donc pour la topologie de \( \mathopen[ 0 , 1 \mathclose]\), tous les intervalles ouverts (au sens de la topologie) sont soit de la forme \( \mathopen]x - \delta, x + \delta \mathclose[\), ou bien \( \mathopen]x - \delta,1 \mathclose]\), ou encore \( \mathopen[0, x + \delta \mathclose[\).
 \end{example}
 
 
@@ -209,6 +227,29 @@ Quelques remarques en vrac.
 
 \end{enumerate}
 \end{remark}
+
+\begin{example}
+  Trouver l'intérieur d'un intervalle dans $\eR$ consiste à «ouvrir là où c'est fermé».
+  \begin{enumerate}
+  \item
+    $\Int(\mathopen[ 0 , 1 \mathclose[)=\mathopen] 0 , 1 \mathclose[$.
+
+    En effet, $\mathopen] 0,1  \mathclose[\subset\Int(\mathopen[ 0 , 1 \mathclose[)$, puisque c'est un ouvert. Réciproquement, montrons que $\Int( \mathopen[ 0 , 1\mathclose [ )\subset\mathopen] 0 , 1 \mathclose[$. Vu que l'intérieur d'un ensemble est inclus dans l'ensemble, nous savons déjà que $\Int( \mathopen[ 0 , 1\mathclose [ )\subset\mathopen[ 0 , 1 \mathclose[$. Nous devons donc seulement montrer que $0$ n'est pas dans l'intérieur de $\mathopen[ 0 , 1 \mathclose[$. C'est le cas parce que toute boule du type $B(0,r)$ contient le point $-r/2$ qui n'est pas dans $\mathopen[ 0 , 1 \mathclose[$.
+  \item
+    $\Int( \mathopen[ 0 , + \infty [)=\mathopen] 0 , + \infty \mathclose[$.
+  \item
+    $\Int( \mathopen] - \infty, 4 [ )=\mathopen] - \infty, 4 \mathclose[$.
+  \item
+    $\Int( \mathopen] 2 , 3 \mathclose[ )=\mathopen] 2 , 3 \mathclose[$.
+  \end{enumerate}
+\end{example}
+
+\begin{proposition}\label{IntQestVide}
+  On a \( \Int \eQ = \emptyset \).
+\end{proposition}
+\begin{proof}
+  Si \( x, y \in \eQ \), alors le lemme~\ref{IntQestVide_corpsOrdonnes} dit que l'intervalle \( \mathopen] x, y \mathclose[ \) n'est pas dans \( \eQ \). Donc \( \eQ \) ne contient aucun ouvert de \( \eR \): son intérieur est donc vide. 
+\end{proof}
 
 \subsubsection{Adhérence et fermeture}
 %///////////////////////
@@ -265,11 +306,33 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 \begin{remark}\label{RemAdhFerme}\label{EXooICLBooJzQFNY}
   Comme corollaire du lemme précédent, et grâce aux remarques faites pour les intérieurs, on obtient que pour \( A \subset X \) :
   \begin{enumerate}
-  \item l'ensemble \( \bar A \) est fermé: c'est en effet le complémentaire d'un ouvert, précisément l'intérieur de \( A^c \);
+  \item
+    l'ensemble \( \bar A \) est fermé: c'est en effet le complémentaire d'un ouvert, précisément l'intérieur de \( A^c \);
   \item
     l'ensemble $\bar A$ est le plus petit fermé contenant $A$. Cela signifie que si $B$ est un fermé qui contient $A$, alors $\bar A\subset B$. Cela est fondamentalement le sens de la définition~\ref{DEFooSVWMooLpAVZR}.
-  \item \( A \) est fermé si et seulement si \( \bar A = A \): en effet, \( A \) est fermé si et seulement si \( A^c \) est ouvert, si et seulement si l'intérieur de \( A^c \) est \( A^c \) lui-même; or, l'intérieur de \( A^c \) est le complémentaire de \( \bar A \) par le lemme \ref{LEMooILNCooOFZaTe}, si bien que \( A \) est fermé si et seulement si \( (\bar A)^c  = A^c \), ou encore\dots{} ce qu'on affirmait au début.
+  \item
+    clairement, \( A \subset \bar A \); de plus, \( A \) est fermé si et seulement si \( \bar A = A \): en effet, \( A \) est fermé si et seulement si \( A^c \) est ouvert, si et seulement si l'intérieur de \( A^c \) est \( A^c \) lui-même; or, l'intérieur de \( A^c \) est le complémentaire de \( \bar A \) par le lemme \ref{LEMooILNCooOFZaTe}, si bien que \( A \) est fermé si et seulement si \( (\bar A)^c  = A^c \), ou encore\dots{} ce qu'on affirmait au début.
   \end{enumerate}
+\end{remark}
+
+\begin{example}
+  Trouver l'adhérence d'un intervalle dans $\eR$ consiste à «fermer là où c'est ouvert», en prenant garde de ne pas fermer en les infinis.
+ \begin{enumerate}
+  \item
+    $\Adh\big(\mathopen[ 0 , 1 [\big)=\mathopen[ 0 , 1 \mathclose]$.
+
+    En effet, d'abord $\Adh(\mathopen[ 0 , 1 \mathclose[ )\subset\mathopen[ 0,1  \mathclose])$, puisque $\mathopen[ 0,1  \mathclose]$ est un fermé: c'est le complémentaire dans $\eR$ de $\mathopen]-\infty, 0\mathclose [ \cup \mathopen]1, +\infty\mathclose[$. Réciproquement, montrons que $\mathopen[ 0,1  \mathclose] \subset \Adh(\mathopen[ 0 , 1 \mathclose[)$.  Vu que tout ensemble est inclus dans son adhérence, nous savons déjà que $\mathopen[ 0 , 1 [\subset\Adh( \mathopen[ 0 , 1 [ )$. Nous devons donc seulement montrer que $1$ est aussi dans l'adhérence de $\mathopen[ 0 , 1 [$. C'est le cas parce que toute boule du type $B(1,r)$ contient le point $1-r/2$ qui est dans $\mathopen[ 0 , 1 [$.
+  \item
+    $\Adh( \mathopen[ 0 , + \infty [)=\mathopen[ 0 , + \infty \mathclose[$. Remarquez que le crochet à $+\infty$ reste ouvert, et pour cause: $+\infty \notin \eR$.
+  \item
+    $\Adh( \mathopen] - \infty, 4 [ )=\mathopen] - \infty, 4 \mathclose]$.
+  \item
+    $\Adh( \mathopen[ 2 , 3 \mathclose] )=\mathopen[ 2 , 3 \mathclose]$.
+  \end{enumerate}
+\end{example}
+
+\begin{remark}
+  La définition \ref{DefIntervallesReels} prend alors tout son sens quant aux intervalles ouverts et fermés: ils sont à juste titre respectivement ouverts et fermés pour la topologie usuelle.
 \end{remark}
 
 \begin{remark}
@@ -337,13 +400,45 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 	\end{enumerate}
 \end{proof}
 
-\begin{remark}
+\begin{remark} \label{ExBFLooUNyvbw}
 	Nous avons prouvé que $\overline{ A\cap B }\subset\bar A\cap\bar B$. Il arrive que l'inclusion soit stricte, comme dans l'exemple suivant. Si nous prenons $A=\mathopen[ 0 , 1 \mathclose]$ et $B=\mathopen] 1 , 2 \mathclose]$, nous avons $A\cap B=\emptyset$ et donc $\overline{ A\cap B }=\emptyset$. Par contre nous avons $\bar A\cap\bar B=\{ 1 \}$.
+
+        Le lecteur est invité à montrer que \( \mathring A \cup \mathring B \neq \Int(A \cup B) \) pour les mêmes ensembles.
 \end{remark}
+
+
+\begin{lemma}       \label{LemkUYkQt}
+    Si \( B\subset A\) alors la fermeture de \( B\) pour la topologie de \( A\) (induite de \( X\)) que nous noterons \( \tilde B\) est
+    \begin{equation}
+        \tilde B=\bar B\cap A
+    \end{equation}
+    où \( \bar B\) est la fermeture de \( B\) pour la topologie de \( X\).
+\end{lemma}
+
+\begin{proof}
+    Si \( a\in \bar B\cap A\), un ouvert de \( A\) autour de \( a\) est un ensemble de la forme \( \mO\cap A\) où \( \mO\) est un ouvert de \( X\). Vu que \( a\in\bar B\), l'ensemble \( \mO\) intersecte \( B\) et donc \( (\mO\cap A)\cap B\neq \emptyset\). Donc \( a\) est bien dans l'adhérence de \( B\) au sens de la topologie de \( A\).
+
+    Pour l'inclusion inverse, soit \( a\in \tilde  B\), et montrons que \( a\in \bar B\cap A\). Par définition \( a\in A\), parce que \( \tilde B\) est une fermeture dans l'espace topologique \( A\). Il faut donc seulement montrer que \( a\in\bar B\). Soit donc \( \mO\) un ouvert de \( X\) contenant \( a\); par hypothèse \( \mO\cap A\) intersecte \( B\) (parce que tout ouvert de \( A\) contenant \( a\) intersecte \( B\)). Donc \( \mO\) intersecte \( B\). Cela signifie que tout ouvert (de \( X\)) contenant \( a\) intersecte \( B\), ou encore que \( a\in \bar B\).
+\end{proof}
+
+Adhérence et topologie induite peuvent créer quelques surprises, ainsi que le montre l'exemple suivant.
+
+\begin{example} \label{ExloeyoR}
+Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \frac{ 1 }{2} , 1 \mathclose[ \), alors la fermeture de \( B\) dans \( A\) sera \( \tilde B=\mathopen[ \frac{ 1 }{2} , 1 [\) et non \( \mathopen[ \frac{ 1 }{2} , 1 \mathclose]\) comme on l'aurait dans \( \eR\).
+\end{example}
 
 \begin{definition}\label{DefEnsembleDense}
   Soit \( X \) un espace topologique. Un sous-ensemble \( A \) de \( X \) est \defe{dense}{dense} dans \( X \) si \( \bar A = X\). 
 \end{definition}
+
+\begin{proposition}     \label{PropooUHNZooOUYIkn}
+    Les rationnels sont denses dans les réels.
+\end{proposition}
+\index{densité!de \( \eQ\) dans \( \eR\)}
+
+\begin{proof}
+  Le lemme~\ref{LemooHLHTooTyCZYL} dit que, pour tous réels \( x, y \), il existe un rationnel dans \( \mathopen] x, y \mathclose[\). Donc tout intervalle ouvert contient un rationnel, et donc, \( \bar \eQ = \eR \).
+\end{proof}
 
 \subsubsection{Frontière}
 %/////////////////////////
@@ -386,7 +481,7 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 \end{proof}
 
 \begin{example}
-	Dans $\eR$, la frontière d'un intervalle est la paire constituée des points extrêmes. En effet
+	Dans $\eR$, la frontière d'un intervalle borné est la paire constituée des points extrêmes. En effet
 	\begin{equation}
 		\partial\mathopen[ a , b [=\overline{ \mathopen[ a , b [ }\setminus\Int\big( \mathopen[ a , b [ \big)=\mathopen[ a , b \mathclose]\setminus\mathopen] a , b \mathclose[=\{ a,b \}.
 	\end{equation}
@@ -395,14 +490,25 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 	\begin{equation}
 		\partial\eR=\bar\eR\setminus\Int(\eR)=\eR\setminus\eR=\emptyset,
 	\end{equation}
-	et
+	et, grâce aux propositions~\ref{IntQestVide} et \ref{PropooUHNZooOUYIkn},
 	\begin{equation}
 		\partial\eQ=\bar\eQ\setminus\Int(\eQ)=\eR\setminus\emptyset=\eR.
 	\end{equation}
 \end{example}
 
 \begin{remark}
-    Il serait toutefois faux de croire que \( \partial A=\partial \bar A\) pour toute partie \( A\) de \( \eR^n\). En effet si \( A=\eR\setminus\{ 0 \}\) nous avons \( \partial A=\{ 0 \}\) et \( \bar A=\eR\), donc \( \partial \bar A=\emptyset\).
+    Il serait toutefois faux de croire que \( \partial A=\partial \bar A\) pour toute partie \( A \subset X\). En effet, si \( A=\eR\setminus\{ 0 \}\) nous avons \( \partial A=\{ 0 \}\) et \( \bar A=\eR\), donc \( \partial \bar A=\emptyset\).
+\end{remark}
+
+
+\begin{remark}
+    Petite remarque à propos des frontières. Soit \( X=\mathopen[ 0 , 1 \mathclose]\) muni de la topologie de la distance \( | x-y |\) (définition~\ref{ThoORdLYUu}). Les points \( 0\) et \( 1\) \emph{ne sont pas} dans la frontière de $X$. En effet une boule ouverte autour de \( 1\) est un ensemble de la forme
+    \begin{equation}
+        B(1,r)=\{ x\in X\tq | x-1 |<r \}=\mathopen] 1-r , 1 \mathclose]
+    \end{equation}
+    où nous avons supposé \( r<1\).
+
+    Les points \( 0\) et \( 1\) sont par contre sur la frontière de \( \mathopen[ 0 , 1 \mathclose]\) lorsque cet ensemble est vu comme partie de l'espace métrique \( \eR\).
 \end{remark}
 
 \subsubsection{Points d'accumulation et isolés}
@@ -431,6 +537,28 @@ Quelle est la différence entre un point d'accumulation et un point d'adhérence
 
 	Notez que les points $1$ et $2$ sont des points d'accumulation de $D$ qui ne font pas partie de $D$. Il est possible d'être un point d'accumulation de $D$ sans être dans $D$, mais pour être un point isolé dans $D$, il faut être dans $D$.
 \end{example}
+
+\begin{remark}
+    À propos de la position des points d'accumulation et des points isolés.
+    \begin{enumerate}
+        \item
+            Les points intérieurs sont tous des points d'accumulation.
+        \item
+            Les points isolés ne sont jamais intérieurs.
+        \item
+            Certains points d'accumulation ne font pas partie de l'ensemble. Par exemple le point $1$ est un point d'accumulation de $E=\mathopen] 0 , 1 \mathclose[$.
+        \item
+            Les points de la frontière sont soit d'accumulation soit isolés.
+    \end{enumerate}
+\end{remark}
+
+\begin{example}
+	Tous les points de $\eR$ sont des points d'accumulation de $\eQ$ parce que dans toute boule autour d'un réel, on peut trouver un nombre rationnel.
+\end{example}
+
+\begin{remark}
+	L'ensemble des points d'accumulation d'un ensemble n'est pas exactement son adhérence. En effet, un point isolé dans $A$ est dans l'adhérence de $A$, mais n'est pas un point d'accumulation de $A$.
+\end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Suites et convergence}
@@ -530,6 +658,10 @@ Attention, cette notion est à ne pas confondre avec :
 \section{Connexité}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+%-----------------------------------------------------------------------------------------------------------------
+\subsection{Définition et propriétés}
+%-----------------------------------------------------------------------------------------------------------------
+
 L'idée de la connexité, c'est de s'assurer qu'un ensemble est «d'un seul tenant».
 
 \begin{definition}  \label{DefIRKNooJJlmiD}
@@ -601,6 +733,52 @@ Nous verrons plus tard (proposition~\ref{PropConnexiteViaFonction}) une autre ca
 \begin{proof}
     Nommons \( \gamma\) la partie connexe qui intersecte \( A\) et \( A^c\). Les ouverts \( \Int(A)\) et \( X\setminus \bar A\) ne peuvent pas recouvrir \( \gamma\) parce que ce sont deux ouverts disjoints alors que \( \gamma\) est connexe (voir la définition~\ref{DefIRKNooJJlmiD} de la connexité). Donc \( \gamma\) doit contenir des points qui sont dans \( \bar A\) mais pas dans \( \Int(A)\). C'est à dire des points de \( \partial A\).
 \end{proof}
+
+%-----------------------------------------------------------------------------------------------------------------
+\subsection{Connexité dans \texorpdfstring{$\eR$}{R}}
+%-----------------------------------------------------------------------------------------------------------------
+
+Une des nombreuses propositions qui vont servir à prouver le théorème des \href{http://fr.wikipedia.org/wiki/Théorème_des_valeurs_intermédiaires}{valeurs intermédiaires}~\ref{ThoValInter} est la suivante.
+\begin{proposition} \label{PropInterssiConn}
+    Une partie de $\eR$ est connexe si et seulement si c'est un intervalle.
+\end{proposition}
+\index{connexité!et intervalles}
+
+\begin{proof}
+    La preuve est en deux parties. D'abord nous démontrons que si un sous-ensemble de $\eR$ est connexe, alors c'est un intervalle; et ensuite nous démontrons que tout intervalle est connexe.
+
+    Afin de prouver qu'un ensemble connexe est toujours un intervalle, nous allons prouver que si un ensemble n'est pas un intervalle, alors il n'est pas connexe. Prenons $A$, une partie de $\eR$ qui n'est pas un intervalle. Il existe donc $a$, $b\in A$ et un $x_0$ entre $a$ et $b$ qui n'est pas dans $A$. Comme le but est de prouver que $A$ n'est pas connexe, il faut couper $A$ en deux ouverts disjoints. L'élément $x_0$ qui n'est pas dans $A$ est le bon candidat pour effectuer cette coupure. Prenons $M$, un majorant de $A$ et $m$, un minorant de $A$, et définissons
+    \begin{align*}
+        \mO_1&=]m,x_0[\\
+        \mO_2&=]x_0,M[.
+    \end{align*}
+    Si $A$ n'a pas de minorant, nous remplaçons la définition de $\mO_1$ par $]-\infty,x_0[$, et si $A$ n'a pas de majorant, nous remplaçons la définition de $\mO_2$ par $]x_0,\infty[$. Dans tous les cas, ce sont deux ensembles ouverts dont l'union recouvre tout $A$. En effet, $\mO_1\cup \mO_2$ contient tous les nombres entre un minorant de $A$ et un majorant sauf $x_0$, mais on sait que $x_0$ n'est pas dans $A$. Cela prouve que $A$ n'est pas connexe.
+
+    Jusqu'à présent nous avons prouvé que si un ensemble n'est pas un intervalle, alors il ne peut pas être connexe. Pour remettre les choses à l'endroit, prenons un ensemble connexe, et demandons-nous s'il peut être autre chose qu'un intervalle ? La réponse est \emph{non} parce que s'il était autre chose, il ne serait pas connexe.
+
+    Prouvons à présent que tout intervalle est connexe. Pour cela, nous refaisons le coup de \href{http://fr.wikipedia.org/wiki/Contraposée}{la contraposée}. Nous allons donc prendre une partie $A$ de $\eR$, supposer qu'elle n'est pas connexe et puis prouver qu'elle n'est alors pas un intervalle. Nous avons deux ouverts disjoints $\mO_1$ et $\mO_2$ tels que $A\subset \mO_1\cup \mO_2$. Notons \( A_1 = A \cap \mO_1 \) et  \( A_2 = A \cap \mO_2 \); et prenons $a\in A_1$ et $b\in A_2$. Pour fixer les idées, on suppose que $a<b$. Maintenant, le jeu est de montrer qu'il existe une point $x_0$ entre $a$ et $b$ qui ne soit pas dans $A$ (cela montrerait que $A$ n'est pas un intervalle). Nous allons prouver que c'est le cas du point
+    \[
+      x_0=\sup\{ x\in\mO_1\tq x<b \}.
+    \]
+    Étant donné que l'ensemble $\mA=\{ x\in\mO_1\tq x<b \}$ est ouvert\footnote{C'est l'intersection entre l'ouvert $\mO_1$ et l'ouvert $\{x\tq x<b \}$.}, le point $x_0$ n'est pas dans l'ensemble par le lemme~\ref{LemSupOuvPas}. Nous avons donc
+    \begin{itemize}
+        \item soit $x_0$ n'est pas dans $\mO_1$,
+        \item soit $x_0\leq b$,
+        \item soit les deux en même temps.
+    \end{itemize}
+    Nous allons montrer qu'un tel $x_0$ ne peut pas être dans $A$. D'abord, remarquons que $\sup\mA\leq\sup\mO$ parce que $\mA$ est une intersection de $\mO$ avec quelque chose. Ensuite, il n'est pas possible que $x_0$ soit dans $\mO_2$ parce que tout élément de $\mO_2$ possède un voisinage contenu dans $\mO_2$. Un point de $\mO_2$ est donc toujours strictement plus grand que le supremum de $\mO_1$.
+
+    Maintenant, remarque que si $x_0\leq b$, alors $x_0=b$, sinon $b$ serait un majorant de $\mA$ plus petit que $x_0$, ce qui n'est pas possible vu que $x_0$ est le supremum de $\mA$ et donc le plus petit majorant. Oui mais si $x_0=b$, c'est que $x_0\in\mO_2$, ce qu'on vient de montrer être impossible. Nous voilà déjà débarrassé des deuxièmes et troisièmes possibilités.
+
+    Si la première possibilité est vraie, alors $x_0$ n'est pas dans $A$ parce qu'on a aussi prouvé que $x_0\notin\mO_2$. Or n'être ni dans $\mO_1$ ni dans $\mO_2$ implique de ne pas être dans $A$. Ce point $x_0=\sup\mA$ est donc hors de $A$.
+
+    Oui, mais comme $a\in\mA$, on a obligatoirement que $x_0\geq a$. Mais par construction, on a aussi que $x_0\leq b$ (ici, l'inégalité est même stricte, mais ce n'est pas important). Donc
+    \[
+      a\leq x_0\leq b
+    \]
+    avec $a$, $b\in A$, et $x_0\notin A$. Cela finit de prouver que $A$ n'est pas un intervalle.
+\end{proof}
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Compacité}

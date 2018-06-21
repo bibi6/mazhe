@@ -5,7 +5,7 @@
 Une construction des réels via les coupures de Dedekind est donnée dans \cite{PaulinTopGmVegN}.
 
 \begin{normaltext}      \label{NormooHRDZooRGGtCd}
-    La construction des réels va nécessiter un petit «\wikipedia{fr}{bootstrap}{bootstrap}» au niveau de la topologie. En effet la notion de suite de Cauchy est, de manière générale, une notion topologique (définition~\ref{DefZSnlbPc}) alors que la topologie des espaces métriques (dont celle usuelle de \( \eQ\)) ne sera définie que par le théorème~\ref{ThoORdLYUu}. Nous avons donc dû définir en la définition~\ref{DefKCGBooLRNdJf} \emph{ex nihilo} les notions de
+    La construction des réels va nécessiter un petit «\wikipedia{fr}{bootstrap}{bootstrap}» au niveau de la topologie. En effet la notion de suite de Cauchy est, de manière générale, une notion topologique (définition~\ref{DefZSnlbPc}) alors que la topologie des espaces métriques (dont celle usuelle de \( \eQ\)) ne sera définie que par le théorème~\ref{ThoORdLYUu}. Nous avons donc dû définir en la définition~\ref{DefKCGBooLRNdJf} \emph{ex nihilo} (en fait, partant de corps totalement ordonnés) les notions de
 \begin{itemize}
     \item
         suite de Cauchy
@@ -14,9 +14,9 @@ Une construction des réels via les coupures de Dedekind est donnée dans \cite{
     \item
         complétude
 \end{itemize}
-et nous allons construire un minimum de topologie histoire d'obtenir les résultats essentiels sur le corps des réels.
+et avons étudié ensuite ces notions dans \( \eQ \).
 
-Mais avant cela, construisons \( \eR\): ce sera l'ensemble des classes d'équivalence de suites de Cauchy dans \( \eQ\). Ce ne sera que plus tard, après avoir défini la notion d'espace métrique que nous allons voir que sur \( \eR\), ces trois notions coïncident avec celles topologiques\footnote{Proposition~\ref{PropooUEEOooLeIImr}.}. Et par conséquent que \( \eR\) sera un espace métrique complet\footnote{Théorème~\ref{THOooUFVJooYJlieh} pour la complétude en tant que corps et théorème~\ref{PROPooTFVOooFoSHPg} pour la complétude en tant que espace métrique.}.
+Le but de cette section est de construire \( \eR\): ce sera l'ensemble des classes d'équivalence de suites de Cauchy dans \( \eQ\). Ce ne sera que plus tard, après avoir défini la notion d'espace métrique que nous allons voir que sur \( \eR\), ces trois notions coïncident avec celles topologiques\footnote{Proposition~\ref{PropooUEEOooLeIImr}.}. Et par conséquent que \( \eR\) sera un espace métrique complet\footnote{Théorème~\ref{THOooUFVJooYJlieh} pour la complétude en tant que corps et théorème~\ref{PROPooTFVOooFoSHPg} pour la complétude en tant que espace métrique.}.
 % position 11144-30436
 % position 13984-18006
 
@@ -368,8 +368,18 @@ Le lemme suivant n'est pas loin de dire que \( \eQ\) est dense dans \( \eR\), à
 \end{proof}
 
 \begin{remark}      \label{REMooXOIOooHjwMvA}
-    Le lemme~\ref{LemooHLHTooTyCZYL} a également pour conséquence que des ensembles comme \( \mathopen[ -1 , 1 \mathclose]\) ne sont pas bien ordonnés (définition~\ref{DEFooVGYQooUhUZGr}). En effet la partie \( \mathopen] 0 , 1 \mathclose[\) ne possède pas de minimum parce que si \( x\in \mathopen] 0 , 1 \mathclose[\) alors \( 0<x\) et il existe \( s\in \eQ\) (a fortiori \( s\in \eR\)) tel que \( 0<s<x\), c'est à dire que \( x\) n'est pas un minimum de \( \mathopen] 0 , 1 \mathclose[\).
+    Le lemme~\ref{LemooHLHTooTyCZYL} a également pour conséquence que des ensembles comme \( \mathopen[ -1 , 1 \mathclose]\) ne sont pas bien ordonnés\footnote{Définition~\ref{DEFooVGYQooUhUZGr}.}. En effet la partie \( \mathopen] 0 , 1 \mathclose[\) ne possède pas de minimum parce que si \( x\in \mathopen] 0 , 1 \mathclose[\) alors \( 0<x\) et il existe \( s\in \eQ\) (a fortiori \( s\in \eR\)) tel que \( 0<s<x\), c'est à dire que \( x\) n'est pas un minimum de \( \mathopen] 0 , 1 \mathclose[\).
 \end{remark}
+
+Le lemme~\ref{LemooHLHTooTyCZYL} dit qu'on peut mettre un rationnel entre deux qui ne le sont pas (forcément). On peut faire l'inverse aussi:
+\begin{lemma}\label{IntQestVide_corpsOrdonnes}
+  Soient \( x, y \in \eQ \) tels que \( x < y \). Alors il existe un réel \( r \notin \eQ \) tel que \( x < r < y \).
+\end{lemma}
+
+\begin{proof}
+  On sait par la proposition~\ref{PropooRJMSooPrdeJb} que \( \sqrt 2 \notin \eQ \); il en est alors de même pour le nombre \(r = x + (y-x)\frac {\sqrt 2} 2 \).
+\end{proof}
+
 
 Tant que nous y sommes dans les encadrements de réels\dots
 \begin{normaltext}
@@ -397,17 +407,15 @@ Comme \( q \neq q' \), les développements dyadiques sont différents\quext{À v
   On utilise deux fois le lemme~\ref{LemooHLHTooTyCZYL}, d'abord avec \( x \) et \( \frac {x+y} 2 \), ce qui nous donne un rationnel \( q \), puis avec \( \frac {x+y} 2 \) et \( y \), ce qui nous donne un rationnel \( q' > q \). On conclut alors avec le lemme~\ref{LEMooRSLIooVrZMxM}.
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Un peu de topologie}
-%---------------------------------------------------------------------------------------------------------------------------
-Les notions de topologie générale ne seront abordées qu'au chapitre~\ref{ChapTopologieGenerale}. Toutefois, nous pouvons créer de la topologie sur le corps que l'on vient de créer, ce qui nous permettra de donner quelques résultats qui paraissent évidents au premier abord, mais qui se doivent tout de même d'être prouvés.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Complétude}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{proposition}[\cite{MonCerveau}] \label{PropSLCUooUFgiSR}
-    Quel que soit le réel \( r\), il existe une suite croissante de rationnels convergente vers \( r\).
+\begin{proposition}[\cite{MonCerveau}] \label{PropSLCUooUFgiSR} \label{PROPooFGBOooHiZqbs}
+    Quel que soit le réel \( x\), il existe une suite croissante de rationnels convergente vers \( x\).
+
+    Si de plus \( x > 0 \), alors la suite peut être créée avec des rationnels tous positifs.
 \end{proposition}
 
 \begin{proof}
@@ -447,11 +455,11 @@ Tous les \( x_k \), pour \( k > k_0 + 1 \), sont tels que \( |x - x_k| < \epsilo
     \begin{equation}
         x_p-\epsilon<x_q<x_p+\epsilon.
     \end{equation}
-    Soit \( p\geq N_{\epsilon}\) fixé. Pour tout \( q\geq N_{\epsilon}\) nous avons \(  x_p-\epsilon<x_q<x_p+\epsilon \). Par conséquent, la suite \( n\mapsto (x_p-\epsilon)-q_n\) est un élément de \( \modE^-\) et au niveau des classes nous pouvons écrire
+    Soit \( p\geq N_{\epsilon}\) fixé. Pour tout \( q\geq N_{\epsilon}\) nous avons \(  x_p-\epsilon<x_q<x_p+\epsilon \). Par conséquent, la suite \( (y_n) \) définie par \( y_n = (x_p-\epsilon)-x_n\) est un élément de \( \modE^-\) et au niveau des classes nous pouvons écrire
     \begin{equation}
-        \overline{ n\mapsto (x_p-\epsilon)-x_n }\leq 0.
+        \overline{ y_n }\leq 0.
     \end{equation}
-    Vu que \( x_p-\epsilon\) représente la suite constante nous avons l'inégalité suivante dans \( \eR\) :
+    Vu que \( x_p-\epsilon\) représente la suite constante, et que \( (x_n) \) est un représentant de \( \bar x \), nous avons l'inégalité suivante dans \( \eR\) :
     \begin{equation}
         x_p-\epsilon-\bar x\leq 0
     \end{equation}
@@ -461,12 +469,6 @@ Tous les \( x_k \), pour \( k > k_0 + 1 \), sont tels que \( |x - x_k| < \epsilo
     \end{equation}
     dès que \( p\geq N_{\epsilon}\). Cela signifie que \( x_p\to \bar x\) dans \( \eR\).
 \end{proof}
-
-\begin{proposition}     \label{PROPooFGBOooHiZqbs}
-    Soit un réel \( x\). Il existe une suite de rationnels strictement croissante qui converge vers \( x\).
-
-    Si de plus \( x>0\), alors la suite peut être choisie parmi les rationnels strictement positifs.
-\end{proposition}
 
 \begin{theorem}[Complétude de \( \eR\), critère de Cauchy\cite{RWWJooJdjxEK}] \label{THOooUFVJooYJlieh}
     Nous avons :
@@ -479,7 +481,7 @@ Tous les \( x_k \), pour \( k > k_0 + 1 \), sont tels que \( |x - x_k| < \epsilo
 \end{theorem}
 \index{complet!$\eR$!corps}
 \index{critère!de Cauchy}
-Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFooYUqQYo}. Ils ne sont pas équivalents, ne parlent pas exactement du même objet «\( \eR\)», ni des mêmes notions de suites de Cauchy et de complétude.
+Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFooYUqQYo}. Ils ne sont pas équivalents, ne parlent pas exactement du même objet «\( \eR\)», ni des mêmes notions de suites de Cauchy et de complétude. Ici, on parle de \( \eR \) comme corps totalement ordonné.
 
 \begin{proof}
     Soit \( (x_n)\) une suite de Cauchy dans \( \eR\). Pour chaque \( n\), il existe par le lemme~\ref{LemooHLHTooTyCZYL} un \( y_n\in \eQ\) tel que
@@ -524,10 +526,48 @@ Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFoo
 Nous avons terminé avec la construction des réels. Les propriétés topologiques arrivent en la section~\ref{SECooGKHYooMwHQaD}. En particulier le théorème~\ref{THOooNULFooYUqQYo} pour la complétude de \( \eR\) en tant qu'espace métrique.
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Maximum, supremum et compagnie}
+\subsection{Intervalles de réels}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Ce n'est un secret pour personne que $\eR$ est un \href{http://fr.wikipedia.org/wiki/Relation_d'ordre}{ensemble totalement ordonné}\footnote{Définition~\ref{DefooYALBooHSXZqB}.} : il y a des éléments plus grands que d'autres, et mieux : à chaque fois que je prends deux éléments différents dans $\eR$, il y en a un des deux qui est plus grand que l'autre. Il n'y a pas d'\emph{ex æquo} dans $\eR$.
+Ce n'est plus un secret pour personne que $\eR$ est un \href{http://fr.wikipedia.org/wiki/Relation_d'ordre}{ensemble totalement ordonné}\footnote{Définition~\ref{DefooYALBooHSXZqB}.} : il y a des éléments plus grands que d'autres, et mieux : à chaque fois que je prends deux éléments différents dans $\eR$, il y en a un des deux qui est plus grand que l'autre. Il n'y a pas d'\emph{ex æquo} dans $\eR$.
+
+\begin{definition}[Infinis]
+  On utilise le \defe{symbole infini}{infini!réel} \( + \infty \) avec la convention : pour tout \( x \in \eR,\ x < + \infty \). Ce symbole ne \emph{désigne pas} un nombre réel.
+
+  De même, on utilise le symbole \( - \infty \) avec la convention : pour tout \( x \in \eR,\ x > - \infty \).
+\end{definition}
+
+\begin{definition}[Intervalle réel]\label{DefIntervallesReels}
+    Une partie \( I\) de \( \eR\) est un \defe{intervalle}{intervalle!réel} si pour tout \( a,b\in I\) et pour tout \( t\in \eR\) , on a \( t \in I \) si et seulement si \( a\leq t\leq b\).\footnote{Rapprochez cela à la définition générale \ref{DefEYAooMYYTz} pour les ensembles totalement ordonnés!}
+
+    Un intervalle \( I \) est \defe{borné}{intervalle!borné} s'il existe \(a, b \in \eR \) tels que,  pour tout \( x \in I \), on ait \( a \leq x \leq b \).
+
+    Un intervalle est \defe{ouvert}{intervalle!réel!ouvert} s'il est de la forme \( \mathopen] a , b \mathclose[\) avec éventuellement \( a=-\infty\) ou \( b=+\infty\). Il s'entend comme l'ensemble des réels \( x \) tels que \( a < x < b \).
+
+    Un intervalle borné est \defe{fermé}{intervalle!réel!fermé, borné} s'il est de la forme \( \mathopen[ a , b \mathclose]\) avec \( a,b\in \eR\). Il s'entend comme l'ensemble des réels \( x \) tels que \( a \leq x \leq b \).
+
+    Un intervalle qui n'est pas borné est \defe{fermé}{intervalle!réel!fermé} s'il est de la forme \( \mathopen] -\infty , b \mathclose]\) ou \( \mathopen[ a , +\infty [\). Il s'agit des ensembles des réels \( x \) tels que, respectivement, \( x \leq b \), ou \( x \geq a\).
+\end{definition}
+
+\begin{remark}
+  Notez l'utilisation des crochets: ils sont «tournés vers les nombres» si ceux-ci sont pris dans l'intervalle.
+
+  Comme l'ensemble $\eR$ ne contient pas $-\infty$ et $+\infty$, un intervalle contenant ces bornes a nécessaiement un crochet ouvert. Ainsi, l'intervalle $[-\infty, 5]$ par exemple, n'est pas une partie de $\eR$.
+\end{remark}
+
+\begin{example}
+    \begin{enumerate}
+        \item
+        Les ensembles \( \mathopen] 3 , 7 \mathclose[\) et \( \mathopen] -\infty , \pi \mathclose[\) sont des intervalles ouverts.
+        \item
+            Les ensembles \( \mathopen[ 10 , 15 \mathclose]\) et \( \mathopen[ -1 , +\infty [\) sont des intervalles fermés.
+        \item
+        L'ensemble \( \mathopen] -4 , -2 \mathclose[\cup\mathopen] 2 , 9 \mathclose[\) n'est pas un intervalle (il y a un «trou» entre \(- 2\) et \( 2\)).
+        \item
+            L'ensemble \( \eR\) lui-même est un intervalle; par convention, il est à la fois ouvert et fermé.
+    \end{enumerate}
+Un intervalle peut n'être ni ouvert ni fermé; par exemple \( \mathopen] 4 , 8 \mathclose]\). Cet intervalle est «ouvert en \( 4\) et fermé en \( 8\)» .
+\end{example}
 
   Si je regarde l'intervalle $I=[0,1]$, je peux même dire que $10$ est plus grand que tous les éléments de $I$. Nous disons que $10$ est un \emph{majorant} de $[0,1]$. La définition est la suivante.
 \begin{definition}
@@ -566,23 +606,23 @@ Une petite galerie d'exemples de majorants.
     Cet élément est nommé \defe{supremum}{supremum} de $A$ et est noté \( \sup(A)\). De la même façon, \defe{l'infimum}{infimum} de $A$, noté $\inf A$, est le plus grand de ses minorants.
 \end{propositionDef}
 
-Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son supremum n'existe pas, ou bien qu'il est égal à $+\infty$, suivant les contextes. Pour votre culture générale, sachez toutefois que $\infty\notin\eR$.
+Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son supremum n'existe pas, ou bien qu'il est égal à $+\infty$, suivant les contextes. Rappelons tout de même que $\infty\notin\eR$.
 
 \begin{proof}
-    Nous faisons la preuve pour l'infimum.
+    Nous faisons la preuve pour le supremum.
 
     \begin{subproof}
     \item[Unicité]
 
-    En ce qui concerne l'unicité, soient \( m_1\) et \( m_2\), deux infimums de \( A\). Supposons \( m_1>m_2\). Alors il existe \( \epsilon>0\) tel que \( m_2<m_2+\epsilon<m_1\) (c'est le lemme~\ref{LemooHLHTooTyCZYL}). Cela prouve que \( m_2+\epsilon\) est un minorant de \( A\) et donc que \( m_2\) n'est pas un infimum.
+    En ce qui concerne l'unicité, soient \( m_1\) et \( m_2\), deux supremums de \( A\). Supposons \( m_1 > m_2\). Alors, par le lemme~\ref{LemooHLHTooTyCZYL}, il existe \( \epsilon>0\) tel que \( m_2<m_1-\epsilon<m_1\). Cela prouve que \( m_1-\epsilon\) est un majorant de \( A\) et donc que \( m_1\) ne peut pas être un supremum.
 
 \item[Existence]
 
-	Soit $A$, une partie de $\eR$. Nous allons trouver son infimum en suivant une méthode de dichotomie. Pour cela nous allons construire trois suites en même temps de la façon suivante. D'abord nous choisissons un point $x_0$ de $A$ et un point $x_1$ qui minore $A$ (qui existe par hypothèse) :
+	Soit $A$, une partie de $\eR$. Nous allons trouver son supremum en suivant une méthode de dichotomie. Pour cela nous allons construire trois suites en même temps de la façon suivante. D'abord nous choisissons un point $x_0$ de $A$ et un point $x_1$ qui majore $A$ (qui existe par hypothèse) :
 	\begin{equation}
 		\begin{aligned}[]
 			x_0&\text{ est un élément de }A,\\
-			x_1&\text{ est un minorant de }A,\\
+			x_1&\text{ est un majorant de }A,\\
 			a_0&=x_0\\
 			b_0&=x_1\\
 			b_1&=x_1.
@@ -593,16 +633,16 @@ Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son
 		\begin{aligned}[]
 			x_{n+1}&=\frac{ a_n+b_n }{2},\\
 			a_{n+1}&=\begin{cases}
-                a_{n}	&	\text{si }x_{n+1} \text{ minore } A \\
-				x_{n+1}	&	 \text{sinon},
+                          a_{n}	&	\text{si }x_{n+1} \text{ majore } A \\
+                          x_{n+1}	&	 \text{sinon},
 			\end{cases}\\
 			b_{n+1}&=\begin{cases}
-                x_{n+1}	&	\text{si }x_{n+1} \text{ minore } A\\
+                x_{n+1}	&	\text{si }x_{n+1} \text{ majore } A\\
 				b_n	&	 \text{sinon}.
 			\end{cases}
 		\end{aligned}
 	\end{equation}
-    Nous allons montrer que \( (a_n)\) et \( (b_n)\) sont des suites convergentes de même limite et que cette limite est l'infimum de \( A\).
+    Nous allons montrer que \( (a_n)\) et \( (b_n)\) sont des suites convergentes de même limite et que cette limite est le supremum de \( A\).
 
 	Soit $n\in\eN$; il y a deux possibilités. Soit $a_n=a_{n-1}$ et $b_n=x_n$, soit $a_n=x_n$ et $b_n=b_{n-1}$. Supposons que nous soyons dans le premier cas (le second se traite de façon similaire). Alors nous avons
 	\begin{equation}
@@ -617,16 +657,16 @@ Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son
         | a_n-a_{n-1} |=\begin{cases}
           0\\
           \left| \frac{ a_n -b_n}{ 2} \right|
-      \end{cases}\leq \frac{1}{ 2n }.
+      \end{cases}\leq \frac{1}{ 2^n }.
     \end{equation}
     Il en est de même pour la suite \( (b_n)\). Ce sont deux suites de Cauchy (donc convergentes par la proposition~\ref{PROPooTFVOooFoSHPg}) qui convergent vers la même limite. Soit \( \ell\) cette limite.
 
-	Le nombre $\ell$ minore $A$. En effet si $a\in A$ est plus petit que $\ell$, les éléments $b_n$ tels que $| b_n-\ell |<| a-\ell |$ ne peuvent pas minorer $A$. D'autre part, pour tout $\epsilon$, le nombre $\ell+\epsilon$ ne peut pas minorer $A$. En effet, $\ell$ est la limite de la suite décroissante $(a_n)$, donc il existe $a_n$ entre $\ell$ et $\ell+\epsilon$. Mais $a_n$ ne minore pas $A$, donc $\ell+\epsilon$ ne minore pas non plus $A$.
+	Le nombre $\ell$ majore $A$. En effet si $a\in A$ est plus grand que $\ell$, les éléments $b_n$ tels que $| b_n-\ell |<| a-\ell |$ ne peuvent pas majorer $A$. D'autre part, pour tout $\epsilon$, le nombre $\ell-\epsilon$ ne peut pas majorer $A$. En effet, $\ell$ est la limite de la suite croissante $(a_n)$, donc il existe $a_n$ entre $\ell-\epsilon$ et $\ell$. Mais $a_n$ ne majore pas $A$, donc $\ell-\epsilon$ ne majore pas non plus $A$.
 
-	Nous avons prouvé que toute partie minorée de $\eR$ possède un infimum.
+	Nous avons ainsi prouvé que toute partie majorée de $\eR$ possède un supremum.
     \end{subproof}
 
-    La preuve que toute partie majorée possède un supremum se fait de la même façon.
+    La preuve que toute partie minorée possède un infimum se fait de la même façon.
 \end{proof}
 
 \subsubsection{\ldots et quelques exemples}
