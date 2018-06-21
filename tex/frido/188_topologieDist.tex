@@ -1,0 +1,556 @@
+% This is part of Mes notes de mathématique
+% Copyright (c) 2008-2018
+%   Laurent Claessens
+% See the file fdl-1.3.txt for copying conditions.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Topologie et distance}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Certains ensembles ont plus de structures qu'une topologie. Nous fixons quelques bases maintenant, et nous détaillerons certains résultats plus tard.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Distance et topologie métrique}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}  \label{DefMVNVFsX}
+    Si $E$ est un ensemble, une \defe{distance}{distance} sur $E$ est une application $d\colon E\times E\to \eR$ telle que pour tout $x,y\in E$,
+    \begin{enumerate}
+
+    \item
+    $d(x,y)\geq 0$
+
+    \item
+    $d(x,y)=0$ si et seulement si $x=y$,
+
+    \item
+    $d(x,y)=d(y,x)$
+
+    \item
+    $d(x,y)\leq d(x,z)+d(z,y)$.
+
+    \end{enumerate}
+    La dernière condition est l'\defe{inégalité triangulaire}{inégalité!triangulaire}.
+
+    Un couple \((E,d)\) formé d'un ensemble et d'une distance est un \defe{espace métrique}{espace!métrique}.
+\end{definition}
+
+\begin{definition}
+	Soit \((E,d)\) un espace métrique, $a\in E$ et $r>0$. Nous allons abondamment nous servir des ensembles suivants :
+	\begin{enumerate}
+		\item
+			la \defe{boule ouverte}{boule!ouverte} $B(a,r)=\{ x\in E\tq d(x,a)<r \}$;
+		\item
+			la \defe{boule fermée}{boule!fermée} $\bar B(a,r)=\{ x\in E\tq d(x-a)\leq r \}$;
+		\item
+			la \defe{sphère}{sphère} $S(a,r)=\{ x\in E\tq d(x,a)=r \}$.
+
+	\end{enumerate}
+\end{definition}
+Les différences entre ces trois ensembles sont très importantes. D'abord, les \emph{boules} sont pleines tandis que la \emph{sphère} est creuse. En comparant à une pomme, la boule ouverte serait la pomme «sans la peau», la boule fermée serait «avec la peau» tandis que la sphère serait seulement la peau. Nous avons
+\begin{equation}
+	\bar B(a,r)=B(a,r)\cup S(a,r).
+\end{equation}
+
+\begin{example}
+	Dans $\eR$, les boules sont  les intervalles ouverts et fermés tandis que la sphère est donnée par les points extrêmes des intervalles :
+	\begin{equation}
+		\begin{aligned}[]
+			B(a,r)&=\mathopen] a-r , a+r \mathclose[,\\
+			\bar B(a,r)&=\mathopen[ a-r , a+b \mathclose],\\
+			S(a,r)&=\{ a-r,a+r \}.
+		\end{aligned}
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Si nous considérons $\eR^2$, la situation est plus riche parce que nous avons plus de normes. Essayons de voir les sphères de centre $(0,0)\in\eR^2$ et de rayon $r$ pour les normes $\| . \|_1$, $\| . \|_2$ et $\| . \|_{\infty}$.
+
+	Pour la norme $\| . \|_1$, la sphère de rayon $r$ est donnée par l'équation
+	\begin{equation}
+		| x |+| y |=r.
+	\end{equation}
+	Pour la norme $\| . \|_2$, l'équation de la sphère de rayon $r$ est
+	\begin{equation}
+		\sqrt{x^2+y^2}=r,
+	\end{equation}
+	et pour la norme supremum, la sphère de rayon $r$ a pour équation
+	\begin{equation}
+		\max\{ | x |,| y | \}=r.
+	\end{equation}
+	Elles sont dessinées sur la figure~\ref{LabelFigLesSpheres}
+\newcommand{\CaptionFigLesSpheres}{Les sphères de rayon $1$ pour les trois normes classiques.}
+\input{auto/pictures_tex/Fig_LesSpheres.pstricks}
+\end{example}
+
+La définition-théorème suivante donne une topologie sur les espaces métriques en partant des boules.
+\begin{theoremDef}     \label{ThoORdLYUu}
+    Soit \( (E,d)\) un espace métrique. Nous définissons les \defe{boules ouvertes}{boule!ouverte} par
+    \begin{equation}        \label{EQooYCWSooIhibvd}
+        B(x,r)=\{ y\in E\tq d(x,y)<r \}.
+    \end{equation}
+    pout tout \( x\in E\) et \( r>0\).
+    Alors en posant
+    \begin{equation}        \label{EqGDVVooDZfwSf}
+        \mT=\big\{  \mO\subset E  \tq\forall x\in \mO,\exists r>0\tq B(x,r)\subset \mO \big\}
+    \end{equation}
+    nous définissons une topologie sur \( E\).
+
+    Cette topologie sur \( E\) est la \defe{topologie métrique}{topologie!métrique} de \( (E,d)\). En présence d'une distance, sauf mention explicite du contraire, c'est toujours cette topologie-là que nous utiliserons.
+\end{theoremDef}
+
+\begin{proof}
+    D'abord \( \emptyset\in\mT\) parce que tout élément de l'ensemble vide \ldots heu \ldots enfin parce que d'accord hein\footnote{Pour qui ne seraient pas d'accord, allez ajouter \( \emptyset\) dans la définition des ouverts et puis c'est tout.}. Ensuite si \( (A_i)_{i\in I}\) sont des éléments de \( \mT\) et si \( x\in\bigcup_{i\in I}A_i\) alors il existe \( k\in I\) tel que \( x\in A_k\). Par hypothèse il existe une boule \( B(x,r)\subset A_k\subset\bigcup_{i\in I}A_i\).
+
+    Enfin si \( (A_i)_{i\in\{ 1,\ldots, n \}}\) sont des éléments de \( \mT\) alors pour tout \( i\) il existe \( r_i>0\) tel que \( B(x,r_i)\subset A_i\). En prenant \( r=\min\{ r_i \}_{i=1,\ldots, n}\) nous avons $B(x,r)\subset\bigcap_{i=1}^nA_i.$
+\end{proof}
+
+\begin{remark}  \label{RemQDRooKnwKk}
+    Quatre remarques à propos de cette définition.
+    \begin{enumerate}
+    \item
+      Cette définition est faite exprès pour respecter le théorème~\ref{ThoPartieOUvpartouv}. Même si, a priori, on aurait dû utiliser la topologie engendrée faite à l'exemple \ref{DefTopologieEngendree}\dots\ mais on peut montrer que les deux topologies sont les mêmes.
+    \item      \label{ITEMooUIHJooXAFaIz}
+      Par construction, les boules ouvertes sont une base de la topologie (définition~\ref{DefQELfbBEyiB}) des espaces métriques.
+    \item       \label{ITEMooUIHJooXAFaJa}
+      Si \( V\) est un voisinage de \( x\), alors il existe \( r\) tel que \( B(x,r)\subset V\).
+    \item
+      Tout espace métrique est séparé. En effet, si deux éléments \( x \) et \( y \) sont distincts, alors en posant \( r = d(x , y) / 3 > 0 \), les boules \( B(x,r) \) et \( B(y,r)\) sont disjointes. Très pratique pour les limites : elles sont uniques, grâce aux propositions~\ref{PropUniciteLimitePourSuites} et \ref{PropFObayrf}!
+    \end{enumerate}
+\end{remark}
+
+\begin{normaltext}
+    Si vous avez un peu de temps, vous pouvez vérifier que si \( \eK\) est un corps totalement ordonné, alors avec toutes les définitions de~\ref{DefKCGBooLRNdJf}, en posant \( d(x,y)=| x-y |\) nous avons une distance sur \( \eK\).
+
+    De plus, les boules définies en~\ref{DefKCGBooLRNdJf} sont alors les mêmes que celles définies en \eqref{EQooYCWSooIhibvd}, ce qui donne à tout corps totalement ordonné une structure d'espace topologique.
+\end{normaltext}
+
+\begin{example}			\label{ExempleIntBoules}
+	Les intérieurs des boules et sphères sont importantes à savoir.
+	\begin{enumerate}
+		\item
+			$\Int\big( B(a,r) \big)=B(a,r)$. Si $x\in B(a,r)$, nous avons $d(a,x)<r$. Alors la boule $B\big(x,r-d(x,a)\big)$ est incluse à $B(a,r)$, et donc $x$ est dans l'intérieur de $B(a,r)$. Conseil : faire un dessin.
+		\item
+			$\Int\big( \bar B(a,r) \big)=B(a,r)$. Par le point précédent, la boule $B(a,r)$ est certainement dans l'intérieur de la boule fermée. Il reste à montrer que les points de $\bar B(a,r)$ qui ne sont pas dans $B(a,r)$ ne sont pas dans l'intérieur. Ces points sont ceux dont la distance à $a$ est \emph{égale} à $r$. Le résultat découle alors de la proposition~\ref{PropBoitPtLoin}.
+
+		\item
+			$\Int\big( S(a,r) \big)=\emptyset$. Si $x\in S(a,r)$, toute boule centrée en $a$ contient des points qui ne sont pas à distance $r$ de $a$.
+
+			Notez que la sphère est un exemple d'ensemble non vide mais d'intérieur vide.
+	\end{enumerate}
+\end{example}
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Les boules, une base de topologie}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition} \label{PropNBSooraAFr}
+    Un espace métrique séparable\footnote{Qui possède une partie dense dénombrable, définition~\ref{DefUADooqilFK}.} accepte une base de topologie dénombrable.
+
+     Soit \( A\) dense et dénombrable dans l'espace métrique séparable \( (E,d)\). Si \( \{ a_i \}_{i\in \eN}\) est une énumération de \( A\) et \( \{ r_i \}_{i\in \eN}\) une énumération de \( \eQ\), alors
+    \begin{equation}
+        \mB=\{ B(a_i,r_j) \}_{i,j\in \eN}
+    \end{equation}
+    est une base de la topologie de \( E\).
+\end{proposition}
+\index{base!de topologie!espace métrique}
+\index{espace!métrique!base de topologie}
+\index{base!de topologie!dénombrable}
+
+\begin{proof}
+    Soient \( x\in E\) et \( V\) un voisinage de \( x\). Ce dernier contient une boule \( B(x,r)\) et quitte à prendre \( r\) un peu plus petit nous supposons que \( r\in \eQ\) (existence d'un tel rationnel par le lemme \ref{LemooHLHTooTyCZYL}).
+
+    Soit \( a\in A\) avec \( \| a-x \|<\frac{ r }{ 3 }\) (existe par densité de \( A\) dans \( E\)); nous avons \( B(a,\frac{ 2r }{ 3 })\subset B(x,r)\) parce que si \( y\in B( a,\frac{ 2r }{ 3 } )\) alors
+    \begin{equation}
+        \| y-x \|\leq \| y-a \|+\| a-x \|<\frac{ 2 }{ 3 }r+\frac{ 1 }{ 3 }r=r.
+    \end{equation}
+    La seconde inégalité est stricte parce que les boules sont ouvertes. Le tout montre que \( y\in B(x,r)\). Par ailleurs \( x\in B(a,\frac{ 2 }{ 3 }r)\) et nous avons trouvé un élément de \( \mB\) contenant \( x\) tout en étant inclus dans \( V\). Cela prouve que \( \mB\) est bien une base de la topologie de \( E\).
+\end{proof}
+
+
+\begin{remark}      \label{RemIPVLooHUXyeW}
+    Il est vite vu que les cubes ouverts forment aussi une base de la topologie de \( \eR^n\). Cela est à mettre en rapport avec le fait que toutes les normes sont équivalentes sur \( \eR^n\) (proposition~\ref{ThoNormesEquiv}).
+
+    % position 13268
+
+    Voir aussi le corollaire~\ref{CorTHDQooWMSbJe} qui donnera tout ouvert comme union de pavés presque disjoints.
+\end{remark}
+
+\begin{definition}\label{DefEnsembleBorne}
+  Soit \( (X, d) \) un espace métrique. Un sous-ensemble \( A \subset X \) est \defe{borné}{borné} s'il existe une boule de \( X \) contenant \( A \).
+\end{definition}
+
+\begin{proposition}
+  Toute réunion finie d'ensembles bornés est un ensemble borné. Toute partie d'un ensemble borné est un ensemble borné.
+\end{proposition}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Continuité et espaces métriques}
+%---------------------------------------------------------------------------------------------------------------------------
+
+La propriété suivante donne des caractérisations importantes de la continuité dans le cas des espaces métriques.
+\begin{proposition}[Continuité, ouverts et voisinages et limite\cite{DHpsZoY}] \label{PropQZRNpMn}
+    Soient \( f\colon E\to F\) une application entre espaces métriques et \( a\in E\). Alors nous avons équivalence entre les choses suivantes :
+    \begin{enumerate}
+        \item\label{ItemCBUoRWJi}
+            \( f\) est continue en \( a\),
+        \item\label{ItemCBUoRWJii}
+            Pour tout voisinage ouvert \( W\) de \( f(a)\), il existe un voisinage ouvert \( V\) de \( a\) tel que \( f(V)\subset W\).
+        \item\label{ItemCBUoRWJiii}
+            Pour toute boule \( W'=B\big( f(a),\epsilon \big)\), il existe une boule \( V'=B(a,\delta)\) telle que \( f(V)\subset W\).
+        \item\label{ItemCBUoRWJiv}
+            $\forall \epsilon>0,\,\exists \delta>0\,\tq f\big( B(a,\delta) \big)\subset B\big( f(a),\epsilon \big)$.
+        \item\label{ItemYNQpikrii}
+            \( \lim_{x\to a}f(x)=f(a)\) où la limite est donnée par la définition~\ref{DefYNVoWBx},
+        \item\label{ItemYNQpikriii}
+            Pour tout \( \epsilon>0\), il existe \( \delta>0\) tel que \( \| x-a \|<\delta\) implique \( \| f(x)-f(a) \|<\epsilon\).
+    \end{enumerate}
+\end{proposition}
+\index{continue!fonction entre espaces métriques}
+La proposition~\ref{PropNGjQnqF} nous montrera que ces équivalences tiennent encore lorsque l'espace a une topologie de semi-normes.
+
+\begin{proof}
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemCBUoRWJii} est la définition~\ref{DefOLNtrxB}. L'équivalence~\ref{ItemCBUoRWJiii} \( \Leftrightarrow\)~\ref{ItemCBUoRWJiv} est une simple paraphrase.
+
+    Montrons~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemCBUoRWJiii}. Si \( W'=B\big( f(a),\delta \big)\), nous avons un voisinage \( V\) de \( a\) tel que \( f(V)\subset W\). L'ensemble \( V\) contenant une boule autour de chacun de ses points\footnote{Cela est le théorème-définition~\ref{ThoORdLYUu} des ouverts dans un espace métrique, à ne pas confondre avec le théorème~\ref{ThoPartieOUvpartouv}.}, il en contient un autour de \( a\) : \( V'=B(a,\delta)\subset V\). A fortiori nous avons \( f(V')\subset W\).
+
+    Montrons~\ref{ItemCBUoRWJiii} \( \Rightarrow\)~\ref{ItemCBUoRWJii}. Si \( W\) est un ouvert autour de \( f(a)\), il contient une boule autour de \( f(a)\) : \( B\big( f(a),\epsilon \big)\subset W\). Il existe donc une boule \( V'=B(a,\delta)\) telle que \( f(V')\subset B\big( f(a),\epsilon \big)\subset W\).
+
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemYNQpikrii} est la définition~\ref{DefOLNtrxB} de la continuité en un point couplée à l'unicité de la limite due à la proposition~\ref{PropFObayrf} parce qu'un espace métrique est séparé.
+
+    Prouvons~\ref{ItemYNQpikrii} \( \Rightarrow\)~\ref{ItemYNQpikriii}. Soient \( \epsilon>0\) et \( V=B\big( f(a),\epsilon \big)\). Étant donné que \( f(a)\) est une limite de \( f\) pour \( x\to a\), il existe un voisinage \( W\) de \( a\) tel que \( f(W)\subset V\). Soit \( \delta>0\) tel que \( B(a,\delta)\subset W\); alors si \( \| x-a \|<\delta\) nous avons \( x\in B(x,\delta)\subset W\) et donc \( f(x)\in B\big( f(a),\epsilon \big)\), c'est à dire \( \| f(a)-f(x) \|<\epsilon\).
+
+    Enfin l'implication~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemYNQpikrii} est une réécriture de la définition de la limite en un point.
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Compacité et espaces métriques}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Un résultat important dans la théorie des fonctions sur les espaces vectoriels normés est qu'une fonction continue sur un compact est bornée et atteint ses bornes. Ce résultat sera (dans d'autres cours) énormément utilisé pour trouver des maxima et minima de fonctions. Le théorème exact est le suivant.
+
+\begin{lemma}[de Lebesgue\cite{AntoniniAndAl-EspacesMetriquesCompacts}]    \label{LemQFXOWyx}
+    Soit \( (X,d)\) un espace métrique tel que toute suite ait une sous-suite convergente à l'intérieur de l'espace. Si \( \{ V_i \}\) est un recouvrement par des ouverts de \( X\), alors il existe \( \epsilon\) tel que pour tout \( x\in X\), nous ayons \( B(x,\epsilon)\subset V_i\) pour un certain \( i\).
+\end{lemma}
+
+\begin{proof}
+    Par l'absurde, nous supposons que pour tout \( n\), il existe un \( x_n\in X\) tel que la boule \( B(x_n,\frac{1}{ n })\) n'est contenue dans aucun des \( V_i\). De ces \( x_n\) nous extrayons une sous-suite convergente (que nous nommons encore \( (x_n)\)) et nous posons \( x_n\to x\). Pour \( n\) assez grand (\( \frac{1}{ n }<\epsilon\)) nous avons \( x_n\in B(x,\epsilon)\), donc tous les \( x_n\) suivants sont dans le \( V_i\) qui contient \( x\).
+\end{proof}
+
+\begin{lemma}[\cite{AntoniniAndAl-EspacesMetriquesCompacts}]   \label{LemMGQqgDG}
+    Soit \( (X,d)\) un espace métrique tel que toute suite possède une sous-suite convergente. Pour tout \( \epsilon>0\), il existe un ensemble fini \( \{ x_i \}_{i\in I}\) tel que les boules \( B(x_i,\epsilon)\) recouvrent \( X\).
+\end{lemma}
+
+\begin{proof}
+    Soit par l'absurde un \( \epsilon>0\) contredisant le lemme. Il n'existe pas d'ensemble finis autour des points duquel les boules de taille \( \epsilon\) recouvrent \( X\).
+
+    Nous construisons par récurrence une suite ne possédant pas de sous-suites convergente. Le premier terme, \( x_0\) est pris arbitrairement dans \( X\). Ensuite si nous en avons \( N\) termes, nous savons que les boules de rayon \( \epsilon\) et centrées en les points \( \{ x_i \}_{i=1,\ldots, N}\) ne recouvrent pas \( X\). Donc nous prenons \( x_{N+1}\) hors de l'union de ces boules.
+
+    Ainsi nous avons une suite \( (x_n)\) dont tous les termes sont à distance plus grande que \( \epsilon\) les uns des autres. Une telle suite ne peut pas contenir de sous-suite convergente. Contradiction.
+\end{proof}
+
+\begin{theorem}[Bolzano-Weierstrass\cite{AntoniniAndAl-EspacesMetriquesCompacts}, thème \ref{THEMEooQQBHooLcqoKB}]\label{ThoBWFTXAZNH}
+    Un espace métrique est compact si et seulement si toute suite admet une sous-suite qui converge à l'intérieur de l'espace.
+\end{theorem}
+\index{théorème!Bolzano-Weierstrass}
+\index{Bolzano-Weierstrass!espaces métriques}
+\index{compacité}
+
+\begin{proof}
+   Soient \( X\) un espace métrique compact et \( (x_n)\) une suite dans \( X\). Nous considérons la suite de fermés emboîtés
+   \begin{equation}
+       X_n=\overline{ \{ x_k\tq k>n \} }.
+   \end{equation}
+   Ce sont des fermés ayant la propriété d'intersection finie non vide, et donc la proposition~\ref{PropXKUMiCj} nous dit qu'ils ont une intersection non vide. Un élément de cette intersection est automatiquement un point d'accumulation de la suite\footnote{Définition \ref{DEFooGHUUooZKTJRi}.}.
+
+   Nous passons à l'autre sens. Nous supposons que toute suite dans \( X\) contient une sous-suite convergente, et nous considérons \( \{ V_i \}_{i\in I}\), un recouvrement de \( X\) par des ouverts. Par le lemme~\ref{LemQFXOWyx}, nous considérons un \( \epsilon\) tel que pour tout \( x\), il existe un \( i\in I\) avec \( B(x,\epsilon)\subset V_i\). Par le lemme~\ref{LemMGQqgDG}, nous considérons un ensemble fini \( \{ y_i \}_{i\in A}\) tel que le boules \( B(y_i,\epsilon)\) recouvrent \( X\).
+
+   Par construction, chacune de ces boules \( B(y_i,\epsilon)\) est contenue dans un des ouverts \( V_i\). Nous sélectionnons donc parmi les \( V_i\) le nombre fini qu'il faut pour recouvrir les \( B(y_i,\epsilon)\) et donc pour recouvrir \( X\).
+\end{proof}
+
+\begin{example}[Non compacité de la boule unité en dimension infinie]\label{ExEFYooTILPDk}
+    Le théorème de Bolzano-Weierstrass permet de voir tout de suite que la boule unité n'est pas compacte dans un espace vectoriel de dimension infinie : la suite des vecteurs de base ne possède pas de sous-suites convergentes.
+\end{example}
+
+
+Le théorème de Bolzano–Weierstrass~\ref{ThoBWFTXAZNH} a l'importante conséquence suivante.
+\begin{theorem}[Weierstrass]		\label{ThoWeirstrassRn}
+	Une fonction continue à valeurs réelles définie sur un compact est bornée et atteint ses bornes.
+\end{theorem}
+\index{théorème!Weierstrass}
+\index{compact!et fonction continue}
+
+\begin{proof}
+	Soient \( K\) un compact et $f\colon K\to \eR$ une fonction continue. Nous désignons par $A$ l'ensemble des valeurs prises par $f$ sur $K$ :
+	\begin{equation}
+		A=f(K)=\{ f(x)\tq x\in K \}.
+	\end{equation}
+	Nous considérons le supremum $M=\sup A=\sup_{x\in K}f(x)$ avec la convention comme quoi si $A$ n'est pas borné supérieurement, nous posons $M=\infty$ (voir définition~\ref{DefSupeA}).
+
+	Nous allons maintenant construire une suite $(x_n)$ de deux façons différentes suivant que $M=\infty$ ou non.
+	\begin{enumerate}
+		\item
+			Si $M=\infty$, nous choisissons, pour chaque $n\in\eN$, un $x_n\in K$ tel que $f(x_n)>n$. Cela est certainement possible parce que si $A$ n'est pas borné, nous pouvons y trouver des nombres aussi grands que nous voulons.
+		\item
+			Si $M<\infty$, nous savons que pour tout $\varepsilon$, il existe un $y\in A$ tel que $y>M-\varepsilon$. Pour chaque $n$, nous choisissons donc $x_n\in K$ tel que $f(x_n)>M-\frac{1}{ n }$.
+	\end{enumerate}
+    Quel que soit le cas dans lequel nous sommes, la suite $(x_n)$ est une suite dans $K$ qui est compact, et donc nous pouvons en extraire une sous-suite convergente à l'intérieur de \( K\) par le théorème de Bolzano-Weierstrass~\ref{ThoBWFTXAZNH}. Afin d'alléger la notation, nous allons noter $(x_n)$ la sous-suite convergente. Nous avons donc
+	\begin{equation}
+		x_n\to x\in K.
+	\end{equation}
+	Par la proposition~\ref{PropFnContParSuite}, nous avons que $f$ prend en \( x\) la valeur
+	\begin{equation}
+		f(x)=\lim_{n\to \infty} f(x_n).
+	\end{equation}
+	Donc $f(x)<\infty$. Évidemment, si nous avions été dans le cas où $M=\infty$, la suite $x_n$ aurait été choisie pour avoir $f(x_n)>n$ et donc il n'aurait pas été possible d'avoir $\lim_{n\to \infty} f(x_n)<\infty$. Nous en concluons que $M<\infty$, et donc que $f$ est bornée sur $K$.
+
+	Afin de prouver que $f$ atteint sa borne, c'est à dire que $M\in A$, nous considérons les inégalités
+	\begin{equation}
+		M-\frac{1}{ n }<f(x_n)\leq M.
+	\end{equation}
+	En passant à la limite $n\to \infty$, ces inégalités deviennent
+	\begin{equation}
+		M\leq f(x)\leq M,
+	\end{equation}
+	et donc $f(x)=M$, ce qui prouve que $f$ atteint sa borne $M$ au point $x\in K$.
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Distance point-ensemble}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+	Si $A$ est une partie de l'espace métrique $(X,d)$ et si $x\in X$, nous disons que la \defe{distance}{distance!point et ensemble} entre $A$ et $x$ est le nombre
+	\begin{equation}		\label{EqdefDistaA}
+		d(x,A)=\inf_{a\in A}d(x,a).
+	\end{equation}
+\end{definition}
+%The result is on the figure~\ref{LabelFigDistanceEnsemble}
+\newcommand{\CaptionFigDistanceEnsemble}{La distance entre $x$ et $A$ est donnée par la distance entre $x$ et $p$. Les distances entre $x$ et les autres points de $A$ sont plus grandes que $d(x,p)$.}
+\input{auto/pictures_tex/Fig_DistanceEnsemble.pstricks}
+
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Topologie des espaces vectoriels normés}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%------------------------------------------------------------------------------------------------------
+\subsection{Norme}
+%------------------------------------------------------------------------------------------------------
+
+\begin{definition}[\cite{BrunelleMatricielle}, thème~\ref{THEMEooUJVXooZdlmHj}]  \label{DefNorme}	\label{DefEVNetDistance}
+    Soit \( E\) un espace vectoriel (pas spécialement de dimension finie) sur le corps \( \eK\) (\( =\eR\) ou \( \eC\)). Une  \defe{norme}{norme} sur $E$ est une application $N\colon E\to \eR^+$ telle que, pour tous $x,y\in E$ et pour tout $\lambda\in\eK$,
+	\begin{enumerate}
+		\item
+            \( N(x)=0\) si et seulement si \( x=0\);
+		\item\label{ItemDefNormeii}
+			$N(\lambda x)=| \lambda | N(x)$;
+		\item\label{ItemDefNormeiii}
+			$N(x+y)\leq N(x)+N(y)$.
+	\end{enumerate}
+    
+    La propriété~\ref{ItemDefNormeiii} est appelée \defe{inégalité triangulaire}{inégalité!triangulaire}.
+
+    Un espace vectoriel muni d'une norme est un \defe{espace vectoriel normé}{espace vectoriel normé}.
+\end{definition}
+En prenant $\lambda=-1$ dans la propriété~\ref{ItemDefNormeii}, nous trouvons immédiatement que $N(-x)=N(x)$.
+
+\begin{proposition}		\label{PropNmNNm}
+	Toute norme $N$ sur l'espace vectoriel $E$ vérifie l'inégalité
+	\begin{equation}
+		\big| N(x)-N(y) \big|\leq N(x-y)
+	\end{equation}
+	pour tout $x,y\in E$.
+\end{proposition}
+
+\begin{proof}
+	Nous avons, en utilisant le point~\ref{ItemDefNormeiii} de la définition~\ref{DefNorme},
+	\begin{subequations}
+		\begin{align}
+			N(x)&=N(x-y+y)\leq N(x-y)+N(y),	\label{subEqNNNxxyyya}\\
+			N(y)&=N(y-x+x)\leq N(y-x)+N(x).	\label{subEqNNNxxyyyb}
+		\end{align}
+	\end{subequations}
+	Supposons d'abord que $N(x)\geq N(y)$. Dans ce cas, en utilisant \eqref{subEqNNNxxyyya},
+	\begin{equation}
+		\big| N(x)-N(y) \big|=N(x)-N(y)\leq N(x-y)+N(y)-N(y)=N(x-y).
+	\end{equation}
+	Si par contre $N(x)\leq N(y)$, alors nous utilisons \eqref{subEqNNNxxyyyb} et nous trouvons
+	\begin{equation}
+		\big| N(x)-N(y) \big|=N(y)-N(x)\leq N(y-x)+N(x)-N(x)=N(y-x).
+	\end{equation}
+	Dans les deux cas, nous avons retrouvé l'inégalité annoncée.
+\end{proof}
+Cette proposition signifie aussi que
+\begin{equation}	\label{EqNleqNNleqNvqlqbs}
+	-N(x-y)\leq N(x)-N(y)\leq N(x-y).
+\end{equation}
+
+\begin{normaltext}	
+Afin de suivre une notation proche de celle de la valeur absolue, à partir de maintenant, la norme d'un vecteur $v$ sera notée $\| v\|$ au lieu de $N(v)$. La proposition~\ref{PropNmNNm} s'énoncera donc
+\begin{equation}
+\big| \| x \|-\| y \| \big|\leq \| x-y \|.
+\end{equation}
+Un espace vectoriel $E$ muni d'une norme est, on l'a déjà dit, un \defe{espace vectoriel normé}{normé!espace vectoriel}; on le notera $(E,\| . \|)$ pour distinguer la norme fixée.
+\end{normaltext}
+
+\begin{lemmaDef}[Distance induite par une norme]        \label{LEMooWGBJooYTDYIK}
+    Soit un espace vectoriel normé \( (E,\| . \|)\). Nous posons
+    \begin{equation}        \label{EQooZYJRooAHnsIG}
+        d(x,y)=\| x-y \| .
+    \end{equation}
+    Alors
+    \begin{enumerate}
+        \item       \label{ITEMooLITDooPeReOk}
+            \( d\) est invariante par translations : $d(a,b)=d(a+u,b+u)$
+        \item
+            \( d\) est une distance\footnote{Définition~\ref{DefMVNVFsX}.} sur \( E\).
+    \end{enumerate}
+    C'est la \defe{distance induite}{distance!associée à une norme} par la norme.
+\end{lemmaDef}
+
+\begin{proof}
+    Le fait que la formule \eqref{EQooZYJRooAHnsIG} soit invariante par translations est immédiat. En ce qui concerne le fait que ce soit une distance, le seul point délicat à vérifier est l'inégalité triangulaire. Mais, pour tous \( x, y, z \in E\), on a
+    \begin{equation}
+            d(x,y)=\| x-y \| = \| x-z+z-y \|  \leq\| x - z \|+\| z - y\| =d(x,z)+d(z,y).
+    \end{equation}
+\end{proof}
+
+
+\begin{proposition}
+Un espace vectoriel normé est un espace vectoriel topologique : en d'autres mots, l'addition et la multiplication par un élément du corps sont continues pour la topologie induite de la norme.
+\end{proposition}
+
+\begin{proof}
+  L'addition est continue en \( x + y \) car \( \| x + y - (x' + y') \| \leq \|x - x' \| + \| y - y' \|  \); la multiplication est continue en \( \lambda x \) car  \( \| \lambda x - \lambda' x' \| \leq \| x \| \| \lambda - \lambda' \| + \| \lambda' \| \| x - x' \| \).
+\end{proof}
+
+Nous étudierons plus en détail les espaces vectoriels topologiques à partir de la définition~\ref{DefEVTopologique}.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Boules et sphères}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}\label{PropEnsembleBorneEVN}
+	Une partie $A$ d'un espace vectoriel normé $V$ est \defe{bornée}{borné!dans un espace vectoriel normé}\footnote{Définition~\ref{DefEnsembleBorne}} si et seulement s'il existe un réel $R$ tel que $A\subset B(0_V,R)$.
+\end{proposition}
+Une partie est donc bornée si elle est contenue dans une boule de rayon fini.
+\begin{proof}
+  Il suffit de montrer que l'on peut avoir une boule centrée en \( 0_V \). Rien de bien compliqué: si \(A \) est borné (au sens de la définition \ref{DefEnsembleBorne}, soit \( x \in V\) et \( r > 0 \) tels que \( A \subset B(x, r) \). Alors, pour tout \(a \in A\):
+  \begin{equation}
+    \| a \| \leq \| a - x \| + \| x \| < r + \|x \|,
+  \end{equation}
+et on conclut en prenant\( R = r + \| x \| \).
+\end{proof}
+
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Ouverts, fermés, intérieur et adhérence}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}
+	Une partie $A$ de l'espace vectoriel normé $V$ est dite \defe{compacte}{compact} si elle est fermée et bornée.
+\end{proposition}
+
+Nous verrons que les ensembles compacts, et les fonctions définies sur ces ensembles ont de nombreuses propriétés agréables.
+
+\begin{example}		\label{ExempleFermeIntevrR}
+	En ce qui concerne les intervalles de $\eR$,
+	\begin{itemize}
+		\item $\mathopen] 1 , 2 \mathclose[$ est ouvert;
+		\item $\mathopen[ 3,  4 \mathclose]$ est fermé;
+		\item $\mathopen[ 5 , 6 [$ n'est ni ouvert ni fermé;
+	\end{itemize}
+	Les intervalles fermés de $\eR$ sont toujours compacts.
+\end{example}
+
+\begin{proposition}		\label{PropTopologieAx}
+	Soit $V$ un espace vectoriel normé.
+	\begin{enumerate}
+		\item
+			L'ensemble $V$ lui-même et le vide sont à la fois fermés et ouverts.
+		\item
+			Toute union d'ouverts est ouverte.
+		\item
+			Toute intersection \emph{finie} d'ouverts est ouverte.
+		\item		\label{ItemPropTopologieAxiv}
+			Le vide et $V$ sont les seules parties de $V$ à être à la fois fermées et ouvertes.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	L'ingrédient principal de cette démonstration est que si $a$ est un point d'un ouvert $\mO$, alors il existe une boule autour de $a$ contenue dans $\mO$ parce que $a$ doit être dans l'intérieur de $\mO$.
+	\begin{enumerate}
+
+		\item
+			Nous avons déjà dit que, par définition, l'ensemble vide est ouvert. Cela implique que $V$ lui-même est fermé (parce que son complémentaire est le vide). De plus, $V$ est ouvert parce que toutes les boules sont inclues à $V$. Le vide est alors fermé (parce que son complémentaire est $V$).
+		\item
+			Soit une famille $(\mO_i)_{i\in I}$ d'ouverts\footnote{L'ensemble $I$ avec lequel nous «numérotons» les ouverts $\mO_i$ est \emph{quelconque}, c'est à dire qu'il peut être $\eN$, $\eR$, $\eR^n$ ou n'importe quel autre ensemble, fini ou infini.}, et l'union
+			\begin{equation}
+				\mO=\bigcup_{i\in I}\mO_i.
+			\end{equation}
+			Soit maintenant $a\in\mO$. Nous devons prouver qu'il existe une boule centrée en $a$ entièrement contenue dans $\mO$. Étant donné que $a\in\mO$, il existe $i\in I$ tel que $a\in\mO_i$ (c'est à dire que $a$ est au moins dans un des $\mO_i$). Par hypothèse l'ensemble $\mO_i$ est ouvert et donc tous ses points (en particulier $a$) sont intérieurs; il existe donc une boule $B(a,r)$ centrée en $a$ telle que $B(a,r)\subset\mO_i\subset\mO$.
+
+		\item
+			Soit une famille finie d'ouverts $(\mO_k)_{k\in\{ 1,\ldots,n \}}$, et $a\in\mO$ où
+			\begin{equation}
+				\mO=\bigcap_{k=1}^n\mO_k.
+			\end{equation}
+			Vu que $a$ appartient à chaque ouvert $\mO_k$, nous pouvons trouver, pour chacun de ces ouverts, une boule $B(a,r_k)$ contenue dans $\mO_k$. Chacun des $r_k$ est strictement positif, et nous n'en avons qu'un nombre fini, donc le nombre $r=\min\{ r_1,\ldots,r_n \}$ est strictement positif. La boule $B(a,r)$ est inclue dans toutes les autres (parce que $B(a,r)\subset B(a,r')$ lorsque $r\leq r'$), par conséquent
+			\begin{equation}
+				B(a,r)\subset\bigcap_{k=1}^nB(a,r_k)\subset\bigcap_{k=1}^n\mO_k=\mO,
+			\end{equation}
+			c'est à dire que la boule de rayon $r$ est une boule centrée en $a$ contenue dans $\mO$, ce qui fait que $a$ est intérieur à $\mO$.
+		\item
+			Nous acceptons ce point sans démonstration.
+	\end{enumerate}
+   % TODO : trouver et mettre une preuve du dernier point.
+
+\end{proof}
+
+La proposition dit que toute intersection \emph{finie} d'ouvert est ouverte. Il est faux de croire que cela se généralise aux intersections infinies, comme le montre l'exemple suivant :
+\begin{equation}
+	\bigcap_{i=1}^{\infty}\mathopen] -\frac{1}{ n } , \frac{1}{ n } \mathclose[=\{ 0 \}.
+\end{equation}
+Chacun des ensembles $\mathopen] -\frac{1}{ n } , \frac{1}{ n } \mathclose[$ est ouvert, mais le singleton $\{ 0 \}$ est fermé (pourquoi ?).
+
+Nous reportons à la proposition~\ref{DefSupeA} la preuve du fait que tout ensemble borné de $\eR$ possède un infimum et un supremum.
+
+
+Il existe de nombreuses topologies sur un espace vectoriel donné, mais certaines sont plus fameuses que d'autres. Dans le cas de $V=\eR^n$, la topologie \defe{usuelle}{topologie!usuelle sur $\eR^n$} est celle induite par la norme euclidienne. Lorsque nous parlons de boules, de fermés, de voisinages ou d'autres notions topologiques (y compris de convergence, voir plus bas) dans $\eR^n$, nous sous-entendons toujours la topologie de la norme euclidienne.
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Point isolé, point d'accumulation}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+	Soit $D$, une partie de $V$.
+	\begin{enumerate}
+		\item
+			Un point $a\in D$ est dit \defe{isolé}{isolé!point dans un espace vectoriel normé} dans $D$ relativement à $V$ s'il existe un $\varepsilon>0$ tel que
+			\begin{equation}
+				B(a,\varepsilon)\cap D=\{ a \}.
+			\end{equation}
+		\item
+			Un point $a\in V$ est un \defe{point d'accumulation}{accumulation!dans espace vectoriel normé} de $D$ si pour tout $\varepsilon>0$,
+			\begin{equation}
+				\Big( B(a,\varepsilon)\setminus\{ a \}\Big)\cap D\neq \emptyset.
+			\end{equation}
+	\end{enumerate}
+\end{definition}
+
+\newcommand{\CaptionFigAccumulationIsole}{L'ensemble décrit par l'équation \eqref{Eq2807BouleIso}. Le point $P$ est un point isolé de $D$, tandis que  les points $S$ et $Q$ sont des points d'accumulation.}
+\input{auto/pictures_tex/Fig_AccumulationIsole.pstricks}
+
+\begin{example}
+	Considérons la partie suivante de $\eR^2$ :
+	\begin{equation}	\label{Eq2807BouleIso}
+		D=\{ (x,y)\tq x^2+y^2<1\}\cup\{ (1,1) \}.
+	\end{equation}
+	Comme on peut le voir sur la figure~\ref{LabelFigAccumulationIsole}, le point $P=(1,1)$ est un point isolé de $D$ parce qu'on peut tracer une boule autour de $P$ sans inclure d'autres points de $D$ que $P$ lui-même. Le point $Q=(-1,0)$ est un point d'accumulation de $D$ parce que toute boule autour de $Q$ contient des points de $D$.
+
+    Le point $S$, étant un point intérieur, est un point d'accumulation : toute boule autour de $S$ intersecte $D$.
+
+    Notez cependant que le point $Q$ lui-même n'est pas dans $D$ parce que l'inégalité qui définit $D$ est stricte.
+\end{example}
+
