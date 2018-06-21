@@ -112,21 +112,50 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
 \subsubsection{Topologie engendrée}
 %//////////////////////////
 
-\begin{example}\label{DefTopologieEngendree}
-  Soit \( X \) un ensemble, et \( \mT_0 \) un sous-ensemble de parties de \( X \). On construit alors l'ensemble \( \mT \) par
+\begin{propositionDef}\label{DefTopologieEngendree}
+  Soit \( X \) un ensemble, et \( \mT_0 \) un sous-ensemble de parties de \( X \), contenant \( \emptyset \) et \( X \). On construit alors l'ensemble \( \mT \) par
   \begin{equation}
     \label{EqTopologieEngendree}
     \mT = \bigl\{\bigcup_{\alpha \in A} \bigcap_{i=1}^{n_a} \mO_{\alpha, i} \tq \mO_{\alpha,i} \in \mT_0 \forall \alpha, \forall i \bigr\}.
   \end{equation}
-  Alors \(\mT \) est une topologie\footnote{Ce n'est pas un résultat évident: l'annoncer à un jury nécessite d'en avoir écrit la preuve.} sur \(X\), qu'on appelle \defe{topologie engendrée}{topologie!engendrée par une famille} par \( \mT_0 \).
-\end{example}
+  Alors \(\mT \) est une topologie sur \(X\), qu'on appelle \defe{topologie engendrée}{topologie!engendrée par une famille} par \( \mT_0 \).
+\end{propositionDef}
+
+\begin{proof}
+  Par définition et construction, la famille \( \mT \) contient le vide, l'espace entier, et est stable par union quelconque. Reste à établir qu'elle est stable par intersection finie. Réalisons-le pour deux éléments de \( \mT \), et une récurrence sur le nombre d'éléemnts permet de conclure.
+
+  Soient donc deux éléments de \( \mT \):
+  \begin{equation}
+    \bigcup_{\alpha \in A} \bigcap_{i=1}^{n_a} \mO_{\alpha, i}\quad\text{ et } \bigcup_{\beta \in B} \bigcap_{j=1}^{n_\beta} \mO_{\beta, j}.
+  \end{equation}
+  Un élément \( x \) est dans l'intersection de ces deux ensembles s'il existe \( \alpha \in A \) et \( \beta \in B \) tels que pour tout \(i \in \{1, \cdots, n_\alpha\} \) et tout \(j \in \{1, \cdots, n_\beta\} \), \( x \in \mO_{\alpha, i}\) t \(x \in \mO_{\beta, j} \). On construit alors l'ensemble \( A \times B \) pour l'union, et \( n_{\alpha, \beta} = n_\alpha + n_\beta\). Enfin, pour \((\alpha, \beta)\), et pour \( k  \in \{1, \cdots, n_{\alpha,\beta}\} \), on pose
+  \begin{equation}
+    \mO_{(\alpha, \beta), k} =
+    \begin{cases}
+      \mO_{\alpha,k}& \text{si } k \leq n_\alpha,\\
+      \mO_{\beta,k - n_\alpha}& \text{si } k > n_\alpha.\\
+    \end{cases}
+  \end{equation}
+Il s'ensuit que l'intersection est précisément
+\begin{equation}
+   \bigcup_{\gamma \in A\times B} \bigcap_{k=1}^{n_\gamma} \mO_{\gamma, k}.
+\end{equation}
+\end{proof}
+
+\begin{remark}
+  La famille composée des intersections finies d'éléments de \( \mT_0 \) forme yune base de la topologie engendrée.
+\end{remark}
 
 \begin{definition}[Topologie réelle engendrée par les intervalles ouverts] \label{DefTopologieREngendree}
   Pour \( X = \eR \), considérons \( \mT_0 \) l'ensemble constitué de tous les intervalles ouverts (de la forme \( \mathopen] a, b \mathclose[ \), avec \( a, b \in \eR \)). La topologie ainsi engendrée est alors la topologie usuelle sur \( \eR \).
 \end{definition}
 
+\begin{remark} \label{RemIntervallesBaseTopoR}
+  Les intervalles ci-dessus sont une base de la topologie de \( \eR \).
+\end{remark}
+
 \begin{example}[Voisinages de réels]
-  Pour qu'un ensemble soit un voisinage de $x \in \eR$, il faut et il suffit qu'il contienne un intervalle ouvert\footnote{Pouvez-vous le justifier? Pensez à la proposition~\ref{PropMMKBjgY}\dots}. Ainsi, les ensembles suivants sont des voisinages de $3$ dans $\eR$ :
+  Pour qu'un ensemble soit un voisinage de $x \in \eR$, il faut et il suffit qu'il contienne un intervalle ouvert. Ainsi, les ensembles suivants sont des voisinages de $3$ dans $\eR$ :
   \begin{itemize}
   \item
     $\mathopen] 1 , 5 \mathclose[$;
@@ -145,6 +174,14 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
     $\mathopen[ 0 , 5 [\setminus\{ 3 \}$.
   \end{itemize}
 \end{example}
+
+\begin{lemma}  \label{LemSupOuvPas}
+Le supremum d'une partie ouverte de \( \eR\) n'est pas dans l'ensemble (et n'est donc pas un maximum).
+\end{lemma}
+
+\begin{proof}
+Soit $\mO$, un ensemble ouvert et $s$, son supremum. Si $s$ était dans $\mO$, on aurait un voisinage de $s$ (et donc un intervalle $\mathopen]a,b\mathclose[$ contenant $s$) et contenu dans $\mO$. On pose $r = \min\{s - a, b - s\}$; alors, le point $s+r/2$ est alors à la fois dans $\mathopen]a,b\mathclose[ \subset \mO$ et plus grand que $s$, ce qui contredit le fait que $s$ soit un supremum de $\mO$.
+\end{proof}
 
 \begin{remark}
   L'hypothèse de finitude de l'intersection est indispensable en termes de topologie. L'exemple suivant :
@@ -165,7 +202,9 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
     muni de la topologie engendrée par les produits \(A_1\times \cdots\times A_n\), avec \( A_i\in X_i \) ouverts de chacun des ensembles.
 \end{definition}
 
-% TODO: \eR^n.
+\begin{definition}\label{DefTopologieRn}
+  Lorsque tous les espaces précédents sont \( \eR \) munis de la topologie usuelle\footnote{Définition \ref{DefTopologieREngendree}}, on engendre la topologie usuelle sur \( \eR^n\).
+\end{definition}
 
 \subsubsection{Topologie induite}
 %//////////////////////////
@@ -560,8 +599,26 @@ Quelle est la différence entre un point d'accumulation et un point d'adhérence
 	L'ensemble des points d'accumulation d'un ensemble n'est pas exactement son adhérence. En effet, un point isolé dans $A$ est dans l'adhérence de $A$, mais n'est pas un point d'accumulation de $A$.
 \end{remark}
 
+Nous voyons maintenant ce que ces définitions donnent dans le cas de l'espace topologique \( \eR\).
+
+\begin{lemma}
+    Soit $D\subset\eR$. Un point $a\in D$ est isolé dans $D$ si et seulement si existe $\varepsilon>0$ tel que
+    \begin{equation}
+        \mathopen] a-\varepsilon , a+\varepsilon \mathclose[\cap D=\{ a \}.
+    \end{equation}
+    Autrement dit, il existe un intervalle autour de $a$ dans lequel $a$ est le seul élément de $D$.
+\end{lemma}
+
+\begin{lemma}
+    Un point $a\in \eR$ est un point d'accumulation de $D$ si pour tout $\varepsilon>0$,
+    \begin{equation}
+        \Big( \mathopen] a-\varepsilon , a+\varepsilon \mathclose[\setminus\{ a \} \Big)\cap D\neq\emptyset.
+    \end{equation}
+    Autrement dit, quel que soit l'intervalle autour de  $a$ que l'on considère, le point $a$ n'est pas tout seul dans $D$.
+\end{lemma}
+
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Suites et convergence}
+\subsection{Convergence de suites}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Dès que nous avons une topologie nous avons une notion de convergence.
@@ -569,6 +626,7 @@ Dès que nous avons une topologie nous avons une notion de convergence.
     Une suite $(x_n)$ d'éléments de $E$ \defe{converge}{convergence!de suite} vers un élément $y$ de $E$ si pour tout ouvert $\mO$ contenant $y$, il existe un $K\in \eN$ tel que $k>K$ implique $x_k\in\mO$.
 \end{definition}
 \index{limite!de suite!espace topologique}
+
 
 \begin{proposition}[\cite{MonCerveau}]      \label{PROPooBBNSooCjrtRb}
     Une suite contenue dans un fermé ne peut converger que vers un élément de ce fermé.
@@ -604,7 +662,7 @@ Notons que l'on a parlé d'\emph{une} limite de suite jusqu'à présent: en effe
 
 
 \begin{example} \label{EXooSHKAooZQEVLB}
-    Oui, il y a moyen de converger vers plusieurs points distincts si l'espace n'est pas super cool. Nous pouvons par exemple\cite{EJVQuas} considérer la droite réelle munie de sa topologie usuelle et y ajouter un point $0'$ (qui clone le réel $0$) dont les voisinages sont les voisinages de $0$ dans lesquels nous remplaçons $0$ par $0'$. Dans cet espace, la suite $(1/n)$ converge à la fois vers $0$ et $0'$.
+    Oui, il y a moyen de converger vers plusieurs points distincts si l'espace n'est pas super cool. Nous pouvons par exemple\cite{EJVQuas} considérer la droite réelle munie de sa topologie usuelle\footnote{Définition~\ref{DefTopologieREngendree}} et y ajouter un point $0'$ (qui clone le réel $0$) dont les voisinages sont les voisinages de $0$ dans lesquels nous remplaçons $0$ par $0'$. Dans cet espace, la suite $(1/n)$ converge à la fois vers $0$ et $0'$.
 
     En fait, on «voit» le problème: on ne peut pas distinguer d'un point de vue topologique le $0$ et le $0'$.
 \end{example}
@@ -635,12 +693,72 @@ Attention, cette notion est à ne pas confondre avec :
 \end{proposition}
 
 \begin{proof}
-    Pour simplifier les notations, nous allons considérer le produit de deux espaces. Soit donc \( (x_k,y_k)\stackrel{X\times Y}{\longrightarrow}(x,y)\) et des ouverts \( \mO_1\) dans \( X\) autour de \( x\) et \( \mO_2\) autour de \( y\) dans \( Y\). La partie \( \mO_1\times \mO_2\) est ouverte dans \( X\times Y\). Donc il existe \( K\) tel que \( k>K\) implique \( (x_k,y_k)\in \mO_1\times \mO_2\).
-
-    Nous avons prouvé que pour tout ouvert \( \mO_1\) autour de \( x\) il existe \( K\) tel que \( k>K\) implique \( x_k\in \mO_1\). Donc \( x_k\stackrel{X}{\longrightarrow}x\). Idem pour \( y\).
+    Pour simplifier les notations, nous allons considérer le produit de deux espaces. Soit donc \( (x_k,y_k)\stackrel{X\times Y}{\longrightarrow}(x,y)\) et des ouverts \( \mO_1\) dans \( X\) autour de \( x\) et \( \mO_2\) autour de \( y\) dans \( Y\). Comme la partie \( \mO_1\times \mO_2\) est ouverte dans \( X\times Y\), il existe \( K\) tel que \( k>K\) implique \( (x_k,y_k)\in \mO_1\times \mO_2\). En particulier, quand \( k>K\), on a \( x_k\in \mO_1\) et  \( y_k\in \mO_2\). Par conséquent, \( x_k\stackrel{X}{\longrightarrow}x\) et \( y_k\stackrel{X}{\longrightarrow}y\). 
 \end{proof}
-% TODO : faire la réciproque.
 
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooNRRIooCPesgO2}
+  Soit \( X \) et \( Y \) des espaces topologiques. Soit \( (x_n, y_n) \) une suite de l'espace \( X \times Y \), muni de la topologie produit. Si \( x_n \to x \) dans \( X \) et \( y_n \to y \) dans \( Y \), alors la suite  \( (x_n, y_n) \) converge vers \( (x,y) \) dans \( X \times Y \).
+
+  Cela s'étend à tout produit fini d'espaces topologiques.
+\end{proposition}
+
+\begin{proof}
+  Soit \( V \) un voisinage de \( (x,y) \). Puisque \( X \times Y \) est muni de la topologie produit, il existe \( \mO_1 \) un ouvert de \( X \) et  \( \mO_2 \) un ouvert de \( Y \) tels que \(\mO_1 \times \mO_2 \subset V\). Vu les convergences des suites \( (x_n) \) et \( (y_n) \), il existe un entier naturel \( K_1 \) et un entier naturel \( K_2 \) tels que \( x_n \in \mO_1 \) quand \( n > K_1 \) et  \( y_n \in \mO_2 \) quand \( n > K_2 \). Posons \( K = \max \{ K_1, K_2 \}\). Alors, pour \( n > K \), on a \( (x_n, y_n) \in \mO_1 \times \mO_2 \subset V\). 
+\end{proof}
+
+%-----------------------------------------------------------------------------------------------------------------
+\subsection{Convergence dans les réels}
+%-----------------------------------------------------------------------------------------------------------------
+
+Dans le cas de suites réelles, nous avons la caractérisation suivante qui est souvent donnée comme une définition lorsque seule la topologie sur \( \eR\) est considérée.
+\begin{proposition}[Limite d'une suite numérique]	\label{PropLimiteSuiteNum}
+	La suite $(x_n)$ est convergente si et seulement s'il existe un réel $\ell$ tel que
+	\begin{equation}		\label{EqDefLimSuite}
+		\forall \epsilon>0,\,\exists N\in\eN\tq\forall n\geq N,\,| x_n-\ell |<\epsilon.
+	\end{equation}
+	Dans ce cas, le nombre $\ell$ est la limite de la suite $(x_n)$. Nous dirons aussi souvent que la suite \defe{converge}{} vers le nombre $\ell$.
+\end{proposition}
+\index{convergence!suite numérique}
+\index{limite!suite numérique}
+
+\begin{proof}
+  Si \( x_n\to \ell\) et si \( \epsilon>0\) il existe \( N_{\epsilon}\) tel que pour tout \( n\geq N\) nous avons \( x_n\in \mathopen ]\ell-\epsilon,\ell+\epsilon\mathclose[\) (parce que c'est un ouvert contenant \( \ell\)). Mais \( \eR\) est totalement ordonné, et par le lemme~\ref{LemInegEtBoules_CorpsTotalementOrdonne}, cette condition est bien \( | x_n-\ell |<\epsilon\).
+
+    Dans l'autre sens, soit \( \mO\) un ouvert contenant \( \ell\). Par définition de la topologie réelle, il existe \( a, b \in \eR \) tels que \( \ell \in \mathopen]a,b\mathclose[ \subset \mO\). Posons \( \epsilon = \min\{\ell-a, b - \ell \}\): c'est bien un nombre positif. La condition \eqref{EqDefLimSuite} nous assure qu'il existe \( N_{\epsilon} \) tel que pour tout \( n\geq N_{\epsilon}\) nous ayons
+    \begin{equation}
+        x_n\in \mathopen]\ell-\epsilon, \ell+\epsilon\mathclose[\subset\mO,
+    \end{equation}
+    ce qui assure que la suite \( (x_n)\) converge vers \( \ell\) pour la topologie usuelle de \( \eR\).
+\end{proof}
+
+Une façon équivalente d'exprimer le critère \eqref{EqDefLimSuite} est de dire que pour tout $\epsilon$ positif, il existe un rang $N\in\eR$ tel que l'intervalle $\mathopen[ \ell-\epsilon , \ell+\epsilon \mathclose]$ contient tous les termes $x_n$ au-delà de $N$.
+
+Il est à noter que le rang $N$ dont il est question dans la définition de suite convergente dépend de~$\epsilon$.
+
+Le concept fondamental de la proposition précédente est la notion de valeur absolue qui permet de donner la «distance» entre deux réels. Dans un espace vectoriel normé quelconque, cette notion est généralisée par la distance associée à la norme (définition~\ref{DefEVNetDistance}). Nous pouvons donc facilement obtenir le concept de convergence d'une suite dans un espace vectoriel normé : ce sera la définition~\ref{DefCvSuiteEGVN}.
+
+% On a besoin de cette proposition pour démontrer Weierstrass. Quitte à maintenir, il faut réénoncer pour un espace vectoriel normé et prouver.
+\begin{proposition}		\label{PropCvRpComposante}
+	Une suite $(x_n)$ dans $\eR^m$ est convergente dans $\eR^m$ si et seulement si les suites de chaque composante sont convergentes dans $\eR$. Dans ce cas nous avons
+	 \begin{equation}
+		 \lim x_n=\Big( \lim(x_n)_1,\lim (x_n)_2,\ldots,\lim (x_n)_m \Big)
+	 \end{equation}
+	 où $(x_n)_k$ dénote la $k$-ième composante de $(x_n)$.
+\end{proposition}
+
+\begin{example}
+	La suite $x_n=\big( \frac{1}{ n },1-\frac{1}{ n } \big)$ converge vers $(0,1)$ dans $\eR^2$. En effet, en utilisant la proposition~\ref{PropCvRpComposante}, nous devons calculer séparément les limites
+	\begin{equation}
+		\begin{aligned}[]
+			\lim\frac{1}{ n }&=0\\
+			\lim\big( 1-\frac{1}{ n } \big)&=1.
+		\end{aligned}
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Étant donné que la suite $(-1)^n$ n'est pas convergente, la suite $x_n=\big( (-1)^n,\frac{1}{ n } \big)$ n'est pas convergente dans $\eR^2$.
+\end{example}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Connexité}
@@ -735,20 +853,18 @@ Une des nombreuses propositions qui vont servir à prouver le théorème des \hr
 \begin{proof}
     La preuve est en deux parties. D'abord nous démontrons que si un sous-ensemble de $\eR$ est connexe, alors c'est un intervalle; et ensuite nous démontrons que tout intervalle est connexe.
 
-    Afin de prouver qu'un ensemble connexe est toujours un intervalle, nous allons prouver que si un ensemble n'est pas un intervalle, alors il n'est pas connexe. Prenons $A$, une partie de $\eR$ qui n'est pas un intervalle. Il existe donc $a$, $b\in A$ et un $x_0$ entre $a$ et $b$ qui n'est pas dans $A$. Comme le but est de prouver que $A$ n'est pas connexe, il faut couper $A$ en deux ouverts disjoints. L'élément $x_0$ qui n'est pas dans $A$ est le bon candidat pour effectuer cette coupure. Prenons $M$, un majorant de $A$ et $m$, un minorant de $A$, et définissons
+    Prenons $A$, une partie de $\eR$ qui n'est pas un intervalle, et prouvons par contraposée qu'il n'est pas connexe. Il existe donc $a$, $b\in A$ et un $x_0$ entre $a$ et $b$ qui n'est pas dans $A$. Comme le but est de prouver que $A$ n'est pas connexe, il faut couper $A$ en deux ouverts disjoints. L'élément $x_0$ qui n'est pas dans $A$ est le bon candidat pour effectuer cette coupure. Prenons $M$, un majorant de $A$ et $m$, un minorant de $A$, et définissons
     \begin{align*}
         \mO_1&=]m,x_0[\\
         \mO_2&=]x_0,M[.
     \end{align*}
     Si $A$ n'a pas de minorant, nous remplaçons la définition de $\mO_1$ par $]-\infty,x_0[$, et si $A$ n'a pas de majorant, nous remplaçons la définition de $\mO_2$ par $]x_0,\infty[$. Dans tous les cas, ce sont deux ensembles ouverts dont l'union recouvre tout $A$. En effet, $\mO_1\cup \mO_2$ contient tous les nombres entre un minorant de $A$ et un majorant sauf $x_0$, mais on sait que $x_0$ n'est pas dans $A$. Cela prouve que $A$ n'est pas connexe.
 
-    Jusqu'à présent nous avons prouvé que si un ensemble n'est pas un intervalle, alors il ne peut pas être connexe. Pour remettre les choses à l'endroit, prenons un ensemble connexe, et demandons-nous s'il peut être autre chose qu'un intervalle ? La réponse est \emph{non} parce que s'il était autre chose, il ne serait pas connexe.
-
-    Prouvons à présent que tout intervalle est connexe. Pour cela, nous refaisons le coup de \href{http://fr.wikipedia.org/wiki/Contraposée}{la contraposée}. Nous allons donc prendre une partie $A$ de $\eR$, supposer qu'elle n'est pas connexe et puis prouver qu'elle n'est alors pas un intervalle. Nous avons deux ouverts disjoints $\mO_1$ et $\mO_2$ tels que $A\subset \mO_1\cup \mO_2$. Notons \( A_1 = A \cap \mO_1 \) et  \( A_2 = A \cap \mO_2 \); et prenons $a\in A_1$ et $b\in A_2$. Pour fixer les idées, on suppose que $a<b$. Maintenant, le jeu est de montrer qu'il existe une point $x_0$ entre $a$ et $b$ qui ne soit pas dans $A$ (cela montrerait que $A$ n'est pas un intervalle). Nous allons prouver que c'est le cas du point
+    Prouvons à présent que tout intervalle est connexe. Pour cela, nous refaisons le coup de \href{http://fr.wikipedia.org/wiki/Contraposée}{la contraposée}. Nous allons donc prendre une partie $A$ de $\eR$, supposer qu'elle n'est pas connexe et puis prouver qu'elle n'est alors pas un intervalle. Nous avons deux ouverts disjoints $\mO_1$ et $\mO_2$ tels que $A\subset \mO_1\cup \mO_2$. Notons \( A_1 = A \cap \mO_1 \) et  \( A_2 = A \cap \mO_2 \); et prenons $a\in A_1$ et $b\in A_2$. Pour fixer les idées, on suppose que $a<b$. Maintenant, le jeu est de montrer qu'il existe un point $x_0$ entre $a$ et $b$ qui ne soit pas dans $A$ (cela montrerait que $A$ n'est pas un intervalle). Nous allons prouver que c'est le cas du point
     \[
       x_0=\sup\{ x\in\mO_1\tq x<b \}.
     \]
-    Étant donné que l'ensemble $\mA=\{ x\in\mO_1\tq x<b \}$ est ouvert\footnote{C'est l'intersection entre l'ouvert $\mO_1$ et l'ouvert $\{x\tq x<b \}$.}, le point $x_0$ n'est pas dans l'ensemble par le lemme~\ref{LemSupOuvPas}. Nous avons donc
+    Étant donné que l'ensemble $\mA=\{ x\in\mO_1\tq x<b \}$ est ouvert (c'est l'intersection entre l'ouvert $\mO_1$ et l'ouvert $\mathopen] -\infty, b \mathclose[$, le point $x_0$ n'est pas dans l'ensemble par le lemme~\ref{LemSupOuvPas}. Nous avons donc
     \begin{itemize}
         \item soit $x_0$ n'est pas dans $\mO_1$,
         \item soit $x_0\leq b$,
@@ -756,11 +872,9 @@ Une des nombreuses propositions qui vont servir à prouver le théorème des \hr
     \end{itemize}
     Nous allons montrer qu'un tel $x_0$ ne peut pas être dans $A$. D'abord, remarquons que $\sup\mA\leq\sup\mO$ parce que $\mA$ est une intersection de $\mO$ avec quelque chose. Ensuite, il n'est pas possible que $x_0$ soit dans $\mO_2$ parce que tout élément de $\mO_2$ possède un voisinage contenu dans $\mO_2$. Un point de $\mO_2$ est donc toujours strictement plus grand que le supremum de $\mO_1$.
 
-    Maintenant, remarque que si $x_0\leq b$, alors $x_0=b$, sinon $b$ serait un majorant de $\mA$ plus petit que $x_0$, ce qui n'est pas possible vu que $x_0$ est le supremum de $\mA$ et donc le plus petit majorant. Oui mais si $x_0=b$, c'est que $x_0\in\mO_2$, ce qu'on vient de montrer être impossible. Nous voilà déjà débarrassé des deuxièmes et troisièmes possibilités.
+    Maintenant, remarquons que si $x_0\leq b$, alors $x_0=b$, sinon $b$ serait un majorant de $\mA$ plus petit que $x_0$, ce qui n'est pas possible vu que $x_0$ est le supremum de $\mA$ et donc le plus petit majorant. Oui mais si $x_0=b$, c'est que $x_0\in\mO_2$, ce qu'on vient de montrer être impossible. Nous voilà déjà débarrassé des deuxièmes et troisièmes possibilités.
 
-    Si la première possibilité est vraie, alors $x_0$ n'est pas dans $A$ parce qu'on a aussi prouvé que $x_0\notin\mO_2$. Or n'être ni dans $\mO_1$ ni dans $\mO_2$ implique de ne pas être dans $A$. Ce point $x_0=\sup\mA$ est donc hors de $A$.
-
-    Oui, mais comme $a\in\mA$, on a obligatoirement que $x_0\geq a$. Mais par construction, on a aussi que $x_0\leq b$ (ici, l'inégalité est même stricte, mais ce n'est pas important). Donc
+    Si la première possibilité est vraie, alors $x_0$ n'est pas dans $A$ parce qu'on a aussi prouvé que $x_0\notin\mO_2$. Or n'être ni dans $\mO_1$ ni dans $\mO_2$ implique de ne pas être dans $A$. Ce point $x_0=\sup\mA$ est donc hors de $A$. Oui, mais comme $a\in\mA$, on a obligatoirement que $x_0\geq a$. Mais par construction, on a aussi que $x_0\leq b$ (ici, l'inégalité est même stricte, mais ce n'est pas important). Donc
     \[
       a\leq x_0\leq b
     \]

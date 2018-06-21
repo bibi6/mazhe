@@ -140,44 +140,6 @@ Le théorème de Bolzano-Weierstrass nous permettra de prouver plus simplement l
 \label{SECooLLUGooOwZRyI}
 
 
-\subsubsection{Limites, convergence}
-%////////////////////////////////
-
-
-Dans le cas de suites réelles, nous avons la caractérisation suivante qui est souvent donnée comme une définition lorsque seule la topologie sur \( \eR\) est considérée.
-\begin{proposition}[Limite d'une suite numérique]	\label{PropLimiteSuiteNum}
-	La suite $(x_n)$ est convergente si et seulement s'il existe un réel $\ell$ tel que
-	\begin{equation}		\label{EqDefLimSuite}
-		\forall \epsilon>0,\,\exists N\in\eN\tq\forall n\geq N,\,| x_n-\ell |<\epsilon.
-	\end{equation}
-	Dans ce cas, le nombre $\ell$ est la limite de la suite $(x_n)$. Nous dirons aussi souvent que la suite \defe{converge}{} vers le nombre $\ell$.
-\end{proposition}
-\index{convergence!suite numérique}
-\index{limite!suite numérique}
-
-\begin{proof}
-    La limite d'une suite dans un espace topologique est la définition~\ref{DefXSnbhZX}.
-
-    Si \( x_n\to \ell\) et si \( \epsilon>0\) il existe \( N_{\epsilon}\) tel que pour tout \( n\geq N\) nous avons \( x_n\in B(\ell,\epsilon)\) (parce que cette boule est un ouvert contenant \( \ell\)). Vu la définition d'une boule (définition~\ref{ThoORdLYUu}) et de la norme sur \( \eR\) (par~\ref{ooLCMFooQjMaxV}), cette condition est bien \( | x_n-\ell |<\epsilon\).
-
-    Dans l'autre sens, soit \( \mO\) un ouvert contenant \( \ell\). Par définition de la topologie, il existe \( \epsilon>0\) tel que \( B(\ell,\epsilon)\subset \mO\). La condition \eqref{EqDefLimSuite} nous assure qu'il existe \( N_{\epsilon} \) tel que pour tout \( n\geq N_{\epsilon}\) nous ayons
-    \begin{equation}
-        x_n\in B(\ell,\epsilon)\subset\mO,
-    \end{equation}
-    ce qui assure que la suite \( (x_n)\) converge vers \( \ell\) pour la topologie métrique de \( \eR\).
-\end{proof}
-
-Une façon équivalente d'exprimer le critère \eqref{EqDefLimSuite} est de dire que pour tout $\epsilon$ positif, il existe un rang $N\in\eR$ tel que l'intervalle $\mathopen[ \ell-\epsilon , \ell+\epsilon \mathclose]$ contient tous les termes $x_n$ au-delà de $N$.
-
-Il est à noter que le rang $N$ dont il est question dans la définition de suite convergente dépend de~$\epsilon$.
-
-Nous disons qu'une suite réelle $(x_n)$ converge\footnote{Voir la définition~\ref{PropLimiteSuiteNum} pour plus de détail.} vers $\ell$ lorsque pour tout $\varepsilon$, il existe un $N$ tel que
-\begin{equation}
-	n>N\Rightarrow | x_n-\ell |\leq\varepsilon.
-\end{equation}
-Le concept fondamental de cette définition est la notion de valeur absolue qui permet de donner la «distance» entre deux réels. Dans un espace vectoriel normé quelconque, cette notion est généralisée par la distance associée à la norme (définition~\ref{DefEVNetDistance}). Nous pouvons donc facilement définir le concept de convergence d'une suite dans un espace vectoriel normé : ce sera la définition~\ref{DefCvSuiteEGVN}.
-
-
 \subsubsection{Opérations sur les limites}
 %////////////////////////
 
@@ -206,7 +168,7 @@ Le concept fondamental de cette définition est la notion de valeur absolue qui 
     \end{equation}
 \end{proposition}
  
-\subsection{Exemples}
+\subsubsection{Exemples}
 %//////////////////////////
 
 \begin{example}
@@ -281,7 +243,7 @@ Le lemme suivant est souvent utilisé pour prouver qu'une suite est convergente.
 	Une suite croissante et bornée supérieurement converge. Une suite décroissante bornée inférieurement est convergente.
 \end{lemma}
 
-Une erreur courante est de croire que la borne est la limite : le lemme n'affirme pas ça. Par contre il est vrai que la borne donne \ldots hum \ldots une borne inférieure (ou supérieure) pour la limite
+Une erreur courante est de croire que la borne est la limite : le lemme n'affirme pas ça. Par contre il est vrai que la borne donne \ldots{} hum \ldots{} une borne inférieure (ou supérieure) pour la limite.
 
 \begin{theorem}[thème \ref{THEMEooQQBHooLcqoKB}]     \label{THOooRDYOooJHLfGq}
 	Toute suite réelle contenue dans un compact de \( \eR\) admet une sous-suite convergente.
@@ -305,28 +267,6 @@ Une erreur courante est de croire que la borne est la limite : le lemme n'affirm
     En conclusion, nous avons \( \eN=\bigcup_{i=1}^n I_{a_i}\), ce qui prouve que \( \eN\) est un ensemble fini. Contradiction avec la proposition \ref{PROPooBYKCooGDkfWy}\ref{ITEMooKPDKooGRhFik} qui dit que \( \eN\) est infini.
 \end{proof}
 
-% Inutile de replacer cette proposition plus loin : on en a besoin pour démontrer Weierstrass. Quitte à maintenir, il faut réénoncer pour un espace vectoriel normé et prouver.
-\begin{proposition}		\label{PropCvRpComposante}
-	Une suite $(x_n)$ dans $\eR^m$ est convergente dans $\eR^m$ si et seulement si les suites de chaque composante sont convergentes dans $\eR$. Dans ce cas nous avons
-	 \begin{equation}
-		 \lim x_n=\Big( \lim(x_n)_1,\lim (x_n)_2,\ldots,\lim (x_n)_m \Big)
-	 \end{equation}
-	 où $(x_n)_k$ dénote la $k$-ième composante de $(x_n)$.
-\end{proposition}
-
-\begin{example}
-	La suite $x_n=\big( \frac{1}{ n },1-\frac{1}{ n } \big)$ converge vers $(0,1)$ dans $\eR^2$. En effet, en utilisant la proposition~\ref{PropCvRpComposante}, nous devons calculer séparément les limites
-	\begin{equation}
-		\begin{aligned}[]
-			\lim\frac{1}{ n }&=0\\
-			\lim\big( 1-\frac{1}{ n } \big)&=1.
-		\end{aligned}
-	\end{equation}
-\end{example}
-
-\begin{example}
-	Étant donné que la suite $(-1)^n$ n'est pas convergente, la suite $x_n=\big( (-1)^n,\frac{1}{ n } \big)$ n'est pas convergente dans $\eR^2$.
-\end{example}
 
 \subsubsection{Suites adjacentes}
 %///////////////////////////////
@@ -396,42 +336,6 @@ Une erreur courante est de croire que la borne est la limite : le lemme n'affirm
 \end{proof}
 
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Ouverts, voisinage, topologie}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Lorsque $x\in E$, nous rappelons qu'un voisinage\footnote{Définition~\ref{DefFermeVoisinage}.} de $x$ est n'importe quel sous-ensemble de $E$ qui contient une boule ouverte centrée en $x$. La proposition \ref{ThoPartieOUvpartouv} nous dit qu'un ensemble est ouvert s'il contient un voisinage de chacun de ses points. Au passage, rappelons que l'ensemble vide est ouvert.
-
-Pour rappel (de la remarque \ref{RemQDRooKnwKk}~\ref{ITEMooUIHJooXAFaIz}, l'ensemble des boules ouvertes d'un espace métrique génère la topologie de l'espace.
-
-Nous rappelons qu'une partie $A$ d'un espace métrique est dite bornée\footnote{Définition~\ref{DefEnsembleBorne}.} s'il existe une boule\footnote{À titre d'exercice, convainquez-vous que l'on peut dire boule \emph{ouverte} ou \emph{fermée} au choix sans changer la définition.} qui contient $A$.
-
-Mais revenons à \( \eR \)\dots
-\begin{lemma}  \label{LemSupOuvPas}
-Le supremum d'une partie ouverte de \( \eR\) n'est pas dans l'ensemble (et n'est donc pas un maximum).
-\end{lemma}
-
-\begin{proof}
-Soit $\mO$, un ensemble ouvert et $s$, son supremum. Si $s$ était dans $\mO$, on aurait un voisinage $B=B(s,r)$ de $s$ contenu dans $\mO$. Le point $s+r/2$ est alors à la fois dans $\mO$ et plus grand que $s$, ce qui contredit le fait que $s$ soit un supremum de $\mO$.
-\end{proof}
-
-Par le même genre de raisonnements, on montre que l'union et l'intersection de deux ouverts sont encore des ouverts.
-
-\begin{remark}
-L'intersection d'une \emph{infinité} d'ouverts n'est pas spécialement un ouvert comme le montre l'exemple suivant :
-\[
-  \mO_i=]1,2+\frac{ 1 }{ i }[.
-\]
-Tous les ensembles $\mO_i$ contiennent le point $2$ qui est donc dans l'intersection. Mais quel que soit le $\epsilon>0$ que l'on choisisse, le point $2+\epsilon$ n'est pas dans $\mO_{(1/\epsilon)+1}$. Donc aucun point au-delà de $2$ n'est dans l'intersection, ce qui prouve que $2$ ne possède pas de voisinages contenus dans $\bigcap_{i=1}^{\infty}\mO_i$.
-\end{remark}
-
-\begin{proposition}     \label{PROPooANIOooIJHelX}
-Quels que soient les ensembles $A$ et $B$ dans $\eR$, nous avons
-\[
-  \sup(A\cap B)\leq\sup A\leq\sup(A\cup B).
-\]
-\end{proposition}
-Nous laissons le lecteur le prouver, même si ce n'est pas dans notre habitude.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Intervalles}
@@ -624,8 +528,7 @@ Dans cette section, nous travaillons dans l'espace $\eR^n$ pour un certain natur
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}  \label{DefZVuBbqp}
-	La \defe{boule ouverte}{boule!ouverte} de centre $x_0 \in \eR^n$ et de rayon $r \in
-	\eR^+$ est définie par
+	La \defe{boule ouverte}{boule!ouverte} de centre $x_0 \in \eR^n$ et de rayon $r \in \eR^+$ est définie par
 	\begin{equation}
 		B(x_0,r) = \{ x \in \eR^n \tq \norme{x - x_0} < r \},
 	\end{equation}
@@ -655,73 +558,6 @@ Le lemme suivant justifie le vocabulaire des définitions~\ref{DefZVuBbqp}.
     \end{equation}
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Intérieur, adhérence et frontière}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}
-  Soient $A \subset \eR^n$ et $x \in \eR^n$. Le point $x$ est \defe{intérieur}{intérieur} à $A$ s'il existe une boule autour de $x$ complètement contenue dans $A$. L'ensemble des points intérieurs à $A$ est noté $\Int A$ ou $\mathring A$, de sorte qu'on a précisément
-  \begin{equation*}
-    x \in \Int A \iffdefn  \exists \epsilon > 0 \tq
-    B(x,\epsilon) \subset A.
-  \end{equation*}
-\end{definition}
-
-\begin{normaltext}
-
-La notion d'adhérence a déjà été définie en~\ref{DEFooSVWMooLpAVZR}, et précisé par le lemme~\ref{LEMooILNCooOFZaTe}. Dans le cas de \( \eR^n\) dans lequel les boules forment une base de la topologie nous pouvons encore préciser de la façon suivante:
-\begin{equation}
-	x \in \Adh A \iffdefn \forall \epsilon > 0, B(x,\epsilon) \cap A \neq \emptyset
-\end{equation}
-\end{normaltext}
-
-On vérifiera que les notations et les dénominations sont cohérentes en prouvant la proposition suivante.
-\begin{proposition}Pour $\epsilon > 0$,
-  \begin{enumerate}
-  \item l'adhérence de $B(x,\epsilon)$ est $\bar B(x,\epsilon)$,
-  \item l'intérieur de $\bar B(x,\epsilon)$ est $B(x,\epsilon)$,
-  \item la boule ouverte $B(x,\epsilon)$ est un ouvert,
-  \item la boule fermée $\bar B(x,\epsilon)$ est un fermé.
-  \end{enumerate}
-\end{proposition}
-
-Nous avons également les liens suivants entre intérieur, adhérence, ouvert, fermé et passage au complémentaire (noté ${}^c$)~:
-\begin{proposition}
-Si $A \subset \eR^n$ et $A^c = \eR^n\setminus A$, nous
-  avons
-  \begin{enumerate}
-  \item $(\Int A)^c = \Adh (A^c)$ et $(\Adh A)^c = \Int
-    (A^c)$,
-  \item $A$ est ouvert si et seulement si $A^c$ est fermé,
-  \item $\Int A$ est le plus grand ouvert contenu dans $A$,
-  \item $\Adh A$ est le plus petit fermé contenant $A$,
-  \end{enumerate}
-\end{proposition}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Point d'accumulation, point isolé}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Les définitions de point d'accumulation et de point isolé sont \ref{DEFooGHUUooZKTJRi} et \ref{DEFooXIOWooWUKJhN}. Nous voyons maintenant ce que ces définitions donnent dans le cas de l'espace topologique \( \eR\).
-
-\begin{lemma}
-    Soit $D\subset\eR$. Un point $a\in D$ est isolé dans $D$ si et seulement si existe $\varepsilon>0$ tel que
-    \begin{equation}
-        \mathopen[ a-\varepsilon , a+\varepsilon \mathclose]\cap D=\{ a \}.
-    \end{equation}
-    Autrement dit, il existe un intervalle autour de $a$ dans lequel $a$ est le seul élément de $D$.
-\end{lemma}
-
-\begin{lemma}
-    Un point $a\in \eR$ est un point d'accumulation de $D$ si pour tout $\varepsilon>0$,
-    \begin{equation}
-        \Big( \mathopen[ a-\varepsilon , a+\varepsilon \mathclose]\setminus\{ a \} \Big)\cap D\neq\emptyset.
-    \end{equation}
-    Autrement dit, quel que soit l'intervalle autour de  $a$ que l'on considère, le point $a$ n'est pas tout seul dans $D$.
-\end{lemma}
-
-
-
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Limite de suite}
@@ -745,7 +581,7 @@ Notez aussi la similarité avec la définition~\ref{PropLimiteSuiteNum}.
 \begin{lemma}[Unicité de la limite]
 	Il ne peut pas y avoir deux nombres différents qui satisfont à la condition \eqref{EqCondLimSuite}. En d'autres termes, si $\ell$ et $\ell'$ sont deux limites de la suite $(x_n)$, alors $\ell=\ell'$.
 \end{lemma}
-
+Nous allons faire la preuve «à la main», même s'il y a un chemin direct: $\eR^n$ est normé, donc est métrique\footnote{Lemme~\ref{LEMooWGBJooYTDYIK}.}, donc est séparé\footnote{Remarque~\ref{RemQDRooKnwKk}.}, donc il y a unicité de la limite\footnote{Proposition~\ref{PropUniciteLimitePourSuites}}.
 \begin{proof}
 	Soit $\varepsilon>0$. Nous considérons $N$ tel que
 	\begin{equation}
