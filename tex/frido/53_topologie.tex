@@ -143,7 +143,7 @@ Il s'ensuit que l'intersection est précisément
 \end{proof}
 
 \begin{remark}
-  La famille composée des intersections finies d'éléments de \( \mT_0 \) forme yune base de la topologie engendrée.
+  La famille composée des intersections finies d'éléments de \( \mT_0 \) forme une base de la topologie engendrée.
 \end{remark}
 
 \begin{definition}[Topologie réelle engendrée par les intervalles ouverts] \label{DefTopologieREngendree}
@@ -541,13 +541,13 @@ Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \f
 
 
 \begin{remark}
-    Petite remarque à propos des frontières. Soit \( X=\mathopen[ 0 , 1 \mathclose]\) muni de la topologie de la distance \( | x-y |\) (définition~\ref{ThoORdLYUu}). Les points \( 0\) et \( 1\) \emph{ne sont pas} dans la frontière de $X$. En effet une boule ouverte autour de \( 1\) est un ensemble de la forme
+    Petite remarque à propos des frontières. Soit \( X=\mathopen[ 0 , 1 \mathclose]\) muni de la topologie induite de \( \eR \). Les points \( 0\) et \( 1\) \emph{ne sont pas} dans la frontière de $X$. En effet, un ouvert autour de \( 1\) est un ensemble de la forme
     \begin{equation}
-        B(1,r)=\{ x\in X\tq | x-1 |<r \}=\mathopen] 1-r , 1 \mathclose]
+        \mathopen]1-r, 1+s \mathclose[ \cap X =\{ x\in X\tq 1 - r < x < 1 + s \}=\mathopen] 1-r , 1 \mathclose]
     \end{equation}
-    où nous avons supposé \( r<1\).
+    où nous avons supposé \( 0<r<1\) et \( s > 0 \).
 
-    Les points \( 0\) et \( 1\) sont par contre sur la frontière de \( \mathopen[ 0 , 1 \mathclose]\) lorsque cet ensemble est vu comme partie de l'espace métrique \( \eR\).
+    Les points \( 0\) et \( 1\) sont par contre sur la frontière de \( \mathopen[ 0 , 1 \mathclose]\) lorsque cet ensemble est vu comme partie de l'espace topologique \( \eR\).
 \end{remark}
 
 \subsubsection{Points d'accumulation et isolés}
@@ -953,7 +953,7 @@ La compacité est le thème~\ref{THEMEooQQBHooLcqoKB}.
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Quelques propriétés}
+\subsection{Quelques propriétés générales}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{lemma}   \label{LemOWVooZKndbI}
@@ -1008,6 +1008,88 @@ Remarquons que la partie qui est réellement à prouver est que, si \og ça marc
     Soient \(   (\mO_\alpha)_{\alpha\in A}  \) des ouverts de \( X\) recouvrant \( K\). Alors les ensembles \( V\cap \mO_{\alpha}\) recouvrent également \( K\), mais sont des ouverts de \( V\). Donc il en existe un sous-recouvrement fini. Soient donc \( (V\cap\mO_i)_{i\in I}\) recouvrant \( K\) avec \( I\) un sous-ensemble fini de \( A\). Les ensembles \( (\mO_i)_{i\in I}\) recouvrent encore \( K\) et sont des ouverts de \( X\).
 \end{proof}
 
+%----------------------------------------------------------------------------------------------------------------------
+\subsection{Compacité pour les réels}
+%----------------------------------------------------------------------------------------------------------------------
+
+
+\begin{lemma}[\cite{JUwQXOF}]\label{LemOACGWxV}
+    Si \( a<b\in \eR\) alors le segment \( \mathopen[ a , b \mathclose]\) est compact\footnote{Définition~\ref{DefJJVsEqs}}.
+\end{lemma}
+\index{compact!intervalle \( \mathopen[ a , b \mathclose]\)}
+
+\begin{proof}
+    Soit \( \{ \mO_i \}_{i\in I}\) un recouvrement de \( \mathopen[ a , b \mathclose]\) par des ouverts. Nous posons
+    \begin{equation}
+        M=\{ x\in\mathopen[ a , b \mathclose]\tq \mathopen[ a , x \mathclose] \text{ admet un sous-recouvrement fini extrait de } \{ \mO_i \}_{i\in I} \}.
+    \end{equation}
+    Notre but est de prouver que \( b\in M\).
+    \begin{subproof}
+
+    \item[\( a\) est dans \( M\)]
+
+        Le point \( a\) est naturellement dans un des \( \mO_i\). L'intervalle \( \mathopen[ a , a \mathclose]\) est donc recouvert par un seul des \( \mO_i\).
+
+    \item[\( M\) est un intervalle]
+
+        Soient \( m\in M\) et \( m'\in\mathopen[ a , m [\). Le sous-recouvrement fini qui recouvre \( \mathopen[ a , m \mathclose]\) recouvre a fortiori \( \mathopen[ a , m' \mathclose]\).
+
+    \item[Les trois possibilités restantes]
+        À ce niveau de la preuve, il reste trois possibilités pour \( M\) soit il est de la forme \( \mathopen[ a , c \mathclose]\) ou \( \mathopen[ a , c [\) avec \( c<b\), soit il est de la forme \( \mathopen[ a , b \mathclose]\). Nous allons maintenant éliminer les deux premiers cas.
+
+    \item[Ce que \( M\) n'est pas]
+
+        D'abord \( M\) n'est pas de la forme \( \mathopen[ a , c [\) avec \( c<b\). Par l'absurde, commençons par considérer \( \mO_{i_0}\) un ouvert du recouvrement qui contient \( c\); choisissons  \(m \in \mO_{i_0}\) tel que \( m<c\). Alors \( m \in M \), et, si nous joignons \( \mO_{i_0}\) à un recouvrement fini de \( \mathopen[ a , m \mathclose]\) alors nous avons un recouvrement fini de \( \mathopen[ a , c \mathclose]\). On en déduit \( c\in M\).
+
+        Ensuite \( M\) n'est pas de la forme \( \mathopen[ a , c \mathclose]\) avec \( c<b\). En effet si on a un recouvrement fini de \( \mathopen[ a , c \mathclose]\) par des ouverts, alors un de ces ouverts contient \( c\) et donc contient des éléments de \( \mathopen[ a , b \mathclose]\) plus grands que \( c\).
+    \end{subproof}
+    Nous déduisons que \( M=\mathopen[ a , b \mathclose]\) et qu'il est possible d'extraire un sous-recouvrement fini recouvrant \( \mathopen[ a , b \mathclose]\).
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]\label{LemCKBooXkwkte}
+    Si \( K_1\) et \( K_2\) sont des compacts dans \( \eR\) alors \( K_1\times K_2\) est compact dans \( \eR^2\).
+\end{lemma}
+
+\begin{proof}
+    Soit \( \{ \mO_i \}_{i\in I}\) un recouvrement de \( K_1\times K_2\) par des ouverts; grâce au lemme~\ref{LemOWVooZKndbI} nous pouvons supposer que ce sont des carrés. Pour chaque \( x\in K_1\), l'ensemble \( \{ x \}\times K_2\) est compact et donc recouvert par un nombre fini des \( \mO_i\). Soit \( R_x\) un ensemble fini des \( \mO_i\) recouvrant \( \{ x \}\times K_2\).
+
+    Vu que \( R_x\) est une collection finie de carrés nous pouvons considérer \( m_x\), le minimum des rayons. L'ensemble \( K_1\) est recouvert par les boules \( B(x,m_x)\) et il existe donc une collection finie de \( \{ x_i \}_{i\in A}\) tels que \( B(x_i,m_{x_i})\) recouvre \( K_1\).
+
+    Alors \( \{ R_{x_i} \}_{i\in A}\) recouvre \( K_1\times K_2\) parce que \( R_{x_i}\) recouvre l'ensemble \( B(x_i,m_{x_i})\times \{ K_2 \}\).
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Conséquence: les fermés bornés sont compacts}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{theorem}[Théorème de Borel-Lebesgue] \label{ThoXTEooxFmdI}
+    Une partie de \( \eR^n \) est compacte si et seulement si elle est fermée et bornée.
+\end{theorem}
+\index{théorème!Borel-Lebesgue}
+\index{compact!fermé et borné}
+
+\begin{proof}
+    Sens direct.
+    \begin{subproof}
+    \item[Compact implique borné]
+        En effet si \( K\) est non borné dans \( E\) alors \( K\) contient une suite \( (x_n)\) avec \( \| x_n \|>n\). Les boules \( B_i(x_i,\frac{ 1 }{3})\) sont disjointes. On pose \( \mO_0=\complement\bigcup_i\overline{ B(x_i,\frac{1}{ 5 }) }\), qui est ouvert comme complément d'un fermé. Pour \( i\geq 1\) nous posons \( \mO_i=B(x_i,\frac{1}{ 4 })\). Nous avons
+        \begin{equation}
+            K\subset\bigcup_{i\in \eN}\mO_i
+        \end{equation}
+        mais vu que \( x_i\) est uniquement dans \( \mO_i\), nous ne pouvons pas extraire de sous-recouvrement fini.
+    \item[Compact implique fermé]
+        Cela est la proposition~\ref{PropUCUknHx}.
+    \end{subproof}
+    Sens réciproque.
+    \begin{subproof}
+    \item[Un intervalle fermé et borné est compact dans \( \eR\)]
+        C'est le lemme~\ref{LemOACGWxV}.
+    \item[Un produit de segments est compact]
+        Le produit de deux compacts de \( \eR\) est un compact dans \( \eR^2\) par le lemme~\ref{LemCKBooXkwkte}.
+    \item[Un fermé et borné est compact]
+        Soit \( K\) fermé et borné. Vu que \( K\) est borné, il est contenu dans un produit de segments. L'ensemble \( K\) est donc compact parce que fermé dans un compact, lemme~\ref{LemnAeACf}.
+    \end{subproof}
+\end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Limites et continuité de fonctions}
