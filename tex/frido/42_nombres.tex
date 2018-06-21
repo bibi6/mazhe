@@ -54,26 +54,47 @@ Une petite définition cependant, que l'on utilisera :
   Soient $X$ et $Y$ deux ensembles. Une \defe{fonction}{fonction} $f$ définie sur $X$ et à valeurs dans $Y$ est une correspondence qui associe à chaque élément $x$ dans $X$ \emph{au plus} un élément $y$ dans $Y$. On écrit $y= f(x)$.
   \begin{itemize}
   \item La partie de $X$ qui contient tous les $x$ sur lesquels $f$ peut opérer est dite \defe{domaine}{domaine} de $f$. Le domaine de $f$ est indiqué par $\Dom f$.
+  \item Lorsque \( \Dom f = X \), alors on dit que \( f \) est une \defe{application}{fonction!application}.
   \item L'élément de $y\in Y$ associé par $f$ à un élément $x\in \Dom f$ (c'est à dire $f(x) = y$)  est appellé \defe{image}{image} de $x$ par $f$. L'\defe{image}{fonction!image} de la fonction $f$ est la partie de $Y$ qui contient les images de tous les éléments de $\Dom f$. L'image de $f$ est indiquée par $\Im f$.
   \item Le \defe{graphe}{graphe} de $f$ est l'ensemble de toutes les couples $(x, f(x))$ pour $x\in \Dom f$. Le graphe de $f$ est une partie de l'ensemble noté $X\times Y$ et il est indiqué par $\Graph f$.
   \end{itemize}
 \end{definition}
 
-\begin{definition}
-    Soient deux ensembles \( E\) et \( F\). Une application \( f\colon E\to F\) est
+\begin{definition}[Injection, surjection, bijection]       \label{DEFooBFCQooPyKvRK}
+    Soient des ensembles \( X\) et \( Y\) ainsi qu'une fonction \( f\colon X\to Y\). On note \( A  = \Dom f \).
     \begin{enumerate}
         \item
-            \defe{surjective}{surjection} si pour tout \( y\in F\), il existe \( x\in E\) tel que \( y=f(x)\);
+            La fonction \( f\) est \defe{injective}{injection} si, pour tous \( x_1, x_2 \in A \), dès que \( f(x_1)=f(x_2)\), on a \( x_1=x_2\).
         \item
-            \defe{injective}{injection} si pour tout \( y\in F\), il existe au plus un \(x\in E \) tel que \( y=f(x)\);
+            La fonction \( f\) est \defe{surjective}{surjection} si tous les éléments de \( Y\) sont atteints, c'est à dire si \( \Im f = Y\). En d'autres termes,  \( f \) est surjective si pour tout \( y\in Y\) il existe \( x\in A\) tel que \( f(x)=y\).
         \item
-            \defe{bijective}{bijection} si elle est à la fois injective et surjective.
+            La fonction \( f\) est une \defe{bijection}{bijection} entre \( A\) et \( B\) si elle est injective et surjective, c'est à dire si pour tout \( y\in B\) il existe un unique \( x\in A\) tel que \( f(x)=y\).
     \end{enumerate}
 \end{definition}
+La méthode la plus courante pour démontrer qu'une application \( f\colon X\to Y\) est injective est de considérer \( x,y\in X\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et obtenir une contradiction. La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=g(x)\) implique une équation faisant intervenir \( 1/(x-y)\).
 
-La méthode la plus courante pour démontrer qu'une application \( f\colon E\to F\) est injective est de considérer \( x,y\in E\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et obtenir une contradiction.
+La surjection et l'injection sont des propriétés bien différentes qu'il convient de prouver séparément. De plus une même «formule» peut définir une application injective, surjective, bijective ou non selon les ensembles sur lesquels nous la considérons.
 
-La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=g(x)\) implique une équation faisant intervenir \( 1/(x-y)\).
+\subsubsection{Application réciproque}
+%//////////////////////
+
+\begin{definition}      \label{DEFooTRGYooRxORpY}
+    Soit \( f\colon A\to B\) une bijection. L'\defe{application réciproque}{application réciproque} de \( f\) est la fonction
+    \begin{equation}
+        \begin{aligned}
+            f^{-1}\colon B&\to A \\
+            y&\mapsto \text{le } x\in A\text{ tel que } f(x)=y.
+        \end{aligned}
+    \end{equation}
+\end{definition}
+
+Plus généralement si \( f\colon X\to Y\) est une application quelconque et si \( S\subset Y\) nous notons
+\begin{equation}
+    f^{-1}(S)=\{ x\in X\tq f(x)\in S \},
+\end{equation}
+et dans le cas où \( S\) est réduit à un unique élément \( y\), nous notons \( f^{-1}(y)\) au lieu de \( f^{-1}\big( \{ y \} \big)\). Si de plus \( f^{-1}(S)\) est un singleton \( x\), nous noterons \( f^{-1}(S)=x\) et non \( f^{-1}(S)=\{ x \}\).
+
+Les plus acharnés parmi les lecteurs se rendront compte de la différence ontologique fondamentale entre \( x\) et \( \{ x \}\).
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Ensembles ordonnés}
@@ -96,7 +117,7 @@ L'\defe{axiome du choix}{axiome!du choix} que nous acceptons peut s'énoncer com
     Un ensemble ordonné est \defe{totalement ordonné}{ordre!total} si deux éléments sont toujours comparables : si \( x,y\in E\) alors nous avons soit \( x\leq y\) soit \( y\leq x\). Si les éléments ne sont pas tous comparables, nous disons que l'ordre est \defe{partiel}{ordre!partiel}.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{MinMaxMaj_ensembleOrdonnes}
     Soit un ensemble ordonné \( (E,\leq)\) et une partie \( A\) de \( E\). Nous disons que \( m\in A\) est un \defe{minimum}{minimum!ensemble ordonné} de \( A\) si pour tout \( x\in A\), l'élément \( m\) est comparable à \( x\) et \( m\leq x\).
 
     Un élément \( p\in E\) est un \defe{minorant}{minorant} de \( A\) si pour tout \( a\in A\), l'élément \( p\) et \( a\) sont comparables et \( p\leq a\).
@@ -134,6 +155,30 @@ La notion d'ordre permet d'introduire la notion d'intervalle.
       \forall a,b\in I,(a\leq x\leq b)\Rightarrow x\in I.
     \]
 \end{definition}
+
+
+
+\begin{definition}[Fonction croissante, décroissante et monotone] \label{FctCroissDecroiss_EnsemblesOrdonnes}
+    Soit \( f\colon X \to Y \) une fonction définie sur le sous-ensemble totalement ordonné \( A \subset X \) et à valeurs dans l'ensemble totalement ordonné \( Y \).
+    \begin{enumerate}
+        \item
+            Le fonction \( f\) est \defe{croissante}{fonction!croissante} sur \( A \) si pour tous \( x, y\) dans \( A \) tels que \( x \leq y \), nous avons \( f(x)\leq f(y)\) dans \( Y \). Elle est \emph{strictement} croissante si \( f(x)<f(y)\) dès que \( x<y\).
+        \item
+            Le fonction \( f\) est \defe{décroissante}{fonction!décroissante} sur \( A\) si pour tous \( x, y\) dans \( A \) tels que \( x \leq y \), nous avons \( f(x)\geq f(y)\). Elle est \emph{strictement} décroissante si \( f(x)>f(y)\) dès que \( x<y\).
+        \item
+            La fonction \( f\) est dite \defe{monotone}{fonction!monotone} sur \( A\) si elle est croissante sur \( A \) ou bien décroissante sur \( A\).
+    \end{enumerate}
+\end{definition}
+
+
+\begin{example}
+    Considérons l'ensemble des réels (qu'on imagine que vous connaissez déjà\dots{}). La fonction \( x\mapsto x^2\) est décroissante sur l'intervalle \( \mathopen] -\infty , 0 \mathclose]\) et croissante sur l'intervalle \( \mathopen[ 0 , \infty \mathclose[\). Elle n'est par contre ni croissante ni décroissante sur l'intervalle \( \mathopen[ -4 , 3 \mathclose]\).
+\end{example}
+
+\begin{remark}
+  Une erreur courante est de penser que, si une fonction \( f: X \to Y \) est croissante sur \( A \subset X \) et croissante sur \( B \subset X \) alors elle l'est sur \( A \cup B \): cela est faux en général. Un exemple d'une telle fonction est la fonction qui, à tout réel, associe son inverse: \( f(x) = 1/x \). Elle est décroissante sur les négatifs, décroissante sur les positifs, mais \( f(-1) < f(1) \) alors que \( -1 < 1 \).
+\end{remark}
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Lemme de Zorn}
@@ -324,6 +369,26 @@ Cette section est vide, insuffisamment détaillée ou incomplète. Votre aide es
     \end{enumerate}
 \end{proposition}
 Je vous conseille fortement de ne pas considérer ces résultats comme évidents avant d'avoir lu quelque articles de Wikipédia sur la construction des naturels en théorie des ensembles.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Suites}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+  Soit \( X \) un ensemble. On appelle \defe{suite d'éléments de \( X \)}{suite} toute fonction définie sur (une partie en bijection avec) \( \eN \) et à valeurs dans \( X \).
+\end{definition}
+
+\begin{normaltext}
+    À propos de notations. La pire notation possible pour une suite est \( (a_n)_n\). What on the f*** vient faire le second indice \( n\) ? Il peut être raisonnable d'écrire \( (a_n)_{n\in I}\) lorsqu'on veut dire dans quel ensemble se déplace \( n\). Si nous parlons de \emph{suite}, il faut une sérieuse raison de prendre autre chose que \( \eN\) comme ensemble d'indices.
+
+    Une suite étant une fonction, de la même façon qu'on ne devrait pas dire «la fonction \( f(x)\)», mais «la fonction \( f\)» ou «la fonction \( x\mapsto f(x)\)», nous devrions simplement écrire \( a\) pour désigner la suite dont les éléments sont \( a_n\).
+
+    Par conséquent, il est parfaitement légal, et même conseillé, d'écrire «\( a+b\)» pour la somme des suites \( a\) et \( b\) (quand on pourra additionnner des suites). Et il est tout aussi légal d'écrire «\( \lim a\)» au lieu de \( \lim_{n\to \infty} a_n\), quand on aura parlé de limite et de convergence.
+
+    Le hic est que nous écrivons souvent \( x\) la limite de la suite \( n\mapsto x_n\). Dans ce cas, nous sommes évidemment obligés d'écrire l'indice \( n\) pour parler de la suite.
+
+    Tout cela pour dire qu'il faut être souple avec les notations.
+\end{normaltext}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Groupes, anneaux}

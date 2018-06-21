@@ -564,18 +564,6 @@ Quelle est la différence entre un point d'accumulation et un point d'adhérence
 \subsection{Suites et convergence}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{normaltext}
-    À propos de notations. La pire notation possible pour une suite est \( (a_n)_n\). What on the f*** vient faire le second indice \( n\) ? Il peut être raisonnable d'écrire \( (a_n)_{n\in I}\) lorsqu'on veut dire dans quel ensemble se déplace \( n\). Si nous parlons de \emph{suite}, il faut une sérieuse raison de prendre autre chose que \( \eN\) comme ensemble d'indices.
-
-    Une suite étant une fonction, de la même façon qu'on ne devrait pas dire «la fonction \( f(x)\)», mais «la fonction \( f\)» ou «la fonction \( x\mapsto f(x)\)», nous devrions simplement écrire \( a\) pour désigner la suite dont les éléments sont \( a_n\). 
-
-    Par conséquent, il est parfaitement légal, et même conseillé, d'écrire «\( a+b\)» pour la somme des suites \( a\) et \( b\). Et il est tout aussi légal d'écrire «\( \lim a\)» au lieu de \( \lim_{n\to \infty} a_n\).
-
-    Le hic est que nous écrivons souvent \( x\) la limite de la suite \( n\mapsto x_n\). Dans ce cas, nous sommes évidemment obligé d'écrire l'indice \( n\) pour parler de la suite.
-
-    Tout cela pour dire qu'il faut être souple avec les notations.
-\end{normaltext}
-
 Dès que nous avons une topologie nous avons une notion de convergence.
 \begin{definition}[Convergence de suite] \label{DefXSnbhZX}
     Une suite $(x_n)$ d'éléments de $E$ \defe{converge}{convergence!de suite} vers un élément $y$ de $E$ si pour tout ouvert $\mO$ contenant $y$, il existe un $K\in \eN$ tel que $k>K$ implique $x_k\in\mO$.
@@ -1043,40 +1031,8 @@ La proposition~\ref{PropQZRNpMn} donnera des détails sur ce qu'il se passe lors
   Il suffit de reprendre mot pour mot la preuve précédente en remplaçant \( \ell \) par \( f(a) \).
 \end{proof}
 
-
-\subsubsection{Application réciproque}
-%//////////////////////
-
-\begin{definition}[injection, surjection, bijection]        \label{DEFooBFCQooPyKvRK}
-    Soient des ensembles \( A\) et \( B\) ainsi qu'une application \( f\colon A\to B\).
-    \begin{enumerate}
-        \item
-            La fonction \( f\) est \defe{injective}{injection} si \( f(x_1)=f(x_2)\), implique \( x_1=x_2\).
-        \item
-            La fonction \( f\) est \defe{surjective}{surjection} si tous les éléments de \( B\) sont atteints, c'est à dire si pour tout \( y\in B\) il existe \( x\in A\) tel que \( f(x)=y\).
-        \item
-            La fonction \( f\) est une \defe{bijection}{bijection} entre \( A\) et \( B\) si elle est injective et surjective, c'est à dire si pour tout \( y\in B\) il existe un unique \( x\in A\) tel que \( f(x)=y\).
-    \end{enumerate}
-\end{definition}
-La surjection et l'injection sont des propriétés bien différentes qu'il convient de prouver séparément. De plus une même «formule» peut définir une application injective, surjective, bijective ou non selon le domaine sur laquelle nous la considérons.
-
-\begin{definition}      \label{DEFooTRGYooRxORpY}
-    Soit \( f\colon A\to B\) une bijection. L'\defe{application réciproque}{application réciproque} de \( f\) est la fonction
-    \begin{equation}
-        \begin{aligned}
-            f^{-1}\colon B&\to A \\
-            y&\mapsto \text{le } x\in A\text{ tel que } f(x)=y.
-        \end{aligned}
-    \end{equation}
-\end{definition}
-
-Plus généralement si \( f\colon X\to Y\) est une application quelconque et si \( S\subset Y\) nous notons
-\begin{equation}
-    f^{-1}(S)=\{ x\in X\tq f(x)\in S \},
-\end{equation}
-et dans le cas où \( S\) est réduit à un unique élément \( y\), nous notons \( f^{-1}(y)\) au lieu de \( f^{-1}\big( \{ y \} \big)\). Si de plus \( f^{-1}(S)\) est un singleton \( x\), nous noterons \( f^{-1}(S)=x\) et non \( f^{-1}(S)=\{ x \}\).
-
-Les plus acharnés parmi les lecteurs se rendront compte de la différence ontologique fondamentale entre \( x\) et \( \{ x \}\).
+\subsubsection{Continuité et application réciproque}
+%////////////////////////
 
 \begin{proposition}	\label{PropoInvCompCont}
 Soit $f\colon A\subset\eR^n\to B\subset\eR^m$ une bijection continue. Si $A$ est compact, alors $f^{-1}\colon B\to A$ est continue.

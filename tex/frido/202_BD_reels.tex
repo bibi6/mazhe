@@ -529,6 +529,9 @@ Nous avons terminé avec la construction des réels. Les propriétés topologiqu
 \subsection{Intervalles de réels}
 %---------------------------------------------------------------------------------------------------------------------------
 
+\subsubsection{Les bases}
+%//////////////////////
+
 Ce n'est plus un secret pour personne que $\eR$ est un \href{http://fr.wikipedia.org/wiki/Relation_d'ordre}{ensemble totalement ordonné}\footnote{Définition~\ref{DefooYALBooHSXZqB}.} : il y a des éléments plus grands que d'autres, et mieux : à chaque fois que je prends deux éléments différents dans $\eR$, il y en a un des deux qui est plus grand que l'autre. Il n'y a pas d'\emph{ex æquo} dans $\eR$.
 
 \begin{definition}[Infinis]
@@ -569,7 +572,11 @@ Ce n'est plus un secret pour personne que $\eR$ est un \href{http://fr.wikipedia
 Un intervalle peut n'être ni ouvert ni fermé; par exemple \( \mathopen] 4 , 8 \mathclose]\). Cet intervalle est «ouvert en \( 4\) et fermé en \( 8\)» .
 \end{example}
 
-  Si je regarde l'intervalle $I=[0,1]$, je peux même dire que $10$ est plus grand que tous les éléments de $I$. Nous disons que $10$ est un \emph{majorant} de $[0,1]$. La définition est la suivante.
+
+\subsubsection{Maximum, supremum et compagnie}
+%///////////////////////////////////
+
+  Si l'on considère l'intervalle $I=[0,1]$, on peut affirmer que $10$ est plus grand que tous les éléments de $I$. Nous disons que $10$ est un \emph{majorant} de $[0,1]$. La définition est la suivante.
 \begin{definition}
     Soit \( A\), une partie de \( \eR\). 
     \begin{enumerate}
@@ -581,7 +588,7 @@ Un intervalle peut n'être ni ouvert ni fermé; par exemple \( \mathopen] 4 , 8 
     Nous parons de majorant ou de minorants \emph{stricts} lorsque les inégalités sont strictes.
 \end{definition}
 
-Nous insistons sur le fait que l'inégalité n'est pas stricte. Ainsi, $1$ est un majorant de $[0,1]$. Dès qu'un ensemble a un majorant, il en a plein. Si $s$ majore l'ensemble $A$, alors $s+1$, $s+4$ et \( s+\frac{ 3 }{ 7 }\) majorent également $A$.
+Nous insistons sur le fait que l'inégalité n'est pas stricte dans la définition. Ainsi, $1$ est un majorant de $[0,1]$. Dès qu'un ensemble a un majorant, il en a plein. Si $s$ majore l'ensemble $A$, alors $s+1$, $s+4$ et \( s+\frac{ 3 }{ 7 }\) majorent également $A$, par exemple.
 
 \begin{example}
 Une petite galerie d'exemples de majorants.
@@ -589,7 +596,7 @@ Une petite galerie d'exemples de majorants.
 \item L'intervalle fermé $[4,8]$ admet entre autres $8$ et $130$ comme majorants,
 \item l'intervalle ouvert $]4,8[$ admet également $8$ et $130$ comme majorants,
 \item $7$ n'est pas un majorant de $[1,5]\cup]8,32]$,
-\item $10/10$ majore les notes qu'on peut obtenir à un devoir.
+\item $10/10$ majore les notes qu'on peut obtenir à un devoir,
 \item l'intervalle $[4,\infty[$ n'a pas de majorants.
 \end{itemize}
 \end{example}
@@ -669,7 +676,7 @@ Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son
     La preuve que toute partie minorée possède un infimum se fait de la même façon.
 \end{proof}
 
-\subsubsection{\ldots et quelques exemples}
+\subsubsection{\dots{} et quelques exemples}
 %//////////////////////
 
 En matières de notations, le maximum de l'ensemble $A$ est noté $\max A$, le supremum est noté $\sup A$. Le minimum et l'infimum sont notés $\min A$ et $\inf A$.
@@ -728,7 +735,7 @@ L'exemple suivant est une source classique d'erreurs en ce qui concerne l'infimu
 \begin{example}
 	Les premiers points de l'ensemble $F=\{ \frac{ (-1)^n }{ n }\tq n\in\eN_0 \}$ sont représentés à la figure~\ref{LabelFigSuiteInverseAlterne}. Bien que (comme nous le verrons plus tard) la limite de la suite $x_n=(-1)^n/n$ soit zéro, il n'est pas correct de dire que zéro est l'infimum de l'ensemble $F$. Le dessin, au contraire, montre bien que $-1$ est le minium (aucun point est plus bas que $-1$), tandis que le maximum est $1/2$.
 
-	Nous reviendrons avec cet exemple dans la suite. Pour l'instant, ayez bien en tête que zéro n'est rien de spécial pour l'ensemble $F$ en ce qui concerne les notions de maximum, minimum et compagnie.
+	Nous reviendrons avec cet exemple dans la suite. Pour l'instant, ayez bien en tête que zéro n'est rien de spécial pour l'ensemble $F$ en ce qui concerne les notions de maximum, supremum et compagnie.
 \end{example}
 \newcommand{\CaptionFigSuiteInverseAlterne}{Les quelques premiers points du type $(-1)^n/n$.}
 \input{auto/pictures_tex/Fig_SuiteInverseAlterne.pstricks}
