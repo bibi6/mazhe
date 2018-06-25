@@ -89,7 +89,6 @@ Le lemme \ref{LemMESSExh} est une version particulière de celui-ci, pour l'espa
 \end{proof}
 Notons toutefois que nous sommes loin d'avoir une union dénombrable en général.
 
-
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Quelques exemples}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -126,19 +125,19 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
 
   Soient donc deux éléments de \( \mT \):
   \begin{equation}
-    \bigcup_{\alpha \in A} \bigcap_{i=1}^{n_a} \mO_{\alpha, i}\quad\text{ et } \bigcup_{\beta \in B} \bigcap_{j=1}^{n_\beta} \mO_{\beta, j}.
+    O_1 = \bigcup_{\alpha \in A} \bigcap_{i=1}^{n_a} \mO_{\alpha, i}\quad\text{ et } O_2 = \bigcup_{\beta \in B} \bigcap_{j=1}^{n_\beta} \mO_{\beta, j}.
   \end{equation}
-  Un élément \( x \) est dans l'intersection de ces deux ensembles s'il existe \( \alpha \in A \) et \( \beta \in B \) tels que pour tout \(i \in \{1, \cdots, n_\alpha\} \) et tout \(j \in \{1, \cdots, n_\beta\} \), \( x \in \mO_{\alpha, i}\) t \(x \in \mO_{\beta, j} \). On construit alors l'ensemble \( A \times B \) pour l'union, et \( n_{\alpha, \beta} = n_\alpha + n_\beta\). Enfin, pour \((\alpha, \beta)\), et pour \( k  \in \{1, \cdots, n_{\alpha,\beta}\} \), on pose
+  Un élément \( x \) est dans l'intersection de ces deux ensembles s'il existe \( \alpha \in A \) et \( \beta \in B \) tels que pour tout \(i \in \{1, \cdots, n_\alpha\} \) et tout \(j \in \{1, \cdots, n_\beta\} \), \( x \in \mO_{\alpha, i}\) et \(x \in \mO_{\beta, j} \). Ce qui revient à dire qu'il existe \((\alpha, \betaø \in A \times B \) tel que \( x \) se trouve à l'intersection de tous les \(  \mO_{\alpha, i}\) et \(\mO_{\beta, j} \). En posant \( n_{\alpha, \beta} = n_\alpha + n_\beta\), puis, pour \((\alpha, \beta)\), et pour \( k  \in \{1, \cdots, n_{\alpha,\beta}\} \):
   \begin{equation}
     \mO_{(\alpha, \beta), k} =
     \begin{cases}
       \mO_{\alpha,k}& \text{si } k \leq n_\alpha,\\
-      \mO_{\beta,k - n_\alpha}& \text{si } k > n_\alpha.\\
+      \mO_{\beta,k - n_\alpha}& \text{si } k > n_\alpha,\\
     \end{cases}
   \end{equation}
-Il s'ensuit que l'intersection est précisément
+il s'ensuit que
 \begin{equation}
-   \bigcup_{\gamma \in A\times B} \bigcap_{k=1}^{n_\gamma} \mO_{\gamma, k}.
+   O_1 \cap O_2 = \bigcup_{\gamma \in A\times B} \bigcap_{k=1}^{n_\gamma} \mO_{\gamma, k}.
 \end{equation}
 \end{proof}
 
@@ -146,32 +145,39 @@ Il s'ensuit que l'intersection est précisément
   La famille composée des intersections finies d'éléments de \( \mT_0 \) forme une base de la topologie engendrée.
 \end{remark}
 
+\subsubsection{Exemple fondamental: topologie de \texorpdfstring{$\eR$}{R}}
 \begin{definition}[Topologie réelle engendrée par les intervalles ouverts] \label{DefTopologieREngendree}
-  Pour \( X = \eR \), considérons \( \mT_0 \) l'ensemble constitué de tous les intervalles ouverts (de la forme \( \mathopen] a, b \mathclose[ \), avec \( a, b \in \eR \)). La topologie ainsi engendrée est alors la topologie usuelle sur \( \eR \).
+  Pour \( X = \eR \), considérons \( \mT_0 \) l'ensemble constitué de \( \emptyset \), de \( \eR \), et de tous les intervalles ouverts (de la forme \( \mathopen] a, b \mathclose[ \), avec \( a, b \in \eR \)). La topologie ainsi engendrée est alors la topologie usuelle sur \( \eR \).
 \end{definition}
 
 \begin{remark} \label{RemIntervallesBaseTopoR}
-  Les intervalles ci-dessus sont une base de la topologie de \( \eR \).
+  \begin{enumerate}
+  \item
+    Les intervalles ci-dessus sont une base de la topologie de \( \eR \). En effet, l'intersection des intervalles \( \mathopen] a_i, b_i \mathclose[ \) (pour \( i = 1,\ldots, n (n \in \eN) \) et les \( a_i \) et \( b_i \) réels, est soit vide, soit \( \mathopen] \max\{a_i\}, \min\{b_i\}[ \).
+  \item
+    Pour tout intervalle ouvert \( \mathopen]a,b\mathclose[ \), il existe \( x \in \eR \) et \( \epsilon > 0 \) tels que cet intervalle soit \( \mathopen]x - \epsilon,x+\epsilon\mathclose[ \). Il suffit de prendre \( x = \frac{a+b} 2 \) et \( \epsilon = \frac{b-a}2 \). Ainsi, les intervalles de la forme \( \mathopen] x - \epsilon, x = \epsilon \mathclose[ \) forment, pour \( x \in \eR \) et \( \epsilon > 0 \), une base de la topologie usuelle.
+  \end{enumerate}
+
 \end{remark}
 
 \begin{example}[Voisinages de réels]
-  Pour qu'un ensemble soit un voisinage de $x \in \eR$, il faut et il suffit qu'il contienne un intervalle ouvert. Ainsi, les ensembles suivants sont des voisinages de $3$ dans $\eR$ :
+  Pour qu'un ensemble soit un voisinage de \( x \in \eR \), il faut et il suffit qu'il contienne un intervalle ouvert contenant \( x \). Ainsi, les ensembles suivants sont des voisinages de \( 3 \) dans \( \eR\) :
   \begin{itemize}
   \item
-    $\mathopen] 1 , 5 \mathclose[$;
+    \(\mathopen] 1 , 5 \mathclose[\);
   \item
-    $\mathopen[ 0 , 10 \mathclose]$;
+    \(\mathopen[ 0 , 10 \mathclose]\);
   \item
-    $\eR$;
+    \(\eR\);
   \end{itemize}
-  tandis que les ensembles suivants ne sont pas des voisinages de $3$ dans $\eR$ :
+  tandis que les ensembles suivants ne sont pas des voisinages de \(3\) dans \(\eR\) :
   \begin{itemize}
   \item
-    $\mathopen] 1 , 3 \mathclose[$;
+    \(\mathopen] 1 , 3 \mathclose[\);
   \item
-    $\mathopen] 1 , 3 \mathclose]$;
+    \(\mathopen] 1 , 3 \mathclose]\);
   \item
-    $\mathopen[ 0 , 5 [\setminus\{ 3 \}$.
+    \(\mathopen[ 0 , 5 [\setminus\{ 3 \}\).
   \end{itemize}
 \end{example}
 
@@ -180,7 +186,7 @@ Le supremum d'une partie ouverte de \( \eR\) n'est pas dans l'ensemble (et n'est
 \end{lemma}
 
 \begin{proof}
-Soit $\mO$, un ensemble ouvert et $s$, son supremum. Si $s$ était dans $\mO$, on aurait un voisinage de $s$ (et donc un intervalle $\mathopen]a,b\mathclose[$ contenant $s$) et contenu dans $\mO$. On pose $r = \min\{s - a, b - s\}$; alors, le point $s+r/2$ est alors à la fois dans $\mathopen]a,b\mathclose[ \subset \mO$ et plus grand que $s$, ce qui contredit le fait que $s$ soit un supremum de $\mO$.
+Soit $\mO$, un ensemble ouvert et $s$, son supremum. Si $s$ était dans $\mO$, on aurait un voisinage de $s$ (et donc un intervalle $\mathopen]s - \epsilon, s + \epsilon \mathclose[$ contenant $s$) et contenu dans $\mO$. Mais le point $s+\epsilon/2$ est alors à la fois dans $\mathopen]s - \epsilon, s + \epsilon \mathclose[ \subset \mO$ et plus grand que $s$, ce qui contredit le fait que $s$ soit un supremum de $\mO$.
 \end{proof}
 
 \begin{remark}
@@ -238,6 +244,28 @@ Si \( A\) est un ouvert de \( X\), on pourrait croire que la topologie induite n
     Donc pour la topologie de \( \mathopen[ 0 , 1 \mathclose]\), tous les intervalles ouverts (au sens de la topologie) sont soit de la forme \( \mathopen]x - \delta, x + \delta \mathclose[\), ou bien \( \mathopen]x - \delta,1 \mathclose]\), ou encore \( \mathopen[0, x + \delta \mathclose[\).
 \end{example}
 
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Comparaison de topologies}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+  Soit \( X \) un ensemble, muni de deux topologies \( \mT \) et \( \mU \). On dit que la topologie \( \mT \) est \defe{plus fine}{topologie!comparaison} que \( \mU \) si tout ouvert de \( \mU \) est un ouvert de \( \mT \).
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+  \item
+    Sur \( X = \{ 1, 2, 3 \} \), la topologie constituée de \( \emptyset, \{1\}, \{1, 2 \}\) et \( X \) est plus fine que celle constituée de \( \emptyset, \{1, 2 \}\) et \( X \).
+  \item
+    La topologie discrète\footnote{Exemple~\ref{DefTopologieDiscrete}.} est la plus fine de toutes les topologies.
+  \item
+    La topologie grossière\footnote{Exemple~{DefTopologieGrossiere}.} est la moins fine de toutes les topologies.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  Deux topologies \( \mT \) et \( \mU \) sur un espace topologique sont dites \defe{équivalentes}{topologie!topologies équivalentes} si  \( \mT \) est plus fine que \( \mU \), et  \( \mU \) est plus fine que \( \mT \).
+\end{definition}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Adhérence, fermeture, intérieur, point d'accumulation et isolé}
@@ -405,7 +433,7 @@ Disons-le tout de suite : «adhérence» et «fermeture» sont synonymes.
 		\item
                   Si $a$ est dans l'intérieur de $A$, il existe un ouvert autour de $a$ contenu dans $A$. Cet ouvert est alors contenu dans $B$ et donc $a$ est dans l'intérieur de $B$. Si maintenant $a$ est dans l'adhérence de $A$, tout ouvert contenant $a$ contient un élément de $A$ et donc un élément de $B$, ce qui prouve que $a$ est dans l'adhérence de $B$.
 		\item
-                  Nous avons $A\subset A\cup B$ et donc, en utilisant le premier point, $\bar A\subset\overline{ A\cup B }$. De la même manière, $\bar B\subset\overline{ A\cup B }$. En prenant l'union, $\bar A\cup\bar B\subset\overline{ A\cup B }$. De la même façon, on obtient $\mathring A \cup \mathring B \subset \Int(A\cup B)$..
+                  Nous avons $A\subset A\cup B$ et donc, en utilisant le premier point, $\bar A\subset\overline{ A\cup B }$. De la même manière, $\bar B\subset\overline{ A\cup B }$. En prenant l'union, $\bar A\cup\bar B\subset\overline{ A\cup B }$. De la même façon, on obtient $\mathring A \cup \mathring B \subset \Int(A\cup B)$.
 
                   Montrons l'inclusion $\overline{ A\cup B }\subset \bar A\cup\bar B$ par contraposée. Supposons que $a$ ne soit ni dans $\bar A$ ni dans $\bar B$. Il existe donc des ouverts $\mO_A$ et $\mO_B$ contenant tous les deux $a$, et tels que
 			\begin{equation}
@@ -481,7 +509,7 @@ Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \f
 
 \subsubsection{Frontière}
 %/////////////////////////
-
+Comme pour tout ensemble \( A \) inclus à un espace topologique, on a \( \mathring A \subset A \subset \bar A \), on peut regarder les points entre l'adhérence et l'intérieur.
 \begin{definition}	\label{PropDescFrpbsmI}
   Soit \( X \) un espace topologique, et \( A \subset X \). La \defe{frontière}{frontière} de \( A \), notée \( \partial A \), est l'ensemble des points adhérents de \( A \) qui ne sont pas intérieurs à \( A \). Ainsi,
   \begin{equation}
@@ -509,7 +537,7 @@ Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \f
 \end{proof}
 
 \begin{lemma}
-	La frontière de $A$ peut également s'exprimer des façons suivantes :
+  Soit \( A \subset X \), où \( X \) est un espace topologique. La frontière de $A$ peut également s'exprimer des façons suivantes :
 	\begin{equation}
 		\partial A= \bar A\cap(\mathring A)^c = \bar A\cap\overline{ A^c}.
 	\end{equation}
@@ -517,6 +545,16 @@ Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \f
 
 \begin{proof}
 	En partant de $\partial A=\bar A\setminus \mathring A$, la première égalité est une application de la propriété~\ref{ItemLemPropComplementiii} du lemme~\ref{LemPropsComplement}. La seconde égalité est alors~\eqref{PropCompleIntBar}.
+\end{proof}
+
+\begin{lemma}
+  Soit \( A \subset X \), où \( X \) est un espace topologique. Alors \( \partial A = \emptyset \) si et seulement si \( A \) est à la fois ouvert et fermé.
+\end{lemma}
+
+\begin{proof}
+  Si \( \partial A = \emptyset \), alors \( \bar A \subset \mathring A \); or on a aussi \( \mathring A \subset A \subset \bar A \). Les ensembles \( \mathring A \), \(A \) et \( \bar A \) sont donc tous égaux, ce qui, grâce aux remarques~\ref{RemIntOuvert} et \ref{RemAdhFerme}, est équivalent au fait que \( A \) soit à la fois ouvert et fermé.
+
+  Réciproquement, si \( A \) est ouvert et fermé, alors \( \mathring A = \bar A \), et donc  \( \partial A = \emptyset \).
 \end{proof}
 
 \begin{example}
@@ -557,10 +595,19 @@ Prenons \( X=\eR\) et \( A=\mathopen] 0 , 1 \mathclose[\). Si \( B=\mathopen] \f
     Soient un espace topologique \( X\) et une partie \( A\) de \( X\). Un point \( s\in X \) est un \defe{point d'accumulation}{point d'accumulation} de \( A\) si tout ouvert contenant \( s\) contient au moins un élément de \( A\setminus\{ s \}\).
 \end{definition}
 
+\begin{proposition}
+  Tout point d'accumulation est un point d'adhérence.
+\end{proposition}
+
+\begin{proof}
+  Il suffit de se référer aux définitions \ref{DEFooGHUUooZKTJRi} et \ref{DEFooSVWMooLpAVZR}. Si \( s \in X \) est d'accumulation pour un ensemble \( A \), alors tout ouvert le contenant rencontre \( A \setminus \{s \}\) et donc, rencontre \( A \) aussi.
+\end{proof}
+
 Quelle est la différence entre un point d'accumulation et un point d'adhérence ? La différence est que tous les points de \( A\) sont des points d'adhérence de \( A\), parce que tout voisinage de \( a\in A\) contient au moins \( a\) lui-même, alors que certains points de \( A\) peuvent ne pas être des points d'accumulation de \( A\).
 
 \begin{example}     \label{EXooWOYQooJolaTV}
     Soit \( D=\mathopen] 1 , 2 \mathclose[\cup\{ 12 \}\). Le point \( 12\) est d'adhérence, mais pas d'accumulation parce que le voisinage \( \mathopen] 9 , 14 \mathclose[\) n'intersecte pas \( D\setminus \{ 12 \}\).
+
 \end{example}
 
 \begin{definition}      \label{DEFooXIOWooWUKJhN}
@@ -583,7 +630,7 @@ Quelle est la différence entre un point d'accumulation et un point d'adhérence
         \item
             Les points intérieurs sont tous des points d'accumulation.
         \item
-            Les points isolés ne sont jamais intérieurs.
+            Les points isolés ne sont jamais intérieurs.\quext{Ça, seulement si la topologie est bien foutue. Imaginez qu'un point soit ouvert à lui tout seul\dots}
         \item
             Certains points d'accumulation ne font pas partie de l'ensemble. Par exemple le point $1$ est un point d'accumulation de $E=\mathopen] 0 , 1 \mathclose[$.
         \item
@@ -602,19 +649,19 @@ Quelle est la différence entre un point d'accumulation et un point d'adhérence
 Nous voyons maintenant ce que ces définitions donnent dans le cas de l'espace topologique \( \eR\).
 
 \begin{lemma}
-    Soit $D\subset\eR$. Un point $a\in D$ est isolé dans $D$ si et seulement si existe $\varepsilon>0$ tel que
-    \begin{equation}
-        \mathopen] a-\varepsilon , a+\varepsilon \mathclose[\cap D=\{ a \}.
-    \end{equation}
-    Autrement dit, il existe un intervalle autour de $a$ dans lequel $a$ est le seul élément de $D$.
-\end{lemma}
-
-\begin{lemma}
     Un point $a\in \eR$ est un point d'accumulation de $D$ si pour tout $\varepsilon>0$,
     \begin{equation}
         \Big( \mathopen] a-\varepsilon , a+\varepsilon \mathclose[\setminus\{ a \} \Big)\cap D\neq\emptyset.
     \end{equation}
     Autrement dit, quel que soit l'intervalle autour de  $a$ que l'on considère, le point $a$ n'est pas tout seul dans $D$.
+\end{lemma}
+
+\begin{lemma}
+    Soit $D\subset\eR$. Un point $a\in D$ est isolé dans $D$ si et seulement si existe $\varepsilon>0$ tel que
+    \begin{equation}
+        \mathopen] a-\varepsilon , a+\varepsilon \mathclose[\cap D=\{ a \}.
+    \end{equation}
+    Autrement dit, il existe un intervalle autour de $a$ dans lequel $a$ est le seul élément de $D$.
 \end{lemma}
 
 %---------------------------------------------------------------------------------------------------------------------------

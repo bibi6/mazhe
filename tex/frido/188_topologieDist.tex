@@ -34,13 +34,13 @@ Certains ensembles ont plus de structures qu'une topologie. Nous fixons quelques
     Un couple \((E,d)\) formé d'un ensemble et d'une distance est un \defe{espace métrique}{espace!métrique}.
 \end{definition}
 
-\begin{definition}
+\begin{definition}  \label{EQooYCWSooIhibvd}
 	Soit \((E,d)\) un espace métrique, $a\in E$ et $r>0$. Nous allons abondamment nous servir des ensembles suivants :
 	\begin{enumerate}
 		\item
 			la \defe{boule ouverte}{boule!ouverte} $B(a,r)=\{ x\in E\tq d(x,a)<r \}$;
 		\item
-			la \defe{boule fermée}{boule!fermée} $\bar B(a,r)=\{ x\in E\tq d(x-a)\leq r \}$;
+			la \defe{boule fermée}{boule!fermée} $\bar B(a,r)=\{ x\in E\tq d(x,a)\leq r \}$;
 		\item
 			la \defe{sphère}{sphère} $S(a,r)=\{ x\in E\tq d(x,a)=r \}$.
 
@@ -52,44 +52,20 @@ Les différences entre ces trois ensembles sont très importantes. D'abord, les 
 \end{equation}
 
 \begin{example}
-	Dans $\eR$, les boules sont  les intervalles ouverts et fermés tandis que la sphère est donnée par les points extrêmes des intervalles :
+  Dans $\eR$, les boules sont les intervalles ouverts et fermés tandis que la sphère est donnée par les points extrêmes des intervalles :
 	\begin{equation}
-		\begin{aligned}[]
+		\begin{aligned}
 			B(a,r)&=\mathopen] a-r , a+r \mathclose[,\\
-			\bar B(a,r)&=\mathopen[ a-r , a+b \mathclose],\\
+			\bar B(a,r)&=\mathopen[ a-r , a+r \mathclose],\\
 			S(a,r)&=\{ a-r,a+r \}.
 		\end{aligned}
 	\end{equation}
-\end{example}
-
-\begin{example}
-	Si nous considérons $\eR^2$, la situation est plus riche parce que nous avons plus de normes. Essayons de voir les sphères de centre $(0,0)\in\eR^2$ et de rayon $r$ pour les normes $\| . \|_1$, $\| . \|_2$ et $\| . \|_{\infty}$.
-
-	Pour la norme $\| . \|_1$, la sphère de rayon $r$ est donnée par l'équation
-	\begin{equation}
-		| x |+| y |=r.
-	\end{equation}
-	Pour la norme $\| . \|_2$, l'équation de la sphère de rayon $r$ est
-	\begin{equation}
-		\sqrt{x^2+y^2}=r,
-	\end{equation}
-	et pour la norme supremum, la sphère de rayon $r$ a pour équation
-	\begin{equation}
-		\max\{ | x |,| y | \}=r.
-	\end{equation}
-	Elles sont dessinées sur la figure~\ref{LabelFigLesSpheres}
-\newcommand{\CaptionFigLesSpheres}{Les sphères de rayon $1$ pour les trois normes classiques.}
-\input{auto/pictures_tex/Fig_LesSpheres.pstricks}
+        Tout cela reste cohérent avec les boules que l'on a définies pour les corps ordonnés (définitions \ref{DefKCGBooLRNdJf}).
 \end{example}
 
 La définition-théorème suivante donne une topologie sur les espaces métriques en partant des boules.
 \begin{theoremDef}     \label{ThoORdLYUu}
-    Soit \( (E,d)\) un espace métrique. Nous définissons les \defe{boules ouvertes}{boule!ouverte} par
-    \begin{equation}        \label{EQooYCWSooIhibvd}
-        B(x,r)=\{ y\in E\tq d(x,y)<r \}.
-    \end{equation}
-    pout tout \( x\in E\) et \( r>0\).
-    Alors en posant
+    Soit \( (E,d)\) un espace métrique. Alors en posant
     \begin{equation}        \label{EqGDVVooDZfwSf}
         \mT=\big\{  \mO\subset E  \tq\forall x\in \mO,\exists r>0\tq B(x,r)\subset \mO \big\}
     \end{equation}
@@ -99,7 +75,7 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
 \end{theoremDef}
 
 \begin{proof}
-    D'abord \( \emptyset\in\mT\) parce que tout élément de l'ensemble vide \ldots heu \ldots enfin parce que d'accord hein\footnote{Pour qui ne seraient pas d'accord, allez ajouter \( \emptyset\) dans la définition des ouverts et puis c'est tout.}. Ensuite si \( (A_i)_{i\in I}\) sont des éléments de \( \mT\) et si \( x\in\bigcup_{i\in I}A_i\) alors il existe \( k\in I\) tel que \( x\in A_k\). Par hypothèse il existe une boule \( B(x,r)\subset A_k\subset\bigcup_{i\in I}A_i\).
+    D'abord \( \emptyset\in\mT\) parce que tout élément de l'ensemble vide\dots{} heu\dots{} enfin parce que d'accord hein\footnote{Pour qui ne seraient pas d'accord, allez ajouter \( \emptyset\) dans la définition des ouverts et puis c'est tout.}. Ensuite si \( (A_i)_{i\in I}\) sont des éléments de \( \mT\) et si \( x\in\bigcup_{i\in I}A_i\) alors il existe \( k\in I\) tel que \( x\in A_k\). Par hypothèse il existe une boule \( B(x,r)\subset A_k\subset\bigcup_{i\in I}A_i\).
 
     Enfin si \( (A_i)_{i\in\{ 1,\ldots, n \}}\) sont des éléments de \( \mT\) alors pour tout \( i\) il existe \( r_i>0\) tel que \( B(x,r_i)\subset A_i\). En prenant \( r=\min\{ r_i \}_{i=1,\ldots, n}\) nous avons $B(x,r)\subset\bigcap_{i=1}^nA_i.$
 \end{proof}
@@ -110,7 +86,7 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
     \item
       Cette définition est faite exprès pour respecter le théorème~\ref{ThoPartieOUvpartouv}. Même si, a priori, on aurait dû utiliser la topologie engendrée faite à l'exemple \ref{DefTopologieEngendree}\dots\ mais on peut montrer que les deux topologies sont les mêmes.
     \item      \label{ITEMooUIHJooXAFaIz}
-      Par construction, les boules ouvertes sont une base de la topologie (définition~\ref{DefQELfbBEyiB}) des espaces métriques.
+      Les boules ouvertes sont une base de la topologie (définition~\ref{DefQELfbBEyiB}) des espaces métriques. En effet, dans une intersection finie de boules ouvertes, on trouve encore une boule ouverte.
     \item       \label{ITEMooUIHJooXAFaJa}
       Si \( V\) est un voisinage de \( x\), alors il existe \( r\) tel que \( B(x,r)\subset V\).
     \item
@@ -123,6 +99,14 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
 
     De plus, les boules définies en~\ref{DefKCGBooLRNdJf} sont alors les mêmes que celles définies en \eqref{EQooYCWSooIhibvd}, ce qui donne à tout corps totalement ordonné une structure d'espace topologique.
 \end{normaltext}
+
+\begin{proposition} \label{TopologieR_ord_top}
+  Les topologies de \( \eR \) en tant que corps ordonné (à l'aide de \ref{DefKCGBooLRNdJf}) et de \( \eR \) en tant qu'espace topologique (définition \ref{DefTopologieREngendree}) sont les mêmes.
+\end{proposition}
+
+\begin{proof}
+  Du corps ordonné \( \eR \), on recrée les intervalles, et donc la topologie. Reste à voir le sens inverse: est-ce que, de tous les intervalles, on recrée les boules? La réponse est oui: de l'intervalle \( \mathopen]a, b\mathclose[ \), on obtient la boule \( B(\frac{a+b} 2, \frac{b-a} 2) \).
+\end{proof}
 
 \begin{example}			\label{ExempleIntBoules}
 	Les intérieurs des boules et sphères sont importantes à savoir.
@@ -158,16 +142,16 @@ La définition-théorème suivante donne une topologie sur les espaces métrique
 \begin{proof}
     Soient \( x\in E\) et \( V\) un voisinage de \( x\). Ce dernier contient une boule \( B(x,r)\) et quitte à prendre \( r\) un peu plus petit nous supposons que \( r\in \eQ\) (existence d'un tel rationnel par le lemme \ref{LemooHLHTooTyCZYL}).
 
-    Soit \( a\in A\) avec \( \| a-x \|<\frac{ r }{ 3 }\) (existe par densité de \( A\) dans \( E\)); nous avons \( B(a,\frac{ 2r }{ 3 })\subset B(x,r)\) parce que si \( y\in B( a,\frac{ 2r }{ 3 } )\) alors
+    Soit \( a\in A\) avec \( d(a,x) <\frac{ r }{ 3 }\) (existe par densité de \( A\) dans \( E\)); nous avons \( B(a,\frac{ 2r }{ 3 })\subset B(x,r)\) parce que si \( y\in B( a,\frac{ 2r }{ 3 } )\) alors
     \begin{equation}
-        \| y-x \|\leq \| y-a \|+\| a-x \|<\frac{ 2 }{ 3 }r+\frac{ 1 }{ 3 }r=r.
+        d( y, x) \leq d(y, a) + d( a, x) < \frac{ 2 }{ 3 }r+\frac{ 1 }{ 3 }r=r.
     \end{equation}
     La seconde inégalité est stricte parce que les boules sont ouvertes. Le tout montre que \( y\in B(x,r)\). Par ailleurs \( x\in B(a,\frac{ 2 }{ 3 }r)\) et nous avons trouvé un élément de \( \mB\) contenant \( x\) tout en étant inclus dans \( V\). Cela prouve que \( \mB\) est bien une base de la topologie de \( E\).
 \end{proof}
 
 
 \begin{remark}      \label{RemIPVLooHUXyeW}
-    Il est vite vu que les cubes ouverts forment aussi une base de la topologie de \( \eR^n\). Cela est à mettre en rapport avec le fait que toutes les normes sont équivalentes sur \( \eR^n\) (proposition~\ref{ThoNormesEquiv}).
+    De par la construction faite à la définition~\ref{DefTopologieRn}, il est vite vu que les cubes ouverts forment une base de la topologie de \( \eR^n\). Mais, sur \( \eR^n \), on a aussi la distance «usuelle» euclidienne. Cela est à mettre en rapport avec le fait que toutes les normes sont équivalentes sur \( \eR^n\) (proposition~\ref{ThoNormesEquiv}).
 
     % position 13268
 
@@ -194,31 +178,29 @@ La propriété suivante donne des caractérisations importantes de la continuit�
             \( f\) est continue en \( a\),
         \item\label{ItemCBUoRWJii}
             Pour tout voisinage ouvert \( W\) de \( f(a)\), il existe un voisinage ouvert \( V\) de \( a\) tel que \( f(V)\subset W\).
-        \item\label{ItemCBUoRWJiii}
-            Pour toute boule \( W'=B\big( f(a),\epsilon \big)\), il existe une boule \( V'=B(a,\delta)\) telle que \( f(V)\subset W\).
-        \item\label{ItemCBUoRWJiv}
-            $\forall \epsilon>0,\,\exists \delta>0\,\tq f\big( B(a,\delta) \big)\subset B\big( f(a),\epsilon \big)$.
         \item\label{ItemYNQpikrii}
             \( \lim_{x\to a}f(x)=f(a)\) où la limite est donnée par la définition~\ref{DefYNVoWBx},
+        \item\label{ItemCBUoRWJiii}
+            Pour toute boule \( W'=B\big( f(a),\epsilon \big)\), il existe une boule \( V'=B(a,\delta)\) telle que \( f(V')\subset W'\).
+        \item\label{ItemCBUoRWJiv}
+            $\forall \epsilon>0,\,\exists \delta>0\,\tq f\big( B(a,\delta) \big)\subset B\big( f(a),\epsilon \big)$.
         \item\label{ItemYNQpikriii}
-            Pour tout \( \epsilon>0\), il existe \( \delta>0\) tel que \( \| x-a \|<\delta\) implique \( \| f(x)-f(a) \|<\epsilon\).
+            Pour tout \( \epsilon>0\), il existe \( \delta>0\) tel que, pour tout \( x \in E\), si \( d_E(x,a)<\delta\), alors \( d_F\bigl(f(x),f(a)\bigr)<\epsilon\).
     \end{enumerate}
 \end{proposition}
 \index{continue!fonction entre espaces métriques}
 La proposition~\ref{PropNGjQnqF} nous montrera que ces équivalences tiennent encore lorsque l'espace a une topologie de semi-normes.
 
 \begin{proof}
-    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemCBUoRWJii} est la définition~\ref{DefOLNtrxB}. L'équivalence~\ref{ItemCBUoRWJiii} \( \Leftrightarrow\)~\ref{ItemCBUoRWJiv} est une simple paraphrase.
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemCBUoRWJii} est la définition~\ref{DefOLNtrxB}. L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemYNQpikrii} est la définition~\ref{DefOLNtrxB} de la continuité en un point couplée à l'unicité de la limite due à la proposition~\ref{PropFObayrf} parce qu'un espace métrique est séparé (remarque~\ref{RemQDRooKnwKk}). Ensuite, l'équivalence~\ref{ItemCBUoRWJiii} \( \Leftrightarrow\)~\ref{ItemCBUoRWJiv} est une simple paraphrase.
 
-    Montrons~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemCBUoRWJiii}. Si \( W'=B\big( f(a),\delta \big)\), nous avons un voisinage \( V\) de \( a\) tel que \( f(V)\subset W\). L'ensemble \( V\) contenant une boule autour de chacun de ses points\footnote{Cela est le théorème-définition~\ref{ThoORdLYUu} des ouverts dans un espace métrique, à ne pas confondre avec le théorème~\ref{ThoPartieOUvpartouv}.}, il en contient un autour de \( a\) : \( V'=B(a,\delta)\subset V\). A fortiori nous avons \( f(V')\subset W\).
+    Montrons~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemCBUoRWJiii}. Si \( W=B\big( f(a),\delta \big)\), nous avons un voisinage \( V\) de \( a\) tel que \( f(V)\subset W\). L'ensemble \( V\) contenant une boule autour de chacun de ses points\footnote{Cela est le théorème-définition~\ref{ThoORdLYUu} des ouverts dans un espace métrique, à ne pas confondre avec le théorème~\ref{ThoPartieOUvpartouv}.}, il en contient un autour de \( a\) : \( V'=B(a,\delta)\subset V\). A fortiori nous avons \( f(V')\subset W\).
 
-    Montrons~\ref{ItemCBUoRWJiii} \( \Rightarrow\)~\ref{ItemCBUoRWJii}. Si \( W\) est un ouvert autour de \( f(a)\), il contient une boule autour de \( f(a)\) : \( B\big( f(a),\epsilon \big)\subset W\). Il existe donc une boule \( V'=B(a,\delta)\) telle que \( f(V')\subset B\big( f(a),\epsilon \big)\subset W\).
+    Montrons~\ref{ItemCBUoRWJiii} \( \Rightarrow\)~\ref{ItemCBUoRWJii}. Si \( W\) est un ouvert autour de \( f(a)\), il contient une boule autour de \( f(a)\) : \(B\big( f(a),\epsilon \big)\subset W\). Il existe donc une boule \( V'=B(a,\delta)\) telle que \( f(V')\subset B\big( f(a),\epsilon \big)\subset W\).
 
-    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemYNQpikrii} est la définition~\ref{DefOLNtrxB} de la continuité en un point couplée à l'unicité de la limite due à la proposition~\ref{PropFObayrf} parce qu'un espace métrique est séparé.
+    Prouvons~\ref{ItemCBUoRWJiii} \( \Rightarrow\)~\ref{ItemYNQpikriii}. Soient \( \epsilon>0\); posons \( W=B\big( f(a),\epsilon \big)\). Il existe un voisinage \( V\) de \( a\), de la forme \( V = B(a, \delta) \), tel que \( f(V)\subset W\). Pour ce \( \delta \), si \( d_E(x,a) <\delta\) nous avons \( x\in B(x,\delta)\subset W\) et donc \( f(x)\in B\big( f(a),\epsilon \big)\), c'est à dire \( d_F\bigl(f(x),f(a)\bigr)<\epsilon\).
 
-    Prouvons~\ref{ItemYNQpikrii} \( \Rightarrow\)~\ref{ItemYNQpikriii}. Soient \( \epsilon>0\) et \( V=B\big( f(a),\epsilon \big)\). Étant donné que \( f(a)\) est une limite de \( f\) pour \( x\to a\), il existe un voisinage \( W\) de \( a\) tel que \( f(W)\subset V\). Soit \( \delta>0\) tel que \( B(a,\delta)\subset W\); alors si \( \| x-a \|<\delta\) nous avons \( x\in B(x,\delta)\subset W\) et donc \( f(x)\in B\big( f(a),\epsilon \big)\), c'est à dire \( \| f(a)-f(x) \|<\epsilon\).
-
-    Enfin l'implication~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemYNQpikrii} est une réécriture de la définition de la limite en un point.
+    Terminons en prouvant \ref{ItemYNQpikriii} \( \Rightarrow\)~\ref{ItemCBUoRWJiv}. Soit \( \epsilon > 0 \), on sait par \ref{ItemYNQpikriii} qu'il existe \( \delta > 0 \) tel que, en paraphrasant, si \( x \in E \) est tel que \( x \in B(a,\delta)\), alors \( f(x) \in B(f(a),\epsilon)\). Mais alors, les images de tous les points de \(B(a,\delta)\) par \( f \) sont dans \( B(f(a),\epsilon)\), en d'autres termes: \( f\big( B(a,\delta) \big)\subset B\big( f(a),\epsilon \big) \).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -267,8 +249,15 @@ Un résultat important dans la théorie des fonctions sur les espaces vectoriels
 \end{proof}
 
 \begin{example}[Non compacité de la boule unité en dimension infinie]\label{ExEFYooTILPDk}
-    Le théorème de Bolzano-Weierstrass permet de voir tout de suite que la boule unité n'est pas compacte dans un espace vectoriel de dimension infinie : la suite des vecteurs de base ne possède pas de sous-suites convergentes.
+    Le théorème de Bolzano-Weierstrass permet de voir tout de suite que la boule unité n'est pas compacte dans un espace vectoriel de dimension infinie. Certes la boule unité est encore fermée et bornée, mais elle n'est plus compacte. En effet nous allons donner un recouvrement par des ouverts duquel il ne sera pas possible d'extraire un sous-recouvrement fini.
+
+    Autour de chacune des extrémités des vecteurs de base, nous considérons la boule \( A_i=B(e_i,\frac{1}{ 3 })\). Ensuite aussi l'ouvert
+    \begin{equation}
+        B(0,1)\setminus\bigcup_i\overline{ B(e_i,\frac{1}{ 4 })}.
+    \end{equation}
+    Le tout recouvre \( B(0,1)\) mais toutes les premières boules sont nécessaires.
 \end{example}
+\index{compact!boule unité}
 
 
 Le théorème de Bolzano–Weierstrass~\ref{ThoBWFTXAZNH} a l'importante conséquence suivante.
@@ -353,6 +342,31 @@ Le théorème de Bolzano–Weierstrass~\ref{ThoBWFTXAZNH} a l'importante conséq
 \end{definition}
 En prenant $\lambda=-1$ dans la propriété~\ref{ItemDefNormeii}, nous trouvons immédiatement que $N(-x)=N(x)$.
 
+Afin de pouvoir étudier la topologie des espaces métriques, il faut savoir quelques propriétés des réels parce que nous allons étudier la fonction distance qui est une fonction continue à valeurs dans les réels.
+
+La valeur absolue de la définition~\ref{DefKCGBooLRNdJf}\ref{ItemooWUGSooRSRvYC} permet de définir une norme sur \( \eR\).
+\begin{lemma}
+    L'application
+    \begin{equation}
+         x\mapsto | x |
+    \end{equation}
+     est une norme sur $\eR$.
+\end{lemma}
+
+\begin{proof}
+  Grâce au lemme \ref{LemooANTJooYxQZDw} et à la remarque \ref{RemooJCAUooKkuglX}, on a, pour tous \(x,\ y,\ \lambda \in \eR \):
+\begin{enumerate}
+\item $| x |=0$ implique $x=0$,
+\item $| \lambda x |=| \lambda | |x |$,
+\item $| x+y |\leq | x |+| y |$,
+\end{enumerate}
+et donc, les conditions de la définition \ref{DefNorme} sont immédiatement vérifiées.
+\end{proof}
+
+\begin{normaltext}      \label{ooLCMFooQjMaxV}
+    Nous verrons plus tard que cette norme donne lieu à une structure d'espace topologique, qui est finalement la même que celle introduite en la définition~\ref{DefTopologieREngendree}. Tant sur \( \eQ\) que sur \( \eR\), nous considérons la topologie métrique correspondant à cette norme (hors cas rarissimes qui seront signalés). De plus, nous utiliserons toujours les caractérisations de la proposition~\ref{PropooUEEOooLeIImr} pour parler de suites convergentes et de suites de Cauchy.
+\end{normaltext}
+
 \begin{proposition}		\label{PropNmNNm}
 	Toute norme $N$ sur l'espace vectoriel $E$ vérifie l'inégalité
 	\begin{equation}
@@ -414,6 +428,9 @@ Un espace vectoriel $E$ muni d'une norme est, on l'a déjà dit, un \defe{espace
     \end{equation}
 \end{proof}
 
+\begin{remark}
+  La valeur absolue est finalement la même que celle du corps ordonné \( \eR \) (définition~\ref{DefKCGBooLRNdJf}). Avec la proposition~\ref{TopologieR_ord_top}, on constate que, finalement, on retombe sur la topologie usuelle donnée avec la définition~\ref{DefTopologieREngendree}.
+\end{remark}
 
 \begin{proposition}
 Un espace vectoriel normé est un espace vectoriel topologique : en d'autres mots, l'addition et la multiplication par un élément du corps sont continues pour la topologie induite de la norme.
@@ -447,27 +464,11 @@ et on conclut en prenant\( R = r + \| x \| \).
 \subsection{Ouverts, fermés, intérieur et adhérence}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{proposition}
-	Une partie $A$ de l'espace vectoriel normé $V$ est dite \defe{compacte}{compact} si elle est fermée et bornée.
-\end{proposition}
-
-Nous verrons que les ensembles compacts, et les fonctions définies sur ces ensembles ont de nombreuses propriétés agréables.
-
-\begin{example}		\label{ExempleFermeIntevrR}
-	En ce qui concerne les intervalles de $\eR$,
-	\begin{itemize}
-		\item $\mathopen] 1 , 2 \mathclose[$ est ouvert;
-		\item $\mathopen[ 3,  4 \mathclose]$ est fermé;
-		\item $\mathopen[ 5 , 6 [$ n'est ni ouvert ni fermé;
-	\end{itemize}
-	Les intervalles fermés de $\eR$ sont toujours compacts.
-\end{example}
-
 \begin{proposition}		\label{PropTopologieAx}
 	Soit $V$ un espace vectoriel normé.
 	\begin{enumerate}
 		\item
-			L'ensemble $V$ lui-même et le vide sont à la fois fermés et ouverts.
+			L'ensemble $V$ lui-même et le vide sont à la fois fermés et ouverts, et ce sont les seuls à avoir cette propriété.
 		\item
 			Toute union d'ouverts est ouverte.
 		\item
@@ -483,6 +484,9 @@ Nous verrons que les ensembles compacts, et les fonctions définies sur ces ense
 
 		\item
 			Nous avons déjà dit que, par définition, l'ensemble vide est ouvert. Cela implique que $V$ lui-même est fermé (parce que son complémentaire est le vide). De plus, $V$ est ouvert parce que toutes les boules sont inclues à $V$. Le vide est alors fermé (parce que son complémentaire est $V$).
+
+                        Reste à voir que ce sont les seuls.
+%TODO: le faire.
 		\item
 			Soit une famille $(\mO_i)_{i\in I}$ d'ouverts\footnote{L'ensemble $I$ avec lequel nous «numérotons» les ouverts $\mO_i$ est \emph{quelconque}, c'est à dire qu'il peut être $\eN$, $\eR$, $\eR^n$ ou n'importe quel autre ensemble, fini ou infini.}, et l'union
 			\begin{equation}
@@ -500,8 +504,6 @@ Nous verrons que les ensembles compacts, et les fonctions définies sur ces ense
 				B(a,r)\subset\bigcap_{k=1}^nB(a,r_k)\subset\bigcap_{k=1}^n\mO_k=\mO,
 			\end{equation}
 			c'est à dire que la boule de rayon $r$ est une boule centrée en $a$ contenue dans $\mO$, ce qui fait que $a$ est intérieur à $\mO$.
-		\item
-			Nous acceptons ce point sans démonstration.
 	\end{enumerate}
    % TODO : trouver et mettre une preuve du dernier point.
 

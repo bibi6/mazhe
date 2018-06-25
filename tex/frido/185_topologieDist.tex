@@ -6,50 +6,7 @@
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Topologie sur l'ensemble des réels}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{SECooGKHYooMwHQaD}
 
-Nous allons à présent donner la topologie sur \( \eR\) et ainsi résoudre les questions laissées en suspens lors de la construction des réels, voir~\ref{NormooHRDZooRGGtCd}.
-
-
-Afin de pouvoir étudier la topologie des espaces métriques, il faut savoir quelques propriétés des réels parce que nous allons étudier la fonction distance qui est une fonction continue à valeurs dans les réels.
-
-La valeur absolue de la définition~\ref{DefKCGBooLRNdJf}\ref{ItemooWUGSooRSRvYC} permet de définir une norme sur \( \eR\).
-\begin{lemma}
-    L'application
-    \begin{equation}
-         x\mapsto | x |
-    \end{equation}
-     est une norme sur $\eR$.
-\end{lemma}
-
-\begin{proof}
-  Grâce au lemme \ref{LemooANTJooYxQZDw} et à la remarque \ref{RemooJCAUooKkuglX}, on a, pour tous \(x,\ y,\ \lambda \in \eR \):
-\begin{enumerate}
-\item $| x |=0$ implique $x=0$,
-\item $| \lambda x |=| \lambda | |x |$,
-\item $| x+y |\leq | x |+| y |$,
-\end{enumerate}
-et donc, les conditions de la définition \ref{DefNorme} sont immédiatement vérifiées.
-\end{proof}
-
-\begin{normaltext}      \label{ooLCMFooQjMaxV}
-    Nous verrons plus tard que cette norme donne lieu à une structure d'espace topologique. Tant sur \( \eQ\) que sur \( \eR\), nous considérons la topologie métrique correspondant à cette norme (hors cas rarissimes qui seront signalés). De plus, nous utiliserons toujours les caractérisations de la proposition~\ref{PropooUEEOooLeIImr} pour parler de suites convergentes et de suites de Cauchy.
-\end{normaltext}
-
-
-
-\begin{example}[Compacité de la boule unité]
-    La boule unité fermée \( \overline{ B(0,1) }\) d'un espace vectoriel normé de dimension finie est compacte parce que fermée et bornée. En dimension infinie, cela n'est plus le cas. Certes la boule unité est encore fermée et bornée, mais elle n'est plus compacte. En effet nous allons donner un recouvrement par des ouverts duquel il ne sera pas possible d'extraire un sous-recouvrement fini.
-
-    Autour de chacune des extrémités des vecteurs de base, nous considérons la boule \( A_i=B(e_i,\frac{1}{ 3 })\). Ensuite aussi l'ouvert
-    \begin{equation}
-        B(0,1)\setminus\bigcup_i\overline{ B(e_i,\frac{1}{ 4 })}.
-    \end{equation}
-    Le tout recouvre \( B(0,1)\) mais toutes les premières boules sont nécessaires.
-\end{example}
-\index{compact!boule unité}
-
-Le théorème de Bolzano-Weierstrass nous permettra de prouver plus simplement la non compacité en dimension infinie. Voir l'exemple~\ref{ExEFYooTILPDk}.
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Suites et limites dans les réels}
 %---------------------------------------------------------------------------------------------------------------------------
