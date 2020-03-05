@@ -51,9 +51,9 @@
 \ifthenelse{\isundefined{\lengthOfforyanntricks}}{\newlength{\lengthOfforyanntricks}}{}
 \immediate\openout\writeOfyanntricks=GMRNooCNBpIl.yanntricks.aux%
 %WRITE_AND_LABEL
-\setlength{\lengthOfforyanntricks}{\totalheightof{\cdot}}%
+\setlength{\lengthOfforyanntricks}{\totalheightof{$\cdot$}}%
 \immediate\write\writeOfyanntricks{totalheightof9204fd4be60aaa10dec0929315049a65155d8ffc:\the\lengthOfforyanntricks-}
-\setlength{\lengthOfforyanntricks}{\widthof{\cdot}}%
+\setlength{\lengthOfforyanntricks}{\widthof{$\cdot$}}%
 \immediate\write\writeOfyanntricks{widthof9204fd4be60aaa10dec0929315049a65155d8ffc:\the\lengthOfforyanntricks-}
 \setlength{\lengthOfforyanntricks}{\totalheightof{*}}%
 \immediate\write\writeOfyanntricks{totalheightofdf58248c414f342c81e056b40bee12d17a08bf61:\the\lengthOfforyanntricks-}

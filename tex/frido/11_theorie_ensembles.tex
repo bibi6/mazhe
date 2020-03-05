@@ -1,0 +1,1333 @@
+% This is part of Mes notes de mathématique
+% Copyright (c) 2011-2020
+%   Laurent Claessens
+% See the file fdl-1.3.txt for copying conditions.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Quelques éléments sur les ensembles}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Petit mot d'introduction}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{normaltext}
+
+Le Frido n'est pas supposé être lu dans l'ordre de la première à la dernière page; les matières y sont présentées dans l'ordre logique mathématique, et non dans l'ordre logique pédagogique, et encore moins par ordre de difficulté croissante.
+
+En mathématique, si on lit une démonstration et que l'on veut vraiment tout justifier, et justifier toutes les étapes de tous les résultats utilisés, on tombe forcément un jour sur les axiomes.
+
+Or l'axiomatique est un sujet particulièrement difficile. Nous n'allons donc pas «tout justifier» jusque là. Nous n'allons même pas préciser quel système d'axiome est utilisé. En particulier nous n'allons pas donner l'axiomatique des ensembles : nous allons supposer connus les ensembles et leurs principales propriétés.
+
+Bref. Nous supposons avoir une théorie des ensembles qui tient la route. En particulier nous supposons connues les notions suivantes :
+\begin{enumerate}
+    \item
+        ensemble vide,
+    \item
+        ensemble, appartenance, intersection, union,
+    \item
+        application entre deux ensembles, notation \( f(x)\) pour désigner l'image de \( x\) par \( f\),
+    \item
+        produit cartésien de plusieurs ensembles.
+\end{enumerate}
+Ce sont toutes des choses dont la construction à partir des axiomes n'est en aucun cas évidente. En particulier, des «définitions» comme «l'intersection de deux ensembles est l'ensemble contenant exactement les éléments communs aux deux ensembles» ne sont pas correctes parce qu'elles passent à côté de l'existence et de l'unicité d'un tel ensemble.
+\end{normaltext}
+
+Une petite définition cependant, que l'on utilisera :
+\begin{definition}\label{DefEnsemblesDisjoints}
+    Deux ensembles $A$ et $B$ sont \defe{disjoints}{ensembles!disjoints} si leur intersection est vide\footnote{Remarquez que les mots «intersection» et «vide» sont de ceux que nous avons décidé de ne pas définir.}; en d'autres termes, s'il n'existe aucun élément commun à $A$ et $B$.
+\end{definition}
+
+\begin{normaltext}
+    Remarquez par exemple que la première phrase de l'article de Wikipédia sur la construction de \( \eN\) est «Partant de la théorie des ensembles, on identifie 0 à l'ensemble vide, puis on construit \ldots». Il est bien précisé que l'on part d'une théorie des ensembles.
+\end{normaltext}
+
+\begin{normaltext}
+    La suite de ce chapitre sera essentiellement sans exemples parce qu'avant d'avoir construit les ensembles de nombres, je ne sais pas très bien quels exemples on peut donner de quoi que ce soit.
+\end{normaltext}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Fonctions}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}[Fonction, domaine, image, graphe]
+  Soient $X$ et $Y$ deux ensembles. Une \defe{fonction}{fonction} $f$ définie sur $X$ et à valeurs dans $Y$ est une correspondence qui associe à chaque élément $x$ dans $X$ \emph{au plus} un élément $y$ dans $Y$. On écrit $y= f(x)$.
+  \begin{itemize}
+  \item La partie de $X$ qui contient tous les $x$ sur lesquels $f$ peut opérer est dite \defe{domaine}{domaine} de $f$. Le domaine de $f$ est indiqué par $\Dom f$.
+  \item Lorsque \( \Dom f = X \), alors on dit que \( f \) est une \defe{application}{fonction!application}.
+  \item L'élément de $y\in Y$ associé par $f$ à un élément $x\in \Dom f$ (c'est à dire $f(x) = y$)  est appellé \defe{image}{image} de $x$ par $f$. L'\defe{image}{fonction!image} de la fonction $f$ est la partie de $Y$ qui contient les images de tous les éléments de $\Dom f$. L'image de $f$ est indiquée par $\Im f$.
+  \item Le \defe{graphe}{graphe} de $f$ est l'ensemble de toutes les couples $(x, f(x))$ pour $x\in \Dom f$. Le graphe de $f$ est une partie de l'ensemble noté $X\times Y$ et il est indiqué par $\Graph f$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Injection, surjection, bijection]       \label{DEFooBFCQooPyKvRK}
+    Soient des ensembles \( X\) et \( Y\) ainsi qu'une fonction \( f\colon X\to Y\). On note \( A  = \Dom f \).
+    \begin{enumerate}
+        \item
+            La fonction \( f\) est \defe{injective}{injection} si, pour tous \( x_1, x_2 \in A \), dès que \( f(x_1)=f(x_2)\), on a \( x_1=x_2\).
+        \item
+            La fonction \( f\) est \defe{surjective}{surjection} si tous les éléments de \( Y\) sont atteints, c'est à dire si \( \Im f = Y\). En d'autres termes,  \( f \) est surjective si pour tout \( y\in Y\) il existe \( x\in A\) tel que \( f(x)=y\).
+        \item
+            La fonction \( f\) est une \defe{bijection}{bijection} entre \( A\) et \( B\) si elle est injective et surjective, c'est à dire si pour tout \( y\in B\) il existe un unique \( x\in A\) tel que \( f(x)=y\).
+    \end{enumerate}
+\end{definition}
+La méthode la plus courante pour démontrer qu'une application \( f\colon X\to Y\) est injective est de considérer \( x,y\in X\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et obtenir une contradiction. La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=f(y)\) implique une équation faisant intervenir \( 1/(x-y)\).
+
+La surjection et l'injection sont des propriétés bien différentes qu'il convient de prouver séparément. De plus une même «formule» peut définir une application injective, surjective, bijective ou non selon les ensembles sur lesquels nous la considérons.
+
+\subsubsection{Application réciproque}
+%//////////////////////
+
+\begin{definition}      \label{DEFooTRGYooRxORpY}
+    Soit \( f\colon A\to B\) une bijection. L'\defe{application réciproque}{application réciproque} de \( f\) est la fonction
+    \begin{equation}
+        \begin{aligned}
+            f^{-1}\colon B&\to A \\
+            y&\mapsto \text{le } x\in A\text{ tel que } f(x)=y.
+        \end{aligned}
+    \end{equation}
+
+
+  Plus généralement si \( f\colon X\to Y\) est une application quelconque et si \( S\subset Y\), nous notons
+  \begin{equation}
+      f^{-1}(S)=\{ x\in X\tq f(x)\in S \},
+  \end{equation}
+  et dans le cas où \( S\) est réduit à un unique élément \( y\), nous notons \( f^{-1}(y)\) au lieu de \( f^{-1}\big( \{ y \} \big)\). Si de plus \( f^{-1}(S)\) est un singleton \( x\), nous noterons \( f^{-1}(S)=x\) et non \( f^{-1}(S)=\{ x \}\).
+\end{definition}
+
+Les plus acharnés parmi les lecteurs se rendront compte de la différence ontologique fondamentale entre \( x\) et \( \{ x \}\).
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Ensembles ordonnés}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{normaltext}\label{NORooLMBYooYjUoju}
+L'\defe{axiome du choix}{axiome!du choix} que nous acceptons peut s'énoncer comme ceci\cite{ooKLIXooHbpufL} : Étant donné un ensemble X d'ensembles non vides, il existe une fonction définie sur X, appelée fonction de choix, qui à chacun d'entre eux associe un de ses éléments.
+\end{normaltext}
+
+\begin{definition}      \label{DefooFLYOooRaGYRk}
+    Une \defe{relation d'ordre}{ordre} sur un ensemble \( E\) est une relation binaire (notée \( \leq\)) sur \( E\) telle que pour tous \( x,y,z\in E\),
+    \begin{description}
+        \item[réflexivité] : \( x\leq x\)
+         \item[antisymétrie] : \( x\leq y\) et \( y\leq x\) implique \( x=y\)
+         \item[transitivité] : \( x\leq y\) et \( y\leq z\) implique \( x\leq z\).
+    \end{description}
+\end{definition}
+
+\begin{definition}      \label{DEFooVGYQooUhUZGr}
+    Un ensemble ordonné est \defe{totalement ordonné}{ordre!total} si deux éléments sont toujours comparables : si \( x,y\in E\) alors nous avons soit \( x\leq y\) soit \( y\leq x\). Si les éléments ne sont pas tous comparables, nous disons que l'ordre est \defe{partiel}{ordre!partiel}.
+\end{definition}
+
+\begin{definition}\label{MinMaxMaj_ensembleOrdonnes}
+    Soit un ensemble ordonné \( (E,\leq)\) et une partie \( A\) de \( E\). Nous disons que \( m\in A\) est un \defe{minimum}{minimum!ensemble ordonné} de \( A\) si pour tout \( x\in A\), l'élément \( m\) est comparable à \( x\) et \( m\leq x\).
+
+    Un élément \( p\in E\) est un \defe{minorant}{minorant} de \( A\) si pour tout \( a\in A\), l'élément \( p\) et \( a\) sont comparables et \( p\leq a\).
+
+    Les notions de \defe{maximum}{maximum} et de \defe{majorant}{majorant} sont définies de façon analogue.
+\end{definition}
+
+Lorsqu'une partie possède un minimum, ce dernier est nommé le «plus petit élément» de la partie. Attention : il n'en existe pas toujours. D'innombrables exemples pourront être vus lorsque nous aurons construits \( \eQ\) et \( \eR\). Typiquement les intervalles du type \( \mathopen] a , b \mathclose[\).
+
+\begin{definition}   \label{DEFooLJEAooBLGsiS}
+    Un ensemble ordonné est \defe{bien ordonné}{bon!ordre}\index{ordre!bon ordre} si toute partie non vide possède un plus petit élément : si \( A\) est une partie de \( E\), alors \( \exists x\in A,\forall y\in A, x\leq y\).
+\end{definition}
+
+\begin{normaltext}
+    Quelques remarques.
+    \begin{enumerate}
+        \item
+            L'inégalité stricte (définie par: \( x<y\) si et seulement si \( x\leq y\) et \( x\neq y\)) n'est pas une relation d'ordre parce qu'elle n'est pas réflexive.
+        \item
+            Nous verrons dans la remarque~\ref{REMooXOIOooHjwMvA} que l'intervalle \( \mathopen[ -1 , 1 \mathclose]\) dans \( \eR\) n'est pas bien ordonné.
+        \item
+            Un ensemble bien ordonné est forcément totalement ordonné parce que toutes les parties de la forme \( \{ x,y \}\) possèdent un minimum. Par conséquent \( x\) et \( y\) doivent être comparables : \( x\leq y\) ou \( y\leq x\).
+    \end{enumerate}
+\end{normaltext}
+
+\begin{example}
+    Si \( E\) est un ensemble, l'inclusion est un ordre sur l'ensemble des parties de \( E\), mais pas un ordre total parce que si \( X,Y\) sont des parties de \( E\), alors nous n'avons pas automatiquement soit \( X\subset Y\) ou \( Y\subset X\).
+\end{example}
+
+La notion d'ordre permet d'introduire la notion d'intervalle.
+
+\begin{definition}  \label{DefEYAooMYYTz}
+    Soit un ensemble totalement ordonné \( (E,\leq)\). Un \defe{intervalle}{intervalle} de \( E\) est une partie \( I\) telle que tout élément compris entre deux éléments de \( I \) soit dans \( I \). En formule, la partie \( I \) de \( E\) est un intervalle si
+    \[
+      \forall a,b\in I,(a\leq x\leq b)\Rightarrow x\in I.
+    \]
+\end{definition}
+
+
+
+\begin{definition}[Fonction croissante, décroissante et monotone] \label{FctCroissDecroiss_EnsemblesOrdonnes}
+    Soit \( f\colon X \to Y \) une fonction définie sur le sous-ensemble totalement ordonné \( A \subset X \) et à valeurs dans l'ensemble totalement ordonné \( Y \).
+    \begin{enumerate}
+        \item
+            Le fonction \( f\) est \defe{croissante}{fonction!croissante} sur \( A \) si pour tous \( x, y\) dans \( A \) tels que \( x \leq y \), nous avons \( f(x)\leq f(y)\) dans \( Y \). Elle est \emph{strictement} croissante si \( f(x)<f(y)\) dès que \( x<y\).
+        \item
+            Le fonction \( f\) est \defe{décroissante}{fonction!décroissante} sur \( A\) si pour tous \( x, y\) dans \( A \) tels que \( x \leq y \), nous avons \( f(x)\geq f(y)\). Elle est \emph{strictement} décroissante si \( f(x)>f(y)\) dès que \( x<y\).
+        \item
+            La fonction \( f\) est dite \defe{monotone}{fonction!monotone} sur \( A\) si elle est croissante sur \( A \) ou bien décroissante sur \( A\).
+    \end{enumerate}
+\end{definition}
+
+
+\begin{example}
+    Considérons l'ensemble des réels (qu'on imagine que vous connaissez déjà\dots{}). La fonction \( x\mapsto x^2\) est décroissante sur l'intervalle \( \mathopen] -\infty , 0 \mathclose]\) et croissante sur l'intervalle \( \mathopen[ 0 , \infty \mathclose[\). Elle n'est par contre ni croissante ni décroissante sur l'intervalle \( \mathopen[ -4 , 3 \mathclose]\).
+\end{example}
+
+\begin{remark}
+  Une erreur courante est de penser que, si une fonction \( f: X \to Y \) est croissante sur \( A \subset X \) et croissante sur \( B \subset X \) alors elle l'est sur \( A \cup B \): cela est faux en général. Un exemple d'une telle fonction est la fonction qui, à tout réel, associe son inverse: \( f(x) = 1/x \). Elle est décroissante sur les négatifs, décroissante sur les positifs, mais \( f(-1) < f(1) \) alors que \( -1 < 1 \).
+\end{remark}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Lemme de Zorn}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}[Ensemble inductif\cite{MathAgreg}]  \label{DefGHDfyyz}
+    Un ensemble est \defe{inductif}{inductif} si tout sous-ensemble totalement ordonné admet un majorant.
+\end{definition}
+
+
+\begin{lemma}[Lemme de Zorn\cite{BIBooYDIJooWCVynX}]    \label{LemUEGjJBc}
+    Tout ensemble ordonné inductif non vide admet au moins un élément maximal.
+\end{lemma}
+\index{lemme!de Zorn}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Complémentaire}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{AppComplement}
+
+\begin{definition}
+    Soit $E$, un ensemble et $A$, une partie de $E$ (c'est-à-dire un sous-ensemble de $E$). Le \defe{complémentaire}{complémentaire} de l'ensemble $A$, dans $E$, noté $\complement A$\nomenclature[T]{$\complement A$}{Le complémentaire de l'ensemble $A$} est l'ensemble des éléments de $E$ qui ne font pas partie de $A$ :
+    \begin{equation}
+	    \complement A=E\setminus A=\{ x\in E\tq x\notin A \}.
+    \end{equation}
+\end{definition}
+
+Nous allons aussi régulièrement noter le complémentaire de \( A\) par \( A^c\)\nomenclature[T]{\( A^c\)}{complémentaire de \( A\)}.
+
+\begin{lemma}		\label{LemPropsComplement}
+	Quelques propriétés à propos des complémentaires. Si $E$ est un ensemble et si $A$ et $B$ sont des sous-ensembles de $E$, nous avons
+	\begin{enumerate}
+		\item
+			$\complement \complement A =A $, en d'autres termes, $E\setminus(E\setminus A)=A$,
+		\item
+			$\complement(A\cap B)=\complement A\cup\complement B$,
+		\item
+			$\complement(A\cup B)=\complement A\cap\complement B$,
+		\item	\label{ItemLemPropComplementiii}
+			$A\setminus B=A\cap\complement B$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{definition}[différence symétrique]    \label{DefBMLooVjlSG}
+    Si \( A\) et \( B\) sont des ensembles, l'ensemble \( A\Delta B\)\nomenclature[T]{\( A\Delta B\)}{différence symétrique} est la \defe{différence symétrique}{ensemble!différence symétrique} d'ensembles :
+    \begin{equation}
+        A\Delta B=(A\cup B)\setminus(A\cap B).
+    \end{equation}
+\end{definition}
+C'est l'ensemble des éléments étant soit dans \( A\) soit dans \( B\) mais pas dans les deux.
+
+\begin{lemma}   \label{LemCUVoohKpWB}
+    Si \( A\) et \( B\) sont des ensembles nous avons
+    \begin{enumerate}
+        \item\label{ItemVUCooHAztC}
+            \( A^c\Delta B^c=A\Delta B\).
+        \item\label{ItemVUCooHAztCii}
+            \( (A\Delta B)\Delta B=A\).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    D'abord nous avons l'égalité \( X^c\setminus Y^c=Y\setminus X\): en effet, s'il existe un élément dans \(Y\setminus X\), il est dans \(Y \) mais pas dans \(X \), donc il est dans \(X^c \) et il n'est pas dans \(Y^c\), donc il est dans \( X^c\setminus Y^c \). S'il n'existe pas de tel élément, alors tous les éléments de \(Y \) sont dans \(X \), donc tout élément de \(X^c \) sont dans \(Y^c \), et il s'ensuit que \( X^c\setminus Y^c \) ne contient aucun élément non plus.
+
+    De cette égalité d'ensembles, nous avons la première assertion :
+    \begin{equation}
+        A^c\Delta B^c=(A^c\cup B^c)\setminus(A^c\cap B^c)=(A\cap B)^c\setminus(A\cup B)^c=(A\cup B)\setminus (A\cap B)=A\Delta B.
+    \end{equation}
+
+    Pour la seconde assertion, il faut remarquer que \( (A\Delta B)\cup B=A\cup B\) et que \( (A\Delta B)\cap B=B\setminus A\), donc
+    \begin{equation}
+        (A\Delta B)\Delta B=(A\cup B)\setminus (B\setminus A)=A.
+    \end{equation}
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Relations d'équivalence}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{appEquivalence}
+
+\begin{definition}  \label{DefHoJzMp}
+Si $E$ est un ensemble, une \defe{relation d'équivalence}{relation d'équivalence} sur $E$ est une relation $\sim$ qui est à la fois
+\begin{description}
+	\item[réflexive] $x\sim x$ pour tout $x\in E$,
+	\item[symétrique] $x\sim y$ si et seulement si $y\sim x$;
+	\item[transitive] si $x\sim y$ et $y\sim z$, alors $x\sim z$.
+\end{description}
+\end{definition}
+
+\begin{definition}      \label{DEFooRHPSooHKBZXl}
+    Si \( E\) est un ensemble et si \( \sim\) est une relation d'équivalence sur \( E\), alors nous notons \( E/\sim\) l'\defe{ensemble quotient}{ensemble quotient}, c'est-à-dire l'ensemble des classes d'équivalence dans \( E\). Un élément de \( E/\sim\) est de la forme
+    \begin{equation}
+        [a]=\{ x\in E\tq x\sim a \}.
+    \end{equation}
+\end{definition}
+
+\begin{lemma}
+    Soit un ensemble \( E\) et une relation d'équivalence \( \sim\). Pour \( a,b\in E\), nous avons \( [a]=[b]\) si et seulement si \( a\sim b\).
+\end{lemma}
+
+\begin{proof}
+    En deux parties.
+    \begin{subproof}
+        \item[\( \Rightarrow\)]
+            Nous supposons que \( [a]=[b]\). Vu que \( a\sim a\), nous avons \( a\in [a]=[b]\). Mais \( a\in [b]\) signifie \( a\sim b\), ce qu'il fallait.
+        \item[\( \Leftarrow\)]
+            Nous supposons que \( a\sim b\), et nous démontrons que \( [a]\subset [b]\) (pour l'inclusion inverse, vous devriez vous en sortir par tout seul). Si \( x\in [a]\), alors \( x\sim a\). Mais \( a\sim b\). Donc \( x\sim a\sim b\), ce qui implique \( x\sim b\) par transitivité. Or dire \( x\sim b\) implique \( x\in [b]\).
+    \end{subproof}
+\end{proof}
+
+\begin{example}
+    Sur l'ensemble de tous les polygones du plan, la relation «a le même nombre de côtés» est une relation d'équivalence. Plus précisément, si $P$ et $Q$ sont deux polygones, nous disons que $P\sim Q$ si et seulement si $P$ et $Q$ ont le même nombre de côtés. Cela est une relation d'équivalence :
+    \begin{itemize}
+        \item
+            un polygone $P$ a toujours le même nombre de côtés que lui-même : $P\sim P$;
+        \item
+            si $P$ a le même nombre de côtés que $Q$ ($P\sim Q$), alors $Q$ a le même nombre de côtés que $P$ ($Q\sim P$);
+        \item
+            si $P$ a le même nombre de côtés que $Q$ ($P\sim Q$) et que $Q$ a le même nombre de côtés que $R$ ($Q\sim R$), alors $P$ a le même nombre de côtés que $R$ ($P\sim R$).
+    \end{itemize}
+\end{example}
+
+\begin{example}
+Soit \( f\) une application entre deux ensembles \( E\) et \( F\). Nous définissons une relation d'équivalence sur \( E\) par
+\begin{equation}
+    x\sim y\Leftrightarrow f(x)=f(y).
+\end{equation}
+Nous notons par \( \pi\colon E\to E/\sim\) la projection canonique. L'application
+\begin{equation}
+    \begin{aligned}
+        g\colon E/\sim&\to F \\
+        [x]&\mapsto f(x)
+    \end{aligned}
+\end{equation}
+est bien définie et injective. Elle n'est pas surjective tant que \( f\) ne l'est pas. La \defe{décomposition canonique}{canonique!décomposition}\index{décomposition!canonique} de \( f\) est
+\begin{equation}
+    f=g\circ\pi.
+\end{equation}
+\end{example}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Les naturels}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooPJSYooNYaIaq}
+% Lorsque ce chapitre est fait, changer la phrase qui le référentie dans la partie sur la constante de Weiner.
+
+Toutes les constructions sont faites dans \cite{RWWJooJdjxEK}. Les résultats énoncés ici sont utilisés plus bas et servent de guide à un éventuel contributeur qui voudrait écrire une partie sur la construction de \( \eN\) et \( \eZ\). Nous espérons que des preuves se trouvent dans \cite{RWWJooJdjxEK}. En tout cas, le lecteur est invité à ne pas les prendre pour évidents.
+
+Nous supposons en particulier que \( \eN\) est construit avec sa relation d'ordre. Voici quelques affirmations que nous admettons.
+
+\begin{lemma}       \label{LEMooYMRJooYIAhBb}
+    Quelques affirmations sur l'ordre dans \( \eN\).
+    \begin{enumerate}
+        \item
+            Il n'existe pas de \( n\in \eN\) tel que \( n<0\).
+        \item
+            Si \( a,b\in \eN\) vérifient \( a>b\), alors il n'existe pas de \( x\) dans \( \eN\) tel que \( a+x=b\).
+        \item       \label{ITEMooNHRIooODBVNK}
+            Toute partie non vide de \( \eN\) possède un unique élément minimal.
+    \end{enumerate}
+\end{lemma}
+
+Nous vous conseillons fortement de ne pas considérer ces résultats comme évidents avant d'avoir lu quelques articles de Wikipédia sur la construction des naturels en théorie des ensembles.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Suites}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+  Soit \( X \) un ensemble. On appelle \defe{suite d'éléments de \( X \)}{suite} toute fonction définie sur (une partie en bijection avec) \( \eN \) et à valeurs dans \( X \).
+\end{definition}
+
+\begin{normaltext}
+    À propos de notations. La pire notation possible pour une suite est \( (a_n)_n\). What on the f*** vient faire le second indice \( n\) ? Il peut être raisonnable d'écrire \( (a_n)_{n\in I}\) lorsqu'on veut dire dans quel ensemble se déplace \( n\). Si nous parlons de \emph{suite}, il faut une sérieuse raison de prendre autre chose que \( \eN\) comme ensemble d'indices.
+
+    Une suite étant une fonction, de la même façon qu'on ne devrait pas dire «la fonction \( f(x)\)», mais «la fonction \( f\)» ou «la fonction \( x\mapsto f(x)\)», nous devrions simplement écrire \( a\) pour désigner la suite dont les éléments sont \( a_n\).
+
+    Par conséquent, il est parfaitement légal, et même conseillé, d'écrire «\( a+b\)» pour la somme des suites \( a\) et \( b\) (quand on pourra additionnner des suites). Et il est tout aussi légal d'écrire «\( \lim a\)» au lieu de \( \lim_{n\to \infty} a_n\), quand on aura parlé de limite et de convergence.
+
+    Le hic est que nous écrivons souvent \( x\) la limite de la suite \( n\mapsto x_n\). Dans ce cas, nous sommes évidemment obligés d'écrire l'indice \( n\) pour parler de la suite.
+
+    Tout cela pour dire qu'il faut être souple avec les notations.
+\end{normaltext}
+
+
+\begin{lemma}       \label{LEMooFHEOooSHPGgU}
+    Toute partie non vide de \( \eN\) possède un unique minimum.
+\end{lemma}
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Quelques résultats de cardinalité}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Quitte à se répéter une fois de plus, nous vous conseillons fortement de ne pas considérer les résultats qui viennent comme évidents avant d'avoir lu quelques articles de Wikipédia sur la construction des naturels en théorie des ensembles.
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Équipotence, surpotence, subpotence}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Les notions d'équipotence, surpotence et de subpotence permettent de comparer les «tailles» des ensembles sans avoir besoin de la théorie des ordinaux. Tout ceci ne sera pas très souvent utile par la suite. Un exemple d'utilisation de ces notions est le théorème de Steinitz \ref{THOooEDQKooLEGlDv} qui démontre l'existence de clôture algébrique pour tout corps.
+
+\begin{definition}[\cite{BIBooAKHUooProFGE,BIBooWNKRooETlebF}]      \label{DEFooXGXZooIgcBCg}
+    Soient deux ensembles \( A\) et \( B\).
+    \begin{enumerate}
+        \item
+            Les ensembles \( A\) et \( B\) sont \defe{équipotents}{équipotent} si il existe une bijection entre \( A\) et \( B\). Nous notons \( A\approx B\).
+        \item
+            L'ensemble \( A\) est \defe{surpotent}{surpotent} à \( B\) si il existe une surjection de \( A\) vers \( B\). Nous notons \( A\succeq B\).
+        \item
+            L'ensemble \( A\) est \defe{subpotent}{subpotent} à \( B\) si il existe une injection de \( A\) vers \( B\). Nous notons \( A\preceq B\).
+    \end{enumerate}
+    Nous disons également «strictement» surpotent quand il y a surpotence mais pas équipotence, et de même pour la subpotence. Les symboles \( \succ\) et \( \prec\) sont alors utilisés.
+\end{definition}
+
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooWSXTooMQPcNG}
+    L'ensemble \( A\) est subpotent à \( B\) si et seulement si \( B\) est surpotent à \( A\).
+\end{proposition}
+
+\begin{proof}
+    En deux parties.
+    \begin{subproof}
+        \item[Premier sens]
+            Nous supposons que \( A\) est subpotent à \( B\). Il existe une injection \( \varphi\colon A\to B\). Nous définissons \( f\colon B\to A\) par
+            \begin{equation}
+                f(x)=\begin{cases}
+                    \varphi^{-1}(x)    &   \text{si } x\in\varphi(A)\\
+                    a    &    \text{sinon } 
+                \end{cases}
+            \end{equation}
+            où \( a\) est un élément quelconque de \( A\). Cette application est bien définie parce que \( \varphi\) est injective, de telle sorte que \( \varphi^{-1}\) est bien définie\footnote{Au sens où elle ne retourne qu'un seul élément de \(A\), voir la définition~\ref{DEFooTRGYooRxORpY}.}. Vu que \( \varphi\) est définie sur tout \( A\), l'application \( f\) est une surjection.
+        \item[L'autre sens]
+            Nous supposons que \( A\) est surpotent à \( B\). Il existe une surjection \( \psi\colon A\to B\). Pour chaque \( y\in B\), nous considérons un élément \( a_y\in \psi^{-1}(y)\). Cela existe parce que \( \psi\) est surjective\footnote{Mais ça demande l'axiome du choix: imaginez que \(\psi^{-1}(y)\) soit "infini"\dots}. Nous posons alors
+            \begin{equation}
+                \begin{aligned}
+                    f\colon B&\to A \\
+                    y&\mapsto a_y. 
+                \end{aligned}
+            \end{equation}
+            Cela est injectif parce que \( f(y_1)=f(y_2)\) implique \( a_{y_1}=a_{y_2}\), c'est à dire que l'intersection \( \psi^{-1}(y_1)\cap\psi^{-1}(y_2)\) contient au moins un élément \(a\). Alors, \( y_1 = \psi(a) = y_2\).
+    \end{subproof}
+\end{proof}
+
+Vu que l'ensemble des ensembles n'existe pas\footnote{Voir le corollaire \ref{CORooZMAOooPfJosM}.}, nous n'allons pas énoncer le fait que ces notions donnent une relation d'ordre sur les ensembles; il faudrait parler de classes et nous ne nous en sortirions pas. Nous allons toutefois énoncer quelque résultats qui vont dans ce sens. Pour en savoir plus, vous pouvez lire les différentes pages de Wikipédia sur les nombres cardinaux.
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Un peu d'infinité}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}      \label{DefEOZLooUMCzZR}
+    Un ensemble est \defe{infini}{ensemble!infini} s'il peut être mis en bijection avec un de ses sous-ensembles propres (c'est-à-dire différent de lui-même).
+\end{definition}
+
+\begin{lemma}[\cite{MonCerveau}\quext{Écrivez-moi si vous connaissez une preuve de ceci.}]       \label{LEMooYHGCooAwsVQN}
+    Soit un ensemble \( E\). Si \( I\) et \( J\) sont deux parties de \( E\) telles que \( I\cup J\) est infini, alors soit \( I\) soit \( J\) (soit les deux) est infini.
+\end{lemma}
+
+\begin{proposition}     \label{PROPooBYKCooGDkfWy}
+    L'ensemble \( \eN\) est infini
+\end{proposition}
+
+Cette proposition est à peu près prise comme définition d'un ensemble fini dans \cite{ooVAYLooJxVYex} qui donne également une preuve de l'équivalence avec notre définition. Rien de tout cela n'est évident\quext{Surtout que je n'ai pas défini la notation \( \{ 0,\ldots, N \}\).}
+\begin{propositionDef}     \label{PROPooJLGKooDCcnWi}
+    Si \( I\) est un ensemble fini, il existe un unique \( N\in \eN\) tel que \( I\) soit en bijection avec \( \{ 0,\ldots, N \}\).
+
+    Dans ce cas, le nombre \( N+1\) est le \defe{cardinal}{cardinal} de \( I\). 
+\end{propositionDef}
+%TODO ooNXZPooIMyiem définir la notation {0,..., N}
+\nomenclature{$\eN_0$}{les naturels non nuls : $\eN_0=\eN\setminus\{ 0 \}$}
+
+Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très compliqué et ça ne nous servira pas.
+
+\begin{definition}\label{DefEnsembleDenombrable}
+    Un ensemble est \defe{dénombrable}{dénombrable} s'il peut être mis en bijection avec \( \eN\). Il est \defe{non dénombrable}{non dénombrable} s'il est infini et ne peut pas être mis en bijection avec \( \eN\).
+\end{definition}
+Une chose vraiment amusante avec cette définition que l'on met en rapport avec la définition~\ref{DefEOZLooUMCzZR}, c'est qu'un ensemble fini n'est ni dénombrable ni non dénombrable\footnote{Beaucoup de sources disent qu'un ensemble est dénombrable lorsqu'il est en bijection avec une partie de \( \eN\). Cela laisse la porte ouverte aux ensembles finis. Par exemple Wikipédia\cite{ooLMVKooUiQUtb}.}.
+
+\begin{lemma}       \label{LEMooGRGFooSWDeMA}
+    Si \( A\) est un ensemble fini et si \( \sigma\colon A\to B\) est une application quelconque, alors \( \sigma(A)\) est fini dans \( B\).
+\end{lemma}
+
+\begin{lemma}       \label{LEMooTUIRooEXjfDY}
+    Toute partie d'un ensemble fini est finie.
+\end{lemma}
+
+\begin{lemma}       \label{LEMooSRZWooASgEfy}
+    Si \( A\) est un ensemble fini ou dénombrable, alors il existe une surjection \( \eN\to A\).
+\end{lemma}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooXPSQooRaSrxv}
+    Si \( A\) est un ensemble infini et si \( f\colon A\to B\) est une application injective, alors \( f(A)\) est infini.
+\end{lemma}
+
+\begin{proof}
+    Vu que \( A\) est infini, il existe \( A'\) strictement inclus à \( A\) et une bijection \( \sigma\colon A'\to A\). Nous allons prouver que la partie \( f(A')\) est en bijection avec \( f(A)\) tout en étant un sous-ensemble strict de \( f(A)\).
+
+    \begin{subproof}
+        \item[Stricte inclusion]
+            Si \( a\in A\setminus A'\), alors par injectivité de \( f\), nous avons aussi \( f(a)\in f(A)\setminus f(A')\). Autrement dit, \( f(a)\) est un élément de \( f(A)\) qui n'est pas dans \( f(A')\).
+        \item[La candidate bijection]
+            Vu que \( f\) est une injection nous pouvons considérer \( f^{-1}\) sur \( f(A)\) est poser
+            \begin{equation}
+                \begin{aligned}
+                    \varphi\colon f(A')&\to f(A) \\
+                    x&\mapsto  f\Big( \sigma\big( f^{-1}(x) \big) \Big).
+                \end{aligned}
+            \end{equation}
+        \item[Surjection]
+            Une élément de \( f(A)\) est de la forme \( y=f(a)\) avec \( a\in A\). L'application \( \sigma\) est une bijection, donc nous pouvons poser \( b=\sigma^{-1}(a)\). Il est alors facile de vérifier que \( x=f(b)\) satisfait \( \varphi(x)=f(a)\). En effet :
+            \begin{equation}
+                \varphi(x)=(\varphi f\sigma^{-1})(a)=(f\sigma f^{-1}f\sigma^{-1})(a)=f(a).
+            \end{equation}
+            Cela prouve que \( \varphi\) est surjective.
+        \item[Injection]
+            Soient \( a,b\in A'\) tels que \( \varphi\big( f(a) \big)=\varphi\big( f(b) \big)\). Nous devons prouver que \( f(a)=f(b)\). Nous avons
+            \begin{equation}
+                (\varphi f)(a)=(f\sigma f^{-1} f)(a)=(f\sigma)(a).
+            \end{equation}
+            Donc l'hypothèse dit que \( (f\sigma)(a)=(f\sigma)(b)\). Vu que \( \sigma\) est injective, cela implique que \( f(a)=f(b)\).
+    \end{subproof}
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Dénombrabilité et ensemble des naturels}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooOBKMooWEGCvM}
+    Toute partie infinie de \( \eN\) est dénombrable.
+\end{proposition}
+
+\begin{proof}
+    Soit un ensemble infini \( A\) dans \( \eN\). Le lemme \ref{LEMooFHEOooSHPGgU} nous indique que toute partie non vide de \( \eN\) possède un minimum. Nous en profitons pour définir \( \sigma\colon \eN\to A\) par récurrence :
+    \begin{subequations}
+        \begin{numcases}{}
+            \sigma(0)=\min(A)\\
+            \sigma(k+1)=\min\big( A\setminus \sigma\{ 0,\ldots, k \} \big)
+        \end{numcases}
+    \end{subequations}
+    Nous montrons un certain nombre de choses à propos de cette application.
+    \begin{subproof}
+        \item[Elle est strictement croissante]
+            Vu que \( A\setminus\alpha\{ 0,\ldots, k \}\subset A\setminus\{ 0,\ldots, k-1 \}\), le minimum est plus grand ou égal : \( \sigma(k+1)\geq \sigma(k)\). Mais \( \sigma(k+1)\) est sélectionné dans l'ensemble \( A\setminus\sigma\{ 0,\ldots, k \}\), qui ne contient justement pas \( \sigma(k)\). Donc \( \sigma(k+1)\neq \sigma(k)\).
+        \item[Elle est définie sur \( \eN\)]
+            Il faut montrer que pour tout \( k\), l'ensemble \( A\setminus\sigma\{ 0,\ldots, k \}\) est non vide. Si il l'était, cela signifierait que \( A\subset \sigma\{ 0,\ldots, k \}\). Par le lemme \ref{LEMooGRGFooSWDeMA}, la partie \( \sigma\{ 0,\ldots, k \}\) est finie dans \( \eN\). Le lemme \ref{LEMooTUIRooEXjfDY} dit alors qu'en tant que partie de \( \sigma\{ 0,\ldots, k \}\), l'ensemble \( A\) est fini. Mais comme les hypothèses disent que \( A\) est infini, nous avons une contradiction et nous concluons que \( \sigma\) est bien définie sur tout \( \eN\).
+        \item[Elle est injective]
+            Chaque \( \sigma(k)\) est sélectionné dans une partie de \( A\) qui exclu tous les \( \sigma(i)\) avec \( i<k\).
+        \item[Elle est surjective]
+            Soit \( a\in A\). Vu que \( \sigma\) est croissante et que \( \sigma(0)\geq 0\), nous avons \( \sigma(a)\geq a\). Si \( \sigma(a)=a\) nous avons terminé. Supposons \( \sigma(a)>a\). Alors
+            \begin{equation}        \label{EQooNHTBooQexzwV}
+                \min\big( A\setminus\sigma\{ 0,\ldots, a \} \big)>a.
+            \end{equation}
+            Si \( \sigma\big( \{ 0,\ldots, a \} \big)\) ne contenait pas \( a\), alors \( A\setminus \sigma(\{ 0,\ldots, a \})\) le contiendrait et nous n'aurions pas l'inégalité \eqref{EQooNHTBooQexzwV}. Donc \( a\in \sigma\big( \{ 0,\ldots, a \} \big)\) et \( a\) est bien dans l'image de \( \sigma\).
+    \end{subproof}
+\end{proof}
+
+\begin{normaltext}
+    La proposition \ref{PROPooOBKMooWEGCvM} pourrait être prouvée plus facilement en acceptant le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl}. Il existe une injection \( A\to \eN\) parce que \( A\) est une partie de \( \eN\). Mais vu que \( A\) est infini, il possède une partie dénombrable. Cela donne une surjection \( A\to \eN\) et donc une injection \( \eN\to A\). Le théorème de Cantor-Schröder-Bernstein conclut.
+
+    Cela dit, une telle preuve demanderait des outils plus complexes.
+\end{normaltext}
+
+
+\begin{normaltext}
+    La proposition suivante donne une bijection explicite entre \( \eN\) et \( \eN\times \eN\). Elle n'a rien de transcendante, mais je ne résiste pas à la donner ici parce qu'elle est utilisée dans l'article \emph{Un peu de programmation transfinie} de David Madore\footnote{Et comme j'aime beaucoup cet article, il me fallait une excuse pour le placer ici.\\ \url{http://www.madore.org/~david/weblog/d.2017-08-18.2460.html}.}. Son utilité est de pouvoir créer un langage de programmation pouvant traiter des paires d'entiers rien qu'en traitant des entiers.
+\end{normaltext}
+\begin{proposition}[Une bijection \( \eN\times \eN\to \eN\)]        \label{PROPooLPKUooAlsYJg}
+    La fonction
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eN\times \eN&\to \eN \\
+            (x,y)&\mapsto \begin{cases}
+                y^2+x    &   \text{si } x<y\\
+                x^2+x+y    &    \text{si } y\leq x.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    est une bijection.
+\end{proposition}
+
+\begin{proof}
+    Il s'agit de prouver qu'elle est injective et surjective. Dans la suite, tous les nombres sont des entiers positifs.
+    \begin{subproof}
+        \item[\( f\) est injective]
+
+            Pour \( k\in \eN\) donné, nous allons prouver que
+            \begin{enumerate}
+                \item
+                    l'équation \( f(x,y)=k\) possède au maximum une solution avec \( x<y\),
+                \item
+                    l'équation \( f(x,y)=k\) possède au maximum une solution avec \( y\leq x\),
+                \item
+                    si \(   k=y^2+x \) avec \( x<y\) alors il est impossible que \( k=x'^2+x'+y'\) avec \( y'\leq x'\).
+            \end{enumerate}
+            On y va.
+            \begin{enumerate}
+                \item
+                    Nous supposons \( y^2+x=t^2+z\) avec \( x<y\) et \( z<t\). Pour fixer les idées, nous supposons \( t>y\) et nous posons \( t=y+s\) (\( s\geq 1\)). En substituant, et en isolant \( z\),
+                    \begin{subequations}
+                        \begin{align}
+                            z&=x-2sy-s^2\\
+                            &<x-2sy\\
+                            &<x-2sx\\
+                            &=x(1-2s)\\
+                            &<0.
+                        \end{align}
+                    \end{subequations}
+                    Impossible parce que \( z\geq 0\).
+                \item
+                    De même nous supposons \( x^2+x+y=z^2+z+t\) avec \( y\leq x\) et \( t\leq z\). Nous posons \( z=x+s\), et nous déballons le même genre de calculs en isolant \( t\).
+                \item
+                    Enfin nous supposons \( y^2+x=z^2+z+t\) avec \( x<y\) et \( t\leq z\). Les plus courageux diviseront en trois cas : \( y<z\), \( y=z\) et \( y>z\) et feront les calculs. Par exemple, pour le cas \( y>z\) nous posons \( y=z+s\) et nous substituons :
+                    \begin{equation}
+                        (y+s)^2+x=z^2+z+t
+                    \end{equation}
+                    qui donne
+                    \begin{equation}
+                        x=z+t-2zs-s^2<2z-2zs-s^2=2z(1-s)-s^2\leq -s<0
+                    \end{equation}
+                    parce que \( s\geq 1\), donc \( 1-s\leq 0\).
+            \end{enumerate}
+
+        \item[\( f\) est surjective]
+
+            Nous devons prouver que tous les éléments de \( \eN\) sont dans l'image de \( \eN\times \eN\) par \( f\). En premier lieu, \( 0=f(0,0)\). C'est un bon début. Soit \( a\in \eN\) non nul; nous montrons que tous les nombres de \( a^2\) à \( (a+1)^2\) sont des images de \( f\). D'abord \( a^2=f(0,a)\), ensuite les nombres
+            \begin{equation}
+                f(1,a),f(2,a),\ldots, f(a-1,a)
+            \end{equation}
+            prennent les valeurs \( a^2+1\), \ldots, \( a^2+a-1\). Enfin nous avons \( f(a,0)=a^2+a\) et les nombres \( f(a,1),\ldots, f(a,a)\) prennent les valeurs de \( a^2+a+1\) à \( a^2+2a=(a+1)^2-1\).
+    \end{subproof}
+\end{proof}
+Sachez que cette fonction s'étend aux ordinaux (mais là ce n'est plus pour rigoler).
+
+\begin{corollary}       \label{CORooNRPIooZPSmqa}
+    Il existe des parties \( \{ \eN_i \}_{i\in \eN}\) telles que \( \bigcup_{i\in \eN}\eN_i=\eN\) et que chaque \( \eN_i\) soit en bijection avec \( \eN\)
+\end{corollary}
+
+\begin{proof}
+    Nous considérons la bijection \( f\colon \eN\to \eN\times \eN\) donnée par (l'inverse de celle donnée par) la proposition \ref{PROPooLPKUooAlsYJg}, et nous posons
+    \begin{equation}
+        \eN_i=f^{-1}(i,\eN).
+    \end{equation}
+    L'application
+    \begin{equation}
+        f\colon \eN_i\to \{ (i,k) \}_{k\in \eN}
+    \end{equation}
+    est une bijection. Or l'ensemble \( \{ (i,k) \}_{k\in \eN}\) est évidemment en bijection avec \( \eN\). Par composition nous avons le résultat.
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooDLWFooNAJbbq}
+    Si il existe une surjection \( \eN\to A\), alors \( A\) est fini ou dénombrable.
+\end{lemma}
+
+\begin{proof}
+    Pour chaque \( a\in A\), l'ensemble \( f^{-1}(a)\) est une partie de \( \eN\). 
+    \begin{subproof}
+        \item[Une application]
+            Le lemme \ref{LEMooYMRJooYIAhBb}\ref{ITEMooNHRIooODBVNK} nous permet de poser
+            \begin{equation}
+                \begin{aligned}
+                    \sigma\colon A&\to \eN \\
+                    a&\mapsto \min\big( f^{-1}(a) \big). 
+                \end{aligned}
+            \end{equation}
+        \item[\( \sigma\) est injective]
+            Supposons que \( \sigma(a)=\sigma(b)\). Nous appelons \( x\) ce nombre :
+            \begin{equation}
+                x=\min\big( f^{-1}(a) \big)=\min\big( f^{-1}(b) \big).
+            \end{equation}
+            Nous avons \( x\in f^{-1}(a)\cap f^{-1}(b)\), ce qui implique que \( f(x)=a\) et que \( f(x)=b\); donc \( a=b\).
+
+            Donc \( \sigma\) est une injection.
+        \item[\( A\) est infini]
+            Si \( A\) est fini, le lemme est prouvé. Donc à partir de maintenant nous supposons que \( A\) est infini. Le but est de prouver qu'il est dénombrable, c'est à dire de construire une bijection \( A\to \eN\).
+        \item[\( \sigma(A)\) est dénombrable]
+            Vu que \( \sigma\colon A\to  \eN\) est injective et que \( A\) est infini, le lemme \ref{LEMooXPSQooRaSrxv} dit que \( \sigma(A)\) est infini dans \( \eN\). La proposition \ref{PROPooOBKMooWEGCvM} nous dit alors que \( \sigma(A)\) est dénombrable.
+
+            Soit une bijection \( \varphi\colon \sigma(A)\to \eN\).
+        \item[La candidate bijection]
+            Nous posons
+            \begin{equation}
+                f=\varphi\circ \sigma\colon A\to \eN
+            \end{equation}
+            et nous allons prouver que c'est une bijection.
+        \item[Injective]
+            Vu que \( \varphi\) et \( \sigma\) sont injectives, l'égalité \( (\varphi\sigma)(a)=(\varphi\sigma)(b)\) implique immédiatement \( a=b\).
+        \item[Surjective]
+            Soit \( k\in \eN\). Vu que \( \varphi\) et \( \sigma\) sont des injections, nous pouvons poser \( a=(\sigma^{-1}\varphi^{-1})(k)\). Il est alors immédiat que \( f(a)=k\).
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau,ooLMVKooUiQUtb}]     \label{PROPooENTPooSPpmhY}
+    Une union dénombrable d'ensembles finis ou dénombrables est finie ou dénombrable.
+\end{proposition}
+
+\begin{proof}
+    Soient \( A_i\) des ensembles finis ou dénombrables. Nous posons \( A=\bigcup_{i\in \eN}A_i\), et nous considérons les parties \( \eN_i\) du corolaire \ref{CORooNRPIooZPSmqa}. Vu que \( A_i\) est dénombrable ou fini et que \( \eN_i\) est dénombrable, il existe une surjection \( \varphi_i\colon \eN_i\to A_i\).
+
+    Nous définissons \( s\colon \eN\to \eN\) par \( n\in \eN_{s(n)}\), et nous posons enfin
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \eN&\to A \\
+            n&\mapsto \varphi_{s(n)}(n). 
+        \end{aligned}
+    \end{equation}
+    Nous prouvons que \( \varphi\) est surjective.
+
+    Soit \( a\in A_i\). Il existe \( n\in \eN_i\) tel que \( a=\varphi_i(n)\). Mais comme \( n\in \eN_i\), nous avons \( s(n)=i\). Donc
+    \begin{equation}
+        a=\varphi_i(n)=\varphi_{s(n)}(n)=\varphi(n).
+    \end{equation}
+    Donc \( \varphi\colon \eN\to A\) est surjective.
+
+    Grâce au lemme \ref{LEMooDLWFooNAJbbq}, on conclut que \( A\) est fini ou dénombrable.
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooRXSRooBUWOyb}
+    Si \( N\) est un ensemble dénombrable, alors il existe une bijection \( g\colon \{ 1,2 \}\times N\to N\).
+\end{lemma}
+
+\begin{proof}
+    D'abord nous définissons une bijection \( \varphi\colon \{ 0,1 \}\times \eN\to \eN\) par
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \{ 0,1 \}\times \eN&\to \eN \\
+            (n,k)&\mapsto 2k+n. 
+        \end{aligned}
+    \end{equation}
+    Ensuite si \( f\colon \eN\to N\) est une bijection, il suffit de poser \( g(n,k)=f\big( \varphi(n,k) \big)\).
+\end{proof}
+
+\begin{proposition}[\cite{ooLMVKooUiQUtb}]     \label{PROPooDMZHooXouDrQ}
+    Si \( N\) est un ensemble dénombrable, alors pour tout \( n\in \eN\), l'ensemble \( N^n\) est dénombrable.
+\end{proposition}
+
+Les ensembles dénombrables sont les plus petits ensembles infinis possibles, comme en témoigne la proposition suivante.
+\begin{proposition}      \label{PROPooUIPAooCUEFme}
+    Tout ensemble infini contient une partie en bijection avec \( \eN\).
+\end{proposition}
+
+\begin{proof}
+    Soient un ensemble infini \( E_0\) et une partie propre \( E_1\) en bijection avec \( E_0\). Nous notons \( \varphi\colon E_0\to E_1\) une bijection.
+
+    Soit \( x_0\in E_0\setminus E_1\) (axiome du choix et tout ça). Nous définissons
+    \begin{equation}
+        \begin{aligned}
+            \psi\colon \eN&\to \{\varphi^k(x_0)\} \\
+            n&\mapsto \varphi^n(x_0)
+        \end{aligned}
+    \end{equation}
+    et nous allons prouver que c'est une bijection. Que ce soit surjectif est immédiat. Pour l'injectivité, soit \( \varphi^k(x_0)=\varphi^l(x_0)\) avec \( k\neq l\). Supposons pour fixer les notations que \( k>l\). Alors, vu que \( \varphi\) est inversible nous pouvons écrire
+    \begin{equation}
+        x_0=\varphi^{k-l}(x_0)=\varphi\big( \varphi^{k-l-1}(x_0) \big)
+    \end{equation}
+    où il est entendu que \( \varphi^0(x_0)=x_0\). Cela signifie que \( x_0\) est dans l'image de \( \varphi\), c'est-à-dire dans $E_1$, ce que nous avons exclu par choix de \( x_0\) dans \( E_0\setminus E_1\). Donc en réalité \( \varphi^k(x_0)\neq \varphi^l(x_0)\) dès que \( k\neq l\).
+\end{proof}
+
+\begin{proposition} \label{PropQEPoozLqOQ}
+    Toute partie d'un ensemble fini est finie, et toute partie d'un ensemble dénombrable est finie ou dénombrable.
+\end{proposition}
+
+\begin{lemma}   \label{LEMooGTOTooFbpvzU}
+    Soit un ensemble \( E\) non dénombrable ainsi qu'une application \( f\colon E\to F\) où \( F\) est un ensemble quelconque. Si \( f(E)\) est dénombrable (ou fini), alors il existe \( y\in f(E)\) tel que \( f^{-1}(y)\) est indénombrable.
+\end{lemma}
+
+\begin{proof}
+    Nous avons
+    \begin{equation}
+        E=\bigcup_{y\in F}f^{-1}(y).
+    \end{equation}
+    Si tous les \( f^{-1}(y)\) sont dénombrables, alors \( E\) est une union dénombrable (\( F\) est dénombrable) d'ensembles dénombrables. Il serait donc dénombrable (proposition \ref{PROPooENTPooSPpmhY}), ce qui est contraire à l'hypothèse.
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Théorème de Cantor-Schröder-Bernstein}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{lemma}[\cite{BIBooECJMooGPxBem}]     \label{LEMooTNMHooBpdzab}
+    Soient un ensemble \( A\) et une partie \( B\) de \( A\). Si il existe une injection \( f\colon A\to B\) alors il existe une bijection \( \alpha\colon A\to B\).
+\end{lemma}
+
+\begin{proof}
+    Nous posons \( Y=A\setminus B\) et nous décomposons la preuve en étapes.
+    \begin{subproof}
+        \item[Les \( f^k(Y)\) sont disjoints]
+            Vu que \( f\) prend ses valeurs dans \( B\), nous avons \( f^k(Y)\subset B\) pour tout \( k\). Et vu que \( Y=A\setminus B\), nous avons
+            \begin{equation}        \label{EQooDNHJooFJBrDq}
+                f^k(Y)\cap Y=\emptyset
+            \end{equation}
+            pour tout \( k\). L'application \( f\) étant injective, elle vérifie \( f(C\cap D)=f(C)\cap f(D)\). Nous appliquons \( f^m\) des deux côtés de \eqref{EQooDNHJooFJBrDq} :
+            \begin{equation}
+                f^{k+m}(Y)\cap f^m(Y)=\emptyset
+            \end{equation}
+            pour tout \( k,m\in \eN\).
+        \item[Une décomposition] 
+            Vu que \( f(X)\subset B\) nous avons l'égalité
+            \begin{equation}
+                B=f(X)\cup\big(B\setminus f(X)\big)
+            \end{equation}
+        \item[\( A\setminus X=B\setminus f(X)\)]
+            Supposons \( x\in A\setminus X\). Vu que \( A\setminus B\) est dans \( X\), l'élément \( x\) n'est pas dans \( A\setminus B\) et donc est dans \( B\) parce qu'il est dans \( A\). Mais \( x\) n'est pas dans \( X\) et en particulier pas dans \( f(X)\) parce que \( f(X)\subset X\). Donc \( x\) est dans \( B\setminus f(X)\).
+
+            Dans l'autre sens, nous supposons que \( x\in B\setminus f(X)\). Vu que \( B\subset A\) nous avons \( x\in A\). Comme \( x\) est hors de \( f(X)\), il est hors des \( f^k(Y)\) pour \( k\geq 1\). Mais \( x\in B\), donc \( x\) est hors de \( A\setminus B=f^0(Y)\). Donc \( x\) est hors de \( k^k(Y)\) pour tout \( k\geq 0\). Donc \( x\) est hors de \( X\).
+
+        \item[La bijection]
+            Nous considérons l'application
+            \begin{equation}
+                \begin{aligned}
+                    \alpha\colon A&\to B \\
+                    x&\mapsto \begin{cases}
+                        f(x)    &   \text{si } x\in X\\
+                        x    &    \text{si } x\in A\setminus X.
+                    \end{cases}
+                \end{aligned}
+            \end{equation}
+            Nous démontrons dans les points suivants que \( \alpha\) est bijective.
+        \item[Injective]
+            Nous supposons \( \alpha(x)=\alpha(y)\). Il y a 4 possibilités suivant que \( x\) et \( y\) soient dans \( X\) ou \( A\setminus X\).
+
+            Si \( x,y\in X\) alors \( f(x)=f(y)\) et donc \( x=y\) parce que \( f\) est injective.
+
+            Si \( x\in X\) et \( y\in A\setminus X\), alors \( f(x)=y\). Mais \( f(x)\in f(X)\) et \( y\in A\setminus X=B\setminus f(X)\). Donc l'élément \( f(x)=y\) est dans \( f(X)\cap \big( B\setminus f(X) \big)=\emptyset\). Il n'est donc pas possible d'avoir \( \alpha(x)=\alpha(y)\) avec \( x\in X\) et \( y\in A\setminus X\).
+
+            Si \( x\in A\setminus X\) et \( y\in X\), c'est la même chose.
+
+            Si \( x,y\in A\setminus X\), alors \( x=\alpha(x)=\alpha(y)=y\).
+
+        \item[Injective]
+            Soit \( y\in B\). Il y a deux possibilités : \( y\in x\) et \( y\in A\setminus X\). La première se divise en deux : \( y\in Y\) et \( y\in \bigcup_{k=1}^{\infty}f^k(Y)\). On y va.
+
+            \begin{subproof}
+                \item[\( y\in Y\)]
+                    Ce cas n'est pas possible parce que \( y\in B\) alors que \( Y=A\setminus B\).
+                \item[\( y\in f^k(Y)\) avec \( k\geq 1\)]
+                    Nous avons
+                    \begin{equation}
+                         y\in f\big( f^{k-1}(Y) \big)\subset f(X)\subset \alpha(A).
+                    \end{equation}
+                \item[\( y\in A\setminus X\)]
+                    Alors \( y=\alpha(y)\).
+            \end{subproof}
+    \end{subproof}
+\end{proof}
+
+\begin{theorem}[Cantor-Schröder-Bernstein]      \label{THOooRYZJooQcjlcl}
+    Soient deux ensembles \( A\) et \( B\) pour lesquels il existe des injections \( f\colon A\to B\) et \( g\colon B\to A\). Alors il existe une bijection entre \( A\) et \( B\).
+\end{theorem}
+
+\begin{proof}
+    La composée \( g\circ f\colon A\to A\) est injective et prend ses valeurs dans \( g\big( f(A) \big)\subset g(B)\subset A\). Bref, l'application \( g\circ f\colon A \to g(B)\) est injective. Le lemme \ref{LEMooTNMHooBpdzab} donne alors une bijection \( \varphi\colon A\to g(B)\).
+
+    Nous montrons que \( g^{-1}\circ\varphi\colon A\to B\) est une bijection.
+
+    \begin{subproof}
+        \item[Injective]
+            Nous supposons \( x,y\in A\) tels que
+            \begin{equation}
+                g^{-1}\big( \varphi(x) \big)=g^{-1}\big( \varphi(y) \big).
+            \end{equation}
+            Nous appliquons \( g\) des deux côtés : \( \varphi(x)=\varphi(y)\). Vu que \( \varphi\) est une bijection, cela entraîne \( x=y\).
+        \item[Surjective]
+            Soit \( b\in B\). En posant \( a=\varphi^{-1}\big( g(b) \big)\) nous avons bien \( (g^{-1}\circ \varphi)(a)=b\).
+    \end{subproof}
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Comparabilité cardinale}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Le théorème de comparabilité cardinale énonce que si \( A\) et \( B\) sont des ensemble, alors nous avons toujours \( A\succeq B\) ou \( A\preceq B\) (ou les deux; dans ce cas \( A\approx B\) par Cantor-Schröder-Bernstein).
+\begin{theorem}[Théorème de comparabilité cardinale\cite{MonCerveau,BIBooTSOKooCWxMwj,BIBooZZNRooZytRuC}]     \label{THOooCBSKooCmzfUf}
+    Entre deux ensembles, il existe forcément une injection de l'un dans l'autre.
+\end{theorem}
+
+\begin{proof}
+    Nous allons montrer que le graphe d'une injection de $A$ dans $B$ ou de $B$ dans $A$ est donné par un élément maximal (au sens de l'inclusion) de l'ensemble (inductif) des graphes d'injections d'une partie de $A$ dans une partie de $B$.
+
+    Nous allons utiliser le lemme de Zorn \ref{LemUEGjJBc} à l'ensemble\footnote{Attention : dans le Frido, la notation \( f\colon A\to B\), signifie que \( f\) est définie sur tout l'ensemble \( A\), mais pas qu'elle est surjective sur \( B\).}
+    \begin{equation}
+       \mA=\Big\{  (X,Y,\varphi)  \tq
+        \begin{cases}
+            X\subset A\\
+            Y\subset B\\
+            \varphi\colon X\to Y\text{ est injective.}
+        \end{cases}
+    \Big\}
+    \end{equation}
+    que nous ordonnons par, l'inclusion, c'est à dire par \( (X_1,Y_1,\varphi_1)<(X_2,Y_2,\varphi_2)\) lorsque \( X_1\subset X_2\), \( Y_{1}\subset Y_2\) et \( \varphi_2|_{X_1}=\varphi_1\).
+
+    Nous passons rapidement sur le fait que cet ensemble est inductif, et nous considérons tout de suite un élément maximal \( (X,Y,\varphi)\). Il y a deux possibilités : soit \( \varphi(X)=B\), soit \( \varphi(X)\neq B\).
+    \begin{subproof}
+        \item[Si \( \varphi(X)=B\)]
+            Dans ce cas, \( \varphi\colon X\to B\) est une surjection. L'ensemble \( A\) est donc surpotent à \( B\). La proposition \ref{PROPooWSXTooMQPcNG} conclu que \( B\) est subpotent à \( A\).
+        \item[Si \( \varphi(X)\neq B\)]
+            Nous subdivisons en deux nouveaux cas : soi \( X=A\), soit \( X\neq A\).
+            \begin{subproof}
+                \item[Si \( X=A\)]
+                    Alors nous avons une injection \( \varphi\colon A\to B\), et c'est bon.
+                \item[Si \( X\neq A\)]
+                    Nous sommes dans le cas \( X\neq A\) et \( \varphi(X)\neq B\). Soient \( a\in A\setminus X\) et \( b\in B\setminus \varphi(X)\). Nous considérons l'application
+                    \begin{equation}
+                        \begin{aligned}
+                            \psi\colon X\cup\{ a \}&\to Y\cup\{ b \} \\
+                            x&\mapsto \begin{cases}
+                                \varphi(x)    &   \text{si } x\in X\\
+                                b    &    \text{si }x=a.
+                            \end{cases}
+                        \end{aligned}
+                    \end{equation}
+                    Cela est une application injective. Donc le triple \( (X\cup \{ a \}, Y\cup\{ b \},\psi)\) majore \( (X,Y,\varphi)\). Nous avons une contradiction et ce cas n'est pas possible.
+            \end{subproof}
+    \end{subproof}
+\end{proof}
+
+\begin{normaltext}
+    Le théorème de comparabilité cardinale couplé au théorème de Cantor-Schröder-Bernstein nous indique que pour tout ensembles \( A\) et \( B\), nous avons soit \( A\preceq B\), soit \( B\preceq A\). Et si \( A\preceq B\preceq A\), alors \( A\approx B\).
+
+    Nous ne sommes pas loin de dire que la relation \( \preceq\) donne un ordre total sur l'ensemble des ensembles. C'est très beau sauf que l'ensemble des ensembles n'existe pas\footnote{Corolaire \ref{CORooZMAOooPfJosM}.}. Il faudrait parler de \emph{classe} des ensembles, mais ça nous mènerait trop loin. Toujours est-il que ces deux théorèmes montrent qu'on n'est pas loin d'avoir un ordre sur les ensembles, et que cela est une des bases possibles pour développer les nombres cardinaux.
+\end{normaltext}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Théorème de Cantor, ensemble des ensembles}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{theorem}[Cantor\cite{BIBooXHFNooSmqUar}]     \label{THOooJPNFooWSxUhd}
+    Un ensemble est toujours strictement subpotent à son ensemble des parties.
+\end{theorem}
+
+\begin{proof}
+    Soit un ensemble \( E\) et son ensemble des parties \( \mP(E)\). Nous commençons par prouver qu'il n'existe pas de surjection \( E\to \mP(E)\). Soit en effet une application \( f\colon E\to \mP(E)\). Nous posons
+    \begin{equation}
+        D=\{ x\in E\tq x\notin f(x) \}.
+    \end{equation}
+    Nous prouvons que \( D\) ne peut pas être dans l'image de \( f\). Supposons que \( y\in E\) soit tel que \( f(y)=D\).
+    \begin{subproof}
+        \item[Si \( y\in D\)]
+            Alors par définition de \( D\), nous avons \( y\notin f(y)=D\). Contradiction.
+        \item[Si \( y\notin D\)]
+            Alors \( y\in f(y)=D\), contradiction.
+    \end{subproof}
+    Donc aucune surjection \( f\colon E\to \mP(E)\) n'existe. En particulier par de bijections.
+
+    Par ailleurs, l'application \( g\colon \mP(E)\to E\) qui fait \( g(\{ a \})=a\) (et n'importe quoi d'autre sur les autres éléments de \( \mP(E)\)) est une surjection \( \mP(E)\to E\).
+
+    Donc \( \mP(E)\) est toujours strictement surpotent à \( E\).
+\end{proof}
+
+\begin{normaltext}
+    Le théorème de Cantor implique en particulier qu'il existe (au moins) une infinité dénombrable d'ensemble infinis de cardinalité différentes (plus évidemment une infinité dénombrable d'ensembles finis de cardinalité différentes).
+
+    Pour tout ensemble \( A\), il est donc possible de dire «soit \( E\), un ensemble strictement surpotent à \( A\)».
+\end{normaltext}
+
+\begin{corollary}       \label{CORooZMAOooPfJosM}
+    Il n'existe pas d'ensemble contenant tous les ensembles.
+\end{corollary}
+
+\begin{proof}
+    Si \( E\) était un tel ensemble, nous aurions \( \mP(E)\subset E\) parce que les éléments de \( \mP(E)\) sont des ensembles. Or cela donnerait une surjection \( E\to \mP(E)\) alors que cela est impossible par le théorème de Cantor \ref{THOooJPNFooWSxUhd}.
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Ajouter ou soustraire des cardinalités}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous allons prouver une série de résultats que nous pourrions résumer en  «ajouter ou retrancher des parties de cardinalité plus petite ne change pas la cardinalité».
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooUFCAooSyZtZj}
+    Si \( A\) est infini et \( B\) est fini, alors \( A\cup B\approx A\).
+\end{lemma}
+
+\begin{proof}
+    Nous supposons que \( A\) et \( B\) sont disjoints\footnote{Adaptez la démonstration au cas où l'intersection n'est pas vide.}. La proposition \ref{PROPooJLGKooDCcnWi} nous permet de considérer une bijection \( \psi\colon \{ 1,\ldots, n \}\to B\).
+    
+    Vu que \( A\) est infini, la proposition \ref{PROPooUIPAooCUEFme} nous permet de considérer \( N\subset A\) et une bijection \( \varphi\colon \eN\to N\).
+
+    Maintenant, il s'agit seulement d'insérer \( B\) dans \( A\) en le mettant «au début» de \( N\) et en décalant les autres. La bijection est
+    \begin{equation}
+        \begin{aligned}
+            f\colon A\cup B&\to A \\
+            x&\mapsto \begin{cases}
+                x    &   \text{si } x\in A\setminus N\\
+                \varphi\big( \varphi^{-1}(x)+n \big)    &   \text{si } x\in N\\
+                \varphi\big( \psi^{-1}(x) \big)    &    \text{si }x\in B.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+\end{proof}
+
+\begin{lemma}       \label{LEMooXMVDooIWLWis}
+    Si \( A\) est infini et si \( A\) est surpotent à \( B\), alors \( A\approx A\cup B\).
+\end{lemma}
+
+\begin{proof}
+    Il existe évidemment une injection \( A\to A\cup B\). Donc le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl} nous indique que trouver une injection \( A\cup B\to A\) suffira pour la peine.
+
+    Nous allons utiliser le lemme de Zorn \ref{LemUEGjJBc} avec l'ensemble
+    \begin{equation}
+       \mA=\Big\{  (X,\varphi_X)  \tq
+        \begin{cases}
+            X\subset B\\
+            \varphi_X\colon A\cup X\to A\text{ est injective.}
+        \end{cases}
+    \Big\}
+    \end{equation}
+    muni de l'ordre de l'inclusion : \( (X,\varphi_X)<(Y,\varphi_Y)\) si \( X\subset Y\) et \( \varphi_Y(x)=\varphi_X(x)\) pour tout \( x\in A\cup X\).
+    
+    \begin{subproof}
+        \item[\( \mA\) est inductif]
+            Soit une famille \( \mF=\{ (X_i,\varphi_i) \}_{i\in I}\) complètement ordonnée indexée par l'ensemble \( I\). En posant \( X=\bigcup_{i\in I}X_i\) et \( \varphi(x)=\varphi_i(x)\) dès que \( x\in A\cup X_i\), l'élément \( (X,\varphi)\) majore \( \mF\).
+        \item[Un maximum]
+            Le lemme de Zorn nous assure que \( \mA\) possède (au moins) un élément maximum. Soit un tel élément maximum \( (X,\varphi)\). 
+        \item[\( X\approx B\)]
+            Ah oui, vous auriez aimé avoir \( X=B\). Mais non; il n'y a pas de garanties. Nous allons montrer que \( X\approx B\), et ça suffira.
+
+            Vu que \( X\subset B\), si \( X\) n'est pas équipotent à \( B\), il est strictement inclus à \( B\). Nous pouvons donc considérer
+            \begin{subequations}
+                \begin{align}
+                    b&\in B\setminus X\\
+                    a&\in A\setminus \varphi(X).
+                \end{align}
+            \end{subequations}
+            Nous considérons alors l'élément \( (Y,\psi)\in \mA\) défini par
+            \begin{subequations}
+                \begin{align}
+                    Y&=X\cup\{ b \}\\
+                    \psi(x)&=\begin{cases}
+                        a    &   \text{si } x=b\\
+                        \varphi(x)    &    \text{sinon }.
+                    \end{cases}
+                \end{align}
+            \end{subequations}
+            Cet élément majore \( (X,\varphi)\).
+
+            Donc \( X\approx B\).
+        \item[Résumé de la situation]
+            Nous avons \( A\approx A\cup X\) ainsi que une injection \( \varphi\colon A\cup X\to A\) et une bijection \( \psi\colon B\to X\).
+        \item[Conclusion si \( A\) est disjoint de \( B\)]
+            Si \( A\) et \( B\) sont disjoints, nous avons une bijection
+            \begin{equation}
+                \begin{aligned}
+                    l\colon A\cup B&\to A \\
+                    x&\mapsto \begin{cases}
+                        \varphi(x)    &   \text{si }  x\in A\\
+                        \varphi\big( \psi(x) \big)    &    \text{si } x\in B.
+                    \end{cases}
+                \end{aligned}
+            \end{equation}
+        \item[Conclusion si \( A\) n'est pas disjoint de \( B\)]
+            Il suffit de poser \( C=B\setminus A\) et avons
+            \begin{equation}
+                A\cup B=[A\cup (A\cap B)]\cup C.
+            \end{equation}
+            Cette union est disjointe, \( A\cup(A\cap B)\) est surpotent à \( A\) et \( C\) est subpotent à $B$. La conclusion est donc encore valable.
+    \end{subproof}
+\end{proof}
+
+La proposition suivante sera utilisée en théorie de la mesure, dans l'exemple~\ref{ExOIXoosScTC}. Ça utilise l'axiome du choix sous la forme du lemme de Zorn.
+\begin{proposition}[\cite{ooFAOQooACUugI}] \label{PropVCSooMzmIX}
+    Si \( S\) est un ensemble infini alors il existe une bijection \( \varphi\colon \{ 0,1 \}\times S\to S\).
+\end{proposition}
+
+\begin{proof}
+    En plusieurs points.
+    \begin{subproof}
+        \item[Un gros ensemble]
+            Nous considérons l'ensemble suivant :
+                \begin{equation}
+                   \mA=\Big\{  (X,\varphi)  \tq
+                    \begin{cases}
+                        X\subset S\text{ est infini}\\
+                        \varphi\colon \{ 0,1 \}\times X\to X\,\text{est injective}
+                    \end{cases}
+                \Big\}
+                \end{equation}
+                Nous ordonnons par l'inclusion, c'est à dire que nous disons que \( (X_1,\varphi_1)<(X_2,\varphi_2)\) lorsque \( X_1\subset X_2\) et \( \varphi_1(k,x)=\varphi_2(k,x)\) pour tout \( (k,x)\in \{ 0,1 \}\times X_1\).
+        \item[Il est inductif]
+            Nous prouvons que \( \mA\) est inductif\footnote{Définition \ref{DefGHDfyyz}.}. Soit une partie totalement ordonnée \( \mF=\{ (X_i,\varphi_i) \}_{i\in I}\) indexé par un ensemble \( I\).
+
+            Commençons par remarquer que si \( x\in X_i\cap X_j\) et si \( k\in \{ 0,1 \}\), alors \( \varphi_i(k,x)=\varphi_j(k,x)\). En effet, vu que \( \mF\) est totalement ordonné, nous pouvons supposer \( (X_i,\varphi_i)<(X_j,\varphi_j)\) (sinon c'est le contraire) et nous avons alors \( X_i\subset X_j\) et \( \varphi_j(k,x)=\varphi_i(k,x)\).
+
+            Maintenant nous prouvons que \( \mF\) accepte un majorant dans \( \mA\). Il s'agit de construire une paire \( (X,\varphi)\). Nous posons d'abord
+            \begin{equation}
+                X=\bigcup_{i\in I}X_i.
+            \end{equation}
+            D'autre part, si \( x\in X\) et si \( k\in \{ 0,1 \}\), l'ensemble 
+            \begin{equation}
+             \{ \varphi_i(k, x)\tq i\in I, x\in X_i \}   
+            \end{equation}
+             contient un seul élément. Nous nommons \( \varphi(k,x)\) cet élément. Cela nous définit une application \( \varphi\colon \{ 0,1 \}\times X\to X \) qui prolonge tous les \( \varphi_i\).
+
+            Donc nous avons \( (X,\varphi)>(X_i,\varphi_i)\) pour tout \( i\in I\).
+
+        \item[Lemme de Zorn]
+
+            Vu que \( \mA\) est un ensemble inductif, nous pouvons utiliser le lemme de Zorn \ref{LemUEGjJBc} et considérer un élément maximum, c'est à dire une paire \( (Y,\varphi)\) où \( Y\subset S\) et \( \varphi\colon \{ 0,1 \}\times Y\to Y\) est injective.
+
+            Il y a deux cas : soit \( Y\) est équipotent à \( S\), soit il ne l'est pas.
+
+        \item[Si \( Y\) est équipotent à \( S\)]
+
+            Nous considérons une bijection \( \psi\colon S\to Y\) et nous montrons que l'application
+            \begin{equation}
+                \begin{aligned}
+                    f\colon \{ 0,1 \}\times S&\to S \\
+                    (n,a)&\mapsto \psi^{-1}\Big( \varphi\big( (n,\psi(a)\big) \Big) .
+                \end{aligned}
+            \end{equation}
+            est une injection. Il s'agit seulement d'une vérification basée sur le fait que \( \psi^{-1}\), \( \varphi\) et \( \psi\) le sont.
+
+            Une injection dans l'autre sens n'est pas compliquée à construire; par exemple \( s\mapsto (1,s)\). Ayant maintenant une injection dans les deux sens, le théorème de Cantor-Bernstein \ref{THOooRYZJooQcjlcl} dit qu'il existe une bijection.
+
+        \item[Si \( Y\) n'est pas équipotent à \( S\)]
+
+            Nous montrons que ce cas n'est pas possible. Notons que \( Y\) est certainement subpotent à \( S\) parce que \( Y\subset S\).
+            \begin{subproof}
+                \item[\( S\setminus Y\) est inifni]
+                    Supposons le contraire. Si \( S\setminus Y\) est fini, alors \( Y\cup(S\setminus Y)\) est équipotent à \( Y\) par le lemme \ref{LEMooUFCAooSyZtZj}. Oui mais \( Y\cup(S\setminus Y)=S\), et nous avons dit que \( Y\) n'est pas équipotent à \( S\).
+
+                    Bref, oui : \( S\setminus Y\) est infini.
+
+                \item[La contradiction]
+                    La proposition \ref{PROPooUIPAooCUEFme} nous donne une partie dénombrable\footnote{Et donc infinie par la proposition \ref{PROPooBYKCooGDkfWy} que nous n'allons plus citer à chaque fois.} \( N\subset S\setminus Y\). Nous allons construire une injection \( \psi\colon \{ 0,1 \}\times (Y\cup N)\to Y\cup N\) qui prolonge \( \varphi\), contredisant ainsi la maximalité de \( (Y,\varphi)\).
+
+                    Nous considérons une bijection \( g\colon \{ 0,1 \}\times N\to N\) (lemme \ref{LEMooRXSRooBUWOyb}). Vu que \( N\) est dans \( S\setminus Y\), les parties \( Y\) et \( N\) sont disjointes et nous pouvons écrire
+                    \begin{equation}
+                        \{ 0,1 \}\times (Y\cup N)=\big( \{ 0,1 \}\times Y \big)\cup\big( \{ 0,1 \}\times N \big)
+                    \end{equation}
+                    où l'union à droite est disjointe.
+
+                    Nous pouvons donc définir \( \psi\) correctement de la façon suivante :
+                    \begin{equation}
+                        \begin{aligned}
+                            \psi\colon \{ 0,1 \}\times (Y\cup N)&\to Y\cup N \\
+                            (n,x)&\mapsto \begin{cases}
+                                \varphi(n,x)    &   \text{si } x\in Y\\
+                                g(n,x)    &    \text{si }x\in N.
+                            \end{cases}
+                        \end{aligned}
+                    \end{equation}
+                    Voila qui contredit la maximalité de \( (Y,\varphi)\).
+            \end{subproof}
+    \end{subproof}
+\end{proof}
+
+\begin{corollary}       \label{CORooJCSIooOeOICJ}
+    Si \( A\) est un ensemble infini, alors \( A\) possède deux sous-ensembles disjoints \( A_1\) et \( A_2\) qui sont tout deux en bijection avec \( A\).
+\end{corollary}
+
+\begin{proof}
+    La proposition \ref{PropVCSooMzmIX} donne une bijection \( \varphi\colon \{ 1,2 \}\times A\to A\). Il suffit de poser \( A_1=\varphi(1,A)\) et \( A_2=\varphi(2,A)\).
+\end{proof}
+
+Maintenant que nous pouvons mettre dans \( A\) deux copies disjointes de \( A\), il n'est pas très étonnant que nous puissions en mettre une infinité dénombrable. C'est en substance ce que signifie la proposition suivante.
+\begin{proposition} \label{PROPooFKBEooKXqujV}
+    Si \( A\) est infini, alors \( A\times \eN\approx A\).
+\end{proposition}
+
+\begin{proof}
+    La démonstration se base sur le fait qu'à l'intérieur de \( A\), nous pouvons construire autant de copies de \( A\) deux à deux disjointes que nous le voulons. La \( k\)\ieme\ «copie» sera naturellement l'image de \( k\times A\).
+
+    Voyons tout cela en détail.
+    \begin{subproof}
+        \item[Ce que nous allons faire]
+            Nous allons construire, pour tout \( i\geq 1 \) des parties \( A_i,B_i\subset A\) telles que
+            \begin{itemize}
+                \item \( A_i\cap B_i=\emptyset\),
+                \item \( A_i,B_i\subset B_{i-1}\),
+                \item \( A_i\approx B_i\approx A\),
+                \item \( A_i\cap A_j=\emptyset\) si \( i\neq j\)
+            \end{itemize}
+        \item[La construction]
+            Nous commençons à zéro en utilisant le corollaire \ref{CORooJCSIooOeOICJ} pour construire des parties disjointes \( A_0\) et \( B_0\) de \( A\) telles que \( A_0\approx B_0\approx A\).
+
+            Ensuite, vu que \( B_0\approx A\), il existe \( A_1\) et \( B_1\) dans \( B_0\) tels que \(  A_1\cap B_1=\emptyset\) et \( A_1\approx B_1\approx B_0\approx A\). Cela est notre construction pour \( i=1\).
+
+            Pour la récurrence, vu que \( A_i\approx B_i\approx A\), nous considérons \( A_{i+1}\) et \( B_{i+1}\) dans \( B_i\) tels que \( A_{i+1}\cap B_{i+1}=\emptyset\) et \( A_{i+1}\approx B_{i+1}\approx B_i\approx A\). C'est encore le corolaire \ref{CORooJCSIooOeOICJ} qui fait le travail.
+
+        \item[Les propriétés]
+            Nous avons \( A_i\cap A_{i+1}=\emptyset\) parce que \( A_i\cap A_{i+1}\subset A_i\cap B_i=\emptyset\).
+
+            Nous devons encore montrer que \( A_i\cap A_j=\emptyset\) dès que \( i\neq j\). Supposons que \( j>i\). Nous avons les inclusions
+            \begin{equation}
+                A_j\subset B_{j-1}\subset B_{j-2}\subset \ldots \subset B_i.
+            \end{equation}
+            Donc \( A_j\cap A_i\subset B_i\cap A_i=\emptyset\).
+        \item[Une injection]
+            Nous pouvons à présent écrire une injection qui termine presque la preuve. Pour cela nous considérons pour tout \( i\), une bijection \( \psi_i\colon A\to A_i\). Ensuite nous posons
+            \begin{equation}
+                \begin{aligned}
+                    \varphi\colon A\times \eN&\to A \\
+                    (a,k)&\mapsto \psi_k(a). 
+                \end{aligned}
+            \end{equation}
+                Si \( \varphi(a,k)=\varphi(b,l)\), alors \( \psi_k(a)=\psi_l(b)\). L'élément \( \psi_k(a)\) est donc dans \( A_k\cap A_l\); ce n'est possible que si \( k=l\). Donc \( \psi_l(a)=\psi_l(b)\). Cette dernière égalité n'est possible que si \( a=b\) parce que \( \psi_l\) est une bijection.
+            
+                Donc \( \varphi\) est une injection, et nous avons prouvé que \( A\times \eN\preceq A\).
+            \item[La bijection]
+                Nous venons de prouver que \( A\times \eN\preceq A\). La surpotence \( A\times \eN\succeq A\) étant évidente, le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl} conclu que \( A\times \eN\approx A\).
+    \end{subproof}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooDHWSooFqhano}
+    Sois un ensemble \( A\) muni de deux sous-ensembles \( B\) et \( B'\) équipotents et disjoints. Alors \( A\setminus B\) est équipotent à \( A\setminus B'\).
+\end{lemma}
+
+\begin{proof}
+    Soit une bijection \( \psi\colon B'\to B\). L'application
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon A\setminus B&\to A\setminus B' \\
+            x&\mapsto \begin{cases}
+                x    &   \text{si } x\notin B'\\
+                \psi(x)    &    \text{si } x\in B'.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    fait la bijection.
+\end{proof}
+
+\begin{lemma}[\cite{BIBooYBGLooUZuTrc}]       \label{LEMooIVCBooHWQiZB}
+    Si \( A\) est un ensemble infini et si \( B\prec A\), alors \( A\approx A\setminus B\).
+\end{lemma}
+
+\begin{proof}
+    Nous pouvons écrire
+    \begin{equation}
+        A=(A\setminus B)\cup B.
+    \end{equation}
+    Le théorème de comparabilité cardinale \ref{THOooCBSKooCmzfUf} nous indique que soit \( A\setminus B\preceq B\), soit \( A\setminus B\succeq B\). Nous allons voir les deux cas.
+    \begin{subproof}
+        \item[Si \( A\setminus B\succeq B\)] 
+            Dans ce cas, \( (A\setminus B)\cup B\approx A\setminus B\) par le lemme \ref{LEMooXMVDooIWLWis}. Dans ce cas, notre résultat est prouvé parce que \( A=(A\setminus B)\cup B\approx A\setminus B\).
+        \item[Si \( A\setminus B\preceq B\)] 
+            Dans ce cas, le lemme \ref{LEMooXMVDooIWLWis} nous indique que \( A=(A\setminus B)\cup B\approx B\). Mais \( A\approx B\) est exclu par l'hypothèse. Ce cas est donc impossible.
+    \end{subproof}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooMRVQooUZSSyL}
+    Si \( A\) est infini et si \( B\) est une partie strictement subpotente de \( A\), alors il existe \( U\subset A\) disjoint de \( B\) et équipotent à \( B\).
+\end{lemma}
+
+\begin{proof}
+    Le lemme \ref{LEMooIVCBooHWQiZB} nous donne une bijection \( \varphi\colon A\to A\setminus B\). Il suffit alors de poser \( U=\varphi(B)\). Cette partie est disjointe de \( B\) parce que \( \varphi\) prend ses valeurs dans \( A\setminus B\).
+\end{proof}
+
+\begin{lemma}[\cite{BIBooDLDFooFwXSGV}]
+    Soit un ensemble infini \( A\) ainsi qu'un sous-ensemble \( B\subset A\). Nous supposons l'existence d'une fonction surjective \( f\colon B\to B\times B\).
+
+    Alors \( B\preceq B\times B\preceq B\preceq A\).
+\end{lemma}
+
+\begin{proof}
+    La première est l'hypothèse sur \( f\). La seconde est l'existence (évidente) d'une surjection \( B\times B\to B\). La troisième est le fait que \( B\) soit inclus à \( A\).
+\end{proof}
+
+\begin{lemma}[\cite{BIBooDLDFooFwXSGV}]     \label{LEMooPOEFooXaifhT}
+    Soit un ensemble infini \( A\) ainsi qu'un sous-ensemble strictement subpotent \( B\subset A\). Nous supposons l'existence d'une fonction surjective \( f\colon B\to B\times B\).
+
+    Alors \( f\) peut être étendue en une injection \( f\colon D\to D\times D\) où \( D\subset A\) contient strictement \( B\).
+\end{lemma}
+
+\begin{proof}
+    Par le lemme \ref{LEMooMRVQooUZSSyL}, nous considérons une partie \( U\subset A\) disjointe de \( B\) et équipotent à \( B\). Nous pouvons faire le développement
+    \begin{equation}
+        (B\cup U)\times (B\cup U)=(B\times B)\cup(B\times U)\cup (U\times B)\cup (U\times U).
+    \end{equation}
+    Nous savons que \( B\) est surpotent à \( U\) (il est même équipotent); donc le lemme \ref{LEMooXMVDooIWLWis} nous dit que \( B\cup U\approx B\). De plus il existe une bijection \( B\to U\), donc 
+    \begin{equation}
+        B\approx B\times B\approx B\times U\approx U\times B\approx U\times U.
+    \end{equation}
+    Et enfin, la réunion d'ensembles équipotents est équipotent. Bref, nous avons une bijection
+    \begin{equation}
+        \varphi\colon U\to (U\times B)\cup (B\times U)\cup (U\times U).
+    \end{equation}
+    Et enfin nous définissons
+    \begin{equation}
+        \begin{aligned}
+            g\colon B\cup U&\to (B\times U)\times (B\cup U) \\
+            x&\mapsto \begin{cases}
+                f(x)    &   \text{si }  x\in B\\
+                \varphi(x)    &    \text{si } x\in U.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    Cette définition est bonne parce que \( U\) et \( B\) sont disjoints, et \( g\) est injective.
+\end{proof}
+
+Le théorème suivant est une généralisation de la proposition \ref{PropVCSooMzmIX}. Elle implique, entre autres choses, qu'il existe une bijection entre \( \eR\) et \( \eR\times \eR\). Pour le cas de \( \eN\times \eN\approx \eN\), il y a la proposition \ref{PROPooLPKUooAlsYJg} qui donne une bijection explicite et donc sans axiome du choix et sans lemme de Zorn.
+\begin{theorem}     \label{THOooDGOVooRdURVi}
+    Si \( A\) est infini, alors \( A\approx A\times A\).
+\end{theorem}
+
+\begin{proof}
+    Une fois de plus, ce sera le lemme de Zorn qui va s'y coller. Soit l'ensemble
+    \begin{equation}
+       \mA=\Big\{  (X,\varphi)  \tq
+        \begin{cases}
+            X\subset A\\
+            \varphi\colon X\to X\times X\text{ est surjective.}
+        \end{cases}
+    \Big\}
+    \end{equation}
+    Cet ensemble est non vide parce que \( A\) est infini; il contient donc une partie dénombrables \( N\), et nous connaissons la surjection \( \eN\to \eN\times \eN\) du lemme \ref{PROPooLPKUooAlsYJg}.
+
+    Nous ordonnons \( \mA\) par l'inclusion : \( (X,\varphi)\leq (Y,\phi)\) lorsque \( X\subset Y\) et \( \phi|_X=\varphi\). La tambouille usuelle montre que \( \mA\) est un ensemble inductif et le lemme de Zorn \ref{LemUEGjJBc} donne l'existence d'un élément maximum que nous notons \( (B,\varphi)\).
+
+    Vu que \( B\) est subpotent à \( A\) (parce qu'il est inclus), soit il est strictement subpotent soit il est équipotent. Nous commençons par montrer que \( B\) ne peut pas être strictement subpotent à \( A\).
+
+    En effet, si nous avions une surjection \( B\to B\times B\), alors que \( B\) est strictement subpotent à \( A\). Le lemme \ref{LEMooPOEFooXaifhT} nous dit alors que \( \varphi\) peut être étendue, ce qui contredirait la maximalité de \( (B,\varphi)\).
+
+    Donc la partie \( B\) est équipotente à \( A\) : il existe une bijection \( g\colon A\to B\). Mais nous avons une surjection \( B\to B\times B\) et donc aussi une injection \( B\times B\to B\). Vu que nous avons par ailleurs une injection \( B\to B\times B\), le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl} nous donne une bijection \( \phi\colon B\times B\to B\). Avec ça, l'application
+    \begin{equation}
+        \begin{aligned}
+            f\colon A\times A&\to A \\
+            (a,b)&\mapsto \phi\big( g(a),g(b) \big) 
+        \end{aligned}
+    \end{equation}
+    est une bijection. Donc les ensembles \( A\) et \( A\times A\) sont équipotents.
+\end{proof}
+
+\begin{lemma}       \label{LEMooNKKDooUvSYPO}
+    Si \( A\) est infini, et si pour tout \( i\in \eN\) nous avons \( A_i\approx A\), alors
+    \begin{equation}
+        \bigcup_{i\in \eN}A_i\approx A.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Pour chaque \( i\in \eN\) nous avons une bijection \( \varphi_i\colon A_i\to A\). Nous posons
+    \begin{equation}        \label{EQooCHJAooRpHypV}
+        \begin{aligned}
+            \varphi\colon A\times \eN&\to \bigcup_{i=0}^{\infty}A_i \\
+            (a,i)&\mapsto \varphi_i(a). 
+        \end{aligned}
+    \end{equation}
+    Cette application est surjective mais peut-être pas injective parce que les \( A_i\) peuvent avoir des intersections non vides. Nous avons alors le calcul
+    \begin{subequations}
+        \begin{align}
+            A&\approx A\times \eN        \label{SUBEQooICFEooTLuFHZ}\\
+            &\succeq \bigcup_{i=0}^{\infty}A_i      \label{SUBEQooRVPRooJJevkv}\\
+            &\succeq A      \label{SUBEQooFJRGooJnervy}
+        \end{align}
+    \end{subequations}
+    Justifications :
+    \begin{itemize}
+        \item Pour \eqref{SUBEQooICFEooTLuFHZ}, c'est la proposition \ref{PROPooFKBEooKXqujV}.
+        \item Pour \eqref{SUBEQooRVPRooJJevkv}, c'est la surjection \eqref{EQooCHJAooRpHypV}.
+        \item Pour \eqref{SUBEQooFJRGooJnervy}, c'est le fait que seulement \( A_0\) possède déjà une surjection vers \( A\).
+    \end{itemize}
+    Donc \( \bigcup_iA_i\) est à la fois surpotent et subpotent à \( A\). Il est donc équipotent par le théorème \ref{THOooRYZJooQcjlcl}.
+\end{proof}
