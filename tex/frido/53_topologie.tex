@@ -104,7 +104,7 @@ Notons toutefois que nous sommes loin d'avoir une union dénombrable en généra
   Pour un ensemble \( X \) quelconque, on considère l'ensemble \( \mT \) constitué de toutes les parties de \( X \). Avec cet ensemble, on confère à nouveau une structure d'espace topologique à \(X \); toutes les parties sont des ouverts, et aussi des fermés. La topologie ainsi posée sur \(X \) est appelée \defe{topologie discrète}{topologie!discrète}.
 \end{example}
 
-\begin{example} [Toutes les topologies d'un ensemble à 3 éléments]
+\begin{example}[Toutes les topologies d'un ensemble à 3 éléments]
   On pose \( X = \{1, 2, 3\} \). Alors on peut munir \( X \) de 29 topologies différentes\footnote{Remercions Erwann Aubry d'en avoir fourni la liste exhaustive!  \url{https://math.unice.fr/~eaubry/Enseignement/L3/rappelstopo.pdf}}; saurez-vous les retrouver toutes?
 \end{example}
 
@@ -145,6 +145,11 @@ il s'ensuit que
   La famille composée des intersections finies d'éléments de \( \mT_0 \) forme une base de la topologie engendrée.
 \end{remark}
 
+
+\begin{example}[Topologie des corps totalement ordonnés]
+  Si \( \eK \) est un corps totalement ordonné\footnote{Définition \ref{DefKCGBooLRNdJf}.}, alors \( \eK \) peut être muni de la topologie engendrée par ses boules ouvertes.
+\end{example}
+
 \subsubsection{Exemple fondamental: topologie de \texorpdfstring{$\eR$}{R}}
 \begin{definition}[Topologie réelle engendrée par les intervalles ouverts] \label{DefTopologieREngendree}
   Pour \( X = \eR \), considérons \( \mT_0 \) l'ensemble constitué de \( \emptyset \), de \( \eR \), et de tous les intervalles ouverts (de la forme \( \mathopen] a, b \mathclose[ \), avec \( a, b \in \eR \)). La topologie ainsi engendrée est alors la topologie usuelle sur \( \eR \).
@@ -156,10 +161,17 @@ il s'ensuit que
   \item
     Les intervalles ci-dessus sont une base de la topologie de \( \eR \). En effet, l'intersection des intervalles \( \mathopen] a_i, b_i \mathclose[ \) (pour \( i = 1,\ldots, n (n \in \eN) \) et les \( a_i \) et \( b_i \) réels, est soit vide, soit \( \mathopen] \max\{a_i\}, \min\{b_i\}[ \).
   \item
-    Pour tout intervalle ouvert \( \mathopen]a,b\mathclose[ \), il existe \( x \in \eR \) et \( \epsilon > 0 \) tels que cet intervalle soit \( \mathopen]x - \epsilon,x+\epsilon\mathclose[ \). Il suffit de prendre \( x = \frac{a+b} 2 \) et \( \epsilon = \frac{b-a}2 \). Ainsi, les intervalles de la forme \( \mathopen] x - \epsilon, x = \epsilon \mathclose[ \) forment, pour \( x \in \eR \) et \( \epsilon > 0 \), une base de la topologie usuelle.
+    Pour tout intervalle ouvert \( \mathopen]a,b\mathclose[ \), il existe \( x \in \eR \) et \( \epsilon > 0 \) tels que cet intervalle soit \( \mathopen]x - \epsilon,x+\epsilon\mathclose[ \). Il suffit de prendre \( x = \frac{a+b} 2 \) et \( \epsilon = \frac{b-a}2 \). Ainsi, les intervalles de la forme \( \mathopen] x - \epsilon, x + \epsilon \mathclose[ \) forment, pour \( x \in \eR \) et \( \epsilon > 0 \), une base de la topologie usuelle.
   \end{enumerate}
-
 \end{remark}
+
+\begin{proposition} \label{TopologieR_ord_top}
+  Les topologies de \( \eR \) en tant que corps ordonné (à l'aide de \ref{DefKCGBooLRNdJf}) et de \( \eR \) en tant qu'espace topologique (définition \ref{DefTopologieREngendree}) sont les mêmes.
+\end{proposition}
+
+\begin{proof}
+  Du corps ordonné \( \eR \), on recrée les intervalles, et donc la topologie. Reste à voir le sens inverse: est-ce que, de tous les intervalles, on recrée les boules? La réponse est oui, grâce à la remarque précédente.
+\end{proof}
 
 \begin{example}[Voisinages de réels]
   Pour qu'un ensemble soit un voisinage de \( x \in \eR \), il faut et il suffit qu'il contienne un intervalle ouvert contenant \( x \). Ainsi, les ensembles suivants sont des voisinages de \( 3 \) dans \( \eR\) :
@@ -859,10 +871,10 @@ Une autre façon d'exprimer la condition \eqref{EqDefnnCon} est de dire que $A$ 
     \end{gather}
     L'équivalence entre les deux premiers points est prouvée.
 
-  \item[\ref{ITEMooNIPZooIDPmEc}$\Leftrightarrow$\ref{ITEMooNIPZooIDPmEf}:]
+  \item[\ref{ITEMooNIPZooIDPmEc}$\Leftarrow$\ref{ITEMooNIPZooIDPmEf}:]
     Soit \(A \) un ouvert-fermé de \(X\). L'ensemble \(A^c\) est aussi un ouvert-fermé de \(X\), et il est disjoint de \( A\). Si \( X \) est connexe, alors \( A \) est nécessairement trivial (vide, ou bien de complémentaire vide, soit \( A = X \)).
 
-  \item[non \ref{ITEMooNIPZooIDPmEd}$\Leftrightarrow$non \ref{ITEMooNIPZooIDPmEf}:]
+  \item[non \ref{ITEMooNIPZooIDPmEd}$\Leftarrow$non \ref{ITEMooNIPZooIDPmEf}:]
     Supposons qu'il existe \( A, B\) fermés disjoints non-vides tels que \(X = A \cup B\). Considérons \( B^c \): c'est un ouvert. Il est nécessairement inclus à \( A \) puisque c'est une partie disjointe de \(B \). Or, \( A \cap B = \emptyset \) signifie que \( A \subset B^c \). Donc \( B^c = A \) est à la fois ouvert et fermé, non vide, et non égal à \(X \) puisque \( B \) n'était pas vide.
 
     \item[ \ref{ITEMooNIPZooIDPmEf}$\Leftrightarrow$ \ref{ITEMooNIPZooIDPmEe}]
@@ -932,26 +944,26 @@ Une des nombreuses propositions qui vont servir à prouver le théorème des \hr
 \index{connexité!et intervalles}
 
 \begin{proof}
-    La preuve est en deux parties, et en fait, on va faire le coup de \href{http://fr.wikipedia.org/wiki/Contraposée}{la contraposée}. D'abord nous démontrons que si un sous-ensemble de $\eR$ n'est pas un intervalle, alors il ne peut pas être connexe; et ensuite nous démontrons que tout sous-ensemble non connexe est autre chose qu'un untervalle.
+    La preuve est en deux parties, et en fait, on va faire le coup de \href{http://fr.wikipedia.org/wiki/Contraposée}{la contraposée}. D'abord nous démontrons que si un sous-ensemble de $\eR$ n'est pas un intervalle, alors il ne peut pas être connexe; et ensuite nous démontrons que tout sous-ensemble non connexe est autre chose qu'un intervalle.
 
-    Prenons d'abord $A$, une partie de $\eR$ qui n'est pas un intervalle. Il existe donc $a$, $b\in A$ et un $x_0$ entre $a$ et $b$ qui n'est pas dans $A$. Comme le but est de prouver que $A$ n'est pas connexe, il faut couper $A$ en deux ouverts disjoints. L'élément $x_0$ qui n'est pas dans $A$ est le bon candidat pour effectuer cette coupure. Prenons $M$, un majorant de $A$ et $m$, un minorant de $A$, et définissons
+    Prenons d'abord $A$, une partie de $\eR$ qui n'est pas un intervalle. Il existe donc $a$, $b\in A$ et un $x_0$ entre $a$ et $b$ qui n'est pas dans $A$. Comme le but est de prouver que $A$ n'est pas connexe, il faut couper $A$ en deux ouverts disjoints. L'élément $x_0$ qui n'est pas dans $A$ est le bon candidat pour effectuer cette coupure. Définissons
     \begin{align*}
-        \mO_1&=]m,x_0[\\
-        \mO_2&=]x_0,M[.
+        \mO_1&=]\inf A ,x_0[\\
+        \mO_2&=]x_0, \sup A[
     \end{align*}
-    Si $A$ n'a pas de minorant, nous remplaçons la définition de $\mO_1$ par $]-\infty,x_0[$, et si $A$ n'a pas de majorant, nous remplaçons la définition de $\mO_2$ par $]x_0,+\infty[$. Dans tous les cas, ce sont deux ensembles ouverts disjoints dont l'union recouvre tout $A$. En effet, $\mO_1\cup \mO_2$ contient tous les nombres entre un minorant de $A$ et un majorant sauf $x_0$, mais on sait que $x_0$ n'est pas dans $A$. Cela prouve que $A$ n'est pas connexe.
+    (avec éventuellement \( \inf A = - \infty, \sup A = + \infty \)). Ce sont deux ensembles ouverts, non-vides (car \( a \in \mO_1 \) et \( b \in \mO_2 \)), disjoints, et leur union recouvre tout $A$. En effet, $\mO_1\cup \mO_2$ contient tous les nombres entre  $\inf A$ et $\sup A$, à l'exception de $x_0$. Mais on sait que $x_0$ n'est pas dans $A$: donc, $A$ n'est pas connexe.
 
-    Prenons une partie $A$ de $\eR$, supposons qu'elle n'est pas connexe et prouvons qu'elle n'est alors pas un intervalle. Nous avons deux ouverts disjoints $\mO_1$ et $\mO_2$ tels que $A\subset \mO_1\cup \mO_2$. Notons \( A_1 = A \cap \mO_1 \) et  \( A_2 = A \cap \mO_2 \); ils sont non-vides par non-connexité de $A$: prenons $a\in A_1$ et $b\in A_2$. Pour fixer les idées, on suppose que $a<b$. Maintenant, le jeu est de montrer qu'il existe un point $x_0$ entre $a$ et $b$ qui ne soit pas dans $A$ (cela montrerait que $A$ n'est pas un intervalle). Nous allons prouver que c'est le cas du point
+    Réciproquement, prenons une partie $A$ de $\eR$, supposons qu'elle n'est pas connexe et prouvons qu'elle n'est alors pas un intervalle. Nous avons deux ouverts disjoints $\mO_1$ et $\mO_2$ tels que $A\subset \mO_1\cup \mO_2$. Notons \( A_1 = A \cap \mO_1 \) et  \( A_2 = A \cap \mO_2 \); ils sont non-vides par non-connexité de $A$: prenons $a\in A_1$ et $b\in A_2$. Pour fixer les idées, on suppose que $a<b$. Maintenant, le jeu est de montrer qu'il existe un point $x_0$ entre $a$ et $b$ qui ne soit pas dans $A$ (cela montrerait que $A$ n'est pas un intervalle). Nous allons prouver que c'est le cas du point
     \begin{equation}
       x_0=\sup \mA \qquad \text{avec }\mA = \{ x\in\mO_1\tq x<b \}.
     \end{equation}
-    Étant donné que $\mA$ est ouvert (c'est l'intersection entre l'ouvert $\mO_1$ et l'ouvert $\mathopen] -\infty, b \mathclose[$, le point $x_0$ n'est pas dans $\mA$ par le lemme~\ref{LemSupOuvPas}. Nous avons donc
+    Étant donné que $\mA$ est ouvert (c'est l'intersection entre l'ouvert $\mO_1$ et l'ouvert $\mathopen] -\infty, b \mathclose[$), le point $x_0$ n'est pas dans $\mA$ par le lemme~\ref{LemSupOuvPas}. Nous avons donc
     \begin{itemize}
         \item soit $x_0$ n'est pas dans $\mO_1$,
         \item soit $x_0\geq b$,
         \item soit les deux en même temps.
     \end{itemize}
-    Nous allons montrer qu'un tel $x_0$ ne peut pas être dans $A$. D'abord, remarquons que $\sup\mA\leq\sup\mO$ parce que $\mA$ est une intersection de $\mO$ avec quelque chose. Ensuite, il n'est pas possible que $x_0$ soit dans $\mO_2$ parce que tout élément de $\mO_2$ possède un voisinage contenu dans $\mO_2$. Un point de $\mO_2$ est donc toujours strictement plus grand que le supremum de $\mO_1$.
+    Nous allons montrer qu'un tel $x_0$ ne peut pas être dans $A$. D'abord, remarquons que $\sup\mA\leq\sup\mO_1$ parce que $\mA$ est une intersection de $\mO_1$ avec quelque chose (voir la proposition \ref{PROPooANIOooIJHelX}). Ensuite, il n'est pas possible que $x_0$ soit dans $\mO_2$ : en effet, tout élément de $\mO_2$ possède un voisinage $V$ contenu dans $\mO_2$; Comme $O_1 \cap V \subset O_1 \cap O_2 = \emptyset$, un point de $\mO_2$ est toujours strictement plus grand que le supremum de $\mO_1$, qui lui-même est plus grand que $x_0$.
 
     Maintenant, remarquons que si $x_0\geq b$, alors $x_0=b$, sinon $b$ serait un majorant de $\mA$ plus petit que $x_0$, ce qui n'est pas possible vu que $x_0$ est le supremum de $\mA$ et donc le plus petit majorant. Oui mais si $x_0=b$, c'est que $x_0\in\mO_2$, ce qu'on vient de montrer être impossible. Nous voilà déjà débarrassé des deuxièmes et troisièmes possibilités.
 
@@ -986,18 +998,6 @@ La compacité est le thème~\ref{THEMEooQQBHooLcqoKB}.
 
 \begin{definition}  \label{DefEIBYooAWoESf}
     Un espace topologique est \defe{localement compact}{compact!localement} si tout élément possède un voisinage compact.
-\end{definition}
-
-\begin{definition}[Séquentiellement compact]
-    Nous disons qu'un espace topologique est \defe{séquentiellement compact}{compact!séquentiellement} si toute suite admet une sous-suite convergente.
-\end{definition}
-
-\begin{probleme}
-  Étudier les implications - équivalences entre ces définitions.
-\end{probleme}
-
-\begin{definition}      \label{DefFCGBooLpnSAK}
-    Un espace topologique est \defe{dénombrable à l'infini}{dénombrable!à l'infini} s'il est réunion dénombrable de compacts.
 \end{definition}
 
 \begin{definition}
@@ -1047,7 +1047,6 @@ Remarquons que la partie qui est réellement à prouver est que, si \og ça marc
     Par hypothèse nous pouvons extraire un ensemble fini \( J_0\subset J\) tel que \( K\subset\bigcup_{j\in J_0}A_j\). Par construction chacun des \( A_j\) est inclus dans (au moins) un des \( \mO_i\). Le choix d'un élément de \( I\) pour chacun des éléments de \( J_0\) donne une partie finie \( I_0\) de \( I\) telle que \( K\subset\bigcup_{j\in J_0}A_j\subset\bigcup_{i\in I_0}\mO_i\).
 \end{proof}
 
-
 \begin{example}[Un compact non fermé]
     En général, un compact n'est pas toujours fermé. Si nous prenons par exemple un ensemble \( X\) de plus de deux points muni de la topologie grossière \( \{ \emptyset,X \}\). Toutes les parties de cet espace sont compactes, mais les seuls fermés sont \( \{ \emptyset,X \}\). Toutes les autres parties sont alors compactes et non fermées.
 \end{example}
@@ -1088,6 +1087,40 @@ Remarquons que la partie qui est réellement à prouver est que, si \og ça marc
 \begin{proof}
     Soient \(   (\mO_\alpha)_{\alpha\in A}  \) des ouverts de \( X\) recouvrant \( K\). Alors les ensembles \( V\cap \mO_{\alpha}\) recouvrent également \( K\), mais sont des ouverts de \( V\). Donc il en existe un sous-recouvrement fini. Soient donc \( (V\cap\mO_i)_{i\in I}\) recouvrant \( K\) avec \( I\) un sous-ensemble fini de \( A\). Les ensembles \( (\mO_i)_{i\in I}\) recouvrent encore \( K\) et sont des ouverts de \( X\).
 \end{proof}
+
+\begin{definition}[Séquentiellement compact] \label{DefEspaceSeqCompact}
+    Nous disons qu'un espace topologique est \defe{séquentiellement compact}{compact!séquentiellement} si toute suite admet une sous-suite convergente.
+\end{definition}
+
+\begin{proposition}\label{ThoBWFTXAZNHoo}
+    Un espace topologique compact et séparé est séquentiellement compact.
+\end{proposition}
+
+\begin{proof}
+   Soient \( X\) un espace compact et \( (x_n)\) une suite dans \( X\). Nous considérons la suite de fermés emboîtés
+   \begin{equation}
+       X_n=\overline{ \{ x_k\tq k>n \} }.
+   \end{equation}
+   Ce sont des fermés ayant la propriété d'intersection finie non vide, et donc la proposition~\ref{PropXKUMiCj} nous dit qu'ils ont une intersection non vide. Un élément de cette intersection est automatiquement un point d'accumulation de la suite\footnote{Définition \ref{DEFooGHUUooZKTJRi}.}.
+\end{proof}
+
+
+\begin{remark}[Séquentiellement compact n'est pas nécessairement compact \footnote{\url{http://www.les-mathematiques.net/phorum/read.php?14,359450}}] \label{ContreExSeqCompactNonCompact}
+  Un espace séquentiellement compact n'est pas nécessairement compact. Voici un contre-exemple, basé sur les ordinaux.
+  \begin{probleme}
+    Faire les ordinaux.
+  \end{probleme}
+
+  On considère \( \omega_1 \) le premier ordinal non-dénombrable, et les ensembles de la forme \( \{ x \tq x \in y \} \) pour \( y \in \omega_1\). Ces ensembles forment une topologie sur \( \omega_1 \).
+
+De tous les ensembles ainsi construits, on ne peut pas obtenir un recouvrement de \( \omega_1 \) fini: s'il en existait un, on aurait un \( y \in \omega_1\) maximal, mais \( y+1 \in \omega_1\) n'est pas recouvert. L'ensemble ainsi construit n'est pas compact.
+
+En revanche, il est séquentiellement compact. Si \((x_n)\) est une suite, il faut sortir une sous-suite qui converge. L'ensemble \( \{x_n \tq n \in \eN \}\) possède un plus petit élément indicé par \( n_0 \). L'ensemble \( \{x_n \tq n \in \eN \text{ et } n > n_0\}\) admet un plus petit élément, indicé par \( n_1 \). Pour un entier naturel \( k \), une fois \(n_k\) fixé, l'ensemble \( \{x_n \tq n \in \eN \text{ et } n > n_k\}\) admet un plus petit élément, indicé par \( n_{k+1} \). Alors, la suite \( (x_{n_k})_{k \in \eN} \) est une sous-suite de \( (x_n)\), croissante pour l'inclusion, et elle converge vers \( \cup_{k \in \eN} x_{n_k}\).
+\end{remark}
+
+\begin{definition}      \label{DefFCGBooLpnSAK}
+    Un espace topologique est \defe{dénombrable à l'infini}{dénombrable!à l'infini} s'il est réunion dénombrable de compacts.
+\end{definition}
 
 %----------------------------------------------------------------------------------------------------------------------
 \subsection{Compacité pour les réels}
