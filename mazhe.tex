@@ -1,32 +1,7 @@
-% This is part of (almost) Everything I know in mathematics
-% Copyright (c) 2010-2018
+% This is part of Giulietta
+% Copyright (c) 2010-2020
 %   Laurent Claessens
-% See the file fdl-1.3.txt for copying conditions.
-
-% CODING CONVENTION
-
-%  The compilation of this file and particularly the extraction of the ``agregation'' part relies on a couple of external scripts.
-%  These scripts are making some assumptions on the structure of this file.
-%
-%
-%           The lines beginning with ``SCRIPT MARK'' are intended to be used by automatic scripts in order to
-%           extract the right lines from this documents.
-%           Do not modify them.
-%
-%
-%           There should not be explicit text in mazhe.tex, but only chapter declarations and \input.
-%           The commands \chapter and \input have to be alone on their line (apart of a \label if you want). So we write
-%               \if{...}
-%               {
-%                   \chapter{chapter name}              \label{FooBar}
-%                   \input{}
-%}              {}
-%           and not
-%               \if{...} { \chapter{chapter name}input
-%                  \input{}
-%}              {}
-
-
+    % See the file fdl-1.3.txt for copying conditions.
 
 % SCRIPT MARK -- DECLARATIVE PART
 \documentclass[a4paper,twoside,11pt]{book}
@@ -44,21 +19,19 @@
 % They are set quite early because some parts of the headings are changed
 % by some plugins (ex: the colors in 'configuration.tex')
 \newbool{isFrido}
-\newbool{isEverything}
+\newbool{isGiulietta}
 \newbool{isEnVolume}
 \newbool{isBook}
 \boolfalse{isFrido}
-\boolfalse{isEverything}
+\boolfalse{isGiulietta}
 \boolfalse{isEnVolume}      % This list is hard-coded in 'gardeVolume.tex'.
 \boolfalse{isBook}
 
 % The following line is changed by pytex. You can change the title
 % but not the exact string ``\newcommand{\pdftitle}''.
-\newcommand{\pdftitle}{(almost) Everything I know in mathematics}
+\newcommand{\pdftitle}{Giulietta}
 
 \input{e_mazhe}
-
-% TODO : enlever les \cite{} qui citent mes documents qui ont été fusionnés.
 
 % 1 on utilise external et 0 on ne l'utilise pas
 \newcounter{useexternal} \setcounter{useexternal}{1}
@@ -92,7 +65,7 @@
 
 % SCRIPT MARK -- GARDE MAZHE
 \selectlanguage{english}
-\input{gardeMazhe}
+\input{gardeGiulietta}
 
 % SCRIPT MARK -- GARDE ENSEIGNEMENT
 \selectlanguage{french}
@@ -123,7 +96,7 @@
 % SCRIPT MARK -- FRIDO
 \selectlanguage{french}
 
-\ifbool{isEverything}
+\ifbool{isGiulietta}
 {
     \part{Le Frido}
 }{}
@@ -131,13 +104,6 @@
     \setcounter{chapter}{-1}
     \chapter{Introduction}
         \input{remerciements}
-
-\ifbool{isBook}{
-    \setcounter{chapter}{0}
-    \chapter{Introduction}
-        \input{162_preface}
-        %\input{remerciements}
-}{}
 
 \emptyInputPath
 \addInputPath{tex/frido}
@@ -158,6 +124,9 @@
 \chapter{Espaces vectoriels (début)}
 \input{55_EspacesVectos}
 
+\chapter{Classification de certains groupes}
+\input{186_groupes}
+
 \chapter{Corps}
 \input{49_StructCorps}
 \input{196_StructCorps}
@@ -165,6 +134,7 @@
 
 \chapter{Topologie générale} \label{ChapTopologieGenerale}
 \input{53_topologie}
+%<<<<<<< HEAD
 
 \chapter{Un peu de topologie métrique}
 \input{188_topologieDist}
@@ -175,11 +145,14 @@
 \input{65_analyseR}
 
 \chapter{Topologie métrique}
+%=======
+\input{185_topologie}
+%>>>>>>> cb7bc588a41c3ad1fdef45ff029eaf47db8a652b
 \input{199_topologie}
 \input{54_topologieR}
 
-\chapter{Classification de certains groupes}
-\input{186_groupes}
+\chapter{Espaces affines}
+\input{140_EspacesAffines}
 
 \chapter{Espaces vectoriels (encore)}
 \input{56_EspacesVectos}
@@ -196,8 +169,6 @@
 \input{181_espace_vecto_norme}
 \input{187_espace_vecto_norme}
 
-\chapter{Espaces affines}
-\input{140_EspacesAffines}
 
 \chapter{Analyse réelle à plusieurs variables}
 \input{66_analyseR}
@@ -236,6 +207,7 @@
 \input{177_trigono}
 \input{190_trigono}
 \input{192_trigono}
+\input{208_trigono}
 
 \chapter{Corps finis, racines de l'unité}
 \input{197_racines}
@@ -267,13 +239,13 @@
 \chapter{Espaces de Hilbert}
 \input{81_Hilbert}
 
-\chapter{Analyse fonctionnelle}
-\input{82_analyse_fonctionnelle}
-\input{83_analyse_fonctionnelle}
-
 \chapter{Analyse complexe}          \label{ChapICHIooXbLccl}
 \input{84_AnalyseComplexe}
 \input{85_AnalyseComplexe}
+
+\chapter{Analyse fonctionnelle}
+\input{82_analyse_fonctionnelle}
+\input{83_analyse_fonctionnelle}
 
 \chapter{Séries de Fourier}
 \input{86_Fourier}
@@ -309,6 +281,7 @@
 \input{91_vars_al}
 \input{92_vars_al}
 \input{93_vars_al}
+\input{203_vars_al}
 
 \chapter{Statistiques}
 \input{94_statistiques}
@@ -321,6 +294,9 @@
 
 \chapter{Processus de Poisson}
 \input{97_ProcessusPoisson}
+
+\chapter{Langages}
+\input{202_langages}
 
 \chapter{Utilisation dans les autres sciences}
 \input{Science}
@@ -337,6 +313,7 @@
 
 \chapter{Développements possibles}
 \input{98_liste_developpements}
+\input{137_anciennes_lecons}
 
 % SCRIPT MARK -- RESEARCH PART
 
@@ -344,9 +321,7 @@
 \addInputPath{tex/research}
 
     \selectlanguage{english}
-\part{More advanced stuff and research}
-
-\input{questionsMazhe}
+\part{Giulietta}
 
 \chapter{Some old results}
 \input{app_statement}
@@ -358,12 +333,12 @@
 \input{147_topo}
 \input{directedSets}
 
-\chapter{General differential geometry} \label{Chapitre_FB}
+\chapter{Manifolds} \label{Chapitre_FB}
 \input{154_var_diff}
-\input{diff_geom}
+\input{204_diff_geom}
 
-\chapter{Lie groups and subgroups}
-\input{143_Lie_gp_and_subgp}
+\chapter{Representations}
+\input{207_representations}
 
 \chapter{Lie algebras}
 \input{99_mazhe}
@@ -372,6 +347,12 @@
 \input{102_mazhe}
 \input{103_mazhe}
 \input{104_helgaLie}
+
+\chapter{Lie groups}
+\input{143_Lie_gp_and_subgp}
+
+\chapter{Lie group and Lie algebra}
+\input{206_lie_group_algebra}
 
 \chapter{A lot of algebra}
 \input{110_algebre}
@@ -385,6 +366,8 @@
 \chapter{Examples of groups and representations}        \label{ChapThoComsGroupes}
 \input{107_iwasawa}
 \input{108_mazhe}
+\input{210_lorentz}
+\input{211_groups}
 
 \chapter{Lie groups of transformations}
 \input{109_helga}
@@ -529,13 +512,15 @@
 \input{TD_SVT}
 \input{164_part_exercices}
 
+\input{209_exo_outils_math}
+
 % SCRIPT MARK -- CdI
 
-\chapter{Exercices de calcul différentiel et intégral 1 (Bruxelles)}
+\chapter{Exercices de calcul différentiel et intégral 1}
 \input{exoUnif}
 \input{suiteCorr}
 
-\chapter{Exercices de calcul différentiel et intégral 2 (Bruxelles)}
+\chapter{Exercices de calcul différentiel et intégral 2}
 \input{listeExo}
 \input{listeExo_cv}
 \input{listeExo_eqdiff}

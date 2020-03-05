@@ -1,16 +1,7 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2016,2018
+% Copyright (c) 2011-2016,2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
-
-\begin{proposition} \label{PropAAjSURG}
-    Soit une fonction intégrable \( f\) telle que
-    \begin{equation}
-        \int_{\eR}f(t)\varphi(t)dt=0
-    \end{equation}
-    pour toute fonction \( \varphi\in\swD(\eR)\). Alors \( f=0\) presque partout.
-\end{proposition}
-% TODO : un énoncé plus précis et une preuve. Notons que c'est utilisé à la marque 13107277
 
 \begin{theorem}[Théorème d'isomorphisme de Banach]  \label{ThofQShsw}
     Une application linéaire continue et bijective entre deux espaces de Banach est un homéomorphisme.
@@ -54,64 +45,7 @@
 \index{théorème!Ascoli}
 %TODO : une preuve est sur Wikipédia.
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Théorème de Banach-Steinhaus}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{theorem}[Théorème de Banach-Steinhaus\cite{KXjFWKA,VPvwAaQ}] \label{ThoPFBMHBN}
-    Soit \( E\) un espace de Banach\footnote{Définition~\ref{DefVKuyYpQ}.} et \( F\) un espace vectoriel normé. Nous considérons une partie \( H\subset \aL_c(E,F)\) (espace des fonctions linéaires continues). Alors \( H\) est uniformément borné si et seulement s'il est simplement borné.
-\end{theorem}
-\index{théorème!Banach-Steinhaus}
-\index{application!linéaire!théorème de Banach-Steinhaus}
-
-\begin{proof}
-
-    Si \( H\) est uniformément borné, il est borné; pas besoin de rester longtemps sur ce sens de l'équivalence. Supposons donc que \( H\) soit borné. Pour chaque \( k\in \eN^*\) nous considérons l'ensemble
-    \begin{equation}
-        \Omega_k=\{ x\in E\tq \sup_{f\in H}\| f(x) \|>k \}.
-    \end{equation}
-
-    \begin{subproof}
-        \item[Les \( \Omega_k\) sont ouverts]
-
-            Soit \( x_0\in \Omega_k\); nous avons alors une fonction \( f\in H\) telle que \(  \| f(x_0) \|>k \), et par continuité de \( f\) il existe \( \rho>0\) tel que \( \| f(x) \|>k\) pour tout \( x\in B(x_0,\rho)\). Par conséquent \( B(x_0,\rho)\subset \Omega_k\) et \( \Omega_k\) est ouvert par le théorème~\ref{ThoPartieOUvpartouv}.
-
-        \item[Les \( \Omega_k\) ne sont pas tous denses dans \( E\)]
-
-            Nous supposons que les ensembles \( \Omega_k\) soient tous dense dans \( E\). Le théorème de Baire~\ref{ThoBBIljNM} nous indique que \( E\) est un espace de Baire (parce que de Banach) et donc que
-            \begin{equation}
-                \overline{ \bigcap_{k\in \eN}\Omega_k }=E.
-            \end{equation}
-            En particulier l'intersection des \( \Omega_k\) n'est pas vide. Soit \( x_0\in \bigcap_{k\in \eN}\Omega_k\). Nous avons alors
-            \begin{equation}
-                \sup_{f\in H}\| f(x) \|=\infty,
-            \end{equation}
-            ce qui est contraire à l'hypothèse. Donc les ouverts \( \Omega_k\) ne sont pas tous denses dans \(E\).
-
-        \item[La majoration]
-
-            Il existe \( k\geq 0\) tel que \( \Omega_k\) ne soit pas dense dans \( E\), et nous voulons prouver que \( \{ \| f \|\tq f\in H \}\) est un ensemble borné. Soit donc \( k\geq 0\) tel que \( \Omega_k\) ne soit pas dense dans \( E\); il existe un \( x_0\in E\) et \( \rho>0\) tels que
-            \begin{equation}
-                B(x_0,\rho)\cap \Omega_k=\emptyset.
-            \end{equation}
-            Si \( x\in B(x_0,\rho)\) alors \( x\) n'est pas dans \( \Omega_k\) et donc
-            \begin{equation}
-                \sup_{f\in H}\| f(x) \|\leq k.
-            \end{equation}
-            Afin d'évaluer \( \| f \|\) nous devons savoir ce qu'il se passe avec les vecteurs sur une boule autour de \( 0\). Pour tout \( x\in B(0,\rho)\) et pour tout \( f\in H\), la linéarité de \( f\) donne
-            \begin{equation}
-                \| f(x) \|=\| f(x+x_0)-f(x_0) \|\leq \| f(x+x_0)+f(x_0) \|\leq 2k.
-            \end{equation}
-            Par continuité nous avons alors \( \| f(x) \|\leq 2k\) pour tout \( x\in \overline{ B(0,\rho) }\). Si maintenant \( x\in F\) vérifie \( \| x \|=1\) nous avons
-            \begin{equation}
-                \| f(x) \|=\frac{1}{ \rho }\| f(\rho x) \|\leq \frac{ 2k }{ \rho },
-            \end{equation}
-            et donc \( \| f \|\leq \frac{ 2k }{ \rho }\), ce qui montre que \( 2k/\rho\) est un majorant de l'ensemble \( \{ \| f \|\tq f\in H \}\).
-
-    \end{subproof}
-
-\end{proof}
-Une application du théorème de Banach-Steinhaus est l'existence de fonctions continues et périodiques dont la série de Fourier ne converge pas. Ce sera l'objet de la proposition~\ref{PropREkHdol}.
 
 \begin{corollary}   \label{CorPGwLluz}
     Soient \( \big( E,(p_l) \big)\) et \( \big( F,(q_k) \big)\) deux espaces localement compacts munis de semi-normes. Nous supposons que \( E\) est métrisable et complet. Soit \( (T_j)_{j\in \eN}\) une suite d'application linéaires \( E\to F\) telles que pour tout \( x\in E\) il existe \( \alpha_x\in F\) tel que
@@ -135,7 +69,7 @@ Une application du théorème de Banach-Steinhaus est l'existence de fonctions c
             dans \( F\).
     \end{enumerate}
 \end{corollary}
-%TODO : voir en quoi c'est un corollaire de Banach-Steinhaus.
+%TODO : voir en quoi c'est un corolaire de Banach-Steinhaus.
 
 La version suivante du théorème de Banach-Steinhaus est énoncée de façon \emph{ad hoc} pour fonctionner avec l'espace \( \swD(K)\) des fonctions de classe \(  C^{\infty}\) à support dans le compact \( K\). Un énoncé un peu plus fort est donné dans le cadre des espaces de Fréchet dans \cite{TQSWRiz}.
 \begin{theorem}[Banach-Steinhaus avec des semi-normes]  \label{ThoNBrmGIg}
@@ -197,7 +131,7 @@ La version suivante du théorème de Banach-Steinhaus est énoncée de façon \e
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Espaces \texorpdfstring{$L^p$}{Lp}}
+\section{Espaces de Lebesgue \texorpdfstring{$L^p$}{Lp}}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \label{SecVKiVIQK}
 
@@ -209,7 +143,7 @@ La version suivante du théorème de Banach-Steinhaus est énoncée de façon \e
     Soit \( (\Omega,\tribF,\mu)\) un espace mesuré. Deux fonctions à valeurs complexes \( f\) et \( g\) sur cet espaces sont dites \defe{équivalentes}{equivalence@équivalence!classe de fonctions} et nous notons \( f\sim g\) si elles sont \( \mu\)-presque partout égales. Nous notons \( [f]\) la classe de \( f\) pour cette relation.
 \end{definition}
 
-Nous allons souvent noter \( f\) indifféremment pour la fonction \( f\) et un des représentants de la classe de \( f\). Toutefois, lorsque la distinction sera importante, nous essayerons de faire faire l'effort.
+Nous allons souvent noter \( f\) indifféremment pour la fonction \( f\) et un des représentants de la classe de \( f\). Toutefois, lorsque la distinction sera importante, nous essayerons de faire faire l'effort de distinguer la fonction \( f\) de sa classe \( [f]\).
 
 \begin{lemma}
     Une classe contient au maximum une seule fonction continue.
@@ -220,29 +154,87 @@ Nous allons souvent noter \( f\) indifféremment pour la fonction \( f\) et un d
 \end{proof}
 
 \begin{definition}      \label{DEFooTHIDooWYzBtn}
-    Nous introduisons l'opération
-    \begin{equation}
+    Pour \( p\geq 1\), nous introduisons l'opération
+    \begin{equation}        \label{EQooBDBXooCHRmpo}
         \| f \|_p=\left( \int_{\Omega}| f(x) |^pd\mu(x) \right)^{1/p}
     \end{equation}
     et nous notons \( \mL^p(\Omega,\mu)\)\nomenclature[Y]{\( \mL^p\)}{espace de Lebesgue, sans les classes} l'ensemble des fonctions mesurables sur \( \Omega\) telles que \( \| f \|_p<\infty\).
 \end{definition}
 
-\begin{lemma}
-    L'ensemble \( \mL^p\) est un espace vectoriel.
+\begin{normaltext}
+    Le fait que \( f\) doive être mesurable pour être dans \( L^p\) est bien dans la définition de \( L^p\), et non une propriété qui pourrait être déduite de la finitude de l'intégrale \eqref{EQooBDBXooCHRmpo}.
+
+    Soit \( \Omega=\eR\) muni de ses boréliens ou même de sa tribu de Lebesgue et de la mesure de Lebesgue. Si \( A\) est une partie bornée non mesurable (exemple \ref{EXooCZCFooRPgKjj}), alors nous considérons un borné mesurable \( K\) contenant \( A\) et la fonction
+    \begin{equation}
+        f(x)=\begin{cases}
+            1    &   \text{si } x\in A\\
+            -1    &   \text{si } x\in K\setminus A\\
+            0    &   \text{sinon. } 
+        \end{cases}
+    \end{equation}
+    Nous avons alors \( | f |=\mtu_K\). Vu que \( K\) est borné, \( \int_{\eR}| f |=\mu(K)\) ne présente pas de problèmes. Donc \( f\) serait un élément de \( L^1(\eR)\) sans être mesurable.
+
+    Pour éviter cela, nous incluons la mesurabilité dans la définition de \( \mL^p\). 
+\end{normaltext}
+
+\begin{lemma}[\cite{MonCerveau}]       \label{LEMooHVZGooRwHXMk}
+    L'ensemble \( \mL^p\) est un espace vectoriel sur \( \eC\).
 \end{lemma}
 
 \begin{proof}
-    Le fait que si \( f\in L^p\), alors \( \lambda f\in L^p\) est évident. Ce qui est moins immédiat, c'est le fait que \( f+g\in L^p\) lorsque \( f\) et \( g\) sont dans \( L^p\). Cela découle du fait que la fonction \( \varphi\colon x\mapsto x^p\) est convexe, de telle sorte que
+    Pour rappel, nous ne considérons les choses que pour \( p\geq 1\). Le fait que si \( f\in L^p\), alors \( \lambda f\in L^p\) est évident. Ce qui est moins immédiat, c'est le fait que \( f+g\in L^p\) lorsque \( f\) et \( g\) sont dans \( L^p\). Cela découle d'une part du fait que la fonction \( \varphi\colon x\mapsto x^p\) est convexe sur les positifs (lemme \ref{LEMooSXTXooZOmtKq}), de telle sorte que
     \begin{equation}
-        \varphi\left( \frac{ a+b }{2} \right)\leq\frac{ \varphi(a)+\varphi(b) }{2},
+        \varphi\left( \frac{ |a|+|b| }{2} \right)\leq\frac{ \varphi(|a|)+\varphi(|b|) }{2},
     \end{equation}
     ou encore
     \begin{equation}    \label{EqZFSduFa}
-        (a+b)^p\leq 2^{p-1}(a^p+b^p)
+        (|a|+|b|)^p\leq 2^{p-1}(|a|^p+|b|^p)
     \end{equation}
+    Et d'autre part, nous savons que pour \( z_1,z_2\in \eC\), \( | z_1+z_2 |\leq | z_1 |+| z_2 |\) (proposition \ref{PROPooUMVGooIrhZZg}\ref{ITEMooDVMDooFDmOur}). Donc
+    \begin{subequations}        \label{EQooKRMEooSLHUUc}
+        \begin{align}
+            \int_{\Omega}| f+g |^pd\mu&=\int_{\Omega}| f(\omega)+g(\omega) |^pd\mu(\omega)\\
+            &\leq \int_{\Omega}\big( | f(\omega) |+| g(\omega) | \big)^pd\mu(\omega)\\
+            &\leq 2^{p-1}\big( | f(\omega) |^p+| g(\omega) |^p \big)d\mu(\omega)\\
+            &=2^{p-1}\big( \| f \|_p^p+| g |_p^p \big).
+        \end{align}
+    \end{subequations}
+    Donc si \( f\) et \( g\) sont dans \( \mL^p\), alors \( f+g\) est dans \( \mL^p\).
 \end{proof}
 
+\begin{normaltext}
+    Il est à noter que nous ne considérons que des valeurs \( p\geq 1\), précisément parce que la fonction \( x\mapsto | x |^p\) n'est pas convexe lorsque \( p<1\).
+
+    Dans le même ordre d'idées, si \( p\geq 1\), alors le \( q\in \eR\) tel que
+    \begin{equation}
+        \frac{1}{ p }+\frac{1}{ q }=1
+    \end{equation}
+    est également \( q\geq 1\). Cela est important pour un certain nombres de théorèmes qui vont venir, en particulier l'inégalité de Hölder \eqref{EqLPKooPBCQYN}.
+
+    Si vous en voulez à propos de \( 0<p<1\), vous pouvez lire \cite{ooECQXooZUqbSO}.
+\end{normaltext}
+
+\begin{normaltext}
     L'opération \( f\mapsto \| f \|_p\) n'est pas une norme sur \( \mL^p\) parce que pour \( f\) presque partout nulle, nous avons \( | f |_p=0\). Il y a donc des fonctions non nulles sur lesquelles \( \| . \|_p\) s'annule.
+\end{normaltext}
+
+\begin{normaltext}
+    Soit un espace mesuré non complet\footnote{Définition \ref{DefBWAoomQZcI}.} \( (\Omega,\tribA,\mu)\). Il existe une partie \( N\) de mesure nulle et \( A\subset N\) non mesurable. Considérons
+    \begin{equation}
+        f(x)=\begin{cases}
+            2    &   \text{si } x\in A\\
+            1    &   \text{si } x\in N\setminus A\\
+            0    &    \text{sinon. }
+        \end{cases}
+    \end{equation}
+    Cette fonction est non nulle exactement sur \( N\). Donc \( f\sim 0\). Mais \( f\) n'est pas mesurable parce que \( f^{-1}(2)=A\) n'est pas mesurable.
+
+    Il est donc possible d'être dans la classe d'équivalence d'une fonction mesurable sans être mesurable. Ceci est cependant un détail (presque) sans importances pour deux raisons.
+    \begin{itemize}
+        \item La mesure de Lebesgue est complète par définition (définition \ref{DefooYZSQooSOcyYN}) si nous considérons bien la tribu de Lebesgue et non seulement les boréliens. 
+        \item Dans le cas des espaces de Lebesgue \( L^p(\Omega,\tribA,\mu)\), il s'agit d'un quotient de \( \mL^p\) qui ne contient que des fonctions mesurables. Donc dans l'étude de \( L^p\), tous les représentants sont mesurables, même si \( (\Omega,\tribA,\mu)\) n'est pas complet.
+    \end{itemize}
+\end{normaltext}
 
 \begin{lemma}       \label{LemKZVHVAR}
     Si \( f\in \mL^p(\Omega)\) et \( f\sim g\), alors \( g\in \mL^p(\Omega)\) et \( \| f \|_p=\| g \|_p\).
@@ -262,17 +254,70 @@ Nous pouvons donc considérer la norme \( | . |_p\) comme une norme sur l'ensemb
 \end{equation}
 formule qui ne dépend pas du représentant par le lemme~\ref{LemKZVHVAR}.
 
-Maintenant la formule
-\begin{equation}
-    \| [f] \|_p=\left( \int_{\Omega}| f(x) |^pd\mu(x) \right)^{1/p}
-\end{equation}
-défini une norme sur \( L^p(\Omega,\mu)\). En effet si \( \| [f] \|_p=0\), nous avons
-\begin{equation}
-    \int_{\Omega}| f(x) |^pd\mu(x)=0,
-\end{equation}
-ce qui par le lemme~\ref{Lemfobnwt} implique que \( | f(x) |^p=0\) pour presque tout \( x\). Ou encore \( f\sim 0\), c'est à dire \( [f]=[0]\) au niveau des classes. À partir de maintenant \( \big( L^p(\Omega,\mu),\| . \|_p \big)\) est un espace métrique avec toute la topologie qui va avec.
+\begin{proposition}     \label{PROPooTYCYooAKJWOX}
+    Soit un espace mesuré \( (\Omega,\tribA,\mu)\). 
+    \begin{enumerate}
+        \item
+            L'ensemble des classes \( L^p(\Omega,\tribA,\mu)\) est un espace vectoriel.
+        \item
+            La formule
+            \begin{equation}
+                \| [f] \|_p=\left( \int_{\Omega}| f(x) |^pd\mu(x) \right)^{1/p}
+            \end{equation}
+            défini une norme\footnote{Définition \ref{DefNorme}.} sur \( L^p(\Omega,\tribA,\mu)\). 
+            \end{enumerate}
+\end{proposition}
 
-Dans la suite nous n'allons pas toujours écrire \( [f]\) pour la classe de \( f\). Par abus de notations nous allons souvent parler de \( f\in L^p\) comme si c'était une fonction.
+\begin{proof}
+
+    En deux parties.
+    \begin{subproof}
+        \item[Espace vectoriel]
+            Le lemme \ref{LEMooHVZGooRwHXMk} dit que \( \mL^p\) est un espace vectoriel. Une structure d'espace vectoriel est donnée en posant
+            \begin{equation}
+                [f]+[g]=[f+g]
+            \end{equation}
+            et
+            \begin{equation}
+                \lambda[f]=[\lambda f]
+            \end{equation}
+            qui sont deux définitions correctes parce qu'elles ne dépendent pas du choix du représentant. De plus le lemme \ref{LEMooHVZGooRwHXMk} dit que \( f+g\in \mL^p\) dès que \( f,g\in \mL^p\). Donc \( [f+g]\in L^p\) dès que \( [f],[g]\in \L^p\).
+        \item[Norme]
+             
+            Pour être une norme, il faut vérifier les trois propriétés de la définition \ref{DefNorme}.
+
+            D'abord, si \( \| [f] \|_p=0\), nous avons
+            \begin{equation}
+                \int_{\Omega}| f(x) |^pd\mu(x)=0,
+            \end{equation}
+            ce qui par le lemme~\ref{Lemfobnwt} implique que \( | f(x) |^p=0\) pour presque tout \( x\). Ou encore \( f\sim 0\), c'est-à-dire \( [f]=[0]\) au niveau des classes. 
+        
+            Ensuite pour \( \lambda\in \eC\) et \( f\in L^p\) nous avons
+            \begin{subequations}
+                \begin{align}
+                    \| \lambda f \|_p&=\left( \int_{\Omega}| \lambda f(\omega) |^pd\mu(\omega) \right)^{1/p}\\
+                    &=\left( \int_{\Omega}| \lambda |^p| f(\omega) |^pd\mu(\omega) \right)^{1/p}\\
+                    &=| \lambda |\| f \|_p.
+                \end{align}
+            \end{subequations}
+            Et enfin, en suivant le calcul \eqref{EQooKRMEooSLHUUc} nous avons
+            \begin{equation}
+                \| f+g \|_p\leq \| f \|_p+\| g \|_p.
+            \end{equation}
+    \end{subproof}
+\end{proof}
+
+\begin{normaltext}
+    À partir de maintenant \( \big( L^p(\Omega,\mu),\| . \|_p \big)\) est un espace métrique avec toute la topologie qui va avec.
+
+    Dans la suite nous n'allons pas toujours écrire \( [f]\) pour la classe de \( f\). Par abus de notations nous allons souvent parler de \( f\in L^p\) comme si c'était une fonction.
+
+    De même nous notons \( L^p(\Omega)\) ou \( L^p(\Omega,\mu)\) ou \( L^p(\Omega,\tribA,\mu)\) d'après ce sur quoi nous voulons insister. Mais seule la dernière notation est parfaitement correcte.
+\end{normaltext}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Un peu de convergence de suites}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{proposition}[\cite{bJOSNQ}]  \label{PropWoywYG}
     Soit \( 1\leq p\leq \infty\) et supposons que la suite \( [f_n]\) dans \( L^p(\Omega,\tribF,\mu)\) converge vers \( [f]\) au sens \( L^p\). Alors il existe une sous-suite \( (h_n)\) qui converge ponctuellement \( \mu\)-presque partout vers \( f\).
@@ -297,7 +342,7 @@ Dans la suite nous n'allons pas toujours écrire \( [f]\) pour la classe de \( f
             \int_{\Omega}\left( \sum_{k=0}^{\infty}u_k(x) \right)d\mu(x)=\sum_{k=0}^{\infty}\int_{\Omega}u_k(x)d\mu(x)
             \leq\sum_{k=0}^{\infty}2^{-kp}<\infty.
     \end{equation}
-    Le fait que l'intégrale de la fonction \( \sum_ku_k\) est finie implique que cette fonction est finie \( \mu\)-presque partout. Donc le terme général tend vers zéro presque partout, c'est à dire
+    Le fait que l'intégrale de la fonction \( \sum_ku_k\) est finie implique que cette fonction est finie \( \mu\)-presque partout. Donc le terme général tend vers zéro presque partout, c'est-à-dire
     \begin{equation}
         | h_k(x)-f(x) |^p\to 0.
     \end{equation}
@@ -338,46 +383,148 @@ La proposition suivante est une espèce de convergence dominée de Lebesgue pour
    \end{equation}
 \end{proof}
 
-\begin{proposition} \label{PropRERZooYcEchc}
-    Soit un espace mesuré \( \sigma\)-fini \( (\Omega,\tribA,\mu)\) et une fonction \( f\in L^p(\Omega)\) telle que
+\begin{proposition}[\cite{MonCerveau}] \label{PropRERZooYcEchc}
+    Soit un espace mesuré \( (\Omega,\tribA,\mu)\) et une fonction mesurable \( f\colon \Omega\to \eC \) telle que
     \begin{equation}
-        \int_{\Omega}f\varphi=0
+        \int_{\Omega}f\mtu_Ad\mu=0
     \end{equation}
-    pour tout \( \varphi\in L^q(\Omega)\). Alors \( f=0\).
+    pour toute partie mesurable \( A\) de mesure finie. Alors \( [f]=0\), c'est-à-dire que \( f\) est non nulle uniquement sur une partie de mesure nulle.
 \end{proposition}
 
 \begin{proof}
-    Vu que \( \Omega\) est \( \sigma\)-finie, nous pouvons considérer des parties \( K_n\) de \( \Omega\) telles que \( \mu(K_n)<\infty\) et \( \bigcup_nK_n=\Omega\). Nous posons
+    Nous rappelons que dire que \( \varphi\) est intégrable signifie que \( \real(f)^+\), \( \real(f)^-\), \( \imag(f)^+\) et \( \imag(f)^-\) sont intégrables.
+
+    Les parties
     \begin{equation}
-        A_n=\{ x\in\Omega\tq  \real\big( f(x) \big)>0 \}\cat K_n.
+        \{ x\in \Omega \tq \real(f)^+(x)\in \mathopen[ k , k+1 \mathclose[ \}_{k=1,\ldots}
     \end{equation}
-    Cela est une partie mesurable de mesure finie de \( \Omega\), donc \( \varphi_n=\mtu_{A_n}\in L^q(\Omega)\) et nous avons
+    et
     \begin{equation}
-        \int_{A_n}f=0.
+        \{ x\in \Omega \tq \real(f)^+(x)\in \mathopen[ \frac{1}{ k+1 } , \frac{1}{ k } \mathclose[ \}_{k=1,\ldots}
     \end{equation}
-    Mais \( \real(f)>0\) sur \( A_n\), donc \( \mu(A_n)=0\). Ensuite nous passons à l'union :
+    sont mesurables en tant qu'images inverses de mesurables par la fonction mesurable \( \real(f)^+\).
+
+    Nous notons \( \{ A_i \}_{i\in \eN}\) une énumération quelconque de ces parties. L'important est que
     \begin{equation}
-        A=\{ x\in \Omega\tq \real(f(x))>0 \}=\bigcup_nA_n.
+        \bigcup_{i\in \eN}A_i=\{ x\in \Omega\tq \real(f)^+(x)\neq 0 \}
     \end{equation}
-    Ce ensemble est union dénombrable d'ensembles de mesure nulle; donc \( \mu(A)=0\). Nous faisons de même pour les ensembles \( \real(f)<0\), \( \imag(f)>0\) et \( \imag(f)<0\). Au final, l'ensemble \( \{ x\in\Omega\tq f(x)\neq 0 \}\) est de mesure nulle, c'est à dire que \( f=0\) au sens des classes de \( L^p\).
+    et que pour chaque \( i\), il existe \( \alpha_i>0\) tel que \( \real(f)^+(x)>\alpha_i\) pour tout \( x\) dans \( A_i\).
+
+    Par hypothèse nous avons \( \int_{\Omega}f\mtu_{A_i}d\mu=0\). En particulier,
+    \begin{equation}
+        0=\int_{\Omega}\real(f\mtu_{A_i})^+=\int_{\Omega}\real(f)^+(x)\mtu_{A_i}(x)d\mu(x).
+    \end{equation}
+    Mais pour tout \( x\in A_i\) nous avons \( \real(f)^+(x)>\alpha_i>0\), donc
+    \begin{equation}
+        0=\int_{\Omega}\real(f)^+(x)\mtu_{A_i}(x)d\mu(x)\geq \alpha_i\int_{\Omega}\mtu_{A_i}=\alpha_i\mu(A_i)\geq 0.
+    \end{equation}
+    Vu cet encadrement par zéro, nous avons \( \alpha_i\mu(A_i)=0\) et donc \( \mu(A_i)=0\) pour tout \( i\).
+
+    Nous en déduisons, par union dénombrable de parties de mesures nulles, que \( \real(f)^+\) est non nulle seulement sur une partie de mesure nulle.
+
+    Le même raisonnement pour \( \real(f)^-\), \( \imag(f)^+\) et \( \imag(f)^-\) donne que \( f\) est non nulle sur une partie de mesure nulle. Donc \( f=0\) au sens des classes dans \( L^p\).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{L'espace \texorpdfstring{$ L^{\infty}$}{Linfinity}}
 %---------------------------------------------------------------------------------------------------------------------------
+\label{SUBSECooYFJTooBqrLXv}
 
 Il n'est pas possible de définir le supremum d'une fonction définie à ensemble de mesure nulle près parce que toute classe contient des fonctions qui peuvent être arbitrairement grandes en n'importe que point. Nous cherchons alors à définir une notion de supremum qui ne tient pas compte des ensembles de mesure nulle.
-\begin{definition}
+\begin{definition}      \label{DEFooIQOOooLpJBqi}
     Soit \( f\colon \Omega\to \eC\). Un nombre \( M\) est un \defe{majorant essentiel}{majorant!essentiel} de \( f\) si
     \begin{equation}
         \mu\big( | f(x) |\leq M \big)=0.
     \end{equation}
+    Nous posons alors 
+    \begin{equation}
+        N_{\infty}(f)=\inf\{ M\tq | f(x) |\leq M\text{ presque partout} \}. 
+    \end{equation}
 \end{definition}
-Nous posons alors \( N_{\infty}(f)=\inf\{ M\tq | f(x) |\leq M\text{ presque partout} \}\). Cela revient à prendre le supremum à ensemble de mesure nulle près. Nous définissons alors les espaces de Lebesgue correspondants :
-\begin{equation}
-    \mL^{\infty}(\Omega)=\{ f\colon \Omega\to \eC\tq N_{\infty}(f)<\infty \},
-\end{equation}
-et \( L^{\infty}\) en est le quotient usuel. Dans ce contexte nous notons \( \| f \|_{\infty}\) le supremum essentiel de \( f\), qui est indépendant de la classe.
+Cela revient à prendre le supremum à ensemble de mesure nulle près. 
+
+\begin{definition}      \label{DEFooXUKHooXYrlYq}
+    Nous définissons alors les espaces de Lebesgue correspondants :
+    \begin{equation}
+        \mL^{\infty}(\Omega)=\{ f\colon \Omega\to \eC\tq N_{\infty}(f)<\infty \},
+    \end{equation}
+    et \( L^{\infty}\) en est le quotient usuel.
+\end{definition}
+
+\begin{normaltext}
+    Le point sur les notations telles qu'elles devraient être respectées :
+    \begin{enumerate}
+        \item
+            Si \( f\) est une fonction, \( N_{\infty}(f)\) est son supremum essentiel.
+        \item
+            Si \( f\) est une fonction, \( \| f \|_{\infty}\) est sa norme supremum. Ce n'est pas la même chose que \( N_{\infty}(f)\).
+        \item
+            Si \( [f]\) est une classe de fonctions (pour l'égalité presque partout), alors \( \| [f] \|_{L^{\infty}}\) est la norme de cette classe dans \( L^{\infty}\), c'est-à-dire \( \| [f] \|_{L^{\infty}}=N_{\infty}(f)\) où \( f\) est un représentant.
+    \end{enumerate}
+    Le point sur les abus tolérables :
+    \begin{enumerate}
+        \item
+            Si \( f\) est une fonction, on peut écrire \( \| f \|_{L^{\infty}}\) pour \( N_{\infty}(f)\). Attention toutefois que \( N_{\infty}(f)\) peut valoir \( \infty\), alors que les éléments de \( L^{\infty}\) sont sélectionnés pour être les classes des fonctions telles que \( N_{\infty}(f)<\infty\). Donc il est parfois possible, lorsque \( f\) est une fonction, de parler de \( \| f \|_{L^{\infty}}\) alors que \( [f]\) n'est pas un élément de \( L^{\infty}\).
+        \item
+            Si \( [f]\) est une classe, on peut écrire \( N_{\infty}([f])\) pour \( \| [f] \|_{L^{\infty}}\).
+        \item
+            Noter \( f\) la classe de la fonction \( f\). Attention qu'alors, écrire \( \| f \|_{\infty}\) n'a pas de sens.
+    \end{enumerate}
+    Le point sur les abus intolérable :
+    \begin{enumerate}
+        \item
+            Si \( f\) est une fonction, noter \( \| f \|_{\infty}\) pour \( N_{\infty}(f)\).
+        \item
+            Si \( [f]\) est une classe de fonctions, noter \( \| [f] \|_{\infty}\) pour \( \| [f] \|_{L^{\infty}}\).
+    \end{enumerate}
+\end{normaltext}
+
+\begin{normaltext}
+    Tout ceci pour dire que si \( f_k\) sont des fonctions et si \( f\) est une fonction, nous avons la convergence
+    \begin{equation}
+        f_k\stackrel{L^{\infty}}{\longrightarrow}f
+    \end{equation}
+    si et seulement si \( N_{\infty}(f_k-f)\to 0\). Cette convergence (qui se sert des abus tolérables de notations) est équivalente à la convergence
+    \begin{equation}
+        [f_k]\stackrel{L^{\infty}}{\longrightarrow}[f].
+    \end{equation}
+    Mais ce n'est pas du tout équivalent à \( \| f_k -f \|_{\infty}\to 0\). Tout au plus, il est vrai que si \( \alpha\in L^{\infty}\) (donc \( \alpha\) est une classe), il existe un représentant \( f\in \alpha\) tel que \( \| f \|_{\infty}=\alpha_{L^{\infty}}\).
+\end{normaltext}
+
+\begin{lemma}[\cite{MonCerveau}]
+    Si \( f_k\) est une suite de fonctions telle que \( \| f_k-f \|_{\infty}\to 0\), alors
+    \begin{equation}
+        f_k\stackrel{L^{\infty}}{\longrightarrow}f
+    \end{equation}
+    où la convergence signifie \( N_{\infty}(f_k-f)\to 0\).
+\end{lemma}
+
+\begin{proof}
+    Si \( g\) est une fonction nous avons toujours \( N_{\infty}(g)\leq \| g \|_{\infty}\). Donc
+    \begin{equation}
+        N_{\infty}(f_k-f)\leq \| f_k-f \|_{\infty}\to 0.
+    \end{equation}
+\end{proof}
+
+\begin{normaltext}
+    Attention toutefois que ce lemme ne signifie pas que si \( \| f_k-f \|_{\infty}\to 0\), alors \(  [f_k]\stackrel{L^{\infty}}{\longrightarrow}[f]  \) parce que nous pourrions avoir \( N_{\infty}(f_k)=\infty\) et alors \( [f_k]\) n'est pas un élément de \( L^{\infty}\).
+
+    Cela arrive par exemple pour \( f_k(x)=x\) et \( f(x)=x\). Nous avons \( \| f_k-f \|_{\infty}=0\) pour tout \( k\), alors que ni \( f_k\) ni \( f\) ne donnent lieu à un élément de \( L^{\infty}\).
+\end{normaltext}
+
+\begin{example}
+    Même si \( g\) est bornée, nous n'avons pas spécialement \( \| g \|_{\infty}=N_{\infty}(g)\). Par exemple
+    \begin{equation}
+        \begin{aligned}
+            g\colon \eR&\to \eR \\
+            x&\mapsto \begin{cases}
+                1    &   \text{si } x=0\\
+                0    &    \text{sinon }.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    Cette fonction vérifie \( \| g \|_{\infty}=1\) mais \( N_{\infty}(g)=0\).
+\end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Quelques identifications}
@@ -430,7 +577,7 @@ Il est intuitivement clair que ce qui peut arriver à une fonction en un seul po
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{proposition}[Inégalité de Jensen\cite{MesIntProbb}] \label{PropXISooBxdaLk}
-    Soit un espace mesuré de probabilité\footnote{C'est à dire que \( \int_{\Omega}d\mu=1\).} \( (\Omega,\tribA,\mu)\) ainsi qu'une fonction convexe \( f\colon \eR\to \eR\) et une application \( \alpha\colon \Omega\to \eR\) tels que \( \alpha\) et \( f\circ \alpha\) soient intégrables sur \( \Omega\). Alors
+    Soit un espace mesuré de probabilité\footnote{C'est-à-dire que \( \int_{\Omega}d\mu=1\).} \( (\Omega,\tribA,\mu)\) ainsi qu'une fonction convexe \( f\colon \eR\to \eR\) et une application \( \alpha\colon \Omega\to \eR\) tels que \( \alpha\) et \( f\circ \alpha\) soient intégrables sur \( \Omega\). Alors
     \begin{equation}
         f\Big( \int_{\Omega}\alpha\,d\mu \Big)\leq \int_{\Omega}(f\circ\alpha) d\mu.
     \end{equation}
@@ -465,7 +612,7 @@ Il est intuitivement clair que ce qui peut arriver à une fonction en un seul po
     \begin{equation}
         | \int_{\Omega}\alpha(s)d\mu(s) |^p\leq \int_{\Omega}| \alpha(s) |^pd\mu(s),
     \end{equation}
-    c'est à dire
+    c'est-à-dire
     \begin{equation}
         | \int_{\Omega}\alpha(s)d\mu(s) |\leq  \left[  \int_{\Omega}| \alpha(s) |^pd\mu(s)\right]^{1/p}=\| \alpha \|_p
     \end{equation}
@@ -574,7 +721,7 @@ Ce qui est appelé « inégalité de Hölder » est généralement l'inéquation
 \end{proposition}
 \index{inégalité!Minkowski}
 
-La partie~\ref{ItemDHukLJiii} est une généralisation de l'inégalité triangulaire (c'est à dire du point~\ref{ItemDHukLJi}) dans le cas où nous n'avons pas une somme de deux fonctions mais d'une infinité paramétrée par \( y\in Y\). Elle sera le plus souvent utilisée sous la forme déballée :
+La partie~\ref{ItemDHukLJiii} est une généralisation de l'inégalité triangulaire (c'est-à-dire du point~\ref{ItemDHukLJi}) dans le cas où nous n'avons pas une somme de deux fonctions mais d'une infinité paramétrée par \( y\in Y\). Elle sera le plus souvent utilisée sous la forme déballée :
 \begin{equation}    \label{EqZSiTZrH}
     \left[ \int_X\Big( \int_Y| f(x,y) |d\nu(y) \Big)^pd\mu(x) \right]^{1/p}\leq \int_Y\Big( \int_X| f(x,y) |^pd\mu(x) \Big)^{1/p}d\nu(y).
 \end{equation}
@@ -768,7 +915,7 @@ Ces exemples donnent un exemple de fonction \( f\) telle que \( \| f \|_p<\| f \
     \begin{equation}
         \sum_{j=1}^{\infty}| g_i-g_{i-1} |
     \end{equation}
-    converge ponctuellement. En vertu du corollaire~\ref{CorCvAbsNormwEZdRc}, la série de terme général \( g_i-g_{i-1}\) converge ponctuellement. La suite \( g_i\) converge donc vers une fonction que nous notons \( g\). Par ailleurs la suite \( g_i\) est dominée par \( h\in L^p\), le théorème de la convergence dominée (théorème~\ref{ThoConvDomLebVdhsTf}) implique que
+    converge ponctuellement. En vertu du corolaire~\ref{CorCvAbsNormwEZdRc}, la série de terme général \( g_i-g_{i-1}\) converge ponctuellement. La suite \( g_i\) converge donc vers une fonction que nous notons \( g\). Par ailleurs la suite \( g_i\) est dominée par \( h\in L^p\), le théorème de la convergence dominée (théorème~\ref{ThoConvDomLebVdhsTf}) implique que
     \begin{equation}
         \lim_{j\to \infty} \|g_j-g\|_p=0.
     \end{equation}
@@ -826,7 +973,7 @@ Ces exemples donnent un exemple de fonction \( f\) telle que \( \| f \|_p<\| f \
     \begin{equation}
         \| f-f_n \|_{\infty}\leq \frac{1}{ k }.
     \end{equation}
-    Donc non seulement \( f\) est dans \( L^{\infty}\), mais en plus la suite \( (f_n)\) converge vers \( f\) au sens \( L^{\infty}\), c'est à dire uniformément. Cela prouve le point~\ref{ItemPDnjOJziii}. En ce qui concerne le point~\ref{ItemPDnjOJzii}, la suite \( f_n\) est entièrement (à partir d'un certain point) dominée par la fonction \( 1+| f |\) qui est dans \( L^p\).
+    Donc non seulement \( f\) est dans \( L^{\infty}\), mais en plus la suite \( (f_n)\) converge vers \( f\) au sens \( L^{\infty}\), c'est-à-dire uniformément. Cela prouve le point~\ref{ItemPDnjOJziii}. En ce qui concerne le point~\ref{ItemPDnjOJzii}, la suite \( f_n\) est entièrement (à partir d'un certain point) dominée par la fonction \( 1+| f |\) qui est dans \( L^p\).
 
 \item[Cas \( p<\infty\).]
 
@@ -873,7 +1020,7 @@ Ces exemples donnent un exemple de fonction \( f\) telle que \( \| f \|_p<\| f \
         \begin{equation}    \label{EqMQbDRac}
             | f(x)-f_{\varphi(n)}(x) |\leq g(x)
         \end{equation}
-        pour presque tout \( x\in\Omega\), c'est à dire pour tout \( x\in\Omega\setminus E\). Cette inégalité implique deux choses valables pour presque tout \( x\) dans \( \Omega\) :
+        pour presque tout \( x\in\Omega\), c'est-à-dire pour tout \( x\in\Omega\setminus E\). Cette inégalité implique deux choses valables pour presque tout \( x\) dans \( \Omega\) :
         \begin{subequations}
             \begin{align}
                 f(x)&\in B\big( g(x),f_{\varphi(n)}(x) \big)\\
@@ -901,6 +1048,134 @@ Ces exemples donnent un exemple de fonction \( f\) telle que \( \| f \|_p<\| f \
         \end{equation}
         Nous en déduisons que la suite \( n\mapsto f_{\varphi(n)}\) est convergente vers \( f\) au sens de la norme \( L^p(\Omega)\). Or la suite de départ \( (f_n)\) était de Cauchy (pour la norme \( L^p\)); donc l'existence d'une sous-suite convergente implique la convergence de la suite entière vers \( f\), ce qu'il fallait démontrer.
     \end{subproof}
+\end{proof}
+
+Le théorème suivant est souvent cité en disant que \( L^p\) est un espace de Hilbert si et seulement si \( p=2\). Comme vous le voyez, il faut un peu plus d'hypothèses.
+
+Je précise que je suis le seul à nommer ce théorème par le nom de Weinersmith. Je ne sais pas si il a déjà un nom; alors pourquoi pas celui-là plutôt qu'un autre ? La raison de ce choix est dans la constante de Weiner, définition \ref{DEFooXVXSooVJDTPy}.
+\begin{theorem}[Théorème de Weinersmith\cite{BIBooVBCVooWNVKZA,BIBooPRUMooMKIALQ}]      \label{THOooCCMBooGulxkQ}
+    Nous considérons un espace mesuré \( (\Omega,\tribA, \mu)\) ainsi qu'un nombre \( p\in \mathopen[ 1 , \infty \mathclose]\). Nous supposons
+    \begin{enumerate}
+        \item
+            \( L^p(\Omega,\tribA,\mu)\) est un espace de Hilbert,
+        \item
+            Il existe des parties \( A,B\subset L^p(\Omega,\tribA,\mu)\) telles que \( A\cap B=\emptyset\) et \( 0<\mu(A)<\infty\) et \( 0<\mu(B)<\infty\).
+    \end{enumerate}
+    Alors \( p=2\).
+\end{theorem}
+
+\begin{proof}
+    Vu que \( L^p\) est un espace de Hilbert (hypothèse), il vérifie l'identité du parallélogramme de la proposition \ref{PROPooSSYJooHAXAnC}, c'est-à-dire
+    \begin{equation}        \label{EQooAKKYooURIbvi}
+        \| f+g \|^2_p+\| f-g \|^2_p=2\| f \|_p^2+2\| g \|^2_p.
+    \end{equation}
+
+    \begin{subproof}
+    \item[Pour \( 1\leq p<\infty\)]
+        
+
+    Soient donc \( A,B\) comme dans l'hypothèse. Nous considérons les fonctions
+    \begin{subequations}
+        \begin{align}
+            f&=\frac{1}{ \mu(A)^{1/p} }\mtu_A\\
+            g&=\frac{1}{ \mu(B)^{1/p} }\mtu_B.
+        \end{align}
+    \end{subequations}
+    En ce qui concerne les normes \( L^p\) de \( f\) et \( g\), c'est un calcul simple :
+    \begin{equation}
+        \| f \|_p^2=\left( \int_{\Omega}| f(\omega) |^pd\mu \right)^{2/p}=\left( \int_A\frac{1}{ \mu(A) }d\mu \right)^{2/p}=1.
+    \end{equation}
+    De même pour \( g\) : \( \| f \|_p^2=\| g \|_p^2=1\). Donc
+    \begin{equation}
+        2\| f \|_p^2+2\| g \|_p^2=4
+    \end{equation}
+
+    En ce qui concerne la somme,
+    \begin{equation}
+        \| f+g \|_p^2=\left( \int_A\frac{ d\mu }{ \mu(A) }+\int_B\frac{1}{ \mu(B) } \right)^{2/p}=2^{2/p}.
+    \end{equation}
+    Pour la différence, la seule subtilité à voir est que
+    \begin{equation}
+        \int_{\Omega}| \mtu_A-\mtu_B |^p=\int_A| \mtu_A-\mtu_B |^p+\int_B| \mtu_A-\mtu_B |=\int_A| \mtu_A |+\int_B| -\mtu_B |=\int_A\mtu_A+\int_B\mtu_B.
+    \end{equation}
+    Ce n'est pas de la magie que le moins se change en plus. Bref, pour la différence nous avons
+    \begin{subequations}
+        \begin{align}
+            \| f-g \|^2&=\left( \int_{\Omega}| f(\omega)-g(\omega) |^pd\mu \right)^{2/p}\\
+            &=\left( \int_{\Omega}| \frac{1}{ \mu(A)^{1/p} }\mtu_A(\omega)-\frac{1}{ \mu(B)^{1/p} }\mtu_B(\omega) |^pd\mu \right)^{2/p}\\
+            &=\left( \int_A| \frac{ \mtu_A(\omega) }{ \mu(A)^{1/p} } |^p   +\int_B| -\frac{ \mtu_B(\omega) }{ \mu(B)^{1/p} } |^p    \right)^{2/p}\\
+            &=2^{2/p}.
+        \end{align}
+    \end{subequations}
+    Donc \( \| f+g \|^{2}_p+\| f-g \|_p^2=2\times 2^{2/p}\).
+
+    Vu que \( L^p\) est un espace de Hilbert, nous avons finalement 
+    \begin{equation}
+        4=2\times 2^{2/p}.
+    \end{equation}
+    Cela est uniquement valable pour \( p=2\).
+\item[Pour \( p=\infty\)]
+    Il suffit de prendre \( f=\mtu_A\) et \( g=\mtu_B\). Nous avons alors \(  \| f \|_{L^{\infty}}^2= \| g \|_{L^{\infty}}^2  =  \| f+g \|_{L^{\infty}}^2=\| f-g \|_{L^{\infty}}^2=1\).
+
+    L'égalité \eqref{EQooAKKYooURIbvi} devient \( 2=4\), ce qui est faux.
+    \end{subproof}
+\end{proof}
+
+Si \( (\Omega,\tribA,\mu)\) est un espace mesuré, est-ce que \( L^p(\Omega,\tribA,\mu)\) est assuré de n'être pas de Hilbert ? Non.
+
+\begin{example}[\cite{BIBooPRUMooMKIALQ}]
+    Soit la mesure de Dirac sur \( \eR\), c'est-à-dire
+    \begin{equation}
+        \delta(A)=\begin{cases}
+            1    &   \text{si } 0\in A\\
+            0    &    \text{sinon. }
+        \end{cases}
+    \end{equation}
+    Nous allons prouver que pour tout \( p\in \mathopen[ 0 , \infty \mathclose]\), l'espace \( L^p(\eR,\Borelien(\eR),\delta)\) est un espace de Hilbert. Pour cela nous introduisons le produit hermitien
+    \begin{equation}
+        \langle f, g\rangle =f(0)\overline{ g(0) }.
+    \end{equation}
+    
+    Nous avons par ailleurs la norme
+    \begin{equation}
+        \| f \|^p=\int_{\eR}| f(x) |^pd\delta=f(0)^p.
+    \end{equation}
+    Donc oui, \( \| f \|_p=\sqrt{ \langle f, f\rangle  }\).
+\end{example}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Théorèmes d'approximation}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{ooRCYWooNAeaTA}, thème \ref{THEMEooKLVRooEqecQk}]      \label{PROPooUQUBooAWgNhm}
+    Soient \( 1\leq p\leq\infty\) et un espace mesuré \( (\Omega,\tribA,\mu)\). Alors les fonctions étagées\footnote{Définition \ref{DefBPCxdel}. Pour rappel, une fonction est simple lorsqu'elle prend un nombre fini de valeurs, et elle est étagée lorsqu'elle est en outre mesurable.} dans \( L^p(\Omega)\) sont denses dans \( L^p(\Omega)\).
+\end{proposition}
+
+\begin{proof}
+    Soit \( f\in L^1(\Omega,\tribA,\mu)\). Nous supposons dans un premier temps que \( f\colon \Omega\to \mathopen[ 0 , \infty \mathclose[\). Pour les fonctions à valeurs dans \( \eC\), nous verrons plus bas.
+
+    Notons que la partie \( \{ x\in \Omega\tq f(x)=\infty \}\) est de mesure nulle, donc nous pouvons vraiment choisir un représentant à valeurs dans \( \mathopen[ 0 , \infty \mathclose[\) et non à valeurs dans \( \mathopen[ 0 , \infty \mathclose]\) comme le serait un représentant un peu quelconque.
+
+    Par le théorème \ref{THOooXHIVooKUddLi}, il existe une suite croissante de fonctions étagées \( \phi_n\colon \Omega\to \mathopen[ 0 , \infty \mathclose[\) telles que \( \phi_n\to f\) ponctuellement. Notons que ce théorème fonctionne parce que les fonctions \( L^p\) (en tout cas leurs représentants) sont mesurables parce que c'est dans la définition \ref{DEFooTHIDooWYzBtn}.  Notre devoir est maintenant de prouver que sous l'hypothèse que \( f\) est dans \( L^p\), alors la convergence \( \phi_n\to f\) est une convergence dans \( L^p\).
+
+    \begin{subproof}
+        \item[\( 1\leq p<\infty\)]
+            Vu que \( f\) et \( \phi_n\) sont à valeurs positives nous avons \( | f-\phi_n |^p\leq | f |^p\). Mais par hypothèse \( | f |^p\in L^1(\Omega)\). Donc la suite \( g_n=| f-\phi_n |^p\) est majorée (uniformément en \( n\)) par \( | f |^p\) qui est dans \( L^1\). Le théorème de la convergence dominée permet de permuter
+            \begin{equation}
+                \lim_{n\to \infty} \int g_n=\int \lim_{n\to \infty} g_n=0.
+            \end{equation}
+            Cela revient à dire que
+            \begin{equation}
+                \lim_{n\to \infty} \| f-\phi_n \|^p_p=\lim_{n\to \infty} \int| f-\phi_n |^p=\int\lim_{n\to \infty} | f-\phi_n |^p=0,
+            \end{equation}
+            ce qui signifie que \( \phi_n\stackrel{L^p(\Omega)}{\longrightarrow}f\).
+        \item[Pour \( p=\infty\)]
+            Si \( f\in L^{\infty}(\Omega)\), alors nous pouvons prendre un représentant borné. Avec lui, nous avons \( \phi_n\stackrel{\| . \|_{\infty}}{\longrightarrow}f\). Avec cela nous avons, pour \( \epsilon\) donné, un \( n\) assez grand pour avoir
+            \begin{equation}
+                N_{\infty}(\phi_n-f)\leq \| \phi_n-f \|_{\infty}<\epsilon.
+            \end{equation}
+    \end{subproof}
+    Si \( f\) est à valeurs dans \( \eC\) au lieu de \( \mathopen[ 0 , \infty \mathclose[\), il suffit de faire valoir le travail que nous venons de faire quatre fois, pour les valeurs réelles, imaginaires, positives et négatives.
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -964,7 +1239,7 @@ L'ensemble \(  C^{\infty}_c(\eR^d)\) des fonctions de classe \(  C^{\infty}\) et
    Nous allons montrer les choses point par point.
    \begin{enumerate}
        \item
-           Si \( f\in L^1(\eR^d)\), nous savons par la proposition~\ref{PropUXjnwLf} qu'il existe une suite \( f_n\) de fonctions étagées convergeant ponctuellement vers \( f\) telle que \( | f_n |\leq | f |\). La proposition~\ref{PropBVHXycL} nous dit qu'alors \( f_n\stackrel{L^p}{\to}f\).
+           Si \( f\in L^1(\eR^d)\), nous savons par le théorème \ref{THOooXHIVooKUddLi} qu'il existe une suite \( f_n\) de fonctions étagées convergeant ponctuellement vers \( f\) telle que \( | f_n |\leq | f |\). La proposition~\ref{PropBVHXycL} nous dit qu'alors \( f_n\stackrel{L^p}{\to}f\).
 
            La fonction \( f_n\) étant étagée et dans \( L^p\) en même temps, elle est automatiquement étagée par rapport à \( L^p\) par le lemme~\ref{LemWHIRdaX}.
 
@@ -997,7 +1272,7 @@ L'ensemble \(  C^{\infty}_c(\eR^d)\) des fonctions de classe \(  C^{\infty}\) et
            \begin{equation}
                \int_{\eR^d}| \mtu_{D_n}(x)-\mtu_{A}(x) |^pdx=\int_{\eR^d\setminus B(0,n)}| \mtu_A(x) |^p<\epsilon,
            \end{equation}
-           c'est à dire que \( \mtu_{D_n}\stackrel{L^p}{\to}\mtu_A\).
+           c'est-à-dire que \( \mtu_{D_n}\stackrel{L^p}{\to}\mtu_A\).
 
        \item
 
@@ -1027,7 +1302,7 @@ L'ensemble \(  C^{\infty}_c(\eR^d)\) des fonctions de classe \(  C^{\infty}\) et
 \end{proof}
 
 \begin{corollary}   \label{CorFZWooYNbtPz}
-    Si \( 1<p<\infty\) alors l'ensemble\footnote{Nous parlons bien ici de l'\emph{ensemble} \( L^2\) parce que nous le considérons sans norme ou topologie particulière. La densité dont nous parlons ici est celle pour la topologique de \( L^p\).} \( L^2\big( \mathopen[ 0 , 1 \mathclose] \big)\cap L^p\big( \mathopen[ 0 , 1 \mathclose] \big)\) est dense dans \( L^p\big( \mathopen[ 0 , 1 \mathclose] \big)\).
+    Si \( 1<p<\infty\) alors la partie\footnote{Nous parlons bien ici de l'\emph{ensemble} \( L^2\) parce que nous le considérons sans norme ou topologie particulière. La densité dont nous parlons ici est celle pour la topologique de \( L^p\).} \( L^2\big( \mathopen[ 0 , 1 \mathclose] \big)\cap L^p\big( \mathopen[ 0 , 1 \mathclose] \big)\) est dense dans \( L^p\big( \mathopen[ 0 , 1 \mathclose] \big)\).
 \end{corollary}
 \index{densité!de \( L^2\big( \mathopen[ 0 , 1 \mathclose] \big)\) dans \( L^p\big( \mathopen[ 0 , 1 \mathclose] \big)\)}
 
@@ -1043,9 +1318,16 @@ L'ensemble \(  C^{\infty}_c(\eR^d)\) des fonctions de classe \(  C^{\infty}\) et
             f&\mapsto \Big[ x\mapsto f(x-v) \Big].
         \end{aligned}
     \end{equation}
-    Cet opérateur est continu en \( v=0\), c'est à dire
+    Pour chaque \( f\in L^p(\Omega)\), l'application
     \begin{equation}
-        \lim_{v\to 0}\| \tau_v-f \|_p=0.
+        \begin{aligned}
+            \tau(f)\colon \eR^d &\to L^p(\Omega) \\
+            v&\mapsto \tau_v(f) 
+        \end{aligned}
+    \end{equation}
+    est continue en \( v=0\), c'est-à-dire
+    \begin{equation}
+        \lim_{v\to 0}\| \tau_v(f)-f \|_p=0.
     \end{equation}
 \end{lemma}
 

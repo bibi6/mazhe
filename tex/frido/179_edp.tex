@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2017-2018
+% Copyright (c) 2017-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -56,7 +56,7 @@ et l'équation peut être écrite sous la forme
 \begin{definition}
     Le \defe{flot}{flot} de ce champ de vecteurs sont les courbes paramétriques \( \gamma(t)=\big( x(t), y(t) \big)\) vérifiant \( \gamma't(t)=v\big( \gamma(t) \big)\).
 \end{definition}
-Les équation du flot pour l'équation \eqref{EQooGJKZooCCEpRj} sont
+Les équations du flot pour l'équation \eqref{EQooGJKZooCCEpRj} sont
 \begin{subequations}        \label{EQooURBTooVdFzZR}
             \begin{numcases}{}
                 x'(t)=a\big( x(y),y(t) \big)\\
@@ -107,7 +107,7 @@ Les équations du flot, sont simples parce que les coefficients sont des constan
         y(t)&=-t+C_2.
     \end{align}
 \end{subequations}
-A priori nous avons une caractéristique pour chaque choix de \( (C_1,C_2)\) et nous espérons que le tout recouvre le plan \( \eR^2\). En fait seule une des deux constantes doit être laissée libre, l'autre consiste seulement en décaler le paramètre \( t\). Nous posons donc \( C_1=0\) et nous considérons les courbes caractéristiques
+À priori nous avons une caractéristique pour chaque choix de \( (C_1,C_2)\) et nous espérons que le tout recouvre le plan \( \eR^2\). En fait seule une des deux constantes doit être laissée libre, l'autre consiste seulement en décaler le paramètre \( t\). Nous posons donc \( C_1=0\) et nous considérons les courbes caractéristiques
 \begin{equation}
     \gamma_C(t)=\begin{pmatrix}
         t    \\
@@ -132,7 +132,7 @@ En intégrant par rapport à \( t\) des deux côtés,
 \begin{equation}
     \ln(\tilde u)=t^2-Ct+K_C,
 \end{equation}
-c'est à dire (avec redéfinition de \( K_C\))
+c'est-à-dire (avec redéfinition de \( K_C\))
 \begin{equation}
     \tilde u(t)=K_C e^{t^2-Ct}
 \end{equation}
@@ -147,7 +147,7 @@ Ce que nous avons obtenu est qu'il existe un \( K_C\) tel que pour tout \( t\) n
     u\big( \gamma_C(t) \big)=K_C e^{t^2-Ct}.
 \end{equation}
 
-Soit donc un point \( (x_0,y_0)\in \eR^2\). Nous devons d'abord déterminer où ce point se trouve par rapport aux caractéristiques, c'est à dire quelle est la valeur de \( C\) pour laquelle \( (x_0,y_0)\) est sur la courbe \( \gamma_C\), et ensuite déterminer pour quelle valeur de \( t\) nous aurons \( \gamma_C(t)=(x_0,y_0)\). À résoudre :
+Soit donc un point \( (x_0,y_0)\in \eR^2\). Nous devons d'abord déterminer où ce point se trouve par rapport aux caractéristiques, c'est-à-dire quelle est la valeur de \( C\) pour laquelle \( (x_0,y_0)\) est sur la courbe \( \gamma_C\), et ensuite déterminer pour quelle valeur de \( t\) nous aurons \( \gamma_C(t)=(x_0,y_0)\). À résoudre :
 \begin{equation}
     \gamma_C(t_0)=\begin{pmatrix}
         t_0    \\
@@ -168,7 +168,7 @@ Nous pouvons maintenant écrire la solution générale de l'équation de départ
 \begin{equation}
     x+y=C.
 \end{equation}
-Donc \( K\) est une fonction de \( x+y\), pas de \( x\) et \( y\) séparément. Cela est important à comprendre. A priori nous avons
+Donc \( K\) est une fonction de \( x+y\), pas de \( x\) et \( y\) séparément. Cela est important à comprendre. À priori nous avons
 \begin{equation}
     u(x,y)=K(x,y) e^{-xy}
 \end{equation}
@@ -196,11 +196,11 @@ La méthode des caractéristiques donne essentiellement une preuve de l'unicité
     \item Calculer en quel point elle passe par une condition initiale donnée.
     \item Attribuer à \( u(x_0,y_0)\) la valeur trouvée sur la caractéristique là où elle passe par une condition initiale.
 \end{itemize}
-Rien ne permet a priori de savoir que cette procédure construit effectivement une solution. En particulier, comment calculer \( \partial_xu\) ? Le quotient différentiel serait
+Rien ne permet à priori de savoir que cette procédure construit effectivement une solution. En particulier, comment calculer \( \partial_xu\) ? Le quotient différentiel serait
 \begin{equation}
     \frac{ \partial u }{ \partial x }(x,y)=\lim_{\epsilon\to 0}\frac{ u(x+\epsilon,y)-u(x,y) }{ \epsilon },
 \end{equation}
-mais la caractéristique donnant la valeur de \( u(x+\epsilon,y)\) est différente pour chaque \( \epsilon\). Rien a priori ne permet d'affirmer que le calcul soit simple, ni qu'il arrive à une solution du problème donné.
+mais la caractéristique donnant la valeur de \( u(x+\epsilon,y)\) est différente pour chaque \( \epsilon\). Rien à priori ne permet d'affirmer que le calcul soit simple, ni qu'il arrive à une solution du problème donné.
 
 D'où la nécessité d'avoir un résultat un peu rigoureux donnant des conditions sous lesquelles les choses vont bien.
 
@@ -344,7 +344,7 @@ D'où la nécessité d'avoir un résultat un peu rigoureux donnant des condition
             \begin{equation}
                 (s,y)\mapsto \alpha(s)y
             \end{equation}
-            est continue. C'est à dire entre autres que
+            est continue. C'est-à-dire entre autres que
             \begin{equation}
                 s\mapsto\frac{ \partial c }{ \partial x }\big( X(s;x,t),s \big)
             \end{equation}
@@ -440,7 +440,7 @@ Les hypothèses de la proposition~\ref{PROPooVQLBooQyFfEH} sont loin d'être opt
 \end{example}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Méthode des caractéristique pour l'ordre \( 2\)}
+\section{Méthode des caractéristiques pour l'ordre \( 2\)}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -518,7 +518,7 @@ L'opérateur différentiel est donné par le polynôme \( P(T,X)=T^2-c^2X^2\) qu
 \begin{equation}
     P=(T+cX)(T-cX),
 \end{equation}
-c'est à dire que nous pouvons récrire l'équation des ondes sous la forme
+c'est-à-dire que nous pouvons récrire l'équation des ondes sous la forme
 \begin{equation}
     (\partial_t+c\partial_x)(\partial_t-c\partial_x)u=0.
 \end{equation}
@@ -529,7 +529,7 @@ Nous posons donc \( v=(\partial_t-c\partial_x)u\) et nous avons le système\cite
         (\partial_t-c\partial_x)u=v     \label{SUBEQooPWXMooDjThlJ}.
     \end{numcases}
 \end{subequations}
-La méthode des caractéristique est efficace pour résoudre la première, et pour trouver la solution générale de l'homogène associée à la seconde.
+La méthode des caractéristiques est efficace pour résoudre la première, et pour trouver la solution générale de l'homogène associée à la seconde.
 
 Nous nous lançons dans la résolution de \eqref{SUBEQooLQAPooVoJccp}. Le flot est \( v=\begin{pmatrix}
     1    \\
@@ -563,7 +563,7 @@ Nous allons agir conformément à la stratégie expliquée par le lemme~\ref{LEM
         u&\mapsto (\partial_t-c\partial_x)u.
     \end{aligned}
 \end{equation}
-Par la même méthode des caractéristiques que celle déjà menée plus haut nous trouvons \( \ker(D)\) comme solution générale de \( (\partial_t-c\partial_x)u_G=0\). C'est à dire
+Par la même méthode des caractéristiques que celle déjà menée plus haut nous trouvons \( \ker(D)\) comme solution générale de \( (\partial_t-c\partial_x)u_G=0\). C'est-à-dire
 \begin{equation}
     u_G=g(x+ct)
 \end{equation}
@@ -654,11 +654,11 @@ Une équation aux dérivées partielles peut changer de nature selon le point.
 Dans les définitions qui suivent nous considérons un ouvert \( \Omega\subset \eR^d\) assez régulier et possédant en particulier un vecteur normal extérieur \( n(x)\) pour tout point \( x\in\partial\Omega\).
 
 \begin{definition}
-    Un problème aux limite \defe{de Dirichlet}{problème!limite de Dirichlet} est d'imposer la condition
+    Un problème aux limites \defe{de Dirichlet}{problème!limite de Dirichlet} est d'imposer la condition
     \begin{equation}
         u(x)=g(x)
     \end{equation}
-    pour tout \( x\in\Gamma\subset \partial\Omega\). C'est à dire imposer la valeur de \( u\) sur une partie du bord du domaine.
+    pour tout \( x\in\Gamma\subset \partial\Omega\). C'est-à-dire imposer la valeur de \( u\) sur une partie du bord du domaine.
 \end{definition}
 
 \begin{definition}
@@ -666,7 +666,7 @@ Dans les définitions qui suivent nous considérons un ouvert \( \Omega\subset \
     \begin{equation}
         \frac{ \partial u }{ \partial n }\cdot x=g(x)
     \end{equation}
-    pour tout \( x\in\Gamma\subset\partial\Omega\). C'est à dire imposer les valeurs de la dérivée normale de \( u\) sur une partie du bord.
+    pour tout \( x\in\Gamma\subset\partial\Omega\). C'est-à-dire imposer les valeurs de la dérivée normale de \( u\) sur une partie du bord.
 \end{definition}
 
 \begin{example}
@@ -703,7 +703,7 @@ Dans les définitions qui suivent nous considérons un ouvert \( \Omega\subset \
         \item
             Il admet une unique solution.
         \item
-            La solution dépend de façon continue en les données du problèmes.
+            La solution dépend de façon continue en les données du problème.
     \end{enumerate}
     La continuité est au sens des normes sur les fonctions sur \( \partial\Omega\) et sur \( \Omega\) en ce qui concerne les fonctions «données» du problème et des normes pour les fonctions sur \( \Omega\) ou \( \bar\Omega\) en ce qui concerne la solution.
 \end{definition}
@@ -793,7 +793,7 @@ Dans les définitions qui suivent nous considérons un ouvert \( \Omega\subset \
 \end{lemma}
 
 \begin{proof}
-    D'abord, vu que \( \Omega\) est borné, la fermeture \( \bar \Omega\) est compacte et \( u\) y atteint son minimum. De plus \( \partial \Omega\) est également compact (borné et le complémentaire est ouvert parce que \( \Omega\) est ouvert). Donc \( u\) y atteint également son minimum. Cela pour dire que les minima écrits dans \eqref{EQooOJRWooIMemRN} et \eqref{EQooGSXVooGUnRnt} ont un sens.
+    D'abord, vu que \( \Omega\) est borné, la fermeture \( \bar \Omega\) est compacte et \( u\) y atteint son minimum. De plus \( \partial \Omega\) est également compact (borné et le complémentaire est ouvert parce que \( \Omega\) est ouvert). Donc \( u\) y atteint également son minimum. Cela pour dire que les minimums écrits dans \eqref{EQooOJRWooIMemRN} et \eqref{EQooGSXVooGUnRnt} ont un sens.
 
     Pour~\ref{ITEMooZNUVooNGPXVc}.
 
@@ -1011,7 +1011,7 @@ pour la fonction \( g\) de la variable réelle \( z\). Cela fait, la réponse se
     z(x,t)=x/\sqrt{ t },
 \end{equation}
 
-Pour résoudre \eqref{EQooEFQPooGWVoUq} nous commençons par résoudre pour la dérivée \( h=g'\), c'est à dire l'équation différentielle
+Pour résoudre \eqref{EQooEFQPooGWVoUq} nous commençons par résoudre pour la dérivée \( h=g'\), c'est-à-dire l'équation différentielle
 \begin{equation}
     \frac{ z }{ 2 }h(z)+h'(z)=0
 \end{equation}

@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2006-2018
+% Copyright (c) 2006-2019
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -26,7 +26,7 @@
 \end{corollary}
 
 \begin{remark}
-    Quelque remarques à propos de la règle de dérivation en chaîne.
+    Quelques remarques à propos de la règle de dérivation en chaine.
   \begin{enumerate}
   \item Si $p = 1$, on retrouve la règle usuelle de dérivation de
     fonctions composées.
@@ -88,7 +88,7 @@ La proposition suivante signifie que différentiation est une opération linéai
 \section{Produit}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Soient $f$ et $g$ deux fonctions de $\eR^m$ dans $\eR^n$. Nous notons $f\cdot g$ la fonction de $\eR^n$ dans $\eR$ donnée par le produit scalaire point par point, c'est à dire
+Soient $f$ et $g$ deux fonctions de $\eR^m$ dans $\eR^n$. Nous notons $f\cdot g$ la fonction de $\eR^n$ dans $\eR$ donnée par le produit scalaire point par point, c'est-à-dire
 \begin{equation}
 	(f\cdot g)(x)=f(x)\cdot g(x)
 \end{equation}
@@ -118,7 +118,7 @@ pour tout $x\in\eR^m$. Le point dans le membre de droite est le produit scalaire
 				&=f(a+h)g(a+h)-f(a)g(a)-g(a)df(a).h-f(a)dg(a).h.
 		\end{aligned}
 	\end{equation}
-	Maintenant, nous allons faire apparaître $\big( f(a+h)-f(a)-df(a) \big)g(a+h)$ en ajoutant et soustrayant ce qu'il faut pour conserver $\clubsuit$ :
+	Maintenant, nous allons faire apparaitre $\big( f(a+h)-f(a)-df(a) \big)g(a+h)$ en ajoutant et soustrayant ce qu'il faut pour conserver $\clubsuit$ :
 	\begin{equation}
 		\begin{aligned}[]
 			\clubsuit&=\big( f(a+h)-f(a)-df(a).h \big)g(a+h)\\
@@ -235,11 +235,31 @@ En continuant le calcul ainsi nous trouvons par exemple
 Vous noterez que cette formule contient trois termes que nous aurions eu envie de noter \( d^2fdg\). Or ces trois termes ne sont pas identiques : deux sont \( d^2f_a(u)dg_a\) et un est \( (d^2f)_adg_a(u)\).
 
 %--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Produit tensoriel}
+\subsection{Solution : produit tensoriel}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Afin de donner un sens à tous les produits, nous allons parler de produits tensoriel.
+Afin de donner un sens à tous les produits, nous allons passer par les produits tensoriel. Nous avons déjà le théorème \ref{PROPooAWZFooMlhoCN} qui fait pratiquement tout.
 
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooWNCGooHbmcVb}
+    Soient des fonctions \( f\colon \eR^n\to \eR\) et \( g\colon \eR^n\to \eR\) de classe \( C^p\). Alors \( fg\) est de classe \( C^p\).
+\end{proposition}
+
+\begin{proof}
+    Nous considérons l'application
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \eR\otimes \eR&\to \eR \\
+            1\otimes 1&\mapsto 1 
+        \end{aligned}
+    \end{equation}
+    dont nous avons déjà parlé dans le lemme \ref{LEMooVONEooQpPgcn}. En utilisant la notation \( \tilde\otimes\) de la définition \ref{DEFooMVNDooFWFtRn}, nous avons
+    \begin{equation}
+        fg=\varphi\circ(f\tilde\otimes g).
+    \end{equation}
+    La proposition \ref{PROPooAWZFooMlhoCN} nous dit que \( f\tilde\otimes g\colon \eR^n\to \eR\otimes \eR\) est de classe \( C^p\). Vu que \( \varphi\) est un isomorphisme d'espaces vectoriels, la proposition \ref{PROPooRCZOooSgvpSE} nous dit que \( \varphi\circ(f\tilde\otimes g)\) est encore de classe \( C^p\).
+
+    Et voila.
+\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Formes bilinéaires}
@@ -298,14 +318,14 @@ Si on prend la limite de cette expression pour $(h_1,h_2)\to (0_m,0_n)$ on obtie
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{Autres trucs sur la différentielle}
+\section{Différentielle de fonction composée}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Différentielle de fonction composée}
-%---------------------------------------------------------------------------------------------------------------------------
+Une importante règles de différentiation est la règle de différentiation d'une fonction composée (\emph{chain rule} dans les livres anglais et américains). Cette règle généralise la règle de dérivation pour fonctions de $\eR$ dans $\eR$. 
 
-La plus importante entre les règles de différentiation est la règle de différentiation d'une fonction composée (\emph{chain rule} dans les livres anglais et américains). Cette règle généralise la règle de dérivation pour fonctions de $\eR$ dans $\eR$. Il est utile d'introduire d'abord une formulation équivalente de la définition de différentielle
+Cette règle a déjà été donnée dans le théorème \ref{THOooIHPIooIUyPaf}, mais si vous avez seulement envie d'entendre parler de \( \eR^n\), vous pouvez lire le lemme \ref{Def_diff2} suivit de la proposition \ref{PropDiffCompose}.
+
+Le lemme suivant est essentiellement une reformulation du lemme \ref{LEMooYQZZooVybqjK}.
 \begin{lemma}\label{Def_diff2}
   Soit $U$ un ouvert de $\eR^m$. La fonction $f: U\to\eR^n$ est différentiable au point $a$ dans $U$, si et seulement s'il existe une fonction $\sigma_f: U\times U\to \eR^n$ telle que
   \begin{subequations}		\label{SubEqsDiff2}
@@ -316,6 +336,7 @@ La plus importante entre les règles de différentiation est la règle de diffé
   \end{subequations}
 pour une certaine application linéaire $T\in\mathcal{L}(\eR^m,\eR^n)$.
 \end{lemma}
+
 \begin{proof}
 	Si les conditions \eqref{SubEqsDiff2} sont satisfaites alors $T$ est la différentielle de $f$ en $a$. En effet, dans ce cas nous avons
 	\begin{equation}
@@ -424,65 +445,13 @@ Le lemme suivant sert à prouver les théorèmes \ref{ThoLDpRmXQ} et \ref{ThoUJM
     En remettant au bout de \eqref{SUBEQSooWKRYooGyVgNl}, nous obtenons le résultat.
 \end{proof}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Autres trucs sur la différentielle}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 %---------------------------------------------------------------------------------------------------------------------------
   \subsection{Différentielle et dérivées partielles}
 %---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition}		\label{Diff_totale}
- Soit $U$ un ouvert dans $\eR^m$ et $a$ un point dans $U$. Soit $f$ une application de $U$ dans $\eR^n$. Si toutes les dérivées partielles de $f$ existent sur \( U\) et sont continues au point $a$ alors $f$ est différentiable au point $a$.
-\end{proposition}
-\begin{proof}
- On se limite au cas $m=2$.  Pour rendre les calculs plus simples on utilise ici la norme $\|\cdot\|_\infty$ dans l'espace $\eR^2$, mais comme on a vu plus en haut, cela ne peut pas avoir des conséquences sur la différentiabilité de $f$. Si la différentielle de $f$ au point $a$ existe alors elle est définie par la formule
-\[
-    df_a(v)=\frac{ \partial f }{ \partial x }(a)v_1+\frac{ \partial f }{ \partial y }(a)v_2
-\]
-pour tout $v$ dans $\eR^m$.
-
-On commence par prouver le résultat en supposant que les dérivées partielles de $f$ au point $a$ sont nulles. La différentiabilité de $f$ signifie que pour toute constante  $\varepsilon> 0$ il y a une constante $\delta>0$ telle que si $\|v\|_\infty\leq \delta $ alors
-\[
-\frac{\|f(a_1+v_1, a_2+v_2)-f(a_1, a_2)\|_n}{\|v\|_\infty}\leq \varepsilon.
-\]
-On écrit alors
-\begin{equation}
-  \begin{aligned}
-   & \|f(a_1+v_1, a_2+v_2)-f(a_1, a_2)\|_n=\\
-&=\|f(a_1+v_1, a_2+v_2)-f(a_1+v_1, a_2)+f(a_1+v_1, a_2)-f(a_1, a_2)\|_n\leq\\
-&\leq \|f(a_1+v_1, a_2+v_2)-f(a_1+v_1, a_2)\|_n+\|f(a_1+v_1, a_2)-f(a_1, a_2)\|_n.
-  \end{aligned}
-\end{equation}
-Comme la dérivée partielle $\partial_x f$ est  nulle au point $a$  on sait que  pour toute constante  $\varepsilon> 0$ il y a une constante $\delta_1>0$ telle que si $|v_1|\leq \delta_1 $ alors
-\[
-\|f(a_1+v_1, a_2)-f(a_1, a_2)\|_n\leq \varepsilon |v_1|.
-\]
-Pour l'autre terme on a, par la proposition~\ref{val_medio_1},
-\begin{equation}
-  \begin{aligned}
-   & \|f(a_1+v_1, a_2+v_2)-f(a_1+v_1, a_2)\|_n\leq \\
-&\leq \sup\{\|\partial_yf(x)\|_n\,\vert\, x\in S\}|v_2|.
-  \end{aligned}
-\end{equation}
-où $S$ est le segment d'extrémités  $(a_1+v_1, a_2)$ et $ (a_1+v_1, a_2+v_2)$. Comme la  dérivée partielle $\partial_y f$ est continue et nulle au point $a$ on sait que  pour toute constante  $\varepsilon> 0$ il existe une constante $\delta_2>0$ telle que si $\|(u_1,u_2)\|_\infty\leq \delta_2 $ alors $\|\partial_yf(a_1+u_1,a_2+u_2)\|_n\leq \varepsilon$. Si on choisit $\delta = \min\{\delta_1,\,\delta_2\}$ le segment $S$ est contenu dans la boule de rayon $\delta$ centrée au point $a$ et on obtient
-\[
- \|f(a_1+v_1, a_2+v_2)-f(a_1, a_2)\|_n\leq \varepsilon |v_1|+\varepsilon |v_2|\leq 2\varepsilon \|v\|_\infty.
-\]
-Cela prouve que \( f\) est différentiable en \( (a_1,a_2)\) et que la différentielle est nulle :
-\begin{equation}
-    df_{(a_1,a_2)}=0.
-\end{equation}
-
-Dans le cas général, où les dérivées partielles de $f$ au point $a$ ne sont pas spécialement nulles, on peut considérer la fonction\footnote{Vous verrez dans la discussion à propos de la fonction \eqref{EqCJVooJOuXdN} pourquoi cette fonction ne fonctionne pas dans le cas de la dimension infinie.}
-\begin{equation}    \label{EqXHVooJeQKrB}
-    g(x,y)=f(x,y)-\partial_1 f(a)x-\partial_2 f(a)y,
-\end{equation}
-qui a dérivées partielles nulles au point $a$. La fonction $g$ est donc différentiables. La fonction $f$ est maintenant la somme de $g$ et de la fonction linéaire et continue $(x,y)\mapsto \partial_1 f(a)x-\partial_2 f(a)y$. On verra dans la prochaine section que la somme de deux fonctions différentiables est une fonction différentiable. Par conséquent, la fonction $f$ est différentiable.
-\end{proof}
-
-\begin{remark}
-    En dimension infinie, il n'est pas vrai que l'existence et la continuité de toutes les dérivées partielles en un point implique la différentiabilité en ce point. Pour donner un exemple, nous allons continuer l'exemple~\ref{ExHKsIelG}
-    avec la fonction~\ref{EqCJVooJOuXdN} sur un espace de Hilbert.
-
-    En dimension infinie nous aurons le théorème~\ref{ThoOYwdeVt} qui donnera quelque chose de moins fort.
-\end{remark}
 
 Étant donné que pour tout vecteur $u$ dans $\eR^m$ on a $\partial_uf(a)=\nabla f(a)\cdot u$, le gradient de $f$ nous donne la direction dans laquelle la croissance de $f$ est maximale. Soit $C$ une colline et soit $f$ la fonction que a chaque point $(x,y)$ de la Terre associe son altitude. Si nous voulons monter la colline le plus vite possible nous n'avons qu'a suivre la direction $\nabla f$ à chaque point. Elle est la projection sur le plan $x$-$y$ de la direction de pente maximale. Au contraire, la direction $-\nabla f$ est la direction de croissance minimale.
 
@@ -552,7 +521,7 @@ Les cas suivants sont faciles :
 %---------------------------------------------------------------------------------------------------------------------------
 \label{ssecConceptPlanTag}
 
-Notons $G$, le graphe d'une fonction $f$, c'est à dire
+Notons $G$, le graphe d'une fonction $f$, c'est-à-dire
 \begin{equation}
     G=\{ (x,y,z)\in\eR^3\tq z=f(x,y) \}.
 \end{equation}
@@ -562,11 +531,11 @@ Plus fort : tous les éléments du plan tangent sont de cette forme.
 
 Le plan tangent à $G$ en un point $x\in G$ est donc constitué des vecteurs vitesse de tous les chemins qui passent par $x$.
 
-Prenons maintenant $S$, une courbe de niveau de $G$, c'est à dire
+Prenons maintenant $S$, une courbe de niveau de $G$, c'est-à-dire
 \begin{equation}
     S=\{ (x,y)\in\eR^2\tq f(x,y)=C \}.
 \end{equation}
-Si nous prenons un chemin dans $G$ qui est, de plus, contraint à $S$, c'est à dire tel que $\gamma(t)\in S$, alors $\gamma'(0)$ sera tangent à $G$ (ça, on le savait déjà), mais en plus, $\gamma'(0)$ sera tangent à $S$, ce qui est logique.
+Si nous prenons un chemin dans $G$ qui est, de plus, contraint à $S$, c'est-à-dire tel que $\gamma(t)\in S$, alors $\gamma'(0)$ sera tangent à $G$ (ça, on le savait déjà), mais en plus, $\gamma'(0)$ sera tangent à $S$, ce qui est logique.
 
 La morale est que si vous prenez un chemin qui se ballade dans n'importe quoi, alors la dérivée du chemin sera un vecteur tangent à ce n'importe quoi.
 
@@ -574,7 +543,7 @@ En outre, si $\gamma(t)\in S$ et $\gamma(0)=a$, alors
 \begin{equation}
     \scal{\nabla f(a)}{\gamma'(0)}=0,
 \end{equation}
-c'est à dire que le vecteur tangent à la courbe de niveau est perpendiculaire au gradient. Cela est intuitivement logique parce que la tangente à la courbe de niveau correspond à la direction de \emph{moins} grande pente.
+c'est-à-dire que le vecteur tangent à la courbe de niveau est perpendiculaire au gradient. Cela est intuitivement logique parce que la tangente à la courbe de niveau correspond à la direction de \emph{moins} grande pente.
 
 %---------------------------------------------------------------------------------------------------------------------------
                     \subsection{Gradient et recherche du plan tangent}
@@ -666,399 +635,6 @@ Le graphe de la fonction $T_p$ sera le \defe{plan tangent}{plan!tangent} au grap
     Lorsque nous utilisons la notation vectorielle, la lettre «$x$» désigne le vecteur $(x,y)$. Il faut être attentif. Dans un cas $x$ est un vecteur dans l'autre c'est une composante d'un vecteur.
 \end{remark}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Calcul différentiel dans un espace vectoriel normé}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Formule des accroissements finis}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition} \label{PropDQLhSoy}
-    Soient \( a<b\) dans \( \eR\) et deux fonctions
-    \begin{subequations}
-        \begin{align}
-            f\colon \mathopen[ a , b \mathclose]\to E\\
-            g\colon \mathopen[ a , b \mathclose]\to \eR
-        \end{align}
-    \end{subequations}
-    continues sur \( \mathopen[ a , b \mathclose]\) et dérivables sur \( \mathopen] a , b \mathclose[\). Si pour tout \( t\in\mathopen] a , b \mathclose[\) nous avons \( \| f'(t) \|\leq g'(t)\) alors
-        \begin{equation}
-            \| f(b)-f(a) \|\leq g(b)-g(a).
-        \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Soit \( \epsilon>0\) et la fonction
-    \begin{equation}
-        \begin{aligned}
-            \varphi_{\epsilon}\colon \mathopen[ a , b \mathclose]&\to \eR \\
-            t&\mapsto \| f(t)-f(a) \|-g(t)-\epsilon t.
-        \end{aligned}
-    \end{equation}
-    Cela est une fonction continue réelle à variable réelle. En particulier pour tout \( u\in\mathopen] a , b \mathclose[\) la fonction \( \varphi_{\epsilon}\) est continue sur le compact \( \mathopen[ u , b \mathclose]\) et donc y atteint son minimum en un certain point \( c\in\mathopen[ u , b \mathclose]\); c'est le bon vieux théorème de Weierstrass~\ref{ThoWeirstrassRn}. Nous commençons par montrer que pour tout \( u\), ledit minimum ne peut être que \( b\). Pour cela nous allons montrer que si \( t\in\mathopen[ u , b [\), alors \( \varphi_{\epsilon}(s)<\varphi_{\epsilon}(t)\) pour un certain \( s>t\). Par continuité si \( s\) est proche de \( t\) nous avons
-        \begin{equation}
-            \left\|  \frac{ f(s)-f(t) }{ s-t }  \right\|-\frac{ \epsilon }{2}<\| f'(t) \|<g'(t)+\frac{ \epsilon }{2}=\frac{ g(s)-g(t) }{ s-t }+\frac{ \epsilon }{2}.
-        \end{equation}
-        Ces inégalités proviennent de la limite
-        \begin{equation}
-            \lim_{s\to t} \frac{ f(s)-f(t) }{ s-t }=f'(t),
-        \end{equation}
-        donc si \( s\) et \( t\) sont proches,
-        \begin{equation}
-            \left\| \frac{ f(s)-f(t) }{ s-t }-f'(t) \right\|
-        \end{equation}
-        est petit. Si \( s>t\) nous pouvons oublier des valeurs absolues et transformer l'inégalité en
-        \begin{equation}
-            \| f(s)-f(t) \|<g(s)-g(t)+\epsilon(s-t).
-        \end{equation}
-        Utilisant cela et l'inégalité triangulaire,
-        \begin{subequations}
-            \begin{align}
-                \varphi_{\epsilon}(s)&\leq\| f(s)-f(t) \|+\| f(t)-f(a) \|-g(s)-\epsilon s\\
-                &\leq g(s)-g(t)+\epsilon s-\epsilon t+\| f(t)-f(a) \|-g(s)-\epsilon s\\
-                &=\varphi_{\epsilon}(t).
-            \end{align}
-        \end{subequations}
-        Donc nous avons bien \( \varphi_{\epsilon}(s)<\varphi_{\epsilon}(t)\) avec l'inégalité stricte. Par conséquent pour tout \( u\in\mathopen] a , b \mathclose[\) nous avons \( \varphi_{\epsilon}(b)<\varphi_{\epsilon}(u)\) et en prenant la limite \( u\to a\) nous avons
-        \begin{equation}
-            \varphi_{\epsilon}(b)\leq \varphi_{\epsilon}(a).
-        \end{equation}
-        Cette inégalité donne immédiatement
-        \begin{equation}
-            \| f(b)-f(a) \|\leq g(b)-g(a)+\epsilon(b-a)
-        \end{equation}
-         pour tout \( \epsilon>0\) et donc
-         \begin{equation}
-            \| f(b)-f(a) \|\leq g(b)-g(a).
-         \end{equation}
-\end{proof}
-
-\begin{theorem}[Théorème des accroissements finis]\label{ThoNAKKght}
-    Soient \( E\) et \( F\) des espaces vectoriels normés, \( U \) ouvert dans \( E\) et une application différentiable \( f\colon U\to F\). Pour tout segment \( \mathopen[ a , b \mathclose]\subset U\) nous avons
-    \begin{equation}
-        \| f(b)-f(a) \|\leq\left( \sup_{x\in\mathopen[ a , b \mathclose]}\| df_x \| \right)\| b-a \|.
-    \end{equation}
-\end{theorem}
-\index{théorème!accroissements finis}
-
-
-\begin{proof}
-    Nous prenons les applications
-    \begin{equation}
-        \begin{aligned}
-            k\colon \mathopen[ 0 , 1 \mathclose]&\to E \\
-            t&\mapsto f\big( (1-t)a+tb \big)
-        \end{aligned}
-    \end{equation}
-    et
-    \begin{equation}
-        \begin{aligned}
-            g\colon \mathopen[ 0 , 1 \mathclose]&\to \eR \\
-            t&\mapsto t\sup_{x\in\mathopen[ a , b \mathclose]}\| df_x \|\| b-a \|.
-        \end{aligned}
-    \end{equation}
-    Pour tout \( t\) nous avons \( g'(t)=M\| b-a \|\) où il n'est besoin de dire ce qu'est \( M\). D'un autre côté nous avons aussi
-    \begin{equation}
-        \begin{aligned}[]
-            k'(t)&=\lim_{\epsilon\to 0}\frac{ f\big( (1-t-\epsilon)a+(t+\epsilon)b \big)-f\big( (1-t)a+tb \big) }{ \epsilon }\\
-            &=\Dsdd{ f\big( (1-t)a+tb+\epsilon(b-a) \big)  }{\epsilon}{0}\\
-            &=df_{(1-t)a+tb}(b-a)
-        \end{aligned}
-    \end{equation}
-    où nous avons utilisé l'hypothèse de différentiabilité de \( f\) sur \( \mathopen[ a , b \mathclose]\) et donc en \( (1-t)a+tb\). Nous avons donc
-    \begin{equation}
-        \| k'(t) \|\leq \| b-a \|\| df_{(1-t)a+tb} \|\leq M\| b-a \|=g'(t)
-    \end{equation}
-    La proposition~\ref{PropDQLhSoy} est donc utilisable et
-    \begin{equation}
-        \| k(1)-k(0) \|=g(1)-g(0),
-    \end{equation}
-    c'est à dire
-    \begin{equation}
-        \| f(b)-f(a) \|=M\| b-a \|
-    \end{equation}
-    comme il se doit.
-\end{proof}
-
-\begin{proposition} \label{ProFSjmBAt}
-    Soient \( E\) et \( F\) des espaces vectoriels normés, \( U \) ouvert dans \( E\) et une application \( f\colon U\to F\). Soient \( a,b\in U\) tels que \( \mathopen[ a , b \mathclose]\subset U\). Nous posons \( u=(b-a)/\| b-a \|\) et nous supposons que pour tout \( x\in\mathopen[ a , b \mathclose]\), la dérivée directionnelle
-    \begin{equation}
-        \frac{ \partial f }{ \partial u }(x)=\Dsdd{ f(x+tu) }{t}{0}
-    \end{equation}
-    existe. Nous supposons de plus que \( \frac{ \partial f }{ \partial u }(x)\) est continue en \( x=a\). Alors
-    \begin{equation}
-        \| f(b)-f(a) \|\leq\left( \sup_{x\in\mathopen[ a , b \mathclose]}\| \frac{ \partial f }{ \partial u }(x) \| \right)\| b-a \|.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Nous posons évidemment
-    \begin{equation}
-        M=\sup_{x\in\mathopen[ a , b \mathclose]}\| \frac{ \partial f }{ \partial u }(x) \|
-    \end{equation}
-    et nous considérons les fonctions
-    \begin{equation}
-        k(t)=f\big( (1-t)a+tb \big)
-    \end{equation}
-    et
-    \begin{equation}
-        g(t)=tM\| b-a \|.
-    \end{equation}
-    Pour alléger les notations nous posons \( x=(1-t)a+tb\) et nous calculons avec un petit changement de variables dans la limite :
-    \begin{equation}
-        k'(t)=\Dsdd{  f\big( x+\epsilon(b-a) \big)  }{\epsilon}{0}=\| b-a \|\Dsdd{ f\big( x+\frac{ \epsilon }{ \| b-a \| }(b-a) \big) }{\epsilon}{0}=\| b-a \|\frac{ \partial f }{ \partial u }(x),
-    \end{equation}
-    et donc encore une fois nous avons
-    \begin{equation}
-        \| k'(t) \|\leq g'(t),
-    \end{equation}
-    ce qui donne
-    \begin{equation}
-        \| k(1)-k(0) \|=g(1)-g(0),
-    \end{equation}
-    c'est à dire
-    \begin{equation}
-        \| f(b)-f(a) \|\leq \sup_{x\in\mathopen[ a , b \mathclose]}\| \frac{ \partial f }{ \partial u }(x) \|\| b-a \|.
-    \end{equation}
-\end{proof}
-
-\begin{theorem} \label{ThoOYwdeVt}
-    Soient \( E,V\) deux espaces vectoriels normés, une application \( f\colon E\to V\), un point \( a\in E\) tel que pour tout \( u\in E\), la dérivée
-    \begin{equation}
-        \Dsdd{ f(x+tu) }{t}{0}
-    \end{equation}
-    existe pour tout \( x\in B(a,r)\) et est continue (par rapport à \( x\)) en \( x=a\). Nous supposons de plus que
-    \begin{equation}
-        \frac{ \partial f }{ \partial u }(a)=0
-    \end{equation}
-    pour tout \( u\in E\). Alors \( f\) est différentiable en \( a\) et
-    \begin{equation}
-        df_a=0
-    \end{equation}
-\end{theorem}
-
-\begin{proof}
-    Soit \( \epsilon>0\). Pourvu que \( \| h \|\) soit assez petit pour que \( a+h\in B(a,r)\), la proposition~\ref{ProFSjmBAt} nous donne
-    \begin{equation}
-        \| f(a+h)-f(a) \|\leq \sup_{x\in\mathopen[ a , a+h \mathclose]}\| \frac{ \partial f }{ \partial u }(x) \|  |h |
-    \end{equation}
-    où \( u=h/\| h \|\). Par continuité de \( \partial_uf(x)\) en \( x=a\) et par le fait que cela vaut \( 0\) en \( x=a\), il existe un \( \delta>0\) tel que si \( \| h \|<\delta\) alors
-    \begin{equation}
-        \| \frac{ \partial f }{ \partial u }(a+h) \|\leq \epsilon.
-    \end{equation}
-    Pour de tels \( h\) nous avons
-    \begin{equation}
-        \| f(a+h)-f(a) \|\leq \epsilon\| h \|,
-    \end{equation}
-    ce qui prouve que l'application linéaire \( T(u)=0\) convient parfaitement pour faire fonctionner la définition \ref{DefDifferentiellePta}.
-%
-%    Nous ne supposons plus que les dérivées directionnelles de \( f\) sont nulles en \( x=a\). Alors nous posons, pour \( x\in U\),
-%    \begin{equation}    \label{EqCUgHXHy}
-%        g(x)=f(x)-\Dsdd{ f(a+s(x-a)) }{s}{0}.
-%    \end{equation}
-%    Le fait que cette fonction soit bien définie est encore un coup de hypothèses sur les dérivées directionnelles de \( f\) qui sont bien définies autour de \( a\). Cette nouvelle fonction \( g\) satisfait à \( \frac{ \partial g }{ \partial v }(a)=0\) pour tout \( v\in E\) parce que
-%    \begin{subequations}
-%        \begin{align}
-%            \frac{ \partial g }{ \partial v }(a)&=\Dsdd{ g(a+tv) }{t}{0}\\
-%            &=\Dsdd{ f(a+tv)-\Dsdd{ f\big( a+s(tv) \big) }{s}{0} }{t}{0}\\
-%            &=\frac{ \partial f }{ \partial v }(a)-\Dsdd{ t\frac{ \partial f }{ \partial v }(a) }{t}{0}\\
-%            &=0.
-%        \end{align}
-%    \end{subequations}
-%    Pour la dérivée par rapport à \( s\) nous avons effectué le changement de variables \( s\to ts\), ce qui explique la présence d'un \( t\) en facteur. La fonction \( g\) est donc différentiable en \( a\).
-%
-%
-% Position 229262367
-    % Attention : ce qui suit est faux. Mais il y a peut-être moyen d'adapter.
-%\item[Dérivées non nulles]
-%
-%    Nous allons montrer que la fonction
-%    \begin{equation}
-%        l(x)=\Dsdd{ f\big( a+s(x-a) \big) }{t}{0}
-%    \end{equation}
-%    est différentiable en \( x=a\), de différentielle \( T(u)=l(u+a)\). Cela fournira la différentiabilité de \( f\) parce que \eqref{EqCUgHXHy} donnerait alors \( f\) comme somme de deux fonctions différentiables.
-%
-%    En premier lieu nous devons montrer que \( T\) ainsi définie est linéaire.
-%
-%    Notre but est donc de prouver que
-%    \begin{equation}
-%        \lim_{h \to 0}\frac{ \| l(x+h)-l(x)-l(h) \| }{ \| h \| }=0.
-%    \end{equation}
-%    Un premier pas est de calculer
-%    \begin{subequations}
-%        \begin{align}
-%            l(x+h)-l(x)-l(h)&=\lim_{s\to 0}\frac{ f\big( s(x+h) \big)-f(0)-f(sx)+f(0)-f(sh)+f(0) }{ s }\\
-%            &=\lim_{s\to 0}\frac{ f\big( s(x+h) \big)-f(sx)-f(sh)+f(0) }{ s }.
-%        \end{align}
-%    \end{subequations}
-%    Ensuite nous étudions le numérateur en utilisant la proposition~\ref{ProFSjmBAt}:
-%    \begin{subequations}
-%        \begin{align}
-%            \| f\big( s(x+h) \big)-f(sx)-f(sh)+f(0) \|&\leq  \| f\big( s(x+h) \big)-f(sx)\| + \|f(sh)-f(0) \|  \\
-%            &\leq \sup_{z\in\mathopen[ sx , sx+sh \mathclose]}\| \frac{ \partial f }{ \partial h }(z) \|\| sh \|\\
-%            &\quad +\sup_{z\in\mathopen[ 0 , sh \mathclose]}\| \frac{ \partial f }{ \partial h }(z) \|\| sh \|.
-%        \end{align}
-%    \end{subequations}
-%    La division par \( s\) se passe bien et nous avons
-%    \begin{subequations}
-%        \begin{align}
-%            \| l(x+h)-l(x)-l(h) \|&\leq \lim_{s\to 0}  \sup_{z\in\mathopen[ sx , sx+sh \mathclose]}\| \frac{ \partial f }{ \partial h }(z) \|\| h \|+ \sup_{z\in\mathopen[ 0 , sh \mathclose]}\| \frac{ \partial f }{ \partial h }(z) \|\| h \|\\
-%            &=2\| h \|\| \frac{ \partial f }{ \partial h }(0) \|        \label{SubeqVMMoSDH}\\
-%            &=2\| h \|^2\| \frac{ \partial f }{ \partial u }(0) \|
-%        \end{align}
-%    \end{subequations}
-%    où nous avons posé \( u=h/\| h \|\). Pour l'égalité \eqref{SubeqVMMoSDH} nous avons utilisé la continuité de \( \frac{ \partial f }{ \partial h }(z)\) en \( z=0\). Du coup
-%    \begin{equation}
-%        \lim_{y\to 0} \frac{ \| f(x+h)-f(x)-f(h) \| }{ \| h \| }=\lim_{h\to 0} 2\| h \|\| \frac{ \partial f }{ \partial u }(0) \|=0.
-%    \end{equation}
-%    Cela prouve que \( l\) est bien différentiable en \( x=0\).
-%
-%    \end{subproof}
-%
-\end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{L'inverse, sa différentielle}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Si \( E\) est un espace de Banach, nous sommes intéressés à l'espace \( \GL(E)\) des endomorphismes inversibles de \( E\) sur \( E\). Cet ensemble est métrique par la formule usuelle
-\begin{equation}
-    \| T \|=\sup_{\| x \|=1}\| T(x) \|_E.
-\end{equation}
-
-\begin{theorem}[Inverse dans \( \GL(E)\)\cite{laudenbach2000calcul,SNPdukn}]    \label{ThoCINVBTJ}
-    Soient \( E\) et \( F\) des espaces vectoriels normés.
-    \begin{enumerate}
-        \item
-        L'ensemble \( \GL(E)\) est ouvert dans \( \End(E)\).
-    \item
-        L'application inverse
-    \begin{equation}
-        \begin{aligned}
-        i\colon \GL(E,F)&\to \GL(F,E) \\
-        u&\mapsto u^{-1}
-        \end{aligned}
-    \end{equation}
-    est de classe \( C^{\infty}\) et
-    \begin{equation}
-        di_{u_0}(h)=-u_0^{-1}\circ h\circ u_0^{-1}
-    \end{equation}
-    pour tout \( h\in\End(E)\)
-    \end{enumerate}
-\end{theorem}
-\index{différentielle!de $u\mapsto u^{-1}$}
-
-\begin{proof}
-Nous supposons que \( \GL(E,F)\) n'est pas vide, sinon ce n'est pas du jeu.
-        \begin{subproof}
-
-        \item[Cas de dimension finie]
-
-            Si la dimension de \( E\) et \( F\) est finie, elles doivent être égales, sinon il n'y a pas de fonctions inversibles \( E\to F\). L'ensemble \( \GL(E,F)\) est donc naturellement \( \GL(n,\eR)\). Un élément de \( \eM(n,\eR)\) est dans \( \GL(n,\eR)\) si et seulement si son déterminant est non nul. Le déterminant étant une fonction continue (polynomiale) en les entrées de la matrice, l'ensemble \( \GL(n,\eR)\) est ouvert dans \( \eM(n,\eR)\).
-
-            Même idée pour la régularité de la fonction \( i\colon \GL(n,\eR)\to \GL(n,\eR)\), \( X\mapsto X^{-1}\). Les entrées de \( X^{-1}\) sont les cofacteurs de \( X\) divisé par \( \det(X)\), et donc des polynômes en les entrées de \( X\) divisés par un polynôme qui ne s'annule pas sur \( \GL(n,\eR)\), et donc sur un ouvert autour de \( X\) et de \( X^{-1}\). Bref, tout est \(  C^{\infty}\).
-
-            Le reste de la preuve parle de la dimension infinie.
-
-        \item[Ouvert autour de l'identité]
-
-        Nous commençons par prouver que \( B(\mtu,1)\subset \GL(E)\). Pour cela il suffit de remarquer que si \( \| u \|<1\) alors le lemme~\ref{PropQAjqUNp} nous donne un inverse de \( (1+u)\) en la personne de \( \sum_{k=0}^{\infty}(-u)^k\).
-
-    \item[Ouvert en général]
-
-        Soit maintenant \( u_0\in\GL(E)\). Si \( \| u \|<\frac{1}{ \| u_0^{-1} \| }\) alors \( \| u_0^{-1}u \|<1\), ce qui signifie que
-        \begin{equation}
-            \mtu+u_0^{-1}u
-        \end{equation}
-    est inversible. Mais \( u_0+u=u_0(\mtu+u_0^{-1}u)\), donc \( u_0+u\in\GL(E)\) ce qui signifie que
-    \begin{equation}
-    B\left( u_0,\frac{1}{ \| u_0^{-1} \| } \right)\subset \GL(E).
-    \end{equation}
-
-    \item[Différentielle en l'identité]
-
-    Nous commençons par prouver que \( di_{\mtu}(u)=-u\). Pour cela nous posons
-    \begin{equation}
-        \alpha(h)=\sum_{k=2}^{\infty}(-1)^kh^k
-    \end{equation}
-    et nous calculons
-    \begin{equation}
-    di_{\mtu}(u)=\Dsdd{ i(\mtu+tu) }{t}{0}=\Dsdd{ \mtu-tu+\alpha(tu) }{t}{0}.
-    \end{equation}
-    Il suffit de prouver que \( \Dsdd{ \alpha(tu) }{t}{0}=0\) pour conclure que \( di_{\mtu}(u)=-u\). Pour cela, nous remarquons que \( \alpha(0)=0\) et donc que
-    \begin{subequations}
-        \begin{align}
-        \Dsdd{ \alpha(tu) }{t}{0}&=\lim_{t\to 0} \frac{ \alpha(tu)-\alpha(0) }{ t }\\
-        &=\lim_{t\to 0} \sum_{k=2}^{\infty}(-1)^k\frac{ (tu)^k }{ t }\\
-        &=-\lim_{t\to 0} u\sum_{k=1}^{\infty}(-1)^kt^ku^k.
-        \end{align}
-    \end{subequations}
-    La norme de ce qui est dans la limite est majorée par
-    \begin{equation}
-    \| u \|\sum_{k=1}^{\infty}\| tu \|^k=\| u \|\left( \frac{1}{ 1-\| tu \| }-1 \right),
-    \end{equation}
-    et cela tend vers zéro lorsque \( t\to\infty\). Nous avons utilisé la somme~\ref{EqRGkBhrX} de la série géométrique. Nous avons bien prouvé que \( di_{\mtu}(u)=-u\).
-
-    \item[Différentielle en général]
-    Soit maintenant \( u_0\in\GL(E)\) et \( h\in\End(E)\) tel que \( u_0+h\in \GL(E)\); par le premier point, il suffit de prendre \( \| h \|\) suffisamment petit. Vu que \( u_0+h=u_0(\mtu+u_0^{-1}h)\) nous avons
-    \begin{equation}
-        (u_0+h)^{-1}=(\mtu+u_0^{-1}h)^{-1}u_0^{-1}.
-    \end{equation}
-    Nous pouvons donc calculer
-    \begin{equation}
-        (u_0+h)^{-1}=\big( \mtu-u_0^{-1}h+\alpha(u_0^{-1}h) \big)u_0^{-1}=u_0^{-1}-u_0^{-1}hu_0^{-1}+\alpha(u_0^{-1}h)u_0^{-1},
-    \end{equation}
-    et ensuite
-    \begin{equation}
-        di_{u_0}(h)=\Dsdd{ i(u_0+th) }{t}{0}=\Dsdd{ u_0^{-1}-tu_0^{-1}hu_0^{-1}+\alpha(tu_0^{-1}h)u_0^{-1} }{t}{0},
-    \end{equation}
-    mais nous avons déjà vu que
-    \begin{equation}
-        \Dsdd{ \alpha(th) }{t}{0}=0,
-    \end{equation}
-    donc
-    \begin{equation}
-        di_{u_0}(h)=-u_0^{-1}hu_0^{-1}
-    \end{equation}
-    Cela donne la différentielle de l'application inverse.
-
-    \item[Continuité de l'inverse]
-
-        L'application \( i\) est continue parce que différentiable.
-    \item[L'inverse est \(  C^{\infty}\)]
-
-        Nous allons écrire la fonction inverse comme une composée. Soient les applications
-        \begin{equation}
-            \begin{aligned}
-                B\colon \cL(F,E)\times \cL(F,E)&\to \cL\big( \cL(E,F),\cL(F,E) \big) \\
-                B(\psi_1,\psi_2)(A)&= -\psi_1\circ A\circ\psi_2
-            \end{aligned}
-        \end{equation}
-        et
-        \begin{equation}
-            \begin{aligned}
-                \Delta\colon \cL(F,E)&\to \cL(F,E)\times \cL(F,E) \\
-                \varphi&\mapsto (\varphi,\varphi)
-            \end{aligned}
-        \end{equation}
-        Nous avons alors
-        \begin{equation}
-            di=B\circ\Delta\circ i.
-        \end{equation}
-        L'application \( \Delta\) est de classe \(  C^{\infty}\). Nous devons voir que \( B\) l'est aussi. Pour le voir nous commençons par prouver qu'elle est bornée :
-        \begin{equation}
-            \begin{aligned}[]
-                \| B \|&=\sup_{\| \psi_1 \|,\| \psi_2 \|=1}\| B(\psi_1,\psi_2) \|_{\aL\big( L(E,F),L(F,E) \big)}\\
-                &=\sup_{  \| \psi_1 \|,\| \psi_2 \|=1 }\sup_{\| A \|=1}\| \psi_1\circ A\circ\psi_2 \|_{L(F,E)}\\
-                &\leq \sup_{\| \psi_1 \|,\| \psi_2 \|=1}\sup_{\| A \|=1}\| \psi_1 \|\| A \|\| \psi_2 \|\\
-                &\leq 1.
-            \end{aligned}
-        \end{equation}
-        Donc \( B\) est bien bornée et par conséquent continue. Une application bilinéaire continue est \(  C^{\infty}\) par le lemme~\ref{LemFRdNDCd}. La décomposition \( di=B\circ \Delta\circ i\) nous donne donc que \( i\in C^{\infty}\) dès que \( i\) est continue, ce que nous avions déjà montré.
-        \end{subproof}
-\end{proof}
-
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Projection orthogonale}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1079,7 +655,7 @@ Le théorème suivant n'est pas indispensablissime parce qu'il est le même que 
     Il existe un unique \( y\in E\), noté \( y=\pr_C(x)\) vérifiant ces conditions.
     \end{enumerate}
 \end{theorem}
-%TODO : il y a sûrement un endroit plus adapté pour mettre ce théorème.
+%TODO : il y a surement un endroit plus adapté pour mettre ce théorème.
 
 \begin{proof}
     Nous commençons par prouver l'existence et l'unicité d'un élément dans \( C\) vérifiant la première condition. Ensuite nous verrons l'équivalence.
@@ -1174,7 +750,7 @@ différentiable.
 \begin{remark}
   \begin{enumerate}
   \item Si la fonction est supposée différentiable, calculer la
-    jacobienne revient à connaître la différentielle. En effet, par
+    jacobienne revient à connaitre la différentielle. En effet, par
     linéarité de la différentielle et par définition des dérivées
     partielles, nous avons
     \begin{equation*}
@@ -1207,4 +783,4 @@ différentiable.
     (g\circ f)'(a)= dg\left(f(a)\right).f'(a).
     \]
     En fait, pour les fonctions d'une seule variable la dérivabilité coïncide avec la différentiabilité.
-\end{normaltext}<++>
+\end{normaltext}

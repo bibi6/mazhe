@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -13,7 +13,7 @@
         \Card(HK)=\frac{ | H |\cdot | K | }{ | H\cap K | }.
     \end{equation}
 \end{lemma}
-Attention : dans ce lemme, l'ensemble \( HK\) n'est pas spécialement un groupe. Ce serait le cas si \( H\) normaliserait \( K\), c'est à dire si nous avions \( hkh^{-1}\in K,\,\forall h,k\in H\times K\).
+Attention : dans ce lemme, l'ensemble \( HK\) n'est pas spécialement un groupe. Ce serait le cas si \( H\) normaliserait \( K\), c'est-à-dire si nous avions \( hkh^{-1}\in K,\,\forall h,k\in H\times K\).
 
 \begin{theorem}[Théorème de Cauchy\cite{ooBZOQooUnlnoI}]\label{ThoCauchyGpFini}
     Soit \( G\) un groupe fini et \( p\) un nombre premier divisant \( | G |\). Alors
@@ -148,21 +148,7 @@ Si \( S\) est un \( p\)-Sylow, alors \( p\) ne divise pas le nombre \( | G:S |=|
 \index{groupe!fini}
 
 \begin{proof}
-
-    % Il y a ici un début d'une preuve qui fonctionne d'une autre manière. Dans cette démonstration, N est l'ordre de G.
-
-    %\begin{enumerate}
-        %\item
-         %   Nous faisons la récurrence sur l'ordre \( N\) de \( G\). Pour \( N=1\), le seul \( p\)-Sylow est le groupe entier. Si \( N>1\), nous commençons par supposer que \( G\) contient un sous-groupe propre \( H\) tel que \( \pgcd(| G:H |,p)=1\).
-%
- %           Si \( G\) contient un sous-groupe propre \( H\) tel que \( \pgcd(| G:H |,p)=1\), alors \( p\) divise \( | G:H |\). En effet \( p\) divise \( N\) et \( | G:H |=| G |/| H |\). Si il n'y a pas de \( p\) dans la décomposition de \( | H |\), alors \( p\) divise encore \( | G |/| H |\). Étant donné que \( p\) est un diviseur premier de \( | H |\), le groupe \( H\) contient des \( p\)-Sylow par hypothèse de récurrence. Montrons que si \( S\) est un \( p\)-Sylow de \( H\), alors \( S\) est également un $p$-Sylow de \( G\).
-%
- %           Soit \( S\), un $p$-Sylow de \( H\). Nous avons \( | S |=p^n\) où \( n\) est la plus grande puissance de \( p\) divisant \( H\). Par hypothèse, il n'y a pas de \( p\) dans la décomposition de \( | G:H |\); par conséquent \( p^n\) est également la plus grande puissance de \( p\) qui divise \( | G |\) et \( S\) est alors un $p$-Sylow de \( G\).
-%
- %           Nous supposons maintenant que \( G\) ne possède pas de sous-groupe \( H\) tels que \( \pgcd(| G:H |,p)=1\).
-%
- %   \end{enumerate}
-
+    En plusieurs points.
     \begin{enumerate}
         \item
 
@@ -192,7 +178,7 @@ Si \( S\) est un \( p\)-Sylow, alors \( p\) ne divise pas le nombre \( | G:S |=|
             \begin{equation}
                 | E |\equiv | E_S |\mod p.
             \end{equation}
-            Nous voulons obtenir \( | E_S |=1\). Évidemment \( S\in E_S\) parce que si \( s\in S\) alors \( sSs^{-1}=S\). Nous voudrions montrer que \( S\) est le seul élément de \( E_S\). Soit \( T\in E_S\), c'est à dire que \( T\) est un $p$-Sylow de \( G\) tel que
+            Nous voulons obtenir \( | E_S |=1\). Évidemment \( S\in E_S\) parce que si \( s\in S\) alors \( sSs^{-1}=S\). Nous voudrions montrer que \( S\) est le seul élément de \( E_S\). Soit \( T\in E_S\), c'est-à-dire que \( T\) est un $p$-Sylow de \( G\) tel que
             \begin{equation}
                 sTs^{-1}=T
             \end{equation}
@@ -222,7 +208,7 @@ Si \( S\) est un \( p\)-Sylow, alors \( p\) ne divise pas le nombre \( | G:S |=|
     \begin{equation}
         (gsg^{-1})^q=gs^qg^{-1}=e.
     \end{equation}
-    Pour avoir \( gs^qg^{-1}=e\), il faut et suffit que \( gs^q=g\), alors \( s^q=e\), c'est à dire \( q=p^n\). Donc \( gSg^{-1}\) est encore un \( p\)-Sylow.
+    Pour avoir \( gs^qg^{-1}=e\), il faut et suffit que \( gs^q=g\), alors \( s^q=e\), c'est-à-dire \( q=p^n\). Donc \( gSg^{-1}\) est encore un \( p\)-Sylow.
 \end{proof}
 
 \begin{lemma}[\cite{ooGQNTooEiWtsy}]\label{Lemcmbzum}
@@ -249,11 +235,13 @@ Si \( S\) est un \( p\)-Sylow, alors \( p\) ne divise pas le nombre \( | G:S |=|
     Soit \( p\) l'ordre de \( G\). Le nombre de sous-groupes d'ordre \( p\) est \( n=1\) (et c'est \( G\) lui-même). La proposition~\ref{PropyfhTmf} nous dit alors que le nombre d'éléments d'ordre \( p\) dans \( G\) est \( p-1\). Donc tout élément est générateur.
 \end{proof}
 
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Groupe monogène}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooXIHPooWVSjhT}
 
-Le théorème suivant donne quelques informations à propos de groupes monogènes. Il impliquera dans le corollaire~\ref{CORooMBLSooMHKmAq} qu'un groupe monogène d'ordre \( n\) possède \( \varphi(n)\) générateur où \( \varphi\) est la fonction indicatrice d'Euler définie en~\ref{DEFooWYIGooRVBTil}.
+Le théorème suivant donne quelques informations à propos de groupes monogènes. Il impliquera dans le corolaire~\ref{CORooMBLSooMHKmAq} qu'un groupe monogène d'ordre \( n\) possède \( \varphi(n)\) générateur où \( \varphi\) est la fonction indicatrice d'Euler définie en~\ref{DEFooWYIGooRVBTil}.
 
 \begin{theorem}     \label{THOooDOMZooOEYHAe}
     Un groupe monogène est abélien. Plus précisément,
@@ -318,7 +306,7 @@ Le lemme suivant donne une démonstration alternative, avec une construction plu
 
     \begin{subproof}
         \item[L'ordre de \( G\) est fini et vaut \( n\)]
-            Si \( k\in\eZ\), nous notons \( [k]_n\) la classe de \( k\) modulo \( n\), c'est à dire l'ensemble \( \{ k+pn\tq p\in \eZ \}\).
+            Si \( k\in\eZ\), nous notons \( [k]_n\) la classe de \( k\) modulo \( n\), c'est-à-dire l'ensemble \( \{ k+pn\tq p\in \eZ \}\).
 
             Nous construisons l'isomorphisme \( \phi\colon G\to \eZ/n\eZ\) de la façon suivante:
             \begin{equation}
@@ -378,7 +366,7 @@ mais il faut bien garder à l'esprit qu'à gauche on considère le groupe additi
     \begin{equation}
         f([r])=f(r[1])=rf([1])=[r]f([1]).
     \end{equation}
-En particulier, vu que \( f\) est surjective, il existe un \( r\) tel que \( f([r])=[1]\). Pour un tel \( r\) nous avons \( [1]=[r]f([1])\), c'est à dire que nous avons montré que \( f([1])\) est inversible dans \(  \big( (\eZ/n\eZ)^*,\cdot\big)\). Nous montrons à présent que\footnote{Le \( \sigma\) donné ici est l'inverse de celui donné dans l'énoncé. Cela ne change évidemment rien à la validité de l'énoncé et de la preuve.}
+En particulier, vu que \( f\) est surjective, il existe un \( r\) tel que \( f([r])=[1]\). Pour un tel \( r\) nous avons \( [1]=[r]f([1])\), c'est-à-dire que nous avons montré que \( f([1])\) est inversible dans \(  \big( (\eZ/n\eZ)^*,\cdot\big)\). Nous montrons à présent que\footnote{Le \( \sigma\) donné ici est l'inverse de celui donné dans l'énoncé. Cela ne change évidemment rien à la validité de l'énoncé et de la preuve.}
     \begin{equation}
         \begin{aligned}
             \sigma\colon \Aut( (\eZ/n\eZ,+))&\to \big( (\eZ/n\eZ)^*,\cdot \big)\\
@@ -391,7 +379,7 @@ En particulier, vu que \( f\) est surjective, il existe un \( r\) tel que \( f([
 
     En ce qui concerne l'injectivité, considérons des automorphismes \( f_1\) et \( f_2\) de \( (\eZ/n\eZ,+)\) tels que \( f_1([1])=f_2([1])\). Les automorphismes \( f_1\) et \( f_2\) prennent la même valeur sur un générateur et donc sur tout le groupe. Donc \( f_1=f_2\).
 
-    Enfin nous prouvons que \( \sigma\) est un morphisme, c'est à dire que \( \sigma(f\circ g)=\sigma(f)\sigma(g)\). Nous avons
+    Enfin nous prouvons que \( \sigma\) est un morphisme, c'est-à-dire que \( \sigma(f\circ g)=\sigma(f)\sigma(g)\). Nous avons
     \begin{subequations}
         \begin{align}
             f\big( g([1]) \big)&=f\big( g([1])[1] \big)=g([1])f([1])=\sigma(f)\sigma(g).
@@ -400,8 +388,8 @@ En particulier, vu que \( f\) est surjective, il existe un \( r\) tel que \( f([
 \end{proof}
 
 Ce dernier résultat s'étend aux groupes cycliques.
-\begin{proposition}
-    Si \( G\) est un groupe cyclique d'ordre \( n\), alors
+\begin{proposition}     \label{PROPooBZOMooVOHoYf}
+    Si \( G\) est un groupe cyclique\footnote{Définition \ref{DefHFJWooFxkzCF}.} d'ordre \( n\), alors
     \begin{equation}
         \Aut(G)=(\eZ/n\eZ)^*.
     \end{equation}
@@ -418,6 +406,9 @@ Ce dernier résultat s'étend aux groupes cycliques.
     \end{equation}
     est un sous-groupe d'ordre \( p\). En ce qui concerne l'unicité, soit \( S\) un sous-groupe d'ordre \( p\). Il est donc d'indice \( (q-1)/p\) dans \( \eF_q^*\) et le lemme~\ref{PropubeiGX} nous enseigne que le groupe donné en \eqref{EqAdGiil} est contenu dans \( S\). Il est donc égal à \( S\) parce qu'il a l'ordre de \( S\). Le fait que \( S\) soit normal est dû au fait que \( \eF_q^*\) est abélien.
 \end{proof}
+
+
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Groupes abéliens finis}
@@ -441,7 +432,7 @@ Nous rappelons que l'exposant\index{exposant} d'un groupe fini est le \( \ppcm\)
     \end{subequations}
     où \( m'\) et \( q'\) ne contiennent plus le facteur \( p\). L'élément \( x\) étant d'ordre \( m\), l'élément \( x^{p^{\alpha}}\) est d'ordre \( m'\). De la même manière, l'élément \( y^{q'}\) est d'ordre \( p^{\beta}\). Étant donné que \( p^{\beta}\) et \( m'\) sont premiers entre eux, l'élément  \( x^{p^{\alpha}}y^{q'}\) est d'ordre \( p^{\alpha}m'>m\). D'où une contradiction avec le fait que \( x\) était d'ordre maximal.
 
-    Par conséquent l'ordre de tous les éléments de $G$ divise celui de \( x\) qui est alors le \( \ppcm\) des ordres de tous les éléments de \( G\), c'est à dire l'exposant de \( G\).
+    Par conséquent l'ordre de tous les éléments de $G$ divise celui de \( x\) qui est alors le \( \ppcm\) des ordres de tous les éléments de \( G\), c'est-à-dire l'exposant de \( G\).
 \end{proof}
 
 \begin{proposition} \label{PropfPRVxi}
@@ -494,7 +485,7 @@ Nous rappelons que l'exposant\index{exposant} d'un groupe fini est le \( \ppcm\)
     \begin{equation}
         \hat\varphi\big( [\bar k\bar r,hz] \big)=\hat\varphi\big( [\bar k,h] \big),
     \end{equation}
-    c'est à dire que \( \tilde \varphi(\bar r,z)=e\). Du coup la définition \eqref{EqeesVxc} n'est bonne que si et seulement si
+    c'est-à-dire que \( \tilde \varphi(\bar r,z)=e\). Du coup la définition \eqref{EqeesVxc} n'est bonne que si et seulement si
     \begin{equation}
         \ker(p)\subset\ker(\tilde\varphi ).
     \end{equation}
@@ -508,7 +499,7 @@ Nous rappelons que l'exposant\index{exposant} d'un groupe fini est le \( \ppcm\)
     \begin{equation}
         \tilde \varphi(\beta,y^{-\beta})=x^{\beta l}\varphi(y^{-\beta})=x^{\beta l+\alpha}.
     \end{equation}
-    Par conséquent nous choisissons \( l=-\alpha/\beta\). Nous devons maintenant vérifier que ce choix est légitime, c'est à dire que \( a\) divise \( bl\) et que \( \alpha/\beta\) est un entier.
+    Par conséquent nous choisissons \( l=-\alpha/\beta\). Nous devons maintenant vérifier que ce choix est légitime, c'est-à-dire que \( a\) divise \( bl\) et que \( \alpha/\beta\) est un entier.
 
     Étant donné que \( y\) est d'ordre \( b\),
     \begin{equation}
@@ -657,7 +648,7 @@ Avant le lire le théorème suivant, n'oubliez pas de lire la définition d'un p
         \begin{equation}
             h^{-1} h'=(k'k^{-1})^{-1}\in H\cap K=\{ e \}.
         \end{equation}
-        Par conséquent \( | pq |=| H\times K |=| HK |\), et \( HK=G\). Le corollaire~\ref{CoroGohOZ} nous indique que
+        Par conséquent \( | pq |=| H\times K |=| HK |\), et \( HK=G\). Le corolaire~\ref{CoroGohOZ} nous indique que
         \begin{equation}    \label{EqGjQjFN}
             G=H\times_{\varphi}K
         \end{equation}
@@ -667,7 +658,7 @@ Avant le lire le théorème suivant, n'oubliez pas de lire la définition d'un p
 
     \item[Si \( p\) ne divise pas \( q-1\)]
 
-        Si \( p\) ne divise pas \( q-1\) alors il n'est pas possible d'avoir \( n_p=q\) parce que \( n_p\in [1]_p\). Or dire \( n_p=q\) demanderait \( q\in [1]_p\), c'est à dire \( q=kp+1\), qui impliquerait que \( p\) divise \( q-1\).
+        Si \( p\) ne divise pas \( q-1\) alors il n'est pas possible d'avoir \( n_p=q\) parce que \( n_p\in [1]_p\). Or dire \( n_p=q\) demanderait \( q\in [1]_p\), c'est-à-dire \( q=kp+1\), qui impliquerait que \( p\) divise \( q-1\).
 
         La seule possibilité est que \( n_p=1\). Dans ce cas, \( K\) est également normal dans \( G\). Du coup le produit semi-direct \eqref{EqGjQjFN} est en réalité un produit direct (\( \varphi\) est triviale) et nous avons
         \begin{equation}
@@ -682,7 +673,7 @@ Avant le lire le théorème suivant, n'oubliez pas de lire la définition d'un p
         \end{equation}
         ce qui signifie que \( | \varphi(\eZ/p\eZ) |\) divise \( | \eZ/p\eZ |=p\). Par conséquent, \( | \varphi(\eZ/p\eZ) |\) est égal à \( 1\) ou \( p\). Si c'est \( 1\), alors l'action est triviale et le produit est direct.
 
-        Nous supposons que \( | \varphi(\eZ/p\eZ) |=p\). Le corollaire~\ref{CorwgmoTK} nous indique que \( \Aut(\eZ/q\eZ)\) possède un unique sous-groupe d'ordre \( p\) que nous notons \( \Gamma\); c'est à dire que \( \Gamma=\Image(\varphi)\). Vu que \( \varphi\colon \eZ/p\eZ\to \Aut(\eZ/q\eZ)\) est un morphisme, \( \Gamma\) est généré par \( \varphi(\bar 1)\) qui est alors un élément d'ordre \( p\), comme annoncé.
+        Nous supposons que \( | \varphi(\eZ/p\eZ) |=p\). Le corolaire~\ref{CorwgmoTK} nous indique que \( \Aut(\eZ/q\eZ)\) possède un unique sous-groupe d'ordre \( p\) que nous notons \( \Gamma\); c'est-à-dire que \( \Gamma=\Image(\varphi)\). Vu que \( \varphi\colon \eZ/p\eZ\to \Aut(\eZ/q\eZ)\) est un morphisme, \( \Gamma\) est généré par \( \varphi(\bar 1)\) qui est alors un élément d'ordre \( p\), comme annoncé.
 
     \item[Unicité]
         Nous nous attaquons maintenant à l'unicité. Soient \( \varphi\) et \( \varphi'\) deux morphismes non triviaux \( \eZ/p\eZ\to \Aut(\eZ/q\eZ)\). Étant donné que \( \Aut(\eZ/q\eZ)\) ne possède qu'un seul sous-groupe d'ordre \( p\), nous savons que \( \Image(\varphi)=\Image(\varphi')=\Gamma\). Nous pouvons donc parler de \( \varphi'^{-1}\) en tant qu'application de \( \eZ/p\eZ\) dans \( \Gamma\). Nous montrons que
@@ -769,155 +760,22 @@ Rappel : un groupe d'ordre \( p\) ou \( p^2\) est automatiquement un $p$-groupe.
 \begin{proof}
     Si \( | G |=p\), alors le théorème de Cauchy~\ref{ThoCauchyGpFini} nous donne l'existence d'un élément d'ordre \( p\). Cet élément est alors automatiquement générateur, \( G\) est cyclique et donc abélien.
 
-    Si par contre \( G\) est d'ordre \( p^2\), alors les choses se compliquent (un peu). D'après le théorème de Burnside~\ref{ThoImkljy}, le centre \( \mZ\) n'est pas trivial; il est alors d'ordre \( p\) ou \( p^2\). Supposons qu'il soit d'ordre \( p\) et prenons \( x\in G\setminus\mZ\). Alors le stabilisateur de \( x\) pour l'action adjointe contient au moins \( \mZ\) et \( x\), c'est à dire que \( |\Fix_G(x)|\geq p+1\). Étant donné que \( \Fix_G(x)\) est un sous-groupe, son ordre est automatiquement \( 1\), \( p\) ou \( p^2\). En l'occurrence, il doit être \( p^2\) (parce que plus grand que \( p\)), et donc \( x\) doit être central, ce qui est une contradiction.
+    Si par contre \( G\) est d'ordre \( p^2\), alors les choses se compliquent (un peu). D'après le théorème de Burnside~\ref{ThoImkljy}, le centre \( \mZ\) n'est pas trivial; il est alors d'ordre \( p\) ou \( p^2\). Supposons qu'il soit d'ordre \( p\) et prenons \( x\in G\setminus\mZ\). Alors le stabilisateur de \( x\) pour l'action adjointe contient au moins \( \mZ\) et \( x\), c'est-à-dire que \( |\Fix_G(x)|\geq p+1\). Étant donné que \( \Fix_G(x)\) est un sous-groupe, son ordre est automatiquement \( 1\), \( p\) ou \( p^2\). En l'occurrence, il doit être \( p^2\) (parce que plus grand que \( p\)), et donc \( x\) doit être central, ce qui est une contradiction.
 \end{proof}
 
-
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Le groupe symétrique}
+\section{Groupe symétrique, groupe alterné}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooZFYQooFfopMa}
 
 La définition des permutations et du groupe symétrique sont~\ref{DEFooJNPIooMuzIXd}. Voir aussi le thème~\ref{THEMEooQEEWooXDhvhv}.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Décomposition en cycles}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}      \label{DEFooSupportPermutation}
-    Le \defe{support}{support!d'une permutation} d'une permutation $\sigma$ est l'ensemble constitué des éléments modifiés par $\sigma$:
-    \begin{equation*}
-        \supp \sigma = \{ i \in \{1,\ldots,n \} \tq \sigma(i) \neq i\}.
-    \end{equation*}
-\end{definition}
-
-\begin{definition}  \label{DEFooWPYSooPWuwWO}
-    Nous disons qu'un élément \( \sigma \in S_n\) \defe{inverse}{inversion!dans le groupe symétrique} les nombres \( i<j\) si \( \sigma(i)>\sigma(j)\). Soit \( N_\sigma\) le nombre d'inversions que \( \sigma\in S_n\) possède (c'est le nombre de couples \( (i,j)\) avec \( i<j\) tels que \( \sigma(i)>\sigma(j)\)). L'entier
-    \begin{equation}
-        \epsilon(\sigma)=(-1)^{N_\sigma}
-    \end{equation}
-    est la \defe{signature}{signature!d'une permutation} de \( \sigma\).
-\end{definition}
-
-Un \wikipedia{fr}{Permutation}{élément du groupe symétrique} \( S_n\) peut être décomposé en produit de cycles de supports disjoints de la façon suivante. Pour \( \sigma \in S_n \), nous écrivons d'abord le cycle qui correspond à l'orbite de \( 1\). Ce sera le cycle
-\begin{equation}
-    (1,\sigma(1),\sigma^2(1),\ldots, \sigma^k(1))
-\end{equation}
-avec \( \sigma^{k+1}(1)=1\). Ensuite nous recommençons avec le plus petit élément de \( \{ 1,\ldots, n \}\) à ne pas être dans ce cycle, et puis le suivant, etc. La \emph{structure} d'une telle décomposition est la donnée des nombres \( k_i\) donnant le nombre de cycles de longueur \( i\).
-
-\begin{lemma}[\cite{Combes}]        \label{LemmvZFWP}
-    Soit \( \sigma=(i_1,\ldots, i_k)\in S_n\), un cycle de longueur \( k\) et \( \theta\in S_n\). Alors
-    \begin{equation}
-        \theta\sigma\theta^{-1}=\big( \theta(i_1),\ldots, \theta(i_k) \big).
-    \end{equation}
-    Tous les cycles de longueur \( k\) sont conjugués entre eux.
-\end{lemma}
-
-\begin{proposition}[Classes de conjugaison et structure en cycles\cite{UXMTXxl}] \label{PropEAHWXwe}
-    Une classe de conjugaison dans \( S_n\) est formée des permutations ayant une décomposition en cycles disjoints de même structure. Autrement dit, deux permutations \( \sigma\) et \( \sigma'\) sont conjuguées si et seulement si le nombre \( k_i\) de cycles de longueur \( i\) dans \( \sigma\) est le même que le nombre \( k'_i\) de cycles de longueur \( i\) dans \( \sigma'\).
-\end{proposition}
-
-\begin{proof}
-    Soit \( \sigma=c_1\ldots c_m\) la décomposition de \( \sigma\) en cycles de supports disjoints. Les \( c_i\) sont des cycles de supports disjoints. Si \( \tau\) est une permutation, alors
-    \begin{equation}
-        \sigma'=\tau\sigma\tau^{-1}=(\tau c_1\tau^{-1})\ldots (\tau c_m\tau^{-1}),
-    \end{equation}
-    mais \( \tau c_i\tau^{-1}\) est un cycle de même longueur que \( c\), puisque le lemme~\ref{LemmvZFWP} nous dit que si \( \sigma=(a_1,\ldots, a_k)\), alors \( \tau c\tau^{-1}=\big( \tau(a_1),\ldots, \tau(a_k) \big)\). Notons encore que les cycles \( \tau c_i\tau^{-1}\) restent à support disjoints.
-
-    Donc tous les éléments de la classe de conjugaison de \( \sigma\) sont des permutations de même structure de \( \sigma\).
-
-    Réciproquement, si \( \sigma'=c'_1\ldots c'_m\) est une décomposition de \( \sigma'\) en cycles disjoints tels que la longueur de \( c_i\) est la même que la longueur de \( c'_i\), alors il suffit de construire des permutations \( \tau_i\) telles que \( \tau_i c_i\tau_i^{-1}=c_i'\), à travers le lemme~\ref{LemmvZFWP}. Comme les supports des $c_i$ et des $c'_i$ sont disjoints, la permutation \( \tau_1\ldots \tau_m\) conjugue \( \sigma\) et \( \sigma'\).
-\end{proof}
-
-\begin{example}     \label{EXooQAXRooBsPURs}
-    Voyons les classes de conjugaison de \( S_3\). Étant donné que ce groupe agit par définition sur un ensemble à \( 3\) éléments, aucun élément de \( S_3\) ne possède un un cycle de plus de \( 3\) éléments. Il y a donc seulement des cycles de longueur deux ou trois (à part les triviaux). Aucun élément de \( S_3\) n'a une décomposition en cycles disjoints contenant deux cycles de deux ou un cycle de deux et un de trois.
-
-    En résumé il y a trois classes de conjugaison dans \( S_3\). La première est celle contenant seulement l'identité. La seconde est celle contenant les cycles de longueur deux et la troisième contient les cycles de longueur \( 3\).
-
-    Ce sont donc
-    \begin{subequations}
-        \begin{align}
-            C_1&=\{ \id \}\\
-            C_2&=\{ (1,2),(1,3),(2,3) \}\\
-            C_3&=\{ (1,2,3),(2,1,3) \}.
-        \end{align}
-    \end{subequations}
-\end{example}
-
-\begin{example} \label{ExVYZPzub}
-    Les classes de conjugaison de \( S_4\). Nous savons que les classes de conjugaison dans \( S_4\) sont caractérisées par la structure des décompositions en cycles (proposition~\ref{PropEAHWXwe}). Le groupe symétrique \( S_4\) possède dont les classes de conjugaison suivantes.
-\begin{enumerate}
-    \item
-        Le cycle vide qui représente la classe constituée de l'identité seule.
-    \item
-        Les transpositions (de type \( (a,b)\)) qui sont au nombre de \( 6\).
-    \item
-        Les \( 3\)-cycles. Pour savoir \href{http://www.toujourspret.com/techniques/expression/chants/C/cantique_des_etoiles.php}{quel est leur nombre} nous commençons par remarquer qu'il y a \( 4\) façons de prendre \( 3\) nombres parmi \( 4\) et ensuite \( 2\) façons de les arranger. Il y a donc \( 8\) éléments dans cette classe de conjugaison.
-    \item
-        Les \( 4\)-cycles. Le premier est arbitraire (parce que c'est cyclique). Pour le second il y a \( 3\) possibilités, et deux possibilités pour le troisième; le quatrième est alors automatique. Cette classe de conjugaison contient donc \( 6\) éléments.
-    \item       \label{ITEMooGCMYooKZgFHX}
-        Les doubles transpositions, du type \( (a,b)(c,d)\). Dans ce cas, tous les nombres sont permutés, et l'image de $1$ détermine la double transposition. Il y a $3$ images possibles, et donc \( 3\) éléments dans cette classe.
-\end{enumerate}
-\index{classe de conjugaison!dans $S_4$ }
-\end{example}
-
-\begin{lemma}[\cite{PDFpersoWanadoo}]       \label{LemhxnkMf}
-    Un \( k\)-cycle est une permutation impaire si \( k\) est pair et paire si \( k\) est impair.
-\end{lemma}
-
-\begin{proposition} \label{PropPWIJbu}
-    Tout élément de \( S_n\) peut être écrit sous la forme d'un produit fini de transpositions.
-\end{proposition}
-Cette décomposition n'est pas à confondre avec celle en cycles de support disjoints. Par exemple \( (1,2,3)=(1,3)(1,2)\).
-
-\begin{proposition}[\cite{Combes}]  \label{ProphIuJrC}
-    Soit \( S_n\) le groupe symétrique.
-    \begin{enumerate}
-        \item       \label{ITEMooBQKUooFTkvSu}
-            L'application \( \epsilon\colon S_n\to \{ 1,-1 \}\) est l'unique homomorphisme surjectif de \( S_n\) sur \( \{ -1,1 \}\).
-        \item
-            Si \( s=t_1\cdots t_k\) est le produit de \( k\) transpositions, alors \( \epsilon(s)=(-1)^k\).
-    \end{enumerate}
-\end{proposition}
-
-
-\begin{proof}
-    Soit \( \sigma,\theta \in S_n\). Afin de montrer que \( \epsilon(\sigma\theta )=\epsilon(\sigma)\epsilon(\theta )\), nous divisons les couples \( (i,j)\) tels que \( i\leq j\) en \( 4\) groupes suivant que \( \theta(i)\gtrless \theta(j)\) et \( \sigma\big( \theta(i) \big)\gtrless \sigma\big( \theta(j) \big)\). Nous notons \( N_1\), \( N_2\), \( N_3\) et \( N_4\) le nombre de couples dans chacun des quatre groupes :
-    \begin{center}
-    \begin{tabular}{c|c|c}
-        $ (i,j)$&   \(\sigma\big( \theta(i) \big)<\sigma\big( \theta(j) \big)\)    &   \(\sigma\big( \theta(i) \big)>\sigma\big( \theta(j) \big)\)\\
-        \hline
-        \( \theta(i)<\theta(j)\)& \( N_1\)&\( N_2\)\\
-        \hline
-        \( \theta(i)>\theta(j)\)&\( N_3\)&\( N_4\)
-    \end{tabular}
-    \end{center}
-    Nous avons immédiatement \( N_\theta=N_3+N_4\) et \( N_{\sigma\theta}=N_2+N_4\). Les éléments qui participent à \( N_\sigma\) sont ceux où \( \theta(i)\) et \(\theta(j)\) sont dans l'ordre inverse de \( \sigma\big( \theta(i) \big)\) et \( \sigma\big( \theta(j) \big)\) (parce que \(  \theta\) est une bijection). Donc \( N_\sigma=N_2+N_3\). Par conséquent nous avons
-    \begin{equation}
-        \epsilon(\sigma)\epsilon(\theta)=(-1)^{N_2+N_3}(-1)^{N_3+N_4}=(-1)^{N_2+N_4}=(-1)^{N_{\sigma\theta}}=\epsilon(\sigma\theta).
-    \end{equation}
-    Nous avons prouvé que \( \epsilon\) est un homomorphisme. Pour montrer que \( \epsilon\) est surjectif sur \( \{ -1,1 \}\) nous devons trouver un élément \( \tau\in S_n\) tel que \( \epsilon(\tau)=-1\). Si \( \tau\) est la transposition \( 1\leftrightarrow 2\) alors le couple \( (1,2)\) est le seul à être inversé par \( \tau\) et nous avons \( \epsilon(\tau)=-1\).
-
-    Avant de montrer l'unicité, nous montrons que si \( \sigma=t_1\ldots t_k\) alors \( \epsilon(\sigma)=(-1)^k\). Pour cela il faut montrer que \( \epsilon(\tau)=-1\) dès que \( \tau\) est une transposition. Soit \( \tau_{ij}\), la transposition \( (i,j)\) et \( \theta=(i,i+1,\ldots, j-1)\) alors le lemme~\ref{LemmvZFWP} dit que
-    \begin{equation}
-        \tau_{ij}=\theta\tau_{j-1,j}\theta^{-1}.
-    \end{equation}
-    La signature étant un homomorphisme,
-    \begin{equation}
-        \epsilon(\tau_{ij})=\epsilon(\theta)\epsilon(\tau_{j-1,j})\epsilon(\theta)^{-1}=\epsilon(\tau_{j-1,j})=-1.
-    \end{equation}
-
-    Nous passons maintenant à la partie unicité de la proposition. Soit un homomorphisme surjectif \( \varphi\colon S_n\to \{ -1,1 \}\) et \( \tau\), une transposition telle que \( \varphi(\tau)=-1\) (qui existe parce que sinon \( \varphi\) ne serait pas surjectif\footnote{Nous utilisons ici le fait que tous les éléments de \( S_n\) sont des produits de transpositions, proposition~\ref{PropPWIJbu}.}). Si \( \tau'\) est une autre transposition, il existe \( \sigma\in S_n\) tel que \( \tau'=\sigma\tau\sigma^{-1}\) (lemme~\ref{LemmvZFWP}). Dans ce cas, \( \varphi(\tau')=\varphi(\tau)=-1\), et si \( \sigma=\tau_1\ldots \tau_k) \),
-    \begin{equation}
-         \varphi(\sigma)=(-1)^k=\epsilon(\sigma).
-    \end{equation}
-\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Le groupe alterné}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}      \label{DEFooEIVIooFvVkHH}
-Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations paires dans \( S_n\) est la \defe{groupe alterné}{alterné!groupe}\index{groupe!alterné}.
+    Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations paires\footnote{Définition \ref{PROPooKRHEooAxtmRv}.} dans \( S_n\) est la \defe{groupe alterné}{alterné!groupe}\index{groupe!alterné}.
 \end{definition}
 
 \begin{proposition} \label{PROPooCPXOooVxPAij}
@@ -928,7 +786,7 @@ Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations p
         \item   \label{ITEMooWXXUooOWvFgE}
             Le sous-groupe \( A_n\) est d'indice \( 2\) dans \( S_n\).
         \item       \label{ITEMooGGAHooRYgNqq}
-            Le sous-groupe \( A_n\) est l'unique sous-groupe d'indice \( 2\) de \( S_n\).
+            Le sous-groupe \( A_n\) est l'unique sous-groupe d'indice\footnote{Définition \ref{DEFooMPIAooIeZNaR}.} \( 2\) de \( S_n\).
     \end{enumerate}
 \end{proposition}
 
@@ -945,7 +803,7 @@ Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations p
         S_n \ar[r]^{\varphi}        &   S_n/H\ar[r]^{\theta}&\{ -1,1 \}.
            }
     \end{equation}
-    La composition \( \varphi\circ \theta\) est alors un homomorphisme surjectif de \( S_n\) sur \( \{ -1,1 \}\) et nous avons \( \varphi\circ\theta=\epsilon\) par la proposition~\ref{ProphIuJrC}. L'enchaînement \eqref{EqSZBPTH} nous montre que \( H=\ker(\theta\circ\varphi)=\ker(\epsilon)=A_n\).
+    La composition \( \varphi\circ \theta\) est alors un homomorphisme surjectif de \( S_n\) sur \( \{ -1,1 \}\) et nous avons \( \varphi\circ\theta=\epsilon\) par la proposition~\ref{ProphIuJrC}. L'enchainement \eqref{EqSZBPTH} nous montre que \( H=\ker(\theta\circ\varphi)=\ker(\epsilon)=A_n\).
 \end{proof}
 
 \begin{proposition}[\cite{ooFCRKooQdAaqw}]      \label{PROPooPSZVooSmAgPA}
@@ -953,7 +811,7 @@ Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations p
     \begin{equation}
         S_n=A_n\times_{\varphi}\eZ/2\eZ
     \end{equation}
-    où l'action de \( \eZ/2\eZ\) sur \( A_n\) est la conjugaison par \( \sigma=(12)\), c'est à dire \( \rho(-1)\tau=\sigma\tau\sigma^{-1}\).
+    où l'action de \( \eZ/2\eZ\) sur \( A_n\) est la conjugaison par \( \sigma=(12)\), c'est-à-dire \( \rho(-1)\tau=\sigma\tau\sigma^{-1}\).
 \end{proposition}
 
 \begin{proof}
@@ -968,6 +826,31 @@ Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations p
     où \( \varphi\) est l'action adjointe de \( \{ \id,\sigma \}\) sur \( A_n\).
 \end{proof}
 
+\begin{proposition}     \label{PROPooZOWBooIMxxlj}
+    Si \( \beta\in S_n\) est une transposition, nous avons les égalités suivante d'ensembles :
+    \begin{equation}
+        S_n=A_n\cup A_n\beta=A_n\cup \beta A_n.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Les parties \( A_n\) et \( \beta A_n\) ont le même nombre d'éléments. En effet, l'application
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon A_n&\to A_n\beta \\
+            \sigma&\mapsto \sigma\beta 
+        \end{aligned}
+    \end{equation}
+    est une bijection.
+
+    De plus ces deux ensembles sont disjoints à cause de la proposition \ref{ProphIuJrC}. En effet si \( \sigma\in A_n\), alors \( \epsilon(\sigma)=1\). Mais un élément de \( A_n\beta\) est de la forme \( \sigma\beta\) avec \( \sigma\in A_n\). Or \( \epsilon\) est une homomorphisme, donc \( \epsilon(\sigma\beta)=\epsilon(\sigma)\epsilon(\beta)=-1\).
+
+    Enfin, la proposition \ref{PROPooCPXOooVxPAij}\ref{ITEMooWXXUooOWvFgE} dit que \( A_n\) est d'indice deux dans \( S_n\). Donc la partie
+    \begin{equation}
+        A_n\cup A_n\beta
+    \end{equation}
+    contient \( | S_n |/2+| S_n |/2=| S_n |\) éléments. C'est donc \( S_n\).
+\end{proof}
 
 \begin{lemma}   \label{LemiApyfp}   \index{groupe!dérivé!du groupe symétrique}
     Le groupe dérivé du groupe symétrique est le groupe alterné : \( D(S_n)=A_n\).
@@ -1051,7 +934,7 @@ Le groupe \( A_n\)\nomenclature[R]{\( A_n\)}{groupe alterné} des permutations p
     \begin{equation}
         \theta=(ik)(j\sigma(j)).
     \end{equation}
-    C'est a priori un \( 2\times 2\)-cycle. Mais si de plus \( \sigma(j) = i \), alors
+    C'est à priori un \( 2\times 2\)-cycle. Mais si de plus \( \sigma(j) = i \), alors
     \begin{equation}
         \theta=(ijk)
     \end{equation}
@@ -1194,7 +1077,7 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
     \end{equation}
     Nous en déduisons que \( \theta^{-1}(A_6)\) est soit \( G\) entier soit réduit à \( \{ e \}\). Si \( \theta^{-1}(A_6)=\{ e \}\), alors pour tout \( g\in G\) nous aurions \( g^2=e\) parce que \( \theta(g^2)\in A_6\). L'ordre de \( G\) étant \( 60\), il n'est pas possible que tous ses éléments soient d'ordre \( 2\). Nous en déduisons que \( \theta(G)\subset A_6\).
 
-    Nous nommons \( H=\theta(G)\) et nous considérons l'ensemble \( X=A_6/H\) où les classes sont prises à gauche, c'est à dire
+    Nous nommons \( H=\theta(G)\) et nous considérons l'ensemble \( X=A_6/H\) où les classes sont prises à gauche, c'est-à-dire
     \begin{equation}
         [\sigma]=\{ h\sigma\tq h\in H \}.
     \end{equation}
@@ -1244,7 +1127,7 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
 
     Nous venons de prouver que \( H\) contient au moins un produit de deux transpositions. Et ce produit est différent de \( \id\) parce que \( sts^{-1}t^{-1}=\id\) impliquerait \( st=ts\).
 
-    Soient donc deux transpositions \( t_1,t_2\in H\) telles que \( t_1t_2\neq \id\). Les supports de \( t_1\) et \( t_2\) ont soit \( 1\) soit aucun éléments communs.
+    Soient donc deux transpositions \( t_1,t_2\in H\) telles que \( t_1t_2\neq \id\). Les supports de \( t_1\) et \( t_2\) ont soit \( 1\) soit aucun élément communs.
 
     \begin{subproof}
         \item[Premier cas]
@@ -1269,7 +1152,7 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
                     \end{equation}
                     Donc le nombre \( | H |\) est un multiple de \( 4\) qui divise \( 24\). Les possibilités sont \( | H |=4,8,12,24\). La possibilité \( | H |=4\) donne \( H=V_4\); si \( |H |=24\) alors \( H=S_4\); si \( | H |=12\) alors \( H\) est d'indice \( 2\) dans \( S_4\) et \( H=A_n\) (proposition~\ref{PROPooCPXOooVxPAij}\ref{ITEMooGGAHooRYgNqq}). Quid de \( | H |=8\) ?
 
-                    D'après le corollaire~\ref{CorpZItFX} au théorème de Lagrange, l'ordre d'un élément divise l'ordre du groupe. Soit \( x\) dans \( H\) mais pas dans \( V_4\). L'ordre de \( x\) peut être \( 1\), \( 2\), \( 4\) ou \( 8\). Ordre \( 1\) serait \( x=\id\). Ordre \( 8\), pas possible parce que \( S_4\) n'a pas d'éléments d'ordre \( 8\).
+                    D'après le corolaire~\ref{CorpZItFX} au théorème de Lagrange, l'ordre d'un élément divise l'ordre du groupe. Soit \( x\) dans \( H\) mais pas dans \( V_4\). L'ordre de \( x\) peut être \( 1\), \( 2\), \( 4\) ou \( 8\). Ordre \( 1\) serait \( x=\id\). Ordre \( 8\), pas possible parce que \( S_4\) n'a pas d'éléments d'ordre \( 8\).
                     \begin{subproof}
                         \item[\( x\) d'ordre \( 2\)]
 
@@ -1335,7 +1218,7 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
 
         \item[Pour \( n\geq 5\)]
 
-            Soit un sous-groupe \( H\) d'indice \( n\) dans \( S_n\) et l'action à gauche de \( S_n\) sur \( E=S_n/H\) (qui n'est a priori pas un groupe) donnée par \( g\cdot [s]=[gs]\).
+            Soit un sous-groupe \( H\) d'indice \( n\) dans \( S_n\) et l'action à gauche de \( S_n\) sur \( E=S_n/H\) (qui n'est à priori pas un groupe) donnée par \( g\cdot [s]=[gs]\).
 
             \begin{subproof}
                 \item[Morphisme \( \varphi\colon S_n\to S_E\)]
@@ -1348,7 +1231,7 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
 
                 \item[\( \ker(\varphi)\) est normal]
 
-                    Soit \( z\in\ker(\varphi)\), c'est à dire que \( \varphi(z)=\id_E\). Alors pour \( \sigma\in S_n\) nous avons \( \varphi(\sigma z\sigma^{-1})=\varphi(\sigma)\varphi(z)\varphi(\sigma^{-1})=\id_E\).
+                    Soit \( z\in\ker(\varphi)\), c'est-à-dire que \( \varphi(z)=\id_E\). Alors pour \( \sigma\in S_n\) nous avons \( \varphi(\sigma z\sigma^{-1})=\varphi(\sigma)\varphi(z)\varphi(\sigma^{-1})=\id_E\).
 
                 \item[\( \ker(\varphi)=\bigcap_{g\in S_n}gHg^{-1}\)]
 
@@ -1358,7 +1241,7 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
                     \end{equation}
                     ce qui prouve que \( \varphi(z)=\id\).
 
-                    Dans l'autre sens, soit \( z\in\ker(\varphi)\). Donc \( \varphi(z)[s]=[s]\). Il existe donc \( h\in H\) tel que \( zs=sh\), c'est à dire tel que \( z=shs^{-1}\). La formule demandée est donc prouvée.
+                    Dans l'autre sens, soit \( z\in\ker(\varphi)\). Donc \( \varphi(z)[s]=[s]\). Il existe donc \( h\in H\) tel que \( zs=sh\), c'est-à-dire tel que \( z=shs^{-1}\). La formule demandée est donc prouvée.
 
                 \item[Questions d'ordre]
 
@@ -1399,11 +1282,10 @@ Le théorème suivant montre que tout groupe peut être vu, en agissant sur lui-
                         \tilde \psi\circ\varphi\colon H\to \Fix\big( \psi[\id] \big)
                     \end{equation}
                     est un isomorphisme de groupe. Mais le stabilisateur d'un point dans \( S_n\) est \( S_{n-1}\).
-
             \end{subproof}
-
     \end{subproof}
 \end{proof}
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Isométriques du cube}
@@ -1422,7 +1304,7 @@ Nous considérons le cube centré en l'origine de \( \eR^3\) et \( G\), le group
 \begin{equation}
     \mD=\{ D_1,\ldots, D_4 \}
 \end{equation}
-l'ensemble des grandes diagonales, c'est à dire les segments \( [AG]\), \( [EC]\), \( [FD]\), et \( [BH]\). Nous savons que \( G\) préserve les longueurs et que ces segments sont les plus longs possibles à l'intérieur du cube. Donc \( G\) agit sur \( \mD\) parce qu'il ne peut transformer une grande diagonale qu'en une autre grande diagonale. Nous avons donc un morphisme de groupes
+l'ensemble des grandes diagonales, c'est-à-dire les segments \( [AG]\), \( [EC]\), \( [FD]\), et \( [BH]\). Nous savons que \( G\) préserve les longueurs et que ces segments sont les plus longs possibles à l'intérieur du cube. Donc \( G\) agit sur \( \mD\) parce qu'il ne peut transformer une grande diagonale qu'en une autre grande diagonale. Nous avons donc un morphisme de groupes
 \begin{equation}
     \rho\colon G\to S_4.
 \end{equation}
@@ -1466,7 +1348,7 @@ est un isomorphisme de groupes. Et enfin nous pouvons écrire
     G^+\simeq S_4.
 \end{equation}
 
-Nous allons maintenant utiliser le corollaire~\ref{CoroGohOZ} pour montrer que \( G=G^+\times_{\sigma}\ker(\rho)\). Les conditions sont remplies :
+Nous allons maintenant utiliser le corolaire~\ref{CoroGohOZ} pour montrer que \( G=G^+\times_{\sigma}\ker(\rho)\). Les conditions sont remplies :
 \begin{itemize}
     \item \( \ker(\rho)\) normalise \( G^+\) parce que \( \ker(\rho)\) ne contient que \( \pm\mtu\).
     \item \( \ker(\rho)\cap G^+=\{ \id \}\).
@@ -1480,7 +1362,7 @@ Mais étant donné que la conjugaison par \( s_0\) est triviale, le produit semi
 \begin{equation}
     G\simeq S_4\times\eZ/2\eZ.
 \end{equation}
-Il est maintenant du meilleur goût de pouvoir identifier géométriquement ces éléments. Les éléments de \( \eZ/2\eZ=\{ \id,s_0 \}\) ne font pas de mystères. Dans \( S_4\) nous avons les classes de conjugaison des éléments \( \id\), \( (12)\), \( (123)\), \( (1234)\) et \( (12)(34)\) déterminées durant l'exemple~\ref{ExVYZPzub}.
+Il est maintenant du meilleur gout de pouvoir identifier géométriquement ces éléments. Les éléments de \( \eZ/2\eZ=\{ \id,s_0 \}\) ne font pas de mystères. Dans \( S_4\) nous avons les classes de conjugaison des éléments \( \id\), \( (12)\), \( (123)\), \( (1234)\) et \( (12)(34)\) déterminées durant l'exemple~\ref{ExVYZPzub}.
 \begin{enumerate}
     \item
         L'élément \( (12)\) consiste à permuter deux diagonales et laisser les autres en place. Nous avons déjà vu que c'était une symétrie axiale passant par les milieux de deux côtés opposés. Cela fait \( 6\) axes d'ordre \( 2\).
@@ -1497,7 +1379,7 @@ Il est maintenant du meilleur goût de pouvoir identifier géométriquement ces 
         L'élément \( (1234)\) ne maintient aucune des diagonales et est d'ordre \( 4\). C'est donc la rotation d'angle \( \pi/2\) ou \( -\pi/2\) autour de l'axe passant par les milieux de deux faces opposées. Il y en a \( 6\) comme ça (\( 3\) paires de faces puis pour chaque il y a \( \pi/2\) et \( -\pi/2\)), et ça tombe bien \( 6\) est justement la taille de la classe de conjugaison de \( (1234)\) dans \( S_4\).
 
     \item
-        L'élément \( (12)(34)\) est le carré de la précédente\footnote{En fait c'est \( (13)(24)\), le carré de la précédente, mais c'est la même classe de conjugaison.}, c'est à dire les rotations d'angle \( \pi\) autour des mêmes axes. Cela fait \( 3\) éléments d'ordre \( 2\).
+        L'élément \( (12)(34)\) est le carré de la précédente\footnote{En fait c'est \( (13)(24)\), le carré de la précédente, mais c'est la même classe de conjugaison.}, c'est-à-dire les rotations d'angle \( \pi\) autour des mêmes axes. Cela fait \( 3\) éléments d'ordre \( 2\).
 
 \end{enumerate}
 

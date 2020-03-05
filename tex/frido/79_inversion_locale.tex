@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2006-2018
+% Copyright (c) 2006-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -263,7 +263,7 @@ Nous rappelons que \( S^{++}(n,\eR)\) est l'ensemble des matrices symétriques s
     \begin{equation}
         f(x)=\frac{ 1 }{2}\sum_{kl}A_{kl}x_lx_k+\sum_kb_kx_k.
     \end{equation}
-    Elle est de classe \( C^2\) sans problèmes, et il est vite vu que \( \frac{ \partial^2f }{ \partial x_i\partial x_j }=A_{ij}\), c'est à dire que \( A\) est la matrice hessienne de \( f\). Cette matrice étant strictement définie positive par hypothèse, la fonction \( f\) est strictement convexe par le corollaire~\ref{CORooMBQMooWBAIIH}\ref{ITEMooDGISooPlRLOd}.
+    Elle est de classe \( C^2\) sans problèmes, et il est vite vu que \( \frac{ \partial^2f }{ \partial x_i\partial x_j }=A_{ij}\), c'est-à-dire que \( A\) est la matrice hessienne de \( f\). Cette matrice étant strictement définie positive par hypothèse, la fonction \( f\) est strictement convexe par le corolaire~\ref{CORooMBQMooWBAIIH}\ref{ITEMooDGISooPlRLOd}.
 
 \item[\( f\) est coercive]
     Montrons à présent que \( f\) est coercive. Nous avons :
@@ -289,7 +289,7 @@ Nous rappelons que \( S^{++}(n,\eR)\) est l'ensemble des matrices symétriques s
     \end{equation}
     ce qui contredit la minimalité de \( f(\bar x_1)\).
 
-    Nous devons maintenant prouver que \( \bar x\) vérifie l'équation \( A\bar x=-b\). Vu que \( \bar x\) est minimum local de \( f\) qui est une fonction de classe \( C^2\), le théorème des minima locaux~\ref{PropUQRooPgJsuz} nous indique que \( \bar x\) est solution de \( \nabla f(x)=0\). Calculons un peu cela avec la formule
+    Nous devons maintenant prouver que \( \bar x\) vérifie l'équation \( A\bar x=-b\). Vu que \( \bar x\) est minimum local de \( f\) qui est une fonction de classe \( C^2\), le théorème des minimums locaux~\ref{PropUQRooPgJsuz} nous indique que \( \bar x\) est solution de \( \nabla f(x)=0\). Calculons un peu cela avec la formule
     \begin{equation}
         df_x(u)=\Dsdd{ f(x+tu) }{t}{0}=\frac{ 1 }{2}\big( \langle Ax, u\rangle +\langle Au, x\rangle  \big)+\langle b, u\rangle =\langle Ax, u\rangle +\langle b, u\rangle =\langle Ax+b, u\rangle .
     \end{equation}
@@ -439,7 +439,7 @@ Nous rappelons que \( S^{++}(n,\eR)\) est l'ensemble des matrices symétriques s
             \begin{equation}
                 \frac{ 1 }{2}\lambda_{min}\| x_k-\bar x \|^2\leq f(x_k)-\bar f\leq \big( f(x_0)-\bar f \big)\left( \frac{ c_2(A)-1 }{ c_2(A)+1 } \right)^{2k},
             \end{equation}
-            c'est à dire
+            c'est-à-dire
             \begin{equation}
                 \| x_k-\bar x \|\leq \sqrt{\frac{ 2\big( f(x_0)-\bar f \big) }{ \lambda_{min} +1}}^{2k}.
             \end{equation}
@@ -449,188 +449,20 @@ Nous rappelons que \( S^{++}(n,\eR)\) est l'ensemble des matrices symétriques s
 Notons que lorsque \( c_2(A)\) est proche de \( 1\) la méthode converge rapidement. Par contre si \( c_2(A)\) est proche de zéro, la méthode converge lentement.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Ellipsoïde de John-Loewer}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Soit \( q\) une forme quadratique sur \( \eR^n\) ainsi que \( \mB\) une base orthonormée de \( \eR^n\) dans laquelle la matrice de  \( q\) est diagonale. Dans cette base, la forme \( q\) est donnée par la proposition~\ref{PropFWYooQXfcVY} :
-\begin{equation}
-    q(x)=\sum_i\lambda_ix_i
-\end{equation}
-où les \( \lambda_i\) sont les valeurs propres de \( q\).
-
-Plus généralement nous notons \( mat_{\mB}(q)\)\nomenclature[A]{\( mat_{\mB}(q)\)}{matrice de \( q\) dans la base \( \mB\)} la matrice de \( q\) dans la base \( \mB\) de \( \eR^n\).
-
-\begin{proposition} \label{PropOXWooYrDKpw}
-    Soit \( \mB\) une base orthonormée de \( \eR^n\) et l'application\footnote{L'ensemble \( Q(E)\) est l'ensemble des formes quadratiques sur \( E\).}
-    \begin{equation}
-        \begin{aligned}
-            D\colon Q(\eR^n)&\to \eR \\
-            q&\mapsto \det\big( mat_{\mB}(q) \big) .
-        \end{aligned}
-    \end{equation}
-    Alors :
-    \begin{enumerate}
-        \item
-            La valeur et \( D\) ne dépend pas du choix de la base orthonormée \( \mB\).
-        \item
-            La fonction \( D\) est donnée par la formule \( D(q)=\prod_i\lambda_i\) où les \( \lambda_i\) sont les valeurs propres de \( q\).
-        \item
-            La fonction \( D\) est continue.
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    Soit \( q\) une forme quadratique sur \( \eR^n\). Nous considérons \( \mB\) une base de diagonalisation de \( q\) :
-    \begin{equation}
-        q(x)=\sum_i\lambda_ix_i
-    \end{equation}
-    où les \( x_i\) sont les composantes de \( x\) dans la base \( \mB\). Par définition, la matrice \( mat_{\mB}(q)\) est la matrice diagonale contenant les valeurs propres de \( q\).
-
-    Nous considérons aussi \( \mB_1\), une autre base orthonormées de \( \eR^n\). Nous notons \( S=mat_{\mB_1}(q)\); étant symétrique, cette matrice se diagonalise par une matrice orthogonale : il existe \( P\in\gO(n,\eR)\) telle que
-    \begin{equation}
-        S=P mat_{\mB}(q)P^t;
-    \end{equation}
-    donc \( \det(S)=\det(PP^t)\det\big( \diag(\lambda_1,\ldots, \lambda_n) \big)=\lambda_1\ldots\lambda_n\). Ceci prouve en même temps que \( D\) ne dépend pas du choix de la base et que sa valeur est le produit des valeurs propres.
-
-    Passons à la continuité. L'application déterminant \( \det\colon S_n(\eR^n)\to \eR\) est continue car polynôme en les composantes. D'autre par l'application \( mat_{\mB}\colon Q(\eR^n)\to S_n(\eR)\) est continue par la proposition~\ref{PropFSXooRUMzdb}. L'application  \( D\) étant la composée de deux applications continues, elle est continue.
-\end{proof}
-
-\begin{proposition}[Ellipsoïde de John-Loewner\cite{KXjFWKA}]   \label{PropJYVooRMaPok}
-    Soit \( K\) compact dans \( \eR^n\) et d'intérieur non vide. Il existe une unique ellipsoïde\footnote{Définition~\ref{DefOEPooqfXsE}.} (pleine) de volume minimal contenant \( K\).
-\end{proposition}
-\index{déterminant!utilisation}
-\index{extrema!volume d'un ellipsoïde}
-\index{convexité!utilisation}
-\index{compacité!utilisation}
-
-\begin{proof}
-    Nous subdivisons la preuve en plusieurs parties.
-    \begin{subproof}
-        \item[À propos de volume d'un ellipsoïde]
-
-            Soit \( \ellE\) un ellipsoïde. La proposition~\ref{PropWDRooQdJiIr} et son corollaire~\ref{CorKGJooOmcBzh} nous indiquent que
-            \begin{equation}
-                \ellE=\{ x\in \eR^n\tq q(x)\leq 1 \}
-            \end{equation}
-            pour une certaine forme quadratique strictement définie positive \( q\). De plus il existe une base orthonormée \( \mB=\{ e_1,\ldots, e_n \}\) de \( \eR^n\) telle que
-            \begin{equation}    \label{EqELBooQLPQUj}
-                q(x)=\sum_{i=1}^na_ix_i^2
-            \end{equation}
-            où \( x_i=\langle e_i, x\rangle \) et les \( a_i\) sont tous strictement positifs. Nous nommons \( \ellE_q\) l'éllipsoïde associée à la forme quadratique \( q\) et \( V_q\) son volume que nous allons maintenant calculer\footnote{Le volume ne change pas si nous écrivons l'inégalité stricte au lieu de large dans le domaine d'intégration; nous le faisons pour avoir un domaine ouvert.} :
-            \begin{equation}
-                V_q=\int_{\sum_ia_ix_i^2<1}dx
-            \end{equation}
-            Cette intégrale est écrite de façon plus simple en utilisant le \( C^1\)-difféomorphisme
-            \begin{equation}
-                \begin{aligned}
-                    \varphi\colon \ellE_q&\to B(0,1) \\
-                    x&\mapsto \Big( x_1\sqrt{a_1},\ldots, x_n\sqrt{a_n} \Big).
-                \end{aligned}
-            \end{equation}
-            Le fait que \( \varphi\) prenne bien ses valeurs dans \( B(0,1)\) est un simple calcul : si \( x\in\ellE_q\), alors
-            \begin{equation}
-                \sum_i\varphi(x)_i^2=\sum_ia_ix_i^2<1.
-            \end{equation}
-            Cela nous permet d'utiliser le théorème de changement de variables~\ref{THOooUMIWooZUtUSg} :
-            \begin{equation}
-                V_q=\int_{\sum_ia_ix_i^2<1}dx=\frac{1}{ \sqrt{a_1\ldots a_n} }\int_{B(0,1)}dx.
-            \end{equation}
-            %TODO : le volume de la sphère dans \eR^n. Mettre alors une référence ici.
-            La dernière intégrale est le volume de la sphère unité dans \( \eR^n\); elle n'a pas d'importance ici et nous la notons \( V_0\). La proposition~\ref{PropOXWooYrDKpw} nous permet d'écrire \(V_q\) sous la forme
-            \begin{equation}
-                V_q=\frac{ V_0 }{ \sqrt{D(q)} }.
-            \end{equation}
-
-        \item[Existence de l'ellipsoïde]
-
-            Nous voulons trouver un ellipsoïde contenant \( K\) de volume minimal, c'est à dire une forme quadratique \( q\in Q^{++}(\eR^n)\) telle que
-            \begin{itemize}
-                \item \( D(q)\) soit maximal
-                \item \( q(x)\leq 1\) pour tout \( x\in K\).
-            \end{itemize}
-            Nous considérons l'ensemble des candidats semi-définis positifs.
-            \begin{equation}
-                A=\{ q\in Q^+\tq q(x)\leq 1\forall x\in K \}.
-            \end{equation}
-            Nous allons montrer que \( A\) est convexe, compact et non vide dans \( Q(\eR^n)\); il aura ainsi un maximum de la fonction continue \( D\) définie sur \( Q(\eR^n)\). Nous montrerons ensuite que le maximum est dans \( Q^{++}\). L'unicité sera prouvée à part.
-
-            \begin{subproof}
-            \item[Non vide]
-                L'ensemble \( K\) est compact et donc borné par \( M>0\). La forme quadratique \( q\colon x\mapsto \| x \|^2/M^2\) est dans \( A\) parce que si \( x\in K\) alors
-                \begin{equation}
-                    q(x)=\frac{ \| x \|^2 }{ M^2 }\leq 1.
-                \end{equation}
-            \item[Convexe]
-                Soient \( q,q'\in A\) et \( \lambda\in\mathopen[ 0 , 1 \mathclose]\). Nous avons encore \( \lambda q+(1-\lambda)q'\in Q^+\) parce que
-                \begin{equation}
-                    \lambda q(x)+(1-\lambda)q'(x)\geq 0
-                \end{equation}
-                dès que \( q(x)\geq 0\) et \( q'(x)\geq 0\).
-            D'autre part si \( x\in K\) nous avons
-            \begin{equation}
-                \lambda q(x)+(1-\lambda)q'(x)\leq \lambda+(1-\lambda)=1.
-            \end{equation}
-            Donc \( \lambda q+(1-\lambda)q'\in A\).
-
-        \item[Fermé]
-
-            Pour rappel, la topologie de \( Q(\eR^n)\) est celle de la norme \eqref{EqZYBooZysmVh}. Nous considérons une suite \( (q_n)\) dans \( A\) convergeant vers \( q\in Q(\eR^n)\) et nous allons prouver que \( q\in A\), de sorte que la caractérisation séquentielle de la fermeture (proposition~\ref{PropLFBXIjt}) conclue que \( A\) est fermé. En nommant \( e_x\) le vecteur unitaire dans la direction \( x\) nous avons
-            \begin{equation}
-                \big| q(x) \big|=\big| \| x \|^2q(e_x) \big|\leq \| x \|^2N(q),
-            \end{equation}
-            de sorte que notre histoire de suite convergente  donne pour tout \( x\) :
-            \begin{equation}
-                \big| q_n(x)-q(x) \big|\leq \| x \|^2N(q_n-q)\to 0.
-            \end{equation}
-            Vu que \( q_n(x)\geq 0\) pour tout \( n\), nous devons aussi avoir \( q(x)\geq 0\) et donc \( q\in Q^+\) (semi-définie positive). De la même manière si \( x\in K\) alors \( q_n(x)\leq 1\) pour tout \( n\) et donc \( q(x)\leq 1\). Par conséquent \( q\in A\) et \( A\) est fermé.
-
-        \item[Borné]
-
-            La partie \( K\) de \( \eR^n\) est borné et d'intérieur non vide, donc il existe \( a\in K\) et \( r>0\) tel que \( \overline{ B(a,r) }\subset K\). Si par ailleurs \( q\in A\) et \( x\in\overline{ B(0,r) }\) nous avons \( a+x\in K\) et donc \( q(a+x)\leq 1\). De plus \( q(-a)=q(a)\leq 1\), donc
-            \begin{equation}
-                \sqrt{q(x)}=\sqrt{q\big( x+a-a \big)}\leq \sqrt{q(x+a)}+\sqrt{q(-a)}\leq 2
-            \end{equation}
-            par l'inégalité de Minkowski~\ref{PropACHooLtsMUL}. Cela prouve que si \( x\in\overline{ B(0,r) }\) alors \( q(x)\leq 4\). Si par contre \( x\in\overline{ B(0,1) }\) alors \( rx\in\overline{ B(0,r) } \) et
-            \begin{equation}
-                0\leq q(x)=\frac{1}{ r^2 }q(rx)\leq \frac{ 4 }{ r^2 },
-            \end{equation}
-            ce qui prouve que \( N(q)\leq \frac{ 4 }{ r^2 }\) et que \( A\) est borné.
-
-
-            \end{subproof}
-
-            L'ensemble \( A\) est compact parce que fermé et borné, théorème de Borel-Lebesgue~\ref{ThoXTEooxFmdI}. L'application continue \( D\colon Q(\eR^n)\to \eR\) de la proposition~\ref{PropOXWooYrDKpw} admet donc un maximum sur le compact \( A\). Soit \( q_0\) ce maximum.
-
-            Nous montrons que \( q_0\in Q^{++}(\eR^d)\). Nous savons que l'application \( f\colon x\mapsto \frac{ \| x \|^2 }{ M^2 }\) est dans \( A\) et que \( D(f)>0\). Vu que \( q_0\) est maximale pour \( D\), nous avons
-            \begin{equation}
-                D(q_0)\geq D(f)>0.
-            \end{equation}
-            Donc \( q_0\in Q^{++}\).
-
-        \item[Unicité]
-
-            S'il existe une autre ellipsoïde de même volume que celle associée à la forme quadratique \( q_0\), nous avons une forme quadratique \( q\in Q^{++}\) telle que \( q(x)\leq 1\) pour tout \( x\in K\). C'est à dire que nous avons \( q_0,q\in A\) tels que \( D(q_0)=D(q)\).
-
-            Nous considérons la base canonique \( \mB_c\) de \( \eR^n\) et nous posons \( S=mat_{\mB_c}(q)\), \( S_0=mat_{\mB_c}(q_0)\). Étant donné que \( A\) est convexe, \( (q_0+q)/2\in A\) et nous allons prouver que cet élément de \( A\) contredit la maximalité de \( q_0\). En effet
-            \begin{equation}
-                D\left( \frac{ q+q_0 }{ 2 }\right)=\det\left( \frac{ S+S_0 }{2} \right)
-            \end{equation}
-            Nous allons utiliser le lemme~\ref{LemXOUooQsigHs} qui dit que le logarithme est log-concave sous la forme de l'équation \eqref{EqSPKooHFZvmB} avec \( \alpha=\beta=\frac{ 1 }{2}\) :
-            \begin{equation}    \label{eqBHJooYEUDPC}
-                D\left( \frac{ q+q_0 }{ 2 }\right)=\det\left( \frac{ S+S_0 }{2} \right)>\sqrt{\det(S)}\sqrt{\det(S_0)}=\det(S_0)=D(q_0).
-            \end{equation}
-            Nous avons utilisé le fait que \( D(q_0)=D(q)\) qui signifie que \( \det(S_0)=\det(S)\). L'inéquation \eqref{eqBHJooYEUDPC} contredit la maximalité de \( D(q_0)\) et donne donc l'unicité.
-    \end{subproof}
-\end{proof}
-
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Formes quadratiques, signature, et lemme de Morse}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Soit \( (E,\| . \|_E)\) un espace vectoriel réel normé de dimension finie \( n\). L'ensemble des formes quadratiques réelles\footnote{Définition~\ref{DefBSIoouvuKR}.} sur \( E\) est vu comme l'ensemble des matrices symétriques \( S_n(\eR)\); il sera noté \( Q(E)\) et le sous-ensemble des formes quadratiques non dégénérées est \( S_n(\eR)\cap\GL(n,\eR)\) qui sera noté \( \Omega(E)\)\nomenclature[B]{\( \Omega(E)\)}{formes quadratiques non dégénérées}. Nous rappelons que la correspondance est donnée de la façon suivante. Si \( A\in S_n(\eR)\), la forme quadratique associée est \( q_A\) donnée par \( q_A(x)=x^tAx\).
+\begin{normaltext}      \label{NORMooHSWKooLtUbRl}
+    Soit \( (E,\| . \|_E)\) un espace vectoriel réel normé de dimension finie \( n\). L'ensemble des formes quadratiques réelles\footnote{Définition~\ref{DefBSIoouvuKR}.} sur \( E\) est vu comme l'ensemble des matrices symétriques \( S_n(\eR)\); il sera noté \( Q(E)\) et le sous-ensemble des formes quadratiques non dégénérées est \( S_n(\eR)\cap\GL(n,\eR)\) qui sera noté \( \Omega(E)\)\nomenclature[B]{\( \Omega(E)\)}{formes quadratiques non dégénérées}. Nous rappelons que la correspondance est donnée de la façon suivante. 
+    
+    Si \( A\in S_n(\eR)\), la forme quadratique associée est \( q_A\) donnée par le produit scalaire \( q_A(x)=x\cdot Ax\).
 
+    Pour information, le lemme de Morse est le lemme \ref{LemNQAmCLo}.
+\end{normaltext}
+
+\begin{normaltext}      \label{NORMooQZFLooYnILtn}
 Nous noterons encore \( Q^+(E)\)\nomenclature[B]{\( Q^+(E)\)}{formes quadratiques positives} les formes quadratiques positives sur \( E\) et \( Q^{++}(E)\)\nomenclature[B]{\( Q^{++}(E)\)}{formes quadratiques strictement définies positives} les formes quadratiques strictement définies positives sur \( E\).
+\end{normaltext}
 
 Sur \( Q(E)\) nous mettons la norme
 \begin{equation}
@@ -665,7 +497,7 @@ Nous voudrions en savoir plus sur ces ensembles. En particulier nous aimerions s
 \end{equation}
 faite exprès pour que les orbites de cette action soient les ensembles \( S_n^{p,q}(\eR)\).
 
-La proposition suivante montre que lorsque \( p+q=n\), c'est à dire lorsqu'on parle de matrices de rang maximum, les ensembles \( S_n^{p,q}(\eR)\) sont ouverts, c'est à dire que la signature d'une forme quadratique est une propriété «stable» par petite variations des éléments de matrice. Notons tout de suite que si le rang n'est pas maximum, le théorème de Sylvester dit qu'elle est semblable à une matrice diagonale avec des zéros sur la diagonale; en modifiant un peu ces zéros, on peut modifier évidemment la signature.
+La proposition suivante montre que lorsque \( p+q=n\), c'est-à-dire lorsqu'on parle de matrices de rang maximum, les ensembles \( S_n^{p,q}(\eR)\) sont ouverts, c'est-à-dire que la signature d'une forme quadratique est une propriété «stable» par petite variations des éléments de matrice. Notons tout de suite que si le rang n'est pas maximum, le théorème de Sylvester dit qu'elle est semblable à une matrice diagonale avec des zéros sur la diagonale; en modifiant un peu ces zéros, on peut modifier évidemment la signature.
 \begin{proposition}[\cite{KXjFWKA}] \label{PropNPbnsMd}
     Soit \( (E,\| . \|_{E})\) un espace vectoriel normé de dimension finie. Alors
     \begin{enumerate}
@@ -714,7 +546,7 @@ La proposition suivante montre que lorsque \( p+q=n\), c'est à dire lorsqu'on p
                 \end{align}
             \end{subequations}
 
-            Soit une matrice \( A\in S_n(\eR)\) telle que \( N(A-\mtu_{p,q})<k\), c'est à dire que \( A\) est dans un voisinage de \( \mtu_{p,q}\) pour la norme sur \( S_n(\eR)\) donné par \eqref{EqDOgBNAg}. Si \( x\) est non nul dans \( E\), nous avons
+            Soit une matrice \( A\in S_n(\eR)\) telle que \( N(A-\mtu_{p,q})<k\), c'est-à-dire que \( A\) est dans un voisinage de \( \mtu_{p,q}\) pour la norme sur \( S_n(\eR)\) donné par \eqref{EqDOgBNAg}. Si \( x\) est non nul dans \( E\), nous avons
             \begin{equation}
                 \big| x^t(A-\mtu_{p,q})x \big|\leq N(\mtu_{p,q}-A)\| x \|^2\leq k\| x \|^2.
             \end{equation}
@@ -739,7 +571,7 @@ La proposition suivante montre que lorsque \( p+q=n\), c'est à dire lorsqu'on p
         \item
             Cette partie de la preuve provient essentiellement de \cite{VKqpMYL}, et fonctionne pour tous les \( S_n^{p,q}(\eR)\), même pour ceux qui ne sont pas de rang maximum.
 
-            Soit \( A\in S_n^{p,q}(\eR)\). Nous savons que \( \GL(n,\eR)\) a deux composantes connexes (proposition~\ref{PROPooBIYQooWLndSW}). Vu que l'application
+            Soit \( A\in S_n^{p,q}(\eR)\). Nous savons que \( \GL(n,\eR)\) contient exactement deux composantes connexes (proposition \ref{PROPooBIYQooWLndSW}). Vu que l'application
             \begin{equation}
                 \begin{aligned}
                     \alpha\colon \GL(n,\eR)&\to S_n \\
@@ -838,7 +670,7 @@ Nous savons déjà de la proposition~\ref{PropNPbnsMd} que les ensembles \( S_n^
 
     Nous pouvons utiliser le théorème d'inversion locale (théorème~\ref{ThoXWpzqCn}) et conclure qu'il existe un voisinage ouvert \( U\) de \( \mtu\) dans \( F\) tel que \( \psi\) soit un difféomorphisme \( C^1\) entre \( U\) et \( V=\psi(U)\). Vu que \( \GL(n,\eR)\) est ouvert dans \( \eM(n,\eR)\), nous pouvons prendre \( U\cap \GL(n,\eR)\) et donc supposer que \( U\subset \GL(n,\eR)\).
 
-    Pour tout \( A\in V\), il existe une unique \( M\in U\) telle que \( \psi(M)=A\), c'est à dire telle que \( A=M^tA_0M\). Cette matrice \( M\) est \( \psi^{-1}(A)\) et est une matrice inversible. Bref, nous posons
+    Pour tout \( A\in V\), il existe une unique \( M\in U\) telle que \( \psi(M)=A\), c'est-à-dire telle que \( A=M^tA_0M\). Cette matrice \( M\) est \( \psi^{-1}(A)\) et est une matrice inversible. Bref, nous posons
     \begin{equation}
         \begin{aligned}
             \phi\colon V&\to \GL(n,\eR) \\
@@ -851,143 +683,340 @@ Nous savons déjà de la proposition~\ref{PropNPbnsMd} que les ensembles \( S_n^
     \end{equation}
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Lemme de Morse}
-%---------------------------------------------------------------------------------------------------------------------------
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Ellipsoïde de John-Loewner}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{lemma}[Lemme de Morse]     \label{LemNQAmCLo}
-    Soit \( f\in C^3(\mU,\eR)\) où \( \mU\) est un ouvert de \( \eR^n\) contenant \( 0\). Nous supposons que \( df_0=0\) et que \( d^2f_0\) est non dégénérée\footnote{En tant qu'application bilinéaire.} et de signature \( (p,n-p)\). Alors il existe un \( C^1\)-difféomorphisme \( \varphi\) entre deux voisinages de \( 0\) dans \( \eR^n\) tel que
+C'est le moment de relire les conventions de notations données en \ref{NORMooHSWKooLtUbRl} et \ref{NORMooQZFLooYnILtn} ainsi que la définition \ref{DefBSIoouvuKR} d'une forme quadratique.
+
+Soit \( q\) une forme quadratique sur \( \eR^n\) ainsi que \( \mB\) une base orthonormée de \( \eR^n\) dans laquelle la matrice de  \( q\) est diagonale. Dans cette base, la forme \( q\) est donnée par la proposition~\ref{PropFWYooQXfcVY} :
+\begin{equation}
+    q(x)=\sum_i\lambda_ix_i
+\end{equation}
+où les \( \lambda_i\) sont les valeurs propres de \( q\).
+
+Plus généralement nous notons \( mat_{\mB}(q)\)\nomenclature[A]{\( mat_{\mB}(q)\)}{matrice de \( q\) dans la base \( \mB\)} la matrice de \( q\) dans la base \( \mB\) de \( \eR^n\).
+
+\begin{proposition} \label{PropOXWooYrDKpw}
+    Soit \( \mB\) une base orthonormée de \( \eR^n\) et l'application\footnote{L'ensemble \( Q(E)\) est l'ensemble des formes quadratiques sur \( E\).}
+    \begin{equation}
+        \begin{aligned}
+            D\colon Q(\eR^n)&\to \eR \\
+            q&\mapsto \det\big( mat_{\mB}(q) \big) .
+        \end{aligned}
+    \end{equation}
+    Alors :
     \begin{enumerate}
         \item
-            \( \varphi(0)=0\),
+            La valeur et \( D\) ne dépend pas du choix de la base orthonormée \( \mB\).
         \item
-            si \( \varphi(x)=u\) alors
-            \begin{equation}
-                f(x)-f(0)=u_1^2+\cdots +u_p^2-u_{p+1}^2-\ldots-u_n^2.
-            \end{equation}
+            La fonction \( D\) est donnée par la formule \( D(q)=\prod_i\lambda_i\) où les \( \lambda_i\) sont les valeurs propres de \( q\).
+        \item
+            La fonction \( D\) est continue.
     \end{enumerate}
-    Une autre façon de dire est qu'il existe un \( C^1\)-difféomorphisme local \( \psi\) tel que
-    \begin{equation}
-        (f\circ\psi)(x)-f(0)=x_1^2+\cdots +x_p^2-x_{p+1}^2-\ldots-x_n^2.
-    \end{equation}
-\end{lemma}
-\index{lemme!de Morse}
-\index{développement!Taylor}
-\index{application!différentiable}
-\index{forme!quadratique}
-\index{théorème!inversion locale!utilisation}
-\index{action de groupe!sur des matrices}
-\index{extremum}
+\end{proposition}
 
 \begin{proof}
-    Nous allons noter \( Hf\) la matrice hessienne de \( f\), c'est à dire \( Hf_a=d^2f_a\in\aL^{(2)}(\eR^n,\eR)\). Écrivons la formule de Taylor avec reste intégral (proposition~\ref{PropAXaSClx} avec \( p=0\) et \( m=2\)) :
+    Soit \( q\) une forme quadratique sur \( \eR^n\). Nous considérons \( \mB\) une base de diagonalisation de \( q\) :
     \begin{equation}
-        f(x)-f(0)=\underbrace{df_0(x)}_{=0}+\int_0^1(1-t)\underbrace{d^2f_{tx}(x,x)}_{x^t(Hf)_{tx}x=\langle Hf_{tx}x, x\rangle }dt=x^tQ(x)x
+        q(x)=\sum_i\lambda_ix_i
     \end{equation}
-    avec
-    \begin{equation}
-        Q(x)=\int_0^1(1-t)(Hf)_{tx}dt
-    \end{equation}
-    qui est une intégrale dans \( \aL^{(2)}(\eR^n,\eR)\). Nous prouvons à présent que \( Q\) est de classe \( C^1\) en utilisant le résultat de différentiabilité sous l'intégrale~\ref{PropAOZkDsh}. Pour cela nous passons aux composantes (de la matrice) et nous considérons
-    \begin{equation}
-        \begin{aligned}
-            h_{kl}\colon U\times\mathopen[ 0 , 1 \mathclose]&\to \eR \\
-            h_{kl}(x,t)&=(1-t)\frac{ \partial^2f  }{ \partial x_k\partial x_l }(tx).
-        \end{aligned}
-    \end{equation}
-    Étant donné que \( f\) est de classe \( C^3\), la dérivée de \( h_{kl}\) par rapport à \( x_i\) ne pose pas de problèmes :
-    \begin{equation}
-        \frac{ \partial h_{kl} }{ \partial x_i }=t(t-1)\frac{ \partial^3f  }{ \partial x_i\partial x_k\partial x_l }(tx),
-    \end{equation}
-    qui est encore continue à la fois en \( t\) et en \( x\). La proposition~\ref{PropAOZkDsh} nous montre à présent que
-    \begin{equation}
-        Q_{kl}(x)=\int_0^1(1-t)h_{kl}(tx)dt
-    \end{equation}
-    est une fonction \( C^1\). Étant donné que les composantes de \( Q\) sont \( C^1\), la fonction \( Q\) est également \( C^1\).
+    où les \( x_i\) sont les composantes de \( x\) dans la base \( \mB\). Par définition, la matrice \( mat_{\mB}(q)\) est la matrice diagonale contenant les valeurs propres de \( q\).
 
-    Nous avons \( Q(0)=\frac{ 1 }{2}(Hf)_0\in S_n\cap \GL(n,\eR)\), d'abord parce que \( f\) est \( C^2\) (et donc la matrice hessienne est symétrique), ensuite par hypothèse \( d^2f_0\) est non dégénérée.
-    %TODO : prouver que la matrice hessienne est symétrique lorsque f est C^2 (ou vérifier que c'est déjà fait), et référentier ici.
+    Nous considérons aussi \( \mB_1\), une autre base orthonormées de \( \eR^n\). Nous notons \( S=mat_{\mB_1}(q)\); étant symétrique, cette matrice se diagonalise par une matrice orthogonale : il existe \( P\in\gO(n,\eR)\) telle que
+    \begin{equation}
+        S=P mat_{\mB}(q)P^t;
+    \end{equation}
+    donc \( \det(S)=\det(PP^t)\det\big( \diag(\lambda_1,\ldots, \lambda_n) \big)=\lambda_1\ldots\lambda_n\). Ceci prouve en même temps que \( D\) ne dépend pas du choix de la base et que sa valeur est le produit des valeurs propres.
 
-    À partir de là, le lemme~\ref{LemWLCvLXe} donne un voisinage \( V\) de \( Q(0)\) dans \( S_n\) et une application \( \phi\) de classe \( C^1\)
-    \begin{equation}
-            \phi\colon V\to \GL(n,\eR) \\
-    \end{equation}
-    telle que pour tout \( A\in V\),
-    \begin{equation}
-        \phi(A)^tQ(0)\phi(A)=A.
-    \end{equation}
-    Si on pose \( M=\phi\circ Q\), et si \( x\) est dans un voisinage de zéro, \( Q\) étant continue nous avons \( Q(x)\in V\) et donc
-    \begin{equation}
-        Q(x)=M(x)^tQ(0)M(x).
-    \end{equation}
-    Notons que l'application \( \eM\colon \eR\to \GL(n,\eR)\) est de classe \( C^1\) parce que \( Q\) et \( \phi\) le sont.
-
-    Nous avons
-    \begin{equation}
-        f(x)-f(0)=x^tQ(x)x=x^tM(x)^tQ(0)M(x)x=y(x)^tQ(0)y(x)
-    \end{equation}
-    où \( y(x)=M(x)x=(\phi\circ Q)(x)x\) est encore une fonction de classe \( C^1\) parce que la multiplication est une application \(  C^{\infty}\).
-
-    D'un autre côté le théorème de Sylvester~\ref{ThoQFVsBCk} nous donne une matrice inversible \( P\) telle que
-    \begin{equation}
-        Q(0)=P^t\begin{pmatrix}
-            \mtu_p    &       \\
-            &   -\mtu_{n-p}
-        \end{pmatrix}P.
-    \end{equation}
-    Et nous posons enfin \( u=\varphi(x)=Py(x)\) qui est toujours de classe \( C^1\) et qui donne
-    \begin{subequations}
-        \begin{align}
-            f(x)-f(0)&=y^tQ(0)y\\
-            &=y^tP^t\begin{pmatrix}
-                \mtu    &       \\
-                    &   -\mtu
-            \end{pmatrix}Py\\
-            &=u^t\begin{pmatrix}
-                \mtu    &       \\
-                    &   -\mtu
-            \end{pmatrix}u\\
-            &=u_1^2+\cdots +u_p^2-u_{p+1}^2-\ldots -u_n^2.
-        \end{align}
-    \end{subequations}
-
-    Nous devons maintenant montrer que, quitte à réduire son domaine à un ouvert plus petit, \( \varphi\) est un \( C^1\)-difféomorphisme. Dans la chaine qui donne \( \varphi\), seule l'application
-    \begin{equation}
-        \begin{aligned}
-            g\colon U\subset \eR^n&\to \eR^n \\
-            x&\mapsto M(x)x
-        \end{aligned}
-    \end{equation}
-    est sujette à caution. Nous allons appliquer le théorème d'inversion locale. Nous savons que \( g\) est de classe \( C^1\) et donc différentiable; calculons la différentielle en utilisant la formule \eqref{EqOWQSoMA} :
-    \begin{equation}
-        dg_0(x)=\Dsdd{ g(tx) }{t}{0}=\Dsdd{ tM(tx)x }{t}{0}=M(0)x.
-    \end{equation}
-    Note que nous avons utilisé la règle de Leibnitz pour la dérivée d'un produit, mais le second terme s'est annulé. Donc \( dg_0=M(0)\in \GL(n,\eR)\) et \( g\) est localement un \( C^1\)-difféomorphisme.
-
-    Il suffit de restreindre \( \varphi\) au domaine sur lequel \( g\) est un \( C^1\)-difféomorphisme pour que \( \varphi\) devienne lui-même un \( C^1\)-difféomorphisme.
-
+    Passons à la continuité. L'application déterminant \( \det\colon S_n(\eR^n)\to \eR\) est continue car polynôme en les composantes. D'autre par l'application \( mat_{\mB}\colon Q(\eR^n)\to S_n(\eR)\) est continue par la proposition~\ref{PropFSXooRUMzdb}. L'application  \( D\) étant la composée de deux applications continues, elle est continue.
 \end{proof}
 
-\begin{definition}
-    Un point \( a\) est un \defe{point critique}{point critique!définition} de la fonction différentiable \( f\) si \( df_a=0\).
-\end{definition}
+\begin{lemma}[Volume d'un ellipsoïde\cite{KXjFWKA, MonCerveau}]       \label{LEMooLSTOooZiEOdx}
+    Soit une forme quadratique strictement définie positive \( q\) sur \( \eR^n\). Nous considérons l'ellipsoïde
+    \begin{equation}
+        \ellE=\{ x\in \eR^n\tq q(x)\leq r^2 \}
+    \end{equation}
+    pour un certain \( r>0\).
 
-\begin{corollary}[\cite{XPautfO}]
-    Les points critiques non dégénérés d'une fonction \( C^3\) sont isolés.
-\end{corollary}
+    Alors le volume de \( \ellE\) est donné par
+    \begin{equation}
+        V_q=\frac{ V_0 r^n }{ \sqrt{ D(q) } }
+    \end{equation}
+    où \( V_0\) est une constante\footnote{C'est le volume de la boule unité dans \( \eR^n\) et ce n'est pas tout à fait évident à calculer \cite{ooVLVAooXWmUVB}.} et \( D\) est l'application de la proposition \ref{PropOXWooYrDKpw}.
+\end{lemma}
 
 \begin{proof}
-    Soit \( a\) un point critique non dégénéré. Par le lemme de Morse~\ref{LemNQAmCLo}, il existe un \( C^1\)-difféomorphisme \( \psi\) et un entier \( p\) tel que
-    \begin{equation}
-        (f\circ \psi)(x)=x_1^2+\cdots +x_p^2-x_{p+1}^2-\ldots -x_n^2+f(a)
+    Vu que la matrice de \( q\) est symétrique, elle est diagonalisable par une matrice orthogonale (théorème \ref{ThoeTMXla}). Autrement dit, il existe une base orthonormée \( \mB=\{ e_1,\ldots, e_n \}\) de \( \eR^n\) telle que
+    \begin{equation}    \label{EqELBooQLPQUj}
+        q(x)=\sum_{i=1}^na_ix_i^2
     \end{equation}
-    sur un voisinage \( \mU\) de \( a\). Vue la formule générale \( df_x(u)=\nabla f(x)\cdot u\), si \( x\) est un point critique de \( f\), alors \( \nabla f(x)=0\). Dans notre cas, les points critiques de \( f\circ \psi\) dans \( \mU\) doivent vérifier \( x_i=0\) pour tout \( i\), et donc \( x=a\).
+    où \( x_i=\langle e_i, x\rangle \) et les \( a_i\) sont tous strictement positifs. 
 
-    Nous devons nous assurer que la fonction \( f\) elle-même n'a pas de points critiques dans \( \mU\). Pour cela nous utilisons la formule générale de dérivation de fonction composée :
+    À priori nous devrions calculer
     \begin{equation}
-        \nabla(f\circ\psi)(x)=\sum_k \frac{ \partial f }{ \partial y_k }\big( g(x) \big)\nabla g_k(x).
+        \int_{\ellE}dx,
     \end{equation}
-    Si \( \psi(x)\) est une point critique de \( f\), alors le membre de droite est le vecteur nul parce que tous les \( \partial_kf\big( \psi(x) \big)\) sont nuls. Par conséquent le membre de gauche est également nul, et \( x\) est un point critique de \( f\circ\psi\). Or nous venons de voir que \( f\circ\psi\) n'a pas de points critiques dans \( \mU\).
+    mais nous effectuons le changement de variable\footnote{Théorème \ref{THOooUMIWooZUtUSg}.} associé à la matrice qui diagonalise \( q\) et nous devons simplement calculer
+    \begin{equation}
+        V_q=\int_{\sum_ia_ix_i^2<r^2}dx
+    \end{equation}
+    parce que le jacobien de ce changement de variable est \( 1\) (déterminant d'une matrice orthogonale).
 
-    Donc \( f\) n'a pas de points critiques dans un voisinage d'un point critique non dégénéré.
+    Tout cela pour dire que nous nommons \( \ellE_q\) l'ellipsoïde associée à la forme quadratique \( q\) et \( V_q\) son volume que nous allons maintenant calculer\footnote{Le volume ne change pas si nous écrivons l'inégalité stricte au lieu de large dans le domaine d'intégration; nous le faisons pour avoir un domaine ouvert.} :
+    \begin{equation}
+        V_q=\int_{\sum_ia_ix_i^2<r^2}dx
+    \end{equation}
+    Cette intégrale est écrite de façon plus simple en utilisant le \( C^1\)-difféomorphisme
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \ellE_q&\to B(0,1) \\
+            x&\mapsto \frac{1}{  r }\Big( x_1\sqrt{a_1},\ldots, x_n\sqrt{a_n} \Big).
+        \end{aligned}
+    \end{equation}
+    Le fait que \( \varphi\) prenne bien ses valeurs dans \( B(0,1)\) est un simple calcul : si \( x\in\ellE_q\), alors
+    \begin{equation}
+        \sum_i\varphi(x)_i^2=\frac{1}{ r^2 }\sum_ia_ix_i^2=\frac{1}{ r^2 }q(x)<1.
+    \end{equation}
+    Cela nous permet d'utiliser le théorème de changement de variables~\ref{THOooUMIWooZUtUSg} :
+    \begin{equation}
+        V_q=\int_{\sum_ia_ix_i^2<r^2}dx=\frac{r^n}{ \sqrt{a_1\ldots a_n} }\int_{B(0,1)}dx.
+    \end{equation}
+    La dernière intégrale est le volume de la boule unité dans \( \eR^n\) et nous la notons \( V_0\). La proposition~\ref{PropOXWooYrDKpw} nous permet d'écrire \(V_q\) sous la forme
+    \begin{equation}
+        V_q=\frac{ V_0 r^n}{ \sqrt{D(q)} }.
+    \end{equation}
+\end{proof}
+
+\begin{normaltext}
+    Le théorème suivant dit en substance que si \( K\) est compact, alors il existe un unique ellipsoïde de volume minimal centré en l'origine et contenant \( K\). Il faut se rendre compte que l'ellipsoïde n'est pas celui que l'on croirait intuitivement parce que la contrainte \emph{centrée en l'origine} est forte. Si \( K=\overline{ B\big( (4,0), 1 \big) }\), alors l'ellipsoïde donnée n'est pas du tout \( K\) lui-même comme on pourrait s'y attendre. Ce serait probablement quelque chose comme la boule centrée en \( (0,0)\) et de rayon \( 5\)\quext{Je ne sais pas très bien si il y a moyen de faire mieux. Ce serait sans doute un bon exercice; faites-moi savoir si vous avez la réponse.}.
+
+    Ce que l'on voudrait est un ellipsoïde qui soit centrée où il faut pour que le volume soit minimal. Nous verrons que c'est possible en la proposition \ref{PROPooVIDPooOGrRJh}, mais qu'alors l'unicité est moins évidente (voir la remarque dans \cite{ooJWHFooGQQhUW}). Si vous voulez en entendre parler, vous pouvez lire \cite{ooASOAooNwZFKS,ooWLGRooFScSaM}.
+\end{normaltext}
+
+\begin{proposition}[Ellipsoïde de John-Loewner\cite{KXjFWKA}]   \label{PropJYVooRMaPok}
+    Soit \( K\) compact dans \( \eR^n\) et d'intérieur non vide. Il existe une unique ellipsoïde\footnote{Définition~\ref{DefOEPooqfXsE}.} (pleine) centrée en l'origine de volume minimal contenant \( K\).
+\end{proposition}
+\index{déterminant!utilisation}
+\index{extrémums!volume d'un ellipsoïde}
+\index{convexité!utilisation}
+\index{compacité!utilisation}
+
+\begin{proof}
+    Nous subdivisons la preuve en plusieurs parties.
+    \begin{subproof}
+        \item[Volume de l'ellipsoïde]
+            Soit \( \ellE\) un ellipsoïde centré en l'origine. La proposition~\ref{PropWDRooQdJiIr} et son corolaire~\ref{CorKGJooOmcBzh} nous indiquent que
+            \begin{equation}
+                \ellE=\{ x\in \eR^n\tq q(x)\leq 1 \}
+            \end{equation}
+            pour une certaine forme quadratique strictement définie positive \( q\). Le lemme \ref{LEMooLSTOooZiEOdx} nous donne alors le volume de \( \ellE\) par
+            \begin{equation}
+                V_q=\frac{ V_0 }{ \sqrt{ D(q) } }
+            \end{equation}
+            où \( V_0\) est une constante.
+        \item[Existence de l'ellipsoïde]
+
+            Nous voulons trouver un ellipsoïde contenant \( K\) de volume minimal, c'est-à-dire une forme quadratique \( q\in Q^{++}(\eR^n)\) telle que
+            \begin{itemize}
+                \item \( D(q)\) soit maximal
+                \item \( q(x)\leq 1\) pour tout \( x\in K\).
+            \end{itemize}
+            Nous considérons l'ensemble des candidats semi-définis positifs.
+            \begin{equation}
+                A=\{ q\in Q^+\tq q(x)\leq 1\forall x\in K \}.
+            \end{equation}
+            Nous allons montrer que \( A\) est convexe, compact et non vide dans \( Q(\eR^n)\); il aura ainsi un maximum de la fonction continue \( D\) définie sur \( Q(\eR^n)\). Nous montrerons ensuite que le maximum est dans \( Q^{++}\). L'unicité sera prouvée à part.
+
+            \begin{subproof}
+            \item[Non vide]
+                L'ensemble \( K\) est compact et donc borné par \( M>0\). La forme quadratique \( q\colon x\mapsto \| x \|^2/M^2\) est dans \( A\) parce que si \( x\in K\) alors
+                \begin{equation}
+                    q(x)=\frac{ \| x \|^2 }{ M^2 }\leq 1.
+                \end{equation}
+            \item[Convexe]
+                Soient \( q,q'\in A\) et \( \lambda\in\mathopen[ 0 , 1 \mathclose]\). Nous avons encore \( \lambda q+(1-\lambda)q'\in Q^+\) parce que
+                \begin{equation}
+                    \lambda q(x)+(1-\lambda)q'(x)\geq 0
+                \end{equation}
+                dès que \( q(x)\geq 0\) et \( q'(x)\geq 0\).
+            D'autre part si \( x\in K\) nous avons
+            \begin{equation}
+                \lambda q(x)+(1-\lambda)q'(x)\leq \lambda+(1-\lambda)=1.
+            \end{equation}
+            Donc \( \lambda q+(1-\lambda)q'\in A\).
+
+        \item[Fermé]
+
+            Pour rappel, la topologie de \( Q(\eR^n)\) est celle de la norme \eqref{EqZYBooZysmVh}. Nous considérons une suite \( (q_n)\) dans \( A\) convergeant vers \( q\in Q(\eR^n)\) et nous allons prouver que \( q\in A\), de sorte que la caractérisation séquentielle de la fermeture (proposition~\ref{PropLFBXIjt}) conclue que \( A\) est fermé. En nommant \( e_x\) le vecteur unitaire dans la direction \( x\) nous avons
+            \begin{equation}
+                \big| q(x) \big|=\big| \| x \|^2q(e_x) \big|\leq \| x \|^2N(q),
+            \end{equation}
+            de sorte que notre histoire de suite convergente  donne pour tout \( x\) :
+            \begin{equation}
+                \big| q_n(x)-q(x) \big|\leq \| x \|^2N(q_n-q)\to 0.
+            \end{equation}
+            Vu que \( q_n(x)\geq 0\) pour tout \( n\), nous devons aussi avoir \( q(x)\geq 0\) et donc \( q\in Q^+\) (semi-définie positive). De la même manière si \( x\in K\) alors \( q_n(x)\leq 1\) pour tout \( n\) et donc \( q(x)\leq 1\). Par conséquent \( q\in A\) et \( A\) est fermé.
+
+        \item[Borné]
+
+            La partie \( K\) de \( \eR^n\) est borné et d'intérieur non vide, donc il existe \( a\in K\) et \( r>0\) tel que \( \overline{ B(a,r) }\subset K\). Si par ailleurs \( q\in A\) et \( x\in\overline{ B(0,r) }\) nous avons \( a+x\in K\) et donc \( q(a+x)\leq 1\). De plus \( q(-a)=q(a)\leq 1\), donc
+            \begin{equation}
+                \sqrt{q(x)}=\sqrt{q\big( x+a-a \big)}\leq \sqrt{q(x+a)}+\sqrt{q(-a)}\leq 2
+            \end{equation}
+            par l'inégalité de Minkowski~\ref{PropACHooLtsMUL}. Cela prouve que si \( x\in\overline{ B(0,r) }\) alors \( q(x)\leq 4\). Si par contre \( x\in\overline{ B(0,1) }\) alors \( rx\in\overline{ B(0,r) } \) et
+            \begin{equation}
+                0\leq q(x)=\frac{1}{ r^2 }q(rx)\leq \frac{ 4 }{ r^2 },
+            \end{equation}
+            ce qui prouve que \( N(q)\leq \frac{ 4 }{ r^2 }\) et que \( A\) est borné.
+
+
+            \end{subproof}
+
+            L'ensemble \( A\) est compact parce que fermé et borné, théorème de Borel-Lebesgue~\ref{ThoXTEooxFmdI}. L'application continue \( D\colon Q(\eR^n)\to \eR\) de la proposition~\ref{PropOXWooYrDKpw} admet donc un maximum sur le compact \( A\). Soit \( q_0\) ce maximum.
+
+            Nous montrons que \( q_0\in Q^{++}(\eR^d)\). Nous savons que l'application \( f\colon x\mapsto \frac{ \| x \|^2 }{ M^2 }\) est dans \( A\) et que \( D(f)>0\). Vu que \( q_0\) est maximale pour \( D\), nous avons
+            \begin{equation}
+                D(q_0)\geq D(f)>0.
+            \end{equation}
+            Donc \( q_0\in Q^{++}\).
+
+        \item[Unicité]
+
+            S'il existe une autre ellipsoïde de même volume que celle associée à la forme quadratique \( q_0\), nous avons une forme quadratique \( q\in Q^{++}\) telle que \( q(x)\leq 1\) pour tout \( x\in K\). C'est-à-dire que nous avons \( q_0,q\in A\) tels que \( D(q_0)=D(q)\).
+
+            Nous considérons la base canonique \( \mB_c\) de \( \eR^n\) et nous posons \( S=mat_{\mB_c}(q)\), \( S_0=mat_{\mB_c}(q_0)\). Étant donné que \( A\) est convexe, \( (q_0+q)/2\in A\) et nous allons prouver que cet élément de \( A\) contredit la maximalité de \( q_0\). En effet
+            \begin{equation}
+                D\left( \frac{ q+q_0 }{ 2 }\right)=\det\left( \frac{ S+S_0 }{2} \right)
+            \end{equation}
+            Nous allons utiliser le lemme~\ref{LemXOUooQsigHs} qui dit que le déterminant est log-concave sous la forme de l'équation \eqref{EqSPKooHFZvmB} avec \( \alpha=\beta=\frac{ 1 }{2}\) :
+            \begin{equation}    \label{eqBHJooYEUDPC}
+                D\left( \frac{ q+q_0 }{ 2 }\right)=\det\left( \frac{ S+S_0 }{2} \right)>\sqrt{\det(S)}\sqrt{\det(S_0)}=\det(S_0)=D(q_0).
+            \end{equation}
+            Nous avons utilisé le fait que \( D(q_0)=D(q)\) qui signifie que \( \det(S_0)=\det(S)\). L'inéquation \eqref{eqBHJooYEUDPC} contredit la maximalité de \( D(q_0)\) et donne donc l'unicité.
+    \end{subproof}
+\end{proof}
+
+Dans la proposition suivante nous oublions l'unicité, mais nous démontrons qu'il existe un ellipsoïde de volume minimal parmi les ellipsoïdes centrées où l'on veut et non seulement en zéro. La source de cette proposition est \cite{MonCerveau}, et comme toujours avec cette source, vous devez regarder à la fois l'énoncé et la preuve avec un oeil encore plus prudent que d'habitude.
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooVIDPooOGrRJh}
+    Soit un compact d'intérieur non vide \( K\) dans \( \eR^n\). Il existe un ellipsoïde de volume minimal contenant \( K\).
+\end{proposition}
+
+\begin{proof}
+    Au lieu de considérer le compact \( K\) et de chercher où centrer l'ellipsoïde afin qu'elle puisse contenir \( K\) en un volume minimal, nous allons chercher comment translater \( K\) pour qu'un ellipsoïde centré en zéro puisse contenir l'image translétée de \( K \) en un volume minimal.
+
+    Pour \( a\in \eR^n\), nous notons \( \ellE_a\) la plus petite ellipsoïde centrée en \( 0\) contenant \( K+a\) (translation de \( K\) par le vecteur \( a\)). Elle est bien définie par la proposition \ref{PropJYVooRMaPok}. Notre jeu est maintenant d'étudier la fonction\footnote{ Notons que cette fonction est bien définie, même sans la partie unicité de \ref{PropJYVooRMaPok} parce que même si \( \ellE_a\) n'était pas bien définie, son volume, lui, est bien défini.}
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eR^n&\to \eR^+ \\
+            a&\mapsto \volume(\ellE_a). 
+        \end{aligned}
+    \end{equation}
+    Nous allons montrer que \( f\) est continue et qu'elle peut être restreinte à un compact sans risque de rater un minimum.
+
+    \begin{subproof}
+        \item[À propos de forme quadratique]
+            Nous notons \( q\) la forme quadratique de l'ellipsoïde \( \ellE_0\) et \( A\) sa matrice symétrique associée. Si \( x\in K+h\) nous avons, pour un certain \( k\in K\) :
+            \begin{subequations}
+                \begin{align}
+                    q(x)&=q(k+h)\\
+                    &=\langle k+h, A(k+h)\rangle \\
+                    &=\langle k,Ak, \rangle +\langle k,Ahx, \rangle +\langle h, Ak\rangle +\langle h, Ah\rangle.
+                \end{align}
+            \end{subequations}
+            En tenant compte du fait que \( A=A^t\) nous avons aussi \( \langle k, Ah\rangle =\langle h, Ak\rangle \) et donc
+            \begin{equation}
+                q(x)=2\langle k, Ah\rangle +q(h).
+            \end{equation}
+            En ce qui concerne la norme, pour tout \( x\in K+h\) nous avons donc la majoration
+            \begin{subequations}
+                \begin{align}
+                | q(x) |&\leq 1+2\| k \|\| Ah \|+q(h)\\
+                &\leq 1+2| K |\| Ah \|+q(h)
+                \end{align}
+            \end{subequations}
+            où nous avons noté \( | K |=\sup_{k\in K}\| k \|\). Vu que \( q(x)\) est en fait toujours positif nous pouvons oublier la valeur absolue à gauche et conclure que \( K+h\) est contenu dans l'ellipsoïde
+            \begin{equation}
+                \ellF_1=\{ x\in \eR^n\tq q(x)\leq 1+2| K |\| Ah \|+q(h) \}.
+            \end{equation}
+
+        \item[Volumes]
+
+            Nous avons donc \( \volume(\ellE_h)\leq \volume(\ellF_1)\). En reprenant la formule du lemme \ref{LEMooLSTOooZiEOdx} pour le volume de l'ellipsoïde nous avons la majoration
+            \begin{equation}
+                \volume(\ellE_h)\leq \volume(\ellE_0)\big( 1+2| K |\| Ah \|+q(h) \big)^n.
+            \end{equation}
+            Autrement dit, en ce qui concerne notre fonction \( f\):
+            \begin{equation}        \label{EQooLVZCooJVxVNx}
+                f(h)\leq f(0)\big( 1+2| K |\| Ah \|+q(h) \big)^n.
+            \end{equation}
+            
+            Nous pouvons faire le même raisonnement en partant de \( K+h\) et en voyant comment modifier le rayon de \( \ellE_h\) pour que \( \ellE_0\) y rentre. Autrement dit, nous refaisons le raisonnement en posant \( K'=K+h\) et en étudiant \( K'-h\). Si \( q_1\) est la forme quadratique de \( \ellE_h\) et si \( A_1\) est sa matrice symétrique,
+            \begin{equation}
+                \volume(\ellE_0)\leq \volume(\ellE_h)\big( 1+2| K+h |\| A_1h \|+q_1(h) \big)^n
+            \end{equation}
+            En termes de \( f\):
+            \begin{equation}        \label{EQooRHWNooDisTvn}
+                f(0)\leq f(h) \big( 1+2| K+h |\| A_1h \|+q_1(h) \big)^n
+            \end{equation}
+        \item[Encadrement]
+
+            Les majoration \eqref{EQooLVZCooJVxVNx} et \eqref{EQooRHWNooDisTvn} nous permettent de créer un encadrement pour \( f(h)\). En effet, en écrivant \eqref{EQooRHWNooDisTvn} et en continuant la majoration en remplaçant \( f(h)\) par \eqref{EQooLVZCooJVxVNx}, nous obtenons
+            \begin{equation}
+                \begin{aligned}[]
+                    f(0)\leq f(h) \big( 1&+2| K+h |\| A_1h \|+q_1(h) \big)^n\\
+                    &\leq f(0)\big( 1+2| K |\| Ah \|+q(h) \big)^n \big( 1+2| K+h |\| A_1h \|+q_1(h) \big)^n.
+                \end{aligned}
+            \end{equation}
+            Vu que nous avons dans l'idée de prendre des \( h\) petits (en norme) et que les parenthèses tendent vers \( 1\) lorsque \( h\) est petit, nous pouvons supposer qu'elles sont non nulles et allègrement les passer au dénominateur. Nous divisons donc tout par le coefficient de \( f(h)\):
+            \begin{equation}
+                \frac{ f(0) }{  \big( 1+2| K+h |\| A_1h \|+q_1(h) \big)^n }\leq f(h)\leq f(0)  \big( 1+2| K |\| Ah \|+q(h) \big)^n
+            \end{equation}
+            Nous utilisons la règle de l'étau\footnote{Théorème \ref{ThoRegleEtau}.} pour conclure que
+            \begin{equation}        \label{EQooCMAQooMkkEVR}
+                \lim_{h\to 0} \volume(\ellE_h)=\volume(\ellE_0).
+            \end{equation}
+        \item[Continuité]
+            Si \( a\in \eR^n\) nous pouvons appliquer la limite \eqref{EQooCMAQooMkkEVR} pour l'ellipsoïde \( \ellE_a\) au lieu de \( \ellE_0\), c'est-à-dire en partant du compact \( K+a\) au lieu de \( K\). Cela donne
+            \begin{equation}
+                \lim_{h\to 0} \volume(\ellE_{a+h})=\volume(\ellE_a).
+            \end{equation}
+            Donc \( f\) est continue sur \( \eR^n\).
+
+        \item[Compact]
+
+            Nous avons en hypothèse que \( K\) est d'intérieur non vide. Il existe donc \( a\in K\) et \( r>0\) tel que \( B(a,r)\subset K\). Soit l'hyperplan affine \( H\) passant par \( a\) et perpendiculaire à \( a\). Nous notons \( S=H\cap B(a,r)\). Nous avons évidemment \( S\subset K\) et donc \( S\subset \ellE_0\). Vu que l'ellipsoïde \( \ellE_0\) est convexe et contient \( K\), tout le cône de base \( S\) et de hauteur \( a\) est dans \( \ellE_0\).
+
+            Sans rentrer dans le détails du calcul du volume de ce cône, son volume tend vers l'infini si \( a\) tend vers l'infini\footnote{Topologie du complété en un point, j'imagine que vous voyez de quoi il en retourne. Sinon c'est la définition \ref{PROPooHNOZooPSzKIN}, et il faut sans doute adapter le lemme \ref{LEMooERABooQjLBzW} au cas de \( \eR^n\) pour tout faire dans les règles.}
+
+            Nous avons donc une majoration
+            \begin{equation}
+                \volume(\ellE_h)\geq \text{volume du cône de base } S\text{ et de hauteur } a+h.
+            \end{equation}
+            Dès que ce volume est plus grand que \( \volume(\ellE_0)\), il est impossible que \( \volume(\ellE_h)\leq \volume(\ellE_0)\). Soit \( R>0\) tel que pour tout \( \| h \|\geq R\), le volume du cône soit plus grand que \( \volume(\ellE_0)\). Le minimum de \( f\) est certainement dans \( B(0,R)\) parce que au moins
+            \begin{equation}
+                \volume(\ellE_0)\in f\big( B(0,R) \big).
+            \end{equation}
+
+        \item[Minimum]
+
+            Nous considérons la fonction
+            \begin{equation}
+                \begin{aligned}
+                    f\colon \overline{ B(0,R) }&\to \eR^+ \\
+                    h&\mapsto \volume(\ellE_h). 
+                \end{aligned}
+            \end{equation}
+            Elle est continue sur un compact, et le théorème de Weierstrass \ref{ThoWeirstrassRn} nous dit alors qu'elle atteint son minimum. Il n'y a cependant pas unicité de la valeurs de \( h\) pour laquelle \( f(h)\) est minimum.
+
+        \item[Envoi]
+
+            Soit \( s\in \eR^n\) tel que \( f(s)\) soit minimal. Cela signifie que parmi tous les ellipsoïdes centrés en zéro et contenant des ensembles de la forme \( K+h\), le plus petit est celui qui contient \( K+s\). Soit \( \ellE_s\) cet ellipsoïde.
+
+            Je prétend que \( \ellE_s-s\) est le plus petit ellipsoïde contenant \( K\), tout centres confondus. En effet, si \( \ellF\) est un ellipsoïde centré en \( a\) et contenant \( K\), alors \( \ellF-a\) est un ellipsoïde centré en zéro et contenant \( K-a\). Nous avons alors
+            \begin{equation}
+                \volume(\ellF-a)\geq \volume(\ellE_s)=\volume(\ellE_s-s).
+            \end{equation}
+            L'invariance de la mesure par translation est le théorème \ref{THOooTMWHooThsDHj}.
+    \end{subproof}
 \end{proof}

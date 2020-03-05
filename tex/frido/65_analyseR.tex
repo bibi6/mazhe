@@ -1,4 +1,4 @@
-% Copyright (c) 2008-2018
+% Copyright (c) 2008-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -118,7 +118,7 @@
     \begin{equation}
         A=\{ x\in\mathopen[ a , b \mathclose]\tq f(x)=\alpha \}.
     \end{equation}
-    C'est un ensemble borné par \( a\) et \( b\). De plus il est fermé; ce dernier point n'est pas tout à fait évident parce que \( f\) n'est pas définit sur \( \eR\) mais sur \( I\) qui est fermé, le corollaire~\ref{CorNNPYooMbaYZg} n'est donc pas immédiatement utilisable. Prouvons donc que \( Z=\{ x\in \eR\tq f(x)=\alpha \}\) est fermé. Si \( x_0\) est hors de \( Z\) alors soit \( x_0\) est dans \( I\) soit il est hors de \( I\). Dans ce second cas, le complémentaire de \( I\) étant ouvert, on a un voisinage de \( x_0\) hors de \( I\) et par conséquent hors de \( Z\). Si au contraire \( x_0\in I\) alors il y a (encore) deux cas : soit \( x_0\in\Int(I)\) soit \( x_0\) est sur le bord de \( I\). Dans le premier cas, le théorème des valeurs intermédiaires\footnote{Théorème~\ref{ThoValInter}.} fonctionne. Pour le second cas, nous supposons \( x_0=\max(I)\) (le cas \( x_0=\min(I)\) est similaire). Le théorème des valeurs intermédiaires dit que sur \( \mathopen[ x_0-\epsilon , x_0 \mathclose]\), \( f\neq \alpha\) et en même temps, sur \( \mathopen] x_0 , x_0+\epsilon \mathclose]\), nous sommes en dehors du domaine. Au final \( \{ f(x)=\alpha \}\) est fermé et \( A\) est alors fermé en tant que intersection de deux fermés.
+    C'est un ensemble borné par \( a\) et \( b\). De plus il est fermé; ce dernier point n'est pas tout à fait évident parce que \( f\) n'est pas définit sur \( \eR\) mais sur \( I\) qui est fermé, le corolaire~\ref{CorNNPYooMbaYZg} n'est donc pas immédiatement utilisable. Prouvons donc que \( Z=\{ x\in \eR\tq f(x)=\alpha \}\) est fermé. Si \( x_0\) est hors de \( Z\) alors soit \( x_0\) est dans \( I\) soit il est hors de \( I\). Dans ce second cas, le complémentaire de \( I\) étant ouvert, on a un voisinage de \( x_0\) hors de \( I\) et par conséquent hors de \( Z\). Si au contraire \( x_0\in I\) alors il y a (encore) deux cas : soit \( x_0\in\Int(I)\) soit \( x_0\) est sur le bord de \( I\). Dans le premier cas, le théorème des valeurs intermédiaires\footnote{Théorème~\ref{ThoValInter}.} fonctionne. Pour le second cas, nous supposons \( x_0=\max(I)\) (le cas \( x_0=\min(I)\) est similaire). Le théorème des valeurs intermédiaires dit que sur \( \mathopen[ x_0-\epsilon , x_0 \mathclose]\), \( f\neq \alpha\) et en même temps, sur \( \mathopen] x_0 , x_0+\epsilon \mathclose]\), nous sommes en dehors du domaine. Au final \( \{ f(x)=\alpha \}\) est fermé et \( A\) est alors fermé en tant que intersection de deux fermés.
 
     L'ensemble \( A\) étant non vide (\( a\in A\)), il possède donc un maximum que nous nommons \( u\) :
     \begin{equation}
@@ -132,7 +132,7 @@
     \begin{equation}
         v=\min(B).
     \end{equation}
-    Nous prouvons maintenant que \( f\big( \mathopen[ u , v \mathclose] \big)=\mathopen[ \alpha , \beta \mathclose]\). D'abord \( f\big( \mathopen[ u , v \mathclose] \big)\) est un intervalle compact\footnote{Corollaire~\ref{CorImInterInter} et théorème~\ref{ThoImCompCotComp}.} contenant \( f(u)=\alpha\) et \( f(v)=\beta\). Par conséquent \( \mathopen[ \alpha , \beta \mathclose]\subset f\big( \mathopen[ u , v \mathclose] \big)\). Pour l'inclusion inverse supposons \( t\in \mathopen[ u , v \mathclose]\) tel que \( f(t)>\beta\). Vu que \( f(a)=\alpha\) et \( \alpha<\beta\) le théorème des valeurs intermédiaires il existe \( t_0\in \mathopen[ a , t \mathclose]\) tel que \( f(t_0)=\beta\). Cela donne \( t_0<v\) et donc contredit la minimalité de \( v\) dans \( B\). Nous en déduisons que \( f\big( \mathopen[ u , v \mathclose] \big)\) ne contient aucun élément plus grand que \( \beta\). Même jeu pour montrer que ça ne contient aucun élément plus petit que \( \alpha\).
+    Nous prouvons maintenant que \( f\big( \mathopen[ u , v \mathclose] \big)=\mathopen[ \alpha , \beta \mathclose]\). D'abord \( f\big( \mathopen[ u , v \mathclose] \big)\) est un intervalle compact\footnote{Corolaire \ref{CorImInterInter} et théorème~\ref{ThoImCompCotComp}.} contenant \( f(u)=\alpha\) et \( f(v)=\beta\). Par conséquent \( \mathopen[ \alpha , \beta \mathclose]\subset f\big( \mathopen[ u , v \mathclose] \big)\). Pour l'inclusion inverse supposons \( t\in \mathopen[ u , v \mathclose]\) tel que \( f(t)>\beta\). Vu que \( f(a)=\alpha\) et \( \alpha<\beta\) le théorème des valeurs intermédiaires il existe \( t_0\in \mathopen[ a , t \mathclose]\) tel que \( f(t_0)=\beta\). Cela donne \( t_0<v\) et donc contredit la minimalité de \( v\) dans \( B\). Nous en déduisons que \( f\big( \mathopen[ u , v \mathclose] \big)\) ne contient aucun élément plus grand que \( \beta\). Même jeu pour montrer que ça ne contient aucun élément plus petit que \( \alpha\).
 
     En définitive, le segment \( L=\mathopen[ u , v \mathclose]\) fonctionne.
 \end{proof}
@@ -150,7 +150,7 @@ Lorsque \( I_2\subset f(I_1)\) nous notons \( I_1\to I_2\) ou, si une ambiguït�
     Nous prouvons les cas \( n=1\) et \( n=2\) séparément.
     \begin{subproof}
     \item[\( n=1\)]
-        Nous avons \( I_0\to I_0\), c'est à dire que $I_0\subset f(I_0)$. Si \( I_0=\mathopen[ a , b \mathclose]\) alors nous posons \( a=f(\alpha)\) et \( b=f(\beta)\) pour certains \( \alpha,\beta\in I_0\). Nous posons ensuite \( g(x)=f(x)-x\).
+        Nous avons \( I_0\to I_0\), c'est-à-dire que $I_0\subset f(I_0)$. Si \( I_0=\mathopen[ a , b \mathclose]\) alors nous posons \( a=f(\alpha)\) et \( b=f(\beta)\) pour certains \( \alpha,\beta\in I_0\). Nous posons ensuite \( g(x)=f(x)-x\).
 
         Dans un premier temps, \( g(\alpha)=a-\alpha\leq 0\) parce que \( a=\in(I_0)\) et \( \alpha\in I_0\). Pour la même raison, \( g(\beta)=b-\beta\geq 0\). Le théorème des valeurs intermédiaires donne alors \( t_0\in \mathopen[ \alpha , \beta \mathclose]\subset I_0\) tel que \( g(t_0)=0\). Nous avons donc \( f(t_0)=t_0\).
     \item[\( n=2\)]
@@ -176,7 +176,7 @@ Lorsque \( I_2\subset f(I_1)\) nous notons \( I_1\to I_2\) ou, si une ambiguït�
         \begin{equation}
             J_{n-1}\subset J_{n-2}\subset\ldots\subset J_1\subset J_0
         \end{equation}
-        tels que \( I_k=f^k(J_k)\) pour tout \( k=1,\ldots, n-1\). La dernière de ces inclusions est \( I_{n-1}=f^{n-1}(J_{n-1})\), mais \( I_{n-1}\to I_0\), c'est à dire que
+        tels que \( I_k=f^k(J_k)\) pour tout \( k=1,\ldots, n-1\). La dernière de ces inclusions est \( I_{n-1}=f^{n-1}(J_{n-1})\), mais \( I_{n-1}\to I_0\), c'est-à-dire que
         \begin{equation}
             I_0\subset f(I_{n-1})=f^n(J_{n-1}),
         \end{equation}
@@ -250,7 +250,7 @@ Pour une fonction $f\colon D\subset\eR^m\to \eR$, la continuité au point $a$ si
 \begin{equation}
 	\exists\delta>0\tq 0<\| x-a \|<\delta\Rightarrow | f(x)-f(a) |<\varepsilon.
 \end{equation}
-Le $\delta$ qu'il faut choisir dépend évidemment de $\varepsilon$, mais il dépend en général aussi du point $a$ où l'on veut tester la continuité. C'est à dire que, étant donné un $\varepsilon>0$, nous pouvons trouver un $\delta$ qui fonctionne pour certains points, mais qui ne fonctionne pas pour d'autres points.
+Le $\delta$ qu'il faut choisir dépend évidemment de $\varepsilon$, mais il dépend en général aussi du point $a$ où l'on veut tester la continuité. C'est-à-dire que, étant donné un $\varepsilon>0$, nous pouvons trouver un $\delta$ qui fonctionne pour certains points, mais qui ne fonctionne pas pour d'autres points.
 
 Il peut cependant également arriver qu'un même $\delta$ fonctionne pour tous les points du domaine. Dans ce cas, nous disons que la fonction est uniformément continue sur le domaine.
 
@@ -298,7 +298,7 @@ Nous verrons qu'une application lipschitzienne est uniformément continue (propo
 
 Une fonction peut être uniformément continue sur un domaine et pas sur un autre. Le théorème suivant donne une importante indication à ce sujet.
 \begin{theorem}[Heine]\index{théorème!Heine}\index{Heine (théorème)}		\label{ThoHeineContinueCompact}
-	Une fonction continue sur un compact (fermé et borné) est uniformément continue.
+    Soit \( K\) un compact de \( \eR^n\). Une fonction continue \( f\colon \eR^n\to \eR^m\) est uniformément continue sur \( K\).
 \end{theorem}
 
 La démonstration qui suit est valable pour une fonction \( f\colon \eR^n\to \eR^m\) et utilise le fait que le produit cartésien de compacts est compact. Dans le cas de fonctions sur \( \eR\), nous pouvons modifier la démonstration pour ne pas utiliser ce résultat; voir plus bas.
@@ -341,66 +341,15 @@ La démonstration qui suit est valable pour une fonction \( f\colon \eR^n\to \eR
     Il est donc un peu superflus de parler de la convergence du couple \( (x_n,y_n)\).
 \end{remark}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Compacité}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-%http://fr.wikipedia.org/wiki/Espace_compact
-%http://fr.wikipedia.org/wiki/Théorème_de_Heine-Borel
-%http://fr.wikipedia.org/wiki/Émile_Borel
-%http://fr.wikipedia.org/wiki/Henri_Léon_Lebesgue
-
-Soit $E$, un sous-ensemble de $\eR$. Nous pouvons considérer les ouverts suivants :
-\begin{equation}
-    \mO_x=B(x,1)
-\end{equation}
-pour chaque $x\in E$. évidemment,
-\begin{equation}
-    E\subseteq \bigcup_{x\in E}\mO_x.
-\end{equation}
-Cette union est très souvent énorme, et même infinie. Elle contient de nombreuses redondances. Si par exemple $E=[-10,10]$, l'élément $3\in E$ est contenu dans $\mO_{3.5}$, $\mO_{2.7}$ et bien d'autres. Pire : même si on enlève par exemple $\mO_2$ de la liste des ouverts, l'union de ce qui reste continue à être tout $E$. La question est : \emph{est-ce qu'on peut en enlever suffisamment pour qu'il n'en reste qu'un nombre fini ?}
-\begin{definition}
-Soit $E$, un sous-ensemble de $\eR$. Une collection d'ouverts $\mO_i$ est un \defe{recouvrement}{recouvrement} de $E$ si $E\subseteq \bigcup_{i}\mO_i$. Un sous-ensemble $E$ de $\eR$ tel que de tout recouvrement par des ouverts, on peut extraire un sous-recouvrement fini est dit \defe{\href{http://fr.wikipedia.org/wiki/Espace_compact}{compact}}{compact}.
-\end{definition}
-
-\begin{proposition}
-Les ensembles compacts sont fermés et bornés.
+\begin{proposition}[Heine\cite{ooNDDIooKLdIWH}]     \label{PROPooBWUFooYhMlDp}
+    Toute application continue d'un espace métrique compact dans un espace métrique quelconque est uniformément continue.
 \end{proposition}
 
-\begin{proof}
-Prouvons d'abord qu'un ensemble compact est borné. Pour cela, supposons que $K$ est un compact non borné vers le haut\footnote{Nous laissons à titre d'exercice le cas où $K$ est borné par le haut et pas par le bas.}. Donc il existe une suite infinie de nombres strictement croissante $x_1<x_2<\ldots$ tels que $x_i\in K$. Prenons n'importe quel recouvrement ouvert de la partie de $K$ plus petite ou égale à $x_1$, et complétons ce recouvrement par les ouverts $\mO_i=]x_{i-1},x_i[$. Le tout forme bien un recouvrement de $K$ par des ouverts.
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Fonctions sur un compact}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Il n'y a cependant pas moyen d'en tirer un sous recouvrement fini parce que si on ne prend qu'un nombre fini parmi les $\mO_i$, on en aura fatalement un maximum, disons $\mO_k$. Dans ce cas, les points $x_{k+1}$, $x_{k+1}$,\ldots ne seront pas dans le choix fini d'ouverts.
-
-Cela prouve que $K$ doit être borné.
-
-Pour prouver que $K$ est fermé, nous allons prouver que le complémentaire est ouvert. Et pour cela, nous allons prouver que si le complémentaire n'est pas ouvert, alors nous pouvons construire un recouvrement de $K$ dont on ne peut pas extraire de sous recouvrement fini.
-
-Si $\eR\setminus K$ n'est pas ouvert, il possède un point, disons $x$, tel que tout voisinage de $x$ intersecte $K$. Soit $B(x,\epsilon_1)$, un de ces voisinages, et prenons $k_1\in K\cap B(x,\epsilon_1)$. Ensuite, nous prenons $\epsilon_2$ tel que $k_1$ n'est pas dans $B(x,\epsilon_1)$, et nous choisissons $k_2\in K\cap B(x,\epsilon_2)$. De cette manière, nous construisons une suite de $k_i\in K$ tous différents et de plus en plus proches de $x$. Prenons un recouvrement quelconque par des ouverts de la partie de $K$ qui n'est pas dans $B(x,\epsilon_1)$. Les nombres $k_i$ ne sont pas dans ce recouvrement.
-
-Nous ajoutons à ce recouvrement les ensembles $\mO=]k_i,k_{i+1}[$. Le tout forme un recouvrement (infini) par des ouverts dont il n'y a pas moyen de tirer un sous recouvrement fini, pour exactement la même raison que la première fois.
-\end{proof}
-
-Le résultat suivant le théorème de \href{http://fr.wikipedia.org/wiki/Théorème_de_Heine-Borel}{Borel-Lebesgue}, et la démonstration vient de wikipédia.
-\begin{theorem}[\href{http://fr.wikipedia.org/wiki/Émile_Borel}{borel}-\href{http://fr.wikipedia.org/wiki/Henri_Léon_Lebesgue}{Lebesgue}]   \label{ThoBOrelLebesgue}
-    Les intervalles de la forme $[a,b]$ sont compacts.
-\end{theorem}
-
-\begin{proof}
-    Soit $\Omega$, un recouvrement du segment $[a,b]$ par des ouverts, c'est à dire que
-    \begin{equation}
-        [a,b]\subseteq\bigcup_{\mO\in\Omega}\mO.
-    \end{equation}
-    Nous notons par $M$ le sous-ensemble de $[a,b]$ des points $m$ tels que l'intervalle $[a,m]$ peut être recouvert par un sous-ensemble fini de $\Omega$. C'est à dire que $M$ est le sous-ensemble de $[a,b]$ sur lequel le théorème est vrai. Le but est maintenant de prouver que $M=[a,b]$.
-    \begin{description}
-        \item[$M$ est non vide] En effet, $a\in M$ parce que il existe un ouvert $\mO\in\Omega$ tel que $a\in\mO$. Donc $\mO$ tout seul recouvre l'intervalle $[a,a]$.
-        \item[$M$ est un intervalle] Soient $m_1$, $m_2\in M$. Le but est de montrer que si $m'\in[m_1,m_2]$, alors $m'\in M$. Il y a un sous recouvrement fini de l'intervalle $[a,m_2]$ (par définition de $m_2\in M$). Ce sous recouvrement fini recouvre évidemment aussi $[a,m']$ parce que $[a,m']\subseteq [a,m_2]$, donc $m'\in M$.
-        \item[$M$ est une ensemble ouvert] Soit $m\in M$. Le but est de prouver qu'il y a un ouvert autour de $m$ qui est contenu dans $M$. Mettons que $\Omega'$ soit un sous recouvrement fini qui contienne l'intervalle $[a,m]$. Dans ce cas, on a un ouvert $\mO\in\Omega'$ tel que $m\in\mO$. Tous les points de $\mO$ sont dans $M$, vu qu'ils sont tous recouverts par $\Omega'$. Donc $\mO$ est un voisinage de $m$ contenu dans $M$.
-        \item[$M$ est un ensemble fermé] $M$ est un intervalle qui commence en $a$, en contenant $a$, et qui finit on ne sait pas encore où. Il est donc soit de la forme $[a,m]$, soit de la forme $[a,m[$. Nous allons montrer que $M$ est de la première forme en démontrant que $M$ contient son supremum $s$. Ce supremum est un élément de $[a,b]$, et donc il est contenu dans un des ouverts de $\Omega$. Disons $s\in\mO_s$. Soit $c$, un élément de $\mO_s$ strictement plus petit que $c$; étant donné que $s$ est supremum de $M$, cet élément $c$ est dans $M$, et donc on a un sous recouvrement fini $\Omega'$ qui recouvre $[a,c]$. Maintenant, le sous recouvrement constitué de $\Omega'$ et de $\mO_s$ est fini et recouvre $[a,s]$.
-    \end{description}
-    Nous pouvons maintenant conclure : le seul intervalle non vide de $[a,b]$ qui soit à la fois ouvert et fermé est $[a,b]$ lui-même, ce qui prouve que $M=[a,b]$, et donc que $[a,b]$ est compact.
-\end{proof}
-
-Par le théorème des valeurs intermédiaires, l'image d'un intervalle par une fonction continue est un intervalle, et nous avons l'importante propriété suivante des fonctions continues sur un compact.
+Par le théorème des valeurs intermédiaires \ref{ThoValInter}, l'image d'un intervalle par une fonction continue est un intervalle, et nous avons l'importante propriété suivante des fonctions continues sur un compact.
 
 Le théorème suivant est un cas particulier du théorème~\ref{ThoMKKooAbHaro}.
 \begin{theorem}
@@ -408,7 +357,358 @@ Le théorème suivant est un cas particulier du théorème~\ref{ThoMKKooAbHaro}.
 \end{theorem}
 
 \begin{proof}
-    Étant donné que $[a,b]$ est un intervalle compact, son image est également un intervalle compact, et donc est de la forme $[m,M]$. Ceci découle du théorème~\ref{ThoImCompCotComp} et le corollaire~\ref{CorImInterInter}. Le maximum de $f$ sur $[a,b]$ est la borne $M$ qui est bien dans l'image (parce que $[m,M]$ est fermé). Idem pour le minimum $m$.
+    Étant donné que $[a,b]$ est un intervalle compact, son image est également un intervalle compact, et donc est de la forme $[m,M]$. Ceci découle du théorème~\ref{ThoImCompCotComp} et le corolaire~\ref{CorImInterInter}. Le maximum de $f$ sur $[a,b]$ est la borne $M$ qui est bien dans l'image (parce que $[m,M]$ est fermé). Idem pour le minimum $m$.
+\end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Polynômes}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+L'algèbre des polynômes sur un anneau est définie en \ref{DEFooFYZRooMikwEL}. Si \( P\in A[X]\) et si \( \alpha\in A\) nous avons également défini l'évaluation de \( P\) en \( \alpha\); c'est la définition \ref{DEFooNXKUooLrGeuh}. Dans le cadre de l'analyse, lorsque nous considérons des polynômes, nous allons complètement confondre le polynôme avec la fonction qu'il définit.
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Polynômes sur les réels}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}     \label{PROPooJKYJooFqbQMr}
+    Tout polynôme à coefficients réels de degré impair possède une racine réelle.
+\end{proposition}
+
+\begin{proof}
+    Nous mettons le plus haut degré en facteur :
+    \begin{equation}
+        P(x)=\sum_{k=0}^na_kx^k=x^n\sum_{k=0}^n\frac{ a_k }{ x^{n-k} }.
+    \end{equation}
+    Le terme \( k=0\) vaut \( a_nx^n\) tandis que les autres sont de la forme (à coefficient près) \( \frac{1}{ x^l }\) pour un \( l\geq 1\). Lorsque \( x\to \infty\), chacun de ces termes s'annule (lemme \ref{LEMooFCIXooJuHFqk}). Nous avons donc
+    \begin{equation}
+        \lim_{x\to \infty} P(x)=+\infty,
+    \end{equation}
+    et de même, \( n\) étant impair, \( \lim_{x\to -\infty} P(x)=-\infty\). Le théorème des valeurs intermédiaires \ref{ThoValInter} nous donne alors l'existence d'un réel sur lequel \( P\) s'annule.
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Polynômes sur les complexes}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous allons parler de comportement asymptotique de polynômes définis sur \( \eC\). La topologique que nous considérons est celle de la compactification en un point décrite en \ref{PROPooHNOZooPSzKIN}.
+
+Le lemme suivant donne une caractérisation de la limite en l'infini dans le compactifié \( \hat \eC\). Dans beaucoup de cas, cette caractérisation est prise comme la définition de la limite. Hélas, dans le Frido nous sommes des extrémistes et nous ne parvenons pas à dire le mot «limite» si il n'y a pas une topologie.
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooERABooQjLBzW}
+    Nous considérons la compatification en un point d'Alexandrov\footnote{Définition \ref{PROPooHNOZooPSzKIN}.}. Soit une fonction \( f\colon \eC\to \eC\). Nous avons \( \lim_{z\to \infty} f(z)=\infty\) si et seulement si pour tout \( M>0\), il existe \( R>0\) tel que \( | z |>R\) implique \( | f(z) |>M\).
+\end{lemma}
+
+\begin{proof}
+    Souvenons-nous que, en général\footnote{Définition \ref{DefYNVoWBx}.}, nous avons
+    \begin{equation}
+        \lim_{x\to a} f(x)=b
+    \end{equation}
+    si pour tout voisinage \( V\) de \( b\), il existe un voisinage \( W\) de \( a\) tel que \( z\in W\setminus\{ a \}\) implique \( f(z)\in V\).
+
+    Précisons encore un point de notation. Si \( K\) est une partie de \( \eC\), nous notons \( K^c\) son complémentaire dans \( \eC\), pas dans \( \hat  \eC\).
+
+    Ceci étant dit, nous passons à la preuve.
+    \begin{subproof}
+        \item[Sens direct]
+            Nous supposons que \( \lim_{z\to \infty} f(z)=\infty\). Soit \( M>0\); nous considérons le voisinage \( V=\overline{ B(0,M) }^c\cup\{ \infty \}\). Par définition de la limite, il existe un voisinage \( W\) de \( \infty\) tel que \( z\in W\Rightarrow f(z)\in V\setminus\{ \infty \}=\overline{ B(0,M) }^c\). Ce voisinage est de la forme \( K^c\cup\{ \infty \}\). Vu que \( K\) est compact, il est borné et il existe \( R>0\) tel que \( K\subset B(0,R)\).
+
+            Avec tout cela nous avons la chaine suivante d'implications :
+            \begin{equation}
+                | z |>R\Rightarrow z\in K^c\Rightarrow z\in W\Rightarrow f(z)\in V\setminus\{ \infty \}=\overline{ B(0,M) }^c\Rightarrow | f(z) |>M.
+            \end{equation}
+            C'est bien la propriété que nous voulions.
+        \item[Sens réciproque]
+            Soit un voisinage \( V\) de \( \infty\). Nous avons \( V=K^c\cup\{ \infty \}\) où \( K\) est compact dans \( \eC\). Il existe \( M>0\) tel que \( K\subset B(0,M)\).
+
+            Par hypothèse, il existe \( R\) tel que \( | z |>R\Rightarrow | f(z) |>M\). Soit \( W=\overline{ B(0,R) }^c\cup\{ \infty \}\). Nous avons la chaine
+            \begin{equation}
+                z\in W\Rightarrow| z |>R\Rightarrow| f(z) |>M\Rightarrow f(z)\in K^c\Rightarrow f(z)\in V.
+            \end{equation}
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]     \label{PROPooPWVWooGuftxZ}
+    Soit le polynôme
+    \begin{equation}
+        \begin{aligned}
+            P\colon \eC&\to \eC \\
+            z&\mapsto \sum_{i=0}^na_iz^i 
+        \end{aligned}
+    \end{equation}
+    où nous sous-entendons que \( a_n\neq 0\). La fonction \( z\mapsto | P(z) |\) est équivalente\footnote{Définition \ref{DEFooWDSAooKXZsZY}.} en l'infini à la fonction
+    \begin{equation}
+        \begin{aligned}
+            w\colon \eC&\to \eR^+ \\
+            z&\mapsto | a_nz^n |. 
+        \end{aligned}
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Nous voudrions prouver qu'il existe une fonction \( \alpha\colon \eC\to \eR\) telle que 
+    \begin{subequations}     \label{EQooGXWZooDJZNzE}
+        \begin{numcases}{}
+        | \sum_{i=0}^na_iz^i |=\big( 1+\alpha(z) \big)| a_nz^n |.
+         \lim_{z\to \infty} \alpha(z)=0.
+        \end{numcases}
+    \end{subequations}
+    Nous trouvons un candidat pour être une telle fonction en isolant simplement \( \alpha(z)\) de cette égalité. Nous trouvons
+    \begin{equation}
+        \alpha(z)=\big| \sum_{i=0}^n\frac{ a_i }{ a_n }z^{i-n} \big|-1.
+    \end{equation}
+    Elle vérifie immédiatement \eqref{EQooGXWZooDJZNzE}. Le point qui fait intervenir la topologie de  est de vérifier que \( \lim_{z\to \infty} \alpha(z)=0\). Le terme \( i=0\) de la somme vaut \( 1\). Il suffit donc de montrer que pour \( i\neq 0\) nous avons
+    \begin{equation}
+        \lim_{z\to \infty} \frac{1}{ z^{n-i} }=0.
+    \end{equation}
+    Soit \( \epsilon>0\). Nous devons prouver qu'il existe un voisinage \( V\) de \( \infty\) dans \( \hat \eC\) tel que
+    \begin{equation}
+        | \frac{1}{ z^{n-i} }-0 |\leq \epsilon
+    \end{equation}
+    pour tout \( z\in V\).
+    
+    En utilisant la proposition \ref{PROPooXLARooYSDCsF} nous avons déjà
+    \begin{equation}
+        | \frac{1}{ z^{n-i} } |=\frac{1}{ | z^{n-i} | }=\frac{1}{ | z |^{n-i} }.
+    \end{equation}
+    Soit \( R>0\) tel que \( \frac{1}{ R }<\epsilon\). Nous considérons le voisinage \( \{ | z |>R \}\cup \{ \infty \}\) de \( \infty\). Dans ce voisinage, nous avons
+    \begin{equation}
+        \frac{1}{ | z |^{n-i} }\leq \frac{1}{ | z | }\leq \frac{1}{ R }<\epsilon.
+    \end{equation}
+    Et voila.
+\end{proof}
+
+Le lemme suivant parle de polynôme sur \( \eC\). Vous pouvez l'adapter à \( \hat \eR\) et \( \bar \eR\).
+\begin{lemma}       \label{LEMooYZVGooXZvBAc}
+    Si \( P\colon \eC\to \eC\) est un polynôme, alors \( | P |\) atteint une borne inférieure globale.
+\end{lemma}
+
+\begin{proof}
+    Nous savons, par l'équivalence de fonctions prouvée dans la proposition \ref{PROPooPWVWooGuftxZ} que \( \lim_{z\to \infty} P(z)=\infty\). Soit \( a>0\) dans \( \eR\). Par le lemme \ref{LEMooERABooQjLBzW} il existe un \( R>a\) tel que \( | z |>R\Rightarrow | f(z) |>| f(a) |\).
+
+    La fonction \( | P |\) est continue sur le compact \( \overline{ B(0,R) }\). Soit \( z_0\) le point de minimum\footnote{Théorème de Weierstrass \ref{ThoWeirstrassRn}.} de \( | P |\) sur \( \overline{ B(0,R) }\).
+
+    Nous devons prouver que \( z_0\) donne même un minimum global. Vu que \( a\in\overline{ B(0,R) }\) nous avons
+    \begin{equation}
+        | f(z_0) |\leq | f(a) |.
+    \end{equation}
+    Si \( z\in \overline{ B(0,R) }^c\), nous avons
+    \begin{equation}
+        | f(z) |>| f(a) |\geq | f(z_0) |.
+    \end{equation}
+    Donc ce \( z_0\) est un minimum sur \( B(0,R)\) et sur \( \overline{ B(0,R) }^c\). Bref, un minimum global.
+\end{proof}
+
+\begin{lemma}       \label{LEMooTTOYooXaukuH}
+    Soit le polynôme
+    \begin{equation}
+        \begin{aligned}
+            P\colon \eC&\to \eC \\
+            z&\mapsto \sum_{i=0}^na_iz^i. 
+        \end{aligned}
+    \end{equation}
+    La fonction \( P\) est équivalente à \( a_0+a_1z\) en \( z=0\).
+\end{lemma}
+
+\begin{proof}
+    En posant \( g(z)=a_0+a_1z\), nous devons trouver une fonction \( \alpha\) telle que
+    \begin{equation}        \label{EQooZFJBooVAYVBv}
+        P(z)=\big( 1+\alpha(z) \big)g(z).
+    \end{equation}
+    Si \( a_0\neq 0\), il existe un voisinage de \( z=0\) sur lequel la fonction
+    \begin{equation}        \label{EQooVCOVooAKWJxF}
+        \alpha(z)=\frac{ z^2\sum_{i=2}^na_iz^{i-2} }{ a_0+a_1z }
+    \end{equation}
+    existe. Il n'y a aucun problème à ce que \( \alpha(z)\to 0\) pour \( z\to 0\)\footnote{En remarquant toutefois que c'est une limite à deux dimensions. Sachez la définir.}, et un simple calcul\footnote{En fait, la formule \eqref{EQooVCOVooAKWJxF} est obtenue en isolant \( \alpha(z)\) dans \eqref{EQooZFJBooVAYVBv}.} donne \eqref{EQooVCOVooAKWJxF}.
+
+    Si par contre \( a_0=0\), nous faisons le calcul intermédiaire suivant :
+    \begin{equation}
+        \alpha(z)g(z)=P(z)-g(z)=z^2\sum_{i=2}^na_iz^{i-2},
+    \end{equation}
+    et donc, en isolant \( \alpha(z)\) et en simplifiant par \( z\), nous voyons que la fonction \( \alpha\) définie par
+    \begin{equation}
+        \alpha(z)=\frac{z}{ a_1 }\sum_{i=2}^na_iz^{i-2}
+    \end{equation}
+    fonctionne.
+\end{proof}
+
+\begin{proposition}[\cite{ooRIPVooMlBiAH,MonCerveau}]       \label{PROPooLBBLooQwEiHr}
+    Soient \( a,b\in \eR\).
+    \begin{enumerate}
+        \item       \label{ITEMooSPSWooKLtqzZ}
+            L'équation \( z^2=a+bi\) a une solution dans \( \eC\).
+        \item       \label{ITEMooQOJDooWjfGXv}
+            Pour tout \( l\), l'équation \( z^{2^l}=a+bi\) a une solution dans \( \eC\).
+    \end{enumerate}
+    Nous ne disons pas que ces solutions sont uniques\footnote{Comme vous en conviendrez en pensant à \( z^2=1\) qui a déjà les solutions \( 1\) et \( -1\).}.
+\end{proposition}
+
+\begin{proof}
+    Pour prouver \ref{ITEMooSPSWooKLtqzZ}, l'équation \( z^2=a+bi\) a pour solution \( \pm\xi\) où
+        \begin{equation}
+            \xi=\sqrt{ \frac{ 1 }{2}a+\frac{ 1 }{2}\sqrt{ a^2+b^2 } }+i\signe(b)\sqrt{ -\frac{ 1 }{2}a+\frac{ 1 }{2}\sqrt{ a^2+b^2 } }.
+        \end{equation}
+        Nous n'avons en fait pas besoin de montrer que \( \pm\xi\) sont toutes deux des solutions, ni que ce sont les seules. Un calcul direct montre que \( \xi^2=a+bi\) et nous sommes content.
+
+    Pour \ref{ITEMooQOJDooWjfGXv}, nous faisons une récurrence sur \( l\). Nous savons que
+        \begin{equation}
+            z^{2^{k+1}}=(z^{2^k})^2.
+        \end{equation}
+        Soit \( \xi\in \eC\) tel que \( \xi^{2^k}=a+bi\); un tel \( \xi\) existe par hypothèse de récurrence. Alors si \( z\) est tel que \( z^2=\xi\), nous avons 
+        \begin{equation}
+            z^{2^{k+1}}=a+bi.
+        \end{equation}
+\end{proof}
+
+Le théorème de d'Alembert possède de nombreuses démonstrations. En voici une qui à ma connaissance est celle demandant le moins d'analyse; une démonstration à base de théorie de Galois peut être trouvée dans \cite{rqrNyg,ooPSLMooAVODjn}. Si vous lisez ces lignes pour savoir qu'un polynôme de degré \( n\) possède au \emph{maximum} \( n\) racines, ce n'est pas ici qu'il faut regarder, mais le corolaire \ref{CORooUGJGooBofWLr}.
+\begin{theorem}[d'Alembert\cite{ooRIPVooMlBiAH}]   \label{THOooIRJYooBiHRyW}
+    Tout polynôme non constant à coefficients complexes admet au moins une racine complexe.
+\end{theorem}
+
+\begin{proof}
+    Nous effectuons une preuve tout à la fois par l'absurde et par récurrence en supposant que le polynôme
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eC&\to \eC \\
+            z&\mapsto z^n+a_1z^{n-1}+\ldots+a_n 
+        \end{aligned}
+    \end{equation}
+    n'a pas de racines dans \( \eC\), et que \( n\) soit le plus petit entier pour lequel un tel polynôme existe. Nous notons
+    \begin{equation}
+        n=2^km
+    \end{equation}
+    où \( m\) est impair.
+
+    Le lemme \ref{LEMooYZVGooXZvBAc} donne un point \( z_0\) qui réalise le minimum global de \( | f |\) sur $\eC$. Nous posons \( g(z)=f(z_0+z)\) et nous définissons ses coefficients \( A_i\) par
+    \begin{equation}
+        g(z)=\sum_{i=0}^nA_iz^i.
+    \end{equation}
+    Nous avons \( A_n=1\) et \( | A_0 |=| f(z_0) |\). Soit \( A_r\) le premier à être non nul parmi les \( A_1\), \( A_2\), \ldots.
+    \begin{subproof}
+        \item[Si \( r<n\)]
+            Par hypothèse de récurrence, il existe \( \xi\in \eC\) tel que \( \xi^r=-A_1/A_r\). Nous avons
+            \begin{equation}
+                g(t\xi)=A_0+\frac{ -A_rt^rA_0 }{ A_r }+t^{r+1}\sum_{i=r+1}^nA_i\xi^it^{i-r-1}.
+            \end{equation}
+            En notant \( P(t)\) le dernier polynôme, nous pouvons écrire cela sous forme compacte :
+            \begin{equation}
+                g(t\xi)=A_0-t^rA_0+t^{r+1}P(t).
+            \end{equation}
+            Vu que
+            \begin{equation}
+                \lim_{t\to 0} \frac{ t^{r+1}P(t) }{ t^r| A_0 | }=\lim_{t\to 0} tP(t)=0,
+            \end{equation}
+            il existe \( t_0>0\) tel que
+            \begin{equation}
+                | t_0^{r+1}P(t_0) |<| A_0t_0r |.
+            \end{equation}
+            Nous choisissons de plus \( t_0<1\), de telle sorte que \( 1-t^r>0\). Avec cela nous avons
+            \begin{equation}
+                | g(t\xi) |\leq | A_0 |(1-t^r)+| t^{r+1}P(t) |=| A_0 |\underbrace{-t^r| A_0 |+| t^{r+1}P(t) |}_{<0}<| A_0 |.
+            \end{equation}
+            Or \( | A_0 |\) était un minimum global de \( | g |\). Contradiction.
+
+        \item[Si \( r=n\)]
+
+            Dans ce cas,
+            \begin{equation}
+                g(z)=f(z_0+z)=A_0+z^n,
+            \end{equation}
+            et nous rappelons que \( n=2^km\) où \( m\) est impair. Nous allons trouver une contradiction dans les quatre cas \( \real{A_0}>0\), \( \real(A_0)<0\), \( \imag(A_0)>0\) et \( \imag(A_0)<0\). Bien entendu ces cas se recouvrent largement, mais en toute généralité, nous avons besoin des quatre.
+            \begin{subproof}
+                \item[Si \( \real(A_0)>0\)]
+                    La proposition \ref{PROPooLBBLooQwEiHr} nous permet de considérer \( v\in \eC\) tel que \( v^{2^k}=-1\). Nous avons alors
+                    \begin{equation}
+                        g(tv)=A_0+(tv)^n=A_0+t^n(v^{2^k})^m=A_0+t^n(-1)^m=A_0-t^n
+                    \end{equation}
+                    parce que \( m\) est impair. Nous avons \( \imag\big( g(tv) \big)=\imag(A_0)\). Si \( t\) est assez petit pour que \( t^n<| \real(A_0) |\) nous avons aussi \( |\real\big( g(tv) \big)|<| \real(A_0) |\). Donc
+                    \begin{equation}
+                        | g(tv) |^2=| \real\big( g(tv) \big) |^2+| \real\big( g(tv) \big) |^2<| \real(A_0) |^2+| \imag(A_0) |^2=| A_0 |^2.
+                    \end{equation}
+                    Donc \( | g(tv) |<| A_0 |\). Contradiction.
+                \item[Si \( \real(A_0)<0\)]
+                    Nous prenons \( v=1\), et même histoire.
+                \item[Si \( \imag(A_0)<0\)]
+                    Nous prenons \( w\in \eC\) tel que
+                    \begin{equation}
+                        w^{2^k}=i(-1)^{\frac{ 1 }{2}(m-1)}.
+                    \end{equation}
+                    Là, il y a un peu d'arrachage de cheveux pour bien voir les cas. La difficulté est que les puissances de \( i\) alternent entre \( 1\), \( -1\), \( i\) et \( -i\). Vu que \( m\) est impair, nous avons un \( l\) tel que \( m=2l+1\). Nous subdivisons les cas \( l\) pair et \( l\) impair.
+                    \begin{subproof}
+                        \item[Si \( l\) est pair]
+                            Alors d'une part \( \frac{ 1 }{2}(m-1)=l\) est pair et donc 
+                            \begin{equation}
+                                (-1)^{\frac{ 1 }{2}(m-1)}=1.
+                            \end{equation}
+                            Et d'autre part, \( i^{2l+1}=(-1)^li=i\). En tout,
+                            \begin{equation}
+                                i^m(-1)^{\frac{ 1 }{2}(m-1)}=i.
+                            \end{equation}
+                        \item[Si \( l\) est impair]
+                            Alors \( \frac{ 1 }{2}(m-1)=l\) et \( (-1)^{\frac{ 1 }{2}(m-1)}=-1\). Mais en même temps, \( i^{2l+1}=-i\), ce qui donne encore une fois
+                            \begin{equation}
+                                i^m(-1)^{\frac{ 1 }{2}(m-1)}=i.
+                            \end{equation}
+                    \end{subproof}
+                    Bref, que \( l\) soit pair ou impair, nous avons \( i^m(-1)^{\frac{ 1 }{2}(m-1)}=i\).
+            \end{subproof}
+            Nous avons donc \( \real\big( g(tw) \big)=\real(A_0)\) et \( \imag\big( g(tw) \big)<\imag(A_0)\). Encore contradiction.
+                \item[Si \( \imag(A_0)=0\)]
+                    Même chose que ce que nous venons de faire, mais avec
+                    \begin{equation}
+                        w^{2^k}=-i(-1)^{\frac{ 1 }{2}(m-1)}.
+                    \end{equation}
+    \end{subproof}
+\end{proof}
+
+\begin{corollary}
+    Le corps $\eC$ est algébriquement clos.
+\end{corollary}
+
+\begin{corollary}[\cite{MonCerveau}]       \label{CORooKKNWooWEQukb}
+    Tout polynôme de degré \( 3\) à coefficients réels possède au moins une racine réelle.
+\end{corollary}
+
+\begin{proof}
+    Soient les racines \( \lambda_1\), \( \lambda_2\) et \( \lambda_3\) du polynôme en question. Toutes trois sont dans \( \eC\). Supposons que \( \lambda_1\) ne soit pas réelle. Alors \( \lambda_2\) ou \( \lambda_3\) doit être égale à \( \bar\lambda_1\). Disons \( \lambda_2\). Nous avons donc les racines \( \lambda_1\), \( \bar\lambda_1\) et \( \lambda_3\). Le polynôme se factorise alors en
+    \begin{equation}        \label{EQooELMMooNbpBgg}
+        a(X-\lambda_1)(X-\bar\lambda_1)(X-\lambda_3).
+    \end{equation}
+    Le coefficient \( a\) doit être réel parce qu'il est le coefficient du terme en \( X^3\) (réel par hypothèse). Si \( \lambda_3\) n'est pas réel, alors ce polynôme ne peut pas avoir des coefficients réels. Entre autres parce que terme indépendant est \( a| \lambda_1 |^2\lambda_3\), qui est réel si et seulement si \( \lambda_3\) est réel\footnote{Notez l'utilisation du lemme~\ref{LEMooONLNooXLNbtB}.}.
+\end{proof}
+Tant que vous y êtes, vous pouvez voir que le polynôme \eqref{EQooELMMooNbpBgg} est à coefficient réels si et seulement si \( a\in \eR\) et \( \lambda_3\in \eR\).
+
+\begin{example}     \label{EXooIPLOooSNfiWg}
+    Toute application linéaire \( \eR^3\to \eR^3\) a un vecteur propre. En effet si \( R\colon \eR^3\to \eR^3\) est linéaire, son polynôme caractéristique \( \chi_R\) est de degré \( 3\). Le corolaire \ref{CORooKKNWooWEQukb} indique qu'un tel polynôme possède au moins une racine réelle.
+    Une telle racine est une valeur propre de \( R\) par le théorème \ref{ThoWDGooQUGSTL}.
+\end{example}
+
+\begin{definition}
+    Si \( \lambda\in\eK\) est une racine de \( \chi_u\), l'ordre de l'annulation est la \defe{multiplicité algébrique}{multiplicité!valeur propre!algébrique} de la valeur propre \( \lambda\) de \( u\). À ne pas confondre avec la \defe{multiplicité géométrique}{multiplicité!valeur propre!géométrique} qui sera la dimension de l'espace propre.
+\end{definition}
+
+\begin{proposition}
+    Un polynôme irréductible à coefficients réels est soit de degré un soit de degré \( 2\) avec un discriminant négatif.
+\end{proposition}
+
+\begin{proof}
+    Soit un polynôme \( P\) à coefficients réels de degré plus grand que \( 1\). Alors le théorème de d'Alembert-Gauss (théorème~\ref{THOooIRJYooBiHRyW}) implique l'existence d'une racine \( \alpha \in \eC \). Si $\alpha$ est un réel, $P$ est réductible. Si \( \alpha\) n'est pas réel, alors conjugué complexe \( \bar \alpha\) est également une racine. Par conséquent les polynômes \( (X-\alpha)\) et \( (X-\bar \alpha)\) divisent \( P\) dans \( \eC[X]. \).
+
+    Ces deux polynômes sont premiers entre eux parce que
+    \begin{equation}
+        a(X-\alpha)+b(X-\bar \alpha)=0
+    \end{equation}
+    implique \( a=b=0\). Par conséquent le produit
+    \begin{equation}
+        X^2-(\alpha+\bar \alpha)X+\alpha\bar\alpha
+    \end{equation}
+    divise également \( P\). Ce dernier est un polynôme à coefficients réels de degré \( 2\). Donc tout polynôme de degré \( 3\) ou plus est réductible.
+\end{proof}
+
+\begin{proposition}     \label{PROPooLXGSooXmVcVG}
+    Si \( E\) est un espace vectoriel sur \( \eC\), tout endomorphisme possède au moins une valeur propre.
+\end{proposition}
+
+\begin{proof}
+    Soit un endomorphisme \( u\) sur \( E\). Le théorème \ref{ThoWDGooQUGSTL} dit que \( \lambda\in \eC\) est une valeur propre si et seulement si \( \lambda\) est une racine du polynôme caractéristique \( \chi_u\). Or ce polynôme possède au moins une racine dans \( \eC\) par le théorème de d'Alembert \ref{THOooIRJYooBiHRyW}.
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -427,7 +727,7 @@ Plus généralement, la vitesse moyenne entre $2$ et $2+\Delta t$ est donnée pa
 \[
   v_{\text{moy}}(2\to 2+\Delta t)=\frac{ x(2+\Delta t)-x(2) }{ \Delta t }.
 \]
-Cela est une fonction de $\Delta t$. Oui, mais je te rappelle qu'on a dans l'idée de calculer une vitesse instantanée, c'est à dire de voir ce que vaut la vitesse moyenne sur un intervalle très {\small très} {\footnotesize très} {\scriptsize très} {\tiny petit}. La notion de limite semble toute indiquée pour décrire mathématiquement l'idée physique de vitesse instantanée.
+Cela est une fonction de $\Delta t$. Oui, mais je te rappelle qu'on a dans l'idée de calculer une vitesse instantanée, c'est-à-dire de voir ce que vaut la vitesse moyenne sur un intervalle très {\small très} {\footnotesize très} {\scriptsize très} {\tiny petit}. La notion de limite semble toute indiquée pour décrire mathématiquement l'idée physique de vitesse instantanée.
 
 Nous allons dire que la vitesse instantanée d'un mobile est la limite quand $\Delta t$ tend vers zéro de sa vitesse moyenne sur l'intervalle de temps $\Delta t$, ou en formule :
 \begin{equation}		\label{Eqvinstlimite}
@@ -455,7 +755,7 @@ Nous avons placé le point, sur la figure~\ref{LabelFigTangenteDetail}, le point
 \begin{align}
 	P=\big(a,f(a)\big)&& Q=\big(x,f(x)\big).
 \end{align}
-Comme tu devrais le savoir sans même regarder la figure~\ref{LabelFigTangenteDetail}, le coefficient directeur de la droite qui passe par ces deux points est donné par
+En regardant par exemple la figure~\ref{LabelFigTangenteDetail}, le coefficient directeur de la droite qui passe par ces deux points est donné par
 \begin{equation}
 	\frac{ f(x)-f(a) }{ x-a },
 \end{equation}
@@ -474,7 +774,7 @@ et bang ! Encore le même rapport que celui qu'on avait trouvé à l'équation \
 \subsection{L'aire en dessous d'une courbe}		\label{SubSecAirePrimInto}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Encore un exemple. Nous voudrions bien pouvoir calculer l'aire en dessous d'une courbe. Nous notons $S_f(x)$ l'aire en dessous de la fonction $f$ entre l'abscisse $0$ et $x$, c'est à dire l'aire bleue de la figure~\ref{LabelFigNOCGooYRHLCn}. % From file NOCGooYRHLCn
+Encore un exemple. Nous voudrions bien pouvoir calculer l'aire en dessous d'une courbe. Nous notons $S_f(x)$ l'aire en dessous de la fonction $f$ entre l'abscisse $0$ et $x$, c'est-à-dire l'aire bleue de la figure~\ref{LabelFigNOCGooYRHLCn}. % From file NOCGooYRHLCn
 \newcommand{\CaptionFigNOCGooYRHLCn}{L'aire en dessous d'une courbe. Le rectangle rouge d'aire $f(x)\Delta x$ approxime l'augmentation de l'aire lorsqu'on passe de $x$ à $x+\Delta x$.}
 \input{auto/pictures_tex/Fig_NOCGooYRHLCn.pstricks}
 
@@ -482,19 +782,19 @@ Si la fonction $f$ est continue et que $\Delta x$ est assez petit, la fonction n
 \begin{equation}
 	S_f(x+\Delta x)-S_f(x)=f(x)\Delta x,
 \end{equation}
-c'est à dire
+c'est-à-dire
 \begin{equation}
 	f(x)=\lim_{\Delta x\to 0}\frac{  S_f(x+\Delta x)-S_f(x)}{ \Delta x }.
 \end{equation}
 Donc, la fonction $f$ est la dérivée de la fonction qui représente l'aire en dessous de $f$. Calculer des surfaces revient donc au travail inverse de calculer des dérivées.
 
-Nous avons déjà vu que calculer la dérivée d'une fonction n'est pas très compliqué. Aussi étonnant que cela puisse paraître, il se fait que le processus inverse est très compliqué : il est en général extrêmement difficile (et même souvent impossible) de trouver une fonction dont la dérivée est une fonction donnée.
+Nous avons déjà vu que calculer la dérivée d'une fonction n'est pas très compliqué. Aussi étonnant que cela puisse paraitre, il se fait que le processus inverse est très compliqué : il est en général extrêmement difficile (et même souvent impossible) de trouver une fonction dont la dérivée est une fonction donnée.
 
 Une fonction dont la dérivée est la fonction $f$ s'appelle une \defe{primitive}{primitive} de $f$, et la fonction qui donne l'aire en dessous de la fonction $f$ entre l'abscisse $0$ et $x$ est notée
 \begin{equation}
 	S_f(x)=\int_0^xf(t)dt.
 \end{equation}
-Nous pouvons nous demander si, pour une fonction $f$ donnée, il existe une ou plusieurs primitives, c'est à dire s'il existe une ou plusieurs fonctions $F$ telles que $F'=f$. La réponse viendra\ldots
+Nous pouvons nous demander si, pour une fonction $f$ donnée, il existe une ou plusieurs primitives, c'est-à-dire s'il existe une ou plusieurs fonctions $F$ telles que $F'=f$. La réponse viendra\ldots
 %TODO : faire la référence
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -564,14 +864,30 @@ On considère dans la suite une fonction $f : A \to \eR$, où $a \in A \subset \
 \end{proof}
 
 \begin{theorem} \label{THOooFFOZooCYGets}
-  Toute fonction $f$ dérivable au point $x_0$ est continue au point $x_0$.
+  Toute fonction dérivable en un point est continue en ce point.
 \end{theorem}
+
+\begin{proof}
+    Soient \( f\colon \eR\to \eR\) et \( a\in \eR\). Nous supposons que \( f\) n'est pas continue en \( a\) et nous allons en déduire qu'elle n'est pas non plus dérivable en \( a\). Pour cela nous considérons le lien entre limite et continuité donné dans le théorème \ref{ThoLimCont}. Nier que \( f\) est continue en \( a\) revient à dire qu'il existe un voisinage \( V\) de \( f(a)\) tel que
+    \begin{equation}
+        \forall r>0,\,\exists \epsilon<r \tq f(a+\epsilon)\notin V.
+    \end{equation}
+    Si \( B\big( f(a),R \big)\subset V\)\footnote{Existence par la définition de la topologie métrique \ref{ThoORdLYUu}.}, et si \( r=1/n\), nous construisons une suite \( \epsilon_n\to 0\) telle que
+    \begin{equation}
+        | f(a+\epsilon_n)-f(a) |>R.
+    \end{equation}
+    Avec cela nous avons
+    \begin{equation}
+        \frac{ | f(a+\epsilon_n)-f(a) | }{ \epsilon_n }>\frac{ R }{ \epsilon_n }\to \infty.
+    \end{equation}
+    Donc la fonction \( f\) ne peut pas être dérivable en \( a\).
+\end{proof}
 
 \begin{remark}
      La réciproque du théorème précédent n'est pas vraie : il existent bien des fonctions qui sont continues à un point $x_0$ mais qui ne sont pas dérivables en $x_0$. La fonction valeur absolue, $x\mapsto |x|$, par exemple est continue sur tout $\eR$ mais elle n'est pas dérivable en $0$.
 \end{remark}
 
-Si \( f\) est une fonction dérivable, rien n'empêche la fonction dérivée \( f'\) d'être elle-même dérivable. Dans ce cas nous notons \( f''\) ou \( f^{(2)}\) la dérivée de la fonction \( f'\). Cette fonction $f''$ est la \defe{dérivée seconde}{dérivée!seconde} de \( f\). Elle peut encore être dérivable; dans ce cas nous notons \( f^{(3)}\) sa dérivée, et ainsi de suite. Nous définissons \( f^{(n)}=(f^{(n-1)})'\) la dérivée \( n\)\ieme de \( f\). Nous posons évidemment $f^{(0)}=f$.
+Si \( f\) est une fonction dérivable, il peut arriver que la fonction dérivée \( f'\) soit elle-même dérivable. Dans ce cas nous notons \( f''\) ou \( f^{(2)}\) la dérivée de la fonction \( f'\). Cette fonction $f''$ est la \defe{dérivée seconde}{dérivée!seconde} de \( f\). Elle peut encore être dérivable; dans ce cas nous notons \( f^{(3)}\) sa dérivée, et ainsi de suite. Nous définissons \( f^{(n)}=(f^{(n-1)})'\) la dérivée \( n\)\ieme de \( f\). Nous posons évidemment $f^{(0)}=f$.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Exemples}
@@ -656,7 +972,7 @@ Mais si $x$ devient très petit, la dernière fraction tend vers l'infini.
 \subsection[Interprétation géométrique : tangente]{Interprétation géométrique de la dérivée : tangente}
 %--------------------------------------------------------------------------------------------------------------------------
 
-Considérons le \defe{graphe}{graphe} de la fonction $f$ sur $I$, c'est à dire l'ensemble
+Considérons le \defe{graphe}{graphe} de la fonction $f$ sur $I$, c'est-à-dire l'ensemble
 \begin{equation}
 	\big\{ \big( x,f(x) \big)\tq x\in I \big\}.
 \end{equation}
@@ -705,7 +1021,7 @@ Le second membre tend vers zéro lorsque $x$ tend vers $a$ avec une «vitesse au
 \begin{equation}
 	f(x)-f(a)-\ell(x-a)\simeq 0,
 \end{equation}
-c'est à dire
+c'est-à-dire
 \begin{equation}		\label{Eqfxsimesfa}
 	f(x)\simeq f(a)+f'(a)(x-a).
 \end{equation}
@@ -716,22 +1032,6 @@ L'équation \eqref{Eqfxsimesfa} peut être aussi écrite sous la forme
 	f(x+\Delta x)\simeq f(x)+f'(x)\Delta x
 \end{equation}
 qui est une approximation d'autant meilleure que $\Delta x$ est petit.
-
-\begin{proposition}[\cite{ooAAFGooXRSaWs}]      \label{PROPooSGTBooFxUuXK}
-    Soit \(f \) une fonction dérivable et strictement monotone de l'intervalle \( I\) sur l'intervalle \( J\)  (f est alors une bijection de $I$ vers $J$). Si  ne s'annule par sur  alors
-    \begin{enumerate}
-        \item
-            la fonction \( f\) est une bijection de \( I\) vers \( J\),
-        \item
-            la fonction \( f^{-1}\) est dérivable sur \( J\),
-        \item
-            et nous avons la formule
-            \begin{equation}        \label{EQooELIHooDxUFxH}
-                (f^{-1})'=\frac{1}{ f'\circ f^{-1} }.
-            \end{equation}
-    \end{enumerate}
-\end{proposition}
-\index{réciproque!dérivabilité}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Développement limité au premier ordre}
@@ -944,66 +1244,6 @@ D'abord une dérivée facile, qui sera utile pour démontrer la formule de déri
     La formule \( (1/u)'=-u'/u^2\) ne peut pas être vue comme un cas particulier de \( (u^{\alpha})'=\alpha u^{\alpha-1}\) (proposition \ref{PROPooSGLGooIgzque}) parce que cette formule est utilisée dans la démonstration de la formule générale.
 \end{remark}
 
-La proposition suivante donne la dérivée de \( x\mapsto x^q\) pour tout \( q\in \eQ\). La formule donnée est encore valable pour \( x\mapsto x^{\alpha}\) pour tout \( \alpha\in \eR\), mais elle demandera plus de théorie pour être démontrée, voir la proposition \ref{PROPooKIASooGngEDh}.
-\begin{proposition}[\cite{MonCerveau}]     \label{PROPooSGLGooIgzque}
-    Pour tout \( \alpha\in \eQ\), si \( f_{\alpha}(x)=x^{\alpha}\) alors
-    \begin{equation}
-        f'_{\alpha}(x)=\alpha x^{\alpha-1}.
-    \end{equation}
-    En particulier, \( f_{\alpha}\) est de classe \(  C^{\infty}\) sur \( \eR\setminus\{ 0 \}\).
-\end{proposition}
-
-\begin{proof}
-    Petit à petit.
-    \begin{subproof}
-        \item[Naturel]
-            Nous prouvons que \( (x^n)'=nx^{n-1}\) par récurrence en utilisant la règle de Leibnitz de la propositon  \ref{PROPooOUZOooEcYKxn}\ref{ITEMooMQERooBCqnvS}.
-
-            D'abord pour \( n=1\) nous avons \( f_1(x)=x\) et donc
-            \begin{equation}
-                f_1'(x)=\lim_{\epsilon\to 0}\frac{ (x+\epsilon)-x }{ \epsilon }=1.
-            \end{equation}
-            Supposons que \( f_k'(x)=kx^{k-1}\) pour un certain \( k\in \eN\). Nous prouvons que \( f_{k+1}'(x)=(k+1)x^{k}\).  Nous avons
-            \begin{equation}
-                x^{k+1}=xx^k.
-            \end{equation}
-            En utilisant la règle de Leibnitz et l'hypothèse de récurrence,
-            \begin{equation}
-                    \big( x^{k+1} \big)'=(x)'x^k+x\big( x^k \big)'
-                    =x^k+x\big( kx^{k-1} \big)
-                    =x^k+kx^k
-                    =(k+1)x^k,
-            \end{equation}
-            ce qu'il fallait démontrer.
-
-        \item[Rationnel positif]
-            Soit donc \( \alpha=p/q\) avec \( p,q\in \eN\). Le lemme \ref{LEMooIDLJooZALNaD} nous permet d'écrire \( f_{p/q}(x)=x^{p/q}=(x^p)^{1/q}\). Cela donne
-            \begin{equation}
-                f_{p/q}(x)^q=x^p.
-            \end{equation}
-            Nous dérivons cette relation par rapport à \( x\) en utilisant à la fois la règle pour les entiers et la règle des fonctions composées\footnote{Proposition \ref{PROPooOUZOooEcYKxn}\ref{ITEMooLYZCooVUPTyh}.} :
-            \begin{equation}
-                qf_{p/q}'(x)^{q-1}f'_{p/q}(x)=px^{p-1}.
-            \end{equation}
-            En isolant \( f_{p/q}'(x)\) dans cette expression et en utilisant le fait que \( \frac{ x^a }{ x^b }=x^{a-b}\), nous trouvons le résultat.
-
-        \item[Rationnels négatifs]
-
-            Soit \( \alpha=-p/q\) avec \( p,q\in \eN\). Nous avons \( x^{-p/q}=\frac{1}{ f_{p/q}(x) }\). En utilisant la proposition \ref{PROPooOUZOooEcYKxn}\ref{ITEMooMUNQooLiKffz} et le point déjà prouvé sur les rationnels positifs,
-            \begin{equation}
-                f'_{p/q}=-\frac{ f'_{-p/q} }{ f_{p/q}^2 }=-\frac{ (-p/q)x^{-p/q-1} }{ x^{-2p/q} }=(p/q)x^{p/q-1}.
-            \end{equation}
-            Notez l'utilisation de la proposition \ref{PROPooDWZKooNwXsdV} au dénominateur.
-
-        \item[Irrationnel]
-
-            Ah ah ! On vous a bien eu. Les irrationnels, c'est pour la proposition \ref{PROPooKIASooGngEDh}.
-    \end{subproof}
-    En ce qui concerne le fait que la fonction \( f_{\alpha}\) est de classe \(  C^{\infty}\) sur \( \eR\setminus\{ 0 \}\), c'est simplement une récurrence. Attention : si le rationnel \( \alpha\) est négatif, \( f_{\alpha}(0)\) n'est pas défini. Mais, lorsque \( \alpha\) est positif non entier, à partir d'un certain ordre, les dérivées font intervenir \( x^{\beta}\) avec \( \beta<0\). D'où la restriction à \( \eR\setminus\{ 0 \}\) du domaine sur lequel \( f_{\alpha}\) est de classe \(  C^{\infty}\).
-
-    Si \( \alpha\) est positif entier, alors \( f_{\alpha}\) est de classe \(  C^{\infty}\) sur tout \( \eR\) parce que toutes les dérivées sont nulles à partir d'un certain ordre.
-\end{proof}
-
 
 Pour les fonctions à valeurs dant \( \eR^n\), nous posons la définition suivante.
 \begin{definition}
@@ -1011,7 +1251,7 @@ Pour les fonctions à valeurs dant \( \eR^n\), nous posons la définition suivan
     \begin{equation}
         f'(x)=\sum_if'_i(x)e_i,
     \end{equation}
-    c'est à dire une dérivation composante par composante.
+    c'est-à-dire une dérivation composante par composante.
 \end{definition}
 
 Cette définition est celle pour une fonction \( \eR\to \eR^n\), et elles est facile. Très différente est la situation d'une fonction \( \eR^n\to \eR\) dans laquelle il faudra introduire la notion de différentielle\footnote{Ce sera pour la définition \ref{DefDifferentiellePta}.}.
@@ -1041,8 +1281,9 @@ Nous faisons la preuve pour le produit scalaire; sans doute que le produit vecto
     \begin{subequations}
         \begin{align}
             f(t+\epsilon)\cdot g(t+\epsilon)-f(t)\cdot g(t)&=\big( f(t)+\epsilon f'(t)+\epsilon \alpha(\epsilon) \big)\cdot\big( g(t)+\epsilon g'(t)+\epsilon\beta(\epsilon) \big)\\
+            &\quad - f(t)\cdot g(t)\\
             &=\epsilon f(t)\cdot g'(t)+\epsilon^2 f'(t)\cdot \beta(\epsilon)\\
-            &=+\epsilon\alpha(\epsilon)\cdot g(t)+\alpha(\epsilon)\epsilon^2\cdot g'(t)+\epsilon^2\alpha(\epsilon)\cdot \beta(\epsilon).
+            &\quad+\epsilon\alpha(\epsilon)\cdot g(t)+\alpha(\epsilon)\epsilon^2\cdot g'(t)+\epsilon^2\alpha(\epsilon)\cdot \beta(\epsilon).
         \end{align}
     \end{subequations}
     En divisant cela par \( \epsilon\) et en prenant la limite \( \epsilon\to 0\), et nous reste
@@ -1085,6 +1326,22 @@ Nous faisons la preuve pour le produit scalaire; sans doute que le produit vecto
     \end{equation}
     Nous avons utilisé le fait que \( f(a)=b\) et \( a=f^{-1}(b)\).
 \end{proof}
+
+\begin{proposition}[\cite{BIBooWTHJooTyNuub}]      \label{PROPooSGTBooFxUuXK}
+    Soit \(f \) une fonction dérivable et strictement monotone de l'intervalle \( I\) sur l'intervalle \( J\)  (f est alors une bijection de $I$ vers $J$). Si \( f'\)  ne s'annule par sur \( I\) alors
+    \begin{enumerate}
+        \item
+            la fonction \( f\) est une bijection de \( I\) vers \( J\),
+        \item
+            la fonction \( f^{-1}\) est dérivable sur \( J\),
+        \item
+            et nous avons la formule
+            \begin{equation}        \label{EQooELIHooDxUFxH}
+                (f^{-1})'=\frac{1}{ f'\circ f^{-1} }.
+            \end{equation}
+    \end{enumerate}
+\end{proposition}
+\index{réciproque!dérivabilité}
 
 \begin{normaltext}
  Très souvent on préfère retenir la formule

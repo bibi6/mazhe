@@ -31,7 +31,7 @@
 \end{proposition}
 
 \begin{proof}
-    Soient \( E\) un espace métrique et \( \phi\colon X\to (E,d)\) un homéomorphisme. Nous supposons que \( f\colon X\to Y\) est séquentiellement continue. Nous considérons l'application \( \tilde f=f\circ\phi^{-1}\), c'est à dire
+    Soient \( E\) un espace métrique et \( \phi\colon X\to (E,d)\) un homéomorphisme. Nous supposons que \( f\colon X\to Y\) est séquentiellement continue. Nous considérons l'application \( \tilde f=f\circ\phi^{-1}\), c'est-à-dire
     \begin{equation}
         \begin{aligned}
             \tilde f\colon E&\to Y \\
@@ -52,12 +52,49 @@
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Fonctions continues}
 %---------------------------------------------------------------------------------------------------------------------------
+La propriété suivante donne des caractérisations importantes de la continuité dans le cas des espaces métriques.
+\begin{proposition}[Continuité, ouverts et voisinages et limite\cite{DHpsZoY}] \label{PropQZRNpMn}
+    Soient \( f\colon E\to F\) une application entre espaces métriques et \( a\in E\). Alors nous avons équivalence entre les choses suivantes :
+    \begin{enumerate}
+        \item\label{ItemCBUoRWJi}
+            \( f\) est continue en \( a\),
+        \item\label{ItemCBUoRWJii}
+            Pour tout voisinage ouvert \( W\) de \( f(a)\), il existe un voisinage ouvert \( V\) de \( a\) tel que \( f(V)\subset W\).
+        \item\label{ItemCBUoRWJiii}
+            Pour toute boule \( W'=B\big( f(a),\epsilon \big)\), il existe une boule \( V'=B(a,\delta)\) telle que \( f(V)\subset W\).
+        \item\label{ItemCBUoRWJiv}
+            $\forall \epsilon>0,\,\exists \delta>0\,\tq f\big( B(a,\delta) \big)\subset B\big( f(a),\epsilon \big)$.
+        \item\label{ItemYNQpikrii}
+            \( \lim_{x\to a}f(x)=f(a)\) où la limite est donnée par la définition~\ref{DefYNVoWBx},
+        \item\label{ItemYNQpikriii}
+            Pour tout \( \epsilon>0\), il existe \( \delta>0\) tel que \( \| x-a \|<\delta\) implique \( \| f(x)-f(a) \|<\epsilon\).
+    \end{enumerate}
+\end{proposition}
+\index{continue!fonction entre espaces métriques}
+La proposition~\ref{PropNGjQnqF} nous montrera que ces équivalences tiennent encore lorsque l'espace a une topologie de semi-normes.
+
+\begin{proof}
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemCBUoRWJii} est la définition~\ref{DefOLNtrxB}. L'équivalence~\ref{ItemCBUoRWJiii} \( \Leftrightarrow\)~\ref{ItemCBUoRWJiv} est une simple paraphrase.
+
+    Montrons~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemCBUoRWJiii}. Si \( W'=B\big( f(a),\delta \big)\), nous avons un voisinage \( V\) de \( a\) tel que \( f(V)\subset W\). L'ensemble \( V\) contenant une boule autour de chacun de ses points\footnote{Cela est le théorème-définition~\ref{ThoORdLYUu} des ouverts dans un espace métrique, à ne pas confondre avec le théorème~\ref{ThoPartieOUvpartouv}.}, il en contient un autour de \( a\) : \( V'=B(a,\delta)\subset V\). A fortiori nous avons \( f(V')\subset W\).
+
+    Montrons~\ref{ItemCBUoRWJiii} \( \Rightarrow\)~\ref{ItemCBUoRWJii}. Si \( W\) est un ouvert autour de \( f(a)\), il contient une boule autour de \( f(a)\) : \( B\big( f(a),\epsilon \big)\subset W\). Il existe donc une boule \( V'=B(a,\delta)\) telle que \( f(V')\subset B\big( f(a),\epsilon \big)\subset W\).
+
+    L'équivalence~\ref{ItemCBUoRWJi} \( \Leftrightarrow\)~\ref{ItemYNQpikrii} est la définition~\ref{DefOLNtrxB} de la continuité en un point couplée à l'unicité de la limite due à la proposition~\ref{PropFObayrf} parce qu'un espace métrique est séparé.
+
+    Prouvons~\ref{ItemYNQpikrii} \( \Rightarrow\)~\ref{ItemYNQpikriii}. Soient \( \epsilon>0\) et \( V=B\big( f(a),\epsilon \big)\). Étant donné que \( f(a)\) est une limite de \( f\) pour \( x\to a\), il existe un voisinage \( W\) de \( a\) tel que \( f(W)\subset V\). Soit \( \delta>0\) tel que \( B(a,\delta)\subset W\); alors si \( \| x-a \|<\delta\) nous avons \( x\in B(x,\delta)\subset W\) et donc \( f(x)\in B\big( f(a),\epsilon \big)\), c'est-à-dire \( \| f(a)-f(x) \|<\epsilon\).
+
+    Enfin l'implication~\ref{ItemCBUoRWJii} \( \Rightarrow\)~\ref{ItemYNQpikrii} est une réécriture de la définition de la limite en un point.
+\end{proof}
+
+Voici un théorème qui parle de fermés emboîtés dans un espace métrique. Le corolaire \ref{CORooQABLooMPSUBf} parle du cas \( \cap_iA_i=\emptyset\) dans un compact.
 
 \begin{theorem}[Théorème \wikipedia{fr}{Théorème_des_fermés_emboités}{des fermés emboîtés}\cite{OIywOjl}]   \label{ThoCQAcZxX}
     Soit \( (E,d)\) un espace métrique. Il est complet si et seulement si toute suite décroissante de fermés non vides dont le diamètre tend vers zéro a une intersection qui se réduit à un seul point.
 \end{theorem}
 
 \begin{proof}
+    En deux parties.
     \begin{subproof}
     \item[Condition suffisante]
 
@@ -176,7 +213,7 @@
         \end{subequations}
         et nous avons évidemment \( \Gamma=A\cup B\). Montrons que \( A\) est fermé (\( B\) le sera aussi par le même raisonnement). Soit une suite d'éléments de \( S\cap \Gamma\) convergent dans \( X\). Alors la limite est dans \( \bar\Gamma=\Gamma\) et donc elle est donc \( O\) ou \( S\), mais elle est certainement dans \( \bar S\). Cependant \( \bar S\) n'intersecte pas \( O\). En effet si \( x\in \bar S\cap O\), alors tout voisinage de \( x\) intersecterait \( S\), mais il y a des voisinages de \( x\) étant inclus dans \( O\) parce que \( O\) est ouvert; cela donnerait une intersection entre \( O\) et \( S\), ce qui est impossible. Donc la limite n'est pas dans \( O\) et donc elle est dans \( S\). Au final la limite est dans \( S\cap \Gamma\), ce qui prouve son caractère fermé.
 
-        Comme d'habitude, \( \Gamma\cap S\) est compact parce que fermé dans un compact.
+        Comme d'habitude, \( \Gamma\cap S\) est compact parce que fermé dans un compact\footnote{Lemme \ref{LemnAeACf}.}.
 
     \item[Décomposition en trois morceaux]
 
@@ -313,9 +350,9 @@ Nous n'allons donner la preuve que dans le cas d'un produit fini dans le théor�
 
 Soit \( (x,d)\) un espace métrique.
 \begin{definition}
-    Une \defe{\( \epsilon\)-chaîne}{chaîne} joignant les points \( a\) et \( b\) de \( X\) est une suite finie \( (u_0,\ldots, u_n)\) dans \( X\) telle que \( u_0=a\), \( u_n=b\) et pour tout \( 0\leq i\leq n-1\) nous avons \( d(u_n,u_{n+1})\leq \epsilon\).
+    Une \defe{\( \epsilon\)-chaine}{chaine} joignant les points \( a\) et \( b\) de \( X\) est une suite finie \( (u_0,\ldots, u_n)\) dans \( X\) telle que \( u_0=a\), \( u_n=b\) et pour tout \( 0\leq i\leq n-1\) nous avons \( d(u_n,u_{n+1})\leq \epsilon\).
 
-    Une partie \( A\) de \( X\) est \defe{bien enchaînée}{bien!enchaîné} si pour tout \( \epsilon>0\) et pour tout \( a,b\in A\), il existe une \( \epsilon\)-chaîne joignant \( a\) et \( b\) dans $A$.
+    Une partie \( A\) de \( X\) est \defe{bien enchaînée}{bien!enchaîné} si pour tout \( \epsilon>0\) et pour tout \( a,b\in A\), il existe une \( \epsilon\)-chaine joignant \( a\) et \( b\) dans $A$.
 \end{definition}
 Les rationnels dans \( \eR\) sont bien enchaînés.
 
@@ -331,7 +368,7 @@ Les rationnels dans \( \eR\) sont bien enchaînés.
 \index{compacité}
 
 \begin{proof}
-    Soit \( A\subset X\) un ensemble bien enchaîné, et soient \( a,b\in \bar A\). Nous construisons une suite \( (u_k)\) dans \( A\) de la façon suivante. Pour chaque \( n>0\) nous prenons \( a'\in B(a,\frac{1}{ n })\cap A\) et \( b'\in B(b,\frac{1}{ n })\cap A\). Ensuite nous considérons une \( \frac{1}{ n }\)-chaîne \( \{ v_i^{(n)} \}_{i\in I_n}\) dans \( A\) entre \( a'\) et \( b'\). Ici l'ensemble \( I_n\) est fini. La suite \( (u_k)\) est simplement construite en mettant bout à bout les éléments \( v_i^{(n)}\).
+    Soit \( A\subset X\) un ensemble bien enchaîné, et soient \( a,b\in \bar A\). Nous construisons une suite \( (u_k)\) dans \( A\) de la façon suivante. Pour chaque \( n>0\) nous prenons \( a'\in B(a,\frac{1}{ n })\cap A\) et \( b'\in B(b,\frac{1}{ n })\cap A\). Ensuite nous considérons une \( \frac{1}{ n }\)-chaine \( \{ v_i^{(n)} \}_{i\in I_n}\) dans \( A\) entre \( a'\) et \( b'\). Ici l'ensemble \( I_n\) est fini. La suite \( (u_k)\) est simplement construite en mettant bout à bout les éléments \( v_i^{(n)}\).
 
     La suite ainsi construite est une suite dans \( A\) admettant \( a\) et \( b\) comme points d'accumulation (les autres points d'accumulation sont également dans \( \bar A\)) et telle que \( \lim_{k\to \infty} d(u_k,u_{k+1})=0\). Par conséquent la proposition~\ref{PropLHWACDU} nous dit que l'ensemble des points d'accumulation de \( (u_k)\) est connexe dans \( X\). Nous le notons \( C_{a,b}\).
 
@@ -350,13 +387,7 @@ Les rationnels dans \( \eR\) sont bien enchaînés.
 \subsection{Produit fini d'espaces métriques}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}\label{DefZTHxrHA}
-    Si \( (E_1,d_1)\),\ldots, \( (E_n,d_n)\) sont des espaces métriques nous mettons la distance suivante sur le produit cartésien \( E=E_1\times\ldots\times E_n\) :
-    \begin{equation}
-        d(x,y)=\max_{i=1,\ldots, n}d_i(x_i,y_i).
-    \end{equation}
-\end{definition}
-
+Pour rappel, la distance sur un espace produit est donnée par la définition \ref{DefZTHxrHA}.
 \begin{theorem}[\cite{MonCerveau}]\label{THOIYmxXuu}
     Un produit fini d'espaces métriques non vides est compact si et seulement si chacun de ses facteurs est compact.
 \end{theorem}
@@ -414,12 +445,48 @@ Note : ce résultat est encore valable pour un produit quelconque, c'est le thé
         \| f_i(x)-f_i(y) \|<\epsilon
     \end{equation}
     pour tout \( i\) dès que \( x,y\in V\).
+
+    Nous disons qu'une famille est équicontinue sans préciser en quel point si elle est équicontinue en tout pout.
 \end{definition}
 
 La proposition suivante permet de montrer que certaines fonctions définies par une limite sont continues. Ce sera par exemple le cas de la fonction puissance, proposition \ref{PROPooUQNZooSSHLqr}.
-\begin{proposition}[\cite{ooYDVWooPWLUGW}]     \label{PROPooICNNooAMjcut}
-    Si \( \{ f_i \}\) est une suite équicontinue de fonctions, et si il y a convergence simple \( f_i\to f\), alors \( f\) est continue.
+\begin{proposition}[\cite{MonCerveau,ooYDVWooPWLUGW}]     \label{PROPooICNNooAMjcut}
+    Soit une suite équicontinue \( (f_i)\) de fonctions qui converge simplement vers \( f\), alors \( f\) est continue.
 \end{proposition}
+
+\begin{proof}
+    Soit une suite équicontinue \( f_i\colon X\to E\) convergeant simplement vers \( f\). Soit \( a\in X\). Nous prouvons que \( f\) est continue en \( a.\). Pour cela nous considérons \( \epsilon>0\) et, conformément à l'hypothèse équicontinuité un voisinage \( V\) de \( a\) tel que \( | f_i(a)-f_i(x) |<\epsilon\) pour tout \( x\in V\).
+
+    Nous avons la majoration
+    \begin{subequations}
+        \begin{align}
+            | f(x)-f(a) |\leq | f(x)-f_i(x) |+| f_i(x)-f_i(a) |+| f_i(a)-f(a) |.
+        \end{align}
+    \end{subequations}
+    Plusieurs majorations.
+    \begin{itemize}
+        \item 
+            Vu que \( f_i\to f\), il existe \( N_1\) tel que \( | f(x)-f_i(x) |<\epsilon\) pour tout \( i>N_1\).
+        \item
+            De plus, par définition de \( V\), nous avons aussi \( | f_i(x)-f_i(a) |\leq \epsilon\).
+        \item
+            Vu que \( f_i\to f\), il existe \( N_2\) tel que \( | f_i(a)-f(a) |<\epsilon\) pour tout \( i>N_2\).
+    \end{itemize}
+    Donc en prenant \( x\in V\) et \( i>\max\{ N_1,N_2 \}\) nous avons
+    \begin{equation}
+        | f(x)-f(a) |\leq 3\epsilon.
+    \end{equation}
+\end{proof}
+
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Continuité uniforme}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}[\cite{ooDMOSooBYWrkwgTc}]\label{DEFooYIPXooQTscbG}
+    Soient deux espaces métriques \( (E,d)\) et \( (E',d')\). Une application \( f\colon E\to E'\) est \defe{uniformément continue}{uniformément continue} si pour tout \( \epsilon>0\), il existe \( \delta>0\) tel que \( d(x,y)\leq \delta\) implique \( d'\big( f(x),f(y) \big)\leq \epsilon\).
+\end{definition}
+Dans l'uniforme continuité, le \( \alpha\) qui fait fonctionner \( \epsilon\) doit le faire fonctionner pour tous les \( x,y\in E\). C'est la différence avec la continuité simple dans laquelle nous pouvons choisir, pour un même \( \epsilon\), un \( \delta\) différent en chaque point.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Ensembles nulle part denses}
@@ -430,7 +497,7 @@ Nous allons nous limiter au cas de \( \eR\), mais je crois que ça se générali
 \begin{definition}
     Un ensemble est dit \defe{nulle part dense}{nulle part dense}\index{dense!nulle part} s'il n'est dense dans aucun intervalle.
 
-    Un ensemble dans \( \eR\) est de \defe{première catégorie}{catégorie!ensemble de première} ou \defe{maigre}{maigre (ensemble)} s'il est une union dénombrable d'ensembles nulle part dense (c'est à dire d'ensembles denses sur aucun intervalle).
+    Un ensemble dans \( \eR\) est de \defe{première catégorie}{catégorie!ensemble de première} ou \defe{maigre}{maigre (ensemble)} s'il est une union dénombrable d'ensembles nulle part dense (c'est-à-dire d'ensembles denses sur aucun intervalle).
 \end{definition}
 
 \begin{theorem}[Baire\cite{BaireZied}]      \label{ThoQGalIO}
@@ -554,7 +621,7 @@ Lorsqu'on a un espace \( E\) muni d'une quantité dénombrable de semi-normes \(
 \begin{equation}        \label{EqAAghiUR}
     d(x,y)=\sup_{k\geq 1}\min\big\{  \frac{1}{ k },p_k(x-y) \big\}.
 \end{equation}
-Notons que cette écart est invariant par translation au sens où pour tout \( x,y,h\) dans \( E\) nous avons
+Notons que cet écart est invariant par translation au sens où pour tout \( x,y,h\) dans \( E\) nous avons
 \begin{equation}
     d(x+h,y+h)=\sup_{k\geq 1}\min\big\{ \frac{1}{ k },p_k(x-y) \big\}=d(x,y).
 \end{equation}
@@ -653,7 +720,7 @@ Nous revenons à nos histoires de limites de la définition~\ref{DefXSnbhZX}.
     \end{equation}
     Par unicité de la limite dans \( \eR\)
     %TODO : prouver ça et mettre une référence.
-    nous devons alors avoir \( T(x)=T'(x)\) pour tout \( x\), c'est à dire \( T=T'\).
+    nous devons alors avoir \( T(x)=T'(x)\) pour tout \( x\), c'est-à-dire \( T=T'\).
 \end{proof}
 
 \begin{proposition} \label{PropVKSNflB}
@@ -679,12 +746,11 @@ Nous revenons à nos histoires de limites de la définition~\ref{DefXSnbhZX}.
     \begin{equation}
         u_{B(t_0,\delta)}\subset B_x(u_{t_0},\epsilon).
     \end{equation}
-    C'est à dire que si \( | t-t_0 |\leq \delta\) nous avons
+    C'est-à-dire que si \( | t-t_0 |\leq \delta\) nous avons
     \begin{equation}
         \big| u_{t_0}(x)-u_t(x) \big|<\epsilon,
     \end{equation}
     ce qui signifie bien que la fonction \( t\mapsto u_t(x)\) est continue en tant que fonction \( \eR\to \eR\). Cela est le point~\ref{ItemLSJjfZdi}. Le théorème de limite et continuité dans \( \eR\) nous donne immédiatement la limite \eqref{EqWKdFPVO}.
-    % TODO : aussi fou que cela puisse paraître, le théorème limite et continuité dans R n'est pas prouvé ni énoncé. Le faire et lié vers ici.
 
     Nous passons à la preuve du point~\ref{ItemLSJjfZdiii}. Soit \( \mO\) un ouvert de \( E'\) contenant \( u_{t_0}\). Il existe donc un \( i\in I\) et \( \epsilon>0\) tel que \( B_i(u_{t_0},\epsilon)\subset \mO\). Étant donné que \( u\) est continue, il existe \( \delta>0\) tel que
     \begin{equation}
@@ -694,7 +760,7 @@ Nous revenons à nos histoires de limites de la définition~\ref{DefXSnbhZX}.
     \begin{equation}
         | t-t_0 |\leq \delta\Rightarrow u_t\in\mO,
     \end{equation}
-    c'est à dire que nous avons la limite \( \lim_{t\to t_0} u_t=u_{t_0}\) dans \( E'\). Pour dire cela nous avons utilisé la définition~\ref{DefYNVoWBx} de la limite et le résultat d'unicité~\ref{PropRBCiHbz}.
+    c'est-à-dire que nous avons la limite \( \lim_{t\to t_0} u_t=u_{t_0}\) dans \( E'\). Pour dire cela nous avons utilisé la définition~\ref{DefYNVoWBx} de la limite et le résultat d'unicité~\ref{PropRBCiHbz}.
 \end{proof}
 
 \begin{definition}  \label{DefDZsypWu}
@@ -744,6 +810,7 @@ Une des principales utilisations que nous ferons de ces espaces seront les espac
 \end{proof}
 
 Une des applications du théorème de Baire est le théorème de Banach-Steinhaus~\ref{ThoPFBMHBN}.
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Sommes de familles infinies}
@@ -866,7 +933,7 @@ Notons que cette définition implique la convergence commutative.
     \end{equation}
     où la somme de gauche est celle de la définition~\ref{DefHYgkkA}.
 \end{proposition}
-%TODO : cette proposition peut être vue comme une application de Fubini pour la mesure de comptage. Le faire et référentier ici.
+%TODO : cette proposition peut être vue comme une application de Fubini pour la mesure de comptage. Le faire et référencer ici.
 
 \begin{proof}
     Nous considérons \( J_{m,n}=\{ 0,\ldots, m \}\times \{ 0,\ldots, n \}\) et nous avons pour tout \( m\) et \( n\) :

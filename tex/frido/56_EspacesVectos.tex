@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2018
+% Copyright (c) 2008-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -14,8 +14,9 @@
 
 %  Lire http://www.les-mathematiques.net/phorum/read.php?2,302266
 
-\begin{definition}\index{déterminant!forme linéaire alternée}
-    Soit \( E\), un \( \eK\)-espace vectoriel. Une forme linéaire \defe{alternée}{forme linéaire!alternée}\index{alternée!forme linéaire} sur \( E\) est une application multilinéaire \( f\colon E\to \eK\) telle que \( f(v_1,\ldots, v_k)=0\) dès que \( v_i=v_j\) pour certains \( i\neq j\).
+
+\begin{definition}\index{déterminant!forme linéaire alternée}       \label{DEFooYWOBooUGJojy}
+    Soit \( E\), un \( \eK\)-espace vectoriel. Une forme linéaire \defe{alternée}{forme linéaire!alternée}\index{alternée!forme linéaire} sur \( E\) est une application linéaire \( f\colon E\to \eK\) telle que \( f(v_1,\ldots, v_k)=0\) dès que \( v_i=v_j\) pour certains \( i\neq j\).
 \end{definition}
 
 \begin{lemma}   \label{LemHiHNey}
@@ -53,7 +54,7 @@
             &=\sum_{i,j}\alpha_{1i_1}\ldots \alpha_{ni_n}f(e_{i_1},\ldots, e_{i_n}).
         \end{align}
     \end{subequations}
-    Étant donné que \( f\) est alternée, les seuls termes de la somme sont ceux dont les \( i_k\) sont tous différents, c'est à dire ceux où \( \{ i_1,\ldots, i_n \}=\{ 1,\ldots, n \}\). Il y a donc un terme par élément du groupe des permutations \( S_n\) et
+    Étant donné que \( f\) est alternée, les seuls termes de la somme sont ceux dont les \( i_k\) sont tous différents, c'est-à-dire ceux où \( \{ i_1,\ldots, i_n \}=\{ 1,\ldots, n \}\). Il y a donc un terme par élément du groupe des permutations \( S_n\) et
     \begin{equation}
         f(v_1,\ldots, v_n)=\sum_{\sigma\in S_n}\alpha_{\sigma(1)1}\ldots \alpha_{\sigma(n)n}f(e_{\sigma(1)},\ldots, e_{\sigma(n)}).
     \end{equation}
@@ -83,38 +84,62 @@
 Nous considérons un corps \( \eK\) et l'espace vectoriel \( E\) de dimension \( n\) sur \( \eK\).
 
 \begin{definition}[Déterminant d'une famille de vecteurs\cite{MathAgreg}]\label{DEFooODDFooSNahPb}
-    Le \defe{déterminant}{déterminant!d'une famille de vecteurs} \( (v_1,\ldots, v_n)\) dans la base \( B\) est l'élément de \( \eK\)
+    Le \defe{déterminant}{déterminant!d'une famille de vecteurs} de la famille de vecteurs \( (v_1,\ldots, v_n)\) dans la base \( B\) est l'élément de \( \eK\)
     \begin{equation}        \label{EQooOJEXooXUpwfZ}
         \det_{(e_1,\ldots, e_n)}(v_1,\ldots, v_n)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^ne^*_{\sigma(i)}(v_i)
     \end{equation}
-    où la somme porte sur le groupe symétrique, \( \epsilon(\sigma)\) est la signature de la permutation \( \sigma\) et \( e_k^*\) est le dual de \( e_k\).
-
+    où 
+    \begin{itemize}
+        \item 
+            la somme porte sur le groupe symétrique, 
+        \item
+            le nombre \( \epsilon(\sigma)\) est la signature de la permutation \( \sigma\),
+        \item
+            les éléments \( \{ e_i \}\) forment la base canonique de \( \eK^n\).
+        \item
+            les éléments \( \{ e^*_i \}\) sont la base duale de \( \{ e_i \}\).
+    \end{itemize}
     Nous le notons \( \det_{(e_1,\ldots, e_n)}(v_1,\ldots, v_n)\).
 \end{definition}
+
+\begin{normaltext}
+    La base \( \{ e_i \}\) est la base canonique de \( \eK^n\), et l'élément \( e_k^*\) est la forme linéaire définie par
+    \begin{equation}
+        \begin{aligned}
+            e_k^*\colon \eK^n&\to \eK \\
+            \sum_ix_ie_i&\mapsto x_k. 
+        \end{aligned}
+    \end{equation}
+    Il n'est pas sous-entendu que \( \eK^n\) ait un produit scalaire. Il n'est donc pas autorisé de dire que \( \{ e_i \}\) est une base orthonormée et que \( e^*_k(x)=\langle e_k, x\rangle \). Ce genre d'égalités sont vraies dans le cas \( \eK=\eR\), mais n'ont pas de sens en général.
+
+    Le lemme \ref{LEMooEZFIooXyYybe} va un peu parler du cas où \( \eK^n\) est muni d'une base orthonormée.
+\end{normaltext}
 
 \begin{lemma}[\cite{MathAgreg}]     \label{LemJMWCooELZuho}
     Les propriétés du déterminant. Soit \( B\) une base de \( E\).
     \begin{enumerate}
-        \item
-            L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire et alternée.
-        \item
+        \item\label{ITEMooAHOHooDZgtSB}
+            L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire.
+        \item\label{ITEMooTXXBooBmDtzd}
+            L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire est antisymétrique et alternée\footnote{Alternée, définition \ref{DEFooYWOBooUGJojy}. En caractéristique \( 2\), alternée n'est pas équivalent à symétrique.}.
+        \item   \label{ITEMooNFJTooTqGoPr}
             Pour toute base, \( \det_B(B)=1\).
-        \item
+        \item   \label{ITEMooALRQooDvBzDQ}
             Le déterminant ne change pas si on remplace un vecteur par une combinaison linéaire des autres :
             \begin{equation}
                 \det_B(v_1,\ldots, v_n)=\det_B\big( v_1+\sum_{s=2}^na_sv_s,v_2,\ldots, v_n \big).
             \end{equation}
-        \item
+        \item   \label{ITEMooQTTRooMbzqyW}
             Si on permute les vecteurs,
             \begin{equation}
                 \det_B(v_1,\ldots, v_n)=\epsilon(\sigma)\det_B(v_{\sigma(1)},\ldots, v_{\sigma(n)}).
             \end{equation}
-        \item
+        \item   \label{ITEMooIPIDooTrerVF}
             Si \( B'\) est une autre base :
             \begin{equation}        \label{EqAWICooBLTTOY}
                 \det_B=\det_B(B')\det_{B'}
             \end{equation}
-        \item
+        \item   \label{ITEMooXKTAooXynFTE}
             Nous avons aussi la formule \( \det_{B}(B')\det_{B'}(B)=1\).
         \item\label{ItemDWFLooDUePAf}
             Les vecteurs \( \{ v_1,\ldots, v_n \}\) forment une base si et seulement si \( \det_B(v_1,\ldots, v_n)\neq 0\).
@@ -123,8 +148,8 @@ Nous considérons un corps \( \eK\) et l'espace vectoriel \( E\) de dimension \(
 
 \begin{proof}
     Point par point.
-    \begin{enumerate}
-        \item
+    \begin{subproof}
+    \item[\ref{ITEMooAHOHooDZgtSB}]
             En posant \( v_1=x_1+\lambda x_2\) nous avons
             \begin{subequations}
                 \begin{align}
@@ -134,20 +159,40 @@ Nous considérons un corps \( \eK\) et l'espace vectoriel \( E\) de dimension \(
             \end{subequations}
             À partir de là, la linéarité de \( e^*_{\sigma(1)}\) montre que \( \det_B\) est linéaire en son premier argument. Pour les autres arguments, le même calcul tient.
 
-            En ce qui concerne le fait d'être alternée, permuter \( v_k\) et \( v_l\) revient à calculer le nombre \( \det_B( v_{\sigma_{kl}(1)},\ldots, v_{\sigma_{kl}(n)} )\) au lieu de \( \det_B(v_1,\ldots, v_n)\). Cela revient à changer la somme \( \sum_{\sigma}\) en \( \sum_{\sigma\circ\sigma_{kl}}\). Cela ajoute \( 1\) à \( \epsilon(\sigma)\) vu que l'on ajoute une permutation.
-        \item
+        \item[\ref{ITEMooTXXBooBmDtzd}]
+
+            Nous prouvons à présent que \( \det\) est alternée. Si votre corps est de caractéristique différente de deux, vous pouvez lire la proposition \ref{PROPooXNLDooGGkHpd}.
+
+            Supposons \( v_k=v_l\), et considérons la permutation \( \beta=(k,l)\). Nous savons par la proposition \ref{PROPooZOWBooIMxxlj} que \( S_n=A_n\cup A_n\beta\). Cela nous permet de décomposer la somme sur \( S_n\) en deux parties :
+            \begin{equation}        \label{EQooWFHQooTrTTWl}
+                \sigma_{\sigma\in S_n}(-1)^{\sigma}\prod_i\epsilon_{\sigma(i)}^*(v_i)=\sum_{\sigma\in A_n}(-1)^{\sigma}\prod_i\epsilon_{\sigma(i)}^*(v_i)+\sum_{\sigma\in A_n}(-1)^{\sigma\beta}\prod_i\epsilon_{(\sigma\beta)(i)}^*(v_i).
+            \end{equation}
+            D'abord \( (-1)^{\sigma}=1\) et \( (-1)^{\sigma\beta}=-1\). Ensuite, pour un \( \sigma\in A_n\) donné, nous avons
+            \begin{subequations}
+                \begin{align}
+                    \prod_i\epsilon^*_{(\sigma\beta)(i)}(v_i)&=\epsilon_{(\sigma\beta)(k)}^*(v_k)\epsilon^*_{(\sigma\beta)(l)}(v_l)\prod\stackrel{i\neq k}{i\neq l}\epsilon_{(\sigma\beta)(i)}^*(v_i)\\
+                    &=\epsilon^*_{\sigma(l)}(v_k)\epsilon^*_{\sigma(k)}(v_l)\prod_{\substack{i\neq k\\i\neq l}}\epsilon^*_{\sigma(i)}(v_i)\\
+                    &=\epsilon^*_{\sigma(l)}(v_l)\epsilon^*_{\sigma(k)}(v_k)\prod_{\substack{i\neq k\\i\neq l}}\epsilon^*_{\sigma(i)}(v_i)\\
+                    &=\prod_i\epsilon^*_{\sigma(i)}(v_i).
+                \end{align}
+            \end{subequations}
+            Donc les deux termes de la somme \eqref{EQooWFHQooTrTTWl} ne diffèrent que par un signe. Elle est donc nulle, et la forme déterminant est alternée.    
+        
+            La fonction \( \det\) est antisymétrique parce que alternée, voir le lemme \ref{LemHiHNey}.
+
+        \item[\ref{ITEMooNFJTooTqGoPr}]
             Nous avons
             \begin{equation}
                 \det_B(B)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^n\underbrace{e_{\sigma(i)}^*(e_i)}_{=\delta_{\sigma(i),i}}.
             \end{equation}
             Si \( \sigma\) n'est pas l'identité, le produit contient forcément un facteur nul. Il ne reste de la somme que \( \sigma=\id\) et le résultat est \( 1\).
-        \item
+        \item[\ref{ITEMooALRQooDvBzDQ}]
             Vu que \( \det_B\) est linéaire en tous ses arguments,
             \begin{equation}
                 \det_B\big( v_1+\sum_{s=2}^na_sv_s,v_2,\ldots, v_n \big)=\det_B(v_1,\ldots, v_n)+\sum_{s=2}^na_s\det_B(v_s,v_2,\ldots, v_n).
             \end{equation}
             Chacun des termes de la somme est nul parce qu'il y a répétition de \( v_s\) parmi les arguments alors que la forme est alternée.
-        \item
+        \item[\ref{ITEMooQTTRooMbzqyW}]
             Nous devons calculer \( \det_B(v_{\sigma(1)},\ldots, v_{\sigma(n)})\), et pour y voir plus clair nous posons \( w_i=v_{\sigma(i)}\). Alors :
             \begin{subequations}
                 \begin{align}
@@ -159,19 +204,31 @@ Nous considérons un corps \( \eK\) et l'espace vectoriel \( E\) de dimension \(
                 \end{align}
             \end{subequations}
             Justifications : nous avons d'abord modifié l'ordre des éléments du produit et ensuite l'ordre des éléments de la somme. Nous avons ensuite utilisé le fait que \( \epsilon\colon S_n\to \{ 0,1 \}\) était un morphisme de groupe (proposition~\ref{ProphIuJrC}).
-        \item
+        \item[\ref{ITEMooIPIDooTrerVF}]
             Étant donné que l'espace des formes multilinéaires alternées est de dimension \( 1\), il existe un \( \lambda\in \eK\) tel que \( \det_B=\lambda\det_{B'}\). Appliquons cela à \( B'\) :
             \begin{equation}
                 \det_B(B')=\lambda\det_{B'}(B'),
             \end{equation}
             donc \( \lambda=\det_B(B')\).
-        \item
+        \item[\ref{ITEMooXKTAooXynFTE}]
             Il suffit d'appliquer l'égalité précédente à \( B\) en nous souvenant que \( \det_B(B)=1\).
-        \item
+        \item[\ref{ItemDWFLooDUePAf}]
             Si \( B'=\{ v_1,\ldots, v_n \}\) est une base alors \( \det_B(B')\neq 0\), sinon il n'est pas possible d'avoir \( \det_B(B')\det_{B'}(B)=1\).
 
-            À l'inverse, si \( B'\) n'est pas une base, c'est que \( \{ v_1,\ldots, v_n \}\) est liée par le théorème~\ref{ThoMGQZooIgrXjy}\ref{ItemHIVAooPnTlsBi}. Il y a donc moyen de remplacer un des vecteurs par une combinaison linéaire des autres. Le déterminant s'annule alors.
-    \end{enumerate}
+            À l'inverse, si \( B'\) n'est pas une base, c'est que \( \{ v_1,\ldots, v_n \}\) est liée par la proposition \ref{PROPooVEVCooHkrldw}. Il y a donc moyen de remplacer un des vecteurs par une combinaison linéaire des autres. Le déterminant s'annule alors.
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}     \label{PROPooXNLDooGGkHpd}
+    Si la caractéristique du corps de base n'est pas deux, le déterminant est antisymétrique et alterné.
+\end{proposition}
+
+\begin{proof}
+    Si la caractéristique du corps de base n'est pas deux, une forme antisymétrique est alternée (lemme \ref{LemHiHNey}).
+
+    Pour prouver que le déterminant est antisymétrique, remarquez que permuter \( v_k\) et \( v_l\) revient à calculer le nombre \( \det_B( v_{\sigma_{kl}(1)},\ldots, v_{\sigma_{kl}(n)} )\) au lieu de \( \det_B(v_1,\ldots, v_n)\). Cela revient à changer la somme \( \sum_{\sigma}\) en \( \sum_{\sigma\circ\sigma_{kl}}\). Cela ajoute \( 1\) à \( \epsilon(\sigma)\) vu que l'on ajoute une permutation.
+
+    Donc le déterminant est antisymétrique. Nous en déduisons qu'il est alterné parce que, en permutant trivialement \( v_1\) et \( v_1\), nous obtenons \( \det_B(v_1,v_1)=-\det_B(v_1,v_1)\). Si le corps est de caractéristique différente de deux, cela implique que \( \det_B(v_1,v_1)=0\).
 \end{proof}
 
 D'après la proposition~\ref{ProprbjihK}, il existe une unique forme \( n\)-linéaire alternée égale à \( 1\) sur \( B\), et c'est \( \det_B\colon E^n\to \eK\).
@@ -182,12 +239,13 @@ D'après la proposition~\ref{ProprbjihK}, il existe une unique forme \( n\)-lin�
 
 L'interprétation géométrique du déterminant en termes d'aires et de volumes est donnée après la théorème~\ref{ThoBVIJooMkifod}.
 
-\begin{lemma}       \label{LEMooQTRVooAKzucd}
+\begin{lemmaDef}       \label{LEMooQTRVooAKzucd}      \label{DefCOZEooGhRfxA}
     Si \( f\colon E\to E\) est un endomorphisme, et si les parties \( B\) et \( B'\) sont deux bases, alors 
     \begin{equation}
         \det_B\big( f(B) \big)=\det_{B'}\big( f(B') \big).
     \end{equation}
-\end{lemma}
+    Ce nombre, indépendant de la base choisie est nommé le \defe{déterminant}{déterminant!d'un endomorphisme} de \( f\) et est noté \( \det(f)\).
+\end{lemmaDef}
 
 \begin{proof}
     L'application
@@ -201,7 +259,7 @@ L'interprétation géométrique du déterminant en termes d'aires et de volumes 
     \begin{equation}
         \det_B\big( f(B) \big)=\lambda \det_B(B)=\lambda.
     \end{equation}
-    Nous avons donc déjà prouvé que \( \lambda=\det_B\big( f(B) \big)\), c'est à dire
+    Nous avons donc déjà prouvé que \( \lambda=\det_B\big( f(B) \big)\), c'est-à-dire
     \begin{equation}
         \det_B\big( f(v) \big)=\det_B\big( f(B) \big)\det_B(v).
     \end{equation}
@@ -223,19 +281,25 @@ L'interprétation géométrique du déterminant en termes d'aires et de volumes 
     \end{equation}
 \end{proof}
 
-Cette proposition nous permet de définir le déterminant d'un endomorphisme de la façon suivante sans préciser la base.
-\begin{definition}[\cite{MathAgreg}]        \label{DefCOZEooGhRfxA}
-    Si \( f\colon E\to E\) est un endomorphisme, le \defe{déterminant}{déterminant!d'un endomorphisme} de \( f\) est
-    \begin{equation}
-        \det(f)=\det_B\big( f(B) \big)
-    \end{equation}
-\end{definition}
+Couplé à la formule \eqref{EQooOJEXooXUpwfZ}, nous pouvons écrire la formule pratique à utiliser le plus souvent. 
 
-Couplé à la formule~\ref{EQooOJEXooXUpwfZ}, nous pouvons écrire la formule pratique à utiliser le plus souvent. Si \( \{ e_i \}_{i=1,\ldots, n}\) est une base orthonormée de \( E\) et si \( f\colon E\to E\) est un endomorphisme,
-\begin{equation}
-    \det(f)=\sum_{\sigma\in S_n}\epsilon(\epsilon)\prod_{i=1}^n\langle e_{\sigma(i)}, f(e_i)\rangle.
-\end{equation}
-Et si vous avez tout suivi, vous aurez remarqué que les produits scalaires impliqués dans cette formule sont les éléments de la matrice de \( f\) dans la base \( \{ e_i \}\) parce que \( \langle e_i, f(e_j)\rangle \) est la composante \( i\) de l'image de \( e_j\) par \( f\). Si la matrice est composée en mettant en colonne les images des vecteurs de base, le compte est bon.
+\begin{lemma}       \label{LEMooEZFIooXyYybe}
+    Soit un espace vectoriel euclidien\footnote{C'est-à-dire qu'il possède un produit scalaire, voir la définition \ref{DefLZMcvfj}.} \( E\) sur le corps \( \eK\). Si \( \{ e_i \}_{i=1,\ldots, n}\) est une base orthonormée de \( E\) et si \( f\colon E\to E\) est un endomorphisme, alors
+    \begin{equation}        \label{EQooQAZLooZutFUz}
+        \det(f)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^n\langle e_{\sigma(i)}, f(e_i)\rangle.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Nous utilisons la définition \ref{LEMooQTRVooAKzucd} du déterminant d'un endomorphisme \( \det(f)=\det_B\big( f(B) \big)\) en prenant la liste des vecteurs \( \{ e_i \}\) comme \( B\). En l'occurrence, le \( i\)\ieme\ vecteur de la famille \( B\) est \( f(e_i)\).
+
+    Vu que la base est orthonormée, nous avons \( e^*_k(v)=\langle e_k, v\rangle \) et donc aussi
+    \begin{equation}
+        e^*_{\sigma(i)}(v_i)=\langle e_{\sigma(i)}^*, f(e_i)\rangle.
+    \end{equation}
+\end{proof}
+
+Et si vous avez tout suivi, vous aurez remarqué que les produits scalaires impliqués dans la formule \eqref{EQooQAZLooZutFUz} sont les éléments de la matrice de \( f\) dans la base \( \{ e_i \}\) parce que \( \langle e_i, f(e_j)\rangle \) est la composante \( i\) de l'image de \( e_j\) par \( f\). Si la matrice est composée en mettant en colonne les images des vecteurs de base, le compte est bon.
 
 \begin{proposition}     \label{PropYQNMooZjlYlA}
     Principales propriétés géométriques du déterminant d'un endomorphisme.
@@ -289,72 +353,44 @@ Et si vous avez tout suivi, vous aurez remarqué que les produits scalaires impl
     \end{enumerate}
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Déterminant d'une matrice}
-%---------------------------------------------------------------------------------------------------------------------------
-
-La proposition~\ref{PROPooCESFooGOZBNI} nous assure que toute application linéaire possède une matrice associée (dans une base). Vu de la matrice, voici quelques conséquences de la proposition~\ref{PropYQNMooZjlYlA}.
-\begin{proposition}
-    Quelques propriétés du déterminant vu de la matrice.
+\begin{proposition}     \label{PROPooFKDXooKMSolt}
+    Soient deux espaces vectoriels \( E\) et \( F\) de dimension finies \( n\) et \( m\) sur le corps \( \eK\) munis de bases \( \{e_i\}\) et \( \{f_{\alpha}\}\). À une matrice \( A\in \\eM(m\times n,\eK)\) nous associons l'application linéaire\footnote{Dont nous avons déjà beaucoup parlé entre autres dans la proposition \ref{PROPooCSJNooEqcmFm}.}
+    \begin{equation}
+        f_A(x)=\sum_{i\alpha}A_{\alpha i}x_if_{\alpha}.
+    \end{equation}
+    
+    Alors, en ce qui concerne les déterminants\footnote{Définition \ref{LEMooQTRVooAKzucd} pour les applications linéaires et \ref{DEFooYCKRooTrajdP} pour les matrices.}, nous avons
     \begin{enumerate}
         \item
-            Si on permute deux lignes ou deux colonnes d'une matrice, alors le déterminant change de signe.
+            \( \det(f_A)=\det(A)\)
         \item
-            Si on multiplie une ligne ou une colonne d'une matrice par un nombre $\lambda$, alors le déterminant est multiplié par $\lambda$.
-        \item
-            Si deux lignes ou deux colonnes sont proportionnelles, alors le déterminant est nul.
-        \item
-            Si on ajoute à une ligne une combinaison linéaire des autres lignes, alors le déterminant ne change pas (idem pour les colonnes).
+            \( \det(f_{AB})=\det(f_A)\det(f_B)\)
     \end{enumerate}
 \end{proposition}
 
-Le déterminant d'une matrice et d'une application linéaire est la définition~\ref{DefCOZEooGhRfxA}, et les principales propriétés algébriques sont données dans la proposition~\ref{PropYQNMooZjlYlA}.
+\begin{proof}
+    Nous devons étudier la formule
+    \begin{equation}
+        \det(f_A)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^ne_{\sigma(i)}^*\big( f_A(e_i) \big).
+    \end{equation}
+    En premier lieu nous avons
+    \begin{equation}
+        f_A(e_i)=\sum_{jk}A_{jk}(e_i)_ke_j=\sum_jA_{ji}e_j.
+    \end{equation}
+    Nous avons alors
+    \begin{equation}
+        e_{\sigma(i)}^*\big( f_A(e_i) \big)=\sum_jA_{ji}\underbrace{e^*_{\sigma(i)}(e_j)}_{\delta_{j\sigma(i)}}=A_{\sigma(i)i}.
+    \end{equation}
+    Au final,
+    \begin{equation}
+        \det(f_A)=\sum_{\sigma}\epsilon(\sigma)\prod_{i=1}^nA_{\sigma(i)i}=\det(A^t)=\det(A)
+    \end{equation}
+    où la dernière égalité est autorisée par le lemme \ref{LEMooCEQYooYAbctZ}.
 
-En dimension deux, le déterminant de la matrice
-    $\begin{pmatrix}
-        a    &   b    \\
-        c    &   d
-    \end{pmatrix}$
-est le nombre
-\begin{equation}        \label{EQooQRGVooChwRMd}
-     \det\begin{pmatrix}
-         a   &   b    \\
-         c   &   d
-     \end{pmatrix}=\begin{vmatrix}
-          a  &   b    \\
-        c    &   d
-    \end{vmatrix}=ad-cb.
-\end{equation}
-Ce nombre détermine entre autres le nombre de solutions que va avoir le système d'équations linéaires associé à la matrice.
+    Cela prouve la formule \( \det(f_A)=\det(A)\).
 
-Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus compliqué; nous avons la formule
-\begin{equation}
-    \det
-    \begin{pmatrix}
-        a_{11}    &   a_{12}    &   a_{13}    \\
-        a_{21}    &   a_{22}    &   a_{23}    \\
-        a_{31}    &   a_{32}    &   a_{33}
-    \end{pmatrix}
-    =
-    \begin{vmatrix}
-        a_{11}    &   a_{12}    &   a_{13}    \\
-        a_{21}    &   a_{22}    &   a_{23}    \\
-        a_{31}    &   a_{32}    &   a_{33}
-    \end{vmatrix}=
-    a_{11}\begin{vmatrix}
-        a_{22}  &   a_{23}    \\
-        a_{32}    &   a_{33}
-    \end{vmatrix}-
-    a_{12}\begin{vmatrix}
-        a_{21}  &   a_{23}    \\
-        a_{31}    &   a_{33}
-    \end{vmatrix}+
-    a_{13}\begin{vmatrix}
-        a_{21}  &   a_{22}    \\
-        a_{31}    &   a_{32}
-    \end{vmatrix}.
-\end{equation}
-
+    En ce qui concerne la seconde formule, il s'agit de se souvenir de la proposition \ref{PROPooCSJNooEqcmFm} qui donne \( f_{AB}=f_A\circ f_B\), et ensuite de la proposition \ref{PropYQNMooZjlYlA}\ref{ItemUPLNooYZMRJy} qui donne \( \det(f_A\circ f_B)=\det(f_A)\det(f_B)\).
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Déterminant de Vandermonde}
@@ -378,6 +414,7 @@ Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus comp
     \begin{equation}
         f(X)=V(T_1,\ldots, T_{n-1},X)\in \big( \eK[T_1,\ldots, T_{n-1}] \big)[X].
     \end{equation}
+    %TODOooHLQLooWXznGe Mettre une référence vers la proposition qu'il faut à ce «par conséquent».
     C'est un polynôme de degré au plus \( n-1\) en \( X\) et il s'annule aux points \( T_1,\ldots, T_{n-1}\). Par conséquent il existe \( \alpha\in \eK[T_1,\ldots, T_{n-1}]\) tel que
     \begin{equation}    \label{EqeVxRwO}
         f=\alpha(X-T_{n-1})\ldots(X-T_1).
@@ -448,9 +485,9 @@ Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus comp
     \begin{equation}
         g=\tau\cdot f=P-VQ.
     \end{equation}
-    Donc \( f+g=2P\) et \( f-g=2VQ\). Cela donne \( P\) et \( Q\) en terme de \( f\) et \( g\), et donc l'unicité.
+    Donc \( f+g=2P\) et \( f-g=2VQ\). Cela donne \( P\) et \( Q\) en termes de \( f\) et \( g\), et donc l'unicité.
 
-    Attention : cela ne donne pas un moyen de prouver l'existence parce que rien ne prouve pour l'instant que \( f-g\) peut effectivement être écrit sous la forme \( VQ\), c'est à dire que \( f-g\) soit divisible par \( V\). C'est cela que nous allons nous atteler à démontrer maintenant.
+    Attention : cela ne donne pas un moyen de prouver l'existence parce que rien ne prouve pour l'instant que \( f-g\) peut effectivement être écrit sous la forme \( VQ\), c'est-à-dire que \( f-g\) soit divisible par \( V\). C'est cela que nous allons nous atteler à démontrer maintenant.
 
     Nous commençons par prouver que \( f+g\) est symétrique et \( f-g\) alterné. Si \( \sigma\) est une transposition,
     \begin{equation}
@@ -470,7 +507,7 @@ Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus comp
     \begin{equation}    \label{EqSHdgrG}
         f-g=(T_k-T_h)q+r
     \end{equation}
-    où \( \deg_{T_k}r<1\), c'est à dire que \( r\) ne dépends pas de \( T_k\). Nous revoyons maintenant l'égalité \eqref{EqSHdgrG} dans \( \eK[T_1,\ldots, T_n]\) et nous y appliquons la transposition \( \tau_{kh}\). Nous savons que \( \tau_{kh}(f-g)=-(f-g)\) et \( \tau_{kh}(T_k-T_h)=-(T_k-T_h)\), et donc
+    où \( \deg_{T_k}r<1\), c'est-à-dire que \( r\) ne dépends pas de \( T_k\). Nous revoyons maintenant l'égalité \eqref{EqSHdgrG} dans \( \eK[T_1,\ldots, T_n]\) et nous y appliquons la transposition \( \tau_{kh}\). Nous savons que \( \tau_{kh}(f-g)=-(f-g)\) et \( \tau_{kh}(T_k-T_h)=-(T_k-T_h)\), et donc
     \begin{equation}    \label{EqVOhjKB}
         -(f-g)=-(T_k-T_h)\tau_{kh}\cdot   q+\tau_{kh}\cdot r
     \end{equation}
@@ -512,7 +549,7 @@ Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus comp
     \begin{equation}
         Q=\sigma\cdot Q,
     \end{equation}
-    c'est à dire que \( Q\) est symétrique.
+    c'est-à-dire que \( Q\) est symétrique.
 
     Au final nous avons \( f+q=2P\) et \( f-g=2VQ\) avec \( P\) et \( Q\) symétriques. En faisant la somme,
     \begin{equation}
@@ -699,7 +736,7 @@ Une proposition importante du résultant est qu'il peut s'exprimer à l'aide des
 \begin{proof}
     Si \( P\) et \( Q\) ne sont pas premiers entre eux, d'une part la proposition~\ref{PropAPxzcUl} nous dit que \( \res(P,Q)=0\) et d'autre part, \( P\) et \( Q\) ont un facteur irréductible en commun, ce qui  signifie que nous devons avoir un des \( X-\alpha_i\) égal à un des \( X-\beta_j\). Autrement dit, nous avons \( \alpha_i=\beta_j\) pour un couple \( (i,j)\). Par conséquent tous les membres de l'équation \eqref{EqCFUumjx} sont nuls.
 
-    Nous supposons donc que \( P\) et \( Q\) sont premiers entre eux. Nous commençons par supposer que les polynômes \( P\) et \( Q\) sont unitaires, c'est à dire que \( a_p=b_q=1\). Nous considérons alors l'anneau
+    Nous supposons donc que \( P\) et \( Q\) sont premiers entre eux. Nous commençons par supposer que les polynômes \( P\) et \( Q\) sont unitaires, c'est-à-dire que \( a_p=b_q=1\). Nous considérons alors l'anneau
     \begin{equation}
         \eA=\eZ[\alpha_1,\ldots, \alpha_p,\beta_1,\ldots, \beta_q].
     \end{equation}
@@ -824,137 +861,36 @@ Un tel polynôme s'écrit sous la forme
     ce qui prouver que \( \alpha\) est une racine de l'unité. Nous avons donc prouvé que toutes les racines de \( P_{2^k}\) sont des racines de l'unité et donc que les racines de \( P\) sont racines de l'unité.
 \end{proof}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Produit scalaire, produit hermitien}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Orientation}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{definition}[Définie positive, thème~\ref{THEMEooYEVLooWotqMY}]      \label{DEFooJIAQooZkBtTy}
-    Si $g$ est une application bilinéaire\footnote{Définition~\ref{DEFooEEQGooNiPjHz}.} sur un espace vectoriel \( E\) nous disons qu'elle est
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Cas vectoriel}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{propositionDef}[\cite{BIBooEMJPooWLMWSd}]        \label{DEFooNVRHooEBHUSu}
+    Soient deux bases \( \mB\) et \( \mB'\) d'un espace vectoriel réel \( E\). Nous définissons la relation \( \mB\sim \mB'\) si et seulement si \( \det_{\mB}(\mB')>0\)\footnote{Définition \ref{DEFooODDFooSNahPb}.}.
+
+    Cela est une relation d'équivalence\footnote{Définition \ref{DefHoJzMp}.} sur l'ensemble des bases de \( E\), et les classes sont les \defe{orientations}{orientation} de \( E\).
+\end{propositionDef}
+
+\begin{proof}
+    Tout est dans le lemme \ref{LemJMWCooELZuho}. D'abord quand \( \mB\) et \( \mB'\) sont des bases, \( \det_{\mB}(\mB')\neq 0\) ensuite, nous passons en revue les points qu'il faut pour être une relation d'équivalence.
     \begin{enumerate}
         \item
-            \defe{définie positive}{application!définie positive} si $g(x,x)\geq 0$ pour tout $x\in E$ et $g(x,x)=0$ si et seulement si $x=0$.
+            \( \mB\sim \mB\) parce que \( \det_{\mB}(\mB)=1>0\).
         \item
-            \defe{semi-définie positive}{application!semi-définie positive} si $g(x,x)\geq 0$ pour tout $x\in E$. Nous dirons aussi parfois qu'elle est simplement «positive».
-        \end{enumerate}
-\end{definition}
-Cela est évidemment à lier à la définition~\ref{DefAWAooCMPuVM} et la proposition~\ref{PROPooUAAFooEGVDRC} : une application bilinéaires est définie positive si et seulement si sa matrice symétrique associée l'est.
-
-\begin{definition}\label{DefVJIeTFj}
-    Un \defe{produit scalaire}{produit!scalaire!en général} sur un espace vectoriel réel est une forme bilinéaire\footnote{Définition~\ref{DEFooEEQGooNiPjHz}.} symétrique strictement définie positive\footnote{Définition~\ref{DEFooJIAQooZkBtTy}.}.
-\end{definition}
-
-Vu que nous allons voir un pâté d'espaces avec des produits scalaires, nous leur donnons un nom.
-\begin{definition}\label{DefLZMcvfj}
-    Un espace vectoriel \defe{euclidien}{euclidien!espace} est un espace vectoriel de dimension finie muni d'un produit scalaire (définition~\ref{DefVJIeTFj}).
-\end{definition}
-Avouez que c'est drôle qu'un espace vectoriel est euclidien lorsqu'il possède une \emph{multiplication} alors qu'un anneau est euclidien lorsqu'il possède une \emph{division} (voir la définition~\ref{DefAXitWRL}). C'est pas très profond, mais si ça peut vous servir de moyen mnémotechnique\ldots
-
-\begin{definition}[\cite{ooJUXBooVrwvfP}]  \label{DefMZQxmQ}
-    Soit \( E\) est un espace vectoriel sur \( \eC\). Une application \( \langle ., .\rangle \colon E\times E\to \eC\) est \defe{sesquilinéaire à droite}{sesquilinéaire} si pour tout \( x,y\in E\) et pour tout \( \lambda\in \eC\),
-    \begin{enumerate}
+            Vu que \( \det_{\mB}(\mB')=\frac{1}{ \det_{\mB'}(\mB) }\), les deux sont positifs en même temps ou pas du tout.
         \item
-            \( \langle \lambda x, y\rangle =\lambda\langle x,y, \rangle =\langle x, \bar\lambda y\rangle \),
-        \item
-            \( \langle x+y, z\rangle =\langle x, y\rangle+\langle y, z\rangle  \),
-        \item
-            \( \langle x, y+z\rangle =\langle x, y\rangle +\langle x, z\rangle \).
+            Si \( \mB\sim \mB'\) et \( \mB'\sim\mB''\), alors en utilisant la formule
+            \begin{equation}
+                \det_{\mB}(\mB'')=\det_{\mB}(\mB')\det_{\mB'}(\mB''),
+            \end{equation}
+            nous voyons que \( \det_{\mB}(\mB'')>0\).
     \end{enumerate}
-    Cette forme est \defe{hermitienne}{hermitienne} si de plus
-    \begin{equation}
-        \langle x, y\rangle =\overline{ \langle y, x\rangle  }.
-    \end{equation}
-    Un \defe{produit scalaire hermitien}{hermitien!produit scalaire} est une forme hermitienne strictement définie positive, c'est à dire telle que \( \langle x, x\rangle \geq 0\) pour tout \( x\in E\) et \( \langle x, x\rangle =0\) si et seulement si \( x=0\).
-\end{definition}
-
-\begin{example}
-    L'ensemble \( E=\eC^n\) vu comme espace vectoriel de dimension \( n\) sur \( \eC\)  est muni d'une forme sesquilinéaire
-    \begin{equation}    \label{EqFormSesqQrjyPH}
-        \langle x, y\rangle =\sum_{k=1}^nx_k\bar y_k
-    \end{equation}
-    pour tout \( x,y\in\eC^n\). Cela est un espace vectoriel hermitien.
-\end{example}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Norme, produit scalaire et Cauchy-Schwarz}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Dans la suite, le produit scalaire de \( x\) et \( y\) pourra être noté indifféremment par \( x\cdot y\), \( \langle x, y\rangle \) ou \( b(x,y)\) lorsque une forme bilinéaire est donnée.
-
-Nous commençons par prouver qu'un produit scalaire étant donné, nous pouvons définir une norme par la formule \( \| x \|^2=\langle x, x\rangle \). Pour cela nous aurons besoin de l'inégalité de Cauchy-Schwarz.
-
-\begin{theorem}[Inégalité de Cauchy-Schwarz, cas réel]      \label{ThoAYfEHG}
-    Soit un espace vectoriel muni d'un produit scalaire \( (x,y)\mapsto x\cdot y\). En posant\footnote{Attention à la notation : pour l'instant nous ne savons pas que c'est une norme. Ce sera justifié dans la proposition~\ref{PropEQRooQXazLz}.}
-    \begin{equation}
-        \| x \|=\sqrt{ x\cdot x },
-    \end{equation}
-    nous avons
-    \begin{equation}        \label{EQooZDSHooWPcryG}
-		| x\cdot y |\leq \| x \|\| y \|.
-	\end{equation}
-    Nous avons une égalité si et seulement si \( x\) et \( y\) sont multiples l'un de l'autre.
-\end{theorem}
-\index{Cauchy-Schwarz}
-\index{inégalité!Cauchy-Schwarz}
-
-\begin{proof}
-	Étant donné que les deux membres de l'inéquation sont positifs, nous allons travailler en passant au carré afin d'éviter les racines carrés dans le second membre.
-
-	Nous considérons le polynôme
-	\begin{equation}
-		P(t)=\| x+ty \|^2=(x+ty)\cdot(x+ty)=x\cdot x+x\cdot ty+ty\cdot x+t^2y\cdot y.
-	\end{equation}
-    En utilisant la bilinéarité (pour sortir les \( t\)) et la symétrique du produit scalaire, puis en ordonnant les termes selon les puissances de $t$,
-	\begin{equation}
-		P(t)=\| y \|^2t^2+2(x\cdot y)t+\| x \|^2.
-	\end{equation}
-	Cela est un polynôme du second degré en $t$ dont le signe est toujours positif (ou nul). Par conséquent le discriminant\footnote{Le fameux $b^2-4ac$.} doit être négatif ou nul. Nous avons donc
-	\begin{equation}
-		\Delta=4(x\cdot y)^2-4\| x \|^2\| y \|^2\leq 0,
-	\end{equation}
-	ce qui donne immédiatement
-	\begin{equation}
-		(x\cdot y)^2\leq\| x \|^2\| y \|^2.
-	\end{equation}
-
-    En ce qui concerne le cas d'égalité, si nous avons \( x\cdot y=\| x \|\| y \|\), alors le discriminant \( \Delta\) ci-dessus est nul et le polynôme \( P\) admet une racine double \( t_0\). Pour cette valeur nous avons
-    \begin{equation}
-        P(t_0)=| x+t_0y |=0,
-    \end{equation}
-    ce qui implique \( x+t_0y=0\) et donc que \( x\) et \( y\) sont liés.
 \end{proof}
 
-\begin{proposition} \label{PropEQRooQXazLz}
-    Si \( x,y\mapsto x\cdot y\) est un produit scalaire sur un espace vectoriel \( E\), alors \( \| x \|=\sqrt{x\cdot x}\) est une norme\footnote{Définition~\ref{DefNorme}.} vérifiant l'identité du parallélogramme :
-    \begin{equation}        \label{EqYCLtWfJ}
-        \| x-y \|^2+\| x+y \|^2=2\| x \|^2+2\| y \|^2.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Prouvons l'inégalité triangulaire\index{inégalité!triangulaire!produit scalaire}. Si \( x,y\in E\) nous avons
-    \begin{equation}
-        \| x+y \|=\sqrt{\| x \|^2+\| y \|^2+2x\cdot y}.
-    \end{equation}
-    Par l'inégalité de Cauchy-Schwarz, théorème~\ref{ThoAYfEHG} nous avons aussi
-    \begin{equation}
-        \| x \|^2+\| y \|^2+2x\cdot y\leq \| x \|^2+\| y \|^2+2\| x \|\| y \|=\big( \| x \|+\| y \| \big)^2,
-    \end{equation}
-    donc
-    \begin{equation}
-        \| x+y \|\leq \sqrt{\big( \| x \|+\| y \| \big)^2}=\| x \|+\| y \|.
-    \end{equation}
-
-    La seconde assertion est seulement un calcul :
-			\begin{equation}
-				\begin{aligned}[]
-					\| x-y \|^2+\| x+y \|^2&=(x-y)\cdot (x-y)+(x+y)\cdot(x+y)\\
-					&=x\cdot x-x\cdot y-y\cdot x+y\cdot y\\
-					&\quad +x\cdot x+x\cdot y+y\cdot x+y\cdot y\\
-					&=2x\cdot x+2y\cdot y\\
-					&=2\| x \|^2+2\| y \|^2.
-				\end{aligned}
-			\end{equation}
-\end{proof}
 
 \begin{normaltext}
     Un produit scalaire fournit donc toujours une norme et donc une topologie. Il ne faudrait cependant pas croire que toute norme dérive d'un produit scalaire, même pas en dimension finie. Et ce, malgré l'équivalence de toutes les normes du théorème~\ref{ThoNormesEquiv} dont vous avez déjà peut-être entendu parler.
@@ -976,802 +912,190 @@ Nous commençons par prouver qu'un produit scalaire étant donné, nous pouvons 
      \end{equation}
 \end{theorem}
 
-\begin{proof}
-    Si \( \langle x, y\rangle =0\), le résultat est évident; nous supposons que non. Nous posons
-    \begin{equation}
-        \theta=\frac{ \langle x, y\rangle  }{ | \langle x, y\rangle  | }.
-    \end{equation}
-    C'est un élément de \( \eC\) de norme \( 1\). Nous avons
-    \begin{equation}
-        \langle \frac{1}{ \theta }x, y\rangle =\frac{ | \langle x, y\rangle  | }{ \langle x, y\rangle  }\langle x, y\rangle =| \langle x, y\rangle  |\geq 0
-    \end{equation}
-    où le symbole «\( \geq\)» signifie «est réel et positif». Nous posons \( x'=\frac{1}{ \theta }x\) et nous considérons \( t\in \eR\). Remarquons que \( \| x' \|^2=\| x \|^2\) :
-    \begin{equation}
-        \| x' \|^2=\langle x', x'\rangle =\frac{1}{ \theta\bar\theta }\langle x, x\rangle =\| x \|^2
-    \end{equation}
-    parce que \( | \theta |=1\).
 
-    En utilisant le fait que \( \langle a, b\rangle +\langle b, a\rangle =\real(\langle a, b\rangle )\) nous avons :
-    \begin{subequations}
-        \begin{align}
-            0\leq \| x'+ty \|^2&=\| x' \|^2+t\langle x', y\rangle +t\langle y, x'\rangle +t^2\| y \|^2\\
-            &=\| y \|^2t^2+2\real(\langle x', y\rangle )t+\| x' \|^2.
-        \end{align}
-    \end{subequations}
-    Cela est un polynôme de degré \( 2\) en \( t\) qui n'est jamais strictement négatif. Autrement dit, il a au maximum une seule racine, ce qui signifie que son discriminant est négatif ou nul :
-    \begin{equation}
-        \real(\langle x', y\rangle )^2-\| y \|^2\| x' \|^2\leq 0.
-    \end{equation}
-    Mais nous avons choisi \( x'\) de telle sorte que \( \langle x', y\rangle =| \langle x, y\rangle  |\in \eR\) et \( \| x' \|^2=\| x \|^2\); nous avons donc
-    \begin{equation}
-        | \langle x, y\rangle  |^2\leq \| x \|^2\| y \|^2,
-    \end{equation}
-    comme il se devait.
-\end{proof}
-
-
-\begin{lemma}[\cite{KXjFWKA}]   \label{LemLPOHUme}
-    Soit \( V\) un espace vectoriel muni d'un produit scalaire et de la norme associée. Si \( x,y\in V\) satisfont à \( \| x+y \|=\| x \|+\| y \|\), alors il existe \( \lambda\geq 0\) tel que \( x=\lambda y\).
+\begin{lemma}
+    Soit un espace vectoriel réel \( E\). L'ensemble des bases de \( E\) possède exactement deux orientations\footnote{Définition \ref{DEFooNVRHooEBHUSu}.}
 \end{lemma}
 
 \begin{proof}
-    Quitte à raisonner avec \( x/\| x \|\) et \( y/\| y \|\), nous supposons que \( \| x \|=\| y \|=1\). Dans ce cas l'hypothèse signifie que \( \| x+y \|^2=4\). D'autre part en écrivant la norme en terme de produit scalaire,
-    \begin{equation}
-        \| x+y \|^2=\| x \|^2+\| y \|^2+2\langle x, y\rangle ,
-    \end{equation}
-    ce qui nous mène à affirmer que \( \langle x, y\rangle =1=\| x \|\| y \|\). Nous sommes donc dans le cas d'égalité de l'inégalité de Cauchy-Schwarz\footnote{Théorème~\ref{ThoAYfEHG}.}, ce qui nous donne un \( \lambda\) tel que \( x=\lambda y\). Étant donné que \( \| x \|=\| y \|=1\) nous avons obligatoirement \( \lambda=\pm 1\), mais si \( \lambda=-1\) alors \( \langle x, y\rangle =-1\), ce qui est le contraire de ce qu'on a prétendu plus haut. Par soucis de cohérence, nous allons donc croire que \( \lambda=1\).
+    Nous considérons une base \( \mB=(e_1,\ldots, e_n\)\footnote{Nous notons \( (e_1,e_2)\) et non \( \{ e_1,e_2 \}\) parce que l'ordre est important.} à partir de laquelle nous définissons une autre base : \( \mB'=( -e_1,e_2,\ldots, e_n )\). Nous allons prouver que ces deux bases ne sont pas équivalentes, et que toute base de \( E\) est équivalente soit à \( \mB\) soit à \( \mB'\).
+
+    \begin{subproof}
+        \item[Au moins deux classes]
+            Le fait que \( \det_{\mB}(\mB')=-1\) vient du fait que \( \det_{\mB}(\mB')=1\) et que l'application \( \det_{\mB}\) est \( n\)-linéaire; en multipliant par \( -1\) le premier argument, la valeur du déterminant est multipliée par \( -1\).
+
+            Donc les bases \( \mB\) et \( \mB'\) ne sont pas équivalentes et il existe au moins deux classes.
+
+        \item[Au plus deux classes]
+            Nous montrons à présent que toute base est équivalente soit à \( \mB\) soit à \( \mB'\). Supposons que \( \mB''\) ne soit pas équivalente à \( \mB\), c'est-à-dire que \( \det_{\mB}(\mB'')<0\). Nous utilisons encore la formule \eqref{EqAWICooBLTTOY},
+            \begin{equation}
+                \underbrace{\det_{\mB}(\mB'')}_{<0}=\underbrace{\det_{\mB}(\mB')}_{<0}\det_{\mB'}(\mB''),
+            \end{equation}
+            et nous déduisons que \( \det_{\mB'}(\mB'')>0\).
+    \end{subproof}
 \end{proof}
+
+\begin{normaltext}
+    Vu qu'il n'y a que deux classes d'équivalence parmi les bases, nous pouvons utiliser le vocable «avoir la même orientation que» ou «avoir l'orientation contraire de». Ce n'est pas ambigu.
+\end{normaltext}
 
 
 \begin{proposition}			\label{PropVectsOrthLibres}
 	Si $v_1,\cdots,v_k$ sont des vecteurs non nuls, orthogonaux deux à deux, alors ces vecteurs forment une famille libre.
 \end{proposition}
+	
 
-\begin{definition}[Isométrie, thème~\ref{THMooVUCLooCrdbxm}]      \label{DEFooGGTYooXsHIZj}
-    Une \defe{isométrie}{isométrie!forme bilinéaire} d'une forme bilinéaire \( b\) sur l'espace vectoriel \( E\) est une application bijective \( f\colon E\to E\) telle que \( b\big( f(u),f(v) \big)=b(u,v)\) pour tout \( u,v\in E\).
-\end{definition}
-En particulier une isométrie d'un espace euclidien est une application bijective qui préserve le produit scalaire.
-
-\begin{lemma}       \label{LEMooYXJZooWKRFRu}
-    Une isométrie d'un espace euclidien fixe l'origine.
-\end{lemma}
+\begin{proposition}[\cite{BIBooEMJPooWLMWSd}]
+    Si \( \mB\) est une base de l'espace vectoriel \( E\) de dimension \( n\), et si \( \tau\) est une transposition\footnote{Définition \ref{DEFooXNAFooGTbTTJ}.} de \( S_n\), alors la base \( \tau(\mB)\) est de sens contraire.
+\end{proposition}
 
 \begin{proof}
-    Soit une isométrie \( f\) d'un espace euclidien : \( f(x)\cdot f(y)=x\cdot y\) pour tout \( x,y\in E\). En particulier pour \( x=0\) nous avons
+    Le lemme \ref{LemJMWCooELZuho}\ref{ITEMooTXXBooBmDtzd} dit que \( \det_{\mB}\) est une forme anti-symétrique; donc
     \begin{equation}
-        f(0)\cdot f(y)=0
+        \det_{\mB}(\mB')=-\det_{\mB}\big( \tau(\mB)' \big).
     \end{equation}
-    pour tout \( y\). Vu que \( f\) est une bijection, nous avons \( f(0)\cdot x=0\) pour tout \( x\). Comme le produit scalaire est non dégénéré cela implique que \( f(0)=0\).
-\end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Projection et angles}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition}[Propriétés du produit scalaire]
-	Si $X$ et $Y$ sont des vecteurs de $\eR^3$, alors
-	\begin{description}
-		\item[Symétrie] $X\cdot Y=Y\cdot X$;
-		\item[Linéarité] $(\lambda X+\mu X')\cdot Y=\lambda(X\cdot Y)+\mu(X'\cdot Y)$ pour tout $\lambda$ et $\mu$ dans $\eR$;
-		\item[Défini positif] $X\cdot X\geq 0$ et $X\cdot X=0$ si et seulement si $X=0$.
-	\end{description}
-\end{proposition}
-Note : lorsque nous écrivons $X=0$, nous voulons voulons dire $X=\begin{pmatrix}
-	0	\\
-	0	\\
-	0
-\end{pmatrix}$.
-
-
-\begin{definition}
-	La \defe{norme}{norme!vecteur} du vecteur $X$, notée $\| X \|$, est définie par
-	\begin{equation}
-		\| X \|=\sqrt{X\cdot X}=\sqrt{x^2+y^2+z^2}
-	\end{equation}
-	si $X=(x,y,z)$. Cette norme sera parfois nommée «norme euclidienne».
-\end{definition}
-Cette définition est motivée par le théorème de Pythagore. Le nombre $X\cdot X$ est bien la longueur de la «flèche» $X$. Plus intrigante est la définition suivante :
-\begin{definition}
-	Deux vecteurs $X$ et $Y$ sont \defe{orthogonaux}{orthogonal!vecteur} si $X\cdot Y=0$.
-\end{definition}
-Cette définition de l'orthogonalité est motivée par la proposition suivante.
-
-\begin{proposition}		\label{PropProjScal}
-	Si nous écrivons $\pr_Y$  l'opération de projection sur la droite qui sous-tend $Y$, alors nous avons
-	\begin{equation}
-		\| \pr_YX \|=\frac{ X\cdot Y }{ \| Y \| }.
-	\end{equation}
-\end{proposition}
-
-\begin{proof}
-	Les vecteurs $X$ et $Y$ sont des flèches dans l'espace. Nous pouvons choisir un système d'axe orthogonal tel que les coordonnées de $X$ et $Y$ soient
-	\begin{equation}
-		\begin{aligned}[]
-			X&=\begin{pmatrix}
-				x	\\
-				y	\\
-				0
-			\end{pmatrix},
-			&Y&=\begin{pmatrix}
-				l	\\
-				0	\\
-				0
-			\end{pmatrix}
-		\end{aligned}
-	\end{equation}
-	où $l$ est la longueur du vecteur $Y$. Pour ce faire, il suffit de mettre le premier axe le long de $Y$, le second dans le plan qui contient $X$ et $Y$, et enfin le troisième axe dans le plan perpendiculaire aux deux premiers.
-
-	Un simple calcul montre que $X\cdot Y=xl+y\cdot 0+0\cdot 0=xl$. Par ailleurs, nous avons $\| \pr_YX \|=x$. Par conséquent,
-	\begin{equation}
-		\| \pr_YX \|=\frac{ X\cdot Y }{ l }=\frac{ X\cdot Y }{ \| Y \| }.
-	\end{equation}
+    Si l'un est positif, l'autre est négatif. Elles ont donc des orientations contraires.
 \end{proof}
 
 \begin{corollary}
-	Si la norme de $Y$ est $1$, alors le nombre $X\cdot Y$ est la longueur de la projection de $X$ sur $Y$.
+    Si \( \mB\) est une base de l'espace vectoriel \( E\) de dimension \( n\), et si \( \sigma\in S_n\), la base \( \sigma(\mB)\) a même orientation que \( \mB\) si et seulement si \( \sigma\in A_n\).
 \end{corollary}
 
 \begin{proof}
-	Poser $\| Y \|=1$ dans la proposition~\ref{PropProjScal}.
+    Notons \( c_1\) la classe d'orientation de \( \mB\) et \( c_2\) l'autre classe. La permutation \( \sigma\) se décompose en produit de transpositions dont la parité est fixée (proposition \ref{PROPooKRHEooAxtmRv}). Posons \( \sigma=\tau_k\ldots \tau_1\).
+
+    En posant \( \mB_0=\mB\) et \( \mB_{l+1}=\tau_{l+1}(\mB_l)\), pour tout \( l\), la base \( \mB_l\) est d'orientation contraire à celle de la base \( \mB_{l-1}\). Une base sur deux a l'orientation de \( \mB\) et l'autre sur deux a l'orientation contraire.
+
+    Donc \( \sigma(\mB)\) a la même orientation que \( \mB\) si et seulement si \( k\) est pair. Mais \( \sigma\in A_n\) si et seulement si \( k\) est pair. C'est bon.
 \end{proof}
 
-\begin{remark}
-    Outre l'orthogonalité, le produit scalaire permet de savoir l'angle entre deux vecteurs à travers la définition~\ref{DEFooSVDZooPWHwFQ}. D'autres interprétations géométriques du déterminant sont listées dans le thème~\ref{THMooUXJMooOroxbI}.
-\end{remark}
-
-Nous sommes maintenant en mesure de déterminer, pour deux vecteurs quelconques $u$ et $v$, la projection orthogonale de $u$ sur $v$. Ce sera le vecteur $\bar u$ parallèle à $v$ tel que $u-\bar u$ est orthogonal à $v$. Nous avons donc
-\begin{equation}
-    \bar u=\lambda v
-\end{equation}
-et
-\begin{equation}
-    (u-\lambda v)\cdot v=0.
-\end{equation}
-La seconde équation donne $u\cdot v-\lambda v\cdot v=0$, ce qui fournit $\lambda$ en fonction de $u$ et $v$ :
-\begin{equation}
-    \lambda=\frac{ u\cdot v }{ \| v \|^2 }.
-\end{equation}
-Nous avons par conséquent
-\begin{equation}
-    \bar u=\frac{ u\cdot v }{ \| v \|^2 }v.
-\end{equation}
-Armés de cette interprétation graphique du produit scalaire, nous comprenons pourquoi nous disons que deux vecteurs sont orthogonaux lorsque leur produit scalaire est nul.
-
-Nous pouvons maintenant savoir quel est le coefficient directeur d'une droite orthogonale à une droite donnée. En effet, supposons que la première droite soit parallèle au vecteur $X$ et la seconde au vecteur $Y$. Les droites seront perpendiculaires si $X\cdot Y=0$, c'est à dire si
-\begin{equation}
-	\begin{pmatrix}
-		x_1	\\
-		y_1
-	\end{pmatrix}\cdot\begin{pmatrix}
-		y_1	\\
-		y_2
-	\end{pmatrix}=0.
-\end{equation}
-Cette équation se développe en
-\begin{equation}		\label{Eqxuyukljsca}
-	x_1y_1=-x_2y_2.
-\end{equation}
-Le coefficient directeur de la première droite est $\frac{ x_2 }{ x_1 }$. Isolons cette quantité dans l'équation \eqref{Eqxuyukljsca} :
-\begin{equation}
-	\frac{ x_2 }{ x_1 }=-\frac{ y_1 }{ y_2 }.
-\end{equation}
-Donc le coefficient directeur de la première est l'inverse et l'opposé du coefficient directeur de la seconde.
-
-\begin{example}
-	Soit la droite $d\equiv y=2x+3$. Le coefficient directeur de cette droite est $2$. Donc le coefficient directeur d'une droite perpendiculaires doit être $-\frac{ 1 }{ 2 }$.
-\end{example}
-
-\begin{proof}[Preuve alternative]
-	La preuve peut également être donnée en ne faisant pas référence au produit scalaire. Il suffit d'écrire toutes les quantités en termes des coordonnées de $X$ et $Y$. Si nous posons
-	\begin{equation}
-		\begin{aligned}[]
-			X&=\begin{pmatrix}
-				x_1	\\
-				x_2	\\
-				x_2
-			\end{pmatrix},
-			&Y&=\begin{pmatrix}
-				y_1	\\
-				y_2	\\
-				y_3
-			\end{pmatrix},
-		\end{aligned}
-	\end{equation}
-	l'inégalité à prouver devient
-	\begin{equation}
-		(x_1y_1+x_2y_2+x_3y_3)^2\leq (x_1^2+x_2^2+x_3^2)(y_1^2+y_2^2+y_3^2).
-	\end{equation}
-	Nous considérons la fonction
-	\begin{equation}
-		\varphi(t)=(x_1+ty_1)^2+(x_2+ty_2)^2+(x_3+ty_3)^2
-	\end{equation}
-	En tant que norme, cette fonction est évidemment positive pour tout $t$. En regroupant les termes de chaque puissance de $t$, nous avons
-	\begin{equation}
-		\varphi(t)=(y_1^2+y_2^2+y_3^2)t^2+2(x_1y_1+x_2y_2+x_3y_3)t+(x_1^2+x_2^2+x_3^2).
-	\end{equation}
-	Cela est un polynôme du second degré en $t$. Par conséquent le discriminant doit être négatif. Nous avons donc
-	\begin{equation}
-		4(x_1y_1+x_2y_2+x_3y_3)^2-(x_1^2+x_2^2+x_3^2)(y_1^2+y_2^2+y_3^2)\leq 0.
-	\end{equation}
-	La thèse en découle aussitôt.
-\end{proof}
-
-\begin{proposition}
-	La norme euclidienne a les propriétés suivantes :
-	\begin{enumerate}
-		\item
-			Pour tout vecteur $X$ et réel $\lambda$,  $\| \lambda X \|=| \lambda |\| X \|$. Attention à ne pas oublier la valeur absolue !
-		\item
-			Pour tout vecteurs $X$ et $Y$, $\| X+Y \|\leq \| X \|+\| Y \|$.
-	\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-	Nous ne prouvons pas le premier point.
-    % TODO : faire la preuve
-    Pour le second, nous avons les inégalités suivantes :
-	\begin{subequations}
-		\begin{align}
-			\| X+Y \|^2&=\| X \|^2+\| Y \|^2+2X\cdot Y\\
-			&\leq\| X \|^2+\| Y \|^2+2|X\cdot Y|\\
-			&\leq\| X \|^2+\| Y \|^2+2\| X \|\| Y \|\\
-			&=\big( \| X \|+\| Y \| \big)^2
-		\end{align}
-	\end{subequations}
-    Nous avons utilisé d'abord la majoration $| x |\geq x$ qui est évident pour tout nombre $x$; et ensuite l'inégalité de Cauchy-Schwarz~\ref{ThoAYfEHG}.
-\end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Produit vectoriel}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}      \label{DEFooTNTNooRjhuJZ}
-	Soient $u$ et $v$, deux vecteurs de $\eR^3$. Le \defe{produit vectoriel}{produit!vectoriel} de $u$ et $v$ est le vecteur $u\times v$ défini par
-    \begin{equation}        \label{EQooCUJRooFuFPaZ}
-		\begin{aligned}[]
-		u\times v&=\begin{vmatrix}
-			e_1	&	e_2	&	e_3	\\
-			u_1	&	u_2	&	u_3	\\
-			v_1	&	v_2	&	v_3
-		\end{vmatrix}\\
-		&=
-		(u_2v_3-u_3v_2)e_1+(u_3v_1-u_1v_3)e_2+(u_1v_2-u_2v_1)e_3\\
-        &=\sum_{i,j,k}\epsilon_{ijk}v_iw_je_k
-		\end{aligned}
-	\end{equation}
-	où les vecteurs $e_1$, $e_2$ et $e_3$ sont les vecteurs de la base canonique de $\eR^3$, et $\epsilon_{ijk}$ est défini par $\epsilon_{xyz}=1$ et ensuite $\epsilon_{ijk}$ est $1$ ou $-1$ suivant que la permutation des $x$, $y$ et $z$ est paire ou impaire. C'est à dire que \( \epsilon_{ijk}\) est la signature de la permutation qui amène \( (1,2,3)\) sur \( (i,j,k)\).
-\end{definition}
-
-Une des principales utilités du produit vectoriel est donnée dans la proposition suivante.
-\begin{proposition}     \label{PROPooIQMTooFHNjfu}
-    Si \( u\) et \( v\) sont des vecteurs de \( \eR^3\) alors le vecteur \( u\times v\) est perpendiculaire à \( u\) et à \( v\).
-\end{proposition}
-La chose importante à retenir est que le produit vectoriel permet de construire un vecteur simultanément perpendiculaire à deux vecteurs donnés. Le vecteur $u\times v$ est donc linéairement indépendant de $u$ et $v$. En pratique, si $u$ et $v$ sont déjà linéairement indépendants, alors le produit vectoriel permet de compléter une base de $\eR^3$.
-
-\begin{definition}
-    À l'aide du produit vectoriel et du produit scalaire, nous construisons le \defe{produit mixte}{produit!mixte} de trois vecteurs de $\eR^3$ par la formule
-    \begin{equation}
-        (u\times v)\cdot w=\begin{vmatrix}
-                u_1	&	u_2	&	u_3	\\
-                v_1	&	v_2	&	v_3	\\
-                w_1	&	w_2	&	w_3
-        \end{vmatrix}.
-    \end{equation}
-\end{definition}
-
-Pourquoi nous ne considérons pas la combinaison $(u\cdot v)\times w$ ?
-
-\begin{proposition}		 \label{PropScalMixtLin}
-	Les applications produit scalaire, vectoriel et mixte sont multilinéaires. Spécifiquement, nous avons les propriétés suivantes.
-	\begin{enumerate}
-		\item
-			Les applications produit scalaire et vectoriel sont bilinéaires. C'est à dire que pour tout vecteurs $a$, $b$, $c$ et pour tout nombre $\alpha$ et $\beta$ nous avons
-    \begin{equation}
-        \begin{aligned}[]
-            a\times (\alpha b +\beta c)&=\alpha(a\times b)+\beta(a\times c)\\
-            (\alpha a+\beta b)\times c&=\alpha(a\times c)+\beta(b\times c).
-        \end{aligned}
-    \end{equation}
-
-        \item
-            Le produit mixte est trilinéaire.
-		\item
-			Le produit vectoriel est antisymétrique, c'est à dire $u\times v=-v\times u$.
-		\item
-			Nous avons $u\times v=0$ si et seulement si $u$ et $v$ sont colinéaires, c'est à dire si et seulement si l'équation $\alpha u+\beta v=0$ a une solution différente de la solution triviale $(\alpha,\beta)=(0,0)$.
-		\item		\label{ItemPropScalMixtLiniv}
-			Pour tout $u$ et $v$ dans $\eR^3$, nous avons
-			\begin{equation}
-				\langle u, v\rangle^2 +\| u\times v \|^2=\| u \|^2\| v \|^2
-			\end{equation}
-
-		\end{enumerate}
-\end{proposition}
-
-Les trois vecteurs de base $e_x$, $e_y$ et $e_y$ ont des produits vectoriels faciles à retenir :
-\begin{equation}
-    \begin{aligned}[]
-        e_x\times e_y&=e_z\\
-        e_y\times e_z&=e_x\\
-        e_z\times e_x&=e_y
-    \end{aligned}
-\end{equation}
-
-Les deux formules suivantes, qui mêlent le produit scalaire et le produit vectoriel, sont souvent utiles en analyse vectorielle :
-\begin{equation}
-	\begin{aligned}[]
-		(u\times v)\cdot w&=u\cdot(v\times w)\\
-		(u\times v)\times w&=-(v\cdot w)u+(u\cdot w)v		\label{EqFormExpluxxx}
-	\end{aligned}
-\end{equation}
-pour tout vecteurs $u$, $v$ et $w$ dans $\eR^3$. Nous les admettons sans démonstration. La seconde formule est parfois appelée \defe{formule d'expulsion}{formule!d'expulsion (produit vectoriel)}.
-
-\begin{example}
-    Calculons le produit vectoriel $v\times w$ avec
-    \begin{equation}
-        \begin{aligned}[]
-            v&=\begin{pmatrix}
-                3    \\
-                -1    \\
-                1
-            \end{pmatrix}&w=\begin{pmatrix}
-                1    \\
-                2    \\
-                -1
-            \end{pmatrix}.
-        \end{aligned}
-    \end{equation}
-    Les vecteurs s'écrivent sous la forme $v=3e_x-e_y+e_z$ et $w=e_x+2e_y-e_z$. Le produit vectoriel s'écrit
-    \begin{equation}
-        \begin{aligned}[]
-            (3e_x-e_y+e_z)\times (e_x+2e_y-e_z)&=6e_x\times e_y-3e_x\times e_z\\
-                                &\quad -e_y\times e_x + e_y\times e_z\\
-                                &\quad + e_z\times e_x + 2e_z\times e_y\\
-                                &=6e_z+3e_y+e_z+e_x+e_y-2e_x\\
-                                &=-e_x+4e_y+7e_z.
-        \end{aligned}
-    \end{equation}
-\end{example}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Produit mixte}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Si $a$, $b$ et $c$ sont trois vecteurs, leur \defe{produit mixte}{produit!mixte} est le nombre $a\cdot(b\times c)$. En écrivant le produit vectoriel sous forme de somme de trois déterminants $2\times 2$, nous avons
-\begin{equation}
-    \begin{aligned}[]
-        a\cdot& (b\times c)\\&=(a_1e_x+a_2e_y+a_3e_z)\cdot\left(
-        \begin{vmatrix}
-            b_2    &   b_3    \\
-            c_2    &   c_3
-        \end{vmatrix}e_x-\begin{vmatrix}
-            b_1    &   b_3    \\
-            c_1    &   c_3
-        \end{vmatrix}e_y+\begin{vmatrix}
-            b_1    &   b_2    \\
-            c_1    &   c_2
-        \end{vmatrix}\right)\\
-        &=a_1\begin{vmatrix}
-            b_2    &   b_3    \\
-            c_2    &   c_3
-        \end{vmatrix}-a_2\begin{vmatrix}
-            b_1    &   b_3    \\
-            c_1    &   c_3
-        \end{vmatrix}+a_3\begin{vmatrix}
-            b_1    &   b_2    \\
-            c_1    &   c_2
-        \end{vmatrix}\\
-        &=\begin{vmatrix}
-            a_1    &   a_2    &   a_3    \\
-            b_1    &   b_2    &   b_3    \\
-            c_1    &   c_2    &   c_3
-        \end{vmatrix}.
-    \end{aligned}
-\end{equation}
-Le produit mixte s'écrit donc sous forme d'un déterminant. Nous retenons cette formule:
-\begin{equation}        \label{EqProduitMixteDet}
-    a\cdot (b\times c)=\begin{vmatrix}
-        a_1    &   a_2    &   a_3    \\
-        b_1    &   b_2    &   b_3    \\
-        c_1    &   c_2    &   c_3
-    \end{vmatrix}.
-\end{equation}
-
-Un grand intérêt du produit vectoriel est qu'il fournit un vecteur qui est simultanément perpendiculaire aux deux vecteurs donnés.
-\begin{proposition}     \label{PROPooTUVKooOQXKKl}
-    Le produit vectoriel $a\times b$ est un vecteur orthogonal à $a$ et $b$.
-\end{proposition}
-
-\begin{proof}
-    Vérifions que $a\perp (a\times b)$. Pour cela, nous calculons $a\cdot (a\times b)$, c'est à dire le produit mixte
-    \begin{equation}
-        a\cdot(a\times b)=\begin{vmatrix}
-            a_1    &   a_2    &   a_3    \\
-            a_1    &   a_2    &   a_3    \\
-            b_1    &   b_2    &   b_3
-        \end{vmatrix}=0.
-    \end{equation}
-    L'annulation de ce déterminant est due au fait que deux de ses lignes sont égales.
-\end{proof}
-
-Ces résultats admettent une intéressante généralisation.
-\begin{lemma}       \label{LEMooFRWKooVloCSM}
-    Soit \( X\in \eR^n\) ainsi que \( v_1,\ldots, v_{n-1}\in \eR^n\). Alors
+\begin{propositionDef}[\cite{BIBooEMJPooWLMWSd}]        \label{PROPooNBAXooKNUrnk}
+    Soit un espace vectoriel réel, et un endomorphisme \( f\) de \( E\). Deux définitions.
     \begin{enumerate}
-        \item
-            Nous avons
-            \begin{equation}        \label{EQooMQNPooRHHBjz}
-                \det(X,v_1,\ldots, v_{n-1})=X\cdot
-                \det\begin{pmatrix}
-                     e_1   &   \ldots    &   e_n    \\
-                        &   v_1    &       \\
-                        &   \vdots    &       \\
-                        &   v_{n-1}    &
-                 \end{pmatrix}
-            \end{equation}
-        \item
-            Le vecteur
-            \begin{equation}
-                \det\begin{pmatrix}
-                     e_1   &   \ldots    &   e_n    \\
-                        &   v_1    &       \\
-                        &   \vdots    &       \\
-                        &   v_{n-1}    &
-                 \end{pmatrix}
-            \end{equation}
-            est orthogonal à tous les \( v_i\).
+        \item       \label{ITEMooOAXFooLIPHlW}
+            L'endomorphisme \( f\) est \defe{direct}{endomorphisme direct} si sont déterminant est strictement positif.
+        \item       \label{ITEMooNKYCooXTgKJA}
+            L'endomorphisme \defe{préserve l'orientation}{endomorphisme préserve l'orientation} si il transforme toutes base de \( E\) en une base de même orientation.
     \end{enumerate}
-\end{lemma}
+    Un endomorphisme est direct si et seulement si il préserve l'orientation.
+\end{propositionDef}
 
 \begin{proof}
-    Vu que les deux côtés de \eqref{EQooMQNPooRHHBjz} vus comme fonctions de \( X\), sont des applications linéaires de \( \eR^n\) dans \( \eR\), il suffit de vérifier l'égalité sur une base.
+    En deux sens.
+    \begin{subproof}
+        \item[Direct implique préserve l'orientation]
+            Soit une base \( \mB\) de \( E\) et un endomorphisme direct \( u\). D'abord, \( u\) est inversible du fait que son déterminant est non nul par la proposition \ref{PropYQNMooZjlYlA}\ref{ITEMooNZNLooODdXeH}. Donc \( u\) transforme une base en une base par le lemme \ref{LEMooDJSIooYcsvhO}.
 
-    Nous posons \( \tau_i\colon \eR^n\to \eR^{n-1}\),
-    \begin{equation}
-        \tau_i(v)_k=\begin{cases}
-            v_k    &   \text{si } k<i\\
-            v_{k+1}    &    \text{si } k\geq i\text{.}
-        \end{cases}
-    \end{equation}
-    et nous avons d'une part
-    \begin{equation}
-        e_k\cdot
-                \det
-                \begin{pmatrix}
-                     e_1   &   \ldots    &   e_n    \\
-                        &   v_1    &       \\
-                        &   \vdots    &       \\
-                        &   v_{n-1}    &
-                 \end{pmatrix}
-                 =\det\begin{pmatrix}
-                     \tau_kv_1   \\
-                     \vdots   \\
-                     \tau_kv_{n-1}
-                 \end{pmatrix}
+            La définition \ref{LEMooQTRVooAKzucd} du déterminant de \( u\) est que
+            \begin{equation}
+                \det(u)=\det_{\mB}\big( u(\mB) \big)>0.
             \end{equation}
-     et d'autre part,
-     \begin{equation}
-         \det(e_k,v_1,\ldots, v_{n-1})=\det
-         \begin{pmatrix}
-             0&&&\\
-             \vdots&&&\\
-             1&v_1&\cdots&v_{n-1}\\
-             \vdots&&&\\
-             0&&&
-         \end{pmatrix}=\det(\tau_k v_1,\ldots, \tau_k v_{n-1}).
-     \end{equation}
-     La première assertion est démontrée.
+            Donc \( \mB\) et \( u(\mB)\) ont même orientation.
+        \item[Préserve l'orientation implique direct]
+            Le fait que \( u\) préserve l'orientation signifie en particulier qu'il transforme une base en une base et qu'il est inversible par le lemme \ref{LEMooDJSIooYcsvhO}.
 
-     En ce qui concerne la seconde, il suffit d'appliquer la première et se souvenir qu'un déterminant est nul lorsque deux lignes sont égales\footnote{Proposition~\ref{PROPooLOQMooQzrZLH}.}. En effet :
-     \begin{equation}
-         v_k\cdot \det
-                \begin{pmatrix}
-                     e_1   &   \ldots    &   e_n    \\
-                        &   v_1    &       \\
-                        &   \vdots    &       \\
-                        &   v_{n-1}    &
-                 \end{pmatrix}
-                 =
-                 \det(v_k,v_1,\ldots, v_n)=0.
-     \end{equation}
+            Donc si \( \mB\) est une base, \( u(\mB)\) est encore une base et nous avons, parce que \( \mB\) et \( u(\mB)\) ont même orientation,
+            \begin{equation}
+                0<\det_{\mB}\big( u(\mB) \big)=\det(u).
+            \end{equation}
+    \end{subproof}
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Procédé de Gram-Schmidt}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition}[Procédé de Gram-Schmidt]    \label{PropUMtEqkb}
-    Un espace euclidien possède une base orthonormée.
-\end{proposition}
-\index{espace!euclidien}
-\index{Gram-Schmidt}
-
-\begin{proof}
-    Soit \( E\) un espace euclidien et \( \{ v_1,\ldots, v_n \}\), une base quelconque de \( E\). Nous posons d'abord
-    \begin{equation}
-        \begin{aligned}[]
-            f_1&=v_1,&e_1&=\frac{ f_1 }{ \| f_1 \| }.
-        \end{aligned}
-    \end{equation}
-    Ensuite
-    \begin{equation}
-        \begin{aligned}[]
-            f_2&=v_2-\langle v_2, e_1\rangle e_1,&e_2&=\frac{ f_2 }{ \| f_2 \| }.
-        \end{aligned}
-    \end{equation}
-    Notons que \( \{ e_1,e_2 \}\) est une base de \( \Span\{ v_1,v_2 \}\). De plus elle est orthogonale :
-    \begin{equation}
-        \langle e_1, f_2\rangle =\langle e_1, v_2\rangle -\langle v_2, e_1\rangle \underbrace{\langle e_1, e_1\rangle}_{=1} =0.
-    \end{equation}
-    Le fait que \( \| e_1 \|=\| e_2 \|=1\) est par construction. Nous avons donc donné une base orthonormée de \( \Span\{ v_1,v_2 \}\).
-
-    Nous continuons par récurrence en posant
-    \begin{equation}
-        \begin{aligned}[]
-            f_k&=v_k-\sum_{i=1}^{k-1}\langle v_k, e_i\rangle e_i,&e_k&=\frac{ f_k }{ \| f_k \| }.
-        \end{aligned}
-    \end{equation}
-    Pour tout \( j<k\) nous avons
-    \begin{equation}
-        \langle e_j, f_k\rangle =\langle e_j, v_k\rangle -\sum_{i=1}^{k-1}\langle v_k, e_i\rangle \underbrace{\langle e_i, e_j\rangle}_{=\delta_{ij}} =0
-    \end{equation}
-\end{proof}
-Cet algorithme de Gram-Schmidt nous donne non seulement l'existence de bases orthonormée pour tout espace euclidien, mais aussi le moyen d'en construire à partir de n'importe quelle base.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Trouver la matrice d'une symétrie donnée}
-%---------------------------------------------------------------------------------------------------------------------------
-\label{SubSecMtrSym}
-
-Les notions de déterminants, produit scalaire et vectoriels\footnote{Définitions~\ref{DefCOZEooGhRfxA},~\ref{DefVJIeTFj} et~\ref{DEFooTNTNooRjhuJZ}.} donnent une bonne intuition géométrique des matrices. Nous pouvons alors chercher à trouver les matrices de quelques symétriques dans \( \eR^2\) ou \( \eR^3\).
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Symétrie par rapport à un plan}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Comment trouver par exemple la matrice $A$ qui donne la symétrie autour du plan $z=0$ ? La définition d'une telle symétrie est que les vecteurs du plan $z=0$ ne bougent pas, tandis que les vecteurs perpendiculaires changent de signe. Ces informations vont permettre de trouver comment $A$ agit sur une base de $\eR^3$. En effet :
-\begin{enumerate}
-
-	\item
-		Le vecteur $\begin{pmatrix}
-			1	\\
-			0	\\
-			0
-		\end{pmatrix}$ est dans le plan $z=0$, donc il ne bouge pas,
-
-	\item
-		le vecteur $\begin{pmatrix}
-			0	\\
-			1	\\
-			0
-		\end{pmatrix}$ est également dans le plan, donc il ne bouge pas non plus,
-
-	\item
-		et le vecteur $\begin{pmatrix}
-			0	\\
-			0	\\
-			1
-		\end{pmatrix}$ est perpendiculaire au plan $z=0$, donc il va changer de signe.
-
-\end{enumerate}
-Cela nous donne directement les valeurs de $A$ sur la base canonique et nous permet d'écrire
-\begin{equation}
-	A=\begin{pmatrix}
-		1	&	0	&	0	\\
-		0	&	1	&	0	\\
-		0	&	0	&	-1
-	\end{pmatrix}.
-\end{equation}
-Pour écrire cela, nous avons juste mit en colonne les images des vecteurs de base. Les deux premiers n'ont pas changé et le troisième a changé.
-
-Et si maintenant on donne un plan moins facile que $z=0$ ? Le principe reste le même : il faudra trouver deux vecteurs qui sont dans le plan (et dire qu'ils ne bougent pas), et puis un vecteur qui est perpendiculaire au plan\footnote{Pour le trouver, penser au produit vectoriel.}, et dire qu'il change de signe.
-
-Voyons ce qu'il en est pour le plan $x=-z$. Il faut trouver deux vecteurs linéairement indépendants dans ce plan. Prenons par exemple
-\begin{equation}		\label{EqffudE}
-	\begin{aligned}[]
-		f_1&=\begin{pmatrix}
-			0	\\
-			1	\\
-			0
-		\end{pmatrix},&f_2&=\begin{pmatrix}
-			1	\\
-			0	\\
-			-1
-		\end{pmatrix}.
-	\end{aligned}
-\end{equation}
-Nous avons
-\begin{equation}
-	\begin{aligned}[]
-		Af_1&=f_1\\
-		Af_2&=f_2.
-	\end{aligned}
-\end{equation}
-Afin de trouver un vecteur perpendiculaire au plan, calculons le produit vectoriel :
-\begin{equation}
-	f_3=f_1\times f_2=\begin{vmatrix}
-		e_1	&	e_2	&	e_3	\\
-		0	&	1	&	0	\\
-		1	&	0	&	-1
-	\end{vmatrix}=-e_1-e_3=\begin{pmatrix}
-		-1	\\
-		0	\\
-		-1
-	\end{pmatrix}.
-\end{equation}
-Nous avons
-\begin{equation}
-	Af_3=-f_3.
-\end{equation}
-Afin de trouver la matrice $A$, il faut trouver $Ae_1$, $Ae_2$ et $Ae_3$. Pour ce faire, il faut d'abord écrire $\{ e_1,e_2,e_3 \}$ en fonction de $\{ f_1,f_2,f_3 \}$. La première des équations \eqref{EqffudE} dit que
-\begin{equation}
-	f_1=e_2.
-\end{equation}
-Ensuite, nous avons
-\begin{equation}
-	\begin{aligned}[]
-		f_2&=e_1-e_3\\
-		f_3&=-e_1-e_3.
-	\end{aligned}
-\end{equation}
-La somme de ces deux équations donne $-2e_3=f_2+f_3$, c'est à dire
-\begin{equation}
-	e_3=-\frac{ f_2+f_3 }{ 2 }
-\end{equation}
-Et enfin, nous avons
-\begin{equation}
-	e_1=\frac{ f_2-f_3 }{ 2 }.
-\end{equation}
-
-Maintenant nous pouvons calculer les images de $e_1$, $e_2$ et $e_3$ en faisant
-\begin{equation}
-	\begin{aligned}[]
-		Ae_1&=\frac{ Af_2-Af_3 }{ 2 }=\frac{1 }{2}\begin{pmatrix}
-			0	\\
-			0	\\
-			-2
-		\end{pmatrix}=\begin{pmatrix}
-			0	\\
-			0	\\
-			-1
-		\end{pmatrix},\\
-		Ae_2&=Af_1=f_1=\begin{pmatrix}
-			0	\\
-			1	\\
-			0
-		\end{pmatrix},\\
-		Ae_3&=-\frac{ f_2-f_3 }{ 2 }=-\frac{ 1 }{2}\begin{pmatrix}
-			2	\\
-			0	\\
-			0
-		\end{pmatrix}=\begin{pmatrix}
-			-1	\\
-			0	\\
-			0
-		\end{pmatrix}.
-	\end{aligned}
-\end{equation}
-La matrice $A$ s'écrit maintenant en mettant les trois images trouvées en colonnes :
-\begin{equation}
-	A=\begin{pmatrix}
-		0	&	0	&	-1	\\
-		0	&	1	&	0	\\
-		-1	&	0	&	0
-	\end{pmatrix}.
-\end{equation}
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Symétrie par rapport à une droite}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Le principe est exactement le même : il faut trouver trois vecteurs $f_1$, $f_2$ et $f_3$ sur lesquels on connaît l'action de la symétrie. Ensuite il faudra exprimer $e_1$, $e_2$ et $e_3$ en termes de $f_1$, $f_2$ et $f_3$.
-
-Le seul problème est de trouver les trois vecteurs $f_i$. Le premier est tout trouvé : c'est n'importe quel vecteur sur la droite. Pour les deux autres, il faut un peu ruser parce qu'il faut impérativement qu'ils soient perpendiculaires à la droite. Pour trouver $f_2$, on peut écrire
-\begin{equation}
-	f_2=\begin{pmatrix}
-		1	\\
-		0	\\
-		x
-	\end{pmatrix},
-\end{equation}
-et puis fixer le $x$ pour que le produit scalaire de $f_2$ avec $f_1$ soit nul. S'il n'y a pas moyen (genre si $f_1$ a sa troisième composante nulle), essayer avec $\begin{pmatrix}
-	x	\\
-	1	\\
-	0
-\end{pmatrix}$. Une fois que $f_2$ est trouvé (il y a des milliards de choix possibles), trouver $f_3$ est super facile : prendre le produit vectoriel entre $f_1$ et $f_2$.
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{En résumé}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-La marche à suivre est
-
-\begin{enumerate}
-
-	\item
-		Trouver trois vecteurs $f_1$, $f_2$ et $f_3$ sur lesquels on connaît l'action de la symétrie. Typiquement : des vecteurs qui sont sur l'axe ou le plan de symétrie, et puis des perpendiculaires. Pour la perpendiculaire, penser au produit scalaire et au produit vectoriel.
-
-	\item
-		Exprimer la base canonique $e_1$, $e_2$ et $e_3$ en termes de $f_1$, $f_2$, $f_3$.
-
-	\item
-		Trouver $Ae_1$, $Ae_2$ et $Ae_3$ en utilisant leur expression en termes des $f_i$, et le fait que l'on connaisse l'action de $A$ sur les $f_i$.
-
-	\item
-		La matrice s'obtient en mettant les images des $e_i$ en colonnes.
-\end{enumerate}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Approximation}
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Cas affine}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Le lemme suivant est surtout intéressant en dimension infinie.
-\begin{lemma}
-    Soit un espace vectoriel normé \( V\) et un sous-espace vectoriel dense \( A\). Soit \( v\in V\); il existe une suite \( (v_n)\) dans \( A\) telle que \( v_n\stackrel{V}{\longrightarrow}v\) et \( \| v_n \|\leq \| v \|\) pour tout \( n\).
-\end{lemma}
+\begin{definition}      \label{DEFooOTFPooIVkHFP}
+    Soit un espace affine \( \affE\) modelé sur \( E\). Les repères cartésiens\footnote{Définition \ref{DEFooQELZooEXvxgw}.} \( (O,\mB)\) et \( (O',\mB')\) ont \defe{même orientation}{orientation affine} si les bases \( \mB\) et \( \mB'\) ont même orientation.
 
-\begin{proof}
-    Vu que \( A\) est dense, il existe une suite \( a_n\) dans \( A\) telle que \( a_n\to v\). Ensuite il suffit de poser
-    \begin{equation}
-        v_n=\frac{ n }{ n+1 }\frac{ \| v \| }{ \| a_n \| }a_n.
-    \end{equation}
-    Par construction nous avons toujours
-    \begin{equation}
-        \| v_n \|=\frac{ n }{ n+1 }\| v \|\leq \| v \|.
-    \end{equation}
-    Et de plus, la norme étant continue\footnote{Où dans le calcul suivant nous utilisons la continuité de la norme ? Posez-vous la question.},
-    \begin{equation}
-        \lim_{n\to \infty} v_n=\lim_{n\to \infty} \frac{ n }{ n+1 }\lim_{n\to \infty} \frac{ \| v \| }{ \| v_n \| }\lim_{n\to \infty} v_n=v.
-    \end{equation}
+    Les classes d'équivalence (il y en a deux) sont les orientations de \( \affE\).
 
-    Le fait que \( v_n\) soit dans \( A\) est dû au fait que \( A\) soit vectoriel.
-\end{proof}
+Une application affine \( f\colon \affE\to \affE\) \defe{préserve l'orientation}{préserve l'orientation} si sa partie linéaire\footnote{Définition \ref{LEMooYJCDooOGAHkF}.} préserve l'orientation.
+\end{definition}
 
-\begin{proposition}     \label{PROPooVEMGooYKhMFy}
-    Soit un espace vectoriel normé \( V\) et un sous-espace vectoriel dense \( A\). Soit \( v\in V\); pour tout \( a\in \eR\) nous avons
-    \begin{equation}
-        \sup\{ | v\cdot a |\tq a\in A\text{ et }\| a \|\leq \lambda \}=\lambda\| v \|.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    D'abord pour tout \( a\in A\) vérifiant \( \| a \|\leq \lambda\) l'inégalité de Cauchy-Schwarz~\ref{ThoAYfEHG} donne
-    \begin{equation}
-        | v\cdot a |\leq \| v \|\| a \|\leq \lambda\| v \|.
-    \end{equation}
-    Donc le supremum dont on parle est majoré par \( \lambda\| v \|\).
-
-    Il nous faut l'inégalité dans l'autre sens. Par densité nous pouvons choisir une suite \( v_n\in A\) tel que \( v_n\to v\). Ensuite nous posons
-    \begin{equation}
-        a_n=\frac{ \lambda }{ \| v_n \| }v_n.
-    \end{equation}
-    Nous avons \( \| a_n \|=\lambda\) pour tout \( n\) et
-    \begin{equation}
-        | v\cdot a_n |=\frac{ \lambda }{ \| v_n \| }| v\cdot v_n |,
-    \end{equation}
-    et en passant à la limite,
-    \begin{equation}
-        \lim_{n\to \infty} | v\cdot a_n |=\frac{ \lambda }{ \| v \| }\| v\cdot v \|=\lambda\| v \|.
-    \end{equation}
-    Donc l'ensemble sur lequel nous prenons le supremum contient une suite convergente vers \( \lambda\| v \|\). Le supremum est donc au moins aussi grand que cela.
-\end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Hermitien, orthogonal, adjoint}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{definition}      \label{DEFooROVNooFlTbSK}
-    Soit \( E\) un espace vectoriel hermitien\footnote{Définition~\ref{DefMZQxmQ}.} et \( A\in\End(E)\). L'opérateur \defe{adjoint}{opérateur!adjoint} de \( A\) est l'opérateur noté \( A^*\) définit par
-    \begin{equation}    \label{EQooHWYKooFzAGgB}
-        \langle Av, w\rangle =\langle v, A^*w\rangle
-    \end{equation}
-    pour tout \( v,w\in \eC^n\).
-\end{definition}
 
-La prescription \eqref{EQooHWYKooFzAGgB} définit bien l'opérateur \( A^*\) de façon unique. En effet si \( \{ e_i \}\) est une base orthonormée alors
+\begin{normaltext}      \label{NORMooWGEJooCtGtqZ}
+    Une des choses à retenir de la définition de l'opérateur adjoint est que la notion de \( A^*\) dépend du produit scalaire considéré.
+    
+    Il se fait que le plus souvent, sur \( \eR^n\), nous considérons le produit scalaire usuel et la base canonique. De ce fait, les notions d'opérateur adjoint et d'opérateur transposés se confondent avec la notion de matrice transposée. Ce sont pourtant, en général, trois notions distinctes.
+\end{normaltext}
+
+\begin{propositionDef}[Définition de la transposée\cite{MonCerveau}]\label{DEFooROVNooFlTbSK}
+    Soient deux espaces vectoriels euclidiens ou hermitiens \( E\) et \( F\) et une application linéaire \( A\colon E\to F\).
+    \begin{enumerate}
+        \item       \label{ITEMooRUZWooSZgGnf}
+    Il existe une unique application linéaire \( B\colon F\to E\) telle que
+    \begin{equation}        \label{EQooHWYKooFzAGgB}
+        \langle Ax, y\rangle_F=\langle x, By\rangle_E
+    \end{equation}
+    pour tout \( x\in E\) et \( y\in F\).
+\item   \label{ITEMooXXEUooPtfPKY}
+ Si \( \{ e_i \}\) est une base orthonormée de \( E\) et \( \{ f_{\alpha} \}\) est une base orthonormée de \( F\), alors la matrice de \( A\) et \( B\) pour ces bases sont liées par
+ \begin{equation}       \label{EQooUSNVooQtRNGL}
+     B_{i\alpha}=A_{\alpha i}.
+ \end{equation}
+    \end{enumerate}
+     L'application \( B\) ainsi définie set nommée \defe{adjoint}{adjoint} de \( A\) et sera notée \( B=A^*\). 
+\end{propositionDef}
+
+\begin{proof}
+    Pour l'unicité, nous écrivons la condition avec \( x=e_j\) pour obtenir :
+    \begin{equation}
+        \langle Ae_j, y\rangle = \langle e_j, By\rangle =(By)_j
+    \end{equation}
+    c'est-à-dire que les coefficients \( B(y)_j\) de \( B(y)\) dans la base canonique sont fixés par la condition.
+
+    Pour l'existence, il suffit de vérifier que poser
+    \begin{equation}
+        B(y)=\sum_j\langle Ae_j, y\rangle e_j
+    \end{equation}
+    fonctionne. Pour cela il faut utiliser la bilinéarité du produit scalaire et le fait que \( \langle x, e_j\rangle =x_j\). Nous avons :
+    \begin{subequations}
+        \begin{align}
+            \langle x, B(y)\rangle &=\langle x, \sum_j\langle A(e_j), y\rangle e_j\rangle \\
+            &=\sum_j\langle A(e_j), y\rangle \langle x, e_j\rangle \\
+            &=\sum_j\langle A(x_je_j), y\rangle \\
+            &=\langle A(x), y\rangle .
+        \end{align}
+    \end{subequations}
+
+En ce qui concerne la matrice de l'application \( B\) ainsi définie, nous écrivons la condition \eqref{EQooHWYKooFzAGgB} avec \( y=e'_{\alpha}\) et \( x=e_i\), de telle sorte que
 \begin{equation}
-    \langle e_i, A^*e_j\rangle =(A^*e_j)_i=\langle Ae_i, e_j\rangle =(Ae_i)_j.
+    A(x)=A(e_i)=\sum_{\beta}A_{\beta i}e'_{\beta}
 \end{equation}
-Autrement dit, \( (A^*e_j)_i=(Ae_i)_j\).
+et
+\begin{equation}
+    B(y)=B(e'_{\alpha})=\sum_jB_{j\alpha}e_j.
+\end{equation}
+Alors nous avons :
+\begin{equation}
+    \sum_{\beta}A_{\beta i}\langle e'_{\beta}, e'_{\alpha}\rangle =\sum_j B_{j\alpha}\langle e_i, e_j\rangle ,
+\end{equation}
+%<<<<<<< HEAD
+
+%%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%\subsubsection{Symétrie par rapport à une droite}
+%%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+%Le principe est exactement le même : il faut trouver trois vecteurs $f_1$, $f_2$ et $f_3$ sur lesquels on connaît l'action de la symétrie. Ensuite il faudra exprimer $e_1$, $e_2$ et $e_3$ en termes de $f_1$, $f_2$ et $f_3$.
+
+%Le seul problème est de trouver les trois vecteurs $f_i$. Le premier est tout trouvé : c'est n'importe quel vecteur sur la droite. Pour les deux autres, il faut un peu ruser parce qu'il faut impérativement qu'ils soient perpendiculaires à la droite. Pour trouver $f_2$, on peut écrire
+%=======
+donc
+%>>>>>>> cb7bc588a41c3ad1fdef45ff029eaf47db8a652b
+\begin{equation}
+    A_{\alpha i}=B_{i \alpha}.
+\end{equation}
+\end{proof}
+
+\begin{normaltext}
+    À cause de l'expression \eqref{EQooUSNVooQtRNGL} pour la matrice de \( A^*\), cette application est souvent appelé \defe{transposé}{transposé} de \( A\) et noté \( A^t\). Nous savons, nous, que la transposée de \( A\) est une application \( A^t\colon F^*\to E^*\) donnée par la définition \ref{DefooZLPAooKTITdd}. Il nous arrivera donc d'écrire des égalités comme \( \langle Ax, y\rangle=\langle x, A^ty\rangle  \).
+\end{normaltext}
 
 \begin{proposition}     \label{PROPooSHZMooGwdfBd}
     En ce qui concerne le déterminant,
@@ -1782,7 +1106,7 @@ Autrement dit, \( (A^*e_j)_i=(Ae_i)_j\).
 \end{proposition}
 
 \begin{proof}
-    Écrivons la définition \eqref{EQooOJEXooXUpwfZ} avec l'expression explicite \eqref{EQooOJEXooXUpwfZ} du déterminant. Le tout avec la base canonique :
+    Écrivons l'expression explicite \eqref{EQooOJEXooXUpwfZ} du déterminant. Le tout avec la base canonique :
     \begin{equation}
             \det(A)=\det_{(e_1,\ldots, e_n)}(Ae_1,\ldots, Ae_n)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^ne_{\sigma(i)}^*(Ae_i).
     \end{equation}
@@ -1798,17 +1122,60 @@ Autrement dit, \( (A^*e_j)_i=(Ae_i)_j\).
     \begin{equation}
         \det(A)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^{n}e_{\sigma(i)}^*(A^*e_{i})^*=\det(A^*)^*.
     \end{equation}
+    Nous avons donc \( \det(A)=\det(A^*)^*\), c'est-à-dire \( \det(A)^*=\det(A^*)\). Pour information, la dernière étoile est la conjugaison complexe.
 \end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]     \label{PROPooVPSYooRuoEFi}
+    Si \( A\colon E_2\to E_3\) et \( B\colon E_1\to E_2\) sont des applications linéaires, alors
+    \begin{equation}
+        (AB)^*=B^*A^*
+    \end{equation}
+    où la «multiplication» est la composition.
+\end{proposition}
+
+\begin{proof}
+    L'existence de \( (AB)^*\), de \( A^*\) et de \( B^*\) ne donne pas lieu à débat parce que la proposition \ref{DEFooROVNooFlTbSK} ne souffre pas de discussions. La propriété que \( (AB)^*\) est unique a avoir est que
+    \begin{equation}
+        \langle ABx, y\rangle =\langle x, (AB)^*y\rangle 
+    \end{equation}
+    pour tout \( x\in E_1\) et \( y\in E_3\). Or l'application \( B^*A^*\) possède également cette propriété parce que
+    \begin{equation}
+        \langle x, B^*A^*y\rangle =\langle Bx, A^*y\rangle =\langle ABx, y\rangle .
+    \end{equation}
+    La partie unicité de la proposition \ref{DEFooROVNooFlTbSK} nous impose donc d'accepter que les applications \( (AB)^*\) et \( B^*A^*\) sont en réalité les mêmes\footnote{Et ce même si vous croyez les avoir déjà vu ensemble dans la même pièce.}.
+\end{proof}
+
+\begin{normaltext}
+    Un grand moment d'utilisation de la notion d'adjoint pour un opérateur non carré sera la définition d'une intégrale sur une variété; en particulier dans la proposition \ref{PROPooOAHWooAfxvyv}.
+\end{normaltext}
 
 \begin{definition}      \label{DEFooKEBHooWwCKRK}
     Un opérateur \( A\) est \defe{hermitien}{opérateur!hermitien} si \( A^*=A\). On dit aussi \defe{autoadjoint}{opérateur!autoadjoint}.
 \end{definition}
 
-Le mot «hermitien» est réservé aux opérateurs sur des espaces hermitiens, c'est à dire des espaces vectoriels sur \( \eC\). Le mot «autoadjoint» par contre est plutôt utilisé dans le cadre d'opérateurs sur les espaces réels\footnote{Voir la définition~\ref{DEFooYNEQooGQgbCf}.}. En conséquence de quoi, ces deux mots sont synonymes, mais il est préférable d'utiliser «hermitien» lorsque l'espace vectoriel est sur \( \eC\) et «autoadjoint» lorsqu'il est sur \( \eR\).
+\begin{normaltext}
+    Le mot «hermitien» est réservé aux opérateurs sur des espaces hermitiens, c'est-à-dire des espaces vectoriels sur \( \eC\). Le mot «autoadjoint» par contre est plutôt utilisé dans le cadre d'opérateurs sur les espaces réels. En conséquence de quoi, ces deux mots sont synonymes, mais il est préférable d'utiliser «hermitien» lorsque l'espace vectoriel est sur \( \eC\) et «autoadjoint» lorsqu'il est sur \( \eR\).
+
+    L'ensemble des opérateurs autoadjoints de \( E\) est noté \( \gS(E)\)\nomenclature[A]{\( \gS(E)\)}{Les opérateurs autoadjoints de $E$}. Cette notation provient du fait que dans \( \eR^n\) muni du produit scalaire usuel, les opérateurs autoadjoints sont les matrices symétriques.
+\end{normaltext}
 
 \begin{remark}
     Le fait d'être hermitien n'implique en rien le fait d'être inversible.
 \end{remark}
+
+\begin{lemma}
+    Si \( E\) est un espace euclidien, un endomorphisme \( f\colon E\to E\) est autoadjoint si et seulement si pour tout \( x,y\in E\) nous avons \( \langle x, f(y)\rangle=\langle f(x), y\rangle  \).
+\end{lemma}
+
+\begin{proof}
+    Dans le sens direct, nous avons
+    \begin{equation}
+        \langle f(x), y\rangle =\langle x, f^*(y)\rangle =\langle x, f(y)\rangle .
+    \end{equation}
+    La première égalité est la définition de \( f^*\) et la seconde est l'hypothèse \( f=f^*\).
+
+    Dans l'autre sens, l'hypothèse est que l'endomorphisme \( f\) vérifie \( \langle x, f(y)\rangle =\langle f(x), y\rangle \). Mais la proposition \ref{DEFooROVNooFlTbSK}\ref{ITEMooRUZWooSZgGnf} spécifie que \( f^*\) est l'unique endomorphisme à satisfaire cette égalité. Donc \( f=f^*\).
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Opérateur orthogonal, matrice orthogonale}
@@ -1842,7 +1209,7 @@ Le mot «hermitien» est réservé aux opérateurs sur des espaces hermitiens, c
         \item
             Si \( A\) est une matrice orthogonale, alors \( \det(A)=\pm 1\).
         \item       \label{ITEMooOWMBooHUatNb}
-            Le groupe \( \gO(n)\) est le groupe des isométries de \( \eR^n\).
+            Le groupe \( \gO(n)\) est le groupe des isométries linéaires\footnote{Au sens où, parmi les applications linéaires, les isométries sont les éléments de \( \gO(n)\). À part ça, il y a aussi les translations, mais c'est une autre histoire qui vous sera contée une autre fois.} de \( \eR^n\).
     \end{enumerate}
 \end{proposition}
 

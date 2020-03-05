@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -7,16 +7,20 @@
 \section{Exponentielle sur une algèbre normée}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Définition}
+%---------------------------------------------------------------------------------------------------------------------------
+
 Dans ce qui suit, nous considérons une algèbre commutative.
 \begin{propositionDef}[Exponentielle\cite{MonCerveau}]       \label{DEFooSFDUooMNsgZY}
-    Soit \( (A,\| . \|)\) une algèbre\footnote{Définition~\ref{DefAEbnJqI}.} commutative de dimension finie sur \( \eR\) munie d'une norme d'algèbre. Pour \( x\in A\) nous définissons
+    Soit \( (A,\| . \|)\) une algèbre\footnote{Définition~\ref{DefAEbnJqI}.} commutative de dimension finie sur \( \eC\) munie d'une norme d'algèbre. Pour \( x\in A\) nous définissons
     \begin{equation}        \label{EQooCUVTooGNOrFj}
         \exp(x)=\sum_{k=0}^{\infty}\frac{ x^k }{ k! }.
     \end{equation}
     Cette définition a les propriétés suivantes :
     \begin{enumerate}
         \item
-            C'est bien défini pour tout \( x\in A\). C'est à dire que pour chaque \( x\), la série \eqref{EQooCUVTooGNOrFj} converge.
+            C'est bien défini pour tout \( x\in A\). C'est-à-dire que pour chaque \( x\), la série \eqref{EQooCUVTooGNOrFj} converge.
         \item
             Cela donne une application continue \( \exp\colon A\to A\).
         \item       \label{ITEMooGGVAooVfhGuu}
@@ -36,7 +40,7 @@ Dans ce qui suit, nous considérons une algèbre commutative.
 
     \begin{subproof}
         \item[Convergence simple]
-            Nous prouvons la convergence simple, c'est à dire pour chaque \( x\) séparément, de la série \eqref{EQooCUVTooGNOrFj} dans deux buts. D'abord de nous assurer que la définition posée de \( \exp\) a un sens, et ensuite pour commencer à vérifier les hypothèses du théorème~\ref{ThoLDpRmXQ}.
+            Nous prouvons la convergence simple, c'est-à-dire pour chaque \( x\) séparément, de la série \eqref{EQooCUVTooGNOrFj} dans deux buts. D'abord de nous assurer que la définition posée de \( \exp\) a un sens, et ensuite pour commencer à vérifier les hypothèses du théorème~\ref{ThoLDpRmXQ}.
 
             Nous montrons que les sommes partielles forment une suite de Cauchy. Nous fixons \( x\in A\) et nous posons
             \begin{equation}
@@ -119,6 +123,10 @@ Dans ce qui suit, nous considérons une algèbre commutative.
 
     Ce qui nous sauve est que l'espace \( \aL(A,V)\) est un \( A\)-module, quel que soit \( V\). En particulier lorsque \( V\) est lui-même déjà un emboîtement. Faisons un lemme pour voir comment ça fonctionne.
 \end{normaltext}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Différentielles}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{lemma}[\cite{MonCerveau}]
     Soient deux espaces vectoriels normés \( E\) et \( V\) tels que \( V\) soit un \( E\)-module\footnote{Définition~\ref{DEFooHXITooBFvzrR}.}. Nous supposons les normes soient telles que \( \| xv \|_{V}\leq \| x \|_E\| v \|_V\).
@@ -274,6 +282,244 @@ Le théorème suivant est très important parce qu'il permet de définir l'expon
     M'est avis en réalité que toute la démonstration du théorème~\ref{PropXFfOiOb} passe facilement au cas présent.
 \end{normaltext}
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Séries dans une algèbre normée}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous allons parler d'exponentielle de matrice. Avant cela, quelques propriétés qui sont valables sur des algèbres normées. Le principal exemple que nous avons en tête est \( \eA=\eM(n,\eC)\).
+
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooMZZQooEhQsgQ}
+    Soit une algèbre normée \( \eA\). Soient une suite d'éléments \( A_k\in \eA\) et un élément \( B\). Nous supposons que la somme \( \sum_{k=0}^{\infty}A_k\) converge. Alors
+    \begin{equation}
+        B\sum_kA_k=\sum_k(BA_k).
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Soit \( N\in \eN\). Nous avons:
+    \begin{subequations}
+        \begin{align}
+            \| \sum_{k=0}^NBA_k-B\sum_{k=0}^{\infty}A_k \|&=\| B\sum_{k=N+1}^{\infty}A_k \| \label{SUBEQooDTNAooWpXOKP}\\
+            &\leq \| B \|\| \sum_{k=N+1}^{\infty}A_k \|     \label{SUBEQooJPSJooAqXtOJ}
+        \end{align}
+    \end{subequations}
+    Justifications:
+    \begin{itemize}
+        \item Pour \eqref{SUBEQooDTNAooWpXOKP}, c'est la linéarité du produit matriciel.
+        \item Pour \eqref{SUBEQooJPSJooAqXtOJ}, c'est que la norme est une norme d'algèbre\footnote{Définition \ref{DefJWRWQue}. Pour rappel, la norme opérateur en est une par le lemme \ref{LEMooFITMooBBBWGI}.}.
+    \end{itemize}
+    À droite, la limite \( N\to \infty\) donne zéro parce que \( \| B \|\) est un simple nombre, et \( \| \sum_{k=N+1}^{\infty}A_k \|\) est une queue de suite convergente par hypothèse.
+
+    Nous avons donc bien convergence
+    \begin{equation}
+        \lim_{N\to \infty}\sum_{k=0}^{N}BA_k=B\sum_{k=0}^{\infty}A_k.
+    \end{equation}
+\end{proof}
+
+Nous adaptons le produit de Cauchy du théorème \ref{ThokPTXYC} au cas d'une algèbre normée.
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooFMEXooCNjdhS}
+    Soient une algèbre normée \( \eA\), un élément \( A\in \eA\), ainsi que des séries convergentes \( \sum_{k=0}^{\infty}a_kA^k\) et \( \sum_{l=0}^{\infty}b_lA^l\). Alors
+    \begin{equation}
+        \left( \sum_ka_kA^k \right)\left( \sum_lb_lA^l \right)=\sum_{n=0}^{\infty}\big( \sum_{m=0}^na_mb_{n-m} \big)A^n.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Un calcul :
+    \begin{subequations}
+        \begin{align}
+            \left( \sum_ka_kA^k \right)\left( \sum_lb_lA^l \right) &=\sum_k\big( \sum_lb_lA^l \big)a_kA^k       \label{SUBEQooFAECooWFCaNW}\\
+            & = \sum_k\big( \sum_lb_la_kA^{l+k} \big)   \label{SUBEQooDZTHooMwmKxJ}\\
+            &=\lim_{K\to\infty} \sum_{k=0}^K\big( \lim_{L\to \infty} \sum_{l=0}^Lb_la_kA^{k+l} \big)\\
+            &=\lim_{K\to \infty} \lim_{L\to \infty} \sum_{k=0}^K\sum_{l=0}^Lb_la_kA^{k+l}       \label{SUBEQooISSHooJsyMTv}\\
+            &=\lim_{K\to \infty} \lim_{L\to \infty} \sum_{n=0}^{K+L}\sum_{m=0}^na_mb_{n-m}A^n       \label{SUBEQooAWUQooZCHIXH}\\
+            &=\lim_{K\to \infty} \sum_{n=0}^{\infty}\sum_{m=0}^na_mb_{n-m}A^m       \label{SUBEQooUVOBooSPGjrA}\\
+            &=\sum_{n=0}^{\infty}\sum_{m=0}^na_mb_{n-m}A^m      \label{SUBEQooCGRGooGIDCYv}
+        \end{align}
+    \end{subequations}
+    Justifications :
+    \begin{itemize}
+        \item Pour \eqref{SUBEQooFAECooWFCaNW}, la proposition \ref{PROPooMZZQooEhQsgQ} nous permet d'entrer l'élément \( \sum_lb_lA^l\in \eA\) dans la somme sur \( k\).
+        \item 
+            Pour \eqref{SUBEQooDZTHooMwmKxJ}, c'est la même chose.
+        \item
+            Pour \eqref{SUBEQooISSHooJsyMTv}, la somme sur \( k\) étant finie (pour chaque \( K\)), elle commute avec la limite sur \( L\).
+        \item
+            Pour \eqref{SUBEQooAWUQooZCHIXH}, c'est une manipulation de sommes finies. On regroupe les termes selon les puissances de \( A\).
+        \item
+            Pour \eqref{SUBEQooUVOBooSPGjrA}, c'est effectuer la limite sur \( L\) pour \( K\) fixé.
+        \item
+            Pour \eqref{SUBEQooCGRGooGIDCYv}, l'expression dans la limite sur \( K\) ne dépend pas de \( K\). Donc nous pouvons simplement supprimer la limite.
+    \end{itemize}
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Exponentielle de matrice}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{SECooBYQBooZifJsg}
+
+\begin{proposition}[\cite{BIBooROFBooCcFjms}]
+    Soient des matrices \( A,P\in \eM(n,\eC)\) telle que \( P\) soit inversible. Alors\footnote{La définition de l'exponentielle de matrice est \ref{DEFooSFDUooMNsgZY} où la convergence de la somme est celle de la norme opérateur \ref{DefNFYUooBZCPTr}.}
+    \begin{equation}
+        e^{P^{-1}AP}=P^{-1} e^{A}P.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Pour chaque \( m\in \eN\) nous avons \( (P^{-1}AP)^m=P^{-1} A^mP\). Ensuite,
+    \begin{equation}
+        e^{P^{-1}AP}=\sum_k\frac{(P^{-1}AP)^k}{ k! }=\sum_k\frac{ P^{-1}A^kP }{ k! }=P^{-1}\sum_k\frac{ A^k }{ k! }P.
+    \end{equation}
+    Nous avons utilisé la proposition \ref{PROPooMZZQooEhQsgQ} pour sortir \( P^{-1}\) à gauche et \( P\) à droite de la somme.
+\end{proof}
+
+\begin{proposition}[\cite{BIBooROFBooCcFjms}]       \label{PROPooFLHPooRhLiZE}
+    L'exponentielle de matrice vérifie
+    \begin{enumerate}
+        \item       \label{ITEMooCVALooEfLQCyI}
+            \( e^0=\id\)
+        \item       \label{ITEMooNGPWooIyPEQt}
+            \( A^m e^{A}= e^{A}A^m\)
+        \item       \label{ITEMooEOSMooQWjcjA}
+            \( ( e^{A})^t= e^{(A^t)}\)
+        \item       \label{ITEMooROPJooMarenu}
+            Si \( AB=BA\) alors \( A e^{B}= e^{B}A\) et \(  e^{A} e^{B}= e^{B} e^{A}\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Point par point.
+    \begin{subproof}
+        \item[Pour \ref{ITEMooCVALooEfLQCyI}]
+            Juste substituer \( A=0\) dans la définition. Tous les termes tombent sauf le premier. Il faut utiliser le fait que \( A^0=\id\).
+        \item[Pour \ref{ITEMooNGPWooIyPEQt}]
+            Il faut utiliser la proposition \ref{PROPooMZZQooEhQsgQ} pour écrire
+            \begin{equation}        \label{EQooLUUVooCtUtIC}
+                A^m\sum_k\frac{ A^k }{ k! }=\sum_k\frac{ A^mA^k }{ k! }=\sum_{k}\frac{ A^kA^m }{ k! }=\sum_k\frac{ A^k }{ k! }A^m.
+            \end{equation}
+        \item[Pour \ref{ITEMooEOSMooQWjcjA}]
+            Pour chaque \( k\) nous avons l'égalité \( (A^k)^t=(A^t)^k\). En utilisant encore le coup de la queue de suite qui converge vers zéro,
+            \begin{equation}
+                \| \sum_{k=0}^N\frac{ (A^t)^k }{ k! }-( e^{A})^t \|=\| \sum_{k=N+1}^{\infty}\frac{ (A^t)^k }{ k! } \|\to 0.
+            \end{equation}
+        \item[Pour \ref{ITEMooROPJooMarenu}]
+            Pour prouver \( A e^{B}= e^{B}A\), c'est le même genre de manipulations que \eqref{EQooLUUVooCtUtIC}.
+
+            Maintenant, vu que \( A\) et \( e^B\) commutent, l'égalité à peine prouvée montre que \(  e^{A}\) et \(  e^{B}\) commutent.
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{BIBooROFBooCcFjms}]       \label{PROPooKDKDooCUpGzE}
+    Soient \( A\in \eM(n,\eC)\) ainsi que \( s,t\in \eC\). Alors
+    \begin{equation}
+         e^{sA} e^{tA} = e^{(s+t)A}.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Nous calculons le produit \( e^{sA} e^{tA}\) par le produit de Cauchy de la proposition \ref{PROPooFMEXooCNjdhS} :
+    \begin{equation}
+        \clubsuit = \left( \sum_k\frac{ t^k }{ k! }A^k \right)\left( \sum_l\frac{ s^l }{ l! }A^l \right)=\sum_{n=0}^{\infty}\sum_{m=0}^n\frac{ t^m }{ m! }\frac{ s^{n-m} }{ (n-m)! }A^n.
+    \end{equation}
+    À ce point, nous multiplions et divisons par \( n!\) et nous réarrangons la somme de la façon suivante :
+    \begin{equation}
+        \clubsuit = \sum_{n=0}^{\infty}\frac{ A^n }{ n! }\sum_{m=0}^n\frac{ n! }{ m!(n-m)! }t^ms^{n-m}.
+    \end{equation}
+    Nous reconnaissons la somme sur \( m\) comme étant un binôme de Newton\footnote{Proposition \ref{PropBinomFExOiL}.} pour \( (t+s)^n\). Nous avons donc finalement
+    \begin{equation}
+        \clubsuit = \sum_{n=0}^{\infty}\frac{ \big( (t+s)A \big)^n }{ n! }= e^{(t+s)A}.
+    \end{equation}
+\end{proof}
+
+La proposition suivante dit que les exponentielles de matrices sont inversibles. Elle ne dit pas que toutes les matrices inversibles sont des exponentielles. Ce sera la proposition \ref{PropKKdmnkD}.
+\begin{proposition}[\cite{BIBooROFBooCcFjms}]       \label{PROPooRERRooMutKcg}
+    Si \( A\in \eM(n,\eC)\), alors \(  e^{A}\) est inversible et 
+    \begin{equation}
+        ( e^{A})^{-1}= e^{-A}.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Il suffit de prendre \( s=1\) et \( t=-1\) dans la proposition \ref{PROPooKDKDooCUpGzE} et nous avons
+    \begin{equation}
+        e^{A} e^{-A}= e^{0}=\mtu.
+    \end{equation}
+    Cela prouve que \(  e^{A}\) est inversible et que son inverse est \(  e^{-A}\).
+\end{proof}
+
+\begin{proposition}[\cite{BIBooROFBooCcFjms}]       \label{PROPooSDNNooQtHkhA}
+    Soit \( A\in \eM(n,\eC)\). Nous considérons l'application
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eR&\to \GL(n,\eC) \\
+            t&\mapsto  e^{tA}. 
+        \end{aligned}
+    \end{equation}
+    Nous avons la formule de dérivation
+    \begin{equation}
+        f'(t)=A e^{tA}.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Il s'agit de calculer la limite en utilisant la proposition \ref{PROPooKDKDooCUpGzE} :
+    \begin{subequations}
+        \begin{align}
+            f'(t)&=\lim_{\epsilon\to 0}\frac{  e^{(t+\epsilon)A}- e^{tA} }{ \epsilon }\\
+            &= e^{tA}\lim_{\epsilon\to 0}\frac{  e^{\epsilon A}-\mtu }{ \epsilon }\\
+            &= e^{tA}\lim_{\epsilon\to 0}\frac{1}{ \epsilon }\big( \epsilon A+\sum_{k=2}^{\infty}\frac{ (\epsilon A)^k }{ k! } \big)\\
+            &= e^{tA}\lim_{\epsilon\to 0}\big( A+\sum_{k=2}^{\infty}\frac{ \epsilon^{k-1}A }{ k! } \big)\\
+            &=  e^{tA}A\\
+            &= A e^{tA}
+        \end{align}
+    \end{subequations}
+    où à la toute fin nous avons aussi utilisé la commutation de la proposition \ref{PROPooFLHPooRhLiZE}\ref{ITEMooNGPWooIyPEQt}.
+\end{proof}
+
+Le théorème suivant montre que le produit d'exponentielle de matrices suit la règle usuelle tant que les matrices commutent. Cela est cependant plutôt l'exception que la règle. À priori nous avons \(  e^{A} e^{B}\neq  e^{A+B}\).
+\begin{theorem}[\cite{BIBooROFBooCcFjms}]       \label{THOooXCPEooYGyLOp}
+    Soient \( A,B\in \eM(n,\eC)\) telles que \( AB=BA\). Alors
+    \begin{equation}
+        e^{A+B}= e^{A} e^{B}.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Vu que \( A\) et \( B\) commutent nous avons \( A e^{tB}= e^{tB}A\) (proposition \ref{PROPooFLHPooRhLiZE}\ref{ITEMooROPJooMarenu}). Ensuite nous posons
+    \begin{equation}
+        g(t)= e^{t(A+B)} e^{-tB} e^{-tA}.
+    \end{equation}
+    Nous calculons la dérivée de \( g\) en utilisant la règle de Leibnitz et la proposition \ref{PROPooSDNNooQtHkhA} :
+    \begin{equation}
+        \begin{aligned}[]
+            g'(t)&=(A+B) e^{t(A+B)} e^{-tB} e^{-tA}\\
+            &\quad + e^{t(A+B)}(-B) e^{-tB} e^{-tA}\\
+            &\quad +  e^{t(A+B)} e^{-tB}(-A) e^{-tA}.
+        \end{aligned}
+    \end{equation}
+    Vu que \( A\), \( B\) et \( A+B \) commutent, nous pouvons réarranger les facteurs en
+    \begin{equation}
+        \begin{aligned}[]
+            g'(t)&=(A+B) e^{t(A+B)} e^{-tB} e^{-tA}\\
+            &\quad -B e^{t(A+B)} e^{-tB} e^{-tA}\\
+            &\quad -A  e^{t(A+B)} e^{-tB} e^{-tA}.
+        \end{aligned}
+    \end{equation}
+    Enfin, cela fait
+    \begin{equation}
+        g'(t)=(A+B-B-A) e^{t(A+B)} e^{-tB} e^{-tA}=0.
+    \end{equation}
+    Donc \( g\) est constante et nous avons
+    \begin{equation}
+        e^{t(A+B)} e^{-tB} e^{-tA}=g(0)=\mtu.
+    \end{equation}
+    En multipliant à droite par \(  e^{tA} e^{tB}\) nous trouvons
+    \begin{equation}
+        e^{t(A+B)}= e^{tA} e^{tB}
+    \end{equation}
+    comme annoncé.
+\end{proof}
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Exponentielle et logarithme dans les réels}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -283,33 +529,6 @@ Pour avoir une vue synthétique du plan, voir le thème \ref{THEMEooKXSGooCsQNoY
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{L'équation différentielle}
 %---------------------------------------------------------------------------------------------------------------------------
-
-\begin{theorem} \label{ThoKRYAooAcnTut}
-    La série entière
-    \begin{equation}    \label{EqEIGZooKWSvPS}
-        y(x)=\sum_{k=0}^{\infty}\frac{ x^k }{ k! }
-    \end{equation}
-    définit une fonction dérivable solution de
-    \begin{subequations}
-        \begin{numcases}{}
-            y'=y        \label{EQooSEIHooNmQKiC}\\
-            y(0)=1.
-        \end{numcases}
-    \end{subequations}
-\end{theorem}
-\index{exponentielle!existence}
-
-\begin{proof}
-    La formule de Hadamard (théorème~\ref{ThoSerPuissRap}) donne le rayon de convergence de la série \eqref{EqEIGZooKWSvPS} par
-    \begin{equation}
-        \frac{1}{ R }=\lim_{k\to \infty} \frac{ \frac{1}{ (k+1)! } }{ \frac{1}{ k! } }=\lim_{k\to \infty} \frac{1}{ k+1 }=0.
-    \end{equation}
-    Donc nous avons un rayon de convergence infini. La fonction \( y\) est définie sur \( \eR\) et la proposition~\ref{ProptzOIuG} nous dit que \( y\) est dérivable. Nous pouvons aussi dériver terme à terme :
-    \begin{equation}
-            y'(x)=\sum_{k=0}^{\infty}\frac{ kx^{k-1} }{ k! }=\sum_{k=1}^{\infty}\frac{ kx^{k-1} }{ k! }=\sum_{k=1}^{\infty}\frac{ x^{k-1} }{ (k-1)! }=\sum_{k=0}^{\infty}\frac{ x^k }{ k! }=y(x).
-    \end{equation}
-    Notez le petit jeu d'indice de départ de \( k\). Dans un premier temps, nous remarquons que \( k=0\) donne un terme nul et nous le supprimons, et dans un second temps nous effectuons la simplification des factorielles (qui ne fonctionne pas avec \( k=0\)).
-\end{proof}
 
 Pour la suite nous notons \( y\) une solution de l'équation \( y'=y\), \( y(0)=1\), et nous allons en donner des propriétés indépendamment de l'existence, donnée par le théorème~\ref{ThoKRYAooAcnTut}.
 
@@ -333,29 +552,6 @@ Pour la suite nous notons \( y\) une solution de l'équation \( y'=y\), \( y(0)=
     Donc \( \varphi\) est constante\footnote{Proposition~\ref{PropGFkZMwD}.}. Vu que \( \varphi(0)=1\) nous avons automatiquement \( y(x)y(-x)=1\) pour tout \( x\).
 
 Les deux autres allégations sont simples : si \( y(x_0)<0\) alors il existe \( t\in\mathopen] x_0 , 1 \mathclose[\) tel que \( y(t)=0\), ce qui est impossible parce que \( y(t)y(-t)=1\). La stricte croissance de \( y\) s'ensuit.
-\end{proof}
-
-\begin{proposition}[Unicité de l'exponentielle] \label{PropDJQSooYIwwhy}
-    Si elle existe, la solution au problème
-    \begin{subequations}
-        \begin{numcases}{}
-            y'=y\\
-            y(0)=1
-        \end{numcases}
-    \end{subequations}
-    est unique.
-\end{proposition}
-\index{exponentielle!unicité}
-
-\begin{proof}
-    Soient \( y\) et \( g\) deux solutions et considérions la fonction \( h(x)=g(x)y(-x)\). Un calcul immédiat donne
-    \begin{equation}
-        h'(x)=0
-    \end{equation}
-    et donc \( h\) est constante. Vu que \( h(0)=1\) nous avons \( g(x)y(-x)=1\) pour tout \( x\), c'est à dire
-    \begin{equation}
-        g(x)=\frac{1}{ y(-x) }=y(x).
-    \end{equation}
 \end{proof}
 
 \begin{proposition}     \label{PROPooGGUIooExVHPM}
@@ -398,10 +594,51 @@ Les deux autres allégations sont simples : si \( y(x_0)<0\) alors il existe \( 
 \end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Le nombre de Neper \( e\)}
+\subsection{Existence}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous notons \( e\) le nombre \( y(1)\), et \( \exp\) la fonction nommée \( y\) jusqu'à présent (c'est celle définie par la série).
+Jusqu'ici nous avons donné des propriétés d'une éventuelle fonction \( y\) qui vérifierait l'équation différentielle. Il est temps de montrer qu'une telle fonction existe.
+
+\begin{theorem} \label{ThoKRYAooAcnTut}
+    La série entière
+    \begin{equation}    \label{EqEIGZooKWSvPS}
+        \exp(x)=\sum_{k=0}^{\infty}\frac{ x^k }{ k! }
+    \end{equation}
+    définit une fonction dérivable solution de
+    \begin{subequations}
+        \begin{numcases}{}
+            y'=y        \label{EQooSEIHooNmQKiC}\\
+            y(0)=1.
+        \end{numcases}
+    \end{subequations}
+\end{theorem}
+\index{exponentielle!existence}
+
+\begin{proof}
+    La formule de Hadamard (théorème~\ref{ThoSerPuissRap}) donne le rayon de convergence de la série \eqref{EqEIGZooKWSvPS} par
+    \begin{equation}
+        \frac{1}{ R }=\lim_{k\to \infty} \frac{ \frac{1}{ (k+1)! } }{ \frac{1}{ k! } }=\lim_{k\to \infty} \frac{1}{ k+1 }=0.
+    \end{equation}
+    Donc nous avons un rayon de convergence infini. La fonction \( y\) est définie sur \( \eR\) et la proposition~\ref{ProptzOIuG} nous dit que \( y\) est dérivable. Nous pouvons aussi dériver terme à terme :
+    \begin{equation}
+            y'(x)=\sum_{k=0}^{\infty}\frac{ kx^{k-1} }{ k! }=\sum_{k=1}^{\infty}\frac{ kx^{k-1} }{ k! }=\sum_{k=1}^{\infty}\frac{ x^{k-1} }{ (k-1)! }=\sum_{k=0}^{\infty}\frac{ x^k }{ k! }=y(x).
+    \end{equation}
+    Notez le petit jeu d'indice de départ de \( k\). Dans un premier temps, nous remarquons que \( k=0\) donne un terme nul et nous le supprimons, et dans un second temps nous effectuons la simplification des factorielles (qui ne fonctionne pas avec \( k=0\)).
+\end{proof}
+
+\begin{normaltext}
+    Nous savons que la fonction \( y\) existe parce qu'une solution de l'équation différentielle \( y'=y\), \( y(0)=1\) est donnée par la fameuse série (théorème \ref{ThoKRYAooAcnTut}). À part cela, ce qui a été fait avec cette équation différentielle ne permet pas de prouver l'existence de \( y\). Donc, du point de vue de «définir l'exponentielle par son équation différentielle», c'est pas encore gagné. Notons au passage que le nombre \( e\) n'est pas encore bien défini via l'équation différentielle.
+\end{normaltext}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Le nombre de Neper \texorpdfstring{$ e$}{e}}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous savons par le théorème \ref{ThoKRYAooAcnTut} que \( x\mapsto \exp(x)\) est une solution de l'équation différentielle exponentielle (avec la bonne condition initiale). Or une telle solution est unique par la proposition \ref{PropDJQSooYIwwhy}.
+
+\begin{definition}[Le nombre de Neper]
+    Nous notons \( e\) le nombre \( \exp(1)\).
+\end{definition}
 
 \begin{proposition}     \label{PropCELWooLBSYmS}
     Pour tout \( x\in \eR\), nous avons
@@ -411,19 +648,17 @@ Nous notons \( e\) le nombre \( y(1)\), et \( \exp\) la fonction nommée \( y\) 
 \end{proposition}
 
 \begin{proof}
-    En redébalant les notations, la relation \ref{EQooBFIHooKopcmf} signifie
+    Soit \( y\) vérifiant la fameuse équation différentielle. Nous savons que \( y=\exp\) parce que c'est l'unique solution (proposition \ref{PropDJQSooYIwwhy}). Nous avons :
     \begin{equation}
         y(x)=y(1)^x.
     \end{equation}
-    C'est cela qu'il faut montrer. 
-
     Si \( q\in \eQ\) alors \( q=a/b\) et
     \begin{equation}
         y(q)=y\left( \frac{ a }{ b } \right)=y\left( a\times \frac{1}{ b } \right)=y\left( \frac{1}{ b } \right)^a=\big( \sqrt[b]{y(1)} \big)^a=y(1)^{a/b}=y(1)^{q}.
     \end{equation}
     Le résultat est prouvé pour les rationnels.
 
-    En ce qui concerne un élément général \( x\in \eR\), la fonction \( x\mapsto \exp(x)\) est continue sur \( \eR\), et la fonction \( x\mapsto e^x\) également (définition \ref{DEFooOJMKooJgcCtq}). Ces deux fonctions étant égales sur \( \eQ\), elles sont égales sur \( \eR\) par la proposition  \ref{PropCJGIooZNpnGF}).
+    En ce qui concerne un élément général \( x\in \eR\), la fonction \( x\mapsto y(x)\) est continue sur \( \eR\), et la fonction \( x\mapsto e^x\) également (proposition \ref{DEFooOJMKooJgcCtq}). Ces deux fonctions étant égales sur \( \eQ\), elles sont égales sur \( \eR\) par la proposition  \ref{PropCJGIooZNpnGF}).
 \end{proof}
 
 Une conséquence des propositions \ref{PropCELWooLBSYmS} et \ref{PROPooGCBZooTcyGtO} est que 
@@ -520,7 +755,7 @@ Le fonction exponentielle est dérivable, toujours strictement positive, donc st
     \end{equation}
     La relation est donc démontré pour \( \ln(a^q)\) avec \( q\in \eQ^+\).
 
-    Nous passons à \( q=-m/n\in \eQ^-\), c'est à dire toujours \( m,n\in \eN\). Nous avons, en utilisant la proposition \ref{PROPooLAOWooEYvXmI},
+    Nous passons à \( q=-m/n\in \eQ^-\), c'est-à-dire toujours \( m,n\in \eN\). Nous avons, en utilisant la proposition \ref{PROPooLAOWooEYvXmI},
     \begin{equation}
         \ln(a^{-q})=\ln(\frac{1}{ a^q })=-\ln(a^q)=-q\ln(a).
     \end{equation}
@@ -541,7 +776,7 @@ Cela aide à calculer la dérivée de \( x\mapsto a^x\).
 Notons que certains prennent \eqref{EQooYEWCooKyravP} comme définition de la fonction puissance.
 
 %--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Approximations numériques de \( e\)}
+\subsection{Approximations numériques de \texorpdfstring{$ e$}{e}}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Nous donnons maintenant quelques approximations numériques de \( e\), particulièrement inefficaces.
@@ -606,7 +841,7 @@ Ce petit programme, avec \( 5\) termes donne \( e\simeq 65/24\simeq 2.708\). Avo
 \begin{theorem}  \label{ThoRWOZooYJOGgR}
     Les choses que nous savons sur l'exponentielle :
     \begin{enumerate}
-        \item
+        \item       \label{ITEMooEIKKooLNoaRD}
             Il y a unicité de la solution à l'équation différentielle
             \begin{subequations}    \label{subeqBKJNooJQtbBD}
         \begin{numcases}{}
@@ -646,7 +881,7 @@ Nous nommons \defe{exponentielle}{exponentielle} cette fonction.
         \item
             C'est le théorème~\ref{ThoKRYAooAcnTut}.
         \item
-            Le rayon de convergence de la série \eqref{EqUARSooKXnQxu} est infini (théorème~\ref{ThoKRYAooAcnTut}); elle est donc définie sur \( \eR\). Le fait que ce soit une bijection est dû au fait qu'elle est strictement croissante (proposition~\ref{PropTLECooEiLbPP}) ainsi qu'aux limite \eqref{EqLOIUooHxnEDn}.
+            Le rayon de convergence de la série \eqref{EqUARSooKXnQxu} est infini (théorème~\ref{ThoKRYAooAcnTut}); elle est donc définie sur \( \eR\). Le fait que ce soit une bijection est dû au fait qu'elle est strictement croissante (proposition~\ref{PropTLECooEiLbPP}) ainsi qu'aux limites \eqref{EqLOIUooHxnEDn}.
         \item
             Vu que \( y=y'\), \( y\) est dérivable. Mais comme \( y'\) est alors égale à une fonction dérivable, \( y'\) est dérivable. En dérivant l'égalité \( y'=y\) nous obtenons \( y''=y'\) et le jeu continue.
         \item
@@ -677,7 +912,7 @@ Nous nommons \defe{exponentielle}{exponentielle} cette fonction.
 \end{example}
 
 \begin{proposition}\label{ExZLMooMzYqfK}
-    Quelque propriétés du logarithme.
+    Quelques propriétés du logarithme.
     \begin{enumerate}
         \item
             Le logarithme est une application dérivable et strictement croissante.
@@ -701,14 +936,14 @@ Nous nommons \defe{exponentielle}{exponentielle} cette fonction.
     \begin{equation}
         \ln'(y)=\frac{1}{ y }
     \end{equation}
-    pour tout \( y\) dans l'image de \( \exp\), c'est à dire pour tout \( y\) dans l'ensemble de définition de \( \ln\).
+    pour tout \( y\) dans l'image de \( \exp\), c'est-à-dire pour tout \( y\) dans l'ensemble de définition de \( \ln\).
 
     Par ailleurs, \( \exp(0)=1\) donc
     \begin{equation}
         \ln(1)=\ln\big( \exp(0) \big)=0.
     \end{equation}
 
-    En ce qui concerne l'unicité d'une primitive s'annulant en \( x=1\), c'est le corollaire~\ref{CorZeroCst}.
+    En ce qui concerne l'unicité d'une primitive s'annulant en \( x=1\), c'est le corolaire~\ref{CorZeroCst}.
 \end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -935,7 +1170,7 @@ La somme est une limite ponctuelle, là où elle existe.
 Jusqu'à présent, la seule certitude à props de \( T\) est que \( T(0)=f(0)=0\). Pour le reste :
 \begin{itemize}
     \item Rien ne dit que \( T(x)\) existe pour d'autres \( x\) que \( x=1\).
-    \item Et même si \( T(x)\) existait pour d'autres \( x\) (c'est à dire si le rayon de convergence de \eqref{EQooTAREooKfpTPo} était strictement plus grand que zéro), rien n'assurerait que la valeur serait celle de \( f\).
+    \item Et même si \( T(x)\) existait pour d'autres \( x\) (c'est-à-dire si le rayon de convergence de \eqref{EQooTAREooKfpTPo} était strictement plus grand que zéro), rien n'assurerait que la valeur serait celle de \( f\).
     \item Et même si \( T(x)\) convergeait vers \( f\) sur son disque de convergence, ce ne serait pas encore assez pour dire que \( f\) est analytique, parce que l'analycité demande que les séries de Taylor autour de \emph{chaque} point converge vers \( f\). Or ici nous ne parlons encore que de \( T\) qui est la série autour de \( x=0\).
 \end{itemize}
 
@@ -968,7 +1203,7 @@ Jusqu'à présent, la seule certitude à props de \( T\) est que \( T(0)=f(0)=0\
     Le critère des séries alternées\footnote{Théorème \ref{THOooOHANooHYfkII}.} nous donne la convergence de cette série.
 \end{proof}
 
-Nous savons maintenant que la série de Taylor \( T\) converge sur \( \mathopen] -1 , 1 \mathclose]\), et que \( T(0)=f(0)=\ln(1)=0\). Le premier gros morceau intéressant vient maintenant : nous allons prouver que \( T(x)\) converge vers ce que nous croyons, c'est à dire \( \ln(1+x)\) en personne.
+Nous savons maintenant que la série de Taylor \( T\) converge sur \( \mathopen] -1 , 1 \mathclose]\), et que \( T(0)=f(0)=\ln(1)=0\). Le premier gros morceau intéressant vient maintenant : nous allons prouver que \( T(x)\) converge vers ce que nous croyons, c'est-à-dire \( \ln(1+x)\) en personne.
 
 \begin{proposition}     \label{PROPooKPBIooJdNsqX}
 Pour tout \( x\in\mathopen] -1 , 1 \mathclose]\) nous avons
@@ -977,7 +1212,7 @@ Pour tout \( x\in\mathopen] -1 , 1 \mathclose]\) nous avons
     \end{equation}
     De plus nous avons
     \begin{equation}    \label{EqKUQmOZ}
-        \sum_{k=1}^{\infty}\frac{ (-1)^k }{ k }=\ln(2).
+        \sum_{k=1}^{\infty}\frac{ (-1)^{k+1} }{ k }=\ln(2).
     \end{equation}
 \end{proposition}
 
@@ -1008,9 +1243,23 @@ Lorsque \( x>1\), il n'y a aucune garantie sur la convergence de cela pour \( n\
 
     Ceci nous mène au dernier point de notre proposition : \( g(1)=\ln(2)\) s'écrit précisément
     \begin{equation}
-        \sum_n\frac{ (-1)^n }{ n }=\ln(2).
+        \sum_{k=1}^{\infty}\frac{ (-1)^{k+1} }{ k }=\ln(2).
     \end{equation}
 \end{proof}
+
+\begin{normaltext}
+    La formule \eqref{EqKUQmOZ} peut sembler très chouette pour trouver des approximations de \( \ln(2)\). Le problème est qu'elle ne donne aucune idée de l'erreur commise en tronquant la série.
+
+    Vous pouvez, certre écrite
+    \begin{equation}
+        1-\frac{ 1 }{2}+\frac{1}{ 3 }-\frac{1}{ 4 }+\frac{1}{ 5 }=\frac{ 47 }{ 60 }\simeq 0.78.
+    \end{equation}
+    Ce calcul n'a aucune valeur pour affirmer que \( \ln(2)\) doit être proche de \( 0.78\). Ni même pour affirmer que \( \ln(2)<1\).
+
+    Avoir des valeurs numériques de \( \ln(2)\) (c'est-à-dire que «chiffres corrects devant ou derrière la virgule») demande d'avoir un encadrement. Cela doit donc se faire avec des formules de séries avec reste; les formules exactes qui somment jusqu'à l'inifini sont inutiles pour avoir des approximations numériques.
+
+    Dans le cas de \( \ln(2)\), une approximation numérique sera donnée à l'aide de Taylor avec reste intégrale dans la proposition \ref{PROPooHOMYooFclkCU}.
+\end{normaltext}
 
 \begin{lemma}
     Soit la fonction\footnote{Pour la définition du logarithme, c'est la définition~\ref{DEFooELGOooGiZQjt}.}
@@ -1060,45 +1309,135 @@ Notons qu'un calcul de limite
 \end{equation}
 donnait la valeur \( f(0)=1\). Donc prolonger avec \( f(0)=1\) était la seule possibilité pour avoir une fonction continue. De là à dire que le prolongement ainsi créé est de classe \(  C^{\infty}\), c'est une autre histoire, qui est résoue par les séries entières.
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Développements et calcul de limites}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Lors d'un calcul de limite, développer une partie d'une expression peut être utile.
+
+\begin{example}
+    À calculer :
+    \begin{equation}
+        \lim_{x\to 0} \frac{ \ln(1+x) }{ x }.
+    \end{equation}
+    Cela est une indétermination de type \( \frac{ 0 }{ 0 }\). Le développement limité du numérateur\footnote{Proposition \ref{PROPooWCUEooJudkCV}.} nous donne une fonction \( \alpha(x)\) telle que \( \lim_{x\to 0} \alpha(x)=0\) et
+    \begin{equation}
+        \frac{ \ln(1+x) }{ x }=\frac{ x-\frac{ x^2 }{2}+x^2\alpha(x) }{ x }=1-\frac{ x }{ 2 }+x\alpha(x).
+    \end{equation}
+    Sur le membre de droite la limite est facile à calculer :
+    \begin{equation}
+        \lim_{x\to 0} \frac{ \ln(1+x) }{ x }=\lim_{x\to 0} \Big( 1-\frac{ x }{ 2 }+x\alpha(x) \Big) =1.
+    \end{equation}
+\end{example}
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Vitesses de $x^{\alpha}$, de l'exponentielle et du logarithme}
+\section{Vitesses des puissances, de l'exponentielle et du logarithme}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Un peu de théorie}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}   \label{LemSYHKooUiSMFJ}
-    Pour tout \( \alpha>0\), il existe \( N\) tel que \( \ln(n)\leq n^{\alpha}\) pour tout \( n\geq N\).
-\end{lemma}
+Voici une série de résultats qui lient les vitesses des polynômes, du logarithme et de l'exponentielle.
 
-\begin{proof}
-En effet, nous avons
-\begin{equation}
-    \lim_{x\to\infty} \frac{ x^{\alpha} }{ \ln(x) }=\lim_{x\to\infty} \frac{ \alpha x^{\alpha-1} }{ 1/x }=\lim_{x\to\infty} \alpha x^{\alpha}=\infty
-\end{equation}
-quand $\alpha>0$.
-\end{proof}
-Cela tient également lorsque nous considérons $\ln(x)^p$ au lieu de $\ln(x)$. De cela, nous disons que le logarithme croit moins vite que n'importe quel polynôme.
-
-\begin{example}
-    Par exemple nous avons \( \ln(1-x)\sim -x\) pour \( x\to 0\) parce que
-    \begin{equation}    \label{EqGICpOX}
-        \lim_{x\to 0} -\frac{ \ln(1-x) }{ x }=\lim_{x\to 0} -\frac{ \frac{ -1 }{ 1-x } }{ 1 }=\lim_{x\to 0} \frac{1}{ 1-x }=1
-    \end{equation}
-    où nous avons utilisé la règle de l'Hospital (proposition~\ref{PROPooBZHTooHmyGsy}).
-\end{example}
-
-\begin{lemma}
-    L'exponentielle croit plus vite que tout polynôme, et plus vite que que logarithme :
+\begin{proposition}     \label{PROPooKVIFooGdKpfP}
+    Nous avons :
+    \begin{enumerate}
+        \item   \label{ITEMooCDSQooSIctbz}
+            Pour tout \( \alpha>0\), il existe \( N\) tel que \( \ln(n)\leq n^{\alpha}\) pour tout \( n\geq N\).
+        \item       \label{ITEMooZMAWooTbDNAd}
+            Pour tout \( p>0\) et tout \( \alpha>0\), il existe \( N\) tel que 
+            \begin{equation}
+                \ln(n)^p<n^{\alpha}
+            \end{equation}
+            pour tout \( n\geq N\).
+        \item       \label{ITEMooBLNOooZQNTfd}
+            Pour tout \( n\geq 1\) nous avons la limite
+            \begin{equation}
+                \lim_{x\to 0^+} x^n\ln(x)=0.
+            \end{equation}
+        \item       \label{ITEMooMLNMooAyJTox}
+            Nous avons
+            \begin{equation}
+                \lim_{x\to 0^+} \frac{ \ln(1-x) }{ x }=-1.
+            \end{equation}
+        \item       \label{ITEMooIQEKooBionsK}
+            L'exponentielle croit plus vite que tout polynôme, et plus vite que que logarithme :
     \begin{equation}        \label{EqExpDecrtPlusVite}
         \lim_{t\to\infty} e^{-t}(\ln t)^{n}t^{\alpha}=0
     \end{equation}
     pour tout $n$ et pour tout $\alpha$.
+\item       \label{ITEMooDUQWooNvAvmR}
+    Pour tout \( n>0\), nous avons la limite
+    \begin{equation}
+        \lim_{x\to 0^+} x^n e^{1/x}=\infty.
+    \end{equation}
+    \end{enumerate}
+\end{proposition}
+
+Le point \ref{ITEMooCDSQooSIctbz} et sa généralisation \ref{ITEMooZMAWooTbDNAd} nous font dire que le logarithme croît moins vite que n'importe quel polynôme.
+
+\begin{proof}
+    En plusieurs parties.
+    \begin{subproof}
+        \item[Pour \ref{ITEMooCDSQooSIctbz}]
+            En effet, nous avons, par la règle de l'Hospital (proposition~\ref{PROPooBZHTooHmyGsy}),
+            \begin{equation}
+                \lim_{x\to\infty} \frac{ x^{\alpha} }{ \ln(x) }=\lim_{x\to\infty} \frac{ \alpha x^{\alpha-1} }{ 1/x }=\lim_{x\to\infty} \alpha x^{\alpha}=\infty
+            \end{equation}
+            quand $\alpha>0$. La dérivée du logarithme est dans la proposition \ref{ExZLMooMzYqfK}.
+        \item[Pour \ref{ITEMooZMAWooTbDNAd}]
+        \item[Pour \ref{ITEMooBLNOooZQNTfd}]
+            Lorsque \( x\neq 0\) nous avons
+            \begin{equation}
+                x^n\ln(x)=\frac{ \ln(x) }{ 1/x^n },
+            \end{equation}
+            qui est un cas \( \frac{ \infty }{ \infty }\). Nous nous en remettons à la règle de l'Hospital \ref{PROPooTJVCooMeUhIy}. D'abord nous nous assurons de la limite des dérivées :
+            \begin{equation}
+                \lim_{x\to 0^+} \frac{ 1/x }{ -nx^{-n-1} }=\lim_{x\to 0^+} -\frac{1}{ n }\frac{ x^{n+1} }{ x }=0.
+            \end{equation}
+            La règle de l'Hospital conclu à l'existence de la limite demandée et à son égalité à \( 0\).
+        \item[Pour \ref{ITEMooMLNMooAyJTox}]
+            En effet, par la règle de l'Hospital \ref{PROPooBZHTooHmyGsy},
+            \begin{equation}    \label{EqGICpOX}
+                \lim_{x\to 0} -\frac{ \ln(1-x) }{ x }=\lim_{x\to 0} -\frac{ \frac{ -1 }{ 1-x } }{ 1 }=\lim_{x\to 0} \frac{1}{ 1-x }=1
+            \end{equation}
+        \item[Pour \ref{ITEMooIQEKooBionsK}]
+        \item[Pour \ref{ITEMooDUQWooNvAvmR}]
+            Nous passons au logarithme :
+            \begin{equation}
+                \ln(x^n e^{1/x})=\ln(x^n)+\ln( e^{1/x})=n\ln(x)+\frac{1}{ x }=\frac{ n x\ln(x)+1 }{ x }.
+            \end{equation}
+            Grâce à la limite déjà prouvée en \ref{ITEMooBLNOooZQNTfd}, le numérateur tend vers \( 1\) lorsque \( x\to 0^+\). Donc le tout tend vers \( +\infty\). Au final,
+            \begin{equation}
+                \lim_{x\to 0^+} x^n e^{1/x}=\lim_{x\to 0^+}  e^{\ln(x^n e^{1/x})}=\infty.
+            \end{equation}
+    \end{subproof}
+\end{proof}
+
+\begin{lemma}       \label{LEMooNYFVooXjFShk}
+    Si \( P\) est un polynôme et si \( a>0\), alors
+    \begin{equation}
+        \lim_{x\to \infty}  e^{-ax}P(x)=0
+    \end{equation}
 \end{lemma}
 
-% ne pas mettre de label à l'exemple suivant, parce que je ne suis pas certain que d'une façon ou d'une
-% autre, il n'utilise pas le résultat lui-même.
+\begin{proof}
+    Nous prouvons par récurrence que pour tout \( n\), nous avons \(  e^{-ax}x^n\to 0\). D'abord nous écrivons\footnote{En utilisant \ref{PROPooVADRooLCLOzP}\ref{ITEMooSCJBooNVJZah}.}
+    \begin{equation}
+        f(x)= e^{-ax}x=\frac{ x }{  e^{ax} },
+    \end{equation}
+    et ensuite la règle de l'Hospital \ref{PROPooTJVCooMeUhIy} nous donne
+    \begin{equation}
+        \lim_{x\to \infty} \frac{ x }{  e^{ax} }=\lim_{x\to \infty} \frac{1}{ a e^{ax} }=0.
+    \end{equation}
+
+    En ce qui concerne la récurrence, c'est encore la règle de l'Hospital :
+    \begin{equation}
+        \lim_{x\to \infty} \frac{ x^n }{  e^{ax} }=\frac{ n }{ a }\lim_{x\to \infty} \frac{ x^{n-1} }{  e^{ax} }=0.
+    \end{equation}
+\end{proof}
+
 \begin{example}     \label{EXooQNCJooFpnvnf}
    Le lemme \ref{LemLJOSooEiNtTs} a déjà prouvé la limite 
     \begin{equation}
@@ -1120,7 +1459,7 @@ Cela tient également lorsque nous considérons $\ln(x)^p$ au lieu de $\ln(x)$. 
 \end{example}
 
 \begin{remark}
-    Vous ne pouvez pas a priori considérer l'exemple \ref{EXooQNCJooFpnvnf} comme une preuve alternative au lemme \ref{LemLJOSooEiNtTs}, parce que vous n'êtes pas sûr que dans toute la théorie permettant de définir l'exponentielle (en particulier la convergence de \( \sum_kx^k/k!\)), le lemme n'est pas utilisé\quext{Faites la vérification et dites moi si c'est bon.}.
+    Vous ne pouvez pas à priori considérer l'exemple \ref{EXooQNCJooFpnvnf} comme une preuve alternative au lemme \ref{LemLJOSooEiNtTs}, parce que vous n'êtes pas sûr que dans toute la théorie permettant de définir l'exponentielle (en particulier la convergence de \( \sum_kx^k/k!\)), le lemme n'est pas utilisé\quext{Faites la vérification et dites moi si c'est bon.}.
 \end{remark}
 
 \begin{proposition} \label{PropBQGBooHxNrrf}
@@ -1157,6 +1496,38 @@ Cela tient également lorsque nous considérons $\ln(x)^p$ au lieu de $\ln(x)$. 
        \input{auto/pictures_tex/Fig_XJMooCQTlNL.pstricks}
     \end{center}
 \end{example}
+
+
+\begin{example}     \label{EXooGESBooQYOCpk}
+    
+Prenons deux suites $\{a_n\}$ et  $\{b_n\}$ qui tendent toutes les deux vers l'infini (resp. 0). On dira que la suite $\{a_n\}$ converge plus vite (resp. plus lentement) que la suite $\{b_n\}$ si $\lim_{n\rightarrow \infty}\f{a_n}{b_n} = \infty$, aussi vite si $\lim_{n\rightarrow \infty}\f{a_n}{b_n} $ existe et est finie, et plus lentement (resp. plus vite)  si $\lim_{n\rightarrow \infty}\f{a_n}{b_n} = 0$.
+\begin{enumerate}
+	\item Montrer qu'il existe deux suites qui tendent vers $\infty$ (ou 0) mais qui n'ont pas la même  vitesse d'approche.
+	\item Montrer que pour toute suite qui tend vers  $\infty$ (ou 0), il existe une suite qui tend vers  $\infty$ (ou 0) plus vite.
+	\item Donner une suite non exponentielle qui tend vers l'infini plus vite que la suite $x_k = e^k$.
+\end{enumerate}
+
+Voici quelque éléments de réponse.
+
+\begin{enumerate}
+\item $x_n=n$ et $y_n=n^2$, et les inverses pour des suites qui tendent vers zéro.
+\item Si $x_n\to\infty$, la suite $x_n^2$ tend plus vite.
+\item La suite $x_n=n!$ tend vers \( \infty\) vite que l'exponentielle. En effet, le nombre $e^k$ n'est rien d'autre que le produit itéré $e\cdot e\cdot\ldots\cdot e$. Comparez
+\begin{equation}
+	e\cdot e\cdot e\cdot\ldots\cdot e
+\end{equation}
+avec
+\begin{equation}
+	1\cdot 2\cdot 3\cdot\ldots\cdot 10.
+\end{equation}
+Étant donné que $e<3$, nous avons
+\begin{equation}
+	\frac{ e^k }{ k! }<\frac{ e^2 }{ 2 }\cdot\left( \frac{ e }{ 3 } \right)^{k-2}\to 0.
+\end{equation}
+
+\end{enumerate}
+\end{example}
+<++>
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Nombres premiers}
@@ -1204,7 +1575,7 @@ Cela tient également lorsque nous considérons $\ln(x)^p$ au lieu de $\ln(x)$. 
             &\geq 1+\sum_{p\in P_x}\frac{1}{ p }+\sum_{\substack{p,q\in P_x\\pq\leq x}}\frac{1}{ pq }+\sum_{\substack{p,q,r\in P_x\\pqr\leq x}}\frac{1}{ pqr }+\ldots
         \end{align}
     \end{subequations}
-    Les sommes sont finies. Les sommes s'étendent sur toutes les façons de prendre des produits de nombres premiers distincts de telle sorte de conserver un produit plus petit que \( x\); c'est à dire que les sommes se résument en une somme sur les éléments de \( S_x\) :
+    Les sommes sont finies. Les sommes s'étendent sur toutes les façons de prendre des produits de nombres premiers distincts de telle sorte de conserver un produit plus petit que \( x\); c'est-à-dire que les sommes se résument en une somme sur les éléments de \( S_x\) :
     \begin{equation}        \label{EqooilOz}
         \exp\left( \sum_{p\in P_x}\frac{1}{ p } \right)\geq\prod_{p\in P_x}\left( 1+\frac{1}{ p } \right)\geq \sum_{q\in S_x}\frac{1}{ q }.
     \end{equation}
@@ -1313,24 +1684,100 @@ Nous voyons à présent quelques calculs de limite et de développements mettant
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{definition}
-    Les fonctions \defe{sinus hyperbolique}{sinus!hyperbolique} et \defe{cosinus hyperbolique}{cosinus!hyperbolique} sont les fonctions définies sur $\eR$ par les formules suivantes :
+    Les fonctions \defe{cosinus hyperbolique}{cosinus!hyperbolique} et \defe{sinus hyperbolique}{sinus!hyperbolique} sont les fonctions définies sur $\eR$ par les formules suivantes :
     \begin{subequations}
         \begin{align}
             \cosh(x)&=\frac{  e^{x}+ e^{-x} }{2}\\
-            \sinh(x)&=\frac{  e^{x}- e^{-x} }{2}
+            \sinh(x)&=\frac{  e^{x}- e^{-x} }{2}.
         \end{align}
     \end{subequations}
+    Si vous ne vous rappelez plus la définition de \( e^x\), c'est \ref{DEFooSFDUooMNsgZY}.
 \end{definition}
 
-Leurs principales propriétés sont :
-\begin{enumerate}
-    \item
-        \( \cosh^2(x)-\sinh^2(x)=1\)
-    \item
-        \( \cosh'(x)=\sinh(x)\)
-    \item
-        \( \sinh'(x)=\cosh\).
-\end{enumerate}
+\begin{proposition}     \label{PROPooUNHHooIksdoJ}
+    Quelques propriétés algébriques des fonctions trigonométriques hyperboliques.
+    \begin{enumerate}
+        \item
+            \( \cosh(-x)=\cosh(x)\)
+        \item
+            \( \sinh(-x)=-\sinh(x)\)
+        \item
+            \( \cosh^2(x)-\sinh^2(x)=1\)
+        \item
+            \( \cosh(x)\cosh(y)+\sinh(x)\sinh(y)=\cosh(x+y)\)
+        \item       \label{ITEMooOJRFooUCUaDl}
+            \( \cosh(x)\cosh(y)-\sinh(x)\sinh(y)=\cosh(x-y)\)
+        \item
+            \( \cosh(x)\sinh(y)+\sinh(x)\cosh(y)=\sinh(x+y)\)
+        \item
+            \( \cosh(x)\sinh(y)-\sinh(x)\cosh(y)=-\sinh(x-y)\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Si s'agit simplement de remplacer les définitions et d'utiliser les formules concernant les puissances, dont la formule \eqref{EQooEWIHooDRAQGR}.
+\end{proof}
+
+\begin{proposition}     \label{PROPooAOOHooXvLfrZ}
+    Quelques propriétés analytiques des fonctions trigonométriques hyperboliques.
+    \begin{enumerate}
+        \item
+            \( \cosh'(x)=\sinh(x)\)
+        \item
+            \( \sinh'(x)=\cosh(x)\).
+        \item       \label{ITEMooZNZLooNMQFWr}
+            \( \cosh(x)\geq 1\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Pour les dérivées, il s'agit d'utiliser la dérivation de l'exponentielle, laquelle est facile par le théorème \ref{ThoRWOZooYJOGgR}\ref{ITEMooEIKKooLNoaRD}.
+
+    Pour \ref{ITEMooZNZLooNMQFWr}, nous commençons par les \( x\geq 0\). D'abord $\cosh(0)=1$. Ensuite \( \cosh'(x)=\sinh(x)=\frac{  e^{x}- e^{-x} }{ 2 }\). Vu que \( x> 0\) nous avons \(  e^{x}> e^{-x}>0\). Donc la dérivée de \( \cosh\) est strictement positive sur \( \mathopen] 0 , \infty \mathclose[\). La fonction y est donc partout plus grande que \( \cosh(0)=1\).
+
+    Pour les \( x<0\), nous avons la fait que \( \cosh\) est paire.
+\end{proof}
+
+\begin{proposition}     \label{PROPooQLNYooIIOdvm}
+    La fonction \( \sinh\colon \eR\to \eR\) est bijective.
+\end{proposition}
+
+\begin{proof}
+    En deux parties.
+    \begin{subproof}
+        \item[Injective]
+            Si \( \sinh(a)=\sinh(b)\), alors le théorème de Rolle \ref{ThoRolle} affirme qu'il existe \( c\in \mathopen] a , b \mathclose[\) tel que \( \sinh'(c)=0\). Mais la proposition \ref{PROPooAOOHooXvLfrZ} nous dit que \( \sinh'(x)=\cosh(c)\geq 1\). Donc impossible.
+
+            \item[Surjective]
+                Nous avons
+                \begin{equation}
+                    \lim_{x\to -\infty} \sinh(x)=-\infty
+                \end{equation}
+                et
+                \begin{equation}
+                    \lim_{x\to\infty } \sinh(x)=\infty.
+                \end{equation}
+                Soit \( y\in \eR\). Il existe \( m<0\) tel que \( \sinh(m)<y\) et \( M>0\) tel que \( \sinh(M)>y\). Le théorème des valeurs intermédiaires \ref{ThoValInter} nous enseigne qu'il existe \( x\in \mathopen[ m , M \mathclose]\) tel que \( \sinh(x)=y\).
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooWEHGooOBqSHY}
+    Soient \( a,b\in \eR\) tels que \( a-b^2=1\). Il existe un unique \( (x,\sigma)\in \eR\times \{ \pm1 \}\) tel que
+    \begin{subequations}        \label{SUBEQSooBIYDooIBuduV}
+        \begin{numcases}{}
+            a=\sigma\cosh(x)\\
+            b=\sinh(x).
+        \end{numcases}
+    \end{subequations}
+\end{proposition}
+
+\begin{proof}
+    Vu que le sinus hyperbolique est une bijection\footnote{Proposition \ref{PROPooQLNYooIIOdvm}.}, il existe un unique \( x\in \eR\) tel que \( \sinh(x)=b\). Maintenant un petit calcul :
+    \begin{equation}
+        a^2=1+\sinh(x)^2=1+\frac{  e^{2x}+ e^{-2x}-2 }{ 4 }=\frac{  e^{2x}+ e^{-2x}+2 }{ 4 }=\cosh(x)^2.
+    \end{equation}
+    Vu que \( \cosh(x)^2=a^2\), il existe un unique \( \sigma\in\{ \pm1 \}\) tel que \( \sigma\cosh(x)=a\).
+\end{proof}
 
 Les représentations graphiques sont ceci :
 \begin{center}
@@ -1365,13 +1812,13 @@ La \defe{tangente hyperbolique}{tangente hyperbolique} est donnée par le quotie
             \begin{equation}    \label{EqRDVodDa}
                 df_A(U)=\sum_{k=0}^{\infty}a_k\sum_{l=0}^{k-1}A^lUA^{k-1-l},
             \end{equation}
-            c'est à dire que l'on peut différentier terme à terme. (Ici c'est \( A\) qui est dans \( B(0,R)\))
+            c'est-à-dire que l'on peut différentier terme à terme. (Ici c'est \( A\) qui est dans \( B(0,R)\))
         \item
             La convergence de la somme~\ref{EqRDVodDa} est absolue.
         \item
             La convergence de la somme~\ref{EqRDVodDa} est normale sur tout compact.
         \item
-            La fonction \( f\) est de classe \( C^1\) sur \( B(0,R)\), c'est à dire que la fonction \( A\mapsto df_A\) est continue.
+            La fonction \( f\) est de classe \( C^1\) sur \( B(0,R)\), c'est-à-dire que la fonction \( A\mapsto df_A\) est continue.
     \end{enumerate}
 \end{proposition}
 Notons que \( df_A\) n'est pas tout à fait une série entière. Cependant, en ce qui concerne les normes, c'est tout comme si ça l'était.
@@ -1385,7 +1832,7 @@ Notons que \( df_A\) n'est pas tout à fait une série entière. Cependant, en c
     \begin{equation}
         (du_k)_A(U)=\sum_{l=0}^{k-1}a_kA^lUA^{k-1-l}.
     \end{equation}
-    En ce qui concerne la norme, nous regardons celle de \( (du_k)_A\) pour un \( A\) fixé; c'est à dire que nous en regardons la norme opérateur :
+    En ce qui concerne la norme, nous regardons celle de \( (du_k)_A\) pour un \( A\) fixé; c'est-à-dire que nous en regardons la norme opérateur :
     \begin{equation}
         \| (du_k)_A \|=\sup_{\| U \|=1}\| \sum_{l=0}^{k-1}a_kA^lUA^{k-1-l} \|\leq \sum_{l=0}^{k-1}| a_k |\| A \|^{l}\| A \|^{k-1-l}\leq k| a_k |\| A \|^{k-1}.
     \end{equation}
@@ -1397,7 +1844,7 @@ Notons que \( df_A\) n'est pas tout à fait une série entière. Cependant, en c
     \begin{equation}
         \sum_{k=0}^{\infty}(du_k)_A.
     \end{equation}
-    Passons à la convergence normale sur tout compact. Nous nous fixons \( r<R\) et nous nous intéressons à la norme de \( du_k\) sur \( \overline{ B(0,r) }\), c'est à dire
+    Passons à la convergence normale sur tout compact. Nous nous fixons \( r<R\) et nous nous intéressons à la norme de \( du_k\) sur \( \overline{ B(0,r) }\), c'est-à-dire
     \begin{equation}
         \| du_k \|_{\infty}=\sum_{x\in\overline{ B(0,r) }}\| (du_k)_A \|.
     \end{equation}
@@ -1467,12 +1914,19 @@ Notons que \( df_A\) n'est pas tout à fait une série entière. Cependant, en c
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{proposition} \label{PropKKdmnkD}
-    Toute matrice inversible complexe est une exponentielle.
+    Une matrice complexe est inversible si et seulement si elle est une exponentielle.
+
+    Autrement dit :
+    \begin{equation}
+        \GL(n,\eC)= e^{\eM(n,\eC)}.
+    \end{equation}
 \end{proposition}
 \index{exponentielle!de matrice}
 \index{décomposition!Jordan!et exponentielle de matrice}
 
 \begin{proof}
+    Nous avons déjà prouvé dans la proposition \ref{PROPooRERRooMutKcg} que toutes les exponentielles étaient inversibles. Ici nous nous concentrons sur la réciproque.
+
     Soit \( A\in \GL(n,\eC)\); nous allons donner une matrice \( B\in \eM(n,\eC)\) telle que \( A=\exp(B)\). D'abord remarquons qu'il suffit de prouver le résultat pour une matrice par classe de similitude. En effet si \( A=\exp(B)\) et si \( M\) est inversible alors
     \begin{subequations}    \label{EqqACuGK}
         \begin{align}
@@ -1573,7 +2027,7 @@ Notons que \( df_A\) n'est pas tout à fait une série entière. Cependant, en c
 
             La proposition~\ref{PropAnnncEcCxj} stipule que le polynôme minimal d'un endomorphisme divise tous les polynômes annulateurs. Dans notre cas, \( X^r\) est un polynôme annulateur et donc le polynôme minimal de \( N\) est de la forme \( X^k\). Donc il est \( X^r\) lui-même.
 
-            Nous avons donc \( X^r\divides Q\). Mais \( Q\) est un polynôme contenant le monôme \( X\) donc \( X^r\) ne peut diviser \( Q\) que si \( r=1\). Nous en concluons que \( X\) est un polynôme annulateur de \( N\). C'est à dire que \( N=0\).
+            Nous avons donc \( X^r\divides Q\). Mais \( Q\) est un polynôme contenant le monôme \( X\) donc \( X^r\) ne peut diviser \( Q\) que si \( r=1\). Nous en concluons que \( X\) est un polynôme annulateur de \( N\). C'est-à-dire que \( N=0\).
 
         \item[Conclusion]
 

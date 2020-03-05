@@ -1,15 +1,11 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2013,2015,2017-2018
+% Copyright (c) 2011-2013,2015,2017-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Représentations et caractères}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{definition}
-    Une représentation est \defe{fidèle}{représentation!fidèle} si elle est injective en tant que application \( G\to \GL(V)\). Ce ne sont pas chacun des \( \rho(g)\) qui doivent être injectifs. La dimension de \( V\) est le \defe{degré}{degré!d'une représentation} de la représentation \( (V,\rho)\).
-\end{definition}
 
 \begin{definition}
     Si \( G\) est un groupe, l'ensemble des homomorphismes \( \Hom(G,\eC^*)\) est un groupe pour la multiplication. Un élément de \( \Hom(G,\eC^*)\) est un \defe{caractère abélien}{caractère!abélien}. Le nom «abélien» vient du fait que le caractère prenne ses valeurs dans \( \eC^*\). Nous notons \( \hat G=\Hom(G,\eC^*)\)\nomenclature[R]{\( \hat G\)}{groupe des caractères de \( G\)}.
@@ -143,6 +139,7 @@ Si \( f,g\) sont des applications de \( G\) dans \( \eC\), alors on leur associe
     Étant donné que les \( \chi(s)\) sont des nombres complexe de module \( 1\), nous avons \( \chi(s)\overline{ \chi(s) }=1\) et par conséquent \( \langle \chi, \chi\rangle =1\).
 
     Si par contre \( \chi\neq\chi'\), alors il existe \( s_\in G\) tel que \( \chi(s_0)\neq \chi'(s_0)\). Dans ce cas en effectuant un changement de variable \( s\to s_0s\) dans la sommation,
+    % TODOooKCHRooGiuuZF. Justifier le changement de variables.
     \begin{subequations}
         \begin{align}
             \langle \chi, \chi'\rangle &=\frac{1}{ | G | }\sum_{s\in G}\chi(s)\overline{ \chi'(s) }\\
@@ -225,7 +222,7 @@ Nous avons vu que le groupe des caractères \( \hat G\) contenait toute l'inform
     \begin{equation}
         f(g)=\bar f[g].
     \end{equation}
-    Il faut juste vérifier que le \( f\) ainsi défini est dans \( \hat G\), c'est à dire que \( f(g_1g_2)=f(g_1)f(g_2)\).
+    Il faut juste vérifier que le \( f\) ainsi défini est dans \( \hat G\), c'est-à-dire que \( f(g_1g_2)=f(g_1)f(g_2)\).
 \end{proof}
 
 Cette proposition nous montre que
@@ -314,7 +311,7 @@ signifiera la représentation somme de \( k_i\) termes de la représentation \( 
 \subsection{Module}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous considérons la \( \eC\)-algèbre \( G[\eC]\)\nomenclature[G]{\( \eC[G]\)}{combinaisons d'éléments de \( G\) à coefficients dans \( \eC\)} des combinaisons (formelles) d'éléments de \( G\) à coefficients dans \( G\), c'est à dire l'ensemble
+Nous considérons la \( \eC\)-algèbre \( G[\eC]\)\nomenclature[G]{\( \eC[G]\)}{combinaisons d'éléments de \( G\) à coefficients dans \( \eC\)} des combinaisons (formelles) d'éléments de \( G\) à coefficients dans \( G\), c'est-à-dire l'ensemble
 \begin{equation}
     \eC[G]=\{ \sum_{s\in G}a_ss \}
 \end{equation}
@@ -344,13 +341,13 @@ Les sous-modules indécomposables seront les représentations irréductibles.
 La question qui vient est de savoir si une représentation possédant des sous-espaces invariants peut être écrite comme la somme de représentations irréductibles.
 
 \begin{proposition} \label{PropHeyoAN}  \index{représentation!irréductible}
-    Soit \( (V,\rho)\) une représentation linéaire de dimension finie d'un groupe fini\footnote{La démonstration marche aussi pour les groupes compacts, mais il faudrait des intégrales.}. Si \( W_1\) est un sous-espace stable\footnote{c'est à dire si \( \rho\) n'est pas irréductible.}, alors il existe un sous-espace \( W_2\) également stable et tel que \( V=W_1\oplus W_2\).
+    Soit \( (V,\rho)\) une représentation linéaire de dimension finie d'un groupe fini\footnote{La démonstration marche aussi pour les groupes compacts, mais il faudrait des intégrales.}. Si \( W_1\) est un sous-espace stable\footnote{c'est-à-dire si \( \rho\) n'est pas irréductible.}, alors il existe un sous-espace \( W_2\) également stable et tel que \( V=W_1\oplus W_2\).
 
     Toute représentation linéaire est décomposable en représentations irréductibles.
 \end{proposition}
 
 \begin{proof}
-    Soit \( P\colon V\to V\) un projecteur sur \( W_1\), c'est à dire que \( P^2=P\) et \( P(V)=W_1\). Pour construire un tel projecteur, on peut par exemple prendre un supplémentaire de \( W_1\) dans \( V\) puis utiliser la décomposition\footnote{Ou encore prendre une base de \( W_1\), l'étendre en une base de \( V\) et définir \( P\) comme l'annulation des coefficients des vecteurs «complétant» la base.}. Nous considérons l'opérateur
+    Soit \( P\colon V\to V\) un projecteur sur \( W_1\), c'est-à-dire que \( P^2=P\) et \( P(V)=W_1\). Pour construire un tel projecteur, on peut par exemple prendre un supplémentaire de \( W_1\) dans \( V\) puis utiliser la décomposition\footnote{Ou encore prendre une base de \( W_1\), l'étendre en une base de \( V\) et définir \( P\) comme l'annulation des coefficients des vecteurs «complétant» la base.}. Nous considérons l'opérateur
     \begin{equation}
         P_G=\frac{1}{ | G | }\sum_{g\in G}\rho(g)\circ P\circ \rho(g)^{-1}.
     \end{equation}
@@ -391,7 +388,7 @@ La question qui vient est de savoir si une représentation possédant des sous-e
             &=w.
         \end{align}
     \end{subequations}
-    Pour prouver l'inclusion inverse, nous savons que \( P_G\) et \( P\) sont des projecteurs tels que \( P_GP=P\), ce qui signifie que l'image de \( P_G\) est inclue à celle de \( P\), c'est à dire à \( W_1\). Mais \( \Image(P_G)=\ker(\mtu-P_G)\), donc
+    Pour prouver l'inclusion inverse, nous savons que \( P_G\) et \( P\) sont des projecteurs tels que \( P_GP=P\), ce qui signifie que l'image de \( P_G\) est inclue à celle de \( P\), c'est-à-dire à \( W_1\). Mais \( \Image(P_G)=\ker(\mtu-P_G)\), donc
     \begin{equation}
         \ker(\mtu-P_G)=\Image(P_G)\subset\Image(P)=W_1.
     \end{equation}
@@ -403,7 +400,7 @@ La question qui vient est de savoir si une représentation possédant des sous-e
 \subsection{Structure hermitienne}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Soit \( (\rho,V)\) une représentation de \( G\) sur un espace vectoriel complexe \( V\). Nous voulons munir \( V\) d'un produit scalaire hermitien (définition~\ref{DefMZQxmQ}) tel que les opérateurs \( \rho(g)\) soient tous des isométries. C'est à dire que nous voudrions définir \( \langle u, v\rangle_G\) de telle sorte à avoir
+Soit \( (\rho,V)\) une représentation de \( G\) sur un espace vectoriel complexe \( V\). Nous voulons munir \( V\) d'un produit scalaire hermitien (définition~\ref{DefMZQxmQ}) tel que les opérateurs \( \rho(g)\) soient tous des isométries. C'est-à-dire que nous voudrions définir \( \langle u, v\rangle_G\) de telle sorte à avoir
 \begin{equation}
     \langle \rho(g)u, \rho(g)v\rangle_G =\langle u, v\rangle_G
 \end{equation}
@@ -462,11 +459,13 @@ C'est une forme hermitienne sur l'espace des fonctions centrales.
 
 Cette section prend des éléments des articles \wikipedia{fr}{Lemme_de_Schur}{lemme de Schur}, \wikipedia{fr}{Caractère_d'une_représentation_d'un_groupe_fini}{caractère d'une représentation}, \wikipedia{fr}{Fonction_centrale_d'un_groupe_fini}{fonction centrale} et \wikipedia{fr}{Trace_(algèbre)}{trace} de wikipédia.
 
-Nous disons que les deux représentations \( (V,\rho)\) et \( (V',\rho')\) sont \defe{équivalentes}{equivalence@équivalence!de représentations} s'il existe une bijection linéaire \( f\colon V\to V'\) telle que
-\begin{equation}
-    f\circ \rho=\rho'\circ f.
-\end{equation}
-Nous disons alors que \( f\) \defe{entrelace}{entrelacement} \( \rho\) et \( \rho'\).
+\begin{definition}
+    Nous disons que les deux représentations \( (V,\rho)\) et \( (V',\rho')\) sont \defe{équivalentes}{equivalence@équivalence!de représentations} s'il existe une bijection linéaire \( f\colon V\to V'\) telle que
+    \begin{equation}
+        f\circ \rho=\rho'\circ f.
+    \end{equation}
+    Nous disons alors que \( f\) \defe{entrelace}{entrelacement} \( \rho\) et \( \rho'\).
+\end{definition}
 
 \begin{theorem}[Théorème de Schur]\index{théorème!Schur}\index{Schur (théorème)}    \label{ThoyftobH}
     Si \( (V,\rho)\) et \( (V',\rho')\) sont des représentations irréductibles non équivalentes alors la seule application linéaire \( f\colon V\to V'\) entrelaçant \( \rho\) et \( \rho'\) est la fonction nulle.
@@ -478,7 +477,7 @@ Nous disons alors que \( f\) \defe{entrelace}{entrelacement} \( \rho\) et \( \rh
     Soit \( f\in\aL(V,V')\) telle que \( f\circ \rho=\rho'\circ f\). Alors \( \ker f\) est un sous-espace stable sous \( \rho(G)\), et \( \Image(f)\) est un sous-espace de \( V'\) stable par \( \rho'(G)\). Par irréductibilité, nous avons que \( \ker(f)=\{ 0 \}\) ou \( V\). Même chose pour \( \Image(f)\). Il y a deux possibilités.
     \begin{enumerate}
         \item
-            Si \( \ker(f)=\{ 0 \}\), alors \( \Image(f)\neq \{ 0 \}\) et alors \( \Image(f)=V'\). Du coup \( f\) est injective et surjective, c'est à dire est un isomorphisme.
+            Si \( \ker(f)=\{ 0 \}\), alors \( \Image(f)\neq \{ 0 \}\) et alors \( \Image(f)=V'\). Du coup \( f\) est injective et surjective, c'est-à-dire est un isomorphisme.
         \item
             Si \( \ker(f)=V\), alors \( f=0\).
     \end{enumerate}
@@ -501,7 +500,7 @@ Nous disons alors que \( f\) \defe{entrelace}{entrelacement} \( \rho\) et \( \rh
 \end{lemma}
 
 \begin{proof}
-    Si \( A\colon V\to V'\) est un isomorphisme d'espace vectoriel entrelaçant \( \rho\) et \( \rho'\), c'est à dire si pour tout \( g\), \( \rho'(g)A=A\rho(g)\), alors \( \rho'(g)=A\rho(g)A^{-1}\) et
+    Si \( A\colon V\to V'\) est un isomorphisme d'espace vectoriel entrelaçant \( \rho\) et \( \rho'\), c'est-à-dire si pour tout \( g\), \( \rho'(g)A=A\rho(g)\), alors \( \rho'(g)=A\rho(g)A^{-1}\) et
     \begin{equation}
         \chi'(g)=\tr\big( \rho'(g) \big)=\tr\big( A\rho(g)A^{-1} \big)=\tr\big( \rho(g) \big)
     \end{equation}
@@ -513,7 +512,7 @@ Nous disons alors que \( f\) \defe{entrelace}{entrelacement} \( \rho\) et \( \rh
 \end{lemma}
 
 \begin{proof}
-    Par le corollaire~\ref{CorpZItFX} au théorème de Lagrange, nous avons \( g^{| G |}=e\) et donc en tant qu'opérateur, \( \rho(g)^{| G |}=\mtu\). Les valeurs propres de \( \rho(g)\) sont donc des racines de l'unité. Si nous notons \( \lambda_i\) ces valeurs propres, alors \( \chi(g)=\sum_i\lambda_i\), et en considérant la matrice dans sa base de diagonalisation (lemme de Schur complexe,~\ref{LemSchurComplHAftTq}), nous voyons que
+    Par le corolaire~\ref{CorpZItFX} au théorème de Lagrange, nous avons \( g^{| G |}=e\) et donc en tant qu'opérateur, \( \rho(g)^{| G |}=\mtu\). Les valeurs propres de \( \rho(g)\) sont donc des racines de l'unité. Si nous notons \( \lambda_i\) ces valeurs propres, alors \( \chi(g)=\sum_i\lambda_i\), et en considérant la matrice dans sa base de diagonalisation (lemme de Schur complexe,~\ref{LemSchurComplHAftTq}), nous voyons que
     \begin{equation}
         \chi(g^{-1})=\tr\big( \rho(g)^{-1} \big)=\sum_i\frac{1}{ \lambda_i }.
     \end{equation}
@@ -610,7 +609,7 @@ parce que \( \big( \lambda(g)\delta_s \big)(h)=\delta_s(g^{-1}h)=\delta_{gs}(h)\
 \end{lemma}
 
 \begin{proof}
-    Appliquer l'équation \eqref{EqUuoVNa} fonctionne parce que \( \chi_{\lambda}(e)\) est la dimension de l'espace des fonctions sur \( G\), c'est à dire \( | G |\). Si par contre \( g\neq e\), alors \( \lambda(g)\) est une matrice de permutation (dans la base des \( \delta_h\)) et a donc tous ses éléments diagonaux nuls.
+    Appliquer l'équation \eqref{EqUuoVNa} fonctionne parce que \( \chi_{\lambda}(e)\) est la dimension de l'espace des fonctions sur \( G\), c'est-à-dire \( | G |\). Si par contre \( g\neq e\), alors \( \lambda(g)\) est une matrice de permutation (dans la base des \( \delta_h\)) et a donc tous ses éléments diagonaux nuls.
 \end{proof}
 
 Si \( \rho\) est une représentation et si \( f\) est une fonction sur le groupe, alors nous considérons l'opérateur
@@ -800,7 +799,7 @@ Le théorème suivant est valable pour les groupes finis (comme toute cette sect
 \end{corollary}
 
 \begin{proof}
-    Le corollaire~\ref{CorbdcVNC} nous dit qu'il y a autant de représentations unitaires qu'il n'y a de représentations irréductibles (non équivalentes). Mais les classes de conjugaisons sont des singletons (lemme~\ref{LEMooQYBJooYwMwGM}). Nous avons donc exactement \( | G |\) représentations irréductibles lorsque \( G\) est abélien.
+    Le corolaire~\ref{CorbdcVNC} nous dit qu'il y a autant de représentations unitaires qu'il n'y a de représentations irréductibles (non équivalentes). Mais les classes de conjugaisons sont des singletons (lemme~\ref{LEMooQYBJooYwMwGM}). Nous avons donc exactement \( | G |\) représentations irréductibles lorsque \( G\) est abélien.
 
     Mais d'autre part la proposition~\ref{PropYLnxIjk}\ref{ITEMooLXIJooDxkGJh} donne \( \sum_i(\dim W_i)^2=| G |\) lorsque la somme parcours les représentations irréductibles. Il y a \( | G |\) termes à la somme, donc tous les termes doivent être \( 1\).
 \end{proof}
@@ -829,7 +828,7 @@ ce qui nous amène à dire que
 \begin{equation}
     \tr(\rho\otimes \phi)(g)=\sum_i\sum_{\alpha}\rho(g)_{ii}\phi(g)_{\alpha\alpha}=\tr\big( \rho(g) \big)\tr\big( \phi(g) \big),
 \end{equation}
-c'est à dire au final que
+c'est-à-dire au final que
 \begin{equation}    \label{EqOTmvfjf}
     \chi_{\rho\otimes \phi}=\chi_{\rho}\chi_{\phi}.
 \end{equation}
@@ -847,7 +846,7 @@ Nous y avons aussi la représentation de signature donnée par
         \sigma&\mapsto \epsilon(\sigma)\id.
     \end{aligned}
 \end{equation}
-Et enfin il y a la représentation triviale. Ce sont les trois représentations irréductibles; pour rappel il y a autant de représentations irréductibles que de classes de conjugaison (corollaire~\ref{CorbdcVNC}).
+Et enfin il y a la représentation triviale. Ce sont les trois représentations irréductibles; pour rappel il y a autant de représentations irréductibles que de classes de conjugaison (corolaire~\ref{CorbdcVNC}).
 
 \begin{center}
     \begin{tabular}[]{ccccc}
@@ -874,7 +873,7 @@ D'autre part nous avons aussi
 \section{Table des caractères du groupe symétrique \texorpdfstring{$ S_4$}{S4}}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \label{SecUMIgTmO}
-\index{groupe!de permutation!caractères de \( S_4\)}
+\index{groupe!de permutations!caractères de \( S_4\)}
 \index{caractère!de \( S_4\)}
 \index{représentation!de groupe fini!caractères de \( S_4\)}
 
@@ -886,7 +885,7 @@ Pour la table des caractères de \( S_4\), voir \cite{KXjFWKA}. Et si vous voule
 
 Nous savons que les classes de conjugaison dans \( S_4\) sont caractérisées par la structure des décompositions en cycles (proposition~\ref{PropEAHWXwe}). Elles sont données dans l'exemple~\ref{ExVYZPzub}.
 
-Nous avons donc \( 5\) classes de conjugaison, et il nous faut donc \( 5\) représentations irréductibles non équivalentes (corollaire~\ref{CorbdcVNC}) dont nous allons chercher les caractères.
+Nous avons donc \( 5\) classes de conjugaison, et il nous faut donc \( 5\) représentations irréductibles non équivalentes (corolaire~\ref{CorbdcVNC}) dont nous allons chercher les caractères.
 
 La première est la représentation triviale de dimension \( 1\); nous notons \( \chi_1\) son caractère et nous avons la ligne
 \begin{equation}
@@ -926,7 +925,7 @@ Nous avons la décomposition \( \rho_p=\rho_1\oplus \rho_s\) et donc
 \begin{equation}
     \chi_p=\chi_1+\chi_s.
 \end{equation}
-Nous savons déjà \( \chi_1\). Le caractère \( \chi_p\) n'est pas très compliqué parce que \( \chi_p(\sigma)\) est une matrice de permutation des vecteurs de base. Donc la matrice \( \rho_p(\sigma)\) a un \( 1 \) sur la diagonale pour les \( i\) tels que \( \sigma(i)=i\). Nous avons donc
+Nous savons déjà \( \chi_1\). Le caractère \( \chi_p\) n'est pas très compliqué parce que \( \chi_p(\sigma)\) est une matrice de permutations des vecteurs de base. Donc la matrice \( \rho_p(\sigma)\) a un \( 1 \) sur la diagonale pour les \( i\) tels que \( \sigma(i)=i\). Nous avons donc
 \begin{subequations}
     \begin{align}
     \chi_p(\id)&=4&\chi_p(12)&=2\\
@@ -956,7 +955,7 @@ Pour le reste nous savons qu'il y a autant de représentations irréductibles qu
 \begin{equation}
     | S_4 |=\sum_in_i^2.
 \end{equation}
-Dans notre situation, si nous nommons \( n_1\) et \( n_2\) les dimensions des deux représentations qui nous manquent, nous avons \( 24=n_1^2+n_2^2+(1^2+1^2+3^2)\), c'est à dire \( n_1^2+n_2^2=13\). Il n'y a pas des tonnes de sommes de deux carrés qui font \( 13\). Il y a \( n_1=2\) et \( n_2=3\), et c'est tout.
+Dans notre situation, si nous nommons \( n_1\) et \( n_2\) les dimensions des deux représentations qui nous manquent, nous avons \( 24=n_1^2+n_2^2+(1^2+1^2+3^2)\), c'est-à-dire \( n_1^2+n_2^2=13\). Il n'y a pas des tonnes de sommes de deux carrés qui font \( 13\). Il y a \( n_1=2\) et \( n_2=3\), et c'est tout.
 
 Nous recherchons donc encore une représentation de dimension \( 2\) et une de dimension \( 3\). Pour cela nous allons un peu regarder les produits tensoriels qui s'offrent à nous. Pour faire une dimension \( 3\), il faut faire le produit d'une de dimension \( 1\) par une de dimension \( 3\). Là encore le choix est très limité et nous demande d'essayer
 \begin{equation}
@@ -1082,7 +1081,7 @@ Le groupe \( V_4\) définit en~\ref{NORMooQAZTooBQLqDn} est normal dans \( S_4\)
 \end{lemma}
 
 \begin{proof}
-    Le groupe \( S_4/V_4\) a une représentation irréductible de dimension \( 2\), et n'est donc pas abélien par le corollaire~\ref{CORooWAGXooByrelO}.
+    Le groupe \( S_4/V_4\) a une représentation irréductible de dimension \( 2\), et n'est donc pas abélien par le corolaire~\ref{CORooWAGXooByrelO}.
 
     Il contient \( | S_4 |/| V_4 |=24/4=6\) éléments (théorème de Lagrange~\ref{ThoLagrange}). Or \( 6=3\times 2\), donc le groupe \( S_4/V_4\) est dans le cas non-abélien du théorème~\ref{ThoLnTMBy}\ref{ITEMooFQXIooFLAiUD}. Cette partie parle d'unicité du groupe non-abélien d'ordre \( 6\). Or \( S_3\) est un groupe non-abélien d'ordre \( 6\), donc \( S_4/V_4\) est isomorphe à \( S_3\).
 \end{proof}

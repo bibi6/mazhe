@@ -1,5 +1,5 @@
 % This is part of Analyse Starter CTU
-% Copyright (c) 2014,2017
+% Copyright (c) 2014,2017, 2019
 %   Laurent Claessens,Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -46,7 +46,7 @@ On peut presque toujours omettre d'écrire la dépendance de \(y\) en \(x\) et �
 \begin{remark}
   La solution générale d'une équation différentielle du premier ordre est une famille à un paramètre de fonctions.
 \end{remark}
-\begin{definition}[Équation differentielle du second ordre]
+\begin{definition}[Équation différentielle du second ordre]
 Une  \defe{équation différentielle du second ordre}{équation différentielle!second ordre} est une équation qui, sur un intervalle donne, \(I\), décrit la relation entre une variable réelle, notée \(x\) ou \(t\) dans \(I\), une fonction \(y \,:\,I\to\eR \), et les dérivées première et seconde de \(y\) qui on note \(y'\) et \(y''\) respectivement.
 
 On utilise la forme générale
@@ -61,7 +61,7 @@ On peut définir de manière analogue les équations différentielles d'ordre su
   La trajectoire tracée par une solution particulière $y$ de l'équation \eqref{ed_generale} est le graphe de $y$ en tant que fonction de $x$.
 \end{definition}
 \begin{example}
-  Nous allons regarder de plus près l'équation \eqref{equation_exponentielle}, $y'=y$, pour tout $x\in\eR$. Soient $y_1$ et $y_2$ deux solutions distinctes de cette équation. S'il existe un point $\bar x$ tel que $y_1(\bar x) = y_2 (\bar x)$ alors forcement $y_1(\bar x)/y_2 (\bar x)=1$. Or, la solution générale de l'équation est \(\mathcal{Y} = \{Ce^x\, : \, C\in\eR\}\), donc $y_i(x) = C_ie^x$, $i= 1,2$, o\`u les $C_i$ sont des constantes. Le rapport $y_1(\bar x)/y_2 (\bar x)$ vaut $C_1/C_2$ et par conséquent $C_1 = C_2$. Ce résultat contredit l'hypothèse que les deux solutions soient distinctes. On a donc montré que \emph{deux trajectoires distinctes de cette équations ne se croisent jamais}.
+  Nous allons regarder de plus près l'équation \eqref{equation_exponentielle}, $y'=y$, pour tout $x\in\eR$. Soient $y_1$ et $y_2$ deux solutions distinctes de cette équation. S'il existe un point $\bar x$ tel que $y_1(\bar x) = y_2 (\bar x)$ alors forcement $y_1(\bar x)/y_2 (\bar x)=1$. Or, la solution générale de l'équation est \(\mathcal{Y} = \{Ce^x\, : \, C\in\eR\}\), donc $y_i(x) = C_ie^x$, $i= 1,2$, o\`u les $C_i$ sont des constantes. Le rapport $y_1(\bar x)/y_2 (\bar x)$ vaut $C_1/C_2$ et par conséquent $C_1 = C_2$. Ce résultat contredit l'hypothèse que les deux solutions soient distinctes. On a donc montré que \emph{deux trajectoires distinctes de cette équation ne se croisent jamais}.
 
 \newcommand{\CaptionFigSBTooEasQsT}{Quelques trajectoires de l'équation \( y'=y\).}
 \input{auto/pictures_tex/Fig_SBTooEasQsT.pstricks}
@@ -84,7 +84,7 @@ On dit que la solution particulière \(z\) de \eqref{ed_generale} satisfait la c
   \end{equation}
 \end{definition}
 \begin{remark}
-  Sous des conditions assez générales qui serons toujours vérifiées dans ce cours, tout problème de Cauchy admet une et une seule solution.
+  Sous des conditions assez générales qui seront toujours vérifiées dans ce cours, tout problème de Cauchy admet une et une seule solution.
 \end{remark}
 Pour passer de la solution générale d'une équation différentielle de premier ordre \`a une solution particulière il faut choisir une valeur du paramètre. Comme il y a un seul paramètre une seule condition (la trajectoire de la solution doit passer par un point fixe du plan) peut suffire. Pour une équation différentielle de second ordre comme \eqref{ed_generale_second_ordre}, nous aurons besoin de plus de conditions. Sans rentrer dans les détails, nous allons constater ce fait dans l'exemple suivant.
 
@@ -127,11 +127,11 @@ Une  \defe{équation différentielle du premier ordre à variables séparables}{
 \end{equation}
 o\`u \(f\) et \(g\) sont deux fonctions de \(\eR\) dans \(\eR\).
 \end{definition}
-Nous pouvons intégrer les deux côtes de l'égalité par rapport à \(x\) et obtenir
+Nous pouvons intégrer les deux côtés de l'égalité par rapport à \(x\) et obtenir
 \[
   \int f(y(x))y'(x)\, dx = G(x)+C,
 \]
-o\`u $G$ est une primitive de $g$ et $C$ une constante réelle. Il est facile \`a ce point d'effectuer une changement de variable dans le membre de gauche de l'équation en posant (sans surprise) \(y= y(x)\) et donc \(y'(x)\,dx = dy\).
+o\`u $G$ est une primitive de $g$ et $C$ une constante réelle. Il est facile \`a ce point d'effectuer un changement de variable dans le membre de gauche de l'équation en posant (sans surprise) \(y= y(x)\) et donc \(y'(x)\,dx = dy\).
 \[
   \int f(y(x))y'(x)\, dx =  \int f(y)\, dy  = F(y(x)) + C ,
 \]
@@ -152,7 +152,7 @@ et, si $F$ admet une fonction réciproque, alors
   \begin{equation}\label{ex_un_var_sep}
     3y^2 y' = x, \qquad\text{pour tout } x\in\eR,
   \end{equation}
-est une équation à variables séparables. Pour reprendre les notations du début du chapitre, ici \(f(y) = 3y^2\) et \(g(x) = x\). En intégrant de deux côtes on trouve
+est une équation à variables séparables. Pour reprendre les notations du début du chapitre, ici \(f(y) = 3y^2\) et \(g(x) = x\). En intégrant de deux côtés on trouve
 \[
 y^3 = \frac{x^2}{2} + C .
 \]
@@ -163,7 +163,7 @@ La fonction $F(y) = y^3$ est une bijection de $\eR$ dans $\eR$, donc nous pouvon
 \end{example}
 
 \begin{example}
-  En intégrant de deux côtes l'équation à variables séparables
+  En intégrant de deux côtés l'équation à variables séparables
   \begin{equation}
     2y y' = x, \text{pour tout } x\in\eR,
   \end{equation}
@@ -189,7 +189,7 @@ Ce choix se fait suivant la condition initiale, si elle est donnée. S'il n'y a 
       y(-4) = 0.
     \end{cases}
   \end{equation}
-En intégrant des deux côtes nous trouvons
+En intégrant des deux côtés nous trouvons
 \[
 e^y = \ln(|x+3|) +C.
 \]
@@ -211,7 +211,7 @@ Dans ce cas, pour pouvoir écrire l'équation dans la forme \eqref{eq_var_sep} i
 
 Si $y= 0$ alors $y' =0$ et on a une solution constante (on dit souvent : une solution stationnaire) de l'équation. Par ailleurs les trajectoires des solutions ne peuvent pas se croiser; donc si \( y_G\) est une solution non nulle de l'équation \eqref{EqYNXooFzYeZS} alors \( y_G(x)\neq 0\) pour tout \( x\)\footnote{Ça vaut la peine de prendre un peu de temps pour bien comprendre cela.}. Il n'y a donc aucun danger à diviser par \( y\) dans la recherche d'une solution non identiquement nulle.
 
-Supposons maintenant que $y\neq 0$ et écrivons $y'/y = \sin(x)$. En intégrant des deux côtes on trouve
+Supposons maintenant que $y\neq 0$ et écrivons $y'/y = \sin(x)$. En intégrant des deux côtés on trouve
 \[
   \ln(|y|) =- \cos(x) +C,
 \]
@@ -282,7 +282,7 @@ Toute équation linéaire du premier ordre homogène est une équation du premie
 \begin{proposition}
   \begin{enumerate}
   \item Soit $y_p$ une solution particulière de l'équation \eqref{eq_lin_ordre_un} et $y_h$ une solution particulière de l'équation homogène associé \eqref{eq_lin_ordre_un_hom}. Alors la fonction somme $z= y_p+y_h$ est encore une solution particulière de l'équation \eqref{eq_lin_ordre_un}.
-  \item Soient $y_1$ et $y_2$ deux solutions particulières de \eqref{eq_lin_ordre_un}. Alors la fonction différence $w = y_1-y_2$ est un solution particulière de \eqref{eq_lin_ordre_un_hom}.
+  \item Soient $y_1$ et $y_2$ deux solutions particulières de \eqref{eq_lin_ordre_un}. Alors la fonction différence $w = y_1-y_2$ est une solution particulière de \eqref{eq_lin_ordre_un_hom}.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -312,7 +312,7 @@ Cette proposition permet de démontrer le théorème suivant, qui est le plus im
   \item somme de la solution générale de l'équation homogène et de la solution particulière trouvée au point précédent.
   \end{enumerate}
 \end{Aretenir}
-La partie qui nous manque encore est de savoir comment trouver une solution particulière de l'équation non homogène \eqref{eq_lin_ordre_un}. Si la fonction $c$ dans \eqref{eq_lin_ordre_un} est une constante ou un polynôme simple, ou une exponentielle alors on peut essayer de deviner. Cette méthode cependant n'est pas la plus sûre pour des débutants.
+La partie qui nous manque encore est de savoir comment trouver une solution particulière de l'équation non homogène \eqref{eq_lin_ordre_un}. Si la fonction $c$ dans \eqref{eq_lin_ordre_un} est une constante ou un polynôme simple, ou une exponentielle alors on peut essayer de deviner. Cette méthode cependant n'est pas la plus sure pour des débutants.
 
 \begin{example}
   On considère l'équation
@@ -321,7 +321,7 @@ La partie qui nous manque encore est de savoir comment trouver une solution part
   \end{equation}
 Comme tous les coefficients de l'équation sont constants on peut essayer de trouver une solution constante.
 
-Toutes les fonctions constantes on dérivée nulle, par conséquent, si une solution constante existe elle doit satisfaire $-5y = 10$, ce qui veut dire que la solution constante est $y(x)\equiv -2$.
+Toutes les fonctions constantes ont une dérivée nulle, par conséquent, si une solution constante existe elle doit satisfaire $-5y = 10$, ce qui veut dire que la solution constante est $y(x)\equiv -2$.
 \end{example}
 
 \begin{example}
@@ -331,7 +331,7 @@ Toutes les fonctions constantes on dérivée nulle, par conséquent, si une solu
   \end{equation}
 Comme le membre de droite de l'équation est un polynôme de degré un on cherche une solution de la forme $y(x) = Ax + B$ avec $A$ et $B$ dans $\eR$.
 
-Par substitution on obtient $Ax + (Ax +B) = x+1$, c'est à dire que une solution particulière de l'équation est $y(x) = x/2+1$.
+Par substitution on obtient $Ax + (Ax +B) = x+1$, c'est-à-dire que une solution particulière de l'équation est $y(x) = x/2+1$.
 \end{example}
 
 \begin{example}
@@ -341,7 +341,7 @@ Par substitution on obtient $Ax + (Ax +B) = x+1$, c'est à dire que une solution
   \end{equation}
 ressemble beaucoup à celle de l'exemple précédent, cependant il n'existe pas un polynôme de degré un qui en soit solution.
 
-Dans un cas comme celui-ci, il faut rapidement abandonner la divination et replier sur la méthode, plus technique mais plus sûre, dite  \emph{variation de la constante}
+Dans un cas comme celui-ci, il faut rapidement abandonner la divination et replier sur la méthode, plus technique mais plus sure, dite  \emph{variation de la constante}.
 \end{example}
 
 
@@ -361,7 +361,7 @@ Dans un cas comme celui-ci, il faut rapidement abandonner la divination et repli
     \[
     (C'(x) e^x + C(x) e^x) - C(x) e^x = \cos(x),
     \]
-    c'est à dire
+    c'est-à-dire
     \[
     C'(x)  = \cos(x)e^{-x}.
     \]
@@ -377,7 +377,7 @@ Dans un cas comme celui-ci, il faut rapidement abandonner la divination et repli
   \end{example}
 \end{itemize}
 \begin{remark}
-  Le plus souvent en intégrant l'équation pour $C$ on en trouvera la solution générale. Dans ce cas on peut remplacer $C$ par cette solution générale et obtenir d'un seul coup la solution générale de l'équation \eqref{eq_lin_ordre_un} , c'est à dire sans faire la somme entre la solution générale de l'homogène associée et la solution particulière.
+  Le plus souvent en intégrant l'équation pour $C$ on en trouvera la solution générale. Dans ce cas on peut remplacer $C$ par cette solution générale et obtenir d'un seul coup la solution générale de l'équation \eqref{eq_lin_ordre_un} , c'est-à-dire sans faire la somme entre la solution générale de l'homogène associée et la solution particulière.
 
   \begin{example}
     Dans l'exemple qu'on vient de voir la solution générale de \eqref{eq_lin_ordre_un} est
@@ -438,7 +438,7 @@ alors la substitution nous donne
 \[
 e^{rx}\left(ar^2+br+c\right)=0.
 \]
-Il est connu que la fonction exponentielle ne prend pas la valeur $0$, par consequent ce qui s'annule est le polynôme de degré deux $ar^2+br+c$. Il est donc très facile de trouver les valeurs de $r$ qu'on pourra utiliser comme $r_1$ et $r_2$ dans la solution générale \textbf{complexe}.
+Il est connu que la fonction exponentielle ne prend pas la valeur $0$, par conséquent ce qui s'annule est le polynôme de degré deux $ar^2+br+c$. Il est donc très facile de trouver les valeurs de $r$ qu'on pourra utiliser comme $r_1$ et $r_2$ dans la solution générale \textbf{complexe}.
 \begin{description}
   \item[Si $b^2 - 4ac >0$ :] le polynôme admet deux solutions réelles et distinctes, $r_1$ et $r_2$ ;
   \item[Si $b^2 - 4ac <0$ :] le polynôme admet deux solutions complexes conjuguées, $r_1 = \alpha + i \beta$ et $r_2 = \alpha - i \beta$ ;
@@ -473,12 +473,12 @@ Il faut maintenant écrire la solution générale \textbf{réelle} de l'équatio
     \begin{equation}\label{sol_gen_reelle_ordre_deux_hom_doublerac}
       \mathcal{Y}_h  = \left\{(C_1  +C_2x) e^{r x} \,:\, C_1,\, C_2 \in \eR, \: x\in I\right\}.
     \end{equation}
-    Pour justifier cette formule nous observons d'abord que toute fonction $x\mapsto Ce^{rx}$, pour $C\in\eR$ est une solution de l'équation différentielle (par construction). Ensuite nous utilisons la méthode de variation de la constante. On trouve rapidement que si une fonction de la forme $x\mapsto C(x)e^{rx}$ est une solution alors $C(x)$ est un polynôme de degré au plus 1, c'est à dire $C(x) = C_1 + C_2 x$ avec $C_1$ et $C_2$ dans $\eR$.
+    Pour justifier cette formule nous observons d'abord que toute fonction $x\mapsto Ce^{rx}$, pour $C\in\eR$ est une solution de l'équation différentielle (par construction). Ensuite nous utilisons la méthode de variation de la constante. On trouve rapidement que si une fonction de la forme $x\mapsto C(x)e^{rx}$ est une solution alors $C(x)$ est un polynôme de degré au plus 1, c'est-à-dire $C(x) = C_1 + C_2 x$ avec $C_1$ et $C_2$ dans $\eR$.
 \end{description}
 
 \subsection{Linéaires du second ordre à coefficients constants, non homogènes}
 
-Nous ne présentons pas une méthode générale pour la résolution de ces équations. Comme dans le cas des équations différentielles linéaires du premier ordre non homogènes, la solution générale de \eqref{eq_lin_ordre_deux} est donnée par la somme d'une solution particulière et de la solution générale de l'équation homogène associée. La recherche d'une solution particulière est facilité par le fait que les coefficients de \eqref{eq_lin_ordre_deux} sont supposés constants, c'est à dire que $a$, $b$ et $c$ sont des fonctions constantes. Il faut essayer de deviner la forme d'une solution particulière à partir de la forme du second membre de l'équation, la fonction $d$. Si $d$ est un polynôme il faut essayer avec un polynôme du même degré, si $d$ est une exponentielle, par exemple $d(x) = e^{5x}$, on pourra essayer avec un multiple de la m\^eme fonction exponentielle, dans l'exemple $f(x) = k e^{5x}$, avec $k$ à determiner. Si $d$ est une combinaison linéaire de sinus et cosinus, comme par exemple $12\cos(x) + 2\sin(x)$, on peut essayer avec $k_1\cos(x) + k_2\sin(x)$.
+Nous ne présentons pas une méthode générale pour la résolution de ces équations. Comme dans le cas des équations différentielles linéaires du premier ordre non homogènes, la solution générale de \eqref{eq_lin_ordre_deux} est donnée par la somme d'une solution particulière et de la solution générale de l'équation homogène associée. La recherche d'une solution particulière est facilitée par le fait que les coefficients de \eqref{eq_lin_ordre_deux} sont supposés constants, c'est-à-dire que $a$, $b$ et $c$ sont des fonctions constantes. Il faut essayer de deviner la forme d'une solution particulière à partir de la forme du second membre de l'équation, la fonction $d$. Si $d$ est un polynôme il faut essayer avec un polynôme du même degré, si $d$ est une exponentielle, par exemple $d(x) = e^{5x}$, on pourra essayer avec un multiple de la m\^eme fonction exponentielle, dans l'exemple $f(x) = k e^{5x}$, avec $k$ à determiner. Si $d$ est une combinaison linéaire de sinus et cosinus, comme par exemple $12\cos(x) + 2\sin(x)$, on peut essayer avec $k_1\cos(x) + k_2\sin(x)$.
 
 \begin{example}
   On considère l'équation différentielle
@@ -521,7 +521,7 @@ Nous pouvons essayer avec $f(x)= k_1\cos(x) + k_2\sin(x)$. Par substitution on t
   \end{aligned}
 \end{equation*}
 
-Cette équation doit \^etre satisfaite pour tout valeur de $x$, en particulier pour $x= 0$ et $x = \pi/2$. Cela revient à considère séparément les coefficients des fonctions sinus et cosinus. Il faut alors que $k_1$ et $k_2$ soient solutions du système
+Cette équation doit \^etre satisfaite pour toute valeur de $x$, en particulier pour $x= 0$ et $x = \pi/2$. Cela revient à considère séparément les coefficients des fonctions sinus et cosinus. Il faut alors que $k_1$ et $k_2$ soient solutions du système
 \begin{equation*}
   \begin{cases}
     -k_1 + 12 k_2 + 36 k_1& = 12, \\
@@ -597,7 +597,7 @@ est l'unique solution.
         \begin{equation}
             y(x)=\int_0^xG(x,t)g(t)dt+\int_x^1G(x,t)g(t)dt.
         \end{equation}
-        Pour calculer \( y'(x)\), il faut dériver à la fois à travers l'intégrale et dans la borne. Si vous connaissez une formule pour faire cela, c'est bien pour vois. Nous allons faire ça à la main et poser
+        Pour calculer \( y'(x)\), il faut dériver à la fois à travers l'intégrale et dans la borne. Si vous connaissez une formule pour faire cela, c'est bien pour vous. Nous allons faire ça à la main et poser
         \begin{equation}
             I(x,y)=\int_0^yt(x-1)g(t)dt.
         \end{equation}

@@ -26,6 +26,8 @@ publication/couvertures/*.pdf
 
 # Useless runtime generated documents
 mazhe.html
+COMPILATION_frido.html
+COMPILATION_giulietta.html
 *.maf
 *.mtc
 *.mtc0
@@ -116,6 +118,7 @@ matter_1.pdf
 matter_2.pdf
 matter_3.pdf
 matter_4.pdf
+todo.md
 
 # LaTeX garbage files
 *.comment

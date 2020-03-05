@@ -1,40 +1,40 @@
 % This is part of Mes notes de mathématique
-% Copyright (C) 2010-2013,2016-2017
+% Copyright (C) 2010-2013,2016-2017, 2019-2020
 %   Laurent Claessens
 % See the file LICENCE.txt for copying conditions.
 
-D'autres lectures agréables dans \cite{GianlucaB}
+D'autres lectures agréables dans \cite{GianlucaB}.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Introduction}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-À quels types de problèmes peut-on s'attendre lorsqu'on se lance dans du calcul numérique et en particulier dans la résolution numérique d'équations (algébrique, différentielles ou aux dérivées partielles) ?
+À quels types de problèmes peut-on s'attendre lorsqu'on se lance dans du calcul numérique, et en particulier dans la résolution numérique d'équations (algébrique, différentielles ou aux dérivées partielles, etc) ?
 
 Quelques réflexions en vrac sur ce sujet.
 
 \begin{enumerate}
     \item
-        Les erreurs de représentation de nombres : troncature et drift,
+        Les erreurs de représentation de nombres : troncature et propogation de décalales (\emph{drift}),
     \item
-        Erreur de cancellation
+        Erreur de compensation (\emph{cancellation}),
     \item
-        Conditionnement, stabilité : les réponses peuvent fortement dépendre des paramètres.
+        Conditionnement, stabilité : les réponses peuvent fortement dépendre des paramètres,
     \item
-        Si on utilise une méthode itérative, comment savoir à quel moment on s'arrête ? Calculer la différence \( | x_k-x_{k-1} |\) a-t-elle une erreur de cancellation ?
+        Si on utilise une méthode itérative, comment savoir à quel moment on s'arrête ? Calculer la différence \( | x_k-x_{k-1} |\) mène t-il à une erreur de cancellation ?
     \item
-        Lors d'une implémentation, les matrices des systèmes à résoudre sont souvent très grandes et très creuses. Cela pose la question de la manière de les enregistrer.
+        Lors d'une implémentation, les matrices des systèmes à résoudre sont souvent très grandes et/ou très creuses. Cela pose la question de la manière de les enregistrer.
     \item
         Pour la parallélisation, il faut faire attention au fait que parfois créer un nouveau processus demande plus de ressources que le mini-calcul qu'on voulait faire. Donc il ne faut pas toujours paralléliser tout ce qui est théoriquement parallélisable.
     \item
-        Le fait que certaines méthodes son non-déterministes (Monté-Carlo) mène à des problèmes pour les tests unitaires des implémentations.
+        Le fait que certaines méthodes sont non-déterministes (Monté-Carlo) mène à des problèmes pour les tests unitaires des implémentations.
 \end{enumerate}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Représentations numériques}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Dans cette section les séquences de chiffres écrites entre crochet sont à comprendre comme des séquences de chiffres qui représentent une quantité suivant un codage donné.
+Dans cette section, les séquences de chiffres écrites entre crochet sont à comprendre comme des séquences de chiffres qui représentent une quantité suivant un codage donné.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Entier relatif en complément à deux (binaire)}
@@ -179,7 +179,7 @@ Soit le triple
 \begin{equation}
     \big( s,q,[a_1,\ldots, a_{23}] \big)
 \end{equation}
-Dans le cas générique, l'idée est de donner \( 24\) bits pour la mantisse, mais en gardant en tête le fait que de toutes façons, le premier bit doit être \( 1\), sinon il suffirait de décaler, c'est à dire changer l'exposant. Par conséquent la mantisse ne reçoit que \( 23\) bits; il y a un «\( 1\)» sous-entendu en première position. Donc la mantisse \( [a_1,\ldots, a_{23}]\) est à lire comme le nombre
+Dans le cas générique, l'idée est de donner \( 24\) bits pour la mantisse, mais en gardant en tête le fait que de toutes façons, le premier bit doit être \( 1\), sinon il suffirait de décaler, c'est-à-dire changer l'exposant. Par conséquent la mantisse ne reçoit que \( 23\) bits; il y a un «\( 1\)» sous-entendu en première position. Donc la mantisse \( [a_1,\ldots, a_{23}]\) est à lire comme le nombre
 \begin{equation}
     1,a_1\ldots a_{23}=1+\sum_{j=1}^{23}a_j2^{-j}.
 \end{equation}
@@ -206,7 +206,15 @@ D'où l'idée de donner une règle particulière lorsque l'exposant vaut \( 0\).
 \end{equation}
 En particulier, si \( q=0\) et \( a=[0\ldots 0]\), nous avons le nombre zéro exact (il y a deux possibilités pour le code).
 
-Enfin, nous avons des cas particuliers lorsque l'exposant est maximum, c'est à dire \( q=[1111\,1111]=2^8-1=255\). Dans ce cas, le nombre codé est soit \( +\infty\) soit \( \NaN\). Nous posons \( \SimplePrec(s,q=255,a=0)=+\infty\) et \( \SimplePrec(s,q=255,a\neq 0)=NaN\). Il y a en réalité plusieurs valeurs différentes de \( \NaN\), mais nous n'entrons pas dans ces détails\cite{ooPOZNooQlGiUN}.
+Enfin, nous avons des cas particuliers lorsque l'exposant est maximum, c'est-à-dire lorsque \( q=[1111\,1111]=2^8-1=255\). Dans ce cas, le nombre codé est soit \( +\infty\) soit \( \NaN\). Nous posons 
+\begin{equation}
+\SimplePrec(s,q=255,a=0)=+\infty
+\end{equation}
+et 
+\begin{equation}
+ \SimplePrec(s,q=255,a\neq 0)=NaN.
+\end{equation}
+ Il y a en réalité plusieurs valeurs différentes de \( \NaN\), mais nous n'entrons pas dans ces détails\cite{ooPOZNooQlGiUN}.
 
 \begin{definition}[Représentation en simple précision (binaire)]        \label{DEFooEIOZooYLDVjs}
     La représentation en \defe{précision simple}{précision!simple} d'un nombre se fait sur \( 32\) bits répartis comme suit :
@@ -256,7 +264,7 @@ Vous pouvez jouer avec la simple précision dans \cite{ooOSFYooHCgMRL}.
 \end{example}
 
 \begin{example}[Plus grand normalisé]
-    L'exposant \( q\) ne peut pas être maximum, sous peine de tomber dans les règles spéciales de \( +\infty\) ou \( \NaN\). Donc \( q=[1111\,1110]=2^{8}-2=254\). En ce qui concerne la mantisse, il faut la prendre maximale, c'est à dire \( a_j=1\) pour tout \( j\). Nous avons alors le nombre
+    L'exposant \( q\) ne peut pas être maximum, sous peine de tomber dans les règles spéciales de \( +\infty\) ou \( \NaN\). Donc \( q=[1111\,1110]=2^{8}-2=254\). En ce qui concerne la mantisse, il faut la prendre maximale, c'est-à-dire \( a_j=1\) pour tout \( j\). Nous avons alors le nombre
         \begin{subequations}
             \begin{align}
                 \SimplePrec(1,q=254,a=[1\ldots 1])&=\big( 1+\sum_{j=1}^{23}2^{-j} \big)2^{254-127}=(1-\frac{1}{ 2^{24} })2^{128}\\
@@ -565,7 +573,7 @@ Une situation particulièrement ennuyeuse est celle où justement c'est le petit
 \end{equation}
 qui ne possède qu'un seul chiffre significatif correct alors que voyant le calcul, la réponse aurait pu être trouvée.
 
-Moralité : si certains manipulations algébrique peuvent faire apparaître des simplifications avant de passer le calcul à la machine, il est bon de les effectuer.
+Moralité : si certains manipulations algébrique peuvent faire apparaitre des simplifications avant de passer le calcul à la machine, il est bon de les effectuer.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Conditionnement et stabilité}
@@ -679,7 +687,7 @@ Ne pas confondre :
 
 	Le fait est que c'est une intersection de deux droites presque parallèles. Donc effectivement une petite perturbation d'une des deux droites donne une grande perturbation du point d'intersection.
 
-	Le fait est qu'un ordinateur effectue \emph{toujours} une perturbation, au moins de l'ordre \( 10^{-16}\) pour ne fut-ce que représenter les nombres. C'est à dire une perturbation sur les six nombres définissant le système. Il n'y a donc pas d'espoir d'obtenir un algorithme donnant une bonne réponse.
+	Le fait est qu'un ordinateur effectue \emph{toujours} une perturbation, au moins de l'ordre \( 10^{-16}\) pour ne fut-ce que représenter les nombres. C'est-à-dire une perturbation sur les six nombres définissant le système. Il n'y a donc pas d'espoir d'obtenir un algorithme donnant une bonne réponse.
 \end{example}
 
 Un résultat pratique pour étudier le conditionnement d'un problème est le suivant.
@@ -788,7 +796,7 @@ Si nous savons un \( I_N\) avec \( N\) grand, cette formule donne les \( I_i\) a
 Donc même en prenant vraiment n'importe quoi pour \( I_N\), nous obtenons de bonnes approximations pour \( I_i\) avec les petits \( i\). Même avec \( I_{20}=1000\) (qui est complètement faux), nous trouvons énormément de chiffres significatifs corrects pour \( I_1\).
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Comment choisir et penser le $K$?}
+\subsection{Comment choisir et penser le \texorpdfstring{$ K$}{K} ?}
 %---------------------------------------------------------------------------------------------------------------------------
 
 La formule \eqref{EqDefAABSOLU} contient une formule qui ressemble étrangement à la dérivée. La stabilité d'un problème est très liée à la dérivée de $F$. La stabilité et la dérivée ne sont pas les mêmes choses, mais il n'est pas mauvais de penser au $K$ de la stabilité comme la dérivée. Ou plus précisément : le supremum de la dérivée.
@@ -797,7 +805,7 @@ Un fil conducteur du lemme~\ref{LemITCxqyS} et des exemples~\ref{ExRZrOeoi},~\re
 
 Il faut cependant parfois faire acte d'imagination. La fonction $x\mapsto| x |$ n'est pas dérivable en $0$. Il n'empêche que $K=1$ fait fonctionner la définition de la stabilité. Remarquez que $K=1$ est le supremum de la dérivée là où elle existe.
 
-À partir du moment où c'est clair que le $K$ est le supremum de la dérivée, on comprend pourquoi c'est le gradient qui arrive dans le corollaire~\ref{CorConditionnementNormeNabla}. En effet, le gradient indique la direction de plus grande pente. C'est donc bien dans cette direction qu'il faut chercher la «plus grande dérivée».
+À partir du moment où c'est clair que le $K$ est le supremum de la dérivée, on comprend pourquoi c'est le gradient qui arrive dans le corolaire~\ref{CorConditionnementNormeNabla}. En effet, le gradient indique la direction de plus grande pente. C'est donc bien dans cette direction qu'il faut chercher la «plus grande dérivée».
 
 \begin{proposition}
 	Pour le problème stable $x=x(d)$ avec $x\in C^1(\eR^n,\eR)$, on a
@@ -921,7 +929,7 @@ Attention : cette méthode ne converge pas toujours. Parfois elle converge de fa
     \begin{equation}
         | g'_2(x) |\leq 2e^{-1}<1.
     \end{equation}
-    Donc poser \( k=2e^{-1}\) fait fonctionner la proposition. Donc quel que soit le \( x_0\) pris dans cet intervalle, nous aurons une suite convergente vers un point fixe à l'intérieur de l'intervalle. C'est à dire convergente vers \( \alpha_1\).
+    Donc poser \( k=2e^{-1}\) fait fonctionner la proposition. Donc quel que soit le \( x_0\) pris dans cet intervalle, nous aurons une suite convergente vers un point fixe à l'intérieur de l'intervalle. C'est-à-dire convergente vers \( \alpha_1\).
 
     Cela est un exemple de problème pour lequel changer de fonction \( g\) change réellement la vie.
 \end{example}
@@ -978,7 +986,7 @@ Si le point de départ est choisi de façon à avoir \( Cr<1\) alors nous avons 
     \end{equation}
     Cela est le double de décimales correctes de \( | x_n-\alpha |\), moins l'ordre de grandeur de \( M\).
 
-    Pour la méthode de bisection, le nombre de décimales augmente de \( 1\) à chaque itération, mais seulement en base \( 2\). En base \( 10\), de façon générique\footnote{C'est à dire sauf coup de malchance ou coup de chance.} il faut entre \( 3\) et \( 4\) itérations pour avoir une décimale de plus.
+    Pour la méthode de bisection, le nombre de décimales augmente de \( 1\) à chaque itération, mais seulement en base \( 2\). En base \( 10\), de façon générique\footnote{C'est-à-dire sauf coup de malchance ou coup de chance.} il faut entre \( 3\) et \( 4\) itérations pour avoir une décimale de plus.
 \end{normaltext}
 
 \begin{normaltext}[Condition d'arrêt\cite{ooGYJXooIWExXK}]       \label{NTooVXLXooXlAGEq}
@@ -1042,7 +1050,7 @@ Si le point de départ est choisi de façon à avoir \( Cr<1\) alors nous avons 
     \begin{equation}
         | g(x)-g(y) |\leq \sup_{a\in I}| g'(a) | |x-y |\leq k| x-y |.
     \end{equation}
-    Pout le point~\ref{ITEMooFSOAooKlcxih} nous avons \( | g(x_n)-\alpha |\leq k| x_n-\alpha |\), c'est à dire
+    Pout le point~\ref{ITEMooFSOAooKlcxih} nous avons \( | g(x_n)-\alpha |\leq k| x_n-\alpha |\), c'est-à-dire
     \begin{equation}
         | x_{n+1}-\alpha |\leq k| x_n-\alpha |.
     \end{equation}
@@ -1052,13 +1060,13 @@ Si le point de départ est choisi de façon à avoir \( Cr<1\) alors nous avons 
     \begin{equation}
         g(x_n)=g(\alpha)+g'(\alpha)(x_n-\alpha)+\frac{ 1 }{2}(x_n-\alpha)^2\epsilon(x_n-\alpha)
     \end{equation}
-    avec \( \lim_{t\to 0} \epsilon(t)=0\). En posant \( C=\frac{ 1 }{2}\sup_{t<\delta}| \epsilon(t) | \) nous avons $| g(x_n)-g(\alpha) |\leq C|x_n-\alpha  |^2$, c'est à dire
+    avec \( \lim_{t\to 0} \epsilon(t)=0\). En posant \( C=\frac{ 1 }{2}\sup_{t<\delta}| \epsilon(t) | \) nous avons $| g(x_n)-g(\alpha) |\leq C|x_n-\alpha  |^2$, c'est-à-dire
     \begin{equation}
         | x_{n+1}-\alpha |\leq C| x_n-\alpha |^2.
     \end{equation}
 \end{proof}
 
-Ce corollaire est une paraphrase de la proposition~\ref{PROPooRPHKooLnPCVJ}. Il en retient seulement les points intéressants en pratique.
+Ce corolaire est une paraphrase de la proposition~\ref{PROPooRPHKooLnPCVJ}. Il en retient seulement les points intéressants en pratique.
 
 \begin{corollary}     \label{CORooHKZCooEXRzcW}
     Soit \( \alpha\) une solution de l'équation \( x=g(x)\), avec \( g\) continue sur un voisinage de \( \alpha\) et dérivable dans l'intérieur. Nous supposons que
@@ -1070,7 +1078,7 @@ Ce corollaire est une paraphrase de la proposition~\ref{PROPooRPHKooLnPCVJ}. Il 
 
 Certes cette proposition demande moins d'hypothèses, mais en réalité, il ne donne pas de vrais moyens de choisir un point de départ \( x_0\). Avec les deux théorèmes précédents, nous pouvions prendre \( x_0\) n'importe où dans \( \mathopen[ a , b \mathclose]\). Le fait est que pour choisir \( x_0\) nous pouvons tracer et donner à la main un \( x_0\) proche de ce qui semble être \( \alpha\). Si ça ne converge pas, il faut donner un \(x_0\) plus proche. La proposition nous assure que si nous jouons bien à choisir \( x_0\) très proche, la suite finira par converger.
 
-Notons que le corollaire~\ref{CORooHKZCooEXRzcW} a encore l'inconvénient de demander de calculer \( g'(\alpha)\) alors que \( \alpha\) est inconnu. La résolution de l'inéquation \( | g'(x) |<1\) nous donne un certain nombre d'intervalles dans \( \eR\).
+Notons que le corolaire~\ref{CORooHKZCooEXRzcW} a encore l'inconvénient de demander de calculer \( g'(\alpha)\) alors que \( \alpha\) est inconnu. La résolution de l'inéquation \( | g'(x) |<1\) nous donne un certain nombre d'intervalles dans \( \eR\).
 
 Soient \( I_n\) les intervalles solutions de l'inéquation.  Si \( \alpha\in I_n\) alors la méthode converge. Sinon, c'est pas garantit. En tout cas nous ne devons pas savoir réellement \( \alpha\) pour appliquer le théorème. Il suffit de savoir que \( \alpha\) est dans un des \( I_n\).
 
@@ -1080,6 +1088,8 @@ Soient \( I_n\) les intervalles solutions de l'inéquation.  Si \( \alpha\in I_n
 \label{SECooIKXNooACLljs}
 
 L'objectif de la méthode de Newton est d'évaluer une racine \( \alpha\) de l'équation \( f(x)=0\) lorsque nous avons déjà une approximation \( x_0\) de la racine \( \alpha\).
+
+C'est la méthode de Newton qui est à l'origine de la suite de la proposition \ref{PROPooSTQXooHlIGVf} donnant une suite dans \( \eQ\) qui converge vers \( \sqrt{ A} \).
 
 \begin{definition}      \label{DEFooXSOQooAnWqKM}
     Le nombre \( \alpha\) est une \defe{racine simple}{racine!simple} de l'équation \( f(x)=0\) si \( f(\alpha)=0\) et \( f'(\alpha)\neq 0\). Le nombre \( \alpha\) est une \defe{racine multiple}{racine!multiple} d'ordre \( r\) de \( f(x)=0\) si\index{multiplicité!racine de \( f(x)=0\)}
@@ -1140,7 +1150,7 @@ Le fait est que \( f'(\alpha)\) n'est pas connu, mais nous pouvons l'approximer 
 \begin{equation}
     g(x)=x-\frac{ f(x) }{ f'(x) },
 \end{equation}
-et donc la suite \( x_{n+1}=g(x_n)\) c'est à dire
+et donc la suite \( x_{n+1}=g(x_n)\) c'est-à-dire
 \begin{equation}
     x_{n+1}=x-\frac{ f(x_n) }{ f'(x_n) }.
 \end{equation}
@@ -1165,7 +1175,7 @@ Dès que \( x_n\) est proche de \( \alpha\), sous l'hypothèse (raisonnable par 
 \begin{theorem}[Convergence quadratique de la méthode de Newton\cite{ooGYJXooIWExXK}]       \label{THOooDOVSooWsAFkx}
     Soit \( f\) une fonction continue vérifiant \( f(\alpha)=0\) et \( f'(\alpha)\neq 0\). Nous considérons la fonction
     \begin{equation}
-        g(x)=x-\frac{ f(x) }{ g'(x) }
+        g(x)=x-\frac{ f(x) }{ f'(x) }
     \end{equation}
     que nous supposons être de classe \( C^2\).
 
@@ -1193,7 +1203,7 @@ Dès que \( x_n\) est proche de \( \alpha\), sous l'hypothèse (raisonnable par 
     \begin{equation}        \label{EQooZITHooEbGVKG}
         | g(t)-g(\alpha) |\leq \| g' \|_{\mathopen[ t , \alpha \mathclose]}| t-\alpha |
     \end{equation}
-    où par \( \| f \|_A\) nous entendons la norme uniforme de \( f\) sur \( A\), c'est à dire \( \| f \|_A=\sup_{x\in A}\| f(x) \|\). Note : nous écrivons \( \mathopen[ t , \alpha \mathclose]\), mais ça pourrait être \( \mathopen[ \alpha , t \mathclose]\).
+    où par \( \| f \|_A\) nous entendons la norme uniforme de \( f\) sur \( A\), c'est-à-dire \( \| f \|_A=\sup_{x\in A}\| f(x) \|\). Note : nous écrivons \( \mathopen[ t , \alpha \mathclose]\), mais ça pourrait être \( \mathopen[ \alpha , t \mathclose]\).
 
     Si \( x\in\mathopen[ t , \alpha \mathclose]\) alors
     \begin{subequations}
@@ -1280,7 +1290,7 @@ La méthode de Newton consiste a exprimer la solution $x$ de $f(x)=0$ avec $f\in
 \end{equation}
 où $x_0$ est arbitraire.
 
-Si on veut exprimer cela en terme d'algorithme, nous disons que l'algorithme de Newton est donné par la suite de problèmes
+Si on veut exprimer cela en termes d'algorithmes, nous disons que l'algorithme de Newton est donné par la suite de problèmes
 \begin{equation}        \label{EqFPourNewtonUn}
 	F_n(x_{n+1},x_n,f)=x_{n+1}-x_n+\frac{ f(x_n) }{ f'(x_n) }.
 \end{equation}

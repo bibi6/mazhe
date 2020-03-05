@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2015,2018
+% Copyright (c) 2011-2015,2018-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -84,7 +84,7 @@ et sera utilisée pour démontrer le théorème d'inversion locale~\ref{ThoXWpzq
     \begin{equation}
     \big\| f^{-1}(y_1)-f^{-1}(y_2) \big\|\leq \frac{ \| y_1-y_2 \| }{ 1-\lambda },
     \end{equation}
-    c'est à dire que
+    c'est-à-dire que
     \begin{equation}
         f^{-1}\big( B(y,r) \big)\subset B\big( f^{-1}(y),\frac{ r }{ 1-\lambda } \big),
     \end{equation}
@@ -115,7 +115,7 @@ et sera utilisée pour démontrer le théorème d'inversion locale~\ref{ThoXWpzq
 
 Le théorème d'inversion locale s'énonce de la façon suivante dans \( \eR^n\) :
 \begin{theorem}[Inversion locale dans \( \eR^n\)]    \label{THOooQGGWooPBRNEX}      % Ne pas mettre de label ici parce qu'il faut référencer l'autre, celui dans Banach.
-    Soit \( f\in C^k(\eR^n,\eR^n)\) et \( x_0\in \eR^n\). Si \( df_{x_0}\) est inversible, alors il existe un voisinage ouvert \( U\) de \( x_0\) et \( V\) de \( f(x_0)\) tels que \( f\colon U\to V\) soit un \( C^k\)-difféomorphisme. (c'est à dire que \( f^{-1}\) est également de classe \( C^k\))
+    Soit \( f\in C^k(\eR^n,\eR^n)\) et \( x_0\in \eR^n\). Si \( df_{x_0}\) est inversible, alors il existe un voisinage ouvert \( U\) de \( x_0\) et \( V\) de \( f(x_0)\) tels que \( f\colon U\to V\) soit un \( C^k\)-difféomorphisme. (c'est-à-dire que \( f^{-1}\) est également de classe \( C^k\))
 \end{theorem}
 
 Nous allons le démontrer dans le cas un peu plus général (mais pas plus cher\footnote{Sauf la justification de la régularité de l'application \( A\mapsto A^{-1}\)}) des espaces de Banach en tant que conséquence du théorème de point fixe de Picard~\ref{ThoEPVkCL}.
@@ -144,13 +144,13 @@ Nous allons le démontrer dans le cas un peu plus général (mais pas plus cher\
     \begin{equation}
         dk_0(u)=dL_{(f\circ T)(0)}\Big( df_{T(0)}dT_0(u) \Big).
     \end{equation}
-    Vu que \( L\) est linéaire, sa différentielle est elle-même, c'est à dire \( dL_{(f\circ T)(0)}=(df_{x_0})^{-1}\), et par ailleurs \( dT_0=\mtu\), donc
+    Vu que \( L\) est linéaire, sa différentielle est elle-même, c'est-à-dire \( dL_{(f\circ T)(0)}=(df_{x_0})^{-1}\), et par ailleurs \( dT_0=\mtu\), donc
     \begin{equation}
         dk_0(u)=(df_{x_0})^{-1}\Big( df_{x_0}(u) \Big)=u,
     \end{equation}
     ce qui signifie bien que \( dk_0=\mtu\). Pour tout cela nous avons utilisé en plein le fait que \( df_{x_0}\) était inversible.
 
-Nous posons \( g=f-\mtu\), c'est à dire \( g(x)=f(x)-x\), qui a la propriété \( dg_0=0\). Étant donné que \( g\) est de classe \( C^1\), l'application\footnote{Ici \( \GL(F)\) est l'ensemble des applications linéaires, inversibles et continues de \( F\) dans lui-même. Ce ne sont pas spécialement des matrices parce que nous n'avons pas d'hypothèses sur la dimension de \( F\), finie ou non.}
+Nous posons \( g=f-\mtu\), c'est-à-dire \( g(x)=f(x)-x\), qui a la propriété \( dg_0=0\). Étant donné que \( g\) est de classe \( C^1\), l'application\footnote{Ici \( \GL(F)\) est l'ensemble des applications linéaires, inversibles et continues de \( F\) dans lui-même. Ce ne sont pas spécialement des matrices parce que nous n'avons pas d'hypothèses sur la dimension de \( F\), finie ou non.}
     \begin{equation}
         \begin{aligned}
             dg\colon E&\to \GL(F) \\
@@ -297,7 +297,7 @@ Le théorème de la fonction implicite s'énonce de la façon suivante pour des 
         \item
             \( F(\alpha,\beta)=0\),
         \item
-            \( \frac{ \partial (F_1,\ldots, F_m) }{ \partial (y_1,\ldots, y_m) }\neq 0\), c'est à dire que \( (d_yF)_{(\alpha,\beta)} \) est inversible.
+            \( \frac{ \partial (F_1,\ldots, F_m) }{ \partial (y_1,\ldots, y_m) }\neq 0\), c'est-à-dire que \( (d_yF)_{(\alpha,\beta)} \) est inversible.
     \end{enumerate}
     Alors il existe un voisinage ouvert \( V\) de \( \alpha\) dans \( \eR^n\), un voisinage ouvert \( W\) de \( \beta\) dans \( \eR^m\) et une application \( \varphi\colon V\to W\) de classe \( C^k\)  telle que pour tout \( x\in V\) on ait
     \begin{equation}
@@ -359,40 +359,41 @@ Par définition de $\varphi$, cette fonction est toujours nulle. En particulier,
 \end{equation}
 et nous trouvons plein de choses.
 
+\begin{example} \label{EXooTLNAooCJHPnq}
+    Prenons par exemple la fonction
+    \begin{equation}
+        F\big( (x,y),z \big)=ze^z-x-y,
+    \end{equation}
+    et demandons nous ce que nous pouvons dire sur la fonction $z(x,y)$ telle que
+    \begin{equation}
+        F\big( x,y,z(x,y) \big)=0,
+    \end{equation}
+    c'est-à-dire telle que
+    \begin{equation}        \label{EqDefZImplExemple}
+        z(x,y) e^{z(x,y)}-x-y=0.
+    \end{equation}
+    pour tout $x$ et $y\in\eR$. Nous pouvons facilement trouver $z(0,0)$ parce que
+    \begin{equation}
+        z(0,0) e^{z(0,0)}=0,
+    \end{equation}
+    donc $z(0,0)=0$.
 
-Prenons par exemple la fonction
-\begin{equation}
-    F\big( (x,y),z \big)=ze^z-x-y,
-\end{equation}
-et demandons nous ce que nous pouvons dire sur la fonction $z(x,y)$ telle que
-\begin{equation}
-    F\big( x,y,z(x,y) \big)=0,
-\end{equation}
-c'est à dire telle que
-\begin{equation}        \label{EqDefZImplExemple}
-    z(x,y) e^{z(x,y)}-x-y=0.
-\end{equation}
-pour tout $x$ et $y\in\eR$. Nous pouvons facilement trouver $z(0,0)$ parce que
-\begin{equation}
-    z(0,0) e^{z(0,0)}=0,
-\end{equation}
-donc $z(0,0)=0$.
+    Nous pouvons dire des choses sur les dérivées de $z(x,y)$. Voyons par exemple $(\partial_xz)(x,y)$. Pour trouver cette dérivée, nous dérivons la relation \eqref{EqDefZImplExemple} par rapport à $x$. Ce que nous trouvons est
+    \begin{equation}
+        (\partial_xz)e^z+ze^z(\partial_xz)-1=0.
+    \end{equation}
+    Cette équation peut être résolue par rapport à $\partial_xz$~:
+    \begin{equation}
+        \frac{ \partial z }{ \partial x }(x,y)=\frac{1}{ e^z(1+z) }.
+    \end{equation}
+    Remarquez que cette équation ne donne pas tout à fait la dérivée de $z$ en fonction de $x$ et $y$, parce que $z$ apparaît dans l'expression, alors que $z$ est justement la fonction inconnue. En général, c'est la vie, nous ne pouvons pas faire mieux.
 
-Nous pouvons dire des choses sur les dérivées de $z(x,y)$. Voyons par exemple $(\partial_xz)(x,y)$. Pour trouver cette dérivée, nous dérivons la relation \eqref{EqDefZImplExemple} par rapport à $x$. Ce que nous trouvons est
-\begin{equation}
-    (\partial_xz)e^z+ze^z(\partial_xz)-1=0.
-\end{equation}
-Cette équation peut être résolue par rapport à $\partial_xz$~:
-\begin{equation}
-    \frac{ \partial z }{ \partial x }(x,y)=\frac{1}{ e^z(1+z) }.
-\end{equation}
-Remarquez que cette équation ne donne pas tout à fait la dérivée de $z$ en fonction de $x$ et $y$, parce que $z$ apparaît dans l'expression, alors que $z$ est justement la fonction inconnue. En général, c'est la vie, nous ne pouvons pas faire mieux.
-
-Dans certains cas, on peut aller plus loin. Par exemple, nous pouvons calculer cette dérivée au point $(x,y)=(0,0)$ parce que $z(0,0)$ est connu :
-\begin{equation}
-    \frac{ \partial z }{ \partial x }(0,0)=1.
-\end{equation}
-Cela est pratique pour calculer, par exemple, le développement en Taylor de $z$ autour de $(0,0)$.
+    Dans certains cas, on peut aller plus loin. Par exemple, nous pouvons calculer cette dérivée au point $(x,y)=(0,0)$ parce que $z(0,0)$ est connu :
+    \begin{equation}
+        \frac{ \partial z }{ \partial x }(0,0)=1.
+    \end{equation}
+    Cela est pratique pour calculer, par exemple, le développement en Taylor de $z$ autour de $(0,0)$.
+\end{example}
 
 \begin{example}
     Est-ce que l'équation \( e^{y}+xy=0\) définit au moins localement une fonction \( y(x)\) ? Nous considérons la fonction
@@ -426,30 +427,6 @@ Cela est pratique pour calculer, par exemple, le développement en Taylor de $z$
         \end{pmatrix}.
     \end{equation}
     Nous avons automatiquement \( x=u\) et \( e^y+xy=0\). Notons toutefois que pour que ce procédé donne effectivement une fonction implicite \( y(x)\) nous devons avoir des points de la forme \( (u,0)\) dans le voisinage de \( f(x_0,y_0)\).
-\end{example}
-
-\begin{example}     \label{EXooSDHDooJzDioW}
-	Soit à calculer
-	\begin{equation}
-		\lim_{(x,y)\to(0,0)}\frac{ x^2+y^2 }{ x-y }.
-	\end{equation}
-	Le passage en polaires donne
-	\begin{equation}
-		f(r,\theta)=\frac{ r^2 }{ r\big( \cos(\theta)-\sin(\theta) \big) }=\frac{ r }{ \cos(\theta)-\sin(\theta) }.
-	\end{equation}
-	Certes \emph{pour chaque $\theta$} nous avons $\lim_{r\to 0} f(r,\theta)=0$, mais il ne faut pas en déduire trop vite que la limite $\lim_{(x,y)\to(0,0)}f(x,y)$ vaut zéro parce que prendre la limite $r\to 0$ avec $\theta$ fixé revient à prendre la limite le long de la droite d'angle $\theta$.
-
-	Il n'est pas possible de majorer $f(r,\theta)$ par une fonction ne dépendant pas de $\theta$ parce que cette fonction tend vers l'infini lorsque $\theta\to\pi/4$. Est-ce que cela veut dire que la limite n'existe pas ? Cela veut en tout cas dire que la méthode des coordonnées polaires ne parvient pas à résoudre l'exercice. Pour conclure, il faudra encore un peu travailler.
-
-    Nous pouvons essayer de calculer le long d'un chemin plus général \( (r(t),\theta(t))\). Choisissons \( r(t)=t\) puis cherchons \( \theta(t)\) de telle sorte à avoir
-    \begin{equation}        \label{EqICrDSe}
-        \cos\theta(t)-\sin\theta(t)=t^2.
-    \end{equation}
-    Le mieux serait de résoudre cette équation pour trouver \( \theta(t)\). Mais en réalité il n'est pas nécessaire de résoudre : montrer qu'il existe une solution suffit. Nous pouvons supposer que \( t^2<1\). Pour \( \theta=\pi/4\) nous avons \( \cos(\theta)-\sin(\theta)=0\) et pour \( \theta=0\) nous avons \( \cos(\theta)-\sin(\theta)=1\). Le théorème des valeurs intermédiaires nous enseigne alors qu'il existe une valeur de \( \theta\) qui résout l'équation \eqref{EqICrDSe}.
-
-    % Laisser en deux lignes, parce que la seconde référence est ok vers le futur.
-    Pour être rigoureux, nous devons aussi montrer que la fonction \( \theta(t)\) est continue. Pour cela il faudrait utiliser le théorème de la fonction implicite~\ref{ThoRYN_jvZrZ}.
-    Nous verrons dans l'exemple~\ref{ExmeASDLAf} comment s'en sortir sans théorème de la fonction implicite, au prix de plus de calculs.
 \end{example}
 
 
@@ -521,7 +498,7 @@ Cela est pratique pour calculer, par exemple, le développement en Taylor de $z$
                         &=-\frac{ \lambda_i }{ \lambda_i }M'_{ij}.
                     \end{align}
                 \end{subequations}
-                C'est à dire que \( M'_{ij}=-\frac{ \lambda_i }{ \lambda_j }M'_{ij}\) avec \( -\frac{ \lambda_i }{ \lambda_j }<0\). Cela implique \( M'=0\) et par conséquent \( M=0\).
+                C'est-à-dire que \( M'_{ij}=-\frac{ \lambda_i }{ \lambda_j }M'_{ij}\) avec \( -\frac{ \lambda_i }{ \lambda_j }<0\). Cela implique \( M'=0\) et par conséquent \( M=0\).
             \item[\( df_A\) est surjective]
                 Soit \( N\in \eM(n,\eR)\); nous cherchons \( M\in \eM(n,\eR)\) tel que \( df_A(M)=N\). Nous posons \( N'=Q^{-1} NQ\) et \( M=QM'Q^{-1}\), ce qui nous donne à résoudre \( df_D(M')=N'\). Passons en coordonnées :
                 \begin{equation}
@@ -708,7 +685,7 @@ Notons que nous ne disons rien de \(  e^{\eM(n,\eR)}\). Nous n'allons pas nous e
 \end{remark}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Recherche d'extrema}
+\section{Recherche d'extrémums}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -719,14 +696,14 @@ Notons que nous ne disons rien de \(  e^{\eM(n,\eR)}\). Nous n'allons pas nous e
 Soit $f\colon A\subset \eR\to \eR$ et $a\in A$. Le point $a$ est un \defe{maximum local}{maximum!local} de $f$ s'il existe un voisinage $\mU$ de $a$ tel que $f(a)\geq f(x)$ pour tout $x\in\mU\cap A$. Le point $a$ est un \defe{maximum global}{maximum!global} si $f(a)\geq g(x)$ pour tout $x\in A$.
 \end{definition}
 
-La proposition basique à utiliser lors de la recherche d'extrema est la suivante :
+La proposition basique à utiliser lors de la recherche d'extrémums est la suivante :
 \begin{proposition}     \label{PROPooNVKXooXtKkuz}
-Soit $f\colon A\subset\eR\to \eR$ et $a\in\Int(A)$. Supposons que $f$ est dérivable en $a$. Si $a$ est un \href{http://fr.wikipedia.org/wiki/Extremum}{extremum} local, alors $f'(a)=0$.
+Soit $f\colon A\subset\eR\to \eR$ et $a\in\Int(A)$. Supposons que $f$ est dérivable en $a$. Si $a$ est un \href{http://fr.wikipedia.org/wiki/Extremum}{extrémum} local, alors $f'(a)=0$.
 \end{proposition}
 
 La réciproque n'est pas vraie, comme le montre l'exemple de la fonction $x\mapsto x^3$ en $x=0$ : sa dérivée est nulle et pourtant $x=0$ n'est ni un maximum ni un minimum local.
 
-Cette proposition ne sert donc qu'à sélectionner des \emph{candidats} extremum. Afin de savoir si ces candidats sont des extrema, il y a la proposition suivante.
+Cette proposition ne sert donc qu'à sélectionner des \emph{candidats} extrémum. Afin de savoir si ces candidats sont des extrémums, il y a la proposition suivante.
 \begin{proposition}
 Soit $f\colon I\subset \eR\to \eR$, une fonction de classe $C^k$ au voisinage d'un point $a\in\Int I$. Supposons que
 \begin{equation}
@@ -740,14 +717,14 @@ Dans ce cas,
 \begin{enumerate}
 
 \item
-Si $k$ est pair, alors $a$ est un point d'extremum local de $f$, c'est un minimum si $f^{(k)}(a)>0$, et un maximum si $f^{(k)}(a)<0$,
+Si $k$ est pair, alors $a$ est un point d'extrémum local de $f$, c'est un minimum si $f^{(k)}(a)>0$, et un maximum si $f^{(k)}(a)<0$,
 \item
-Si $k$ est impair, alors $a$ n'est pas un extremum local de $f$.
+Si $k$ est impair, alors $a$ n'est pas un extrémum local de $f$.
 
 \end{enumerate}
 \end{proposition}
 
-Note : jusqu'à présent nous n'avons rien dit des extrema \emph{globaux} de $f$. Il n'y a pas grand chose à en dire. Si un point d'extremum global est situé dans l'intérieur du domaine de $f$, alors il sera extremum local (a fortiori). Ou alors, le maximum global peut être sur le bord du domaine. C'est ce qui arrive à des fonctions strictement croissantes sur un domaine compact.
+Note : jusqu'à présent nous n'avons rien dit des extrémums \emph{globaux} de $f$. Il n'y a pas grand chose à en dire. Si un point d'extrémum global est situé dans l'intérieur du domaine de $f$, alors il sera extrémum local (a fortiori). Ou alors, le maximum global peut être sur le bord du domaine. C'est ce qui arrive à des fonctions strictement croissantes sur un domaine compact.
 
 Une seule certitude : si une fonction est continue sur un compact, elle possède une minimum et un maximum global par le théorème~\ref{ThoMKKooAbHaro}.
 
@@ -761,7 +738,7 @@ Sur la figure~\ref{LabelFigWIRAooTCcpOV}, nous avons dessiné la fonction $f(x)=
 \newcommand{\CaptionFigWIRAooTCcpOV}{La fonction $f(x)=x\cos(x)$ en bleu et sa dérivée en rouge.}
 \input{auto/pictures_tex/Fig_WIRAooTCcpOV.pstricks}
 
-Les extrema de la fonction $f$ sont donc placés là où $f'$ change de signe. En effet si $f'(x)<0$ pour $x<a$ et $f'(x)>0$ pour $x>a$, la fonction est décroissante jusqu'à $a$ et est ensuite croissante. Cela signifie que la fonction connait un creux en $a$. Le point $a$ est donc un minimum de la fonction.
+Les extrémums de la fonction $f$ sont donc placés là où $f'$ change de signe. En effet si $f'(x)<0$ pour $x<a$ et $f'(x)>0$ pour $x>a$, la fonction est décroissante jusqu'à $a$ et est ensuite croissante. Cela signifie que la fonction connait un creux en $a$. Le point $a$ est donc un minimum de la fonction.
 
 Attention cependant. Le fait que $f'(a)=0$ ne signifie pas automatiquement que $f$ a un maximum ou un minimum en $a$. Nous avons par exemple tracé sur la figure~\ref{LabelFigVBOIooRHhKOH} les fonctions $x^3$ et sa dérivée. Il est à noter que, conformément à ce que l'on pense, certes la dérivée s'annule en $x=0$, mais elle ne change pas de signe.
 
@@ -776,7 +753,7 @@ Attention cependant. Le fait que $f'(a)=0$ ne signifie pas automatiquement que $
 Un point $a$ à l'intérieur du domaine d'une fonction $f\colon A\subset\eR^n\to \eR$ est un \defe{point critique}{critique!point} de $f$ lorsque $df(a)=0$.
 \end{definition}
 
-Ces points sont analogues aux points où la dérivée d'une fonction sur $\eR$ s'annule. Les points critiques de $f$ sont dons les candidats à être des points d'extremum.
+Ces points sont analogues aux points où la dérivée d'une fonction sur $\eR$ s'annule. Les points critiques de $f$ sont dons les candidats à être des points d'extrémum.
 
 Dans le cas d'une fonction de deux variables,l la proposition~\ref{PROPooFWZYooUQwzjW} nous permet de voir \( (d^2f)_a\) comme étant la matrice
 \begin{equation}
@@ -788,7 +765,7 @@ Dans le cas d'une fonction de deux variables,l la proposition~\ref{PROPooFWZYooU
 Dans le cas d'une fonction $C^2$, cette matrice est symétrique.
 
 \begin{proposition}[\cite{ooZSEQooEGRdCK}] \label{PropUQRooPgJsuz}
-    Soit un ouvert \( \Omega\) de \( \eR^n\) et \( a\in \Omega\). Soit une fonction \( f\colon \Omega\to \eR\) différentiable en \( a\). Si \( a\) est un extremum local de \( f\), alors \( a\) est un point critique de \( f\).
+    Soit un ouvert \( \Omega\) de \( \eR^n\) et \( a\in \Omega\). Soit une fonction \( f\colon \Omega\to \eR\) différentiable en \( a\). Si \( a\) est un extrémum local de \( f\), alors \( a\) est un point critique de \( f\).
 \end{proposition}
 
 \begin{proof}
@@ -820,7 +797,7 @@ Dans le cas d'une fonction $C^2$, cette matrice est symétrique.
             Si $a$ est un minimum local, alors $(d^2f)_a$ est semi-définie positive.
     \end{enumerate}
 \end{proposition}
-\index{extrema}
+\index{extrémums}
 
 \begin{proof}
     Nous subdivisons la preuve.
@@ -889,10 +866,10 @@ Notons que le point~\ref{ItemPropoExtreRn} ne parle pas de minimum strict, et do
     Elle vérifie \( f''(0)=2\), de telle sorte que sa différentielle seconde en zéro soit strictement définie positive. Le point \( x=0\) n'est cependant même pas un minimum local. Entre autres parce que \( f'(0)=1\neq 0\).
 \end{example}
 
-La méthode pour chercher les extrema de $f$ est donc de suivre le points suivants :
+La méthode pour chercher les extrémums de $f$ est donc de suivre le points suivants :
 \begin{enumerate}
     \item
-        Trouver les candidats extrema en résolvant $\nabla f=(0,0)$,
+        Trouver les candidats extrémums en résolvant $\nabla f=(0,0)$,
     \item
         écrire $d^2f(a)$ pour chacun des candidats
     \item
@@ -901,7 +878,7 @@ La méthode pour chercher les extrema de $f$ est donc de suivre le points suivan
         conclure.
 \end{enumerate}
 
-Une conséquence de la proposition~\ref{PropcnJyXZ}\ref{ItemluuFPN}\footnote{La matrice $d^2f(a)$ est toujours symétrique quand $f$ est de classe $C^2$.} est que si \( \det M<0\), alors le point \( a\) n'est pas  un extrema dans le cas où $M=d^2f(a)$ par le point~\ref{ItemPropoExtreRn} de la proposition~\ref{PropoExtreRn}.
+Une conséquence de la proposition~\ref{PropcnJyXZ}\ref{ItemluuFPN}\footnote{La matrice $d^2f(a)$ est toujours symétrique quand $f$ est de classe $C^2$.} est que si \( \det M<0\), alors le point \( a\) n'est pas  un extrémum dans le cas où $M=d^2f(a)$ par le point~\ref{ItemPropoExtreRn} de la proposition~\ref{PropoExtreRn}.
 
 \begin{example}
     Soit la fonction \( f(x,y)=x^4+y^4-4xy\). C'est une fonction différentiable sans problèmes. D'abord sa différentielle est
@@ -924,7 +901,7 @@ Une conséquence de la proposition~\ref{PropcnJyXZ}\ref{ItemluuFPN}\footnote{La 
             -4    &   0
         \end{pmatrix},
     \end{equation}
-    dont les valeurs propres sont \( 4\) et \( -4\). Elle n'est donc semi-définie ou définie rien du tout. Donc \( (0,0)\) n'est pas un extremum local.
+    dont les valeurs propres sont \( 4\) et \( -4\). Elle n'est donc semi-définie ou définie rien du tout. Donc \( (0,0)\) n'est pas un extrémum local.
 
     Au contraire pour les points \( (1,1)\) et \( (-1,-1)\) nous avons
     \begin{equation}
@@ -933,7 +910,7 @@ Une conséquence de la proposition~\ref{PropcnJyXZ}\ref{ItemluuFPN}\footnote{La 
             -4    &   12
         \end{pmatrix},
     \end{equation}
-    dont les valeurs propres sont \( 16\) et \( 8\). La matrice \( d^2f\) y est donc définie positive. Ces deux points sont donc extrema locaux.
+    dont les valeurs propres sont \( 16\) et \( 8\). La matrice \( d^2f\) y est donc définie positive. Ces deux points sont donc extrémums locaux.
 \end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -960,7 +937,7 @@ En effet, si $(x_0,y_0)$ est un extrémum local de $f$, alors $\frac{\partial f}
 
 Soit $f$, une fonction sur $\eR^n$, et $M\subset \eR^n$ une variété de dimension $m$. Nous voulons savoir quelles sont les plus grandes et plus petites valeurs atteintes par $f$ sur $M$.
 
-Pour ce faire, nous avons un théorème qui permet de trouver des extrema \emph{locaux} de $f$ sur la variété. Pour rappel, $a\in M$ est une \defe{extrema local de $f$ relativement}{extrema!local!relatif} à l'ensemble $M$ s'il existe une boule $B(a,\epsilon)$ telle que $f(a)\leq f(x)$ pour tout $x\in B(a,\epsilon)\cap M$.
+Pour ce faire, nous avons un théorème qui permet de trouver des extrémums \emph{locaux} de $f$ sur la variété. Pour rappel, $a\in M$ est une \defe{extrémum local de $f$ relativement}{extrémum!local!relatif} à l'ensemble $M$ s'il existe une boule $B(a,\epsilon)$ telle que $f(a)\leq f(x)$ pour tout $x\in B(a,\epsilon)\cap M$.
 
 \begin{theorem}[Extrema lié \cite{ytMOpe}] \label{ThoRGJosS}
     Soit \( A\), un ouvert de \( \eR^n\) et
@@ -972,21 +949,21 @@ Pour ce faire, nous avons un théorème qui permet de trouver des extrema \emph{
         \item
             $M=\{ x\in A\tq G_i(x)=0\,\forall i\}$,
         \item
-            un extrema local $a\in M$ de $f$ relativement à $M$.
+            un extrémum local $a\in M$ de $f$ relativement à $M$.
     \end{enumerate}
     Supposons que les gradients $\nabla G_1(a)$, \ldots,$\nabla G_r(a)$ soient linéairement indépendants. Alors $a=(x_1,\ldots,x_n)$ est une solution de \( \nabla L(a)=0\) où
     \begin{equation}
         L(x_1,\ldots,x_n,\lambda_1,\ldots,\lambda_r)=f(x_1,\ldots,x_n)+\sum_{i=1}^r\lambda_iG_i(x_1,\ldots,x_n).
     \end{equation}
-    Autrement dit, si \( a\) est un extrema lié, alors \( \nabla f(a)\) est une combinaisons des \( \nabla G_i(a)\), ou encore il existe des \( \lambda_i\) tels que
+    Autrement dit, si \( a\) est un extrémum lié, alors \( \nabla f(a)\) est une combinaisons des \( \nabla G_i(a)\), ou encore il existe des \( \lambda_i\) tels que
     \begin{equation}    \label{EqRDsSXyZ}
         df(a)=\sum_i\lambda_idG_i(a).
     \end{equation}
 \end{theorem}
 \index{théorème!inversion locale!utilisation}
-\index{extrema!lié}
-\index{théorème!extrema!lié}
-\index{application!différentiable!extrema lié}
+\index{extrémum!lié}
+\index{théorème des extrémums liés}
+\index{application!différentiable!extrémums lié}
 \index{variété}
 \index{rang!différentielle}
 \index{forme!linéaire!différentielle}
@@ -1024,11 +1001,11 @@ La fonction $L$ est le \defe{lagrangien}{lagrangien} du problème et les variabl
             h(x)&=f\big( \psi(x) \big).
         \end{align}
     \end{subequations}
-    Nous avons \( \psi(\alpha)=a\) et \( \psi(x)\in M\) pour tout \( x\in U'\). La fonction \( h\) a donc un extrema local en \( \alpha\) et donc les dérivées partielles de \( h\) y sont nulles. Cela signifie que
+    Nous avons \( \psi(\alpha)=a\) et \( \psi(x)\in M\) pour tout \( x\in U'\). La fonction \( h\) a donc un extrémum local en \( \alpha\) et donc les dérivées partielles de \( h\) y sont nulles. Cela signifie que
     \begin{equation}
         0=\frac{ \partial h }{ \partial x_i }(\alpha)=\sum_{j=1}^n\frac{ \partial f }{ \partial x_j }\frac{ \partial x_j }{ \partial x_i }+\sum_{k=1}^r\frac{ \partial f }{ \partial y_k }\frac{ \partial \varphi_k }{ \partial x_i },
     \end{equation}
-    c'est à dire
+    c'est-à-dire
     \begin{equation}
         \frac{ \partial f }{ \partial x_i }(\alpha)+\sum_{k=1}^r\frac{ \partial f }{ \partial y_k }(a)\frac{ \partial \varphi_k }{ \partial x_i }(\alpha)=0
     \end{equation}
@@ -1047,7 +1024,7 @@ La fonction $L$ est le \defe{lagrangien}{lagrangien} du problème et les variabl
             \frac{ \partial G_r }{ \partial x_1 }    &   \cdots    &   \frac{ \partial G_r }{ \partial x_s }    &   \frac{ \partial G_r }{ \partial y_1 }    &  \cdots   & \frac{ \partial G_r }{ \partial y_r }
         \end{pmatrix}
     \end{equation}
-    s'expriment en terme des \( r\) dernières. La matrice est donc au maximum de rang \( r\). Notons que la première ligne est \( \nabla f\) et les \( r\) suivantes sont les \( \nabla G_i\). Vu que ces lignes sont des vecteurs liés, il existe \( \mu_0,\ldots, \mu_r\) tels que
+    s'expriment en termes des \( r\) dernières. La matrice est donc au maximum de rang \( r\). Notons que la première ligne est \( \nabla f\) et les \( r\) suivantes sont les \( \nabla G_i\). Vu que ces lignes sont des vecteurs liés, il existe \( \mu_0,\ldots, \mu_r\) tels que
     \begin{equation}
         \mu_0\nabla f+\sum_{i=1}^r\mu_i\nabla G_i=0.
     \end{equation}
@@ -1071,9 +1048,9 @@ La proposition suivante est la même que~\ref{ThoRGJosS}.
     \end{equation}
 \end{proposition}
 
-En pratique les candidats extrema locaux sont tous les points où les gradients ne sont pas linéairement indépendants, plus tous les points donnés par l'équation $\nabla L=0$. Parmi ces candidats, il faut trouver lesquels sont maxima ou minima, locaux ou globaux.
+En pratique les candidats extrémums locaux sont tous les points où les gradients ne sont pas linéairement indépendants, plus tous les points donnés par l'équation $\nabla L=0$. Parmi ces candidats, il faut trouver lesquels sont maximums ou minima, locaux ou globaux.
 
-L'existence d'extrema locaux se prouve généralement en invoquant de la compacité, et en invoquant le lemme suivant qui permet de réduire le problème à un compact.
+L'existence d'extrémums locaux se prouve généralement en invoquant de la compacité, et en invoquant le lemme suivant qui permet de réduire le problème à un compact.
 
 \begin{lemma}       \label{LemmeMinSCimpliqueS}
     Soit $S$, une partie de $\eR^n$ et $C$, un ouvert de $\eR^n$. Si $a\in\Int S$ est un minimum local relatif à $S\cap C$, alors il est un minimum local par rapport à $S$.
@@ -1088,18 +1065,22 @@ L'existence d'extrema locaux se prouve généralement en invoquant de la compaci
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \label{SECooVZWWooUjxXYi}
 
-\begin{definition}[\cite{JFihMcQ}]  \label{DefVQXRJQz}
+\begin{definition}[\cite{BIBooRZGXooTAYeTG}]  \label{DefVQXRJQz}
     Une fonction $f$ d’un intervalle $I$ de \( \eR\) vers \( \eR\) est dite \defe{convexe}{fonction!convexe}\index{convexité!fonction} lorsque, pour tous \( x_1\) et \( x_2\) de $I$ et tout $\lambda$ dans $[0, 1]$ nous avons
     \begin{equation}        \label{EQooYNAPooFePQZy}
         f\big(\lambda\, x_1+(1-\lambda)\, x_2\big) \leq \lambda\, f(x_1)+(1-\lambda)\, f(x_2)
     \end{equation}
-    Si l'inégalité est stricte, alors nous disons que la fonction \( f\) est \defe{strictement convexe}{convexité!stricte}.
+
+    Si pour tout \( \theta\in \mathopen] 0 , 1 \mathclose[\) et pour tout \( x\neq y\) dans \( I\) nous avons
+    \begin{equation}     
+        f\big(\lambda\, x_1+(1-\lambda)\, x_2\big) < \lambda\, f(x_1)+(1-\lambda)\, f(x_2)
+    \end{equation}
+    alors nous disons que la fonction \( f\) est \defe{strictement convexe}{strictement convexe} sur \( I\).
 
     Une fonction est \defe{concave}{concave} si son opposée est convexe.
 \end{definition}
 
-
-\begin{normaltext}[\cite{GYfviRu}]
+\begin{normaltext}[\cite{BIBooRZGXooTAYeTG}]
     Les différents résultats pour les fonctions convexes s'adaptent généralement sans mal aux fonctions strictement convexes. Une nuance cependant : de même que les fonctions dérivables convexes sont celles qui ont une dérivée croissante, les fonctions dérivables strictement convexes sont celles qui ont une dérivée strictement croissante (proposition~\ref{PropYKwTDPX}). En revanche, il ne faudrait pas croire que la dérivée seconde d'une fonction dérivable strictement convexe est nécessairement une fonction à valeurs strictement positives (voir théorème~\ref{ThoGXjKeYb}) : la dérivée d'une fonction strictement croissante peut s'annuler occasionnellement, ou plus exactement peut s'annuler sur un ensemble de points d'intérieur vide. Penser à \( x\mapsto x^4\) pour un exemple de fonction strictement convexe dont la dérivée seconde s'annule.
 \end{normaltext}
 
@@ -1124,7 +1105,7 @@ Dans l'étude des fonctions convexes nous allons souvent utiliser la fonction \d
     \begin{equation}
         \tau_a(b)\leq\tau_a(c)\leq \tau_b(c),
     \end{equation}
-    c'est à dire que \( \tau\) est croissante en ses deux arguments.
+    c'est-à-dire que \( \tau\) est croissante en ses deux arguments.
 \end{proposition}
 \index{inégalité!des pentes}
 
@@ -1137,7 +1118,7 @@ Dans l'étude des fonctions convexes nous allons souvent utiliser la fonction \d
     \begin{equation}
         f\big( (1-\lambda)a+\lambda c \big)\leq \lambda f(c)+(1-\lambda)f(a),
     \end{equation}
-    c'est à dire
+    c'est-à-dire
     \begin{equation}
         f(b)-f(a)\leq \lambda\big( f(c)-f(a) \big)
     \end{equation}
@@ -1167,7 +1148,7 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
 \subsection{Convexité et régularité}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}[\cite{GYfviRu}]   \label{LemKLTsHIQ}
+\begin{lemma}[\cite{BIBooRZGXooTAYeTG}]   \label{LemKLTsHIQ}
     Une fonction convexe sur un ouvert
     \begin{enumerate}
         \item
@@ -1185,7 +1166,7 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
                 \lim_{x\to \alpha^-} \frac{ f(x)-f(\alpha) }{ x-\alpha }&=\lim_{x\to \alpha^-} \tau_{\alpha}(x)=\sup_{t<\alpha}\tau_{\alpha}(t).
             \end{align}
         \end{subequations}
-        existent et sont finies, c'est à dire que la fonction \( f\) admet une dérivée à gauche et à droite.
+        existent et sont finies, c'est-à-dire que la fonction \( f\) admet une dérivée à gauche et à droite.
 
         Pour tout \( x\) nous avons les inégalités
         \begin{equation}
@@ -1199,7 +1180,7 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
 \end{proof}
 
 \begin{remark}
-    Les dérivées à gauche et à droite ne sont a priori pas égales. Penser par exemple à une fonction affine par morceaux dont les pentes augmentent à chaque morceau.
+    Les dérivées à gauche et à droite ne sont à priori pas égales. Penser par exemple à une fonction affine par morceaux dont les pentes augmentent à chaque morceau.
 \end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1217,8 +1198,6 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
 \end{proposition}
 
 \begin{proof}
-
-
     Pour la preuve de~\ref{ITEMooUTSAooJvhZNm} et~\ref{ITEMooLLSIooFwkxtV}, nous allons démontrer les énoncés «non stricts»  et indiquer ce qu'il faut changer pour obtenir les énoncés «stricts».
     \begin{subproof}
     \item[Sens direct]
@@ -1234,7 +1213,7 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
         \begin{equation}
             \frac{ f(b)-f(a) }{ b-a }\leq f'(b).
         \end{equation}
-        Ici les inégalités sont non a priori strictes, même si \( f\) est strictement convexe : même avec des inégalités strictes dans \eqref{EqATDLooIcqdDI}, le passage à la limite rend l'inégalité non stricte. Quoi qu'il en soit nous avons
+        Ici les inégalités sont non à priori strictes, même si \( f\) est strictement convexe : même avec des inégalités strictes dans \eqref{EqATDLooIcqdDI}, le passage à la limite rend l'inégalité non stricte. Quoi qu'il en soit nous avons
         \begin{equation}        \label{EqQGVMooBpuvNr}
             f'(a)\leq f'(b).
         \end{equation}
@@ -1268,11 +1247,23 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
 \end{proof}
 
 \begin{theorem}[\cite{RIKpeIH}] \label{ThoGXjKeYb}
-    Une fonction \( f\) de classe \( C^2\) est convexe si et seulement si \( f''\) est positive.
+    Soit une fonction \( f\) de classe \( C^2\).
+    \begin{enumerate}
+        \item       \label{ITEMooIUTQooTkRMoyBP}
+            Est convexe si et seulement si \( f''\) est positive.
+        \item       \label{ITEMooXUOMooYIoOtv}
+            Si \( f''\) est strictement positive, elle est strictement convexe.
+    \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    La fonction est \( C^2\), donc \( f''\) est positive si et seulement si \( f'\) est croissante (proposition~\ref{PropGFkZMwD}) alors que la proposition~\ref{PropYKwTDPX} nous jure que \( f\) sera convexe si et seulement si \( f'\) est croissante.
+    En deux parties.
+    \begin{subproof}
+    \item[Pour \ref{ITEMooIUTQooTkRMoyBP}]
+            La fonction est \( C^2\), donc \( f''\) est positive si et seulement si \( f'\) est croissante (proposition~\ref{PropGFkZMwD}) alors que la proposition~\ref{PropYKwTDPX} nous jure que \( f\) sera convexe si et seulement si \( f'\) est croissante.
+        \item[Pour \ref{ITEMooXUOMooYIoOtv}]
+            Si \( f''\) est strictement positive, \( f'\) sera strictement croissante et donc \( f\) strictement convexe (proposition \ref{PropYKwTDPX}).
+    \end{subproof}
 \end{proof}
 
 \begin{remark}      \label{REMooVRPQooIybxmp}
@@ -1285,8 +1276,8 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
         \item
     La fonction \( x\mapsto x^2\) est convexe parce que sa dérivée seconde est la constante (positive) \( 2\).
 \item La fonction \( x\mapsto\frac{1}{ x }\) est convexe sur \( \eR^+\setminus\{ 0 \}\) (sa dérivée seconde est \( 2x^{-3}\)).
-\item
-    La fonction exponentielle est également convexe.
+\item       \label{ITEMooRXSBooDBerbx}
+    La fonction exponentielle est strictement convexe par le théorème \ref{ThoGXjKeYb}.
 \item
     La fonction \( \ln\) est concave parce que la dérivée seconde de \( -\ln\) est \( \frac{1}{ x^2 }\) qui est strictement positif.
     \end{enumerate}
@@ -1294,20 +1285,20 @@ En résumé, si une fonction est convexe et non strictement convexe, alors son g
 
 Nous en faisons une en détail; elle sera utile en analyse fonctionnelle, lors de l'étude des espaces \( L^p\). Voir par exemple le théorème de la projection \ref{THOooRJFUooQivDKm}.
 \begin{lemma}       \label{LEMooSXTXooZOmtKq}
-    Soient \( r>1\) et la fonction
+    Soient \( p>1\) et la fonction
     \begin{equation}
         \begin{aligned}
             f\colon \mathopen] 0 , \infty \mathclose[&\to \eR \\
-            x&\mapsto x^r 
+            x&\mapsto x^p 
         \end{aligned}
     \end{equation}
-    est convexe.
+    est strictement convexe.
 \end{lemma}
 
 \begin{proof}
     La proposition \ref{PROPooKIASooGngEDh} nous permet de dire que la fonction \( f\) est de classe \(  C^{\infty}\) et que la dérivée seconde est donnée par
     \begin{equation}
-        f''(x)=r(r-1)x^{r-2}.
+        f''(x)=p(p-1)x^{p-2}.
     \end{equation}
     Cela est strictement positif pour tous les \( x\) considérée, le théorème \ref{ThoGXjKeYb} conclu.
 \end{proof}
@@ -1333,7 +1324,7 @@ L'idée principale du graphe d'une fonction convexe est qu'il est toujours au de
         \begin{equation}
             f\big( \lambda x+(1-\lambda)y \big)=\lambda f(x)+(1-\lambda)f(y).
         \end{equation}
-    Nous posons \( z=\lambda x+(1-\lambda)y\) et \( u\in\mathopen] x , z \mathclose[\) pour écrire des inégalités des pentes entre \( x<u<z<y\). Plus précisément si nous notons \( a\to b\) la pente de \( a\) à \( b\), c'est à dire \( a\to b=\frac{ f(b)-f(a) }{ b-a }\), alors les inégalités des pentes pour \( x<u<z\) puis \( u<z<y\) donnent
+    Nous posons \( z=\lambda x+(1-\lambda)y\) et \( u\in\mathopen] x , z \mathclose[\) pour écrire des inégalités des pentes entre \( x<u<z<y\). Plus précisément si nous notons \( a\to b\) la pente de \( a\) à \( b\), c'est-à-dire \( a\to b=\frac{ f(b)-f(a) }{ b-a }\), alors les inégalités des pentes pour \( x<u<z\) puis \( u<z<y\) donnent
         \begin{equation}        \label{EqooBMEFooMpoEzd}
             x\to z\leq u\to z\leq z\to y.
         \end{equation}
@@ -1369,6 +1360,7 @@ L'idée principale du graphe d'une fonction convexe est qu'il est toujours au de
 \end{proposition}
 
 \begin{proof}
+    En deux parties.
     \begin{subproof}
         \item[Sens direct]
             Soient \( x,y\in I\). Nous voulons :
@@ -1520,7 +1512,7 @@ L'idée principale du graphe d'une fonction convexe est qu'il est toujours au de
             A&\mapsto \det(A)
         \end{aligned}
     \end{equation}
-    est \defe{log-convave}{concave!log-concave}\index{log-concave}, c'est à dire que l'application \( \ln\circ\phi\) est concave\footnote{La définition~\ref{DEFooELGOooGiZQjt} du logarithme ne fonctionne que pour les réels strictement positifs. C'est le cas du déterminant d'une matrice réelle symétrique strictement définie positive.}. De façon équivalente, si \( A,B\in S^{++}\) et si \( \alpha+b=1\), alors
+    est \defe{log-convave}{concave!log-concave}\index{log-concave}, c'est-à-dire que l'application \( \ln\circ\phi\) est concave\footnote{La définition~\ref{DEFooELGOooGiZQjt} du logarithme ne fonctionne que pour les réels strictement positifs. C'est le cas du déterminant d'une matrice réelle symétrique strictement définie positive.}. De façon équivalente, si \( A,B\in S^{++}\) et si \( \alpha+\beta=1\), alors
     \begin{equation}    \label{EqSPKooHFZvmB}
         \det(\alpha A+\beta B)\geq \det(A)^{\alpha}\det(B)^{\beta}.
     \end{equation}
@@ -1528,67 +1520,69 @@ L'idée principale du graphe d'une fonction convexe est qu'il est toujours au de
 Ici \( S^{++}\) est l'ensemble des matrices symétriques strictement définies positives, définition~\ref{DefAWAooCMPuVM}.
 
 \begin{proof}
-    Nous commençons par prouver que l'équation \eqref{EqSPKooHFZvmB} est équivalente à la log-concavité du déterminant. Pour cela il suffit de remarquer que les propriétés de croissance et d'additivité du logarithme donnent l'équivalence entre
-    \begin{equation}
-        \ln\Big( \det(\alpha A+\beta B) \Big)\geq \ln\Big( \det(\alpha A) \Big)+\ln\Big( \det(\beta B) \Big),
-    \end{equation}
-    et
-    \begin{equation}    \label{EqTJYooBWiRrn}
-        \det(\alpha A+\beta B)\geq \det(A)^{\alpha}\det(B)^{\beta}.
-    \end{equation}
-
-    Le théorème de pseudo-réduction simultanée, corollaire~\ref{CorNHKnLVA}, appliqué aux matrices \( A\) et \( B\) nous donne une matrice inversible \( Q\) telle que
-    \begin{subequations}
-        \begin{numcases}{}
-            B=Q^tDQ\\
-            A=Q^tQ
-        \end{numcases}
-    \end{subequations}
-    avec
-    \begin{equation}
-        D=\begin{pmatrix}
-            \lambda_1    &       &       \\
-                &   \ddots    &       \\
-                &       &   \lambda_n
-        \end{pmatrix},
-    \end{equation}
-    \( \lambda_i>0\). Nous avons alors
-    \begin{equation}
-        \det(A)^{\alpha}\det(B)^{\beta}=\det(Q)^{2\alpha}\det(Q)^{2\beta}\det(D)^{\beta}=\det(Q)^2\det(D)^{\beta}
-    \end{equation}
-    (parce que \( \alpha+\beta=1\)) et
-    \begin{equation}
-        \det(\alpha A+\beta B)=\det(\alpha Q^tQ+\beta Q^tDQ)=\det\big( Q^t(\alpha\mtu+\beta D)Q \big)=\det(Q)^2\det(\alpha\mtu+\beta D).
-    \end{equation}
-    L'inégalité \eqref{EqTJYooBWiRrn} qu'il nous faut prouver se réduit donc  à
-    \begin{equation}
-        \det(\alpha \mtu+\beta D)\geq \det(D)^{\beta}.
-    \end{equation}
-    Vue la forme de \( D\) nous avons
-    \begin{equation}
-        \det(\alpha\mtu+\beta D)=\prod_{i=1}^n(\alpha+\beta\lambda_i)
-    \end{equation}
-    et
-    \begin{equation}
-        \det(D)^{\beta}=\big( \prod_{i=1}^{n}\lambda_i \big)^{\beta}.
-    \end{equation}
-    Il faut donc prouver que
-    \begin{equation}\label{EqGFLooOElciS}
-        \prod_{i=1}^n(\alpha+\beta\lambda_i)\geq \big( \prod_{i=1}^n\lambda_i \big)^{\beta}.
-    \end{equation}
-    Cette dernière égalité de produit sera prouvée en passant au logarithme. Vu que le logarithme est concave par l'exemple~\ref{ExPDRooZCtkOz}, nous avons pour chaque \( i\) que
-    \begin{equation}
-        \ln(\alpha+\beta\lambda_i)\geq \alpha\ln(1)+\beta\ln(\lambda_i)=\beta\ln(\lambda_i).
-    \end{equation}
-    En sommant cela sur \( i\) et en utilisant les propriétés de croissance et de multiplicativité du logarithme nous obtenons successivement
-    \begin{subequations}
-        \begin{align}
-            \sum_{i=1}^n\ln(\alpha+\beta\lambda_i)\geq \beta\sum_i\ln(\lambda_i)\\
-            \ln\big( \prod_i(\alpha+\beta\lambda_i) \big)\geq\ln\Big( \big( \prod_i\lambda_i \big)^{\beta} \Big)\\
-            \prod_i(\alpha+\beta\lambda_i)\geq\big( \prod_i\lambda_i \big)^{\beta},
-        \end{align}
-    \end{subequations}
-    ce qui est bien \eqref{EqGFLooOElciS}.
+    En plusieurs étapes.
+    \begin{subproof}
+        \item[Pseudo-réduction]
+            Le théorème de pseudo-réduction simultanée, corolaire~\ref{CorNHKnLVA}, appliqué aux matrices \( A\) et \( B\) nous donne une matrice inversible \( Q\) telle que
+            \begin{subequations}
+                \begin{numcases}{}
+                    B=Q^tDQ\\
+                    A=Q^tQ
+                \end{numcases}
+            \end{subequations}
+            avec
+            \begin{equation}
+                D=\begin{pmatrix}
+                    \lambda_1    &       &       \\
+                        &   \ddots    &       \\
+                        &       &   \lambda_n
+                \end{pmatrix},
+            \end{equation}
+            \( \lambda_i>0\). Nous avons alors
+            \begin{equation}
+                \det(A)^{\alpha}\det(B)^{\beta}=\det(Q)^{2\alpha}\det(Q)^{2\beta}\det(D)^{\beta}=\det(Q)^2\det(D)^{\beta}
+            \end{equation}
+            (parce que \( \alpha+\beta=1\)) et
+            \begin{subequations}
+                \begin{align}
+                    \det(\alpha A+\beta B)&=\det(\alpha Q^tQ+\beta Q^tDQ)\\
+                    &=\det\big( Q^t(\alpha\mtu+\beta D)Q \big)\\
+                    &=\det(Q)^2\det(\alpha\mtu+\beta D).
+                \end{align}
+            \end{subequations}
+        \item[Ré-expression]
+            L'inégalité \eqref{EqSPKooHFZvmB} qu'il nous faut prouver se réduit donc  à
+            \begin{equation}
+                \det(\alpha \mtu+\beta D)\geq \det(D)^{\beta}.
+            \end{equation}
+            Vue la forme de \( D\) nous avons
+            \begin{equation}
+                \det(\alpha\mtu+\beta D)=\prod_{i=1}^n(\alpha+\beta\lambda_i)
+            \end{equation}
+            et
+            \begin{equation}
+                \det(D)^{\beta}=\big( \prod_{i=1}^{n}\lambda_i \big)^{\beta}.
+            \end{equation}
+            Il faut donc prouver que
+            \begin{equation}\label{EqGFLooOElciS}
+                \prod_{i=1}^n(\alpha+\beta\lambda_i)\geq \big( \prod_{i=1}^n\lambda_i \big)^{\beta}.
+            \end{equation}
+            Cette dernière égalité de produit sera prouvée en passant au logarithme. 
+        \item[Logarithme]
+            Vu que le logarithme est concave par l'exemple~\ref{ExPDRooZCtkOz}, nous avons pour chaque \( i\) que
+            \begin{equation}
+                \ln(\alpha+\beta\lambda_i)\geq \alpha\ln(1)+\beta\ln(\lambda_i)=\beta\ln(\lambda_i).
+            \end{equation}
+            En sommant cela sur \( i\) et en utilisant les propriétés de croissance et de multiplicativité du logarithme nous obtenons successivement
+            \begin{subequations}
+                \begin{align}
+                    \sum_{i=1}^n\ln(\alpha+\beta\lambda_i)\geq \beta\sum_i\ln(\lambda_i)\\
+                    \ln\big( \prod_i(\alpha+\beta\lambda_i) \big)\geq\ln\Big( \big( \prod_i\lambda_i \big)^{\beta} \Big)\\
+                    \prod_i(\alpha+\beta\lambda_i)\geq\big( \prod_i\lambda_i \big)^{\beta},
+                \end{align}
+            \end{subequations}
+            ce qui est bien \eqref{EqGFLooOElciS}.
+    \end{subproof}
 \end{proof}
 
 Rappel de notations : \( \eR^+=\mathopen[ 0 , \infty \mathclose[\). Voir la remarque~\ref{REMooOCXLooKQrDoq}.
@@ -1882,6 +1876,137 @@ qu'il n'y a pas de réciproque dans l'énoncé~\ref{ITEMooHAGQooYZyhQk}.
     \end{subproof}
 \end{proof}
 
+\begin{normaltext}
+    Nous rappelons que, avec \( p>1\), la fonction
+    \begin{equation}
+        \begin{aligned}
+            f\colon \mathopen[ 0 , \infty \mathclose[&\to \eR \\
+            x&\mapsto x^p 
+        \end{aligned}
+    \end{equation}
+    est strictement croissante. La proposition \ref{PROPooRXLNooWkPGsO} est formelle sur ce point.
+\end{normaltext}
+
+\begin{lemma}
+    Soient un réel \( a\), et \( p>1\). L'équation
+    \begin{equation}
+        | x |^p=ax
+    \end{equation}
+    possède au plus deux solutions réelles.
+\end{lemma}
+
+\begin{proof}
+    En deux parties suivant le signe de \( a\).
+    \begin{subproof}
+        \item[Si \( a=0\)]
+            Alors l'équation est \( | x |^p=0\), et l'unique solution est \( x=0\)
+        \item[Si \( a>0\)]
+            Si \( x<0\) alors \( ax<0\) et \( | x |^p-ax>| x |^p>0\). Cela prouve que notre équation n'a pas de solutions \( x<0\) lorsque \( a>0\). 
+
+            Cherchons donc des solutions avec \( x\geq 0\). D'abord \( | x |=x\) et ensuite, en posant \( p=1+\delta\) (\( \delta>0\)), nous avons la factorisation
+            \begin{equation}
+                x^p-ax=x(x^{\delta}-a)=0.
+            \end{equation}
+            Poser \( x=0\) est clairement une solution. Si \( x\neq 0\), nous avons le raisonnement suivant. Les réels formant un corps, c'est un anneau intègre qui vérifie alors la règle du produit nul\footnote{Voir le lemme \ref{LemAnnCorpsnonInterdivzer} et la définition \ref{DEFooTAOPooWDPYmd}.}. Cela pour dire que si \( x\neq 0\), alors
+            \begin{equation}
+                x^{\delta}=a.
+            \end{equation}
+            La proposition \ref{PROPooEXGKooCqzLor} nous dit que cela a une unique solution dans les réels positifs.
+        \item[Si \( a<0\)] Ce cas se traite de façons similaire\quext{Vérifiez par vous-même et écrivez-moi si il y a un problème (personnellement, je n'ai pas vérifié.).}.
+    \end{subproof}
+\end{proof}
+
+\begin{proposition}     \label{PROPooLIGIooPrHYlb}
+    Soit \( 1<p<\infty\). La fonction
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eR^n&\to \eR \\
+            x&\mapsto \| x \|^p 
+        \end{aligned}
+    \end{equation}
+    est strictement convexe.
+\end{proposition}
+
+\begin{proof}
+    La preuve va se diviser en deux parties. D'abord nous allons utiliser la matrice Hessienne pour démontrer le résultat sur l'ouvert \( \eR^n\setminus\{ 0 \}\), et ensuite nous allons un peu bricoler pour ajouter \( 0\) au domaine de stricte convexité\quext{Si quelqu'un sait comment éviter ce bricolage en deux parties, je suis preneur.}.
+
+    \begin{subproof}
+    \item[La Hessienne]
+        Nous notons
+        \begin{equation}
+            f_p(x)=\| x \|^p=\big( \sum_ix_i^2 \big)^{p/2},
+        \end{equation}
+        et nous dérivons :
+        \begin{equation}        \label{EQooNZZWooGeAlyj}
+            \frac{ \partial f_p }{ \partial x_i }(x)=\frac{ p }{2}2x_i\big( \sum_ix_i^2 \big)^{(p-2)/2}=px_if_{p-2}(x).
+        \end{equation}
+        Cela n'est déjà pas bien défini en \( x=0\) lorsque \( p<2\), mais qu'importe ? Nous dérivons encore en utilisant entre autres la formule \eqref{EQooNZZWooGeAlyj} elle-même avec \( p\to p-2\) :
+        \begin{equation}
+            \frac{ \partial^2f_p  }{ \partial x_j\partial x_i }(x)=p_{\delta_{ij}}\| x \|^{p-2}+p(p-2)x_ix_j\| p-4 \|.
+        \end{equation}
+        Nous avons donc la matrice Hessienne
+        \begin{equation}
+            H_{ij}(x)=p\delta_{ij}\| x \|^{p-2}+p(p-2)x_ix_j\| x \|^{p-4}.
+        \end{equation}
+        Pour prouver que cette matrice est strictement définie positive, nous avons le choix entre la proposition \ref{PropcnJyXZ}\ref{ITEMooTJVQooYmRkas} ou le lemme \ref{LemWZFSooYvksjw}\ref{ITEMooSKRAooOgHbGA}. Nous utilisons le second. Nous avons\footnote{Si vous ne savez pas où placer les indices, voyez \eqref{EQooFYNYooFQhVyE}.} :
+        \begin{subequations}
+            \begin{align}
+                y\cdot H(x)y&=\sum_{kl}y_kH(x)_{kl}y_l\\
+                &=p\sum_ly_l^2\| x \|^{p-2}+p(p-2)\| x \|^{p-4}\sum_{kl}x_ky_kx_ly_l\\
+                &=p\| y \|^2\| x \|^{p-2}+p(p-2)\| x \|^{p-4}(x\cdot y)^2\\
+                &=p\| x \|^{p-4}\big( \| y \|^2\| x \|^2+(p-2)(x\cdot y)^2 \big)\\
+                &>p\| x \|^{p-4}\big( \| y \|^2\| x \|^2-(x\cdot y)^2 \big) \label{SUBEQooUSZOooCqgWPE}\\   
+                &\geq 0     \label{SUBEQooBXQKooZcarVv}.
+            \end{align}
+        \end{subequations}
+        Justifications :
+        \begin{itemize}
+            \item Pour \ref{SUBEQooUSZOooCqgWPE}.
+                Vu que \( p>1\) nous avons \( p-2>-1\). Là, l'inégalité est stricte et c'est important.
+            \item Pour \ref{SUBEQooBXQKooZcarVv}. C'est l'inégalité de Cauchy-Schwarz du théorème \ref{ThoAYfEHG}.
+        \end{itemize}
+    Voila. La matrice Hessienne est strictement définie positive par le lemme \ref{LemWZFSooYvksjw}\ref{ITEMooSKRAooOgHbGA} sur \( \eR^n\setminus\{ 0 \}\). Le corolaire \ref{CORooMBQMooWBAIIH}\ref{ITEMooUAFTooXfCviI} nous indique que pour tout \( x,y\in \eR^n\setminus\{ 0 \}\) et pour tout \( \theta\in \mathopen] 0 , 1 \mathclose[\),
+        \begin{equation}        \label{EQooFXXZooBZhJYY}
+            f_p\big( \theta x+(1-\theta)y \big)<\theta f_p(x)+(1-\theta)f_p(y)
+        \end{equation}
+        pourvu que \( \theta x+ (1-\theta)y\neq 0\) pour tout \( \theta\).
+
+    \item[La suite]
+
+        Nous devons prouver que l'inéquation \eqref{EQooFXXZooBZhJYY} tient également lorsque \( \theta x+(1-\theta)y=0\) pour une certaine valeur \( \theta=\theta_0\in \mathopen] 0 , 1 \mathclose[\).
+
+    \item[Les cordes passant par zéro]
+
+        Pour ce faire, nous allons montrer que le segment de droite joignant \( \big( a,f_p(a) \big)\) à \( (b,f_p(b))\) est toujours au-dessus de la courbe \( \big( x,f_p(x) \big)\). Nous commençons par \( b=0\). Vu que \( p>1\) et que \( \theta\in \mathopen] 0 , 1 \mathclose[\) nous avons
+        \begin{equation}
+            \| \theta a \|^p=| \theta |^p\| a \|^p<\theta\| a \|^p=\theta f_p(a).
+        \end{equation}
+
+    \item[Les cordes passant au-dessus de zéro]
+        
+        Dans le cas \( b\neq 0\) nous considérons
+        \begin{equation}
+            \begin{aligned}
+                l_1\colon \mathopen[ a , b \mathclose]&\to \eR \\
+                x&\mapsto l_1(x) 
+            \end{aligned}
+        \end{equation}
+        tel que \( \big( x,l_1(x) \big)\) soit (le segment) la droite joignant \( \big( a,\| a \|^p \big)\) à \( \big( b,\| b \|^p \big)\).
+
+        Nous considérons aussi, pour \( x\in\mathopen[ 0 , a \mathclose]\) la fonction \( l_2\) telle que \( \big( x,l_2(x) \big)\) soit la droite joignant \( (0,0)\) à \( \big( a,\| a \|^p \big)\). Nous avons déjà vu que pour \( x\in \mathopen] 0 , a \mathclose[\) nous avons \( l_1(x)>\| x \|^p\).
+        
+        Nous avons \( l_1(a)=l_2(a)=\| a \|^p\). Donc \( l_2(x)-l_1(x)\) ne change pas de signe sur \( \mathopen[ 0 , a \mathclose]\). Mais comme \( l_1(0)>0=l_2(0)\) nous avons
+        \begin{equation}
+            l_2(x)>l_1(x)
+        \end{equation}
+        pour tout \( x\in \mathopen[ 0 , a \mathclose]\).
+
+        Au final, \( l_2(x)>l_1(x)>f_p(x)\).
+
+        Pour la partie \( \mathopen[ b , 0 \mathclose]\) nous faisons de même en considérant \( l_3\) de telle sorte que \( \big( x,l_3(x) \big)\) soit le segment joignant \( (0,0)\) à \( \big( b,\| b \|^p \big)\).
+    \end{subproof}
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Quelques inégalités}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1958,7 +2083,7 @@ La proposition suivante dit que la moyenne arithmétique de nombres strictement 
 
     Nous posons \( \alpha=\sqrt{\lambda_{min}\lambda_{max}}\) et nous regardons la matrice
     \begin{equation}
-        \frac{1}{ \alpha }A+tA^{-1}
+        \frac{1}{ \alpha }A+\alpha A^{-1}
     \end{equation}
     dont les valeurs propres sont
     \begin{equation}
@@ -1995,5 +2120,218 @@ La proposition suivante dit que la moyenne arithmétique de nombres strictement 
     La norme opérateur est la plus grande des valeurs propres. Mais les valeurs propres de \( A/\alpha+\alpha A^{-1}\) sont de la forme \( \theta(\lambda_i)\), et tous les \( \lambda_i\) sont entre \( \lambda_{min} \) et \( \lambda_{max}\). Donc la plus grande valeur propre de \( A/\alpha+\alpha A^{-1}\) est \( \theta(x)\) pour un certain \( x\in\mathopen[ \lambda_{min} , \lambda_{max} \mathclose]\). Par conséquent
     \begin{equation}
             \sqrt{\langle Ax, x\rangle \langle A^{-1}x, x\rangle }\leq \frac{ 1 }{2}\| \frac{ A }{ \alpha }+\alpha A^{-1} \| \leq \sqrt{\frac{ \lambda_{min} }{ \lambda_{max} }}+\sqrt{\frac{ \lambda_{max} }{ \lambda_{min} }}.
+    \end{equation}
+\end{proof}
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Inégalité de Hölder}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Si vous cherchiez l'inégalité de Hölder dans \( L^p\), c'est la proposition \ref{ProptYqspT}. Les normes \(  \ell^p\) sont définies dans \ref{PROPooCLZRooIRxCnZ}.
+
+\begin{lemma}[\cite{BIBooVEXYooXCkRQV}]     \label{LEMooLGGDooGLGFHj}
+    Soient \( x,y>0\) ainsi que \( \alpha,\beta>0\) tels que \( \alpha+\beta=1\). Alors
+    \begin{equation}
+        xy\leq \alpha x^{1/\alpha}+\beta e^{1/\beta}.
+    \end{equation}
+    Nous avons
+    \begin{equation}
+        xy= \alpha x^{1/\alpha}+\beta e^{1/\beta}
+    \end{equation}
+    si et seulement si \( x^{1/\alpha}=y^{1/\beta}\).
+\end{lemma}
+
+\begin{proof}
+    Nous utilisons le logarithme\footnote{Définition \ref{DEFooELGOooGiZQjt}} et ses propriétés (surtout la proposition \ref{PROPooLAOWooEYvXmI}). D'abord
+    \begin{equation}
+        xy= e^{\ln(xy)}= e^{\ln(x)+\ln(y)}= e^{\alpha\frac{ \ln(x) }{ \alpha }+\frac{ \ln(y) }{ \beta }}
+    \end{equation}
+    Vu que l'exponentielle est strictement convexe (exemple \ref{ExPDRooZCtkOz}\ref{ITEMooRXSBooDBerbx}) et vu que \( \alpha+\beta=1\), nous avons
+    \begin{equation}        \label{EQooNLQIooAYiEAO}
+        xy e^{\alpha\frac{ \ln(x) }{ \alpha }+\frac{ \ln(y) }{ \beta }}\leq \alpha e^{\ln(x)/\alpha}+\beta e^{\ln(y)/\beta}=\alpha x^{1/\alpha}+\beta y^{1/\beta}.
+    \end{equation}
+    Vu que \( \alpha\) et \( \beta\) ne sont pas nuls, l'inégalité \eqref{EQooNLQIooAYiEAO} est une égalité si et seulement si 
+    \begin{equation}
+        \frac{ \ln(x) }{ \alpha }=\frac{ \ln(y) }{ \beta }.
+    \end{equation}
+    Cela signifie \( \ln(x^{1/\alpha})=\ln(y^{1/\beta})\), qui implique \( x^{1/\alpha}=y^{1/\beta}\) parce que le logarithme est une bijection.
+\end{proof}
+
+\begin{corollary}       \label{CORooTCBZooAcZxaC}
+    Si \( p,q>0\) vérifient \( \frac{1}{ p }+\frac{1}{ q }=1\) et si \( p>1\) alors nous avons
+    \begin{equation}        \label{EQooWKTSooQwRsLz}
+        xy\leq \frac{1}{ p }x^{p}+\frac{1}{ q }y^q
+    \end{equation}
+    pour tout \( x,y\geq 0\), avec une égalité si et seulement si \( x^p=y^q\).
+\end{corollary}
+
+\begin{proof}
+    Il suffit de poser \( \alpha=1/p\) et \( \beta=1/q\) et appliquer le lemme \ref{LEMooLGGDooGLGFHj}.
+\end{proof}
+
+\begin{theorem}[Inégalité de Hölder\cite{BIBooVEXYooXCkRQV}]        \label{THOooYHMJooBlXfpl}
+    Soient \( p,q>0\) tels que \( \frac{1}{ p }+\frac{1}{ q }=1\). Pour tout \( x,y\in \eR^n\) nous avons
+    \begin{equation}
+        | x\cdot y |=\sum_{i=1}^n| x_iy_i |\leq \| x \|_p\| x \|_q.
+    \end{equation}
+    Il y a égalité si et seulement si \( x_iy_i\) est de signe constant\quext{Je n'utilie pas cette hypothèse de signe constant. Il doit y avoir une subtilité qui m'a échappée. Soyez prudente en lisant et écrivez-moi si vous trouvez une erreur.} et les vecteurs \( \sum_i| x_i |^pe_i\) et \( \sum_i| y_i |^qe_i\) sont proportionnels.
+\end{theorem}
+
+\begin{proof}
+    En plusieurs parties.
+    \begin{subproof}
+        \item[Le cas des vecteurs nuls]
+            Si \( x\) ou \( y\) est nul, les inégalités sont évidentes. Donc nous supposons que non.
+        \item[Première inégalité]
+
+            En ce qui concerne la première inégalité,
+            \begin{equation}
+                | x\cdot y |=| \sum_ix_iy_i |\leq \sum_i| x_i | |y_i |\leq \sum_i\left( \frac{1}{ p }| x_i |^p+\frac{1}{ q }| y_i |^q \right)
+            \end{equation}
+            où nous avons utilisé le corolaire \ref{CORooTCBZooAcZxaC} dans chaque terme de la somme en tenant compte du fait que \( | x_i |\) et \( | y_i |\) sont positifs.
+
+        \item[Seconde inégalité]
+            Pour la seconde inégalité, nous commençons avec \( \| x \|_p=\| y \|_q=1\). Utilisant encore le corolaire \ref{CORooTCBZooAcZxaC} pour chaque terme, nous avons
+            \begin{equation}
+                \sum_i| x_iy_i |\leq\frac{1}{ p }\underbrace{\sum_i| x_i |^p}_{=1}+\frac{1}{ q }\underbrace{\sum_i| y_i |^q}_{=1}=\frac{1}{ p }+\frac{1}{ q }=1=\| x \|_p\| y \|_q.
+            \end{equation}
+            
+            Si maintenant \( x\) et \( y\) sont arbitraires non nuls dans \( \eR^n\), nous posons \( x'=x/\| x \|_p\) et \( y'=y/\| y \|_q\); nous savons déjà que
+            \begin{equation}        \label{EQooRRECooNpopuo}
+                \sum_i| x'_iy'_i |\leq 1.
+            \end{equation}
+            En remplaçant \( x'_i\) par \( x_i/\| x \|_p\) et \( y'_i\) par \( y_i/\| y \|_q\), l'inégalité \eqref{EQooRRECooNpopuo} devient
+            \begin{equation}
+                \sum_i\frac{ | x_i |y_i }{ \| x \|_p\| y \|_q  }\leq 1,
+            \end{equation}
+            ce qui signifie
+            \begin{equation}
+                \sum_i| x_iy_i |\leq \| x \|_p\| y \|_q.
+            \end{equation}
+        \item[Cas d'égalité, dans un sens]
+            Nous notons
+            \begin{equation}
+                \mD=\{ (x,y)\in \eR^n\times \eR^n\tq \sum_i| x_iy_i |=\| x \|_p\| y \|_q \}.
+            \end{equation}
+            \begin{subproof}
+            \item[Multiplications]
+            D'abord si \( (x,y)\in\mD\), alors \( (\mu x, \lambda y)\in \mD\) pour tout \( \mu,\lambda\in \eR\). En effet,
+            \begin{equation}
+                \sum_i| (\mu x)_i(\lambda y)_i |=| \mu | |\lambda |\sum_i| x_iy_i |=| \mu | |\lambda |\| x \|_p\| y \|_q=\|\mu x \|_p\| \lambda y \|_q.
+            \end{equation}
+        \item[Avec normes égales à \( 1\)]
+                Soit \( (x,y)\in \mD\) tels que \( \| x \|_p=\| y \|_q=1\). Nous avons en particulier,
+                \begin{equation}    \label{EQooDFNWooOSTygU}
+                    1=\sum_i| x_iy_i |\leq \frac{1}{ p }\sum_i| x_i |^p+\frac{1}{ q }\sum_i| y_i |^q
+                \end{equation}
+                grâce à l'inégalité \eqref{EQooWKTSooQwRsLz} appliquée à chaque terme. Vu que \( \| x \|_p=1\), nous avons \( \sum_i| x_i |^p=1\), de telle sorte que le membre de droite de \eqref{EQooDFNWooOSTygU} se réduise à \( \frac{1}{ p }+\frac{1}{ q }=1\).
+
+                Nous pouvons donc écrire
+                \begin{equation}
+                    1=\sum_i| x_iy_i |\leq \frac{1}{ p }\sum_i| x_i |^p+\frac{1}{ q }\sum_i| y_i |^q=1.
+                \end{equation}
+                L'inégalité est donc une égalité :
+                \begin{equation}
+                    \sum_i| x_iy_i |=\sum_i\left( \frac{1}{ p }| x_i |^p+\frac{1}{ q }| y_i |^q \right).
+                \end{equation}
+                Mais chaque terme à gauche est en inégalité avec le terme correspondant à droite :
+                \begin{equation}        \label{EQooAGFKooUsYrWT}
+                    | x_iy_i |\leq \frac{1}{ p }| x_i |^p+\frac{1}{ q }| y_i |^q.
+                \end{equation}
+                Pour que le tout soit une égalité, il faut que chaque inégalité \eqref{EQooAGFKooUsYrWT} soit une égalité. Pour chaque \( i\), nous avons
+                \begin{equation}
+                    | x_iy_i |=\frac{1}{ p }| x_i |^p+\frac{1}{ q }| y_i |^q.
+                \end{equation}
+                La condition d'égalité du corolaire \ref{CORooTCBZooAcZxaC} nous dit alors que \( | x_i |^p=| y_i |^q\).
+        \item[Avec normes arbitraires]
+                Soit donc \( (x,y)\in \mD\). Nous savons qu'en posant \( x'=x/\| x \|_p\) et \( y'=y/\| y \|_q\) nous avons \( (x',y')\in \mD\) et donc
+                \begin{equation}
+                    \left( \frac{ | x_i | }{ \| x \|_p } \right)^p=\left( \frac{ | y_i | }{ \| y \|_q } \right)^q.
+                \end{equation}
+                Cela donne tout de suite
+                \begin{equation}
+                    | x_i |^p=\frac{ \| x \|_p^p }{ \| y \|_q^q }| y_i |^q,
+                \end{equation}
+                ce qui est bien ce que nous voulions : le vecteur \( \sum_i| x_i |^pe_i\) est proportionnel au vecteur \( \sum_i| y_i |^qe_i\).
+            \end{subproof}
+        \item[Cas d'égalité dans l'autre sens\cite{MonCerveau}]
+            Nous supposons que les vecteurs \( \sum_i| x_i |^pe_i\) et \( \sum_i| y_i |^qe_i\) sont proportionnels. Nous nommons \( c^q\) le facteur de proportionnalité, c'est-à-dire que nous posons
+            \begin{equation}
+                | x_i |^p=c^q| y_i |^q.
+            \end{equation}
+            Dans ce cas, pour chaque \( i\), les nombres \( c| y_i |\) et \( | x_i |\) sont dans le cas d'égalité du corolaire \ref{CORooTCBZooAcZxaC}. Nous avons alors
+            \begin{subequations}        \label{SUBEQSooVULLooPGWUIP}
+                \begin{align}
+                    \sum_i| x_iy_i |&=\frac{1}{ c }\sum_ic| x_i | |y_i |\\
+                    &=\frac{1}{ c }\left( \frac{1}{ p }| x_i |^p+\frac{1}{ q }\big( c| y_i | \big)^q \right)\\
+                    &=\frac{1}{ c }\sum_i\left( \frac{1}{ p }| x_i |^p+\frac{1}{ q }| x_i |^p \right)\\
+                    &=\frac{1}{ c }\sum_i| x_i |^p.
+                \end{align}
+            \end{subequations}
+            Et c'est maintenant que nous subdivisons.
+            \begin{subproof}
+                \item[Si \( \| x \|_p=\| y \|_q=1\)]
+                    Dans ce cas, l'égalité \eqref{SUBEQSooVULLooPGWUIP} se réduisent à
+                    \begin{equation}
+                        \sum_i| x_iy_i |=\frac{1}{ c }.
+                    \end{equation}
+                    Mais l'hypothèse sur les normes donne
+                    \begin{equation}
+                        1=\sum_i| x_i |^p=\sum_ic^q| y_i |^q=c^q\sum_i| y_i |^q=c^q.
+                    \end{equation}
+                    Donc \( c=1\) et nous avons bien
+                    \begin{equation}
+                        \sum_i| x_iy_i |=\frac{1}{ c }=1=\| x \|_p\| y \|_q.
+                    \end{equation}
+                \item[Pour des normes arbitraires]
+                    Soit \( (x,y)\in \eR^n\times \eR^n\) tels que \( | x_i |^p=c^q| y_i |^q\). Nous posons comme d'habitude \( x'=x/\| x \|_p\) et \( y'=y/\| y \|_q\). En utilisant le cas «de norme \( 1\)» nous avons
+                    \begin{equation}
+                        1=\sum_i| x'_iy'_i |=\frac{1}{ \| x \|_p\| y_q \| }\sum_i| x_iy_i |.
+                    \end{equation}
+                    Donc \( \sum_i| x_iy_i |=\| x \|_p\| y \|_q\) comme nous le voulions.
+            \end{subproof}
+    \end{subproof}
+\end{proof}
+
+La majoration de la proposition suivante sera utile pour les inégalités de Clarkson du lemme \ref{LEMooLTROooVusGte}. Pour d'autres inégalités (plus simples) autour des normes \( \| . \|_p\), voir le thème \ref{THEMEooUJVXooZdlmHj}.
+\begin{proposition}[\cite{BIBooVEXYooXCkRQV}]       \label{PROPooQZTNooGACMlQ}
+    Si \( x\in \eR^n\) et si \( 0<q<p\), alors
+    \begin{equation}
+        \| x \|_q\leq n^{\frac{1}{ q }-\frac{1}{ p }}   \| x \|_p.
+    \end{equation}
+    En particulier, si \( 0 < q < p\), alors
+    \begin{equation}
+        \| x \|_p\leq \| x \|_p.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Nous posons \( P=p/q\) et \( Q=P/(P-1)\). Les nombres \( P\) et \( Q\) sont des exposants conjugués, parce que
+    \begin{equation}
+        \frac{1}{ P }+\frac{1}{ Q }=\frac{ q }{ p }+\frac{ p-q }{ p }=1.
+    \end{equation}
+    Nous posons \( y=(1,\ldots, 1)\in \eR^n\) ainsi que
+    \begin{equation}
+        v=\sum_i| x_i |^qe_i,
+    \end{equation}
+    et nous écrivons l'inégalité de Hölder de la proposition \ref{THOooYHMJooBlXfpl} sur les vecteurs \( v\) et \( y\) :
+    \begin{equation}
+        \sum_i| v_iy_i |\leq \| v \|_P\| y \|_Q.
+    \end{equation}
+    En déballant,
+    \begin{subequations}
+        \begin{align}
+            \sum_i| x_i |^q&\leq \left( \sum_i(| x_i |^q)^P \right)^{1/P}\big( \underbrace{\sum_i1^Q}_{=n} \big)^{1/Q}\\
+            &=\left( \sum_i | x_i |^p \right)^{q/p}n^{1/Q}\\
+            &=n^{1-q/p}\| x \|_p^q.
+        \end{align}
+    \end{subequations}
+    Cela donne
+    \begin{equation}
+        \| x \|_q^q\leq n^{1-q/p}\| x \|_p^q.
+    \end{equation}
+    En prenant la puissance \( 1/q\) des deux côtés,
+    \begin{equation}
+        \| x \|_q\leq   n^{\frac{1}{ q }-\frac{1}{ p }}   \| x \|_p
     \end{equation}
 \end{proof}

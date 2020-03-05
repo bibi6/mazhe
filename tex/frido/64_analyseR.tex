@@ -1,7 +1,60 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2018
+% Copyright (c) 2008-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Intervalles}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{definition}[Intervalle]
+    Une partie \( I\) de \( \eR\) est un \defe{intervalle}{intervalle} si pour tout \( a,b\in I\) nous avons \( t\in I\) dès que \( a\leq t\leq b\).
+
+    Un intervalle est \defe{ouvert}{intervalle!ouvert} s'il est de la forme \( \mathopen] a , b \mathclose[\) avec éventuellement \( a=-\infty\) ou \( b=+\infty\). Un intervalle est \defe{fermé}{intervalle!fermé} s'il est de la forme \( \mathopen[ a , b \mathclose]\) ou \( \mathopen] -\infty , b \mathclose]\) ou \( \mathopen[ a , +\infty [\) avec \( a,b\in \eR\).
+\end{definition}
+
+\begin{remark}
+  L'ensemble $\eR$ ne contient pas $-\infty$ et $-\infty$. L'intervalle $[-\infty, 5]$ par exemple, n'est pas une partie de $\eR$.
+\end{remark}
+
+\begin{example}
+    \begin{enumerate}
+        \item
+        Les ensembles \( \mathopen] 3 , 7 \mathclose[\) et \( \mathopen] -\infty , \pi \mathclose[\) sont des intervalles ouverts.
+        \item
+            Les ensembles \( \mathopen[ 10 , 15 \mathclose]\) et \( \mathopen[ -1 , +\infty [\) sont des intervalles fermés.
+        \item
+        L'ensemble \( \mathopen] -4 , -2 \mathclose[\cup\mathopen] 2 , 9 \mathclose[\) n'est pas un intervalle (il y a un «trou» entre \(- 2\) et \( 2\)).
+        \item
+            L'ensemble \( \eR\) lui-même est un intervalle; par convention, il est à la fois ouvert et fermé.
+    \end{enumerate}
+Un intervalle peut n'être ni ouvert ni fermé; par exemple \( \mathopen] 4 , 8 \mathclose]\). Cet intervalle est «ouvert en \( 4\) et fermé en \( 8\)» .
+\end{example}
+
+\begin{definition}[Fonction, domaine, image, graphe]
+  Soient $X$ et $Y$ deux ensembles. Une \defe{fonction}{fonction} $f$ définie sur $X$ et à valeurs dans $Y$ est une correspondence qui associe à chaque élément $x$ dans $X$ {\bf au plus} un élément $y$ dans $Y$. On écrit $y= f(x)$.
+  \begin{itemize}
+  \item La partie de $X$ qui contient tous les $x$ sur lesquels $f$ peut opérer est dite \defe{domaine}{domaine} de $f$. Le domaine de $f$ est indiqué par $\Dom f$.
+  \item L'élément de $y\in Y$ associé par $f$ à un élément $x\in \Dom f$ (c'est-à-dire $f(x) = y$)  est appellé \defe{image}{image} de $x$ par $f$. L'\defe{image}{fonction!image} de la fonction $f$ est la partie de $Y$ qui contient les images de tous les éléments de $\Dom f$. L'image de $f$ est indiquée par $\Im f$.
+  \item Le \defe{graphe}{graphe} de $f$ est l'ensemble de toutes les couples $(x, f(x))$ pour $x\in \Dom f$. Le graphe de $f$ est une partie de l'ensemble noté $X\times Y$ et il est indiqué par $\Graph f$. Dans ce cours $X = \eR$ et $Y = \eR$, donc le graphe de $f$ est contenu dans le plan cartésien.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Fonction croissante, décroissante et monotone]
+    Soit \( f\colon \eR\to \eR\) une fonction définie sur un intervalle \( I\subset \eR\).
+    \begin{enumerate}
+        \item
+            Le fonction \( f\) est \defe{croissante}{fonction!croissante} sur \( I\) si pour tout \( x<y\) dans \( I\) nous avons \( f(x)\leq f(y)\). Elle est \emph{strictement} croissante si \( f(x)<f(y)\) dès que \( x<y\).
+        \item
+            Le fonction \( f\) est \defe{décroissante}{fonction!décroissante} sur \( I\) si pour tout \( x<y\) dans \( I\) nous avons \( f(x)\geq f(y)\). Elle est \emph{strictement} décroissante si \( f(x)>f(y)\) dès que \( x<y\).
+        \item
+            La fonction \( f\) est dite \defe{monotone}{fonction!monotone} sur \( I\) si elle est soit croissante soit décroissante sur \( I\).
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    La fonction \( x\mapsto x^2\) est décroissante sur l'intervalle \( \mathopen] -\infty , 0 \mathclose]\) et croissante sur l'intervalle \( \mathopen[ 0 , \infty \mathclose[\). Elle n'est par contre ni croissante ni décroissante sur l'intervalle \( \mathopen[ -4 , 3 \mathclose]\).
+\end{example}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Application réciproque}
@@ -129,7 +182,7 @@ La définition générale de la limite est~\ref{DefYNVoWBx}. Dans le cas de fonc
         \begin{equation}
             f\big( B(a,\delta)\setminus\{ a \} \big)\subset V.
         \end{equation}
-        Soit maintenant \( x\in \eR\) tel que $0<| x-a |<\delta$. Cela signifie \( x\in B(a,\delta)\setminus\{ a \}\). Pour un tel \( x\) nous avons donc \( f(x)\in B(\ell,\epsilon)\), c'est à dire \( | f(x)-\ell |<\epsilon\).
+        Soit maintenant \( x\in \eR\) tel que $0<| x-a |<\delta$. Cela signifie \( x\in B(a,\delta)\setminus\{ a \}\). Pour un tel \( x\) nous avons donc \( f(x)\in B(\ell,\epsilon)\), c'est-à-dire \( | f(x)-\ell |<\epsilon\).
     \item[Dans l'autre sens]
         Soient un voisinage \( V\) de \( \ell\) et \( \epsilon>0\) tel que \( B(\ell,\epsilon)\subset V\). Nous considérons \( \delta\) tel que \( 0<| x-a |<\delta\) implique \( | f(x)-\ell |<\epsilon\).
 
@@ -212,11 +265,11 @@ La proposition suivante a déjà été démontrée dans la proposition~\ref{Prop
 \end{example}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Propriétés de base}
+\subsection{Quelques règles de calcul}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{proposition}	\label{PropLimEstLineraure}
-	La limite est une opération linéaire, c'est à dire que si $f$ et $g$ sont des fonctions qui admettent des limites en $a$ et si $\lambda$ est un nombre réel,
+	La limite est une opération linéaire, c'est-à-dire que si $f$ et $g$ sont des fonctions qui admettent des limites en $a$ et si $\lambda$ est un nombre réel,
 	\begin{enumerate}
 
 		\item
@@ -232,7 +285,7 @@ En combinant les deux propriétés de la proposition~\ref{PropLimEstLineraure}, 
 pour toutes fonctions $f$ et $g$ admettant une limite en $a$ et pour tout réels $\lambda$ et $\mu$.
 
 En plus d'être linéaire, la limite possède les deux propriétés suivantes.
-\begin{proposition}
+\begin{proposition}     \label{PROPooDQFIooMMwxxJ}
 	Si $f$ et $g$ sont deux fonctions qui admettent une limite en $a$, alors
 	\begin{equation}
 		\lim_{x\to a} (fg)(x)=\lim_{x\to a} f(x)\cdot\lim_{x\to a} g(x).
@@ -242,72 +295,6 @@ En plus d'être linéaire, la limite possède les deux propriétés suivantes.
 		\lim_{x\to a} \frac{ f(x) }{ g(x) }=\frac{ \lim_{x\to a} f(x) }{ \lim_{x\to a} g(x) }.
 	\end{equation}
 \end{proposition}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Limite en des nombres}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous posons la définition suivante.
-\begin{definition}      \label{DefInfNombre}
-Lorsque $a\in\eR$, on dit que la fonction $f$ \defe{tend vers l'infini quand $x$ tend vers $a$}{} si
-\[
-  \forall M\in\eR,\exists \delta\tq (| x-a |\leq \delta )\Rightarrow f(x)\geq M\text{ quand }x\in\dom f.
-\]
-\end{definition}
-Cela signifie que l'on demande que dès que $x$ est assez proche de $a$ (c'est à dire dès que $| x-a |\leq\delta$), alors $f(x)$ est plus grand que $M$, et que l'on peut trouver un $\delta$ qui fait ça pour n'importe quel $M$. Une autre façon de le dire est que pour toute hauteur $M$, on peut trouver un intervalle de largeur $\delta$ autour de $a$\footnote{C'est à dire un intervalle de la forme $[a-\delta,a+\delta]$.} tel que sur cet intervalle, la fonction $f$ est toujours plus grande que $M$.
-
-Montrons sur un dessin pourquoi je disais que la fonction $x\to 1/x$ n'est pas de ce type.
-
-
-Le problème est qu'il n'existe par exemple aucun intervalle autour de $0$ sur lequel $f$ serait toujours plus grande que $10$. En effet n'importe quel intervalle autour de $0$ contient au moins un nombre négatif. Or quand $x$ est négatif, $f$ n'est certainement pas plus grande que $10$. Nous y reviendrons.
-
-Pour l'instant, montrons que la fonction $f(x)=1/x^2$ est une fonction qui vérifie la définition~\ref{DefInfNombre}.  Avant de prendre n'importe quel $M$, prenons par exemple $100$. Nous avons besoin d'un intervalle autour de zéro sur lequel $f$ est toujours plus grande que $100$. C'est vite vu que $f(0.1)=f(-0.1)=100$, donc l'intervalle $[-\frac{ 1 }{ 10 },\frac{1}{ 10 }]$ est le bon. Partout dans cet intervalle, $f$ est plus grande que $100$. Partout ? Ben non : en $x=0$, la fonction n'est même pas définie, donc c'est un peu dur de dire qu'elle est plus grande que $100$. C'est pour cela que nous avons ajouté la condition « quand $x\in\dom f$ » dans la définition de la limite.
-
-Prenons maintenant un $M\in\eR$ arbitraire, et trouvons un intervalle autour de $0$ sur lequel $f$ est toujours plus grande que $M$. La réponse est évidemment l'intervalle de largeur $1/\sqrt{M}$, c'est à dire
-\[
-  \left[ -\frac{ 1 }{ \sqrt{M} },\frac{ 1 }{ \sqrt{M} } \right].
-\]
-
-\subsection{Limites quand tout va bien}
-%--------------------------------------
-
-D'abord définissons ce qu'on entend par la limite d'une fonction en un point quand il n'y a aucun infini en jeu.
-\begin{definition}      \label{DefLimPointSansInfini}
- On dit que la fonction $f$ \defe{tend vers $b$ quand $x$ tend vers $a$}{} si
-\[
-  \forall \epsilon>0,\exists\delta\tq (| x-a |\leq\delta)\Rightarrow | f(x)-b |\leq \epsilon\text{ quand }x\in\dom f.
-\]
-Dans ce cas, nous notons
-\begin{equation}
-\lim_{x\to a}f(x)=b.
-\end{equation}
-\end{definition}
-
-Commençons par un exemple très simple : prouvons que $\lim_{x\to 0}x=0$. C'est donc $a=b=0$ dans la définition. Prenons $\epsilon>0$, et trouvons un intervalle autour de zéro tel que partout dans l'intervalle, $x\leq \epsilon$. Bon ben c'est clair que $\delta=\epsilon$ fonctionne.
-
-Plus compliqué maintenant, mais toujours sans surprises.
-
-\begin{proposition}
-\[
-  \lim_{x\to 0}x^2=0.
-\]
-
-\end{proposition}
-
-\begin{proof}
-Soit $\epsilon>0$. On veut un intervalle de largeur $\delta$ autour de zéro tel que $x^2$ soit plus petit que $\epsilon$ sur cet intervalle. Cette fois-ci, le $\delta$ qui fonctionne est $\delta=\sqrt{\epsilon}$. En effet un élément de l'intervalle $[-\delta,\delta]$ est un $r$ de valeur absolue plus petite ou égale à $\delta$ :
-\[
-| r |\leq\delta=\sqrt{\epsilon}.
-\]
-En prenant le carré de cette inégalité on a :
-\[
-  r^2\leq\epsilon,
-\]
-ce qu'il fallait prouver.
-\end{proof}
-
-
-Calculer et prouver des valeurs de limites, mêmes très simples, devient vite de l'arrachage de cheveux à essayer de trouver le bon $\delta$ en fonction de $\epsilon$ si on n'a pas quelques théorèmes généraux. Nous allons donc maintenant en prouver quelques-uns.
 
 \begin{theorem}     \label{ThoLimLinMul}
     Si
@@ -343,9 +330,6 @@ soit vraie pour tout $x$ dans $[a-\delta,a+\delta]$. Mais l'hypothèse \eqref{Eq
     \end{equation}
 \end{theorem}
 
-
-    footaction
-
 \begin{proof}
     Soit $\epsilon>0$. Par hypothèse, il existe $\delta_1$ tel que
     \begin{equation}    \label{Eqfbunepsdeux}
@@ -364,10 +348,38 @@ soit vraie pour tout $x$ dans $[a-\delta,a+\delta]$. Mais l'hypothèse \eqref{Eq
 
 \end{proof}
 
-Une formule qui résume ces deux théorèmes est que
+Voici une formule qui résume la linéarité de la limite :
 \begin{equation}    \label{EqLimLinRes}
     \lim_{x\to a}[\alpha f(x)+\beta g(x)]=\alpha\lim_{x\to a}f(x)+\beta\lim_{x\to a}g(x).
 \end{equation}
+
+\begin{proposition}[\cite{TrenchRealAnalisys}]      \label{PROPooOUPNooTrClHw}
+    Soient des fonctions \( f,g\colon \eR\to \eR\) telles que \( \lim_{x\to a} f(x)=\ell\) et \( \lim_{x\to a} g(x)=\ell'\neq 0\). Alors
+    \begin{equation}
+        \lim_{x\to a} \frac{ f(x) }{ g(x) }=\frac{ \ell }{ \ell' }.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Nous avons :
+    \begin{equation}
+        \left| \frac{ f(x) }{ g(x) }-\frac{ \ell }{ \ell' } \right| =\frac{ | \ell'f(x)-g(x)\ell | }{ |g(x)\ell| }.
+    \end{equation}
+    Soit \( s\), un minorant de \( | g(x) |\) sur un voisinage de \( a\); vu que la limite en \( a\) est \( \ell'\neq 0\), nous pouvons prendre par exemple \( s=\ell'/2\) : \( | g(x) |>\ell'/2\) sur \( B(a,\delta)\) dès que \( \delta\) est assez petit. Nous considérons \( x\in B(a,\delta)\). Avec cela nous avons :
+    \begin{subequations}
+        \begin{align}
+            \left| \frac{ f(x) }{ g(x) }-\frac{ \ell }{ \ell' } \right| &=\frac{ | \ell'f(x)-g(x)\ell | }{ |g(x)\ell| }\\
+            &\leq \frac{ 2 }{ | \ell'} |\left( \frac{ | \ell'f(x)-g(x)\ell | }{ | \ell' | } \right) \\
+            &\leq \frac{ 2 }{ | \ell' |^2 }\big( | \ell'f(x)-\ell\ell' |+| \ell\ell'-g(x)\ell | \big)\\
+            &=\frac{ 2 }{ | \ell' |^2 }\big( | \ell' | |f(x)-\ell |+| \ell | |\ell'-g(x) | \big).
+        \end{align}
+    \end{subequations}
+    Soient \( \epsilon>0\) et \( \delta\) tel que \( | f(x)-\ell |<\epsilon\) et \( | g(x)-\ell' |<\epsilon\) pour tout \( x\in B(a,\delta)\). Avec cela nous avons
+    \begin{equation}
+        \left| \frac{ f(x) }{ g(x) }-\frac{ \ell }{ \ell' } \right| \leq\frac{ 2 }{ | \ell' |^2\big( | \ell' |+| \ell | \big) }\epsilon.
+    \end{equation}
+    D'où la limite attendue.
+\end{proof}
 
 \begin{lemma}       \label{LemLimMajorableVois}
     Si $\lim_{x\to a}f(x)=b$ avec $a$, $b\in\eR$, alors il existe un $\delta>0$ et un $M>0$ tels que
@@ -441,6 +453,137 @@ De la même façon, nous trouvons facilement que
  \lim_{x\to a}x^n=a^n.
 \end{equation}
 
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Limite en l'infini}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Non, sur \( \eR\) nous n'allons pas ajouter \( \infty\) avec la topologie d'Alexandrov de la définition \ref{PROPooHNOZooPSzKIN}. Nous n'allons pas considérer \( \hat \eR=\eR\cup\{ \infty \}\).
+
+\begin{definition}[Droite réelle achevée\cite{ooDZRQooPpOXhY}]       \label{DEFooRUyiBSUooALDDOa}
+    Nous considérons l'ensemble
+    \begin{equation}
+        \bar \eR=\eR\cup\{ +\infty,-\infty \}
+    \end{equation}
+    où \( +\infty\) et \( -\infty\) ne sont pas des éléments de \( \eR\).
+
+    Nous mettons sur \( \bar\eR\) la relation d'ordre en prenant celle de \( \eR\) à laquelle nous ajoutons les règles
+    \begin{enumerate}
+        \item
+            \( -\infty<x\) pour tout \( x\in\eR\cup\{ +\infty \}\)
+        \item
+            \( +\infty>x\) pour tout \( x\in \eR\cup\{-\infty  \}\).
+    \end{enumerate}
+
+    Nous mettons une topologie sur \( \bar\eR\) en donnant la base\footnote{Base de topologie, définition \ref{DefQELfbBEyiB}.} suivante :
+    \begin{itemize}
+        \item \( \mathopen] a , b \mathclose[\),
+        \item \( \mathopen] a , +\infty \mathclose]\),
+        \item \( \mathopen[ -\infty , b \mathclose[\)
+    \end{itemize}
+    pour tout réels \( a\) et \( b\).
+\end{definition}
+
+\begin{normaltext}
+    En principe, la notation «\( \infty\)» est réservée à l'infini du compactifié d'Alexandrov, et pour les infinis de la droite réelle achevée, il faudrait bien écrire «\( +\infty\)» et «\( -\infty\)». Cependant, nous allons souvent écrire \( \lim_{x\to \infty} \) au lieu de \( \lim_{x\to +\infty} \).
+\end{normaltext}
+
+\begin{lemma}
+    La topologie sur \( \eR\) induite de celle sur \( \bar \eR\) est la topologie usuelle.
+\end{lemma}
+
+\begin{lemma}       \label{LEMooFCIXooJuHFqk}
+    Si \( n\geq 1\) nous avons 
+    \begin{equation}        \label{EQooRRFEooLYcuRP}
+        \lim_{x\to +\infty} x^n = +\infty
+    \end{equation}
+    et
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{1}{ x^n }=0.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Si \( V\) est un voisinage de \( +\infty\), alors nous devons montrer qu'il existe un voisinage \( W\) de \( +\infty\) tel que \( x^n\in V\) pour tout \( x\in W\).   
+
+    Un ouvert est une union d'éléments de la base de topologie\footnote{C'est la proposition \ref{PropMMKBjgY}.}; en regardant la liste donnée dans la définition \ref{PropMMKBjgY}, nous voyons que \( V\) contient au moins une partie de la forme \( \mathopen] R , +\infty \mathclose]\). Nous supposons que \( R>1\).
+
+    Si \( x>R>1\), alors nous avons \( x^n>x\) et donc
+    \begin{equation}
+        x^n> x>R,
+    \end{equation}
+    ce qui signifie \( x\in V\).
+
+    En prenant \( W=\mathopen] R , +\infty \mathclose]\), nous avons bien \( W^n\subset V\). Cela prouve \eqref{EQooRRFEooLYcuRP}.
+
+    En ce qui concerne la seconde limite, la démonstration est du même type. Remarquez seulement que vous n'avez pas formellement le droit d'utiliser la proposition \ref{PROPooOUPNooTrClHw} en invoquant \( \frac{1}{ +\infty }=0\).
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Limite en des nombres}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous posons la définition suivante.
+\begin{definition}      \label{DefInfNombre}
+Lorsque $a\in\eR$, on dit que la fonction $f$ \defe{tend vers l'infini quand $x$ tend vers $a$}{} si
+\[
+  \forall M\in\eR,\exists \delta\tq (| x-a |\leq \delta )\Rightarrow f(x)\geq M\text{ quand }x\in\dom f.
+\]
+\end{definition}
+Cela signifie que l'on demande que dès que $x$ est assez proche de $a$ (c'est-à-dire dès que $| x-a |\leq\delta$), alors $f(x)$ est plus grand que $M$, et que l'on peut trouver un $\delta$ qui fait ça pour n'importe quel $M$. Une autre façon de le dire est que pour toute hauteur $M$, on peut trouver un intervalle de largeur $\delta$ autour de $a$\footnote{C'est-à-dire un intervalle de la forme $[a-\delta,a+\delta]$.} tel que sur cet intervalle, la fonction $f$ est toujours plus grande que $M$.
+
+Montrons sur un dessin pourquoi je disais que la fonction $x\to 1/x$ n'est pas de ce type.
+
+
+Le problème est qu'il n'existe par exemple aucun intervalle autour de $0$ sur lequel $f$ serait toujours plus grande que $10$. En effet n'importe quel intervalle autour de $0$ contient au moins un nombre négatif. Or quand $x$ est négatif, $f$ n'est certainement pas plus grande que $10$. Nous y reviendrons.
+
+Pour l'instant, montrons que la fonction $f(x)=1/x^2$ est une fonction qui vérifie la définition~\ref{DefInfNombre}.  Avant de prendre n'importe quel $M$, prenons par exemple $100$. Nous avons besoin d'un intervalle autour de zéro sur lequel $f$ est toujours plus grande que $100$. C'est vite vu que $f(0.1)=f(-0.1)=100$, donc l'intervalle $[-\frac{ 1 }{ 10 },\frac{1}{ 10 }]$ est le bon. Partout dans cet intervalle, $f$ est plus grande que $100$. Partout ? Ben non : en $x=0$, la fonction n'est même pas définie, donc c'est un peu dur de dire qu'elle est plus grande que $100$. C'est pour cela que nous avons ajouté la condition « quand $x\in\dom f$ » dans la définition de la limite.
+
+Prenons maintenant un $M\in\eR$ arbitraire, et trouvons un intervalle autour de $0$ sur lequel $f$ est toujours plus grande que $M$. La réponse est évidemment l'intervalle de largeur $1/\sqrt{M}$, c'est-à-dire
+\[
+  \left[ -\frac{ 1 }{ \sqrt{M} },\frac{ 1 }{ \sqrt{M} } \right].
+\]
+
+\subsection{Limites quand tout va bien}
+%--------------------------------------
+
+D'abord définissons ce qu'on entend par la limite d'une fonction en un point quand il n'y a aucun infini en jeu.
+\begin{definition}      \label{DefLimPointSansInfini}
+ On dit que la fonction $f$ \defe{tend vers $b$ quand $x$ tend vers $a$}{} si
+\[
+  \forall \epsilon>0,\exists\delta\tq (| x-a |\leq\delta)\Rightarrow | f(x)-b |\leq \epsilon\text{ quand }x\in\dom f.
+\]
+Dans ce cas, nous notons
+\begin{equation}
+\lim_{x\to a}f(x)=b.
+\end{equation}
+\end{definition}
+
+Commençons par un exemple très simple : prouvons que $\lim_{x\to 0}x=0$. C'est donc $a=b=0$ dans la définition. Prenons $\epsilon>0$, et trouvons un intervalle autour de zéro tel que partout dans l'intervalle, $x\leq \epsilon$. Bon ben c'est clair que $\delta=\epsilon$ fonctionne.
+
+Plus compliqué maintenant, mais toujours sans surprises.
+
+\begin{proposition}
+\[
+  \lim_{x\to 0}x^2=0.
+\]
+
+\end{proposition}
+
+\begin{proof}
+Soit $\epsilon>0$. On veut un intervalle de largeur $\delta$ autour de zéro tel que $x^2$ soit plus petit que $\epsilon$ sur cet intervalle. Cette fois-ci, le $\delta$ qui fonctionne est $\delta=\sqrt{\epsilon}$. En effet un élément de l'intervalle $[-\delta,\delta]$ est un $r$ de valeur absolue plus petite ou égale à $\delta$ :
+\[
+| r |\leq\delta=\sqrt{\epsilon}.
+\]
+En prenant le carré de cette inégalité on a :
+\[
+  r^2\leq\epsilon,
+\]
+ce qu'il fallait prouver.
+\end{proof}
+
+Calculer et prouver des valeurs de limites, mêmes très simples, devient vite de l'arrachage de cheveux à essayer de trouver le bon $\delta$ en fonction de $\epsilon$ si on n'a pas quelques théorèmes généraux. Heureusement nous en avons déjà quelques uns : \ref{PropLimEstLineraure}, \ref{PROPooDQFIooMMwxxJ}, \ref{ThoLimLinMul}, \ref{ThoLimLin}, \ref{PROPooOUPNooTrClHw}.
+
 \begin{proposition}[\cite{MonCerveau}]      \label{PROPooWXBAooAEweSF}
     Soit \( f\colon \eR^2\to \eR\) une application continue dont la variable \( y\) varie dans un compact \( I\) de \( \eR\). Alors la fonction
     \begin{equation}
@@ -498,7 +641,7 @@ Tentons de comprendre ce que signifie qu'un nombre $\ell$ \emph{ne soit pas} la 
 \begin{equation}		\label{EqCaractNonLim}
 	\exists\varepsilon>0\tq\,\forall\delta>0,\,\exists x\tq 0<\| x-a \|<\delta\text{ et }\| f(x)-\ell \|>\varepsilon,
 \end{equation}
-c'est à dire qu'il existe un certain seuil $\varepsilon$ tel qu'on a beau s'approcher aussi proche qu'on veut de $a$ (distance $\delta$), on trouvera toujours un $x$ tel que $f(x)$ n'est pas $\varepsilon$-proche de $\ell$.
+c'est-à-dire qu'il existe un certain seuil $\varepsilon$ tel qu'on a beau s'approcher aussi proche qu'on veut de $a$ (distance $\delta$), on trouvera toujours un $x$ tel que $f(x)$ n'est pas $\varepsilon$-proche de $\ell$.
 
 \begin{lemma}[Unicité de la limite]
 	Si $\ell$ et $\ell'$ sont deux limites de $f(x)$ lorsque $x$ tend vers $a$, alors $\ell=\ell'$.
@@ -513,36 +656,74 @@ c'est à dire qu'il existe un certain seuil $\varepsilon$ tel qu'on a beau s'app
 \end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Opérations sur les limites}
+\subsection{Limite à gauche et à droite}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{proposition}[\cite{TrenchRealAnalisys}]      \label{PROPooOUPNooTrClHw}
-    Soient des fonctions \( f,g\colon \eR\to \eR\) telles que \( \lim_{x\to a} f(x)=\ell\) et \( \lim_{x\to a} g(x)=\ell'\neq 0\). Alors
+Si \( a\) est à l'intérieur du domaine de \( f\), nous savons ce que signifie \( \lim_{x\to a} f(x)\). Nous donnons également une définition des limites à gauche et à droite.
+
+\begin{definition}
+    Soient \( D\subset \eR\) et une fonction \( f\colon D\to \eR\). Si \( a\in \Adh(D)\) nous définissons la \defe{limite à droite}{limite à droite} de \( f\) en \( a\) par
+    \begin{equation}        \label{EQooQKHLooMoSXVe}
+        \lim_{x\to a^+} f(x)=\lim_{x\to a} \tilde f(x)
+    \end{equation}
+    où \( \tilde f\) est la fonction \( f\) restreinte à \( D\cap\{ x\tq x>a \}\). La limite \eqref{EQooQKHLooMoSXVe} est souvent écrite sous la forme condensée
     \begin{equation}
-        \lim_{x\to a} \frac{ f(x) }{ g(x) }=\frac{ \ell }{ \ell' }.
+        \lim_{\substack{x\to a\\x>a}}f(x).
+    \end{equation}
+
+    Pour la limite à gauche c'est un peu la même chose :
+    \begin{equation}
+        \lim_{x\to a^-} f(x)=\lim_{\substack{x\to a\\x<a}}f(x).
+    \end{equation}
+\end{definition}
+
+\begin{proposition}[\cite{ooOMWZooZvUFiG}]      \label{PROPooGDDJooDCmydE}
+    Soit une fonction \( f\colon D\to \eR\) où \( D\) est une partie de \( \eR\). Si \( a\in \Adh(D)\) alors la limite \( \lim_{x\to a} f(x)\) existe si et seulement si les limites à gauche et à droite existent et sont égales. Dans ce cas nous avons égalité :
+    \begin{equation}
+        \lim_{x\to a} f(x)=\lim_{x\to a^+} f(x)=\lim_{x\to a^-} f(x).
+    \end{equation}
+\end{proposition}
+
+\begin{normaltext}
+    Quelques remarques à propos de la proposition \ref{PROPooGDDJooDCmydE}.
+    \begin{enumerate}
+        \item
+            
+    Cette proposition ne se généralise pas du tout aux dimensions supérieures. Dans \( \eR^2\) par exemple, il ne faudrait pas croire que si les limites suivant toutes les directions existent alors la limite existe.
+\item
+    Cette proposition est souvent utilisée pour calculer des limites dans lesquelles arrivent des valeurs absolues. Par exemple durant la démonstration de la proposition \ref{PROPooCNDHooKRwils}.
+    \end{enumerate}
+\end{normaltext}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Limite en compactifié d'Alexandrov}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Nous considérons l'espace topologique localement compact \( \eR\), et son compactifié d'Alexandrov défini en \ref{PROPooHNOZooPSzKIN}. Nous avons donc un point supplémentaire noté \( \infty\). Ce point n'est ni du côté des grands nombres positifs, ni du côté des grands nombres négatifs. Il n'est ni \( +\infty\) ni \( -\infty\).
+
+\begin{proposition}
+    Dans cet espace topologique \( \hat \eR=\eR\cup\{ \infty \}\),
+    \begin{equation}
+        \lim_{x\to 0} \frac{1}{ x }=\infty.
     \end{equation}
 \end{proposition}
 
 \begin{proof}
-    Nous avons :
+    Soit un voisinage \( V\) de \( \infty\) dans \( \hat \eR\). Il s'écrit \( V=K^c\cup\{ \infty \}\) pour un certain compact de \( \eR\). Le théorème \ref{ThoXTEooxFmdI} nous assure que \( K\) est borné. Donc il existe \( R>0\) tel que \( K\subset B(0,R)\). Pour \( x\in B(0,1/R)\) nous avons
     \begin{equation}
-        \left| \frac{ f(x) }{ g(x) }-\frac{ \ell }{ \ell' } \right| =\frac{ | \ell'f(x)-g(x)\ell | }{ |g(x)\ell| }.
+        | \frac{1}{ x } |>R,
     \end{equation}
-    Soit \( s\), un minorant de \( | g(x) |\) sur un voisinage de \( a\); vu que la limite en \( a\) est \( \ell'\neq 0\), nous pouvons prendre par exemple \( s=\ell'/2\) : \( | g(x) |>\ell'/2\) sur \( B(a,\delta)\) dès que \( \delta\) est assez petit. Nous considérons \( x\in B(a,\delta)\). Avec cela nous avons :
-    \begin{subequations}
-        \begin{align}
-            \left| \frac{ f(x) }{ g(x) }-\frac{ \ell }{ \ell' } \right| &=\frac{ | \ell'f(x)-g(x)\ell | }{ |g(x)\ell| }\\
-            &\leq \frac{ 2 }{ | \ell'} |\left( \frac{ | \ell'f(x)-g(x)\ell | }{ | \ell' | } \right) \\
-            &\leq \frac{ 2 }{ | \ell' |^2 }\big( | \ell'f(x)-\ell\ell' |+| \ell\ell'-g(x)\ell | \big)\\
-            &=\frac{ 2 }{ | \ell' |^2 }\big( | \ell' | |f(x)-\ell |+| \ell | |\ell'-g(x) | \big).
-        \end{align}
-    \end{subequations}
-    Soient \( \epsilon>0\) et \( \delta\) tel que \( | f(x)-\ell |<\epsilon\) et \( | g(x)-\ell' |<\epsilon\) pour tout \( x\in B(a,\delta)\). Avec cela nous avons
-    \begin{equation}
-        \left| \frac{ f(x) }{ g(x) }-\frac{ \ell }{ \ell' } \right| \leq\frac{ 2 }{ | \ell' |^2\big( | \ell' |+| \ell | \big) }\epsilon.
-    \end{equation}
-    D'où la limite attendue.
+    et donc \( 1/x\in K^c\). Donc aussi \( \frac{1}{ x }\in V\).
 \end{proof}
+
+De la même façon, dans \( \eC\cup\{ \infty \}\) nous avons
+\begin{equation}
+    \lim_{z\to 0} \frac{1}{ z }=\infty.
+\end{equation}
+
+\begin{normaltext}
+    Je vous laisse deviner la topologie à considérer sur \( \bar \eR=\eR\cup\{ +\infty,-\infty \}\). Dans cet espace topologique la limite \( \lim_{x\to 0} \frac{1}{ x }\) n'existe pas.
+\end{normaltext}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Continuité}
@@ -555,29 +736,20 @@ c'est à dire qu'il existe un certain seuil $\varepsilon$ tel qu'on a beau s'app
 \end{normaltext}
 
 La définition de fonction continue est la définition~\ref{DefOLNtrxB}. Dans le cas d'une fonction \( f\colon \eR\to \eR\), elle devient ceci.
-\begin{definition}      \label{DefContinue}
-Nous disons que la fonction $x\mapsto f(x)$ est \defe{continue en $a$}{continue} si
-\begin{equation}
- \forall \epsilon>0,\exists \delta\text{ tel que } \big(| x-a |\leq\delta\big)\Rightarrow | f(x)-f(a) |\leq \epsilon.
-\end{equation}
-\end{definition}
+\begin{proposition}      \label{PROPooVNGEooPwbxXP}
+    La fonction \( f\colon \eR\to \eR\) est \defe{continue en $a$}{continue sur \( \eR\)} si et seulement si
+    \begin{equation}
+        \forall \epsilon>0,\exists \delta\text{ tel que } \big(| x-a |\leq\delta\big)\Rightarrow | f(x)-f(a) |\leq \epsilon.
+    \end{equation}
+\end{proposition}
 
-
-\begin{definition}		\label{DefFonctContinueRR}
-	Soient $f\colon D\to \eR$ une fonction et $a$ un point dans $D$. Nous disons que $f$ est \defe{continue}{continue!fonction réelle} lorsque $f$ possède une limite en $a$ et $\lim_{x\to a} f(x)=f(a)$.
-\end{definition}
-En remplaçant $\ell$ par $f(a)$ dans la définition de la limite, nous exprimons la continuité de $f$ en $a$ par la façon suivante. Pour tout $\varepsilon>0$, il existe un $\delta>0$ tel que $\forall x\in D$,
-\begin{equation}
-	| x-a |<\delta\Rightarrow \big| f(x)-f(a) \big|<\varepsilon.
-\end{equation}
-
-
-Nous allons maintenant étudier quelques conséquences de cette définition.
+Nous allons maintenant étudier quelques conséquences de la continuité sur \( \eR\).
 
 \begin{enumerate}
 \item D'abord on voit que la continuité n'a été définie qu'en un point. On peut dire que la fonction $f$ est continue \emph{en tel point donné}, mais nous n'avons pas dit ce qu'est une fonction continue \emph{dans son ensemble}.
 
-\item Si $I$ est un intervalle de $\eR$, on dit que $f$ est \defe{continue sur l'intervalle}{continuité!sur un intervalle} $I$ si elle est continue en chaque point de $I$.
+\item
+    Le théorème \ref{ThoESCaraB} nous précise que si $I$ est un intervalle de $\eR$, la fonction $f$ est continue sur $I$ si et seulement si elle est continue en chaque point de $I$.
 
 \item Comme la définition de $f$ continue en $a$ fait intervenir $f(x)$ pour tous les $x$ pas trop loin de $a$, il faut au moins déjà que $f$ soit définie sur ces $x$. En d'autres termes, dire que $f$ est continue en $a$ demande que $f$ existe sur un intervalle autour de $a$.
 
@@ -586,8 +758,16 @@ Ceci couplé à la définition précédente laisse penser qu'il est surtout int�
 \item L'intuition comme quoi une fonction continue doit pouvoir être tracée sans lever la main correspond aux fonctions continues sur des intervalles. Au moins sur l'intervalle où elle est continue, elle est traçable en un morceau.
 \end{enumerate}
 
+\begin{example}
+    Il est très possible d'être continue en un seul point. Par exemple la fonction
+    \begin{equation}
+        f(x)=x(1-\mtu_{\eQ}(x))
+    \end{equation}
+    où \( \mtu_{\eQ}\) est la fonction indicatrice de \( \eQ\) dans \( \eR\).
+\end{example}
+
 \begin{proposition}     \label{PROPooUBUAooNIxjfg}
-    Si \( f\colon \eR\to \eR\) est continue au point \( a\in \eR\) et si \( f(a)\neq 0\), alors \( f\) ne s'annule pas sur un voisinage de \( a\).
+    Si \( f\colon \eR\to \eR\) est continue au point \( a\in \eR\) et si \( f(a)\neq 0\), alors il existe un voisinage de \( a\) sur lequel \( f\) ne s'annule pas.
 \end{proposition}
 
 \begin{proof}
@@ -662,7 +842,7 @@ Prenons $\epsilon<f(a)$ et voyons\footnote{ici, nous insistons sur le fait que n
 \[
   (| x-a |\leq \delta)\Rightarrow | f(x)-f(a) |\leq\epsilon < f(a).
 \]
-Nous en retenons que sur un intervalle (de largeur $\delta$), nous avons $| f(x)-f(a) |\leq f(a)$. Par hypothèse, $f(a)>0$, donc si $f(x)<0$, alors la différence $f(x)-f(a)$ donne un nombre encore plus négatif que $-f(a)$, c'est à dire que $| f(x)-f(a) |>f(a)$, ce qui est contraire à ce que nous venons de démontrer. D'où la conclusion que $f(x)>0$.
+Nous en retenons que sur un intervalle (de largeur $\delta$), nous avons $| f(x)-f(a) |\leq f(a)$. Par hypothèse, $f(a)>0$, donc si $f(x)<0$, alors la différence $f(x)-f(a)$ donne un nombre encore plus négatif que $-f(a)$, c'est-à-dire que $| f(x)-f(a) |>f(a)$, ce qui est contraire à ce que nous venons de démontrer. D'où la conclusion que $f(x)>0$.
 \end{proof}
 
 \subsection{La fonction la moins continue du monde}
@@ -697,7 +877,7 @@ Et pourtant, dès que l'on s'écarte un tant soit peu de zéro, elle fait des bo
 
 Nous avons vu que sur tout ensemble métrique, nous pouvons définir ce qu'est un ouvert : c'est un ensemble qui contient une boule ouverte autour de chacun de ses points. Quand on est dans un ensemble ouvert, on peut toujours un peu se déplacer sans sortir de l'ensemble.
 
-Le théorème suivant est une très importante caractérisation des fonctions continues (de $\eR$ dans $\eR$) en termes de topologie, c'est à dire en termes d'ouverts.
+Le théorème suivant est une très importante caractérisation des fonctions continues (de $\eR$ dans $\eR$) en termes de topologie, c'est-à-dire en termes d'ouverts.
 
 \begin{theorem}     \label{ThoContInvOuvert}
 Si $I$ est un intervalle ouvert contenu dans $\dom f$, alors $f$ est continue sur $I$ si et seulement si pour tout ouvert $\mO$ dans $\eR$, l'image inverse $f|_I^{^{-1}}(\mO)$ est ouvert.
@@ -733,7 +913,7 @@ Par hypothèse, $f$ est continue en $x_0$, et nous pouvons donc y appliquer le c
 \]
 Cela prouve que $B(x_0,\epsilon)\subset f|_I^{-1}(\mO)$.
 
-Dans l'autre sens, maintenant. Nous prenons $x_0\in I$ et nous voulons prouver que $f$ est continue en $x_0$, c'est à dire que pour tout $\delta$ nous cherchons un $\epsilon$ tel que $f\big( B(x_0,\epsilon) \big)\subset B\big( f(x_0),\delta \big)$. Oui, mais $B\big( f(x_0),\delta \big)$ est ouverte, donc par hypothèse, $f|_I^{-1}\Big( B\big( f(x_0),\delta \big) \Big)$ est ouvert, inclus dans $I$ et contient $x_0$. Donc il existe un $\epsilon$ tel que
+Dans l'autre sens, maintenant. Nous prenons $x_0\in I$ et nous voulons prouver que $f$ est continue en $x_0$, c'est-à-dire que pour tout $\delta$ nous cherchons un $\epsilon$ tel que $f\big( B(x_0,\epsilon) \big)\subset B\big( f(x_0),\delta \big)$. Oui, mais $B\big( f(x_0),\delta \big)$ est ouverte, donc par hypothèse, $f|_I^{-1}\Big( B\big( f(x_0),\delta \big) \Big)$ est ouvert, inclus dans $I$ et contient $x_0$. Donc il existe un $\epsilon$ tel que
 \[
   B(x_0,\epsilon)\subset f|_I^{-1}\Big( B\big( f(x_0),\delta \big) \Big),
 \]
@@ -759,7 +939,7 @@ Nous déduisons que $A$ n'est pas connexe. Et donc le lemme.
 \end{proof}
 
 \begin{theorem}[Théorème des valeurs intermédiaires]        \label{ThoValInter}
-Soit $f$, une fonction continue sur $[a,b]$, et supposons que $f(a)<f(b)$. Alors pour tout $y$ tel que $f(a)\leq y\leq f(b)$, il existe un $x$ entre $a$ et $b$ tel que $f(x)=y$.
+    Soit $f$, une fonction continue sur $[a,b]$, et supposons que $f(a)<f(b)$. Alors pour tout $y$ tel que $f(a)\leq y\leq f(b)$, il existe un \( x\in\mathopen[ a , b \mathclose]\) tel que $f(x)=y$.
 \end{theorem}
 \index{connexité!théorème des valeurs intermédiaires}
 \index{théorème!valeurs intermédiaires}
@@ -773,7 +953,7 @@ L'image d'un intervalle par une fonction continue est un intervalle.
 \end{corollary}
 
 \begin{proof}
-Soient \( I\) un intervalle, \( \alpha<\beta\in f(I)\) et \( \gamma\in\mathopen] \alpha , \beta \mathclose[\). Nous considérons \(a,b\in I\) tels que \( \alpha=f(a)\) et \( \beta=f(b)\). Par le théorème des valeurs intermédiaires\ref{ThoValInter}, il existe \( t\in\mathopen] a , b \mathclose[\) tel que \( f(t)=\gamma\). Par conséquent \( \gamma\in f(I)\).
+Soient \( I\) un intervalle, \( \alpha<\beta\in f(I)\) et \( \gamma\in\mathopen] \alpha , \beta \mathclose[\). Nous considérons \(a,b\in I\) tels que \( \alpha=f(a)\) et \( \beta=f(b)\). Par le théorème des valeurs intermédiaires \ref{ThoValInter}, il existe \( t\in\mathopen] a , b \mathclose[\) tel que \( f(t)=\gamma\). Par conséquent \( \gamma\in f(I)\).
 \end{proof}
 
 \begin{corollaryDef}[Existence de la racine carrée]
@@ -782,19 +962,6 @@ Soient \( I\) un intervalle, \( \alpha<\beta\in f(I)\) et \( \gamma\in\mathopen]
 
 \begin{proof}
     La fonction \( f\colon t\mapsto t^2\) est continue et strictement croissante. Nous avons \( f(0)=0\) et\footnote{Faites deux cas suivant \( x\geq 1\) ou non si vous le voulez, moi je prends \( x+1\).} \( f(x+1)>x\). Donc le théorème des valeurs intermédiaires~\ref{ThoValInter} nous assure qu'il existe un unique \( y\in\mathopen[ 0 , x+1 \mathclose]\) tel que \( f(y)=x\).
-\end{proof}
-
-Nous avons déjà vu dans la proposition~\ref{PropooRJMSooPrdeJb} que \( \sqrt{2}\) était irrationnel. En fait le théorème suivant va nous montrer que le nombre \( \sqrt{ n }\) est soit entier, soit irrationnel.
-\begin{theorem}     \label{THOooYXJIooWcbnbm}
-    Soit \( n\in \eN\). Le nombre \( \sqrt{n}\) est rationnel si et seulement si \( n\) est un carré parfait.
-\end{theorem}
-
-\begin{proof}
-    Supposons que \( \sqrt{n}\) soit rationnel. Le théorème~\ref{THOooWYQVooRBaAAM} nous donne \( p,q\in \eN\) premiers entre eux tels que \( \sqrt{n}=p/q\). La proposition~\ref{PROPooRZDDooLJabov} nous enseigne de plus que \( p^2\) et \( q^2\) sont premiers entre eux. Nous avons
-    \begin{equation}
-        p^2=nq^2.
-    \end{equation}
-    Le nombre $q$ est alors un diviseur commun de \( q^2\) et de \( p\). Donc \( q=1\) et \( n=p^2\) est un carré parfait.
 \end{proof}
 
 \subsection{Continuité de la racine carrée, invitation à la topologie induite}
@@ -871,7 +1038,7 @@ Mais cette fois, nous ne la voyons pas comme étant une fonction dont le domaine
 \[
   B(0,r)_{\eR^+}=\{ x\in\eR^+\tq d(x,0)<r \}=[0,r[.
 \]
-Cet intervalle est un ouvert. Aussi incroyable que cela puisse paraître !
+Cet intervalle est un ouvert. Aussi incroyable que cela puisse paraitre !
 
 Testons la continuité de la racine carrée en zéro dans ce contexte. Il s'agit de prendre $A=\eR^+$, $B=\eR^+$ et $a=0$ dans la définition~\ref{DefContMetrique}. Nous avons que $B(\sqrt{0},\delta)=B(0,\delta)=[0,\delta[$ pour la topologie de $\eR^+$.
 
@@ -1007,7 +1174,7 @@ Remarquons que cette fonction n'est toujours pas définie en $x=2/3$.
 Vous noterez que dans cet énoncé nous demandons \( \ell\in \eR\). Les cas \( \ell=\pm\infty\) sont donc exclus.
 
 \begin{normaltext}
-    Le lemme~\ref{LEMooUAFBooAwiXxj} donnera un autre gros morceau de prolongement par continuité. Là, ce ne sera pas juste une valeur qui manquera, mais carrément la majorité des valeurs.
+    Le lemme~\ref{LEMooUAFBooAwiXxj} donnera un autre gros morceau de prolongement par continuité. Là, ce ne sera pas juste une valeur qui manquera, mais carrément la majorité des valeurs; mais par contre, ce ne sera pas vraiment de la prolongation par continuité, mais de la prolongation par Cauchy-continuité.
 \end{normaltext}
 
 \begin{example}
@@ -1053,7 +1220,7 @@ Les fonctions trigonométriques donneront quelques exemples intéressants de pro
 \begin{proof}
     Nous prouvons la relation \eqref{EqHQRooNmLYbF} et nous laissons \eqref{EqIYTooQPvZDr} comme exercice au lecteur.
 
-    Soit \( x_0\in I\). Posons \( y_0=f(x_0)\). La définition de l'application réciproque est que pour \( y\in J\), \( f^{-1}(y)\) est l'unique élément \( x\) de \( I\) tel que \( f(x)=y\). Donc \( f^{-1}(y_0)\) est l'unique élément de \( I\) dont l'image est \( y_0\). C'est donc \( x_0\) et nous avons \( f^{-1}(y_0)=x_0\), c'est à dire
+    Soit \( x_0\in I\). Posons \( y_0=f(x_0)\). La définition de l'application réciproque est que pour \( y\in J\), \( f^{-1}(y)\) est l'unique élément \( x\) de \( I\) tel que \( f(x)=y\). Donc \( f^{-1}(y_0)\) est l'unique élément de \( I\) dont l'image est \( y_0\). C'est donc \( x_0\) et nous avons \( f^{-1}(y_0)=x_0\), c'est-à-dire
     \begin{equation}
         f^{-1}\big( f(x_0) \big)=x_0.
     \end{equation}
@@ -1150,9 +1317,9 @@ La fonction $f$ est continue au point $a$ si et seulement si $\lim_{x\to a}f(x)=
 \end{theorem}
 
 \begin{proof}
-Nous commençons par supposer que $f$ est continue en $a$, et nous prouvons que $\lim_{x\to a}f(x)=a$. Soit $\epsilon>0$; ce qu'il nous faut c'est un $\delta$ tel que $| x-a |\leq\delta$ implique $| f(x)-f(a) |\leq\epsilon$. La définition~\ref{DefContinue} de la continuité donne l'existence d'un $\delta$ comme il nous faut.
+    Nous commençons par supposer que $f$ est continue en $a$, et nous prouvons que $\lim_{x\to a}f(x)=a$. Soit $\epsilon>0$; ce qu'il nous faut c'est un $\delta$ tel que $| x-a |\leq\delta$ implique $| f(x)-f(a) |\leq\epsilon$. La caractérisation \ref{PROPooVNGEooPwbxXP} de la continuité donne l'existence d'un $\delta$ comme il nous faut.
 
-Dans l'autre sens, c'est à dire prouver que $f$ est continue au point $a$ sous l'hypothèse que $\lim_{x\to a}f(x)=f(a)$, la preuve se fait de la même façon.
+    Dans l'autre sens, c'est-à-dire prouver que $f$ est continue au point $a$ sous l'hypothèse que $\lim_{x\to a}f(x)=f(a)$, la preuve se fait de la même façon.
 \end{proof}
 
 Nous en déduisons que si nous voulons gagner quelque chose à parler de limites, il faut prendre des fonctions non continues. En effet, si une fonction est continue en un point, la limite ne donne aucune nouvelle information que la valeur de la fonction elle-même en ce point.
@@ -1195,9 +1362,9 @@ Soit le voisinage \( V=\mathopen] 3 , 5 \mathclose[\) de \( f(0)\). Quel que soi
 \end{example}
 
 \begin{example}[Même exemple, limite]
-    Nous avons vu que, pour la fonction \eqref{EQooSYSWooSGsUfR}, le nombre \( 4\) n'est pas une limite de \( f\) en zéro. Nous montrons à présent que \( 0\) est une limite (et même la seule par la proposition~\ref{PropFObayrf} que nous ne rappelleront plus à chaque fois) de \( f\).
+    Nous avons vu que, pour la fonction \eqref{EQooSYSWooSGsUfR}, le nombre \( 4\) n'est pas une limite de \( f\) en zéro. Nous montrons à présent que \( 0\) est une limite (et même la seule par la proposition~\ref{PropFObayrf} que nous ne rappellerons plus à chaque fois) de \( f\).
 
-    Montrons que \( 0\) est une limite de \( f\) en zéro, c'est à dire que \( \lim_{x\to 0} f(x)=0\).
+    Montrons que \( 0\) est une limite de \( f\) en zéro, c'est-à-dire que \( \lim_{x\to 0} f(x)=0\).
 
     Nous suivant la définition~\ref{DefYNVoWBx}. Soit un voisinage \( V\) de \( 0\) dans \( \eR\). Il existe \( \delta\) tel que \( B(0,\delta)\subset V\). En posant \( \epsilon=\delta\) et en définissant \( W=B(0,\epsilon)\) nous avons
     \begin{equation}
@@ -1206,7 +1373,7 @@ Soit le voisinage \( V=\mathopen] 3 , 5 \mathclose[\) de \( f(0)\). Quel que soi
     Donc \( 0\) est une limite de \( f\) en zéro.
 \end{example}
 
-Nous avons déjà vu par le corollaire~\ref{CorFHbMqGGyi} qu'une suite croissante et bornée était convergente. Il en va de même pour les fonctions.
+Nous avons déjà vu par le corolaire~\ref{CorFHbMqGGyi} qu'une suite croissante et bornée était convergente. Il en va de même pour les fonctions.
 \begin{proposition}[\cite{MonCerveau}] \label{PropMTmBYeU}
     Si la fonction réelle \( f\colon I=\mathopen[ a , b [\to \eR\) est croissante et bornée, alors la limite
     \begin{equation}
@@ -1218,7 +1385,7 @@ Nous avons déjà vu par le corollaire~\ref{CorFHbMqGGyi} qu'une suite croissant
 \begin{proof}
     Commençons par prouver que si \( (x_n)\) est une suite dans \( I\) convergent vers \( b\), alors \( f(x_n)\) est une suite convergente. Dans un second temps nous allons prouver que si \( (x_n)\) et \( (x'_n)\) sont deux suites qui convergent vers \( b\), alors les suites convergentes \( f(x_n)\) et \( f(x'_n)\) convergent vers la même limite. Alors le critère séquentiel de la limite d'une fonction conclura (proposition~\ref{PROPooJYOOooZWocoq}).
 
-    Nous pouvons extraire de \( x_n\) une sous-suite croissante \( (x_{\alpha(n)})\). Alors la suite \( f\big( x_{\alpha(n)} \big)\) est une suite croissante et majorée, donc convergente par le corollaire~\ref{CorFHbMqGGyi}\footnote{En gros nous sommes en train de dire que toute la théorie des fonctions convexes est un vulgaire corollaire de Bolzano-Weierstrass.}. Nommons \( \ell\) la limite et montrons qu'elle est aussi limite de \( f\) sur la suite originale.
+    Nous pouvons extraire de \( x_n\) une sous-suite croissante \( (x_{\alpha(n)})\). Alors la suite \( f\big( x_{\alpha(n)} \big)\) est une suite croissante et majorée, donc convergente par le corolaire~\ref{CorFHbMqGGyi}\footnote{En gros nous sommes en train de dire que toute la théorie des fonctions convexes est un vulgaire corolaire de Bolzano-Weierstrass.}. Nommons \( \ell\) la limite et montrons qu'elle est aussi limite de \( f\) sur la suite originale.
 
     Pour tout \( \epsilon>0\), il existe \( K\) tel que si \( n>K\) alors \( \big| f\big( x_{\alpha(n)} \big)-\ell \big|<\epsilon\). Soit \( K'\) tel que pour tout \( n>K'\) nous ayons \( x_n>x_{\alpha(K')}\). Cela est possible parce que la suite est bornée par \( b\) et converge vers \( b\) : il suffit de prendre \( K'\) de telle sorte que \( | x_n-b |\leq | x_{\alpha(n)}-b |\). Si \( n>K'\) alors \( x_n>x_{\alpha(K)}\) et
     \begin{equation}
@@ -1276,12 +1443,82 @@ Il y a une petite différence de point de vue entre $\lim_{x\to a}f(x)$ et $\lim
 % Il y a des techniques de calcul de limites décrites sur le site
 % http://bernard.gault.free.fr/terminale/limites/limite.html
 
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooLOQVooULDhZz}
+    L'ensemble \( \eR\cup\{ \infty \}\) muni de la topologie de la compactification en un point\footnote{Définition \ref{PROPooHNOZooPSzKIN}.} est connexe par arcs.
+\end{proposition}
+
+\begin{proof}
+    Nous allons montrer que le chemin
+    \begin{equation}
+        \begin{aligned}
+            \gamma\colon \mathopen[ 0 , 1 \mathclose]&\to \mathopen[ 0 , \infty \mathclose] \\
+            x&\mapsto \begin{cases}
+                \frac{1}{ x }    &   \text{si } x\neq 0\\
+                \infty    &    \text{si } x=0
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    est continu au sens de la définition \ref{DefOLNtrxB}\ref{ITEMooEHGWooDdITRV} (qui est le seul sens possible au mot «continu»).
+
+    Soit un ouvert \( \mO\) dans \( \eR\cup\{ \infty \}\). Si cet ouvert ne contient pas \( \infty\), alors \( \gamma^{-1}(\mO)\) est ouvert dans \( \eR\) parce que la fonction \( x\mapsto 1/x\) est continue\footnote{Voir par exemple la proposition \ref{PropOpsSimplesLimites}.}.
+
+    Si \( \infty\in\mO\), alors \( \mO=\{ \infty \}\cup \mO'\) où \( \mO'\) est un ouvert de \( \eR\) ayant la propriété que \( \eR\setminus \mO'\) est compact.
+
+    Nous avons \( \gamma^{-1}(\mO)=\{ 0 \}\cup\gamma^{-1}(\mO')\). Le fait est que \( \gamma^{-1}(\mO')\) est ouvert de \( \eR\) contenu dans \( \mathopen[ 0 , 1 \mathclose]\).
+
+Vu que le complémentaire de \( \mO'\) est compact, il existe \( a\in \eR\) tel que \( \mathopen] a , \infty \mathclose[\subset \mO'\). Donc \( \mO'=\mathopen] a , \infty \mathclose[\cup\mO''\) où \( \mO''\) est un ouvert.
+
+    Nous avons :
+    \begin{subequations}
+        \begin{align}
+        \gamma^{-1}(\mO)&=\{ \gamma^{-1}(\infty) \}\cup \gamma^{-1}\big( \mathopen] a , \infty \mathclose[ \big)\cup \gamma^{-1}(\mO'')\\
+        &=\{ 0 \}\cup\mathopen] 0 , \frac{1}{  a } \mathclose[\cup\gamma^{-1}(\mO'')\\
+            &=\mathopen[ 0 , \frac{1}{ a } \mathclose[\cup\gamma^{-1}(\mO'').
+        \end{align}
+    \end{subequations}
+    Vous noterez le point essentiel où la topologie de la compactification agit : vu que \( \{0\}\) n'est pas un ouvert de \( \mathopen[ 0 , 1 \mathclose]\), nous devons nous assurer que la partie \( \gamma^{-1}(\mO')\) vienne se coller à \( \{0\}\) pour compléter en un ouvert.
+
+    L'ensemble \( \gamma^{-1}(\mO'')\) est un ouvert de \( \eR\) contenu dans \( \mathopen[ 0 , 1 \mathclose]\). Nous avons donc
+    \begin{equation}
+    \gamma^{-1}(\mO)=\Big( \mathopen] -1 , \frac{1}{ a } \mathclose[\cup\gamma^{-1}(\mO'') \Big)\cap \mathopen[ 0 , 1 \mathclose].
+    \end{equation}
+    Cela est un ouvert de \( \mathopen[ 0 , 1 \mathclose]\) par définition de la topologie induite\footnote{Définition \ref{DefVLrgWDB}.}.
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Prolongement des rationnels vers les réels}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooUAFBooAwiXxj}
-    Soit une fonction continue\footnote{Au sens de la topologie induite; nous en avons discuté dans l'exemple~\ref{EXooHWIIooYYbfGE}.} \( f\colon \eQ\to \eR\).
+Si \( f\colon \eQ\to \eR\) est une fonction continue pour la topologie induite, est-ce qu'on peut la prolonger en une fonction continue sur \( \eR\) ? La réponse est hélas non.
+
+\begin{example}[\cite{BIBooOFHOooWZGRPw}]       \label{EXooWZNCooQkKdtJ}
+    Vu que \( \sqrt{ 2 }\) est irrationnel\footnote{Proposition \ref{PropooRJMSooPrdeJb}. Le fait que $\sqrt{ 2 }$ existe dans \( \eR\) est la proposition \ref{PROPooUHKFooVKmpte}.}, ceci définit bien une fonction sur \( \eQ\) :
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eQ&\to \eR \\
+            q&\mapsto \begin{cases}
+                0    &   \text{si } q<\sqrt{ 2 }\\
+                1    &    \text{si }q>\sqrt{ 2 }.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    Cela est une fonction continue sur \( \eQ\). En effet, soient \( q\in \eQ\) et \( \epsilon>0\). Nous prenons \( \delta>0\) tel que \( \sqrt{ 2 }\) ne soit pas dans \( B(q,\delta)\). Alors si \( p\in B_{\eQ}(q,\delta)\) nous avons \( f(q)=f(p)\) et donc 
+    \begin{equation}
+        | f(p)-f(q) |<\epsilon.
+    \end{equation}
+
+    Il n'est cependant pas possible de la prolonger en une fonction continue sur \( \eR\).
+\end{example}
+
+Pour qu'une fonction sur \( \eQ\) puisse être prolongée en une fonction continue sur \( \eR\), il faut un peu plus que la continuité. Il fait la Cauchy-continuité que nous définissons pas plus tard qu'immédiatement.
+
+\begin{definition}[\cite{BIBooOFHOooWZGRPw}]        \label{DEFooXXOGooXblyKP}
+    Soient \( X\) et \( Y\) deux espaces métriques. Une application \( f\colon X\to Y\) est dite \defe{Cauchy-continue}{Cauchy-continue} si pour toute suite de Cauchy \( (x_n)\) dans \( X\), la suite \( \big( f(x_n) \big)\) est de Cauchy dans \( Y\).
+\end{definition}
+
+En terme de prolongement continu, nous avons ce lemme qui demande à une fonction d'être Cauchy continue. Vous pouvez comparer avec le principe de prolongement analytique \ref{ThoAVBCewB} qui donne un énoncé similaire pour un prolongement analytique.
+\begin{lemma}[\cite{MonCerveau, BIBooUNVDooGfFtGp,BIBooERJSooURHjMX}]        \label{LEMooUAFBooAwiXxj}
+    Soit une fonction Cauchy continue \footnote{Définition \ref{DEFooXXOGooXblyKP}; nous en avons discuté dans l'exemple~\ref{EXooWZNCooQkKdtJ}.} \( f\colon \eQ\to \eR\).
     \begin{enumerate}
         \item
             La limite \( \lim_{q\to x} f(q)\) existe pour tout \( x\in \eR\).
@@ -1310,22 +1547,14 @@ Il y a une petite différence de point de vue entre $\lim_{x\to a}f(x)$ et $\lim
         L'unicité du prolongement est la proposition~\ref{PropCJGIooZNpnGF} à propos de fonctions continues égales sur une partie denses. La densité de \( \eQ\) dans \( \eR\), si vous la cherchez est la proposition~\ref{PropooUHNZooOUYIkn}.
 
         \item[Candidat limite]
-
         Soit \( x\in \eR\). Vu que \( x\in \bar \eQ\), nous pouvons chercher à savoir si \( \lim_{q\to x} f(q) \) existe. Si elle existe, elle sera unique.
 
-        Soit une suite \( (q_i)\) d'éléments de \( \eQ\) qui converge vers \( x\) dans \( \eR\) (i.e. pour la topologie de \( \eR\)). Les nombres réels \( f(q_i)\) forment une suite dans \( \eR\). Nous allons montrer que cette suite converge vers un réel qui vérifie la définition de \( \lim_{q\to x}f(q)\).
+        Soit une suite \( (q_i)\) d'éléments de \( \eQ\) qui converge vers \( x\) dans \( \eR\) (i.e. pour la topologie de \( \eR\)). Les nombres réels \( f(q_i)\) forment une suite dans \( \eR\). La suite \( (q_i)\) étant convergente, elle est de Cauchy\footnote{Théorème \ref{THOooNULFooYUqQYo}\ref{ITEMooUUFCooIVtGgz}.}.
 
-        Soit \( \epsilon>0\). Par la continuité de \( f\), il existe \( \delta\) tel que si \( | p-q |<\delta\) (pour \( p,q\in \eQ\)), alors \( | f(p)-f(q) |<\epsilon\). Par ailleurs, \( (q_i)\) est de Cauchy dans \( \eR\) (théorème~\ref{THOooNULFooYUqQYo} qu'il est toujours bon de citer de temps en temps). Il existe donc \( N\) tel que \( i,j>N\) implique \( | q_i-q_j |<\delta\).
-
-        Avec de tels \( i\) et \( j\), nous avons
-        \begin{equation}
-            | f(q_i)-f(q_j) |<\epsilon,
-        \end{equation}
-        ce qui prouve que \( i\mapsto f(q_i)\) est une suite de Cauchy dans \( \eR\) et donc qu'elle converge.
-
+        Vu que \( f\) est supposée Cauchy-continue, la suite \(\big( f(q_i) \big)\) est de Cauchy dans \( \eR\), et elle est donc convergente.
     \item[C'est bien la limite]
 
-        Nous prouvons à présent que le nombre réel \( \lim_{i\to \infty} f(q_i)\) vérifie bien la définition de la limite \( \lim_{q\to x}f(q)\).
+        Nous prouvons à présent que le nombre réel \( \lim_{i\to \infty} f(q_i)\) (dont l'existence vient d'être prouvée) vérifie bien la définition de la limite \( \lim_{q\to x}f(q)\).
 
         Soit un voisinage \( V\) de \( \lim f(q_i)\) dans \( \eR\). Nous devons trouver un voisinage \( W\) de \( x\) dans \( \eR\) tel que
         \begin{equation}
@@ -1438,6 +1667,19 @@ Il y a une petite différence de point de vue entre $\lim_{x\to a}f(x)$ et $\lim
     \end{subproof}
 \end{proof}
 
+\begin{proposition}     \label{PROPooXWHYooFiVYfi}
+    Soient des fonctions continues \( f,g\colon \eR\to \eR\). Si \( f\) et \( g\) sont égales sur \( \eQ\), alors elles sont égales sur \( \eR\).
+\end{proposition}
+
+\begin{proof}
+    Sinon nous pouvons utiliser les propriétés fondamentales des réels et de la continuité. Soit \( x\in \eR\); nous voulons montrer que \( f(x)=g(x)\). En prenant par exemple le lemme \ref{LemooRTGFooYVstwS}, il existe une suite \( q_i\) de rationnels telle que \( q_i\stackrel{\eR}{\longrightarrow}x\). 
+    
+    Par ailleurs, \( f\) et \( g\) sont continues sur \( \eR\) et donc en chaque point de \( \eR\) (théorème \ref{ThoESCaraB}). Par la caractérisation séquentielle \ref{PropFnContParSuite} de la continuité, nous avons
+    \begin{equation}
+        f(x)=\lim_{i\to \infty} f(q_i)=\lim_{i\to \infty} g(q_i)=g(x).
+    \end{equation}
+\end{proof}
+
 \begin{proposition}[\cite{MonCerveau}]      \label{PROPooTNIAooNAJDzL}
     Soit une fonction strictement croissante \( f\colon \eQ\to \eR\). Alors la prolongation continue \( \tilde f\colon \eR\to \eR\) est également strictement croissante.
 \end{proposition}
@@ -1460,881 +1702,5 @@ Il y a une petite différence de point de vue entre $\lim_{x\to a}f(x)$ et $\lim
         \tilde f(x)\leq f(q)<f(q')\leq \tilde f(y).
     \end{equation}
     Notez que les inégalités strictes se changent en inégalités larges au passage à la limite. D'où l'utilisé de prendre \emph{deux} rationnels entre \( x_k\) et \( y_k\) pour maintenir une inégalité stricte entre \(\tilde f(x)\) et \( \tilde f(y)\).
-
 \end{proof}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{La fonction puissance}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Si \( x\) et \( y\) sont des réels, définir \( x^y\) n'est pas une mince affaire. Pour l'instant nous savons déjà définir \( x^n\) lorsque \( x\in \eR\) et \( n\in \eN\).
-
-Pour la suite nous notons
-\begin{subequations}
-    \begin{numcases}{}
-        f_{\alpha}(x)=x^{\alpha}\\
-        g_{a}(x)=a^x
-    \end{numcases}
-\end{subequations}
-pour autant que ces fonctions sont définies\footnote{L'objet des pages suivantes est de déterminer pour quelles valeurs de $a$, $\alpha$ et $ x$ nous pouvons trouver des définitions raisonnables pour ces fonctions.}.
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Sur les naturels}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}
-    La fonction puissance définie sur \( \eN\) s'étend à \( \eZ\) de la façon suivante :
-    \begin{equation}
-        x^{-n}=\frac{1}{ x^n }
-    \end{equation}
-    pour \( n\geq 0\). Cela donne donne donc \( x^n\) pour \( x\in \eR\) et \( n\in \eZ\) a l'exception de \( x=0\) lorsque \( n<0\).
-\end{definition}
-
-Nous étudions quelques propriétés de cette fonction pour \( n>0\) fixé.
-
-\begin{proposition}     \label{PROPooXQYFooPxoEHE}
-    Soit \( n\in \eN\setminus\{ 0 \}\); nous posons \( f_n(x)=x^n\).
-
-    Si \( n\) est pair,
-    \begin{equation}
-        f_n\colon \mathopen[ 0 , \infty \mathclose[\to \mathopen[ 0 , \infty \mathclose[
-    \end{equation}
-    est bijective.
-
-    Si \( n\) est impair,
-    \begin{equation}
-        f_n\colon \eR \to \eR
-    \end{equation}
-    est bijective.
-
-    Toutes les fonctions \( f_n\) sont continues sur \( \eR\).
-\end{proposition}
-
-\begin{proof}
-    En plusieurs morceaux, pas spécialement dans l'ordre auquel on s'attend.
-    \begin{subproof}
-        \item[Continuité]
-
-            Soit \( x\in \eR\). En vertu de~\ref{ThoLimCont} nous allons prouver que \( \lim_{\epsilon\to 0}f_n(x+\epsilon)=f_n(x)\). Pour cela nous utilisons la formule du binôme~\ref{PropBinomFExOiL} avec \( x,h>0\) :
-            \begin{equation}
-                f_n(x+h)=(x+h)^n=\sum_{k=0}^n{n\choose k}x^{n-k}h^k.
-            \end{equation}
-            Nous fixons \( x_0\in \eR\). Calcul :
-            \begin{subequations}
-                \begin{align}
-                    | f_n(x_0+h)-f_n(x) |&=| \sum_{k=1}^n{n\choose k}x_0^{n-k}h^k |\\
-                    &\leq \sum_{k=1}^n{n\choose k}| x_0 |^{n-k} |h|^k\\
-                    &=h\sum_{k=1}^n{n\choose k}| x_0 |^{n-k}| h |^{k-1}\\
-                    &\leq h\sum_{k=1}^n{n\choose k}| x_0 |^{n-k}.
-                \end{align}
-            \end{subequations}
-            Justifications :
-            \begin{itemize}
-                \item
-                   Le terme \( k=0\) est égal à \( x^n=f_n(x)\) parce que \( {n\choose 0}=1\).
-               \item
-                   Dans la somme nous avons majoré \( | h |\) par \( 1\), opération justifiée par le fait que nous ayons dans l'idée de faire \( h\to 0\).
-            \end{itemize}
-            Nous avons donc
-            \begin{equation}
-                \lim_{h\to 0} | f_n(x_0+h)-f_n(x) | \leq\lim_{h\to 0}  h\sum_{k=1}^n{n\choose k}| x_0 |^{n-k}=0.
-            \end{equation}
-            D'où la continuité de \( f_n\) en tout point \( x_0\in \eR\).
-
-        \item[Pour \( n\) pair ou impair, bijection sur les positifs]
-            Ceci sera déjà le résultat complet pour les \( n\) pairs, et a moitié du résultat pour les \( n\) impairs.
-            \begin{subproof}
-                \item[Stricte croissance]
-                    Soit \( n\neq 0\) dans \( \eN\). Nous commençons par prouver que \( f_n\) est strictement croissante sur \( \mathopen[ 0 , \infty \mathclose[\). Nous repartons de la formule du binôme, mais cette fois, nous séparons les termes \( k=0\) et \( k=n\) des autres (si \( n=1\), il y a un peu de réécriture) en tenant compte de \( {n\choose 0}={n\choose n}=1\) :
-                        \begin{equation}
-                            f_n(x+h)=x^n+h^n+\sum_{k=1}^{n-1}{n\choose k}x^{n-k}h^k>x^n=f_n(x).
-                        \end{equation}
-                        Vous noterez que l'inégalité est stricte même si \( n=1\).
-
-                        Vu que nous avons stricte monotonie, le théorème~\ref{ThoKBRooQKXThd}\ref{ITEMooMAWXooZXmVwA} nous dit que
-                        \begin{equation}
-                            f_n\colon \mathopen[ 0 , \infty \mathclose[\to f_n\big( \mathopen[ 0 , \infty \mathclose[ \big)
-                        \end{equation}
-                        est une bijection.
-                    \item[Bijection]
-
-                        Nous prouvons que \( f_n\big( \mathopen[ 0 , \infty \mathclose[ \big)=\mathopen[ 0 , \infty \mathclose[\). Si \( x>0\) alors \( f_n(x)>0\), cela prouve une inclusion.
-
-                            Pour l'autre inclusion nous savons que \( f_n(x)>x\) dès que \( x>1\). Donc \( \lim_{x\to \infty} f_n(x)=\infty\). Si \( y\in \mathopen[ 0 , \infty \mathclose[\), alors il existe \( x_0\) tel que \( f_n(x_0)>y\). Étant donné que \( f_n(0)=0\) et que nous avons déjà prouvé que \( f_n\) était continue (proposition~\ref{PROPooXQYFooPxoEHE}), le théorème des valeurs intermédiaires~\ref{ThoValInter} nous indique l'existence de \( x_1\in \mathopen[ 0 , x_0 \mathclose[\) tel que \( f_n(x_1)=y\).
-
-            \end{subproof}
-
-            Nous avons prouvé que pour tout \( n\), la fonction
-            \begin{equation}        \label{EQooYWHGooJWMTUI}
-                f_n\colon \mathopen[ 0 , \infty \mathclose[\to \mathopen[ 0 , \infty \mathclose[
-            \end{equation}
-            est une bijection.
-
-        \item[Pour \( n\) impair]
-
-            Nous montrons à présent que si \( n\) est impair, alors
-            \begin{equation}        \label{EQooTSLJooMAAUXH}
-                f_n\colon \mathopen] -\infty , 0 \mathclose]\to \mathopen] -\infty , 0 \mathclose]
-            \end{equation}
-            est une bijection.
-
-            Tout se base sur le fait que si \( x>0\) alors \( f_n(-x)=-f_n(x)\). Le fait que \eqref{EQooYWHGooJWMTUI} soit injective et surjective montre alors tout de suite le fait que \eqref{EQooTSLJooMAAUXH} soit également injective et surjective.
-    \end{subproof}
-\end{proof}
-
-Vous noterez que la continuité de \( f_n\) démontrée dans la proposition \ref{PROPooXQYFooPxoEHE} est indépendant de la proposition \ref{LEMooUAFBooAwiXxj} qui sera invoquée plus tard pour définir \( a^x\) lorsque \( a>0\) dans \( \eR\).
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Sur les rationnels, racines}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}[Exposant rationnels]        \label{DEFooJWQLooWkOBxQ}
-    La proposition \ref{PROPooXQYFooPxoEHE} nous dit entre autres que pour tout \( n\in \eN\), la fonction
-    \begin{equation}
-        \begin{aligned}
-            f_n\colon \mathopen[ 0 , \infty \mathclose[&\to \mathopen[ 0 , \infty \mathclose[ \\
-            x&\mapsto x^n 
-        \end{aligned}
-    \end{equation}
-    est bijective. Nous définissions alors, pour \( a\in \mathopen[ 0 , \infty \mathclose[\),
-    \begin{equation}
-        a^{1/n}=f_n^{-1}(a).
-    \end{equation}
-    Autrement dit, le nombre \( a^{1/n}\) est l'unique solution positive de
-    \begin{equation}
-        x^n=a.
-    \end{equation}
-\end{definition}
-
-\begin{normaltext}      \label{NORMooDUNZooUNdUKg}
-    Nous ne définissons pas \( a^{1/n}\) pour \( a<0\), du moins pas encore. Vu que \( f_3\) est bijective sur \( \eR\), il serait tentant de définir \( (-1)^{1/3}=f_3^{-1}(-1)=-1\).
-
-    Cela causera un certain nombre de problèmes plus tard vu que nous aurons envie de deux choses en même temps :
-    \begin{itemize}
-        \item d'une part \( \ln(-1)=i\pi\),
-        \item d'autre part, \( a^x= e^{x\ln(a)}\).
-    \end{itemize}
-    De cette façon, nous devrions avoir
-    \begin{equation}
-        (-1)^{1/3}= e^{i\pi /3},
-    \end{equation}
-    qui est un nombre complexe non réel. Voici un exemple de ce que ça donne avec Sage :
-    \lstinputlisting{tex/sage/sageSnip019.sage}
-\end{normaltext}
-
-\begin{definition}[Racince]
-    Pour \( n\in \eN\) nous définissons \( \sqrt[n]{ x }=f_n^{-1}(x)\). Lorsque \( n\) est pair, la fonction \( x\mapsto\sqrt[n]{ x }\) n'est définie que sur \( \eR^+\), et lorsque \( n\) est impair, elle est définie sur tout \( \eR\).
-\end{definition}
-
-\begin{normaltext}      \label{NORMooYPRNooWCjEgR}
-    Notons que les fonctions \( x\mapsto \sqrt[3]{ x }\) et \( x\mapsto x^{1/3}\) ne sont pas les mêmes : la première est définie sur tout \( \eR\) et donne des valeurs réelles tandis que la seconde n'est (pour l'instant) définie que sur les positifs, et donnera (quand on l'aura définie par l'exponentielle) des nombres complexes sur les négatifs.
-
-    En suivant cette convention, c'est à dire en réservant la notation \( \sqrt{  }\) pour l'inverse de \( f_2\), nous ne devrions pas écrire des choses comme «\( \sqrt{ -1 }=i\)», mais plutôt «\( (-1)^{1/2}=i \)». En effet, \( \sqrt{ -1 }\) n'est pas défini et ne sera jamais défini alors que \( (-1)^{1/2}\) n'est pas encore défini, mais sera défini par 
-    \begin{equation}
-        (-1)^{1/2}= e^{\frac{ 1 }{2}\ln(-1)}= e^{i\pi/2}=i.
-    \end{equation}
-\end{normaltext}
-
-En résumé, nous avons les fonctions suivantes :
-\begin{enumerate}
-    \item
-        \( \sqrt[n]{  }\colon \eR\to \eR\) si \( n\) est impair,
-    \item
-        \( \sqrt[n]{  }\colon \mathopen[ 0 , \infty \mathclose[\to \mathopen[ 0 , \infty \mathclose[ \) si \( n\) est pair,
-    \item
-        \( x^{1/n}\colon \mathopen[ 0 , \infty \mathclose[\to \mathopen[ 0 , \infty \mathclose[\) pour tout \( n\in \eN\).
-\end{enumerate}
-Cependant nous n'hésiterons pas à utiliser la notation \( \sqrt{ x }\) pour \( x^{1/2}\) même lorsque \( x\) est négatif, parce c'est une notation très pratique. Il faut garder en tête que cette façon de faire est incohérente parce qu'elle inciterait à penser que \( \sqrt[3]{-1  }= e^{i\pi/3}\) au lieu de \( \sqrt[3]{-1  }=-1\).
-
-Pour toute la suite de cette section, nous allons considérer \( a^x\) uniquement pour \( a>0\).
-
-\begin{definition}
-    Pour \( m,n\in \eN\) nous définissons 
-    \begin{equation}        \label{EQooZFOAooTsMbub}
-        a^{m/n}=(a^m)^{1/n},
-    \end{equation}
-    ce qui définit la fonction puissance sur \( \eQ^+\). Enfin nous posons
-    \begin{equation}
-        a^{-q}=\frac{1}{ a^q }
-    \end{equation}
-    lorsque \( q\in \eQ^+\).
-
-    Et avec tout ça, lorsque \( a>0\) nous avons défini \( a^q\) pour tout \( q\in \eQ\).
-\end{definition}
-
-Nous allons souvent noter la définition \eqref{EQooZFOAooTsMbub} sous la forme
-\begin{equation}        \label{EQooZIKKooVfjkZo}
-    f_{m/n}(x)^n=x^m.
-\end{equation}
-
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooIDLJooZALNaD}
-    Pour \( a>0\) et \( p,q\in \eZ\) nous avons :
-    \begin{equation}
-        a^{p/q}=(a^p)^{1/q}=(a^{1/q})^p.
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Nous divisons la preuve en fonction de la positivité du numérateur et du dénominateur.
-    \begin{subproof}
-        \item[Numérateur et dénominateurs positifs]
-                
-            Nous commençons avec \( p,q\in \eN\). La première égalité est la définition \ref{DEFooJWQLooWkOBxQ}. Pour la seconde, la définition de \( (a^p)^{1/q}\) est d'être le \( x>0\) tel que
-            \begin{equation}
-                x^q=a^p.
-            \end{equation}
-            La définition de \( a^{1/q}\) est d'être le \( y>0\) tel que
-            \begin{equation}
-                y^q=a.
-            \end{equation}
-            Ce \( y\) vérifie donc aussi \( y^{pq}=a^p\) et donc \( (y^p)^q=a^p\). Autrement dit, \( y^p=x\), c'est à dire exactement
-            \begin{equation}
-                (a^{1/q})^p=(a^p)^{1/q}.
-            \end{equation}
-            Le lemme est prouvé dans le cas où \( p,q\in \eN\).
-
-        \item[Numérateur et dénominateur négatifs]
-
-            Si \( p\) et \( q\) sont tous les deux négatifs, nous remarquons que \( p/q=(-p)/(-q)\) et nous sommes dans le même cas qu'avant.
-
-        \item[Numérateur négatif, dénominateur positif]
-
-            Pour simplifier les notations nous supposons toujours \( p,q\in \eN\) mais nous considérons \( a^{(-p)/q}\). Nous avons d'une part :
-            \begin{equation}
-                a^{(-p)/q}=a^{-(p/q)}=\frac{1}{ a^{p/q} }=\frac{1}{ (a^{1/q})^p }=(a^{1/q})^{-p}.   
-            \end{equation}
-            Dans ce calcul, nous avons utilisé au dénominateur le résultat dans le cas positif. 
-
-            Et d'autre part nous avons :
-            \begin{equation}
-                (a^{-p})^{1/q}=\left( \left( \frac{1}{ a } \right)^p \right)^{1/q}=\left( \left( \frac{1}{ a } \right)^{1/q} \right)^p=\left( \frac{1}{ a^{1/q} } \right)^p=\frac{1}{ (a^{1/q})^p }=(a^{1/q})^{-p}
-            \end{equation}
-            où nous avons utilisé le résultat avec \( 1/a\) en guise de \( a\).
-
-        \item[Numérateur positif, dénominateur négatif]
-
-            Nous traitons maintenant \( a^{p/(-q)}\). Nous avons d'une part
-            \begin{equation}
-                a^{p/(-q)}=a^{-(p/q)}=\frac{1}{ a^{p/q} }=\frac{1}{ (a^p)^{1/q} }=(a^p)^{-(1/q)}=(a^p)^{1/(-q)}.
-            \end{equation}
-            Et d'autre part :
-            \begin{equation}
-                a^{p/(-q)}=\frac{1}{ a^{p/q} }=\frac{1}{ (a^{1/q})^p }=\left( \frac{1}{ a^{1/q} } \right)^p=\left( a^{-(1/q)} \right)^p=(a^{1/(-q)})^p.
-            \end{equation}
-    \end{subproof}
-\end{proof}
-
-Le lemme suivant montre que la définition sur \( \eQ^-\) est cohérente avec celle sur \( \eQ^+\), au sens où finalement nous retrouvons que \( a^{m/n}\) vérifie \( x^n=a^m \) quel que soient les signes de \( m\) et \( n\).
-\begin{lemma}[\cite{MonCerveau}]
-    Le nombre \( y=a^{-m/n}\) vérifie l'équation \( y^{-n}=a^m\)
-\end{lemma}
-
-\begin{proof}
-    Nous posons \( x=a^{m/n}\), c'est à dire \( x^n=a^m\). Nous avons, par définition \( y=a^{-m/n}=\frac{1}{ x }\). Alors
-    \begin{equation}
-        y^{-n}=\frac{1}{ \left( \frac{1}{ x } \right)^n }=x^n=a^m,
-    \end{equation}
-    donc c'est bon.
-\end{proof}
-
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooJYGUooHhLASp}
-    Pour \( a>0\) et \( q,q'\in \eQ\) nous avons
-    \begin{equation}
-        a^qa^{q'}=a^{q+q'}.
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Nous mettons \( q\) et \( q'\) au même dénominateur. Soient \( q=s/c\) et \( q'=r/c\) avec \( s,r\in \eZ\) et \( c\in \eN\). En utilisant les égalités du lemme \ref{LEMooIDLJooZALNaD} nous trouvons
-    \begin{equation}
-        a^{s/c}a^{r/c}=(a^{1/c})^s(a^{1/c})^r=(a^{1/c})^{s+r}=a^{(s+r)/c}=a^{q+q'}.
-    \end{equation}
-\end{proof}
-
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooXJXUooLoiTMo}
-    La fonction puissance prend les valeurs suivantes.
-    \begin{enumerate}
-        \item
-            Si \( a=1\) alors \( a^q=1\) pour tout \( q\in \eQ\).
-        \item       \label{ITEMooKZCGooKskUQx}
-            Si \( a>1\) alors 
-            \begin{itemize}
-                \item \( a^q>1\) si \( q>0\)
-                \item \( a^q<1\) si \( q<0\)
-                \item \( a^0=1\).
-            \end{itemize}
-        \item
-            Si \( a<1\) alors 
-            \begin{itemize}
-                \item \( a^q<1\) si \( q>0\)
-                \item \( a^q>1\) si \( q<0\)
-                \item \( a^0=1\).
-            \end{itemize}
-    \end{enumerate}
-\end{lemma}
-
-\begin{proof}
-    Si \( a=1\) alors \( a^k=1\) pour tout \( k\in \eN\). Ensuite, pour \( m,n\in \eN\), \( a^{n/m}\) est solution de \( x^m=a^n=1\), donc \( x=1\). En ce qui concerne les puissances négatives, \( 1/1=1\).
-
-    Si \( a>1\) alors \( a^k>1\) pour tout \( k\in \eN\). De plus pour \( q>0\) nous avons \( q=m/n\) avec \( m,n\in \eN\). Alors \( a^{m/n}\) est solution de \( x^m=a^n>1\). Or pour \( x\leq 1\) nous avons \( x^m\leq 1\), donc la solution à \( x^m=a^n\) vérifie forcément \( x>1\).
-
-    Toujours avec \( a>1\), si \( q<0\) nous posons \( q=-q'\) avec \( q'>0\). Alors
-    \begin{equation}
-        a^q=q^{-q'}=\frac{1}{ a^{q'} }.
-    \end{equation}
-    Mais \( a^{q'}>1\), donc l'inverse est inférieur à \( 1\).
-
-    En ce qui concerne les cas \( a<1\), ils sont obtenus en posant \( b=1/a\) et en calculant
-    \begin{equation}
-        a^q=\left( \frac{1}{ b } \right)^q=\frac{1}{ b^q }=b^{-q}.
-    \end{equation}
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]\label{PROPooVXKBooQPPjMn}
-    Si \( a>1\) et si \( M>0\), il existe \( n\in \eN\) tel que \( a^n>M\).
-\end{proposition}
-
-\begin{proof}
-    Soit \( a=1+h\). Alors en utilisant la formule du binôme, 
-    \begin{equation}
-        a^n=(1+h)^n=\sum_{k=0}^n{n\choose k}h^{n-k}.
-    \end{equation}
-    Tous les termes de la somme sont strictement positifs. Prenons le terme \( k=n-1\). Il vaut
-    \begin{equation}
-        {n\choose n-1}h=nh.
-    \end{equation}
-    Donc \( a^n\geq nh\), donc oui, cela peut être rendu arbitrairement grand avec \( n\) sans toucher à \( a\).
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooGCBZooTcyGtO}
-    Pour \( a>0\) nous considérons la fonction
-    \begin{equation}
-        \begin{aligned}
-            g_a\colon \eQ&\to \eR \\
-            q&\mapsto a^q.
-        \end{aligned}
-    \end{equation}
-    \begin{enumerate}
-        \item
-            Si \( a\in \mathopen] 0 , 1 \mathclose[\) alors \( g_a\) est décroissante et
-            \begin{subequations}
-                \begin{align}
-                    \lim_{q\to \infty} g_a(q)=0,&& \lim_{q\to -\infty} g_a(q)=\infty.
-                \end{align}
-           \end{subequations}
-         \item
-            Si \( a>1\)  alors \( g_a\) est croissante et
-            \begin{subequations}
-                \begin{align}
-                    \lim_{q\to \infty} g_a(q)=\infty,&& \lim_{q\to -\infty} g_a(q)=0.
-                \end{align}
-           \end{subequations}
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    Nous prouvons le cas \( a>1\). L'autre cas s'en déduit en posant \( b=1/a\). Pour la croissance, soient \( q\in \eQ\) et \( r>0\) dans \( \eQ\). En utilisant le lemme \ref{LEMooJYGUooHhLASp}, nous avons
-    \begin{equation}
-        a^{q+r}=a^qa^r>a^q
-    \end{equation}
-    parce que \( a^r>1\) par le lemme \ref{LEMooXJXUooLoiTMo}. 
-
-    En ce qui concerne la limite \( q\to \infty\), la fonction \( g_a\) est croissante et non bornée par la proposition \ref{PROPooVXKBooQPPjMn}. Donc sa limite est \( \infty\).
-
-    Pour la limite \( q\to -\infty\), nous avons
-    \begin{equation}
-        \lim_{q\to -\infty} a^q=\lim_{q\to \infty} a^{-q}=\lim_{q\to \infty} \frac{1}{ a^q }=0.
-    \end{equation}
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooIIDGooTRtlUD}
-    Soit \( a>0\). Nous avons
-    \begin{equation}
-        \lim_{x\to 0} a^x=1.
-    \end{equation}
-    Notons que dans cette limite, \( x\in \eQ\) parce que nous n'avons même pas encore défini \( a^x\) lorsque \( x\) est irrationnel.
-\end{proposition}
-
-\begin{proof}
-    Nous notons, comme à l'accoutumée, \( g_a(x)=a^x\). Soit une suite \( x_k\to 0\) (avec \( x_k\neq 0\) pour tout \( k\)). En définissant \( y_k\) par \( x_k=1/y_k\) nous savons que \( a^{1/y_k}\) est la solution de \( x^{y_k}=a\).
-
-    Nous posons \( t_k=a^{x_k}\) et notre but est de prouver que \( t_k\to 1\). Pour tout \( k\) nous avons la relation
-    \begin{equation}
-        t_k^{y_k}=a.
-    \end{equation}
-    Soit \( s>1\). Il existe un \( M>0\) tel que \( y_k>M\) implique \( s^{y_k}>a\) (proposition \ref{PROPooVXKBooQPPjMn}). Donc dès que \( y_k>M\) nous avons \( t_k<s\).
-
-    De la même manière, si \( r<1\), il existe un \( R>0\) tel que \( y_k>R\) implique \( r^{y_k}<a\). Donc dès que \( y_k>R\) nous avons \( t_k>r\).
-
-    Soit donc un voisinage \( \mathopen] r , s \mathclose[\) de \( 1\) (avec \( r<1\) et \( s>1\)). Nous avons les nombres \( M\) et \( R\) correspondant et nous posons \( L=\max\{ M,R \}\). Soit \( K\) tel que \( k>K\) implique \( y_k>L\). Alors pour \( k>K\) nous avons aussi \( t_k<s\) et \( t_k>r\), c'est à dire \( t_k\in \mathopen] r , s \mathclose[\).
-
-        Cela prouve que \( t_k\to 1\).
-
-        Donc pour toute suite \( x_k\to 0\) nous avons \( g_a(x_k)\to 1\). Par le critère séquentiel de la limite (proposition \ref{PROPooJYOOooZWocoq}) nous avons \( \lim_{x\to 0} g_a(x)=1\).
-\end{proof}
-
-\begin{lemma}       \label{LEMooKDBPooLQwxMD}
-    Soit \( a>0\). La fonction
-    \begin{equation}
-        \begin{aligned}
-            g_a\colon \eQ&\to \eR \\
-            x&\mapsto a^x 
-        \end{aligned}
-    \end{equation}
-    est continue.
-\end{lemma}
-
-\begin{proof}
-    Soient \( x\in \eQ\) et une suite \( x_k\to 0\) (toujours dans \( \eQ\)) et utilisons le lemme \ref{LEMooJYGUooHhLASp} :
-    \begin{equation}
-        a^{x+x_k}=a^xa^{x_k}.
-    \end{equation}
-    Cela est, dans \( \eR\), le produit entre une constante (\( a^x\)) et une suite. La limite est donc le produit de cette constante et la limite de la suite (si elle existe). Par la proposition \ref{PROPooIIDGooTRtlUD} nous avons la limite \( a^{x_k}\to 1\), et donc
-    \begin{equation}
-        \lim_{k\to \infty} a^{x+x_k}=a^x,
-    \end{equation}
-    ce qui prouve la continuité (caractérisation séquentielle, proposition \ref{PropFnContParSuite}) de \( g_a\).
-\end{proof}
-
-\begin{definition}[Fonction puissance\cite{MonCerveau}]  \label{DEFooOJMKooJgcCtq}
-    Si \( a>0\) et \( x\in \eR\), la fonction
-    \begin{equation}
-        \begin{aligned}
-            g_a\colon \eQ&\to \eR \\
-            x&\mapsto a^x. 
-        \end{aligned}
-    \end{equation}
-    est continue par le lemme \ref{LEMooKDBPooLQwxMD}. Si \( x\in \eR\) nous définissons
-    \begin{equation}
-        a^x=\tilde g_a(x)
-    \end{equation}
-    où \( \tilde g_a\) est l'extension de \( g_a\) donnée par le lemme \ref{LEMooUAFBooAwiXxj}.
-
-    Nous allons la noter \( g_a\) également, et écrire \( a^x\) la valeur de \( g_a\) même lorsque \( x\) n'est pas un rationnel.
-\end{definition}
-
-
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooVADRooLCLOzP}
-    Quelque propriétés de la fonction puissance. 
-    \begin{enumerate}
-        \item       \label{ITEMooQHYRooJIewyp}
-            Pour \( a>0\), la fonction \( g_a\colon x\mapsto a^x\) est continue sur \( \eR\).
-        \item       \label{ITEMooIZBLooSGtWIp}
-            Pour \( a>1\), la fonction \( g_a\colon x\mapsto a^x\) est croissante.
-        \item       \label{ITEMooSCJBooNVJZah}
-            Pour \( a>0\) et \( x,y\in \eR\) nous avons
-            \begin{equation}        \label{EQooEWIHooDRAQGR}
-                a^xa^y=a^{x+y}.
-            \end{equation}
-            En particulier, 
-            \begin{equation}
-                a^{-x}=\frac{1}{ a^x }.
-            \end{equation}
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    La continuité de \( x\mapsto a^x\) est par construction. Le point \ref{ITEMooQHYRooJIewyp} est fait.
-
-    Pour le point \ref{ITEMooIZBLooSGtWIp}, lorsque \( a>1\), la fonction \( f_a\colon \eQ\to \eR\) est croissante (proposition \ref{PROPooGCBZooTcyGtO}). Donc par la proposition \ref{PROPooTNIAooNAJDzL}, la fonction \( x\mapsto a^x\) est croissante sur \( \eR\).
-
-    Et enfin pour le point \ref{ITEMooSCJBooNVJZah}, il faut faire un peu plus attention. Soient des suites \( x_i\to x\) et \( y_i\to y\) dans \( \eQ\). Calculons :
-    \begin{subequations}        \label{SUBEQSooMPNLooPoyjwJ}
-        \begin{align}
-            a^xa^y&=(\lim_ia^{x_i})a^y      \label{SUBEQooOCIOooZcewMo} \\
-            &=\lim_i\big( a^{x_i}a^y \big)   \label{SUBEQooEKQXooPLqzcG}\\
-            &=\lim_i\big( \lim_ka^{x_i}a^{y_k} \big)    \label{SUBEQooZEXDooRytDvS}\\
-            &=\lim_i\big( \lim_k a^{x_i+y_k} \big)     \label{SUBEQooSYNBooIQZJzl}\\
-            &=\lim_ia^{x_i+y}                           \label{SUBEQooKHKCooGwaPDQ}\\
-            &=a^{x+y}.                                  \label{SUBEQooMZBFooSoSgKU}
-        \end{align}
-    \end{subequations}
-    Justifications :
-    \begin{itemize}
-        \item Pour \ref{SUBEQooOCIOooZcewMo}. Définition de \( a^x\) lorsque \( x\in \eR\).
-        \item Pour \ref{SUBEQooEKQXooPLqzcG}. Nous entrons le nombre \( a^y\) dans la limite. Entrer un facteur dans une limite convergente dans \( \eR\) est un acte anodin.
-        \item Pour \ref{SUBEQooZEXDooRytDvS}. Définition de \( a^y\), et renter le nombre réel \( a^{x_i}\) dans la limite sur \( k\).
-        \item Pour \ref{SUBEQooSYNBooIQZJzl}. Utilisation du lemme \ref{LEMooJYGUooHhLASp}, valable pour \( x_i,y_k\in \eQ\).
-        \item Pour \ref{SUBEQooKHKCooGwaPDQ}. Pour \( i\) fixé, la suite \( k\mapsto x_i+x_k\) est une suite de rationnels qui converge vers le réel \( x_i+y\). Par définition \ref{DEFooOJMKooJgcCtq} de la fonction puissance nous avons alors \( \lim_ka^{x_i+y_k}=a^{x_i+y}\).
-        \item Pour \ref{SUBEQooMZBFooSoSgKU}. La suite de réels \( i\mapsto x_i+y\) converge dans \( \eR\) vers le réel \( x+y\). Par la continuité de \( t\mapsto a^t\) (ça fait partie du lemme \ref{LEMooUAFBooAwiXxj} définissant la fonction puissance sur \( \eR\)) nous avons \( \lim_ia^{x_i+y}=a^{x+y}\).
-    \end{itemize}
-
-    Vous remarquerez que les limites sur \( k\) et sur \( i\) ne s'enlèvent pas tout à fait avec la même justification. Nous aurions pu invoquer la continuité sur \( \eR\) de \( t\mapsto a^t\) pour les deux limites. Mais cette continuité, dans le cas d'une suite purement constituée de rationnels, est la définition de la prolongation vers \( \eR\).
-\end{proof}
-
-\begin{lemma}       \label{LEMooIPLLooCgpCIn}
-    Soient \( a,b>0\). Si \( 1<x<y\) alors
-    \begin{equation}
-        a-b<ay-bx.
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Nous posons \( y=x+s\) avec \( s>0\). Alors
-    \begin{equation}
-        ay-bx=a(x+s)-bx=(a-b)x+as>(a-b)x>a-b
-    \end{equation}
-    parce que \( as>0\) et \( x>1\).
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooJXHFooCDwxCS}
-    Pour \( q>0\) dans \( \eQ\), la fonction
-    \begin{equation}
-        \begin{aligned}
-            f_{q}\colon \eQ^+&\to \eR \\
-                x&\mapsto x^{q} 
-        \end{aligned}
-    \end{equation}
-    est strictement croissante.
-\end{proposition}
-
-\begin{proof}
-    Division selon la généralité de \(q\).
-    \begin{subproof}
-        \item[Si \( q\) est entier positif]
-            Soit \( q=n\in \eN\). Si \( s>0\) alors l'inégalité \( (x+s)^n>x^n\) découle du binôme de Newton de la proposition \ref{PropBinomFExOiL}.
-        \item[Si \( q\) est rationnel]
-            Soient un rationnel \( q=m/n\) et un nombre strictement positif \( s\). Nous avons, par la définition \ref{DEFooJWQLooWkOBxQ} sous la forme \eqref{EQooZIKKooVfjkZo} :
-            \begin{equation}
-                f_{m/n}(x+s)^n=(x+s)^m>x^m=f_{m/n}(x)^n.
-            \end{equation}
-            Nous avons utilisé la stricte croissance de \( x\mapsto x^m\). Cela donne
-            \begin{equation}
-                f_{m/n}(x+s)^n>f_{m/n}(x)^n.
-            \end{equation}
-            En utilisant encore la stricte croissance de \( x\mapsto x^n\), nous avons le résultat.
-    \end{subproof}
-\end{proof}
-
-\begin{corollary}       \label{CORooYWNNooLwKmiD}
-    Soient \( 1<b<a\) dans \( \eR\) et des rationnels strictement positifs \( p<q\). Alors
-    \begin{equation}
-        a^p-b^p<a^q-b^q
-    \end{equation}
-\end{corollary}
-
-\begin{proof}
-    Nous notons \( q=p+r\) avec \( r>0\) dans \( \eQ\). Par la proposition \ref{PROPooJXHFooCDwxCS},
-    \begin{equation}
-        a^r>b^r.
-    \end{equation}
-    Cela nous permet d'utilise le lemme \ref{LEMooIPLLooCgpCIn} pour écrire
-    \begin{equation}
-        a^p-b^p<a^pa^r-b^pb^r=a^q-b^q.
-    \end{equation}
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooKWRGooMTbRdU}
-    Soient \( a,b>0\) et \( \alpha\in \eR\). Nous avons :
-    \begin{equation}
-        a^{\alpha}b^{\alpha}=(ab)^{\alpha}.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Nous supposons que c'est bon pour \( \alpha\in \eN\) et \( \alpha\in \eZ\). Pour les autres, nous donnons plus de détails.
-    \begin{subproof}
-        \item[\( \eQ^+\)]
-            Soit \( q=m/n\) avec \( m,n\in \eN\). Si \( a^{m/n}=x\) et \( b^{m/n}=y\), alors
-            \begin{subequations}
-                \begin{align}
-                    x^n&=a^m    \label{EQooGNMAooQJMNsL}\\
-                    y^n&=b^m
-                \end{align}
-            \end{subequations}
-            par \eqref{EQooZIKKooVfjkZo}. Nous multiplions \eqref{EQooGNMAooQJMNsL} par \( y^n\) à gauche et par \( b^m\) à droite : \( x^ny^n=a^mb^m\). En tenant compte du résultat pour \( \eN\), nous avons
-            \begin{equation}
-                (xy)^n=(ab)^m,
-            \end{equation}
-            ce qui signifie que le nombre \( xy\) est \( (ab)^{m/n}\).
-        \item[Pour \( \eQ^-\)]
-            Soit \( q\in \eQ^+ \), nous avons le calcul
-            \begin{equation}
-                a^{-q}b^{-q}=\frac{1}{ a^qb^q }=\frac{1}{ (ab)^q }=(ab)^{-q}.
-            \end{equation}
-        \item[Pour \( \eR\)]
-            Soit une suite de rationnels \( \alpha_i\to \alpha\). Nous avons
-            \begin{equation}
-                a^{\alpha}b^{\alpha}=\big( \lim_ia^{\alpha_i} \big)\big( \lim_j b^{\alpha_j} \big)=\lim_i\big( a^{\alpha_i}b^{\alpha_i}\big)=\lim_i(ab)^{\alpha_i}=(ab)^{\alpha}.
-            \end{equation}
-            Justifications :
-            \begin{itemize}
-                \item la proposition \ref{PROPooIQOAooJPMoDD} pour le produit des limites,
-                \item le résultat dans \( \eQ\) que nous venons de prouver,
-                \item la définition de \( (ab)^{\alpha}\) comme limite de \( (ab)^{\alpha_i}\).
-            \end{itemize}
-    \end{subproof}
-\end{proof}
-    
-Pour rappel, la proposition suivantes, dans le cas de \( \alpha\in \eQ^+\) est la proposition \ref{PROPooJXHFooCDwxCS}.
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooRXLNooWkPGsO}
-    Pour \( \alpha>0\), la fonction
-    \begin{equation}
-        \begin{aligned}
-            f_{\alpha}\colon\mathopen] 0 , \infty \mathclose[&\to \eR \\
-                x&\mapsto x^{\alpha} 
-        \end{aligned}
-    \end{equation}
-    est strictement croissante.
-
-    Aussi, la fonction
-    \begin{equation}
-        \begin{aligned}
-        f_{\alpha}\colon  \mathopen] -\infty , 0 \mathclose[  &\to \eR \\
-                x&\mapsto x^{\alpha} 
-        \end{aligned}
-    \end{equation}
-    est strictement décroissante.
-\end{proposition}
-
-\begin{proof}
-    Nous rappellons que le cas \( \alpha\in \eQ^+\) est déjà traité par la proposition \ref{PROPooJXHFooCDwxCS}. Soient \( x\in \mathopen] 0 , \infty \mathclose[\) et \( s>0\). Nous allons montrer que \( f_{\alpha}(x+s)-f_{\alpha}(x)>0\). Pour cela nous décomposons en plusieurs cas.
-    \begin{subproof}
-        \item[\( x>1\)]
-            Par la proposition \ref{PROPooFGBOooHiZqbs}, nous considérons une suite strictement croissante de rationnels strictement positifs \( \alpha_i\to \alpha\). Pour tout \( i\) nous avons \( \alpha_i>\alpha_0\).
-
-            En utilisant la stricte croissance de \( f_{\alpha_0}\) et le lemme \ref{LEMooXJXUooLoiTMo}\ref{ITEMooKZCGooKskUQx}, nous avons les inégalités \( 1<x^{\alpha_0}<(x+s)^{\alpha_0}\), et en particulier
-            \begin{equation}
-                0<(x+s)^{\alpha_0}-x^{\alpha_0}.
-            \end{equation}
-            De plus nous avons \( 1<x<x+s\) et \( \alpha_0<\alpha_i\) pour tout \( i\). Donc le corollaire \ref{CORooYWNNooLwKmiD} s'applique et nous avons, pour tout \( i\) :
-            \begin{equation}
-                0<(x+s)^{\alpha_0}-x^{\alpha_0}<(x+s)^{\alpha_i}-x^{\alpha_i}.
-            \end{equation}
-            C'est le moment de passer à la limite \( i\to \infty\). La seconde inégalité devient non stricte, mais la première reste :
-            \begin{equation}
-                0<(x+s)^{\alpha_0}-x^{\alpha_0}\leq(x+s)^{\alpha}-x^{\alpha}.
-            \end{equation}
-            Nous avons donc bien la stricte croissance de \( f_{\alpha}\) sur \( \mathopen] 1 , \infty \mathclose[\).
-        \item[\( x\leq 1\)]
-            Nous choisissons encore \( \alpha_i\to \alpha\) strictement croissante dans \( \eQ\). Pour chaque \( i\), nous avons encore
-            \begin{equation}
-                (x+s)^{\alpha_i}-x^{\alpha_i}>0.
-            \end{equation}
-            Le passage à la limite change l'inégalité stricte en inégalité large, et ne permet donc pas de conclure immédiatement. Nous devons donc ruser. Soit \( k\in \eN\) tel que \( k(x+s)>1\) et \( kx>1\) (existence parce que \( \eR\) est archimédien, proposition \ref{ThoooKJTTooCaxEny}). Nous avons :
-            \begin{equation}
-                \big( k(x+s) \big)^{\alpha}-(kx)^{\alpha}>0
-            \end{equation}
-            par la partie «\( x>1\)» que nous venons de prouver. Grâce à la proposition \ref{PROPooKWRGooMTbRdU} nous pouvons factoriser \( k^{\alpha}\) :
-            \begin{equation}
-                0<\big( k(x+s) \big)^{\alpha}-(kx)^{\alpha}=k^{\alpha}\big( (x+s)^{\alpha}-x^{\alpha} \big).
-            \end{equation}
-            Vu que \( k^{\alpha}>0\), cela implique \( (x+s)^{\alpha}-x^{\alpha}>0\), ce qu'il fallait.
-    \end{subproof}
-Nous avons fini de prouver que la fonction \( f_{\alpha}\) était strictement croissante sur \( \mathopen] 0 , \infty \mathclose[\). En ce qui concerne la fonction \( f_{\alpha}\) sur \( \mathopen] -\infty , 0 \mathclose[\), nous avons, pour \( x>0\) que
-    \begin{equation}
-        f_{\alpha}(-x)=\frac{1}{ f_{\alpha}(x) },
-    \end{equation}
-    et donc stricte décroissance.
-\end{proof}
-
-Nous prouvons à présent que \( f_{\alpha}\) est localement injective; nous en avons besoin pour prouver la continuité. Or cette continuité est nécéssait à prouver que \( f_{\alpha}\) est localement bijective. Donc nous ne pouvons pas énoncer la bijectivité ici.
-\begin{proposition}     \label{PROPooHKTKooCUEBjh}
-    Soient \( \alpha\in \eR\) et \( x\in \eR\setminus\{ 0 \}\). Il existe un voisinage \( V\) de \( x\) sur lequel
-    \begin{equation}
-            f_{\alpha}\colon V \to f_{\alpha}(V) 
-    \end{equation}
-    est injective.
-\end{proposition}
-
-\begin{proof}
-Soit \( x>0 \); nous considérons un voisinage \( V\) de \( x\) inclu à \( \mathopen] 0 , \infty \mathclose[\). Soit \( y\in V\); pour fixer les idées nous supposons \( y<x\). Par la stricte croissance de \( f_{\alpha}\) sur \( \mathopen] 0 , \infty \mathclose[\) (proposition \ref{PROPooRXLNooWkPGsO}), nous avons \( f_{\alpha}(y)<f_{\alpha}(x)\) et en particulier \( f_{\alpha}(x)\neq f_{\alpha}(y)\).
-
-Le cas \( x<0\) se traite de façon analogue, avec la stricte décroissance de \( f_{\alpha}\) sur \( \mathopen] -\infty , 0 \mathclose[\).
-\end{proof}
-Notons que les voisinages sur lesquels \( f_{\alpha}\) est injective sont assez grands. Ils peuvent être toute une demi-droite, si l'on veut.
-
-\begin{lemma}   \label{LEMooQTNKooLVEytN}
-    Soient \( \alpha>0\), une suite de rationnels strictement décroissante \( \alpha_i\to \alpha\) ainsi que les fonctions
-    \begin{equation}
-        \begin{aligned}
-        f_{\alpha_i}\colon \mathopen] 1 , \infty \mathclose[&\to \eR \\
-            x&\mapsto x^{\alpha_i}. 
-        \end{aligned}
-    \end{equation}
-    La famille \( \{ f_{\alpha_i} \}_{i\in \eN}\) est équicontinue\footnote{Définition \ref{DEFooSGMVooASNbxo}.}.
-\end{lemma}
-
-\begin{proof}
-    Soient \( x>1\), et \( \alpha>0\). Nous allons montrer que \( \{ f_{\alpha_i} \}\) est équicontinue en \( x\). Soit \( s\) tel que \( 1<x<x+s\); le corollaire \ref{CORooYWNNooLwKmiD} nous enseigne que 
-    \begin{equation}
-        (x+s)^p-x^p<(x+s)^q-x^q
-    \end{equation}
-    dès que \( p<q\). En particulier, \( f_p\) étant croissante par la proposition \ref{PROPooRXLNooWkPGsO},
-    \begin{equation}
-        0<(x+s)^{\alpha_i}-x^{\alpha_i}<(x+s)^{\alpha_0}-x^{\alpha_0}.
-    \end{equation}
-    Soit \( \epsilon>0\) et \( \delta\) tel que \( s<\delta\) implique \( | (x+s)^{\alpha_0}-x^{\alpha_0} |<\epsilon\). Alors nous avons aussi, pour de tels \( \sigma\) et \( s\) :
-    \begin{equation}
-        |(x+s)^{\alpha_i}-x^{\alpha_i}|<|(x+s)^{\alpha_0}-x^{\alpha_0}|<\epsilon.
-    \end{equation}
-    En procédant de même\ pour \( s<0\), nous trouvons bien que
-    \begin{equation}
-        | y^{\alpha_i}-x^{\alpha_i} |\leq \epsilon
-    \end{equation}
-    pour tout \( y\in B(x,\delta)\).
-
-    Cela signifie que \( \{ f_i \}\) est équicontinue.
-\end{proof}
-
-
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooUQNZooSSHLqr}
-    Soit \( a>0\) dans \( \eR\). La fonction
-    \begin{equation}
-        \begin{aligned}
-            f_{\alpha}\colon \eR&\to \eR \\
-            x&\mapsto x^{\alpha} 
-        \end{aligned}
-    \end{equation}
-    est continue (sauf pour \( x=0\) si \( \alpha<0\)).
-\end{proposition}
-
-\begin{proof}
-    Nous allons subdiviser quelque cas.
-    \begin{subproof}
-        \item[Pour \( \alpha\in \eN\)]
-            Nous supposons que ce cas va bien.
-        \item[Pour \( \alpha\in \eQ^+\)]
-            Soit \( q=m/n\) avec \( m,n\in \eN\). Soit aussi \( \epsilon>0\). Nous avons :
-            \begin{subequations}
-                \begin{align}
-                    f_{m/n}(x)^n&=x^m\\
-                    f_{m/n}(x+\epsilon)^n&=(x+\epsilon)^m.      \label{SUBEQooGNCSooWAeRcL}
-                \end{align}
-            \end{subequations}
-            L'équation \eqref{SUBEQooGNCSooWAeRcL} s'écrit aussi bien sous la forme
-            \begin{equation}
-                f_n\big( f_{m/n}(x+\epsilon) \big)=(x+\epsilon)^m.
-            \end{equation}
-            En prenant la limite,
-            \begin{equation}
-                \lim_{\epsilon\to 0}\big[ f_n\big( f_{m/n}(x+\epsilon) \big) \big]=x^m=f_{m/n}(x)^n.
-            \end{equation}
-            Vu que \( f_n\) est continue, nous pouvons la permuter avec la limite dans le membre de gauche tout en écrivant \( f_{m/n}(x)^n=f_n\big( f_{m/n}(x) \big)\) dans le membre de droite :
-            \begin{equation}
-                f_n\big[ \lim_{\epsilon\to 0}f_{m/n}(x+\epsilon) \big]=f_n\big( f_{m/n}(x) \big).
-            \end{equation}
-            La fonction \( f_n\) étant injective dans un voisinage autour de \( x\) (proposition \ref{PROPooHKTKooCUEBjh}),
-            \begin{equation}
-                \lim_{\epsilon\to 0}f_{m/n}(x+\epsilon)=f_{m/n}(x),
-            \end{equation}
-            ce qui est la continuité de \( f_{m/n}\) en \( x\).
-
-        \item[Pour \( \alpha\in \eR^+\)]
-
-        Nous prouvons séparément le cas \( x<1\) et le cas \( x\geq 1\). Commençons par \( x\in \mathopen] 1 , \infty \mathclose[\).
-
-            Soit une suite \( \alpha_i\to \alpha\) strictement décroissante dans \( \eQ^+\). Le lemme \ref{LEMooQTNKooLVEytN} nous dit que l'ensemble de fonctions  \( \{ f_{\alpha_i}\colon \mathopen] 1 , \infty \mathclose[\to R \}_{i\in \eN}\) est équicontinu. La convergence simple \( f_{\alpha_i}\to f_{\alpha}\) étant par définition, la proposition \ref{PROPooICNNooAMjcut} nous dit que la fonction \( f_{\alpha}\colon \mathopen] 1 , \infty \mathclose[\to \eR\) est continue.
-
-            Soit maintenant \( x\in \mathopen] 0 , 1 \mathclose]\). Il existe \( k\in \eN\) tel que \( kx>1\), \( k(x/2)>1\) et \( k^{\alpha}>1\) (si vous pensez bien, seule la première condition est utile).
-
-            Nous considérons \( \epsilon\) tel que \( x+\epsilon>x/2\); de toutes façons nous comptions faire \( \epsilon\to 0\). Nous avons :
-            \begin{equation}
-                \big| (x+\epsilon)^{\alpha}-x^{\alpha} \big|\leq k^{\alpha}\big| (x+\epsilon)^{\alpha}-x^{\alpha} \big|=\big| [k(x+\epsilon)]^{\alpha}-(kx)^{\alpha} \big|.
-            \end{equation}
-            Nous prenons le \( \delta\) qui correspond à \( \epsilon\) en \( kx\) dans la continuité de \( f_{\alpha}\) déjà démontée pour \( kx>1\). Alors si \( \epsilon<\delta\) nous avons
-            \begin{equation}
-                \big| (x+\epsilon)^{\alpha}-x^{\alpha} \big|\leq\epsilon.
-            \end{equation}
-        \item[Pour \( \alpha\in \eR^{-}\)]
-
-            Si \( \alpha>0\), la fonction \( f_{-\alpha}\) est donnée par
-            \begin{equation}
-                f_{-\alpha}(x)=\frac{1}{  f_{\alpha}(x) }
-            \end{equation}
-            et est donc continue (sauf en \( x=0\) où elle n'existe pas).
-    \end{subproof}
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]     \label{PROPooDWZKooNwXsdV}
-    Soient \( a>0\) ainsi que \( x,y\in \eR\). Alors
-    \begin{equation}
-        (a^x)^y=(a^y)^x=a^{xy}.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Nous découpons en fonction de la nature de \( x\) et \( y\). 
-
-    \begin{subproof}
-        \item[\( x\) rationnel, \( y\) naturel]
-            Si \( q\in \eQ\) et \( n\in \eN\) alors la formule
-            \begin{equation}
-                (a^q)^n=a^{nq}
-            \end{equation}
-            découle seulement d'une récurrence sur la formule \ref{EQooEWIHooDRAQGR}.
-
-        \item[ \( x,y\in \eQ\)]
-            Soient \( y=m/n\) avec \( n\in \eZ\), \( m\in \eN\) et \( q\in \eQ\). Nous avons, en utilisant la partie déjà démontrée et le lemme \ref{LEMooIDLJooZALNaD},
-            \begin{equation}
-                (a^q)^{p}=(a)^{m/n}=\big( (a^q)^m \big)^{1/n}=(a^{mq})^{1/n}=a^{mq/n}=a^{pq}.
-            \end{equation}
-        \item[\( x,y\) irrationnels]
-
-            Soient des suites des rationnels \( x_i\to x\) et \( y_i\to y\). En utilisant les définitions,
-            \begin{equation}        \label{EQooXITUooHYNSPU}
-                (a^x)^y=\lim_i(a^x)^{y_i}=\lim_i\big( \lim_j a^{x_j} \big)^{y_i}.
-            \end{equation}
-            Fixons un \(i\) pour commencer. Nous avons, par la continuité de \( f_{y_i}\) (proposition \ref{PROPooUQNZooSSHLqr})
-            \begin{equation}
-                \big( \lim_ja^{x_j} \big)^{y_i}=f_{y_i}\big( \lim_ja^{x_j} \big)=\lim_j\big( f_{y_i}(a^{x_j}) \big)=\lim_ja^{x_jy_i}.
-            \end{equation}
-            Nous avons utilisé le résultats déjà démontré dans le cas des rationnels. La suite \( j\mapsto x_jy_i\) est une suite dans \( \eQ\) qui converge vers le réel \( xy_i\), donc la limite sur \( j\) redonne la fonction puissance :
-            \begin{equation}        \label{EQooWORSooFoRBod}
-                \big( \lim_ja^{x_j} \big)^{y_i}=\lim_ja^{x_jy_i}=a^{xy_i}.
-            \end{equation}
-            Le résultat découle maintenant de la prise de limite dans \eqref{EQooXITUooHYNSPU} qui revient à prendre la limite \( i\to \infty\) de l'expression dans \eqref{EQooWORSooFoRBod} :
-            \begin{equation}
-                (a^x)^y=\lim_i\big( \lim_j a^{x_j} \big)^{y_i}=\lim_ia^{xy_i}=a^{xy}.
-            \end{equation}
-    \end{subproof}
-\end{proof}
-
-Le lemme suivant montre en gros que \( x^y\) croît plus rapidement en \( y\) qu'en \( x\). 
-\begin{lemma}       \label{LemLJOSooEiNtTs}
-     Pour tout \( \alpha>0\) et \( a<1\) nous avons la limite
-     \begin{equation}
-         \lim_{n\to \infty} n^{\alpha}a^n=0
-     \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Soit \( k\in \eN\) plus grand que \( \alpha\).
-    Soit la suite numérique \( s_n=n^ka^n\). Tous ses termes sont positifs et
-    \begin{equation}
-        \frac{ s_n }{ s_{n+1} }=\left( \frac{ n }{ n+1 } \right)^k\frac{1}{ a }.
-    \end{equation}
-    Étant donné que \( n/n+1\to 1\) et que \( a<1\), il existe un certain rang à partir duquel la suite \( (s_n)\) est décroissante. Deux conclusions :
-    \begin{itemize}
-        \item Elle est majorée par une constante \( M\).
-        \item Elle est convergente par le lemme~\ref{LemSuiteCrBorncv}.
-    \end{itemize}
-    Soit \( l\) tel que \( ka^l<1\) et \( n>l\) alors
-    \begin{equation}
-        s_{n+l}=(n+l)^ka^{n+l}\leq kn^ka^na^l=ka^ls_n\leq ka^lM.
-    \end{equation}
-    La majoration est due au fait que dans \( (n+l)^k\) nous avons \( k\) termes tous plus petits que \( n^k\). De la même façon,
-    \begin{equation}
-        s_{2n+2l}\leq ka^{2l}s_{2n}\leq ka^{2l}M.
-    \end{equation}
-    En posant \( \varphi(i)=in+il\) nous avons
-    \begin{equation}
-        s_{\varphi(i)}\leq ka^iM,
-    \end{equation}
-    qui est une sous-suite convergente vers \( 0\). Or si une suite est convergente (ce qui est le cas de \( (s_n)\)), toutes les sous-suites convergent vers la même limite. Nous en concluons que \( s_n\to 0\).
-\end{proof}
-
-\begin{normaltext}
-    Une conséquence est que si vous voulez choisir un mot de passe fort, la longueur du mot est plus importante que la taille de l'alphabet choisit : il est plus efficace de choisir une combinaison longue qu'une combinaisons mélangeant des lettres, chiffres et symboles spéciaux.
-    
-    Exemple : si vous choisissez un mot de passe contenant majuscules, minuscules, chiffres et symboles spéciaux complètement mélangés (ne mentez pas, vous ne le faites pas), mais que vous ne le choisissez que de taille \( 6\), vous avez \( 72^6\) possibilités (en supposant un jeu de 10 symboles spéciaux).
-
-    Eh bien, en seulement \( 8\) lettres minuscules, vous avez plus de possibilités : \( 26^8>72^6\).
-\end{normaltext}
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{La fonction puissance : remarques pour la suite}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Il y a encore de nombreuses choses à dire sur la fonction puissance. Pour savoir lesquelles, voir le thème \ref{THEMEooBSBLooWcaQnR}.
 

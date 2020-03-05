@@ -1,33 +1,67 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2014,2018
+% Copyright (c) 2011-2014,2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
-Ce chapitre provient principalement de \cite{Combes}.
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Vecteurs agissant sur un espace}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{definition}
-    Soit \( E\), un espace vectoriel. Un \defe{espace affine modelé sur}{affine!espace} \( E\) est un ensemble \( \affE\) sur lequel le groupe \( (E,+)\) agit à droite transitivement et librement.
+    Soit \( E\), un espace vectoriel. Un \defe{espace affine modelé sur}{affine!espace} \( E\) est un ensemble \( \affE\) sur lequel le groupe \( (E,+)\) agit à droite transitivement et librement\footnote{Définition \ref{DEFooQDHPooCfDEuL}.}.
 \end{definition}
 
 Étant donné que \( E\) est un groupe commutatif, l'action peut être vue indifféremment à gauche ou à droite. Si \( M\in\affE\) et si \( x\in E\) nous notons \( M+x\) au lieu de \( x\cdot M\) le résultat de l'action de \( x\) sur \( M\).
 
 \begin{normaltext}      \label{NORMooZANAooQdXqlh}
     Lorsque nous écrivons «\( M+x\)», le symbole plus n'est pas une loi de composition interne de \( \affE\), mais une action.
-
-    Soient \( N,M\in\affE\). Par liberté et transitivité de l'action, il existe un unique \( x\in E\) tel que \( M+x=N\). Ce vecteur \( x\) sera noté \( \vect{ MN }\).
 \end{normaltext}
 
+\begin{propositionDef}      \label{DEFooWAYTooMLbqEE}
+    Soient \( N,M\in\affE\). Il existe un unique \( x\in E\) tel que \( M+x=N\). 
+
+    Nous noterons \( \vect{ MN }\) ce vecteur.
+\end{propositionDef}
+
+\begin{proof}
+    La transitivité de l'action assure l'existence et la liberté assure l'unicité.
+\end{proof}
+
 \begin{proposition}     \label{PROPooCOZCooCghwaR}
-    Si \( A,B,C\in\affE\) nous avons les égalités suivantes dans \( E\) :
+    Soit un espace affine \( \affE\) modelé sur l'espace vectoriel \( E\). Soient \( A,B,C\in \affE\). Nous avons les égalités suivantes dans \( E\) :
     \begin{enumerate}
         \item   \label{ITEMooSDMIooUQiKeW}
             \( \vect{ AB }+\vect{ BC }=\vect{ AC }\) (relations de Chasles)\index{relations!de Chasles}\index{Chasles},
-        \item
+        \item   \label{ITEMooWZAVooGfGBwd}
             \( \vect{ AA }=0\),
-        \item
+        \item   \label{ITEMooLDVXooFZMbsQ}
             \( \vect{ BA }=-\vect{ AB }\).
     \end{enumerate}
 \end{proposition}
+
+\begin{proof}
+    Point par point.
+    \begin{subproof}
+        \item[Pour \ref{ITEMooSDMIooUQiKeW}]
+            Nous avons, par définition \ref{DEFooWAYTooMLbqEE} les égalités
+            \begin{subequations}
+                \begin{numcases}{}
+                    C=A+\vect{ AC }\\
+                    B=A+\vect{ AB }\\
+                    C=B+\vect{ BC }
+                \end{numcases}
+            \end{subequations}
+            En substituant les deux premières dans la troisième, nous trouvons \( A+\vect{ AB }+\vect{ BC }=A+\vect{ AC }\). Par liberté de l'action, nous pouvons «simplifier» par \( A\) et trouver la relation de Chasles.
+        \item[Pour \ref{ITEMooWZAVooGfGBwd}]
+            Nous avons \( A+\vect{ AA }=A\), mais aussi \( A+0=A\). Par unicité nous avons \( \vect{ AA }=0\).
+        \item[Pour \ref{ITEMooLDVXooFZMbsQ}]
+            Nous avons \( B+\vect{ BA }=A\) et \( A+\vect{ AB }=B\). En mettant bout à bout,
+            \begin{equation}
+                B+\vect{ BA }+\vect{ AB }=B.
+            \end{equation}
+            Donc \( \vect{ BA }+\vect{ AB }=0\).
+    \end{subproof}
+\end{proof}
 
 \begin{normaltext}      \label{NORMooXAJLooIupekj}
     Si \( E\) est un espace vectoriel, le groupe \( (E,+)\) agit sur \( E\) par l'action \( t_y(x)=y+x\). Utilisant cette action nous construisons l'\defe{espace affine canonique}{canonique!espace affine} de \( E\). En particulier nous notons \( \affE_n(\eK)\) l'espace affine canonique de \( \eK^n\) vu comme espace vectoriel sur \( \eK\).
@@ -42,40 +76,32 @@ Ce chapitre provient principalement de \cite{Combes}.
 \end{normaltext}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Repères affines}
+\section{Repères cartésiens affines}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Soit \( E\) un \( \eK\)-espace vectoriel de dimension \( n\) et \( \affE\) un espace affine construit sur \( E\).
 \begin{definition}      \label{DEFooQELZooEXvxgw}
     Un multiplet \( (A,e_1,\ldots, e_n)\) où \( A\) est un point de \( \affE\) et \( \{ e_i \}\) est une base de \( E\) est un \defe{repère cartésien}{repère!cartésien!espace affine} de \( \affE\).
+
+    Nous disons que \( \{ e_i \}\) est la \defe{base associée}{base associée à un repère cartésien} au repère.
 \end{definition}
-Un tel repère donne une bijection
+
+\begin{proposition}
+    Si \( \affE\) est un espace affine modelé sur l'espace vectoriel \( E\) de dimension \( n\) sur le corps \( \eK\), et si \(  \big( A,\{ e_i \}_{i=1,\ldots, n} \big)\) est un repère cartésien, alors
 \begin{equation}
     \begin{aligned}
         \phi\colon \eK^n&\to \affE \\
         (x_1,\ldots, x_n)&\mapsto A+\sum_ix_ie_i.
     \end{aligned}
 \end{equation}
+est une bijection.
+
 Ces nombres \( x_i\) sont les \defe{coordonnées}{coordonnées!dans un espace affine} du point \( A+\sum_ix_ie_i\) dans le repère \( (A,e_i)\).
+\end{proposition}
 
-Soient \( (A,e_i)\) et \( (A',e'_i)\) deux repères cartésiens pour l'espace affine \( \affE\). Soit \( (a_{ij})\) la matrice de changement de base entre \( \{ e_i \}\) et \( \{ e'_i \}\) dans \( E\). Nous voudrions trouver les \( x_i\) en termes des \( x'_i\).
-
-Pour cela nous considérons un point \( M\) dans \( \affE\) et nous l'écrivons dans les deux bases. Cela fournit l'égalité
-\begin{equation}        \label{EqcYfuMg}
-    A+\sum_ix_ie_i=A'+\sum_ix'_ie'_i.
-\end{equation}
-Nous considérons les coordonnées \( (a_i)\) de \( A'\) dans le repère \( (A,e_i)\), c'est à dire
-\begin{equation}    \label{EqZNwPHE}
-    A'=A+\sum_ia_ie_i.
-\end{equation}
-En substituant \( e'_i=\sum_ka_{jk}e_k\) et \eqref{EqZNwPHE} dans \eqref{EqcYfuMg} nous trouvons
-\begin{equation}
-    \sum_kx_ke_k=\sum_ka_ke_k+\sum_{jk}a_{jk}x'_je_k,
-\end{equation}
-et par conséquent
-\begin{equation}
-    x_k=a_k+\sum_ja_{jk}x'_j.
-\end{equation}
+\begin{proof}
+    L'application \( \varphi\) est surjective parce que l'action de \( E\) sur \( \affE\) est transitive et injective parce que l'action est libre.
+\end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Classification affine des conique}
@@ -106,7 +132,7 @@ peut nous amener dans trois cas :
 \end{equation}
 Dans le troisième cas, la matrice de \( q\) est de rang \( 1\).
 
-Nous cherchons maintenant à savoir si un point \( I=(x_0,y_0)\) est un centre de symétrie de \( f(x,y)=0\). Pour cela nous choisissons le repère centré en \( I\), c'est à dire que nous posons
+Nous cherchons maintenant à savoir si un point \( I=(x_0,y_0)\) est un centre de symétrie de \( f(x,y)=0\). Pour cela nous choisissons le repère centré en \( I\), c'est-à-dire que nous posons
 \begin{subequations}
     \begin{numcases}{}
         x=x_0+\tilde x\\
@@ -117,7 +143,7 @@ Un peu de calcul montre qu'alors la conique s'écrit
 \begin{equation}
     f(x_0,y_0)+q(\tilde x,\tilde y)+(2ax_0+2by_0+2d)\tilde x+(2bx_0+2cy_0+2e)\tilde y=0.
 \end{equation}
-Le point \( I\) sera un centre de symétrique si les termes linéaires en \( \tilde x\) et \( \tilde y\) s'annulent, c'est à dire si
+Le point \( I\) sera un centre de symétrique si les termes linéaires en \( \tilde x\) et \( \tilde y\) s'annulent, c'est-à-dire si
 \begin{subequations}        \label{SyskhiOvW}
     \begin{numcases}{}
         ax_0+by_0+d=0\\
@@ -151,7 +177,7 @@ Si le déterminant du système est nul, il y a soit pas de centre de symétrie, 
             x_0-y_0+1=0,
         \end{numcases}
     \end{subequations}
-    dont l'unique solution est \( (x_0,y_0)=(1,2)\). Nous considérons le repère centré en \( (x_0,y_0)\), c'est à dire le repère
+    dont l'unique solution est \( (x_0,y_0)=(1,2)\). Nous considérons le repère centré en \( (x_0,y_0)\), c'est-à-dire le repère
     \begin{equation}
         R'=(I,\{ e_i \})
     \end{equation}
@@ -161,7 +187,7 @@ Si le déterminant du système est nul, il y a soit pas de centre de symétrie, 
     \begin{equation}
         f(x_0,y_0)+q(\tilde x,\tilde y)=0,
     \end{equation}
-    c'est à dire
+    c'est-à-dire
     \begin{equation}
         \tilde x^2+2\tilde x\tilde y-\tilde y^2=0.
     \end{equation}
@@ -220,37 +246,66 @@ Si le déterminant du système est nul, il y a soit pas de centre de symétrie, 
 \section{Applications affines}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+La définition \ref{DEFooVTXWooVXfUnc} donnait déjà la définition d'une application affine entre deux espaces vectoriels. Voici maintenant le pendant entre deux espaces affines.
 \begin{definition}      \label{DEFooUAWZooXcMKve}
     Soient \( \affE\) et \( \affE'\) deux espaces affines sur les espaces vectoriels \( E\) et \( E'\) (sur le même corps \( \eK\)). Une application \( f\colon \affE\to \affE'\) est dite \defe{affine}{affine!application} si pour tout \( M\in \affE\), il existe une application linéaire \( u_M\colon E\to E'\) telle que
     \begin{equation}    \label{EqMqIoWX}
-        f(M+x)=f(M)+u(x)
+        f(M+x)=f(M)+u_M(x)
     \end{equation}
     pour tout \( x\in E\).
 \end{definition}
 
-\begin{lemma}       \label{LEMooYJCDooOGAHkF}
-    Si \( f\) est affine, l'application linéaire \( u_M\) ne dépend pas de \( M\) et peut donc être notée \( u_f\) sans préciser le point.
-\end{lemma}
+La définition suivante permet de décomposer une application affine en une partie linéaire et une translation. À partir de là, la proposition \ref{PROPooBPKKooJRAMeT} nous donnera une structure de groupe sur \( \Aff(\eR^n)\).
+
+\begin{lemmaDef}[\cite{MonCerveau}]       \label{LEMooYJCDooOGAHkF}
+    Soient \( \affE\) et \( \affE'\) deux espaces affines sur les espaces vectoriels \( E\) et \( E'\) (sur le même corps \( \eK\)). Nous considérons une application affine \( f\colon \affE\to \affE'\).
+
+    Il existe une unique application linéaire \( u\colon E\to E'\) telle que
+    \begin{equation}
+        f(M+x)=f(M)+u(x)
+    \end{equation}
+    pour tout \( x\in E\) et pour tout \( M\in \affE\).
+
+    Cette application linéaire est appelée \defe{partie linéaire}{partie linéaire} de \( f\). Pour varier les notations, nous noterons souvent \( f=\alpha\circ\tau_v\) pour une application linéaire \( \alpha\) et la translation \( \tau_v\) de vecteur \( v\).
+\end{lemmaDef}
 
 \begin{proof}
-    Posons
-    \begin{subequations}
-        \begin{align}
-            f(M+x)&=f(M)+u_M(x)\\
-            f(N+y)&=f(N)+u_N(y).
-        \end{align}
-    \end{subequations}
-    Définissons \( a\in E\) par \( N=M+a\); nous avons d'une part que
-    \begin{equation}
-        f(N+y)=f(M+y+a)=f(M)+u_M(y+a),
-    \end{equation}
-    et d'autre part
-    \begin{equation}
-        f(N+y)=f(M+a)+u_N(y)=f(M)+u_M(a)+u_N(y).
-    \end{equation}
-    Par conséquent \( u_M(y+a)=u_M(a)+u_N(y)\). Par linéarité \( u_N=u_M\).
+    En plusieurs coups.
+    \begin{subproof}
+        \item[Unicité]
+            Supposons que \( u_1\) et \( u_2\) vérifient la propriété, alors pour tout \( x\in E\) et tout \( M\in \affE\) nous avons \( f(M+x)=f(M)+u_1(x)\) et \( f(M+x)=f(M)+u_2(x)\). Cela suffit à nous convaincre que \( u_1=u_2\).
+        \item[\( u_M=u_N\)]
+            Avant de prouver l'existence, nous considérons \( M,N\in \affE\) et les applications linéaires \( u_M\) et \( u_N\) vérifiant l'équation \eqref{EqMqIoWX} pour \( M\) et \( N\) respectivement. Prouvons que \( u_M=u_N\).
+
+            Posons
+            \begin{subequations}
+                \begin{align}
+                    f(M+x)&=f(M)+u_M(x)\\
+                    f(N+y)&=f(N)+u_N(y).
+                \end{align}
+            \end{subequations}
+            Définissons \( a\in E\) par \( N=M+a\); nous avons d'une part que
+            \begin{equation}
+                f(N+y)=f(M+y+a)=f(M)+u_M(y+a),
+            \end{equation}
+            et d'autre part
+            \begin{equation}
+                f(N+y)=f(M+a)+u_N(y)=f(M)+u_M(a)+u_N(y).
+            \end{equation}
+            Par conséquent \( u_M(y+a)=u_M(a)+u_N(y)\). Par linéarité \( u_N=u_M\).
+        \item[Existence]
+            Soit \( M\in \affE\). Nous affirmons que \( u_M\) fait l'affaire. En effet, soient \( N\in \affE\) et \( x\in E\). Vu que \( u_M=u_N\) nous avons
+            \begin{equation}
+                f(N+x)=f(M)+u_N(x)=f(M)+u_M(x).
+            \end{equation}
+            Donc effectivement \( u_M\) peut être utilisé en tout point de \( \affE\).
+  \end{subproof}
 \end{proof}
 Ce lemme est important car il permet de démonter qu'une application est affine en prouvant la linéarité des \( u_M\) séparément sans devoir prouver qu'elles sont égales.
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Autres propriétés}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{lemma}[\cite{MonCerveau}]       \label{LEMooXXTPooKYFGGM}
     Soient \( M\in \affE\) et \( A,B\in \affE\) deux points donnés par \( A=M+x_a\), \( B=M+x_b\). Soit encore une application affine \( f\) sur \( \affE\). Alors
@@ -294,11 +349,17 @@ Ce lemme est important car il permet de démonter qu'une application est affine 
     Si de plus les espaces \( \affE\) et \( \affE'\) ont même dimension finie, alors \( f\) est injective si et seulement si \( f\) est surjective.
 \end{proposition}
 
-\begin{normaltext}  \label{NORMooMWEEooOTUQNB}
-En posant \( M=0\) dans la condition \eqref{EqMqIoWX}, si \( f\) est une application affine il existe une application linéaire \( \alpha\) et un vecteur \( v\) tel que \( f=\tau_v\circ \alpha\).
-\end{normaltext}
+\begin{proof}
+    La partie \ref{ITEMooSKCYooHyRZYN} est le lemme \ref{LEMooYJCDooOGAHkF}.
+\end{proof}
 
+\begin{example}     \label{EXooAGINooYmvPML}
+    L'espace \( \eR^n\) est très particulier parce qu'il agit sur lui-même; il est donc un espace affine à lui tout seul : \( \affE=E=\eR^n\).
 
+    Dans le cas de \( \eR^n\), en posant \( M=0\) dans la condition \eqref{EqMqIoWX}, si \( f\) est une application affine il existe une application linéaire \( \alpha\) et un vecteur \( v\) tel que \( f=\tau_v\circ \alpha\).
+
+    Notons que ça n'a pas de sens de poser \( M=0\), et la décomposition \( f=\tau_v\circ \alpha\) n'a aucun sens en général. En particulier, nous ne pouvons pas appliquer une application linéaire à un élément d'un espace affine général.
+\end{example}
 
 \begin{proposition}
     Si \( f\colon \affE\to \affE'\) et \( g\colon \affE\to \affE''\) sont des applications affines, alors \( g\circ f\colon \affE\to \affE''\) est affine et \( u_{g\circ f}=u_g\circ u_f\).
@@ -428,9 +489,12 @@ Le sous-espace affine donné par la proposition~\ref{PropomhBwi} est le sous-esp
     Autrement dit, une partie est convexe lorsqu'elle contient tous les segments joignant ses points.
 \end{definition}
 
-\begin{example}     \label{EXooKZAOooVZtAhX}
+\begin{proposition}     \label{PROPooUQLUooDQfYLT}
     Soit un espace vectoriel normé\footnote{Définition \ref{DefNorme}.} \( (V,\| . \|)\). Pour tout \( a\in V\) et \( r>0\), la boule \( B(a,r)\) est convexe. La boule fermée \( \overline{ B(a,r) }\) également.
+\end{proposition}
 
+\begin{proof}
+    En deux parties.
     \begin{subproof}
         \item[La boule centrée en zéro]
             Soient \( x,y\in B(0,r)\) et \( \lambda\in\mathopen] 0 , 1 \mathclose[\). Alors
@@ -453,7 +517,7 @@ Le sous-espace affine donné par la proposition~\ref{PropomhBwi} est le sous-esp
                 \end{equation}
                 ce qui signifie que \( \lambda x+(1-\lambda)y\in B(a,r)\).
     \end{subproof}
-\end{example}
+\end{proof}
 
 \begin{proposition}     \label{PropPoNpPz}
     Soit \( A\) un ensemble convexe\footnote{Définition \ref{DEFooQQEOooAFKbcQ}.} dans un espace vectoriel et \( v_1,\ldots, v_n\) des éléments de \( A\). Alors toute combinaison
@@ -676,7 +740,7 @@ L'enveloppe convexe est un convexe. En effet soit \( C\) un convexe contenant \(
     de masse totale non nulle; et en vous laissant deviner ce que va désigner \( A_{r-1}\). Si une des masses est nulle (disons \( \lambda_r\)), alors le barycentre de \( A_r\) est le même que celui de \( A_{r-1}\) et l'hypothèse de récurrence nous enseigne que ledit barycentre est dans \( C\). Nous supposons donc que \( \lambda_i\neq 0\) pour tout \( i\). Dans ce cas le théorème d'associativité des barycentres~\ref{PropSFvjFZb} dit que le barycentre de \( A_r\) est le barycentre entre le barycentre de \( A_{r-1}\) et \( (a_r,\lambda_r)\), qui sont deux points de \( C\) par hypothèse de récurrence.
 \end{proof}
 
-Si \( E\) est un espace vectoriel et si \( x_i\in E\) et \( \lambda_i\in \eR\), alors le barycentre des couples \( (x_i,\lambda_i)\) est le point \( g\) tel que \( \sum_i\lambda_i\vect{ gx_i }\), c'est à dire \( \sum_i\lambda_i(x_i-g)=0\) ou encore
+Si \( E\) est un espace vectoriel et si \( x_i\in E\) et \( \lambda_i\in \eR\), alors le barycentre des couples \( (x_i,\lambda_i)\) est le point \( g\) tel que \( \sum_i\lambda_i\vect{ gx_i }\), c'est-à-dire \( \sum_i\lambda_i(x_i-g)=0\) ou encore
 \begin{equation}
     \sum_i\lambda_ix_i=\sum_i\lambda_ig.
 \end{equation}
@@ -692,7 +756,7 @@ Donc quitte à diviser tous les \( \lambda_i\) par la somme, nous pouvons suppos
 \begin{proof}
     Nous notons \( \mB\) l'ensemble des dits barycentres. Par la proposition~\ref{PropSVvAQzi}, ces barycentres sont dans l'enveloppe convexe et donc \( \mB\subset\Conv(A)\). A contrario, si nous prouvons que \( \mB\) était convexe, alors nous aurions \( \Conv(A)\subset\mB\) parce que l'enveloppe convexe est l'intersection des convexes contenant $A$.
 
-    Soient \( a,b\in\mB\), c'est à dire que l'on a \( a_0,\ldots, a_n\) et \( b_0,\ldots, b_m\) dans \( A\) ainsi que les nombres strictement positifs \( \lambda_0,\ldots, \lambda_n\) et \( \mu_0,\ldots, \mu_m\) tels que
+    Soient \( a,b\in\mB\), c'est-à-dire que l'on a \( a_0,\ldots, a_n\) et \( b_0,\ldots, b_m\) dans \( A\) ainsi que les nombres strictement positifs \( \lambda_0,\ldots, \lambda_n\) et \( \mu_0,\ldots, \mu_m\) tels que
     \begin{subequations}
         \begin{align}
             a&=\sum_i\lambda_ia_i       & \sum_{i=1}^n\lambda_i&=1\\
@@ -724,7 +788,7 @@ Donc quitte à diviser tous les \( \lambda_i\) par la somme, nous pouvons suppos
     \end{equation}
     avec \( \sum_k\lambda_k=1\). Nous supposons que \( p>n+1\) (sinon le théorème est réglé), et nous allons faire une récurrence à l'envers en montrant qu'on peut aussi écrire \( x\) sous forme d'un barycentre de strictement moins de \( p\) points.
 
-    Étant donné que \( p-1>n\), la famille \( \{ x+i-x_1 \}_{i=2,\ldots, p}\) est liée et il existe donc \( \alpha_1,\ldots, \alpha_p\in \eR\) tels que \( \sum_{i=2}^p\alpha_i(x_i-x_1)=0\), c'est à dire telle que
+    Étant donné que \( p-1>n\), la famille \( \{ x+i-x_1 \}_{i=2,\ldots, p}\) est liée et il existe donc \( \alpha_1,\ldots, \alpha_p\in \eR\) tels que \( \sum_{i=2}^p\alpha_i(x_i-x_1)=0\), c'est-à-dire telle que
     \begin{equation}
         \sum_{i=2}^p\alpha_ix_i=\sum_{i=2}^p\alpha_ix_1.
     \end{equation}
@@ -816,7 +880,7 @@ Notons que sans le théorème de Carathéodory, peut être que le nombre de poin
 
         \item[Si \( f\) conserve les barycentres]
 
-            Nous définissons \( u\) par \( f(O+x)=f(O)+u(x)\). A priori, ce \( u\) dépend de \( O\) et n'est pas linéaire.
+            Nous définissons \( u\) par \( f(O+x)=f(O)+u(x)\). À priori, ce \( u\) dépend de \( O\) et n'est pas linéaire.
             \begin{subproof}
             \item[\( u\) est linéaire]
 
@@ -899,27 +963,70 @@ Les nombres \( \lambda_i\) ainsi construits sont les \defe{coordonnées cartési
     M=A_0+\sum_{i=1}^n\lambda_i\overrightarrow{ A_0A_i }.
 \end{equation}
 
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooIXVBooPpKsDE}
+    La paire \( \big( O,\{ e_1,\ldots, e_n \} \big)\) est un repère cartésien de \( \affE\) si et seulement si \( \{ O,O+e_1,\ldots, O+e_n \}\) est un repère affine.
+\end{proposition}
+
+\begin{proof}
+    En deux parties.
+    \begin{subproof}
+        \item[Sens direct]
+            Vue la proposition \ref{PropGAneHg}, il suffit de prouver que les vecteurs $\overrightarrow{O(O+e_i)}$ sont linéairement indépendants. Mais \( \overrightarrow{O(O+e_i)}=e_i\), donc oui, ils sont linéairement indépendants.
+        \item[Sens inverse]
+            Il s'agit d'utiliser la même proposition \ref{PropGAneHg} qui est encore fonctionnelle parce qu'elle est une équivalence.
+    \end{subproof}
+\end{proof}
+
+Soient \( (A,e_i)\) et \( (A',e'_i)\) deux repères cartésiens pour l'espace affine \( \affE\). Soit \( (a_{ij})\) la matrice de changement de base entre \( \{ e_i \}\) et \( \{ e'_i \}\) dans \( E\). Nous voudrions trouver les \( x_i\) en termes des \( x'_i\).
+
+Pour cela nous considérons un point \( M\) dans \( \affE\) et nous l'écrivons dans les deux bases. Cela fournit l'égalité
+\begin{equation}        \label{EqcYfuMg}
+    A+\sum_ix_ie_i=A'+\sum_ix'_ie'_i.
+\end{equation}
+Nous considérons les coordonnées \( (a_i)\) de \( A'\) dans le repère \( (A,e_i)\), c'est-à-dire
+\begin{equation}    \label{EqZNwPHE}
+    A'=A+\sum_ia_ie_i.
+\end{equation}
+En substituant \( e'_i=\sum_ka_{jk}e_k\) et \eqref{EqZNwPHE} dans \eqref{EqcYfuMg} nous trouvons
+\begin{equation}
+    \sum_kx_ke_k=\sum_ka_ke_k+\sum_{jk}a_{jk}x'_je_k,
+\end{equation}
+et par conséquent
+\begin{equation}
+    x_k=a_k+\sum_ja_{jk}x'_j.
+\end{equation}
+
 Les coordonnées barycentriques sont données par la proposition suivante.
 \begin{proposition}[\cite{sZiwBQ}]      \label{PROPooTIRXooLAipRa}
-    Soient \( A_0,\ldots, A_r\) des points affinement indépendants dans \( \affE\) et \( \affF=\Aff\{ A_0,\ldots, A_r \}\). Tout point \( M\in\affF\) s'écrit de façon unique comme barycentre des \( A_i\) affectés de poids \( \lambda_i\) tels que \( \sum_{i=0}^r\lambda_i=1\).
+    Soient \( A_0,\ldots, A_r\) des points affinement indépendants dans \( \affE\) et \( \affF=\Aff\{ A_0,\ldots, A_r \}\). Tout point \( M\in\affF\) s'écrit de façon unique comme barycentre\footnote{Définition \ref{LemtEwnSH}.} des \( A_i\) affectés de poids \( \lambda_i\) tels que \( \sum_{i=0}^r\lambda_i=1\).
 \end{proposition}
-Les nombres \( \lambda_i\) ainsi définis sont les \defe{coordonnées barycentriques}{coordonnées!barycentriques} de \( M\) dans le repère \( (A_0,\ldots, A_r)\) de \( \affF\).
 
 \begin{proof}
     Nous avons vu plus haut (définition~\ref{DefguuwEO}) que l'affine indépendance des points \( A_i\) assurait que \( (A_0,\ldots, A_r)\) était un repère de \( \affF\).
 
-    En ce qui concerne l'existence de l'écriture de \( M\) comme barycentre, nous savons que les sous-espace affine sont exactement les ensembles de barycentres (proposition~\ref{PropBVbCOS}), c'est à dire que si on a des points dans un sous-espace affine, alors les barycentres de ces points est encore dans le sous-espace affine.
+    En ce qui concerne l'existence de l'écriture de \( M\) comme barycentre, nous savons que les sous-espace affine sont exactement les ensembles de barycentres (proposition~\ref{PropBVbCOS}), c'est-à-dire que si on a des points dans un sous-espace affine, alors les barycentres de ces points est encore dans le sous-espace affine.
 
     L'unicité est comme suit. Si \( M\) est barycentre des \( A_i\) avec poids \( \lambda_i\), nous écrivons la caractérisation~\ref{ItemEgOQBX} du théorème~\ref{ThoIJVzxr} avec \( B=A_0\) :
     \begin{equation}
         \overrightarrow{ A_0M }=\sum_{i=1}^r\lambda_i\overrightarrow{ A_0A_i }
     \end{equation}
-    où la somme à droite s'étend a priori de \( 0\) à \( r\), mais comme \( \overrightarrow{ A_0A_0 }=0\), nous l'avons limitée à \( 1\). Si \( M\) s'écrit comme barycentre de deux façons différentes, nous aurions
+    où la somme à droite s'étend à priori de \( 0\) à \( r\), mais comme \( \overrightarrow{ A_0A_0 }=0\), nous l'avons limitée à \( 1\). Si \( M\) s'écrit comme barycentre de deux façons différentes, nous aurions
     \begin{equation}
         \overrightarrow{ A_0M }=\sum_{i=1}^r\lambda_i\overrightarrow{ A_0A_i }=\sum_{i=1}^r\mu_i\overrightarrow{ A_0A_i }
     \end{equation}
     avec \( \sum_i\lambda_i=\sum_i\mu_i=1\). Étant donné que les points \( A_0,\ldots, A_r\) forment un repère, les vecteurs \( \overrightarrow{ A_0A_i }\) sont linéairement indépendants (point~\ref{ItemFBfcuq} de la proposition~\ref{PropGAneHg}) et donc \( \lambda_i=\mu_i\) pour \( i=1,\ldots, r\). La condition de somme des points égale à \( 1\) impose alors immédiatement \( \lambda_0=\mu_0\).
 \end{proof}
+
+\begin{definition}
+    Soit un espace affine \( \affE\) de dimension \( n\). Soient des points affinement indépendants \( A_1,\ldots, A_n \). Pour \( M\in\affE\), la proposition \ref{PROPooTIRXooLAipRa} indique qu'il existe un unique choix de \( \lambda_i\) tel que
+    \begin{subequations}
+        \begin{numcases}{}
+            \sum_i\lambda_i=1\\
+            \sum_i\lambda_i \overrightarrow{MA_i}=0.
+        \end{numcases}
+    \end{subequations}
+    Ces \( \lambda_i\) sont les \defe{coordonnées barycentriques}{coordonnées barycentrique} de \( M\) dans le repère \( \{ A_i \}_{i=1,\ldots, n}\).
+\end{definition}
 
 \begin{normaltext}      \label{NORMooOGHBooMjmouu}
     Soit \( \eR^2\) et les points non alignés \( A\), \( B\), \( C\). Les coordonnées barycentriques \( (\alpha,\beta,\gamma)\) dans ce système correspondent à l'unique \( X\in \eR^2\) tel que
@@ -945,7 +1052,7 @@ Les nombres \( \lambda_i\) ainsi définis sont les \defe{coordonnées barycentri
     \begin{equation}
         \frac{1}{ 6 }\overrightarrow{ AX }+\frac{1}{ 3 }\overrightarrow{ BX }+\frac{1}{ 2 }\overrightarrow{ CX }=0,
     \end{equation}
-    c'est à dire
+    c'est-à-dire
     \begin{equation}
         \frac{1}{ 6 }\begin{pmatrix}
             x-3    \\
@@ -964,19 +1071,32 @@ Les nombres \( \lambda_i\) ainsi définis sont les \defe{coordonnées barycentri
     \end{pmatrix}\).
 \end{example}
 
-\begin{lemma}       \label{LEMooDUMVooFtfFOe}
+\begin{lemma}[\cite{MonCerveau}]       \label{LEMooDUMVooFtfFOe}
     Une application affine \( f\colon \affE\to \affE\) qui préserve les points d'une base affine de $\affE$ est l'identité.
 \end{lemma}
 
 \begin{proof}
-    Une base affine de \( \affE\) consiste en \( n+1\) points \( \{ A_0,\ldots, A_n \}\) qui engendrent un espace de dimension \( n\). Tous point de \( \affE\) peut être écrit sous la forme \( \sum_i\lambda_iA_i\) avec \( \sum_i\lambda_i=1\) (proposition~\ref{PROPooTIRXooLAipRa}). Mézenplus, l'application affine \( f\) peut être écrite comme \( f=\tau_c\circ \alpha\) (ça c'est vu en~\ref{NORMooMWEEooOTUQNB}), et \( v=\sum_i\lambda_iv\), donc
+    Une base affine de \( \affE\) consiste en \( n+1\) points \( \{ A_0,\ldots, A_n \}\) affinement indépendants. Nous utilisons la proposition \ref{PROPooIXVBooPpKsDE} pour dire que \( \big( A_0, \{ \overrightarrow{A_0A_i} \}_{i=1,\ldots, n} \big)\) est un repère cartésien.
+    
+    En utilisant la formule du lemme \ref{LEMooYJCDooOGAHkF},
     \begin{equation}
-        f\big( \lambda_iA_i)=\sum_i\alpha(A_i)+v
-        =\sum_i\lambda_i\big( \alpha(A_i)+v \big)
-        =\sum_i\lambda_if(A_i)
-        =\sum_i\lambda_iA_i.
+        f(A_i)=f(A_0+\overrightarrow{A_0A_i})=f(A_0)+u(\overrightarrow{A_0A_i}).
     \end{equation}
-    Donc tout point de \( \affE\) est fixé par \( f\) est \( f\) est l'identité.
+    Donc $A_i=A_0+u(\overrightarrow{A_0A_i})$, ce qui signifie que
+    \begin{equation}        \label{EQooAJYWooBTucpp}
+        u(\overrightarrow{A_0A_i})=\overrightarrow{A_0A_i}
+    \end{equation}
+    
+    Par ailleurs, tout point \( M\)\footnote{Même les points qui ne s'appellent pas «\( M \)» en fait.} de \( \affE\) peut être écrit sous la forme
+    \begin{equation}
+        M=A_0+\sum_i\lambda_i\overrightarrow{A_0A_i}.
+    \end{equation}
+    En appliquant \( M\), et en utilisant \eqref{EQooAJYWooBTucpp},
+    \begin{equation}
+        f(M)=f(A_0)+\sum_i\lambda_iu(\overrightarrow{A_0A_i})=A_0+\sum_i\lambda_i\overrightarrow{A_0A_i}=M.
+    \end{equation}
+    
+    Donc tout point de \( \affE\) est fixé par \( f\), ce qui signifie que \( f\) est l'identité.
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1018,7 +1138,7 @@ Elles seront parallèles ou confondues si et seulement si \( d=0\).
 \end{lemma}
 
 \begin{proof}
-    Vues les définition de \( H\) et \( G\) nous avons
+    Vues les définitions de \( H\) et \( G\) nous avons
     \begin{subequations}
         \begin{align}
             \alpha\vect{ HA }+\beta\vect{ HB }&=0\\
@@ -1070,7 +1190,7 @@ Les coordonnées barycentriques dans un triangle (et plus généralement en fait
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Structure du groupe des applications affines}
+\section{Applications affines sur \( \eR^n\)}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Soit \( v\in \eR^n\); nous notons \( \tau_v\colon \eR^n\to \eR^n\) la translation donnée par \( \tau_v(x)=x+v\). Le groupe de toutes les translations de \( \eR^n\) est noté \( T(n)\) et est isomorphe au groupe abélien \( (\eR^n,+)\).
@@ -1079,7 +1199,15 @@ Nous avons déjà discuté de la structure d'un espace vectoriel (en particulier
 
 
 \begin{lemma}\label{LEMooZZAIooOMiayy}
-    Une application \( f\colon E\to E\) est affine si et seulement si il existe \( v\in E\) et une application linéaire \( \alpha\) sur \( E\) telle que \( f=\tau_v\circ\alpha\).
+    Décomposition d'une application affine.
+    \begin{enumerate}
+        \item       \label{ITEMooSJBFooYHURto}
+            Une application \( f\colon E\to E\) est affine si et seulement si il existe \( v\in E\) et une application linéaire \( \alpha\) sur \( E\) telle que \( f=\tau_v\circ\alpha\).
+        \item       \label{ITEMooPYEOooKIesYm}
+            Dans ce cas, le choix de \( (v,\alpha)\) est unique.
+        \item       \label{ITEMooHIAUooRxfTqx}
+            Si \( f\) est bijective, alors \( \alpha\) est bijective.
+    \end{enumerate}
 \end{lemma}
 
 \begin{proof}
@@ -1105,7 +1233,11 @@ Nous avons déjà discuté de la structure d'un espace vectoriel (en particulier
             \\&=(\tau_v\circ\alpha)(M)+\alpha(x)=f(M)+\alpha(x).
         \end{aligned}
     \end{equation}
-    Donc la fonction \( f\) vérifie la définition~\ref{DEFooUAWZooXcMKve}.
+    Donc la fonction \( f\) vérifie la définition~\ref{DEFooUAWZooXcMKve}. La partie \ref{ITEMooSJBFooYHURto} est prouvée.
+
+    Pour prouver l'unicité de la partie \ref{ITEMooPYEOooKIesYm}, nous supposons que \( \tau_v\circ\alpha=\tau_w\circ \alpha\). En appliquant cela à \( 0\) nous trouvons \( v=w\). Nous avons donc \( \tau_v\circ \alpha=\tau_v\circ\beta\). Comme \( \tau_v\) est inversible, nous en déduisons \( \alpha=\beta\).
+
+    Enfin le point \ref{ITEMooHIAUooRxfTqx} est relativement évident du fait que \( \tau_v\), elle, est surement bijective.
 \end{proof}
 
 \begin{corollary}       \label{CORooATCNooUwEPNI}
@@ -1139,26 +1271,68 @@ Nous avons déjà discuté de la structure d'un espace vectoriel (en particulier
             &=\tau_{x_0}\big( \ker(\beta) \big).
         \end{align}
     \end{subequations}
-    Mais comme \( \ker(\beta)\) est un sous-espace vectoriel, \( \beta^{-1}(v)\) est le translaté d'un sous-espace vectoriel, c'est à dire un sous-espace affine.
+    Mais comme \( \ker(\beta)\) est un sous-espace vectoriel, \( \beta^{-1}(v)\) est le translaté d'un sous-espace vectoriel, c'est-à-dire un sous-espace affine.
 \end{proof}
 
-\begin{definition}
-    Le groupe \( \Aff(\eR^n)\)\nomenclature[R]{\( \Aff(\eR^n)\)}{Le groupe des applications affines bijectives de \( \eR^n\).} est le groupe des applications affines bijectives de \( \eR^n\).
-\end{definition}
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Structure de groupe pour les applications affines}
+%---------------------------------------------------------------------------------------------------------------------------
 
-\begin{remark}
-    Le fait que ce soit un groupe est rapidement vu par le calcul suivant :
+\begin{propositionDef}[\cite{MonCerveau}]      \label{PROPooBPKKooJRAMeT} \label{LEMooUBGZooBIlmAN}
+    L'ensemble des applications affines bijectives de \( \eR^n\) forment un groupe pour la composition. Les lois de groupe sont données par les formules suivantes :
+    \begin{enumerate}
+        \item
+            Le neutre est l'identité.
+        \item       \label{ITEMooGUFRooMuhXds}
+            Le produit est donné par
+            \begin{equation}        \label{EQooMIFSooKIvPnW}
+                (\tau_v\circ \alpha)(\tau_w\circ \beta)=\tau_{\alpha(w)+v}\circ \alpha\beta.
+            \end{equation}
+        \item       \label{ITEMooYOMSooRUDSdm}
+            L'inverse est donné par
+            \begin{equation}
+                (\tau_v\circ\alpha)^{-1}=\tau_{-\alpha^{-1}(v)}\circ \alpha^{-1}.
+            \end{equation}
+    \end{enumerate}
+    Ce groupe est noté \( \Aff(\eR^n)\)\nomenclature[R]{\( \Aff(\eR^n)\)}{Le groupe des applications affines bijectives de \( \eR^n\).}.
+\end{propositionDef}
+
+\begin{proof}
+    Pour l'identité, oui, composer par l'identité est neutre.
+
+    Le fait que la formule \eqref{EQooMIFSooKIvPnW} soit vraie est un simple calcul :
     \begin{equation}
-        (\tau_v\circ\alpha)\circ(\tau_w\circ\beta)(x)=(\alpha\beta)(x)+\alpha(w)+v=\tau_{\alpha(w)+v}\circ(\alpha\beta).
+        (\tau_v\circ\alpha)\circ(\tau_w\circ\beta)(x)=(\alpha\beta)(x)+\alpha(w)+v=\big( \tau_{\alpha(w)+v}\circ \alpha\beta\big)x.
     \end{equation}
-\end{remark}
+
+    Le fait que la formule \eqref{EQooMIFSooKIvPnW} donne bien un produit pour tous les éléments de \( \Aff(\eR^n)\) est le lemme \ref{LEMooZZAIooOMiayy}.
+
+    En ce qui concerne l'inverse, c'est un calcul :
+    \begin{subequations}
+        \begin{align}
+            (\tau_{-\alpha^{-1}(v)}\alpha^{-1})(\tau_v\alpha)(x)&=(\tau_{-\alpha^{-1}(v)\alpha^{-1}})\big( \alpha(x)+v \big)\\
+            &=\tau_{-\alpha^{-1}(v)}\big( x+\alpha^{-1}(v) \big)\\
+            &=x.
+        \end{align}
+    \end{subequations}
+\end{proof}
+
+Si \( f\colon \eR^n\to \eR^n\) est une application affine, la proposition \ref{LEMooZZAIooOMiayy} affirme qu'il existe une application linéaire \( u\) telle que
+\begin{equation}
+    f(x+y)=f(x)+u(y).
+\end{equation}
+En écrivant cela pour \( x=0\),
+\begin{equation}
+    f(y)=f(0)+u(y),
+\end{equation}
+ou encore \( f=\tau_{f(0)}\circ u\).
 
 \begin{proposition}  \label{PROPooTPFZooKtFxhg}
     L'ensemble \( \Aff(\eR^n)\) est isomorphe au produit semi-direct\footnote{Définition~\ref{DEFooKWEHooISNQzi}.}
     \begin{equation}
         \Aff(\eR^n)\simeq  T(n)\times_{\AD}\GL(n,\eR)
     \end{equation}
-    où \( \AD\) est l'action adjointe, c'est à dire
+    où \( \AD\) est l'action adjointe, c'est-à-dire
     \begin{equation}
         \begin{aligned}
             \AD\colon \GL(n,\eR)&\to \Aut\big( T(n) \big) \\
@@ -1203,12 +1377,16 @@ Nous avons déjà discuté de la structure d'un espace vectoriel (en particulier
 \end{definition}
 Notons que toutes les applications affines ne sont pas des isométries : par exemple les homothéties.
 
-Si \( \affE\) est modelé sur un espace euclidien \( (E,\| . \|)\) alors la formule
-\begin{equation}
-    d(A,B)=\| \vect{ AB } \|
-\end{equation}
-définit une distance sur \( \affE\).
+\begin{proposition}     \label{PROPooHSOGooBbFTYt}
+    Si \( \affE\) est modelé sur un espace euclidien \( (E,\| . \|)\) alors la formule
+    \begin{equation}
+        d(A,B)=\| \vect{ AB } \|
+    \end{equation}
+    définit une distance sur \( \affE\).
+\end{proposition}
 
-Étant donné ce qui est dit en~\ref{NORMooZANAooQdXqlh}, la formule a un sens parce qu'à \( A\) et \( B\) donnés dans \( \affE\), il est associé un unique vecteur \( \vect{ AB }\in E\).
+\begin{proof}
+    Étant donné la proposition \ref{DEFooWAYTooMLbqEE}, la formule a un sens parce qu'à \( A\) et \( B\) donnés dans \( \affE\), il est associé un unique vecteur \( \vect{ AB }\in E\).
+\end{proof}
 
-Nous parlons des isométries affines du tétraèdre régulier dans la proposition~\ref{PROPooVNLKooOjQzCj}.
+Nous parlons d'isométries affines ou linéaires dans le thème \ref{THMooVUCLooCrdbxm}.

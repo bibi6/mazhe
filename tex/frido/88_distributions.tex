@@ -1,12 +1,50 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
 Nous donnons ici une partie de la théorie sur les distributions. L'utilisation des distributions dans le cadre des équations différentielles est mise dans le chapitre sur les équations différentielles, section~\ref{SecTNgeNms}.
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Topologie}
+\begin{proposition}[\cite{BIBooWINRooQSnfWf}] \label{PropAAjSURG}
+    Soient un ouvert \( \Omega\) de \( \eR\) et une fonction intégrable \( f\colon \big( \Omega,\Borelien(\Omega),\lambda \big)\to \eC\) telle que
+    \begin{equation}
+        \int_{\Omega}f(t)\varphi(t)dt=0
+    \end{equation}
+    pour toute fonction \( \varphi\in\swD(\Omega)\). Alors \( f=0\) presque partout sur \( \Omega\).
+\end{proposition}
+
+\begin{proof}
+    Nous commençons par prouver que \( f\) est nulle sur tout compact de \( \Omega\). Soit un compact \( K\) de \( \Omega\). Le lemme d'Urysohn \ref{LEMooECTNooKagaRU} nous donne une fonction \( \theta\) à support compact qui vaut \( 1\) sur \( K\).
+
+    Nous considérons une suite régularisante \( (\phi_k)\) de fonctions toujours strictement positives (par exemple celle du lemme \ref{LEMooTDWSooSBJXdv}). Vu que \( f\theta\) est à support compact, elle est dans \( L^p(\Omega)\) et le corolaire \ref{CORooQLELooUjzIoM} s'applique :
+    \begin{equation}
+        \phi_k*(\theta f)\to \theta f.
+    \end{equation}
+    Mais, \( x\) et \( k\) étant fixés, nous avons
+    \begin{equation}        \label{EQooIUIMooMTAHCY}
+        \big( \phi_k* (\theta f) \big)(x)=\int_{\eR}\phi_k(x-t)\theta(t)f(t).
+    \end{equation}
+    La fonction
+    \begin{equation}
+        t\mapsto \phi_k(x-t)\theta(t)
+    \end{equation}
+    étant à support compact, l'hypothèse à propos de \( f\) fait que l'intégrale \eqref{EQooIUIMooMTAHCY} est nulle :
+    \begin{equation}
+        \phi_k*(\theta f)=0
+    \end{equation}
+    pour tout \( k\). En prenant la limite \( k\to \infty\),
+    \begin{equation}
+        \theta f=0.
+    \end{equation}
+    Vu que \( \theta(x)=1\) pour tout \( x\in K\), nous avons \( f(x)=0\) pour tout \( x\in K\).
+
+    Nous avons démontré que \( f\) était nulle sur tout compact de \( \Omega\).
+
+    Nous considérons maintenant une suite exhaustive \( (K_n)\) de compacts (lemme \ref{LemGDeZlOo}). La fonction \( f\) est nulle sur chaque \( K_n\), et comme \( \Omega=\bigcup_{n=0}^{\infty}K_n\), la fonction \( f\) est nulle sur \( \Omega\).
+\end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Dérivée faible}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -42,7 +80,6 @@ Nous donnons ici une partie de la théorie sur les distributions. L'utilisation 
 
     Cela n'est pas étonnant du fait qu'en théorie de l'intégration, les parties de mesure nulle ne comptent pas. De ce point de vue, \( \mtu_{\eQ}=0\). D'ailleurs cette égalité est vraie dans \( L^p\) (les classes et tout ça).
 \end{example}
-<++>
 
 \begin{example}[La fonction de Heaveside n'a pas de dérivée faible]     \label{EXooRVGHooTWOCtF}
     Nous montrons que la fonction
@@ -76,6 +113,10 @@ Nous donnons ici une partie de la théorie sur les distributions. L'utilisation 
 
         La fonction \( H\) n'a donc pas de dérivée faible. Notons cependant que cela ne présume en rien la possibilité d'accepter une dérivée au sens des distributions.
 \end{example}
+
+\begin{normaltext}
+    Nous verrons dans la proposition \ref{PROPooVUDVooAlwZzB} que la dérivée de Heaveside au sens des distributions est le delta de Dirac.
+\end{normaltext}
 
 \begin{example}[Dérivée faible de la valeur absolue]
     L'exemple de base de fonction continue qui n'est pas dérivable est la valeur absolue \( f(x)=| x |\) prise en \( x=0\). Nous allons montrer ici que la fonction
@@ -164,9 +205,9 @@ En particulier,
     p_{K,0}(f)=\sup_{x\in K}| f(x) |=\| f \|_{\infty,K}.
 \end{equation}
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Topologie, convergence}
-%---------------------------------------------------------------------------------------------------------------------------
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Topologie et convergence sur des espaces de fonctions}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{definition}  \label{DefFGGCooTYgmYf}
 Les topologies que nous allons considérer sont :
@@ -255,7 +296,7 @@ Cela n'est pas très explicite, mais heureusement nous n'aurons souvent pas beso
     \begin{equation}
         p_{K,m}(\varphi_n-\varphi)\to 0.
     \end{equation}
-    En particulier pour le \( K\) fixé plus haut nous avons \( p_m(\varphi_n-\varphi)\to 0\), c'est à dire que \( \varphi_n\stackrel{\swD(K)}{\longrightarrow}\varphi\).
+    En particulier pour le \( K\) fixé plus haut nous avons \( p_m(\varphi_n-\varphi)\to 0\), c'est-à-dire que \( \varphi_n\stackrel{\swD(K)}{\longrightarrow}\varphi\).
 
 \end{proof}
 
@@ -285,13 +326,13 @@ Cela n'est pas très explicite, mais heureusement nous n'aurons souvent pas beso
             \begin{equation}
                 \varphi_n\stackrel{unif}{\longrightarrow}\varphi.
             \end{equation}
-            Notre jeu à présent est de prouver que \( \varphi\in\swD(K)\), c'est à dire qu'elle est de classe \(  C^{\infty}\).
+            Notre jeu à présent est de prouver que \( \varphi\in\swD(K)\), c'est-à-dire qu'elle est de classe \(  C^{\infty}\).
 
             Soit un multiindice \( \alpha=\mu_1,\ldots, \mu_n,i\). Si \( k\) et \( l\) sont assez grands nous avons
             \begin{equation}
                 \| \partial^{\alpha}(\varphi_k-\varphi_l) \|_{\infty}\leq \epsilon,
             \end{equation}
-            c'est à dire que
+            c'est-à-dire que
             \begin{equation}
                 \| \partial_i(\partial^{\mu}\varphi_k)-\partial_i(\partial^{\mu}\varphi_l) \|_{\infty}\leq \epsilon.
             \end{equation}
@@ -299,7 +340,7 @@ Cela n'est pas très explicite, mais heureusement nous n'aurons souvent pas beso
             \begin{equation}
                 \partial_i\psi_n\stackrel{unif}{\longrightarrow}g_i.
             \end{equation}
-            Dans ce cas le théorème~\ref{ThoSerUnifDerr} nous indique que \( \psi\) est de classe \( C^1\), c'est à dire que \( \varphi\in C^{n+1}(K)\).
+            Dans ce cas le théorème~\ref{ThoSerUnifDerr} nous indique que \( \psi\) est de classe \( C^1\), c'est-à-dire que \( \varphi\in C^{n+1}(K)\).
 
         \item[Métrique]
 
@@ -363,7 +404,7 @@ Le théorème suivant donne quelques façons de vérifier qu'une forme linéaire
 Un certain nombre d'ouvrages prennent le point~\ref{ItemSPvoijoii} comme la définition d'une distribution.
 
 \begin{definition}[Topologie sur \( \swD'(\Omega)\)]        \label{DefASmjVaT}
-    Nous munissons l'espace \( \swD'(\Omega)\) de la \defe{topologie \( *\)-faible}{topologie!$*$-faible}, c'est à dire celle de la famille de semi-normes
+    Nous munissons l'espace \( \swD'(\Omega)\) de la \defe{topologie \( *\)-faible}{topologie!$*$-faible}, c'est-à-dire celle de la famille de semi-normes
     \begin{equation}
         \begin{aligned}
             p_{\varphi}\colon \swD'(\Omega)&\to \eR \\
@@ -372,7 +413,7 @@ Un certain nombre d'ouvrages prennent le point~\ref{ItemSPvoijoii} comme la déf
     \end{equation}
     avec \( \varphi\in\swD(\Omega)\).
 \end{definition}
-Oui, c'est bien une famille de semi-normes indicée par l'ensemble \( \swD(\Omega)\). Il n'y en a donc a priori pas du tout une quantité dénombrable.
+Oui, c'est bien une famille de semi-normes indicée par l'ensemble \( \swD(\Omega)\). Il n'y en a donc à priori pas du tout une quantité dénombrable.
 
 \begin{proposition}[Convergence au sens des distributions]  \label{PropEUIsNhD}
     Nous avons \( T_n\stackrel{\swD'(\Omega)}{\longrightarrow}T\) si et seulement si \( T_n(\varphi)\to T(\varphi)\) pour tout \( \varphi\in\swD(\Omega)\).
@@ -486,6 +527,45 @@ Le lemme suivant montre une compatibilité entre la dérivée des distributions,
     Nous avons utilisé la définition \eqref{EQooMRZUooFoqPqv} de la dérivée faible.
 \end{proof}
 
+Nous avons déjà vu dans l'exemple \ref{EXooRVGHooTWOCtF} que la fonction de Heaveside n'a pas de dérivée faible. Nous allons à présent voir que cette fonction a une dérivée au sens des distributions. Intuitivement, la fonction de Heaveside a une dérivée nulle partout sauf en \( x=0\) où sa dérivée serait infinie; nous nous attendons à un delta de Dirac. 
+    
+\begin{proposition}     \label{PROPooVUDVooAlwZzB}
+    La dérivée de la fonction de Heaveside
+    \begin{equation}
+        \begin{aligned}
+            H\colon \eR&\to \eR^+ \\
+            x&\mapsto \begin{cases}
+                0    &   \text{si } x\leq 0\\
+                1    &    \text{si }x>0
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    est le delta de Dirac.
+\end{proposition}
+    
+\begin{proof}
+    Par définition, la dérivée de \( H\) au sens des distributions est la distribution \( H'\) qui fait
+    \begin{equation}
+        H'(\varphi)=-\langle H, \varphi'\rangle 
+    \end{equation}
+    pour tout élément \( \varphi\in\swD(\eR)\). Un petit calcul :
+    \begin{subequations}
+        \begin{align}
+            -\langle H, \varphi'\rangle &=-\int_{\eR}H(t)\varphi'(t)dt\\
+            &=-\int_{0}^{\infty}\varphi'(t)dt       \label{SUBEQooMRMBooEGeDra}\\
+            &=-\lim_{x\to \infty} \int_0^x\varphi'(t)dt     \label{SUBEQooZDSDooTbzgWD}\\
+            &=-\lim_{x\to \infty} \big( \varphi(x)-\varphi(0) \big)     \label{SUBEQooSUAHooOmjgcr}\\
+            &=\varphi(0).
+        \end{align}
+    \end{subequations}
+    Justifications :
+    \begin{itemize}
+    \item Pour \eqref{SUBEQooMRMBooEGeDra}, c'est que \( H(t)=0\) pour \( t\in \mathopen] -\infty , 0 \mathclose[\).
+        \item Pour \eqref{SUBEQooZDSDooTbzgWD}, c'est le lemme \ref{LEMooMUHWooZPbMDb}.
+    \item Pour \eqref{SUBEQooSUAHooOmjgcr}, c'est le corolaire \ref{CorMUIooXREleR}.
+    \end{itemize}
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Ordre et support d'une distribution}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -530,7 +610,7 @@ Pour la proposition suivante, on peut se remémorer la définition~\ref{DefFGGCo
     \begin{equation}
         \supp(\phi)\subset\bigcup_{i=1}^pV_{x_i}.
     \end{equation}
-    Nous prenons une partition de l'unité\footnote{Lemme~\ref{LemGPmRGZ}.} subordonnée à ce recouvrement. C'est à dire des fonctions \( \chi_i\in\swD(V_{x_i})\) telles que pour tout \( x\in\supp(\phi)\),
+    Nous prenons une partition de l'unité\footnote{Lemme~\ref{LemGPmRGZ}.} subordonnée à ce recouvrement. C'est-à-dire des fonctions \( \chi_i\in\swD(V_{x_i})\) telles que pour tout \( x\in\supp(\phi)\),
     \begin{equation}
         \sum_{i=1}^p\chi_i(x)=1.
     \end{equation}
@@ -745,7 +825,7 @@ Cette définition ne fonctionne pas pour toutes les fonctions. Par exemple pour 
 \subsection{Topologie}
 %---------------------------------------------------------------------------------------------------------------------------
 
-La topologie que nous mettons sur l'espace \( \swS'(\eR^d)\) est le même type que celle que nous mettons sur \( \swD'(\eR^d)\), c'est à dire celle des semi-normes \( p_{\varphi}(T)=| T(\varphi) |\). La définition~\ref{DefASmjVaT} et la proposition~\ref{PropEUIsNhD} restent.
+La topologie que nous mettons sur l'espace \( \swS'(\eR^d)\) est le même type que celle que nous mettons sur \( \swD'(\eR^d)\), c'est-à-dire celle des semi-normes \( p_{\varphi}(T)=| T(\varphi) |\). La définition~\ref{DefASmjVaT} et la proposition~\ref{PropEUIsNhD} restent.
 
 \begin{proposition} \label{PropQAuJstI}
     Nous avons \( T_n\stackrel{\swS'(\eR^d)}{\longrightarrow}T\) si et seulement si pour tout \( \varphi\in\swS(\eR^d)\) nous avons \( T_n(\varphi)\to T(\varphi)\).
@@ -846,7 +926,7 @@ En effet
     \begin{equation}
         (\delta*\psi)(x)=\delta\big( y\mapsto\psi(x-y) \big)=\psi(x),
     \end{equation}
-    c'est à dire \( \delta*\psi=\psi\).
+    c'est-à-dire \( \delta*\psi=\psi\).
 \end{example}
 
 \begin{proposition}[\cite{OEVAuEz}] \label{PropZMKYMKI}
@@ -1009,13 +1089,13 @@ Il va sans dire que nous connaissons de telles fonctions. Nous en donnons une ma
     \begin{equation}
         f(k,x)=u(k) e^{-ikx} e^{-\epsilon| x |}
     \end{equation}
-    qui est dans \( L^1(\eR\times \eR)\) en vertu du critère du corollaire~\ref{CorTKZKwP} et du fait que à la fois \( k\mapsto | u(k) | \) et \( x\mapsto  e^{-\epsilon| x |}\) sont dans \( L^1(\eR)\).
+    qui est dans \( L^1(\eR\times \eR)\) en vertu du critère du corolaire~\ref{CorTKZKwP} et du fait que à la fois \( k\mapsto | u(k) | \) et \( x\mapsto  e^{-\epsilon| x |}\) sont dans \( L^1(\eR)\).
 
     Nous pouvons donc grouper et dégrouper les intégrales et en particulier les inverser. Si nous effectuons d'abord l'intégrale sur \( k\) nous trouvons
     \begin{equation}
         \int_{\eR}u(k)\left[ \int_{\eR} e^{-ikx} e^{-\epsilon| x |}dx \right]dk=\int_{\eR} e^{-\epsilon| x |}\int_{\eR}u(k) e^{-ikx}dk\,dx=\int_{\eR} e^{-\epsilon| x |}\hat u(x)dx.
     \end{equation}
-    La fonction \( x\mapsto |  e^{-\epsilon| x |}\hat u(x) |\) est majorée (uniformément en \( \epsilon\)) par \( x\mapsto \hat u(x)\) qui est intégrable parce que la transformée de Fourier d'une fonction de \( \swS\) est dans \( \swS\) par la proposition~\ref{PropKPsjyzT}. Le théorème de la convergence dominée de Lebesque~\ref{ThoConvDomLebVdhsTf} nous permet de permuter la limite \( \epsilon\to 0 \) avec l'intégrale et obtenir
+    La fonction \( x\mapsto |  e^{-\epsilon| x |}\hat u(x) |\) est majorée (uniformément en \( \epsilon\)) par \( x\mapsto \hat u(x)\) qui est intégrable parce que la transformée de Fourier d'une fonction de \( \swS\) est dans \( \swS\) par la proposition~\ref{PropKPsjyzT}. Le théorème de la convergence dominée de Lebesgue~\ref{ThoConvDomLebVdhsTf} nous permet de permuter la limite \( \epsilon\to 0 \) avec l'intégrale et obtenir
     \begin{equation}
         \lim_{\epsilon\to 0}\int_{\eR}u(k)\int_{\eR} e^{-ikx} e^{-\epsilon| x |}dx\,dk=\int_{\eR}\hat u(x)dx=\int_{\eR}\int_{\eR}u(k) e^{-ikx}dk\,dx.
     \end{equation}
@@ -1151,7 +1231,7 @@ est de classe \( C^k\).
         \psi_j\stackrel{\swD(K)}{\longrightarrow}\psi(t_0,.).
     \end{equation}
 
-    Étant donné que \( U_j\stackrel{\swD'(\Omega)}{\longrightarrow}T_{t_0}\) et \( \psi_j\stackrel{\swD(\Omega)}{\longrightarrow}\tilde \psi\), le point~\ref{ItemAEOtOMLiii} du corollaire~\ref{CorPGwLluz} nous donne la convergence
+    Étant donné que \( U_j\stackrel{\swD'(\Omega)}{\longrightarrow}T_{t_0}\) et \( \psi_j\stackrel{\swD(\Omega)}{\longrightarrow}\tilde \psi\), le point~\ref{ItemAEOtOMLiii} du corolaire~\ref{CorPGwLluz} nous donne la convergence
     \begin{equation}
         U_j(\psi_j)\to T_{t_0}(\tilde \psi)
     \end{equation}
@@ -1350,7 +1430,7 @@ D'abord parlons un peu de continuité en recopiant la proposition~\ref{PropVKSNf
     \end{equation}
     et donc \( \psi_{t_j}\stackrel{\swS(\Omega)}{\longrightarrow}\psi_{t_0}\).
 
-    Étant donné que \( \swS(\Omega)\) est métrisable et complet, le corollaire~\ref{CorPGwLluz} nous dit que
+    Étant donné que \( \swS(\Omega)\) est métrisable et complet, le corolaire~\ref{CorPGwLluz} nous dit que
     \begin{equation}
         T_{t_j}(\psi_{t_j})\to T_{t_0}(\psi_{t_0}),
     \end{equation}
@@ -1407,7 +1487,7 @@ Attention que la formule \eqref{EqZMDeZco} est bonne si \( \varphi\in\swS(\Omega
     \end{equation}
     et \( (\epsilon_j)\) est une suite de réels tendant vers zéro.
 
-    Vu que \( (T_t)\in C^k(I,\swS'(\Omega))\), l'application \( t\mapsto T_t(\varphi)\) est de classe \( C^k\) et en particulier l'expression \eqref{EqCTuAfXe} a une limite lorsque \( j\to \infty\). Donc \( T^{(1)}_{t_0}(\varphi)\) est bien définie. Le point~\ref{ItemAEOtOMLi} du corollaire~\ref{CorPGwLluz} nous dit que \( \lim_{j\to \infty} U_j(\varphi)= T_{t_0}^{(1)}(\varphi)\) et \( T_{t_0}^{(1)}\) est une distribution (linéaire et continue).
+    Vu que \( (T_t)\in C^k(I,\swS'(\Omega))\), l'application \( t\mapsto T_t(\varphi)\) est de classe \( C^k\) et en particulier l'expression \eqref{EqCTuAfXe} a une limite lorsque \( j\to \infty\). Donc \( T^{(1)}_{t_0}(\varphi)\) est bien définie. Le point~\ref{ItemAEOtOMLi} du corolaire~\ref{CorPGwLluz} nous dit que \( \lim_{j\to \infty} U_j(\varphi)= T_{t_0}^{(1)}(\varphi)\) et \( T_{t_0}^{(1)}\) est une distribution (linéaire et continue).
 
     Nous devons encore voir que \( t\mapsto T^{(1)}_t\) est une application \( C^0\big( I,\swS'(\Omega) \big)\). Cela est une conséquence du fait que \( (T_t)\) soit de classe \( C^1\), ce qui se traduit par le fait que l'application
     \begin{equation}
@@ -1446,7 +1526,7 @@ Attention que la formule \eqref{EqZMDeZco} est bonne si \( \varphi\in\swS(\Omega
     \begin{equation}
         \varphi_j=\frac{1}{ \epsilon_j }(\psi_{t_0+\epsilon_j}-\psi_{t_0}).
     \end{equation}
-    Nous voulons utiliser le corollaire~\ref{CorPGwLluz}\ref{ItemAEOtOMLiii} pour obtenir
+    Nous voulons utiliser le corolaire~\ref{CorPGwLluz}\ref{ItemAEOtOMLiii} pour obtenir
     \begin{equation}
         \lim_{j\to \infty} U_j(\varphi_j)=T_{t_0}\Big( \frac{ \partial \psi }{ \partial t }(t_0,.) \Big).
     \end{equation}
@@ -1513,7 +1593,7 @@ pour \( u\in\swD'(\eR)\) et \( \alpha\in \eN\) est donné fixé. Notons tout de 
     \end{equation}
     \begin{subproof}
     \item[Condition nécéssaire]
-    Supposons que \( u\) soit une solution. Alors le corollaire~\ref{CorQBXHooZVKeNG} du théorème de Hadamard donne \( \psi\in\swD(\eR)\) telle que
+    Supposons que \( u\) soit une solution. Alors le corolaire~\ref{CorQBXHooZVKeNG} du théorème de Hadamard donne \( \psi\in\swD(\eR)\) telle que
         $\phi(x)=(x-x_0)^{\alpha}\psi(x)$.
     Dans ce cas, si \( u\) est solution de \eqref{EqKVNEooJNwsPc}, alors
     \begin{equation}

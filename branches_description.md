@@ -186,7 +186,7 @@ Voir si isométries du cube et RSA peuvent être déplacés.
 
 # l2
 
-Quelque réflexions sur la TF sur L2.
+Quelques réflexions sur la TF sur L2.
 
 # eg
 
@@ -205,3 +205,10 @@ Supprimer quelque "Overfull \hbox".
 Supprimer la dépendence en le paquet personnel 'exocorr'.
 
 bibi
+frido2018
+thisirs
+
+# guilietta
+
+Work on the 'research' part.
+frido

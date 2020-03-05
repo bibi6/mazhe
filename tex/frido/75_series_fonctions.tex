@@ -1,368 +1,13 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
-Nous commençons par donner quelques éléments à propos de dérivée et de différentielle pour des fonctions \( \eC\to \eC\) parce que les séries entières vont souvent être des fonctions complexes. Le gros du chapitre sur les fonctions holomorphes est le chapitre~\ref{ChapICHIooXbLccl}.
+Les généralités sur les suites et séries de fonctions, c'est dans la section \ref{SECooTDZNooJvjPks}.
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Séries de fonctions}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Différentielle et dérivée complexe}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{SECooJWNOooOgMiWR}
-
-Nous identifions \( \eR^2\) à \( \eC\) par l'application
-\begin{equation}
-    \begin{aligned}
-        \varphi\colon \eR^2&\to \eC \\
-        (x,y)&\mapsto x+iy.
-    \end{aligned}
-\end{equation}
-Dans cette partie, nous désignons par \( \Omega\) un ouvert de \( \eC\).
-
-\begin{definition}      \label{DEFooVJVXooKlnFkh}
-    Une fonction \( f\colon \Omega\to \eC\) est \defe{$\eC$-dérivable}{dérivable!au sens complexe} si la limite
-    \begin{equation}
-        \lim_{\substack{h\to0\\h\in \eC}} \frac{ f(a+h)-f(a) }{ h }
-    \end{equation}
-    existe. Dans ce cas, cette limite est la dérivée de \( f\) et est notée \( f'\).
-\end{definition}
-
-\begin{definition}  \label{DefMMpjJZ}
-    Soit \( \Omega\) un ouvert dans \( \eC\). Une fonction \( f\colon \Omega\to \eC\) est \defe{holomorphe}{holomorphe}\index{fonction!holomorphe} si elle est \( \eC\)-dérivable sur \( \Omega\).
-\end{definition}
-
-\begin{definition}
-    Une matrice de la forme
-    \begin{equation}
-        \begin{pmatrix}
-            \alpha    &   \beta    \\
-            -\beta    &   \alpha
-        \end{pmatrix}
-    \end{equation}
-    avec \( \alpha,\beta\in \eR\) est une \defe{similitude}{matrice!de similitude}\index{similitude}.
-\end{definition}
-
-\begin{lemma}       \label{LEMooJNFEooZCbJMo}
-    En tant qu'application linéaire \( \eC\to \eC\), l'opération de multiplication par \( \alpha+\beta i\) est la matrice
-    \begin{equation}
-        \begin{pmatrix}
-            \alpha    &   -\beta    \\
-            \beta    &   \alpha
-        \end{pmatrix}.
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Cela est vite remarqué en calculant explicitement \( (\alpha+\beta i)(u_1+iu_2)\).
-\end{proof}
-
-\begin{lemma}
-    Une application \( A\colon \eC\to \eC\) est \( \eC\)-linéaire si et seulement si elle est une similitude en tant qu'application \( \eR^2\to \eR^2\).
-
-    Dans ce cas, il existe \( z_0\in \eC\) tel que \( A(z)=z_0z\) pour tout \( z\in \eC\).
-\end{lemma}
-
-\begin{proof}
-    Commençons par considérer l'application \( A\) sur \( \eR^2\). Elle est en particulier une application \( \eR\)-linéaire et par conséquent il existe une matrice \( \begin{pmatrix}
-        \alpha    &   \beta    \\
-        \gamma    &   \delta
-    \end{pmatrix}\) telle que
-    \begin{equation}
-        A\begin{pmatrix}
-            x    \\
-            y
-        \end{pmatrix}=\begin{pmatrix}
-            \alpha    &   \beta    \\
-            \gamma    &   \delta
-        \end{pmatrix}\begin{pmatrix}
-            x    \\
-            y
-        \end{pmatrix}.
-    \end{equation}
-    Nous voulons maintenant imposer la \( \eC\)-linéarité, c'est à dire que nous voulons
-    \begin{equation}
-        A\big( (a+bi)(x+iy) \big)=(a+bi)A(x+iy)
-    \end{equation}
-    pour tout \( a,b,x,y\in \eR\). À gauche nous avons
-    \begin{equation}
-        A\big( ax-by+i(bx+ay) \big)
-    \end{equation}
-    et à droite nous avons
-    \begin{equation}
-        (a+bi)\big( \alpha x+\beta y+i(\gamma x+\delta y) \big).
-    \end{equation}
-    En égalant les deux expressions nous obtenons les équations
-    \begin{subequations}
-        \begin{numcases}{}
-            \beta b=-b\gamma\\
-            -\alpha b+\beta a =a\beta -b\delta\\
-            \delta b=b\alpha\\
-            -\gamma b+\delta a=b\beta+a\delta,
-        \end{numcases}
-    \end{subequations}
-    dont nous tirons immédiatement que \( \gamma=-b\beta\) et \( \delta=\alpha\). La matrice de \( A\) est donc de la forme demandée.
-
-    Inversement nous devons prouver que la fonction
-    \begin{equation}        \label{EqOEWYooMaHCNb}
-        f(x+iy)=\alpha x+\beta y+i(-\beta x+\alpha y)
-    \end{equation}
-    est \( \eC\)-linéaire, c'est à dire qu'elle vérifie \( f(z_0z)=z_0f(z)\) pour tout \( z_0,z\in \eC\). Cela est un simple calcul que nous confions à Sage : le code suivant affiche «\( 0\)».
-    \lstinputlisting{tex/frido/code_sage3.py}
-
-    Pour conclure, notons que la fonction \eqref{EqOEWYooMaHCNb} est la fonction de multiplication par \( \alpha-i\beta\).
-\end{proof}
-
-\begin{normaltext}      \label{NORMooMKNDooBeoGRN}
-    Soient une fonction \( f\colon \eC\to \eC\) et l'isomorphisme canonique \( \varphi\colon \eC\to \eR^2\). La fonction \( f\) définit une la fonction
-    \begin{equation}
-        F=\varphi^{-1} \circ f\circ \varphi\colon \eR^2\to \eR^2.
-    \end{equation}
-    Cela est la fonction \( \eR^2\to \eR^2\) associée à \( f\). Il serait tentant de croire que tout ce qui est vrai pour \( F\) est également vrai pour \( f\). Eh bien non.
-
-    Par exemple, \( F\) peut être différentiable sans que \( f\) le soit. La proposition suivant donne une condition sur \( dF\) pour que \( f\) soit différentiable.
-\end{normaltext}
-
-\begin{proposition}     \label{PropKJUDooJfqgYS}
-    Une fonction \( f\colon \Omega\to \eC\) est $\eC$-dérivable en \( a\in\Omega\) si et seulement si elle est différentiable en \( a\) et si \( df_a\) est une similitude.
-
-    Plus précisément avec les notations de~\ref{NORMooMKNDooBeoGRN}, la fonction \( f\) est $\eC$-dérivable (donc holomorphe) au point \( z_0=x_0+iy_0\) si et seulement si la fonction \( F\) est différentiable en \( (x_0,y_0)\) et si la matrice de \( dF\) est de la forme
-    \begin{equation}        \label{EQooWZGKooLDEHGr}
-        dF=\begin{pmatrix}
-            \alpha    &   \beta    \\
-            -\beta    &   \alpha
-        \end{pmatrix},
-    \end{equation}
-    c'est à dire si \( dF_{(x_0,y_0)}\) fournit une application \( \eC\)-linéaire.
-
-    Dans ce cas, le lien entre \( \eC\)-dérivée et différentielle est donné par
-    \begin{equation}        \label{EqPAEFooYNhYpz}
-        (df_{z_0})(z)=f'(z_0)z.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Nous décomposons \( f\) en parties réelles et imaginaires :
-    \begin{equation}
-        f(x+iy)=P(x,y)+iQ(x,y)
-    \end{equation}
-    où \( P\) et \( Q\) sont des fonctions réelles. La jacobienne de \( F\) est la matrice
-    \begin{equation}
-        \begin{pmatrix}
-            \frac{ \partial P }{ \partial x }    &   \frac{ \partial P }{ \partial y }    \\
-            \frac{ \partial Q }{ \partial x }    &   \frac{ \partial Q }{ \partial y }
-        \end{pmatrix},
-    \end{equation}
-    et la condition dont nous parlons s'écrit comme le système
-    \begin{subequations}    \label{EqFDUrXBP}
-        \begin{numcases}{}
-            \frac{ \partial P }{ \partial x }=\frac{ \partial Q }{ \partial y }\\
-            \frac{ \partial P }{ \partial y }=-\frac{ \partial Q }{ \partial x}.
-        \end{numcases}
-    \end{subequations}
-    Si \( F\) est différentiable en \( (x_0,y_0)\) alors nous avons
-    \begin{equation}        \label{EqwlVfiR}
-        F\big( (x_0,y_0)+(h,k) \big)=F(x_0,y_0)+dF_{(x_0,y_0)}\begin{pmatrix}
-            h    \\
-            k
-        \end{pmatrix}+s(| h |+| k |)
-    \end{equation}
-    où \( s\) est une fonction vérifiant \( \lim_{t\to 0} \frac{ s(t) }{ t }=0\). Soit
-    \begin{equation}
-        dF_{(x_0,y_0)}=\begin{pmatrix}
-            \alpha    &   \beta    \\
-            -\beta    &   \alpha
-        \end{pmatrix}.
-    \end{equation}
-    Si nous posons \( \sigma=\alpha-i\beta\) et \( w=h+ik\), l'équation \eqref{EqwlVfiR} s'écrit dans \( \eC\) sous la forme
-    \begin{equation}        \label{EqYFmoiM}
-        f(z_0+w)=f(z_0)+\sigma w+s(|w|),
-    \end{equation}
-    ce qui implique que \( f\) est $\eC$-dérivable en \( z_0\).
-
-    Supposons maintenant que \( f\) soit $\eC$-dérivable en \( z_0\). Alors nous avons
-    \begin{equation}
-        f'(z_0)=\lim_{w\to 0} \frac{ f(z_0+w)-f(z_0) }{ w }=\sigma\in \eC,
-    \end{equation}
-    ce qui se récrit sous la forme
-    \begin{equation}
-        \lim_{w\to 0} \frac{ f(z_0+w)-f(z_0)-\sigma w }{ w }=0.
-    \end{equation}
-    Si nous posons \( z_0=x_0+iy_0\), \( w=h+ik\) et \( \sigma=\alpha-i\beta\) nous avons
-    \begin{equation}
-        \lim_{(h,k)\to (0,0)} \left| \frac{ F\big( (x_0,y_0)+(h,k) \big)-F(x_0,y_0)-\begin{pmatrix}
-            \alpha    &   \beta    \\
-            -\beta    &   \alpha
-        \end{pmatrix}\begin{pmatrix}
-            h    \\
-            k
-        \end{pmatrix}}{ | w | } \right| =0,
-    \end{equation}
-    ce qui signifie que \( F\) est différentiable et que sa différentielle est la matrice
-    \begin{equation}    \label{EqMLtbLD}
-       \begin{pmatrix}
-           \alpha &   \beta    \\
-           -\beta &   \alpha
-       \end{pmatrix}.
-    \end{equation}
-
-    La matrice \eqref{EqMLtbLD} est, vue dans \( \eR^2\), la matrice de multiplication dans \( \eC\) par \( \alpha-i\beta=f'(z_0)\). En d'autre termes, dans \( \eC\) nous avons
-    \begin{equation}
-        df_{z_0}(z)=f'(z_0)z,
-    \end{equation}
-    et en particulier la différentielle est donnée par
-    \begin{equation}        \label{EqPropZOkfmO}
-        df_{z_0}=f'(z_0)dz.
-    \end{equation}
-\end{proof}
-
-\begin{example}[Une application \( C^{\infty}\) mais pas \( \eC\)-dérivable]
-    Nous considérons la fonction
-    \begin{equation}
-        \begin{aligned}
-            f\colon \eC&\to \eC \\
-            x+iy&\mapsto x.
-        \end{aligned}
-    \end{equation}
-    Vu que c'est une application linéaire, elle est différentiable une infinité de fois et sa différentielle est elle-même. C'est donc une application \( C^{\infty}\).
-
-    Elle n'est cependant pas \( \eC\)-dérivable. En effet le quotient différentiel est, pour \( \epsilon\in \eC\) :
-    \begin{equation}
-        \frac{ f(x+iy+\epsilon_x+i\epsilon_y)-f(x+iy) }{ \epsilon }=\frac{ \epsilon_x }{ \epsilon }.
-    \end{equation}
-    Cela n'a pas de limite lorsque \( \epsilon\to 0\). Pour voir cela nous invoquons la méthode des chemins du corollaire~\ref{CorMethodeChemin} avec les chemins \( \epsilon_1(t)=t\) et \( \epsilon_2(t)=it\). Dans le premier cas, le quotient différentiel vaut \( 1\) pour tout \( t\), tandis que dans le second il vaut zéro pour tout \( t\).
-\end{example}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Quelques règles de calcul}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{lemma}       \label{LEMooVDXOooUyFHXZ}
-    Si \( f\) et \( g\) sont deux fonctions holomorphes sur un ouvert \( \Omega\subset \eC\) et si \( g\) ne s'annule pas sur \( \Omega\), alors \( f/g\) est holomorphe sur \( \Omega\).
-\end{lemma}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Série de fonctions}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Les séries de fonctions sont des cas particuliers de suites, étant donné que, par définition,
-\begin{equation}
-    \sum_{n=1}^{\infty}f_n=\lim_{N\to \infty} \sum_{n=1}^{N}f_n.
-\end{equation}
-Avant de vous lancer, relisez une bonne fois les définitions de convergence absolue (définition \ref{DefVFUIXwU}) et de convergence uniforme (équation \ref{EqLNCJooVCTiIw}).
-
-\begin{lemma}
-    Soient des fonctions \( u_n\colon \Omega\to \eC\). Si il existe une suite réelle positive \( (a_n)_{n\in \eN}\) telle que
-    \begin{enumerate}
-        \item
-            pour tout \( z\in \Omega\) et pour tout \( n\in \eN\) nous avons \( | u_n(z) |\leq a_n\) (c'est à dire \( a_n\geq \| u_n \|_{\infty}\)),
-        \item
-            la somme \( \sum_{n}a_n\) converge,
-    \end{enumerate}
-    alors la série de fonctions \( \sum_{n=0}^{\infty}u_n\) converge normalement\footnote{Définition~\ref{DefVBrJUxo}.}.
-\end{lemma}
-
-\begin{proof}
-    Découle du lemme de comparaison~\ref{LemgHWyfG}.
-\end{proof}
-
-\begin{theorem}				\label{ThoSerCritAbel}
-	Soit $\sum_{k=1}^{\infty}g_k(x)$, une série de fonctions complexes où $g_k(x)=\varphi_k(x)\psi_k(x)$. Supposons que
-	\begin{enumerate}
-
-		\item
-			$\varphi_k\colon A\to \eC$ et $| \sum_{k=1}^K\varphi_k(x) |\leq M$ où $M$ est indépendant de $x$ et $K$,
-		\item
-			$\psi_k\colon A\to \eR$ avec $\psi_k(x)\geq 0$ et pour tout $x$ dans $A$, $\psi_{k+1}(x)\leq \psi_k(x)$, et enfin supposons que $\psi_k(x)$ converge uniformément vers $0$.
-
-	\end{enumerate}
-	Alors $\sum_{k=1}^{\infty}g_k$ est uniformément convergente.
-\end{theorem}
-
-\begin{theorem}		\label{ThoAbelSeriePuiss}
-	Si la série de puissances (réelle) converge en $x=x_0+R$, alors elle converge uniformément sur $\mathopen[ x_0-R+\epsilon , x_0+R \mathclose]$ ($\epsilon>0$) vers une fonction continue.
-\end{theorem}
-
-
-\begin{proposition}     \label{PropUEMoNF}
-    Soit \( (u_n)\) une suite de fonctions continues \( u_n\colon \Omega\subset\eC\to \eC\). Si la série \( \sum_nu_n\) converge normalement alors la somme est continue.
-\end{proposition}
-
-\begin{proof}
-    Nous posons \( u(z)=\lim_{N\to \infty} \sum_{n=0}^N u_n(z)\), et nous vérifions que la fonction ainsi définie sur \( \Omega\) est continue. Soit \( z\in \Omega\). Prouvons la continuité de \( u\) au point \( z\). Pour tout \( z'\) dans un voisinage de \( z\) nous avons
-    \begin{subequations}
-        \begin{align}
-            \big| u(z)-u(z') \big|&=\left| \sum_{n=0}^{N}u_n(z)-\sum_{n=0}^{N}u_n(z')+\sum_{n=N+1}^{\infty}u_n(z)-\sum_{n=N+1}^{\infty}u_n(z') \right| \\
-            &\leq \left| \sum_{n=0}^N u_n(z)-\sum_{n=0}^Nu_n(z') \right| +\sum_{n=N+1}^{\infty}| u_n(z) |+\sum_{n=N+1}^{\infty}| u_n(z') |.
-        \end{align}
-    \end{subequations}
-    Étant donné que les sommes partielles sont continues, en prenant \( N\) suffisamment grand, le premier terme peut être rendu arbitrairement petit. Si \( N\) est suffisamment grand, le second terme est également petit. Par contre, cet argument ne tient pas pour le troisième terme parce que nous souhaitons une majoration pour tout \( z'\) dans une boule autour de \( z\). Nous devons donc écrire
-    \begin{equation}
-        \sum_{n=N}^{\infty}| u_n(z) |\leq \sum_{n=N+1}^{\infty}\| u_n \|_{\infty}.
-    \end{equation}
-    Ce dernier est arbitrairement petit lorsque \( N\) est grand. Notons que nous avons utilisé l'hypothèse de convergence normale.
-\end{proof}
-
-La même propriété, avec la même démonstration, tient dans le cas d'espaces vectoriels normée.
-\begin{proposition} \label{PropOMBbwst}
-    Soient \( E\) et \( F\), deux espaces vectoriels normés, \( \Omega\) une partie ouverte de \( E\) et une suite de fonctions \( u_n\colon \Omega\to F\) convergeant normalement sur \( \Omega\), c'est à dire que \( \sum_n\| u_n \|_{\infty}\) converge, la norme \( \| . \|_{\infty} \) devant être comprise comme la norme supremum sur \( \Omega\). Alors la fonction \( u=\sum_nu_n\) est continue sur \( \Omega\).
-\end{proposition}
-
-\begin{proof}
-    Soit \( x,x'\in \Omega\) en supposant que \( \| x-x' \|\) est petit. Soit encore \( \epsilon>0\). Nous allons montrer la continuité en \( x\). Pour cela nous savons que pour tout \( N\) l'inégalité suivante est correcte :
-    \begin{equation}
-        \| u(x)-u(x') \|\leq \left\|  \sum_{n=0}^Nu_n(x)-\sum_{n=0}^{N}u_n(x') \right\|+\sum_{n=N+1}^{\infty}\| u_n(x) \|+\sum_{n=N+1}^{\infty}\| u_n(x') \|.
-    \end{equation}
-    Les deux derniers termes sont majorés par \( \sum_{n=N+1}^{\infty}\| u_n \|_{\infty}\) qui, par hypothèse, peut être rendu aussi petit que souhaité en choisissant \( N\) assez grand. Nous choisissons donc un \( N\) tel que ces deux termes soient plus petits que \( \epsilon\). Ce \( N\) étant fixé, la fonction \( \sum_{n=0}^{N}u_n\) est continue et nous pouvons choisir \( x'\) assez proche de \( x\) pour que le premier terme soit majoré par \( \epsilon\).
-\end{proof}
-
-\begin{theorem}			\label{ThoSerUnifCont}
-	Si les $g_k$ sont continues et si $\sum g_k$ converge uniformément, alors $\sum g_k$ est continue.
-\end{theorem}
-
-Le corollaire suivant permet de considérer des séries de fonctions indexées par exemple par \( \eZ\) plutôt que par \( \eN\).
-\begin{corollary}
-    Une famille dénombrable de fonctions continues convergeant normalement converge vers une fonction continue.
-\end{corollary}
-
-\begin{proof}
-    Soit \( I\) dénombrable. Considérons une famille de fonctions continues \( (f_n)_{n\in I}\) telles que la famille \( (\| f_i \|_{\infty})_{i\in I}\) soit sommable. Le proposition~\ref{PropoWHdjw} nous permet d'utiliser une bijection entre \( I\) et \( \eN\). Le théorème~\ref{PropUEMoNF} s'applique alors.
-\end{proof}
-
-\begin{theorem}[Critère de Weierstrass]\index{critère!Weierstrass!série de fonctions}		\label{ThoCritWeierstrass}
-	Soit une suite de fonctions $f_k\colon A\to \eC$ telles que $| f_k(x) |\leq M_k\in\eR$, $\forall x\in A$. Si $\sum_{k=1}^{\infty}M_k$ converge, alors $\sum_{k=1}^{\infty}f_k$ converge absolument et uniformément.
-\end{theorem}
-
-\begin{proof}
-    La convergence normale est facile : l'hypothèse dit que \( \| f_k \|_{\infty}\leq M_k\), et donc que
-    \begin{equation}
-        \sum_{k=1}^{\infty}\| f_k \|_{\infty}\leq \sum_kM_k<\infty.
-    \end{equation}
-
-    La convergence uniforme est à peine plus subtile. Nous nommons \( F\) la fonction somme. Pour tout \( x\) et pour tout \( N\), nous avons
-    \begin{subequations}
-        \begin{align}
-            \left\| \sum_{n=1}^Nf_n(x)-F(x) \right\|&=\| \sum_{n=N}^{\infty}f_n(x) \|\\
-            &\leq\sum_{n=N}^{\infty}\| f_k(x) \|\\
-            &\leq \sum_{n=N}^{\infty}\| f_n \|_{\infty}.
-        \end{align}
-    \end{subequations}
-    La convergence normale étant assurée, la série \( \sum_{n_1}^{\infty}\| f_n \|_{\infty}\) est finie, ce qui implique que la queue de somme \( \sum_{n=N}^{\infty}\| f_n \|_{\infty}\) tend vers zéro lorsque \( N\to \infty\). Pour tout \( \epsilon\), il existe donc un \( N\) (non dépendant de \( x\)) tel que
-    \begin{equation}
-        \| \sum_{n=1}^Nf_n(x)-F(x) \|\leq \epsilon.
-    \end{equation}
-    En prenant le supremum sur \( x\in A\) nous trouvons la convergence uniforme.
-\end{proof}
-
-\begin{remark}
-    Il n'y a pas de critère correspondant pour les suites. Il n'est pas vrai que si \( \lim_{n\to \infty}\| f_n \| \) existe, alors \( \lim_{n\to \infty} f_n\) existe, comme le montre l'exemple
-    \begin{equation}
-        f_n(x)=\begin{cases}
-            1    &   \text{si } x\in\mathopen[ 0 , 1 \mathclose]\text{ et } n\text{ est pair}\\
-            1    &    \text{si } x\in\mathopen[ 1 , 2 \mathclose]\text{ et } n\text{ est impair}\\
-             0   &    \text{sinon.}
-        \end{cases}
-    \end{equation}
-\end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Intégration de séries de fonctions}
@@ -448,7 +93,7 @@ Le théorème suivant est une paraphrase du théorème de la convergence dominé
 \end{lemma}
 
 \begin{probleme}
-    À mon avis si on a un ouvert connexe par arcs dans un espace vectoriel normé, alors il est connexe par arcs de classe \( C^1\), c'est à dire que deux points peuvent être liés par un chemin de classe \( C^1\).
+    À mon avis si on a un ouvert connexe par arcs dans un espace vectoriel normé, alors il est connexe par arcs de classe \( C^1\), c'est-à-dire que deux points peuvent être liés par un chemin de classe \( C^1\).
 
     Je n'en suis pas certain.
 
@@ -476,7 +121,7 @@ Le théorème suivant est une paraphrase du théorème de la convergence dominé
 \end{theorem}
 
 \begin{proof}
-    Pour chaque \( n\), la fonction \( du_n\colon \Omega\to \aL(E,F)\) est une fonction continue parce que \( u_n\) est de classe \( C^1\). La série convergeant normalement, la fonction \( \sum_{n=0}^{\infty}du_n\) est également continue par la proposition~\ref{PropOMBbwst}. La difficulté de ce théorème est donc de prouver que cela est bien la différentielle de la fonction \( \sum_nu_n\), c'est à dire que
+    Pour chaque \( n\), la fonction \( du_n\colon \Omega\to \aL(E,F)\) est une fonction continue parce que \( u_n\) est de classe \( C^1\). La série convergeant normalement, la fonction \( \sum_{n=0}^{\infty}du_n\) est également continue par la proposition~\ref{PropOMBbwst}. La difficulté de ce théorème est donc de prouver que cela est bien la différentielle de la fonction \( \sum_nu_n\), c'est-à-dire que
     \begin{equation}
         d\left( \sum_{n=0}^{\infty}u_n \right)=\sum_{n=0}^{\infty}du_n.
     \end{equation}
@@ -498,7 +143,7 @@ Le théorème suivant est une paraphrase du théorème de la convergence dominé
 
     \begin{subproof}
         \item[Permuter somme et intégrale]
-            Nous voudrions permuter la somme et l'intégrale dans \( \int_0^1\sum_if_i(t)dt\). Pour cela nous commençons par regarder quelque majorations de normes.
+            Nous voudrions permuter la somme et l'intégrale dans l'expression \( \int_0^1\sum_if_i(t)dt\). Pour cela nous commençons par regarder quelques majorations de normes.
 
             D'abord \( \gamma\) est de classe \( C^1\), ce qui fait que \( \gamma'\) est continue. Vu que la norme est une application continue, la fonction \( t\mapsto \| \gamma'(t) \|\) est également continue sur le compact \( \mathopen[ 0 , 1 \mathclose]\). Elle est donc majorée par une constante que nous nommons \( M\). C'est le théorème de Weierstrass \ref{ThoWeirstrassRn}.
 
@@ -560,7 +205,7 @@ Le théorème suivant est une paraphrase du théorème de la convergence dominé
 
         \item[Différentielle]
         
-            Forts de la formule \eqref{EQooTXYWooIDxVri}, nous calculons \( du_a(v)\), c'est à dire la différentielle de \( u\) au point \( a\) appliquée au vecteur \( v\in F\). Pour cela, nous savons que \( \Omega\) est ouvert, donc \( \Omega\) contient une boule de rayon \( r\) autour de \( a\), ce qui nous permet de dire que pour un \( \) donné, le point \( a+sv\) est dans \( \Omega\) pour tout \( s\in B(0,\epsilon)\) lorsque \( \epsilon\) n'est pas trop grand. Pour chacun de ces \( s\), nous considérons un chemin de classe \( C^1\) joignant \( a\) à \( a+sv\). Ce chemin sera noté
+            Forts de la formule \eqref{EQooTXYWooIDxVri}, nous calculons \( du_a(v)\), c'est-à-dire la différentielle de \( u\) au point \( a\) appliquée au vecteur \( v\in F\). Pour cela, nous savons que \( \Omega\) est ouvert, donc \( \Omega\) contient une boule de rayon \( r\) autour de \( a\), ce qui nous permet de dire que pour un \( \) donné, le point \( a+sv\) est dans \( \Omega\) pour tout \( s\in B(0,\epsilon)\) lorsque \( \epsilon\) n'est pas trop grand. Pour chacun de ces \( s\), nous considérons un chemin de classe \( C^1\) joignant \( a\) à \( a+sv\). Ce chemin sera noté
             \begin{equation}
                 \gamma_s\colon \mathopen[ 0 , 1 \mathclose]\to \Omega
             \end{equation}
@@ -655,7 +300,7 @@ Le rayon de convergence d'une série ne dépend que des réels \( | a_n |\), mê
     \end{enumerate}
 \end{proof}
 
-Le critère d'Abel parle bien de convergence absolue, et non de convergence normale. Pour chaque \( t\), la série \( \sum_k | a_nt^k |\) converge. Si par contre nous posons \( u_k(t)=a_kt^k\), nous n'avons a priori pas la convergence normale \( \sum_k\| u_k \|_{\infty}\), même pas si la norme est la norme supremum sur \( B(0,R)\)\quext{Il y aurait par contre bien convergence sur tout compact ? Cher lecteur, dites moi ce que vous en pensez}. Prenons comme exemple simplement \( a_k=1\) pour tout \( k\). Pour tout \( | t |<1\), la série \( \sum_k t^k\) converge absolument (série géométrique), mais nous aurions \( \| u_k \|_{\infty}=1\) et donc divergence évidente de \( \sum_k\| u_k \|_{\infty}\).
+Le critère d'Abel parle bien de convergence absolue, et non de convergence normale. Pour chaque \( t\), la série \( \sum_k | a_nt^k |\) converge. Si par contre nous posons \( u_k(t)=a_kt^k\), nous n'avons à priori pas la convergence normale \( \sum_k\| u_k \|_{\infty}\), même pas si la norme est la norme supremum sur \( B(0,R)\)\quext{Il y aurait par contre bien convergence sur tout compact ? Cher lecteur, dites moi ce que vous en pensez}. Prenons comme exemple simplement \( a_k=1\) pour tout \( k\). Pour tout \( | t |<1\), la série \( \sum_k t^k\) converge absolument (série géométrique), mais nous aurions \( \| u_k \|_{\infty}=1\) et donc divergence évidente de \( \sum_k\| u_k \|_{\infty}\).
 
 La proposition suivante sera surtout utile lorsqu'on parlera de dérivée.
 \begin{proposition}[\cite{KOWMooXhcOoy}]        \label{PropHDIUooKTbVSX}
@@ -670,7 +315,7 @@ La proposition suivante sera surtout utile lorsqu'on parlera de dérivée.
             E'=\{ r\in \eR^+\tq \text{  } (n^{\alpha}a_nr^n)\text{ est borné } \}
         \end{align}
     \end{subequations}
-    Et aussi \( R=\sup(E)\), \( R'=\sup(E')\). Le fait que \( E'\geq E\) est facile. Nous supposons \( R>0\) et nous considérons \( r<R\) (c'est à dire \( r\in E\)).  Nous allons montrer que \( r\in E'\). Pour cela nous prenons un nombre \( s\) tel que \( r<s<R\). Nous avons
+    Et aussi \( R=\sup(E)\), \( R'=\sup(E')\). Le fait que \( E'\geq E\) est facile. Nous supposons \( R>0\) et nous considérons \( r<R\) (c'est-à-dire \( r\in E\)).  Nous allons montrer que \( r\in E'\). Pour cela nous prenons un nombre \( s\) tel que \( r<s<R\). Nous avons
     \begin{equation}
         n^{\alpha}a_nr^n=n^{\alpha}a_n\left( \frac{ r }{ s } \right)^ns^n=n^{\alpha}\left( \frac{ r }{ s } \right)^na_ns^n.
     \end{equation}
@@ -685,17 +330,20 @@ La proposition suivante sera surtout utile lorsqu'on parlera de dérivée.
     Au fond, cette proposition n'est rien d'autre que dire que dans \( n^\alpha r^n\), l'effet «convergent» est \( r^n\) qui est une décroissance exponentielle tandis que l'effet «divergent» est \( n^{\alpha}\) qui a une croissance seulement polynomiale.
 \end{remark}
 
-\begin{theorem}[Formule de Hadamard]\index{formule!Hadamard}\index{Hadamard!formule}		\label{ThoSerPuissRap}
-Le rayon de convergence de la série entière \( \sum_n c_n z^n\) est donné par une des deux formules
-\begin{equation}		\label{EqRayCOnvSer}
-	\frac{1}{ R } =\limsup\sqrt[k]{| a_k |}
-\end{equation}
-ou
-\begin{equation}		\label{EqAlphaSerPuissAtern}
-	\frac{1}{ R }=\limite k \infty \abs{\frac{a_{k+1}}{a_k}}
-\end{equation}
-lorsque $a_k$ est non nul à partir d'un certain $k$.
+\begin{theorem}[Formule de Hadamard] \label{ThoSerPuissRap}
+    Le rayon de convergence\footnote{Définition \ref{DefZWKOZOl}.} de la série entière \( \sum_n c_n z^n\) est donné par une des deux formules
+    \begin{equation}		\label{EqRayCOnvSer}
+        \frac{1}{ R } =\limsup\sqrt[k]{| a_k |}
+    \end{equation}
+    ou
+    \begin{equation}		\label{EqAlphaSerPuissAtern}
+        \frac{1}{ R }=\limite k \infty \abs{\frac{a_{k+1}}{a_k}}
+    \end{equation}
+    lorsque $a_k$ est non nul à partir d'un certain $k$.
+
+    Si une de ces formules donne \( 1/R=0\), alors le rayon de convergence est infini.
 \end{theorem}
+\index{formule!Hadamard}\index{Hadamard!formule}		
 
 Le disque $| z-z_0 |\leq R$ est le \defe{disque de convergence}{disque de convergence} de la série \( \sum_n a_n(z-z_0)^n\). Notons que le critère d'Abel ne dit rien pour les points tels que $| z-z_0 |=R$. Il faut traiter ces points au cas par cas. Et le pire, c'est qu'une série donnée peut converger pour certain des points sur le bord du disque, et diverger en d'autres. Le théorème d'Abel radial (théorème~\ref{ThoLUXVjs}) nous donnera quelques informations sur le sujet.
 
@@ -731,6 +379,7 @@ ne converge pas pour \( z=-1\).
 \subsection{Propriétés de la somme}
 %---------------------------------------------------------------------------------------------------------------------------
 
+Le théorème suivant donne une formule (dit «produit de Cauchy») pour le produit de deux séries entières. Nous en donnons une adaptation dans le cas de séries de puissances dans une algèbre normée dans la proposition \ref{PROPooFMEXooCNjdhS}.
 \begin{theorem}     \label{ThokPTXYC}
     Soient \( \sum_na_nz^n\) et \( \sum b_nz^n\) deux séries de rayon de convergences respectivement \( R_a\) et \( R_b\).
     \begin{enumerate}
@@ -781,11 +430,11 @@ ne converge pas pour \( z=-1\).
     \begin{equation}
         A=1-z,
     \end{equation}
-    c'est à dire \( a_0=1\), \( a_1=-1\), \( a_{n\geq 2}=0\) avec \( R_a=\infty\). Ensuite nous considérons
+    c'est-à-dire \( a_0=1\), \( a_1=-1\), \( a_{n\geq 2}=0\) avec \( R_a=\infty\). Ensuite nous considérons
     \begin{equation}
         B=\sum_nz^n,
     \end{equation}
-    c'est à dire \( B=(1-z)^{-1}\) et \( R_b=1\). Le produit de Cauchy de ces deux séries valant \( 1\), le rayon de convergence est infini.
+    c'est-à-dire \( B=(1-z)^{-1}\) et \( R_b=1\). Le produit de Cauchy de ces deux séries valant \( 1\), le rayon de convergence est infini.
 \end{example}
 
 \begin{example}
@@ -842,7 +491,7 @@ La différence est que la continuité est une propriété locale tandis que la c
 \end{proof}
 
 Le théorème suivant permet de donner, dans le cas de fonctions réelle, des informations sur la convergence en une des deux extrémités de l'intervalle de convergence.
-\begin{theorem}[Convergene radiale de Abel]\index{Abel!convergence radiale} \label{ThoLUXVjs}
+\begin{theorem}[Convergence radiale de Abel]\index{Abel!convergence radiale} \label{ThoLUXVjs}
     Soit \( f(x)=\sum_na_nx^n\) une série réelle de rayon de convergence \( 0<R<\infty\).
     \begin{enumerate}
         \item
@@ -915,12 +564,12 @@ Le résultat suivant permet d'identifier deux séries complexes lorsque leurs va
     \begin{subequations}
         \begin{align}
             \| du_n \|_k&=\sup_{z_0\in K}\| (du_n)_{z_0} \|\\
-            &=\sup_{z_0\in K}\sup_{| z |=1}\\
+            &=\sup_{z_0\in K}\sup_{| z |=1}| (du_n)_{z_0}(z) |\\
             &=\sup_{z_0\in K}\sup_{| z |=1}| na_nz_0^{n-1}z |\\
             &=\sup_{z_0\in K}n| a_n | |z_0 |^{n-1}.
         \end{align}
     \end{subequations}
-    Vu que \( z\mapsto| z |^{n-1}\) est une application continue sur le compact \( K\), elle atteint son maximum (théorème~\ref{ThoWeirstrassRn}.), nous considérons \( z_K\), un point qui réalise le supremum. Ce nombre est dans le disque de convergence parce que \( K\) est un compact autour de \( z_0\).
+    Vu que \( z\mapsto| z |^{n-1}\) est une application continue sur le compact \( K\), elle atteint son maximum (théorème~\ref{ThoWeirstrassRn}). Nous considérons \( z_K\), un point qui réalise le supremum. Ce nombre est dans le disque de convergence parce que \( K\) est un compact autour de \( z_0\).
 
     Nous devons prouver que \( \sum_nn| a_n | |z_K |^{n-1}\) converge. Vu que \( | z_K |\) est une constante (par rapport à \( n\)) nous pouvons étudier la convergence en écrivant \( | z_K |^n\) au lieu de \( | z_K |^{n-1}\).
 
@@ -1001,7 +650,7 @@ Les théorèmes de dérivation et d'intégration de séries de fonctions (théor
 \end{corollary}
 
 \begin{proof}
-    La proposition~\ref{PropSNMEooVgNqBP} a démontré en réalité nettement plus : sur le disque ouvert de convergence, la somme est une fonction holomorphe. Il est n'est cependant pas possible de conclure ainsi parce que le fait qu'une fonction holomorphe est \( C^{\infty}\) ne sera démontré qu'au coût de nombreux efforts dans le théorème~\ref{ThomcPOdd}\ref{ItemMRRTooMChmuZ}.
+    La proposition~\ref{PropSNMEooVgNqBP} a démontré en réalité nettement plus : sur le disque ouvert de convergence, la somme est une fonction holomorphe. Il n'est cependant pas possible de conclure ainsi parce que le fait qu'une fonction holomorphe est \( C^{\infty}\) ne sera démontré qu'au coût de nombreux efforts dans le théorème~\ref{ThomcPOdd}\ref{ItemMRRTooMChmuZ}.
 
     \begin{subproof}
     \item[Cas réel]
@@ -1173,7 +822,7 @@ Le polynôme de Taylor d'une fonction définie par une série entière s'obtient
 \end{proposition}
 
 \begin{proof}
-    Le corollaire \ref{CorCBYHooQhgara} nous indique que \( f\) est de classe \(  C^{\infty}\) sur \( \mathopen] -R , R \mathclose[\) et que nous pouvons dériver terme à terme.
+    Le corolaire \ref{CorCBYHooQhgara} nous indique que \( f\) est de classe \(  C^{\infty}\) sur \( \mathopen] -R , R \mathclose[\) et que nous pouvons dériver terme à terme.
 
         En utilisant la formule \eqref{EQooTNOMooJZClvE} et en l'évaluant en \( x=x_0\), tous les termes s'annulent sauf \( k=p\):
         \begin{equation}
@@ -1192,7 +841,7 @@ Le polynôme de Taylor d'une fonction définie par une série entière s'obtient
 \begin{lemma}       \label{LEMooOVPIooAPWFOm}
     Soit une fonction \( f\colon \eR\to \eR\) dérivable \( n+1\) fois sur \( B(a,R)\). Alors pour tout \( x\in B(a,r)\),
     \begin{equation}
-        f(x)=f(a)+\sum_{k=1}^{n-1}\frac{ (x-a)^{k} }{ k! }f^{(k)}(a)+\int_a^{x}\ldots\int_a^{u_{n-1}}f^{(n)}(u_n)du_1\ldots du_1.
+        f(x)=f(a)+\sum_{k=1}^{n-1}\frac{ (x-a)^{k} }{ k! }f^{(k)}(a)+\int_a^{x}\ldots\int_a^{u_{n-1}}f^{(n)}(u_n)du_n\ldots du_1.
     \end{equation}
 \end{lemma}
 
@@ -1237,7 +886,7 @@ lorsque \( P_n\) est un polynôme de Taylor autour d'un point \( a\neq x\). Nous
     \begin{equation}
         | R_n(x) |=| P_n(x)-f(x) |=\int_a^x\ldots\int_a^{u_n}f^{(n+1)}(x)du_n\cdots du_{1}
     \end{equation}
-    En effectuant toutes les intégrales nous trouvons\quext{Je me demande si je n'ai pas une faute entre \( n\) et \( n+1\) quelque part. Relisez attentivement et écrivez moi si vous trouvez une faute.}
+    En effectuant toutes les intégrales nous trouvons\quext{Je me demande si je n'ai pas une faute entre \( n\) et \( n+1\) quelque part. Relisez attentivement et écrivez-moi si vous trouvez une faute.}
     \begin{equation}
         | R_n(x) |\leq \frac{ M_n }{ (n+1)! }| x-a |^{n+1}.
     \end{equation}
@@ -1261,14 +910,14 @@ Nous allons maintenant étudier la classe des fonctions pour lesquelles la séri
     \begin{equation}
         f(x)=\sum_{k=0}^{\infty}c_n(x-a)^n
     \end{equation}
-    sur la boule de convergence \( B(a,R)\) avec \( R>0\) (hypothèses : le rayon de convergence est strictement positif). Alors
+    sur la boule de convergence \( B(a,R)\) avec \( R>0\) (hypothèse : le rayon de convergence est strictement positif). Alors
     \begin{equation}
         c_n=\frac{ f^{(n)}(a) }{ n! }.
     \end{equation}
 \end{proposition}
 
 \begin{proof}
-    Par hypothèse, nous avons un rayon de convergence \( R>0\), et le corollaire \ref{CorCBYHooQhgara} nous indique que \( f\) y est de classe \(  C^{\infty}\). Et nous pouvons dériver terme à terme par la proposition \ref{ProptzOIuG}. Cela pour dire qu'il nous est autorisé d'utiliser la formule \eqref{EQooTNOMooJZClvE} pour calculer les dérivées de \( f\) au point \( a\). Nous avons d'abord
+    Par hypothèse, nous avons un rayon de convergence \( R>0\), et le corolaire \ref{CorCBYHooQhgara} nous indique que \( f\) y est de classe \(  C^{\infty}\). Et nous pouvons dériver terme à terme par la proposition \ref{ProptzOIuG}. Cela pour dire qu'il nous est autorisé d'utiliser la formule \eqref{EQooTNOMooJZClvE} pour calculer les dérivées de \( f\) au point \( a\). Nous avons d'abord
     \begin{equation}
         f^{(p)}(x)=\sum_{n=p}^{\infty}c_n\frac{ n! }{ (n-p)! }(x-a)^{n-p},
     \end{equation}
@@ -1290,7 +939,7 @@ Nous allons maintenant étudier la classe des fonctions pour lesquelles la séri
     \end{equation}
     sur \( B(a,r)\). Ici, \( P_n\) est le polynôme de Taylor d'ordre \( n\) pour la fonction \( f\) autour du point \( a\)\footnote{Pour être complet, il faut préciser que \( P_n\) est calculé dans ZFC. C'est pour cela que nous n'écrivons pas des lourdeurs comme \( P_{n,a}(f)(x)\); si il fallait donner tout le contexte dans la notation, on n'en sortirait pas.
 
-Ah, et tant que j'y suis si vous ne savez pas ce qu'est ZFC, je vous déconseille fortement de répéter cela à un jury d'aggreg, entre autres parce que vous allez attirer la question «vraiment ? Vous utilisez C ? Où ? Pourquoi ?». Et là, bonne chance.}.
+Ah, et tant que j'y suis si vous ne savez pas ce qu'est ZFC, je vous déconseille fortement de répéter cela à un jury d'agrég, entre autres parce que vous allez attirer la question «vraiment ? Vous utilisez C ? Où ? Pourquoi ?». Et là, bonne chance.}.
 \end{proposition}
 
 \begin{proof}

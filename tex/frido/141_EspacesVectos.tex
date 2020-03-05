@@ -1,8 +1,293 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2019
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Hyperplans et formes linéaires}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{definition}      \label{DEFooEWDTooQbUQws}
+    Si \( E\) est un espace vectoriel de dimension \( n\), un \defe{hyperplan}{hyperplan} de \( E\) est un sous-espace vectoriel de dimension \( n-1\).
+\end{definition}
+
+\begin{proposition}[\cite{ooDYWYooBJkHuh}]      \label{PROPooVYJUooAWDQrZ}
+    À propos d'hyperplans et de formes linéaires sur un espace vectoriel \( E\) sur le corps \( \eK\).
+    \begin{enumerate}
+        \item
+            Si \( \varphi\) est une forme linéaire non nulle, alors \( \ker(\varphi)\) est un hyperplan.
+        \item
+            Si \( H\) est un hyperplan de \( E\), il existe une forme linéaire dont \( H\) est le noyau :
+            \begin{equation}
+                H=\ker(\varphi).
+            \end{equation}
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    En deux parties.
+    \begin{enumerate}
+        \item
+            Soit un supplémentaire \( A\) de \( H\). Nous considérons la restriction \( \varphi_A\colon A\to \eK\). Vu que les éléments non nuls de \( A\) sont hors de \( H\), nous avons \( \varphi(x)\neq 0\) dès que \( x\) est non nul dans \( A\). Cela implique que \( \varphi_A\) est surjective.
+
+            D'autre part, \( \varphi_A\) est également injective : si \( \varphi_A(x)=\varphi_A(y)\), alors \( \varphi_A(x-y)=0\), ce qui signifie que \( x-y=0\) ou encore que \( x=y\).
+
+            Donc \( \varphi_A\) est un isomorphisme de \( \eK\)-espaces vectoriels; nous en déduisons par le corolaire \ref{CORooXIPKooWThOsr} que \( A\) est de dimension \( 1\) sur \( \eK\), parce que \( \eK\) est de dimension \( 1\).
+
+        \item
+            Nous utilisons le théorème de la base incomplète \ref{ThonmnWKs}\ref{ITEMooJIJSooGuJMdt} pour considérer une base \( \{ e_i \}_{i=1,\ldots, n}\) de \( E\) telle que \( \Span\{ e_1,\ldots, e_{n-1} \}=H\). Nous pouvons alors considérer la forme linéaire définie par
+            \begin{equation}
+                \varphi(e_i)=\begin{cases}
+                    0    &   \text{si }  i=1,\ldots, n-1\\
+                    1    &    \text{si } i=n.
+                \end{cases}
+            \end{equation}
+            Cette forme vérifie \( \ker(\varphi)=H\).
+    \end{enumerate}
+\end{proof}
+
+\begin{proposition}[\cite{ooDSTAooKgSyCN}]
+    Soit un espace vectoriel \( E\) de dimension finie \( n\geq 2\). Soit un sous-espace vectoriel \( V\) de \( E\) de dimension \( s\). Alors \( V\) est une intersection de \( n-s\) hyperplans de \( E\).
+\end{proposition}
+
+\begin{proof}
+    Nous considérons une base de \( V\) que nous complétons\footnote{Théorème de la base incomplète, \ref{ThonmnWKs}\ref{ITEMooJIJSooGuJMdt}.} en une base de \( E\) : si \( x=\sum_{i=1}^nx_ie_i\), nous avons \( x\in V\) si et seulement si \( x_{s+1}=\ldots=x_n=0\). Nous considérons les formes linéaires
+    \begin{equation}
+        \begin{aligned}
+            \varphi_i\colon E&\to \eR \\
+            x&\mapsto x_i, 
+        \end{aligned}
+    \end{equation}
+    et nous considérons les parties \( H_i=\ker(\varphi_i)\) qui sont de hyperplans par la proposition \ref{PROPooVYJUooAWDQrZ}. Les \( H_i\) avec \( s+1\leq i\leq n\) sont une famille de \( n-s\) hyperplans qui vérifient
+    \begin{equation}
+        V=\bigcap_{i=s+1}^n\ker(\varphi_i)
+    \end{equation}
+    parce que \( x\in \ker(\varphi_i)\) si et seulement si \( x_i=0\).
+
+    Donc \( V\) peut être écrit comme intersection de \( n-s\) hyperplans de \( E\).
+\end{proof}
+
+\begin{proposition}[\cite{ooDSTAooKgSyCN}]      \label{PROPooRCLNooJpIMMl}
+    Soit un \( \eK\)-espace vectoriel \( E\) de dimension finie \( n\geq 2\). Si \( H_i\) sont des hyperplans de \( E\), alors
+    \begin{equation}
+        \dim\Big( \bigcup_{i=1}^mH_i \Big)\geq n-m.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    N'oubliez pas de prouver que \( \bigcap_{i=1}^mH_i\) est un espace vectoriel. À part ça, nous faisons une petite récurrence.
+    \begin{subproof}
+        \item[Pour \( m=2\)]
+            Nous savons déjà par la proposition \ref{PROPooQCIXooHIyPPq} que
+            \begin{equation}
+                \dim(H_1\cap H_2)=\dim(H_1)+\dim(H_2)-\dim(H_1\cap H_2).
+            \end{equation}
+            De plus \( \dim(H_1+H_2)\leq n\). En remplaçant, par les valeurs,
+            \begin{subequations}
+                \begin{align}
+                    \dim(H_1\cap H_2)&=\dim(H_1)+\dim(H_2)-\dim(H_1\cap H_2)\\
+                    &=n-1+n-1-\dim(H_1+H_2)\\
+                    &\geq 2n-2-n\\
+                    &=n-2.
+                \end{align}
+            \end{subequations}
+            Donc \( \dim(H_1\cap H_2)\geq n-2\).
+
+        \item[La récurrence]
+            Nous calculons \( \dim(H_1\cap\ldots\cap H_m\cap H_{m+1})\) en commençant encore par la proposition \ref{PROPooQCIXooHIyPPq} :
+            \begin{subequations}
+                \begin{align}
+                    \dim(H_1\cap \ldots\cap H_m\cap H_{m+1})&=\underbrace{\dim(H_1\cap\ldots\cap H_m)}_{\leq n-m}+\dim(H_{m+1})\\
+                        &\qquad -\underbrace{\dim\big( (H_1\cap\ldots H_m)+H_{m+1} \big)}_{\leq n}\\
+                    &\geq n-m+(n-1)-n\\
+                    &=n-m-1.
+                \end{align}
+            \end{subequations}
+            C'est bon pour la récurrence.
+    \end{subproof}
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Trouver la matrice d'une symétrie donnée}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{SubSecMtrSym}
+
+Les notions de déterminants, produit scalaire et vectoriels\footnote{Définitions~\ref{LEMooQTRVooAKzucd},~\ref{DefVJIeTFj} et~\ref{DEFooTNTNooRjhuJZ}.} donnent une bonne intuition géométrique des matrices. Nous pouvons alors chercher les matrices de quelques symétriques dans \( \eR^2\) ou \( \eR^3\).
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Symétrie par rapport à un plan}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Comment trouver par exemple la matrice $A$ qui donne la symétrie autour du plan $z=0$ ? La définition d'une telle symétrie est que les vecteurs du plan $z=0$ ne bougent pas, tandis que les vecteurs perpendiculaires changent de signe. Ces informations vont permettre de trouver comment $A$ agit sur une base de $\eR^3$. En effet :
+\begin{enumerate}
+
+	\item
+		Le vecteur $\begin{pmatrix}
+			1	\\
+			0	\\
+			0
+		\end{pmatrix}$ est dans le plan $z=0$, donc il ne bouge pas,
+
+	\item
+		le vecteur $\begin{pmatrix}
+			0	\\
+			1	\\
+			0
+		\end{pmatrix}$ est également dans le plan, donc il ne bouge pas non plus,
+
+	\item
+		et le vecteur $\begin{pmatrix}
+			0	\\
+			0	\\
+			1
+		\end{pmatrix}$ est perpendiculaire au plan $z=0$, donc il va changer de signe.
+
+\end{enumerate}
+Cela nous donne directement les valeurs de $A$ sur la base canonique et nous permet d'écrire
+\begin{equation}
+	A=\begin{pmatrix}
+		1	&	0	&	0	\\
+		0	&	1	&	0	\\
+		0	&	0	&	-1
+	\end{pmatrix}.
+\end{equation}
+Pour écrire cela, nous avons juste mit en colonne les images des vecteurs de base. Les deux premiers n'ont pas changé et le troisième a changé.
+
+Et si maintenant on donne un plan moins facile que $z=0$ ? Le principe reste le même : il faudra trouver deux vecteurs qui sont dans le plan (et dire qu'ils ne bougent pas), et puis un vecteur qui est perpendiculaire au plan\footnote{Pour le trouver, penser au produit vectoriel.}, et dire qu'il change de signe.
+
+Voyons ce qu'il en est pour le plan $x=-z$. Il faut trouver deux vecteurs linéairement indépendants dans ce plan. Prenons par exemple
+\begin{equation}		\label{EqffudE}
+	\begin{aligned}[]
+		f_1&=\begin{pmatrix}
+			0	\\
+			1	\\
+			0
+		\end{pmatrix},&f_2&=\begin{pmatrix}
+			1	\\
+			0	\\
+			-1
+		\end{pmatrix}.
+	\end{aligned}
+\end{equation}
+Nous avons
+\begin{equation}
+	\begin{aligned}[]
+		Af_1&=f_1\\
+		Af_2&=f_2.
+	\end{aligned}
+\end{equation}
+Afin de trouver un vecteur perpendiculaire au plan, calculons le produit vectoriel :
+\begin{equation}
+	f_3=f_1\times f_2=\begin{vmatrix}
+		e_1	&	e_2	&	e_3	\\
+		0	&	1	&	0	\\
+		1	&	0	&	-1
+	\end{vmatrix}=-e_1-e_3=\begin{pmatrix}
+		-1	\\
+		0	\\
+		-1
+	\end{pmatrix}.
+\end{equation}
+Nous avons
+\begin{equation}
+	Af_3=-f_3.
+\end{equation}
+Afin de trouver la matrice $A$, il faut trouver $Ae_1$, $Ae_2$ et $Ae_3$. Pour ce faire, il faut d'abord écrire $\{ e_1,e_2,e_3 \}$ en fonction de $\{ f_1,f_2,f_3 \}$. La première des équations \eqref{EqffudE} dit que
+\begin{equation}
+	f_1=e_2.
+\end{equation}
+Ensuite, nous avons
+\begin{equation}
+	\begin{aligned}[]
+		f_2&=e_1-e_3\\
+		f_3&=-e_1-e_3.
+	\end{aligned}
+\end{equation}
+La somme de ces deux équations donne $-2e_3=f_2+f_3$, c'est-à-dire
+\begin{equation}
+	e_3=-\frac{ f_2+f_3 }{ 2 }
+\end{equation}
+Et enfin, nous avons
+\begin{equation}
+	e_1=\frac{ f_2-f_3 }{ 2 }.
+\end{equation}
+
+Maintenant nous pouvons calculer les images de $e_1$, $e_2$ et $e_3$ en faisant
+\begin{equation}
+	\begin{aligned}[]
+		Ae_1&=\frac{ Af_2-Af_3 }{ 2 }=\frac{1 }{2}\begin{pmatrix}
+			0	\\
+			0	\\
+			-2
+		\end{pmatrix}=\begin{pmatrix}
+			0	\\
+			0	\\
+			-1
+		\end{pmatrix},\\
+		Ae_2&=Af_1=f_1=\begin{pmatrix}
+			0	\\
+			1	\\
+			0
+		\end{pmatrix},\\
+		Ae_3&=-\frac{ f_2-f_3 }{ 2 }=-\frac{ 1 }{2}\begin{pmatrix}
+			2	\\
+			0	\\
+			0
+		\end{pmatrix}=\begin{pmatrix}
+			-1	\\
+			0	\\
+			0
+		\end{pmatrix}.
+	\end{aligned}
+\end{equation}
+La matrice $A$ s'écrit maintenant en mettant les trois images trouvées en colonnes :
+\begin{equation}
+	A=\begin{pmatrix}
+		0	&	0	&	-1	\\
+		0	&	1	&	0	\\
+		-1	&	0	&	0
+	\end{pmatrix}.
+\end{equation}
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Symétrie par rapport à une droite}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Le principe est exactement le même : il faut trouver trois vecteurs $f_1$, $f_2$ et $f_3$ sur lesquels on connaît l'action de la symétrie. Ensuite il faudra exprimer $e_1$, $e_2$ et $e_3$ en termes de $f_1$, $f_2$ et $f_3$.
+
+Le seul problème est de trouver les trois vecteurs $f_i$. Le premier est tout trouvé : c'est n'importe quel vecteur sur la droite. Pour les deux autres, il faut un peu ruser parce qu'il faut impérativement qu'ils soient perpendiculaire à la droite. Pour trouver $f_2$, on peut écrire
+\begin{equation}
+	f_2=\begin{pmatrix}
+		1	\\
+		0	\\
+		x
+	\end{pmatrix},
+\end{equation}
+et puis fixer le $x$ pour que le produit scalaire de $f_2$ avec $f_1$ soit nul. S'il n'y a pas moyen (genre si $f_1$ a sa troisième composante nulle), essayer avec $\begin{pmatrix}
+	x	\\
+	1	\\
+	0
+\end{pmatrix}$. Une fois que $f_2$ est trouvé (il y a des milliards de choix possibles), trouver $f_3$ est super facile : prendre le produit vectoriel entre $f_1$ et $f_2$.
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{En résumé}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+La marche à suivre est
+
+\begin{enumerate}
+
+	\item
+		Trouver trois vecteurs $f_1$, $f_2$ et $f_3$ sur lesquels on connaît l'action de la symétrie. Typiquement : des vecteurs qui sont sur l'axe ou le plan de symétrie, et puis des perpendiculaires. Pour la perpendiculaire, penser au produit scalaire et au produit vectoriel.
+
+	\item
+		Exprimer la base canonique $e_1$, $e_2$ et $e_3$ en termes de $f_1$, $f_2$, $f_3$.
+
+	\item
+		Trouver $Ae_1$, $Ae_2$ et $Ae_3$ en utilisant leur expression en termes des $f_i$, et le fait que l'on connaisse l'action de $A$ sur les $f_i$.
+
+	\item
+		La matrice s'obtient en mettant les images des $e_i$ en colonnes.
+\end{enumerate}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Théorème de Burnside}
@@ -13,11 +298,11 @@
 \end{lemma}
 
 \begin{theorem}     \label{ThoBurnsideoPuCtS}
-    Toute représentation d'un groupe abélien d'exposant fini sur \( \eC^n\) a une image finie.
+    Toute représentation\footnote{Définition \ref{DEFooXVMSooXDIfZV}.} d'un groupe abélien d'exposant fini sur \( \eC^n\) a une image finie.
 \end{theorem}
 
 \begin{proof}
-    Dans le cas d'un groupe abélien, la démonstration est facile. Étant donné que \( G\) est d'exposant fini, il existe \( \alpha\in \eN^*\) tel que \( g^{\alpha}=e\) pour tout \( g\in G\). Le polynôme \( P(X)=X^{\alpha}-1\) est scindé à racines simples. En effet tout polynôme sur \( \eC\) est scindé. Le fait qu'il soit à racines simples provient du lemme~\ref{LemwXXzIt} parce que si \( a^{\alpha}=1\), alors il n'est pas possible d'avoir \( \alpha a^{\alpha-1}=0\).
+    Étant donné que \( G\) est d'exposant fini, il existe \( \alpha\in \eN^*\) tel que \( g^{\alpha}=e\) pour tout \( g\in G\). Le polynôme \( P(X)=X^{\alpha}-1\) est scindé à racines simples. En effet tout polynôme sur \( \eC\) est scindé. Le fait qu'il soit à racines simples provient du lemme~\ref{LemwXXzIt} parce que si \( a^{\alpha}=1\), alors il n'est pas possible d'avoir \( \alpha a^{\alpha-1}=0\).
 
     Par ailleurs \( P(g)=0\). Le fait que nous ayons un polynôme annulateur de \( g\) scindé à racines simples implique que \( g\) est diagonalisable (théorème~\ref{ThoDigLEQEXR}). Le fait que \( G\) soit abélien montre qu'il existe une base de \( \eC^n\) dans laquelle tous les éléments de \( G\) sont diagonaux. Nous devons par conséquent montrer qu'il existe un nombre fini de matrices de la forme
     \begin{equation}
@@ -38,7 +323,7 @@
 \index{endomorphisme!diagonalisable}
 
 \begin{proof}
-    Soit \( G\) un sous-groupe de \( \GL(n,\eC)\). Si \( G\) est fini, l'ordre de ses éléments divise \( | G |\) (corollaire \ref{CorpZItFX} au théorème de Lagrange) et l'exposant est le PPCM qui est donc fini également. Le théorème est déjà démontré dans un sens.
+    Soit \( G\) un sous-groupe de \( \GL(n,\eC)\). Si \( G\) est fini, l'ordre de ses éléments divise \( | G |\) (corolaire \ref{CorpZItFX} au théorème de Lagrange) et l'exposant est le PPCM qui est donc fini également. Le théorème est déjà démontré dans un sens.
 
     Dans l'autre sens, nous notons \( e<\infty\) l'exposant de \( G\), et nous allons prouver que l'ensemble \( G\) est fini. Nous commençons par remarquer que tous les éléments de \( G\) sont des racines du polynôme \( X^e-1\), et ensuite nous nous lançons dans le travail.
 
@@ -199,11 +484,11 @@ La remarque~\ref{RemBOGooCLMwyb} donne un exemple un peu plus avancé, qui montr
     \end{equation}
     de telle sorte que \( \psi(gh)=\psi(g)\psi(h)\).
 
-    Le groupe \( \psi(G)\) est connexe et résoluble. En effet \( \psi(G)\) est connexe en tant qu'image d'un connexe par une application continue (proposition~\ref{PropGWMVzqb}). Et il est résoluble en tant qu'image d'un groupe résoluble par un homomorphisme par la proposition~\ref{PropBNEZooJMDFIB}. Vu que \( \psi(G)\) est un sous-groupe résoluble et connexe de \( \GL(V)\) et que la dimension de \( V\) est strictement plis petite que celle de \( \eC^n\), une récurrence sur la dimension indique que \( \psi(G)\) est conjugué à un groupe de matrices triangulaires. C'est à dire qu'il existe une base de \( V\) dans laquelle toutes les matrices \( g_1\) (avec \( g\in G\)) sont triangulaires supérieures.
+    Le groupe \( \psi(G)\) est connexe et résoluble. En effet \( \psi(G)\) est connexe en tant qu'image d'un connexe par une application continue (proposition~\ref{PropGWMVzqb}). Et il est résoluble en tant qu'image d'un groupe résoluble par un homomorphisme par la proposition~\ref{PropBNEZooJMDFIB}. Vu que \( \psi(G)\) est un sous-groupe résoluble et connexe de \( \GL(V)\) et que la dimension de \( V\) est strictement plis petite que celle de \( \eC^n\), une récurrence sur la dimension indique que \( \psi(G)\) est conjugué à un groupe de matrices triangulaires. C'est-à-dire qu'il existe une base de \( V\) dans laquelle toutes les matrices \( g_1\) (avec \( g\in G\)) sont triangulaires supérieures.
 
     On fait de même avec l'application \( g\mapsto g_2\), ce qui donne une base du supplémentaire de \( V\) dans laquelle les matrices \( g_2\) sont triangulaires.
 
-    En couplant ces deux bases, nous obtenons une base de \( \eC^n\) dans laquelle toutes les matrices \eqref{EqGOKTooEaGACG} (c'est à dire toutes les matrices de \( G\)) sont triangulaires supérieures.
+    En couplant ces deux bases, nous obtenons une base de \( \eC^n\) dans laquelle toutes les matrices \eqref{EqGOKTooEaGACG} (c'est-à-dire toutes les matrices de \( G\)) sont triangulaires supérieures.
 
     \item[Sinon]
 
@@ -211,7 +496,7 @@ La remarque~\ref{RemBOGooCLMwyb} donne un exemple un peu plus avancé, qui montr
 
 \item[Si \( m=1\)]
 
-    Si \( m=1\) alors \( G\) est abélien et il existe une base de \( G\) dans laquelle toutes les matrices de \( G\) sont triangulaires (lemme~\ref{LemSLGPooIghEPI}). Le premier vecteur d'une telle base serait stable par \( G\), mais comme nous avons supposé qu'il n'y avait pas de sous-espaces non triviaux stabilisés par \( G\), il faut déduire que ce vecteur stable est à lui tout seul non trivial, c'est à dire que \( n=1\). Dans ce cas, le théorème est démontré.
+    Si \( m=1\) alors \( G\) est abélien et il existe une base de \( G\) dans laquelle toutes les matrices de \( G\) sont triangulaires (lemme~\ref{LemSLGPooIghEPI}). Le premier vecteur d'une telle base serait stable par \( G\), mais comme nous avons supposé qu'il n'y avait pas de sous-espaces non triviaux stabilisés par \( G\), il faut déduire que ce vecteur stable est à lui tout seul non trivial, c'est-à-dire que \( n=1\). Dans ce cas, le théorème est démontré.
 
 \item[Si \( m>1\)]
 
@@ -225,14 +510,14 @@ La remarque~\ref{RemBOGooCLMwyb} donne un exemple un peu plus avancé, qui montr
 
 \item[\( H\) est dans le centre de \( G\)]
 
-    Montrons à présent que \( H\) est dans le centre de \( G\), c'est à dire que pour tout \( g\in G\) et \( h\in H\) il faut \( ghg^{-1}=h\). D'abord \( ghg^{-1}\) est une matrice diagonale (parce que elle est dans \( H\)) ayant les mêmes valeurs propres que \( h\). En effet si \( \lambda\) est valeur propre de \( ghg^{-1}\) pour le vecteur propre \( v\), alors
+    Montrons à présent que \( H\) est dans le centre de \( G\), c'est-à-dire que pour tout \( g\in G\) et \( h\in H\) il faut \( ghg^{-1}=h\). D'abord \( ghg^{-1}\) est une matrice diagonale (parce que elle est dans \( H\)) ayant les mêmes valeurs propres que \( h\). En effet si \( \lambda\) est valeur propre de \( ghg^{-1}\) pour le vecteur propre \( v\), alors
     \begin{subequations}
         \begin{align}
             (ghg^{-1})(v)&=\lambda v\\
             h\big( g^{-1} v \big)&=\lambda \big( g^{-1}v \big),
         \end{align}
     \end{subequations}
-    c'est à dire que \( \lambda\) est également valeur propre de \( h\), pour le vecteur propre \( g^{-1} v\). Mais comme \( h\) a un nombre fini de valeurs propres, il n'y a qu'un nombre fini de matrices diagonales ayant les mêmes valeurs propres que \( h\). L'ensemble \( \AD(G)h\) est donc un ensemble fini. D'autre part, l'application \( g\mapsto g^{-1}hg\) est continue, et \( G\) est connexe, donc l'ensemble \( \AD(G)h\) est connexe. Un ensemble fini et connexe dans \( \GL(n,\eC)\) est nécessairement réduit à un seul point. Cela prouve que \( ghg^{-1}=h\) pour tout \( g\in G\) et \( h\in H\).
+    c'est-à-dire que \( \lambda\) est également valeur propre de \( h\), pour le vecteur propre \( g^{-1} v\). Mais comme \( h\) a un nombre fini de valeurs propres, il n'y a qu'un nombre fini de matrices diagonales ayant les mêmes valeurs propres que \( h\). L'ensemble \( \AD(G)h\) est donc un ensemble fini. D'autre part, l'application \( g\mapsto g^{-1}hg\) est continue, et \( G\) est connexe, donc l'ensemble \( \AD(G)h\) est connexe. Un ensemble fini et connexe dans \( \GL(n,\eC)\) est nécessairement réduit à un seul point. Cela prouve que \( ghg^{-1}=h\) pour tout \( g\in G\) et \( h\in H\).
 
 \item[Espaces propres stables pour tout \( G\)]
 
@@ -240,11 +525,11 @@ La remarque~\ref{RemBOGooCLMwyb} donne un exemple un peu plus avancé, qui montr
         \begin{equation}
             hg(w)=g(hw)=\lambda g(w),
         \end{equation}
-        donc \( g(w)\) est aussi vecteur propre de \( h\) pour la valeurs propre \( \lambda\), c'est à dire que \( g(w)\in W\). Vu que nous supposons que \( \eC^n\) n'a pas d'espaces invariants non triviaux, nous devons conclure que \( W=\eC^n\), c'est à dire que \( H\) est composé d'homothéties. C'est à dire que pour tout \( h\in H\) nous avons \( h=\lambda_h\mtu\).
+        donc \( g(w)\) est aussi vecteur propre de \( h\) pour la valeurs propre \( \lambda\), c'est-à-dire que \( g(w)\in W\). Vu que nous supposons que \( \eC^n\) n'a pas d'espaces invariants non triviaux, nous devons conclure que \( W=\eC^n\), c'est-à-dire que \( H\) est composé d'homothéties. C'est-à-dire que pour tout \( h\in H\) nous avons \( h=\lambda_h\mtu\).
 
     \item[Contradiction sur la minimalité de \( m\)]
 
-        Les éléments d'un groupe dérivé sont de déterminant \( 1\) parce que \( \det(g_1g_2g_1^{-1}g_2^{-1})=1\). Par conséquent pour tout \( h\), le nombre \( \lambda_h\) est une racine \( n\)\ieme de l'unité. Vu qu'il n'y a qu'une quantité finie de racines \( n\)\ieme de l'unité, le groupe \( H\) est fini et connexe et donc une fois de plus réduit à un élément, c'est à dire \( H=\{ e \}\). Cela contredit la minimalité de \( m\) et donc produit une contradiction. Nous devons donc avoir \( m=1\).
+        Les éléments d'un groupe dérivé sont de déterminant \( 1\) parce que \( \det(g_1g_2g_1^{-1}g_2^{-1})=1\). Par conséquent pour tout \( h\), le nombre \( \lambda_h\) est une racine \( n\)\ieme de l'unité. Vu qu'il n'y a qu'une quantité finie de racines \( n\)\ieme de l'unité, le groupe \( H\) est fini et connexe et donc une fois de plus réduit à un élément, c'est-à-dire \( H=\{ e \}\). Cela contredit la minimalité de \( m\) et donc produit une contradiction. Nous devons donc avoir \( m=1\).
 
     \item[Conclusion]
 
@@ -257,6 +542,214 @@ La remarque~\ref{RemBOGooCLMwyb} donne un exemple un peu plus avancé, qui montr
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Retour sur les formes bilinéaires et quadratiques}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Dégénérescence d'une forme bilinéaire}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Soit \( b\), une forme bilinéaire symétrique non dégénérée  sur l'espace vectoriel \( E\) de dimension \( n\) sur \( \eK\) où \( \eK\) est un corps de caractéristique différente de \( 2\). Nous notons \( q\) la forme quadratique associée.
+
+\begin{definition}      \label{DEFooNUBFooLfCqaK}
+    Une forme bilinéaire est \defe{non dégénérée}{forme!bilinéaire!non dégénérée} \( b(x,z)=0\) pour tout \( z\) implique \( x=0\).
+\end{definition}
+
+\begin{lemma}   \label{LemyKJpVP}
+    Soit \( b\) une forme bilinéaire non dégénérée. Si \( x\) et \( y\) sont tels que \( b(x,z)=b(y,z)\) pour tout \( z\), alors \( x=y\).
+\end{lemma}
+
+\begin{proof}
+    C'est immédiat du fait de la linéarité en le premier argument et de la non-dégénérescence : si \( b(x,z)-b(y,z)=0\) alors
+    \begin{equation}
+        b(x-y,z)=0
+    \end{equation}
+    pour tout \( z\), ce qui implique \( x-y=0\).
+\end{proof}
+
+\begin{proposition}     \label{PROPooQHHPooSqpgcb}
+    Une forme bilinéaire est non-dénénérée\footnote{Définition \ref{DEFooNUBFooLfCqaK}.} si et seulement si sa matrice associée est inversible.
+\end{proposition}
+
+\begin{proof}
+    Nous savons que la matrice associée est symétrique et qu'elle peut donc être diagonalisée (théorème~\ref{ThoeTMXla}). En nous plaçant dans une base de diagonalisation, nous devons prouver que la forme est non-dégénérée si et seulement si les éléments diagonaux de la matrice sont tous non nuls.
+
+    Écrivons \( b(x,z)\) en choisissant pour \( z\) le vecteur de base \( e_k\) de composantes \( (e_k)_j=\delta_{kj}\) :
+    \begin{equation}
+            b(x,e_k)=\sum_{ij}x_i(e_k)_j
+            =\sum_i b_{ik}x_i
+            =b_{kk}x_k.
+    \end{equation}
+    Si \( b\) est dégénérée et si \( x\) est un vecteur non nul (disons que la composante \( x_i\) est non nulle) de \( E\) tel que \( b(x,z)=0\) pour tout \( z\in E\), alors \( b_{ii}=0\), ce qui montre que la matrice de \( b\) n'est pas inversible.
+
+    Réciproquement si la matrice de \( b\) est inversible, alors tous les \( b_{kk}\) sont différents de zéro, et le seul vecteur \( x\) tel que \( b_{kk}x_k=0\) pour tout \( k\) est le vecteur nul.
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Isométries}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Voici un théorème pas toujours bien énoncé dans les cours de physique qui font de la relativité. Au moment de «prouver» les transformations de Lorentz\footnote{Théorème \ref{THOooYHDWooWxVovH}.}, beaucoup oublient de justifier pourquoi elles devraient être linéaires.
+\begin{theorem}[\cite{ooQFKAooFnllQU}]     \label{ThoDsFErq}
+    Une isométrie d'une forme bilinéaire\footnote{Définition \ref{DEFooIQURooMeQuqX}.} non dégénérée est linéaire.
+\end{theorem}
+
+\begin{proof}
+    Soient une forme bilinéaire non-dégénérée \( b\) sur l'espace vectoriel \( E\) ainsi qu'une isométrie $f$ pour icelle. Soit \( z\in E\); étant donné que \( f\) est bijective nous pouvons considérer l'élément \( f^{-1}(z)\in E\) et calculer
+    \begin{subequations}
+        \begin{align}
+            b\big( f(x+y),z \big)&=b\big( f(x+y),f(f^{-1}(z)) \big)\\
+            &=b(x+y,f^{-1}(z))\\
+            &=b(x,f^{-1}(z))+b(y,f^{-1}(z))\\
+            &=b(f(x),z)+b(f(y),z)\\
+            &=b\big( f(x)+f(y),z \big),
+        \end{align}
+    \end{subequations}
+    donc \( f(x+y)=f(x)+f(y)\) par le lemme~\ref{LemyKJpVP}.
+
+    De la même façon on trouve \( b\big( f(\lambda x),z \big)=b\big( \lambda f(x),z \big)\) qui prouve que \( f(\lambda x)=\lambda f(x)\) et donc que \( f\) est linéaire.
+\end{proof}
+
+\begin{example}
+    Une isométrie peut ne pas être linéaire quand la forme bilinéaire est dégénérée. Par exemple pour la forme bilinéaire sur \( \eR^2\) donnée par
+    \begin{equation}
+        b\big( (a,b),(x,y) \big)=ax,
+    \end{equation}
+    nous pouvons faire
+    \begin{equation}
+        f(x,y)=\begin{pmatrix}
+            x    \\ 
+            \lambda(x,y)    
+        \end{pmatrix}
+    \end{equation}
+    où \( \lambda\) est n'importe quoi.
+\end{example}
+
+\ifbool{isGiulietta}{
+\begin{remark}
+    Des preuves alternatives.
+    \begin{enumerate}
+        \item
+            En utilisant un peut plus d'indices et un peu plus de mots comme «tenseurs», peut être trouvée  \href{http://physics.stackexchange.com/questions/12664/proving-that-interval-preserving-transformations-are-linear}{ici}. Le fait que la preuve donnée soit tensorielle me fait penser que le résultat peut encore être généralisé.
+        \item
+            Et encore une autre preuve, utilisant des techniques de groupes de Lie sera la proposition~\ref{PROPooDVIWooAFDNPy}.
+    \end{enumerate}
+\end{remark}
+}
+{}
+
+\begin{theorem}
+    Soit un espace vectoriel \( E\) muni d'une forme quadratique \( q\). Soit une isométrie \( f\colon E\to E\) pour \( q\). Alors
+    \begin{enumerate}
+        \item
+            si \( f(0)=0\), alors \( f\) est linéaire;
+        \item
+            si \( f(0)\neq 0\) alors \( f\) est affine\footnote{Définition \ref{DEFooUAWZooXcMKve}.}.
+            
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Nous considérons la forme bilinéaire associée \( b\). Si \( f(0)=0\), nous savons par le lemme~\ref{LemewGJmM} que \( b\big( f(x),f(y) \big)=b(x,y)\). La proposition \ref{ThoDsFErq} nous dit alors que \( f\) est linéaire.
+
+
+    Si \( f(0)\neq 0\), alors nous posons \( g(x)=f(x)-f(0)\) qui vérifie \( g(0)=0\) et
+    \begin{equation}
+        q\big( g(x)-g(y) \big)=q\big( f(x)-f(0)-f(y)+f(0) \big)=q(x-y).
+    \end{equation}
+    Nous pouvons donc appliquer le premier point à \( g\), déduire que \( g\) est linéaire et donc que \( f\) est affine. C'est la caractérisation du lemme \ref{LEMooZZAIooOMiayy} des fonctions affines.
+\end{proof}
+
+Nous pouvons maintenant particulariser tout cela au cas de \( \eR^n\) muni du produit scalaire usuel et de la norme associée pour voir quel résultat nous avons à peine prouvé.
+
+\begin{lemma}[\cite{ooYPVPooYGSlNU}]        \label{LEMooJPYZooHETCqt}
+    Une isométrie d'un espace vectoriel normé de dimension finie est bijective.
+\end{lemma}
+
+\begin{proof}
+    Si \( f\colon E\to E\) est une isométrie, elle est linéaire par le théorème~\ref{ThoDsFErq}. Elle vérifie également \( \| f(x) \|=\| x \|\), et donc \( f(x)=0\) si et seulement si \( x=0\), c'est-à-dire que \( f\) est injective. Elle est alors bijective par le corolaire~\ref{CORooCCXHooALmxKk} du théorème du rang.
+\end{proof}
+
+Nous notons ici \( T(n)\) le groupe des translations sur \( \eR^n\). Un élément de \( T(n)\) est une translation \( \tau_v\) donnée par un vecteur \( v\) et agissant sur \( \eR^n\) par
+\begin{equation}
+    \begin{aligned}
+        \tau_v\colon \eR^n&\to \eR^{n} \\
+        x&\mapsto x+v.
+    \end{aligned}
+\end{equation}
+Ce groupe est isomorphe au groupe abélien \( (\eR^n,+)\), et nous allons souvent identifier \( \tau_v\) à \( v\).
+
+Vous savez par culture générale que les isométries de \( \eR^n\) pour le produit scalaire usuel sont les matrices orthogonales. En voici une petite généralisation (pensez à \( \eta=\mtu\) dans le cas du produit scalaire usuel).
+\begin{proposition}     \label{PROPooSYQMooEnZFdp}
+    Soit une forme bilinéaire \( b\) sur \( \eR^n\) de matrice symétrique \( \eta\). Si \( A\) est la matrice d'une application linéaire \( \eR^n\to \eR^n\) telle que
+    \begin{equation}
+        b(Ax,Ay)=b(x,y)
+    \end{equation}
+    pour tout \( x,y\in\eR^n\), alors
+    \begin{equation}
+        A^t\eta A=\eta.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    En suivant la formule générale \eqref{EQooQFMWooVKVLMx},
+    \begin{equation}
+            b(Ax,Ay)=\sum_{ij} \eta_{ij} (Ax)_i(Ay)_j=\sum_{ijkl}\eta_{ij}A_{ik}A_{jl}x_ky_l.
+    \end{equation}
+    En imposant que ce soit égal à \( \sum_{kl}\eta_{kl}\eta_{kl}x_ky_l\) pour tout \( x,y\) nous avons la contrainte
+    \begin{equation}
+        \sum_{ij}\eta_{ij}A_{ik}A_{jl}=\eta_{kl}
+    \end{equation}
+    qui signifie exactement \( A^t\eta A=\eta\).
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Pseudo-réduction simultanée}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{corollary}[Pseudo-réduction simultanée\cite{JMYQgLO}]  \label{CorNHKnLVA}
+    Soient \( A,B\in \gS(n,\eR)\) avec \( A\) définie positive\footnote{Définition~\ref{DefAWAooCMPuVM}.}. Alors il existe \( Q\in \GL(n,\eR)\) telle que \( Q^tBQ\) soit diagonale et \( Q^tAQ=\mtu\).
+\end{corollary}
+
+\begin{proof}
+    Nous allons noter \( x\cdot y\) le produit scalaire usuel de \( \eR^n\) et \( \{ e_i \}_{i=1,\ldots, n}\) sa base canonique.
+
+    Vu que \( A\) est définie positive, nous avons que l'expression\footnote{On peut aussi l'écrire de façon plus matricielle sous la forme \( \langle x, y\rangle =x^tAy\).} \( \langle x, y\rangle =x\cdot Ay\) est un produit scalaire sur \( \eR^n\). Autrement dit, \( E\) muni de cette forme bilinéaire symétrique est un espace euclidien, ce qui fait dire à la proposition~\ref{PropUMtEqkb} qu'il existe une base de \( \eR^n\) orthonormée \( \{ f_i \}_{i=1,\ldots, n}\) pour ce produit scalaire, c'est-à-dire qu'il existe une matrice \( P\in \GL(n,\eR)\) telle que \( P^tAP=\mtu\). Ici, \( P\) est la matrice de changement de base de la base canonique à notre base orthonormée, c'est-à-dire la matrice qui fait \( Pe_i=f_i\) pour tout \( i\). Voyons cela avec un peu de détails.
+
+    Pour savoir ce que valent les éléments de la matrice \( P^tAP\), nous nous souvenons que \( P^tAPe_j\) est un vecteur dont les coordonnées sont les éléments de la \( j\)\ieme colonne de \( P^tAP\). Autrement dit, nous utilisons la formule \eqref{EQooDSKBooQkgtWv}. Calculons :
+    \begin{subequations}
+        \begin{align}
+            (P^tAP)_{ij}&=e_i\cdot P^tAPe_j\\
+            &=Pe_i\cdot APe_j\\
+            &=f_i\cdot Af_j\\
+            &=\langle f_i, f_j\rangle \\
+            &=\delta_{ij}
+            \end{align}
+    \end{subequations}
+    où nous avons fait attention à écrire \( x\cdot y\) le produit scalaire usuel de \( \eR^n\) et \( \langle x, y\rangle \) celui défini plus haut via la matrice \( A\). Au final nous avons effectivement \( P^tAP=\mtu\).
+
+    La matrice \( P^tBP\) est une matrice symétrique, donc le théorème spectral~\ref{ThoeTMXla} nous donne une matrice \( R\in \gO(n,\eR)\) telle que \( R^tP^tBPR\) soit diagonale. En posant maintenant \( Q=PR\) nous avons la matrice cherchée.
+\end{proof}
+
+\begin{remark}
+    Plusieurs remarques
+    \begin{enumerate}
+        \item
+
+            Nous n'avons pas prouvé l'existence d'une matrice \( P\) telle que \( P^{-1}BP\) et \( P^{-1}AP\) soient diagonales. Au contraire, nous avons \( Q^tBQ\) et \( Q^tAQ\) qui sont diagonales. Tant que \( Q\) n'est pas orthogonales, ce n'est pas la même chose.
+
+            Autrement dit, nous n'avons pas ici une réelle diagonalisation, parce que les matrices \( A\) et \( B\) ne sont pas semblables à des matrices diagonales. Voir les définitions~\ref{DefCNJqsmo} (diagonalisable) et~\ref{DefCQNFooSDhDpB} (semblable).
+
+            C'est pour cela que nous parlons de \emph{pseudo}-diagonalisation.
+
+        \item
+
+            Dans le même ordre d'idée, la démonstration de la pseudo-diagonalisation simultanée parle clairement de formes bilinéaires, et non d'endomorphismes. Or en comparant les lois de transformations \eqref{ooWKTYooOJfclT} et \eqref{EQooZUVTooKjqnJj}, nous voyons bien que la réduction en passant par \( Q^tAQ\) est bien une réduction de forme bilinéaire et non une réduction d'endomorphismes.
+
+        \item
+
+            Nous avons prouvé la pseudo-réduction simultanée comme corolaire du théorème de diagonalisation des matrices symétriques~\ref{ThoeTMXla}. Il aurait aussi pu être vu comme un corolaire du théorème spectral~\ref{ThoRSBahHH} sur les opérateurs autoadjoints via son corolaire~\ref{CorSMHpoVK}.
+    \end{enumerate}
+\end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Topologie}
@@ -298,7 +791,7 @@ Notons que à droite, c'est la valeur absolue usuelle sur \( \eR\).
 
     Notre application \( \phi\) est de plus linéaire parce que l'association d'une forme quadratique à la forme bilinéaire associée est linéaire.
 
-    En ce qui concerne la continuité, nous la prouvons en zéro en considérant une suite convergente \( q_n\stackrel{Q(E)}{\longrightarrow}0\). C'est à dire que
+    En ce qui concerne la continuité, nous la prouvons en zéro en considérant une suite convergente \( q_n\stackrel{Q(E)}{\longrightarrow}0\). C'est-à-dire que
     \begin{equation}
         \sup_{\| x \|=1}| q_n(x) |\to 0.
     \end{equation}
@@ -345,46 +838,9 @@ où les \( \lambda_i\) sont les valeurs propres de la matrice de \( b\).
 \end{proof}
 Notons que si nous choisissons une autre base de diagonalisation, les \( \lambda_i\) ne changement pas (à part l'ordre éventuellement). Cela pour dire que nous nous permettrons de parler des \defe{valeurs propres}{valeur propre!d'une forme quadratique} d'une forme quadratique comme étant les valeurs propres de la matrice associée.
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Isotropie}
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Dégénérescence}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Soit \( b\), une forme bilinéaire symétrique non dégénérée  sur l'espace vectoriel \( E\) de dimension \( n\) sur \( \eK\) où \( \eK\) est un corps de caractéristique différente de \( 2\). Nous notons \( q\) la forme quadratique associée.
-
-\begin{definition}
-    Une forme bilinéaire est \defe{non dégénérée}{forme!bilinéaire!non dégénérée} \( b(x,z)=0\) pour tout \( z\) implique \( x=0\).
-\end{definition}
-
-\begin{lemma}   \label{LemyKJpVP}
-    Soit \( b\) une forme bilinéaire non dégénérée. Si \( x\) et \( y\) sont tels que \( b(x,z)=b(y,z)\) pour tout \( z\), alors \( x=y\).
-\end{lemma}
-
-\begin{proof}
-    C'est immédiat du fait de la linéarité en le premier argument et de la non-dégénérescence : si \( b(x,z)-b(y,z)=0\) alors
-    \begin{equation}
-        b(x-y,z)=0
-    \end{equation}
-    pour tout \( z\), ce qui implique \( x-y=0\).
-\end{proof}
-
-\begin{proposition}
-    La forme bilinéaire \( b\) est non-dénénérée si et seulement si sa matrice associée est inversible.
-\end{proposition}
-
-\begin{proof}
-    Nous savons que la matrice associée est symétrique et qu'elle peut donc être diagonalisée (théorème~\ref{ThoeTMXla}). En nous plaçant dans une base de diagonalisation, nous devons prouver que la forme est non-dégénérée si et seulement si les éléments diagonaux de la matrice sont tous non nuls.
-
-    Écrivons \( b(x,z)\) en choisissant pour \( z\) le vecteur de base \( e_k\) de composantes \( (e_k)_j=\delta_{kj}\) :
-    \begin{equation}
-            b(x,e_k)=\sum_{ij}x_i(e_k)_j
-            =\sum_i b_{ik}x_i
-            =b_{kk}x_k.
-    \end{equation}
-    Si \( b\) est dégénérée et si \( x\) est un vecteur non nul (disons que la composante \( x_i\) est non nulle) de \( E\) tel que \( b(x,z)=0\) pour tout \( z\in E\), alors \( b_{ii}=0\), ce qui montre que la matrice de \( b\) n'est pas inversible.
-
-    Réciproquement si la matrice de \( b\) est inversible, alors tous les \( b_{kk}\) sont différents de zéro, et le seul vecteur \( x\) tel que \( b_{kk}x_k=0\) pour tout \( k\) est le vecteur nul.
-\end{proof}
-
 
 \begin{definition}[Isotropie]   \label{DefVKMnUEM}
     Un vecteur est \defe{isotrope}{isotrope (vecteur)} pour \( b\) s'il est perpendiculaire à lui-même; en d'autres termes, \( x\) est isotrope si et seulement si \( b(x,x)=0\). Un sous-espace \( W\subset E\) est \defe{totalement isotrope}{isotrope!totalement} si pour tout \( x,y\in W\), nous avons \( b(x,y)=0\).
@@ -409,13 +865,13 @@ et ensuite
     \end{aligned}
 \end{equation}
 \begin{definition}
-    Le fait pour une forme bilinéaire \( b\) d'être dégénérée signifie que l'application \( \Phi\) n'est pas injective. Le \defe{noyau}{noyau!d'une forme bilinéaire} de la forme bilinéaire est celui de \( \Phi\), c'est à dire
+    Le fait pour une forme bilinéaire \( b\) d'être dégénérée signifie que l'application \( \Phi\) n'est pas injective. Le \defe{noyau}{noyau!d'une forme bilinéaire} de la forme bilinéaire est celui de \( \Phi\), c'est-à-dire
     \begin{equation}
         \ker(b)=\{ z\in E\tq b(z,y)=0\,\forall y\in E \}.
     \end{equation}
     Autrement dit, \( \ker(b)=E^{\perp}\) où le perpendiculaire est pris par rapport à \( b\).
 \end{definition}
-Notons tout de même que nous utilisons la notation \( \perp\) même si \( b\) est dégénérée et éventuellement pas positive; c'est à dire même si la formule \( (x,y)\mapsto b(x,y)\) ne fournit pas un produit scalaire.
+Notons tout de même que nous utilisons la notation \( \perp\) même si \( b\) est dégénérée et éventuellement pas positive; c'est-à-dire même si la formule \( (x,y)\mapsto b(x,y)\) ne fournit pas un produit scalaire.
 
 \begin{proposition}[\cite{RTzQrdx}]     \label{PropHIWjdMX}
     Soit \( b\) une forme bilinéaire et symétrique. Alors
@@ -475,19 +931,18 @@ Ce qui est couramment nommé «inégalité de Minkowski» est la proposition~\re
 \end{lemma}
 
 \begin{proof}
-    L'existence est une vérification immédiate de \( S+A=M\) en utilisant \eqref{subEqHIQooyhiWM}. Pour l'unicité, si \( S+A=S'+A'\) alors \( S-S'=A-A'\). Mais \( S-S'\) est symétrique et \( A-A'\) est antisymétrique; l'égalité implique l'annulation des deux membres, c'est à dire \( S=S'\) et \( A=A'\).
+    L'existence est une vérification immédiate de \( S+A=M\) en utilisant \eqref{subEqHIQooyhiWM}. Pour l'unicité, si \( S+A=S'+A'\) alors \( S-S'=A-A'\). Mais \( S-S'\) est symétrique et \( A-A'\) est antisymétrique; l'égalité implique l'annulation des deux membres, c'est-à-dire \( S=S'\) et \( A=A'\).
 \end{proof}
 
 \begin{definition}  \label{DefOEPooqfXsE}
     Un \defe{ellipsoïde}{ellipsoïde} dans \( \eR^n\) centré en \( v\) est le lieu des points \( x\) vérifiant l'équation
     \begin{equation}\label{EqSNWooXfbTH}
-        (x-v)^t M(x-v)=1
+        \langle x-v, M(x-v)\rangle =1
     \end{equation}
     où \( M\) est une matrice symétrique strictement définie positive\footnote{Définition~\ref{DefAWAooCMPuVM}.}.
 
     Lorsque nous parlons d'ellipsoïde \emph{plein}, il suffit de changer l'égalité en une inégalité.
 \end{definition}
-Une autre façon d'écrire la relation \eqref{EqSNWooXfbTH} est d'écrire \( \langle (x-v),M(x,v)\rangle\) en utilisant le produit scalaire.
 
 \begin{remark}
     Le fait que \( M\) soit symétrique n'est pas tout à fait obligatoire; la chose important est que toutes les valeurs propres soient strictement positives. En effet si \( M\) a toutes ses valeurs propres strictement positives, nous nommons \( S\) la partie symétrique de \( M\) et \( A\) la partie antisymétrique (lemme~\ref{LemYVWoohcjIX}). Alors pour tout \( x\in \eR^n\) nous avons
@@ -538,16 +993,11 @@ Pour rappel de notation, l'ensemble des formes quadratiques strictement définie
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Théorème spectral auto-adjoint}
+\section{Théorème spectral autoadjoint}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{definition}      \label{DEFooYNEQooGQgbCf}
-    Si \( E\) est un espace euclidien, un endomorphisme \( f\colon E\to E\) est \defe{auto-adjoint}{endomorphisme!auto-adjoint} si pour tout \( x,y\in E\) nous avons \( \langle x, f(y)\rangle=\langle f(x), y\rangle  \).
-\end{definition}
-L'ensemble des opérateurs auto-adjoints de \( E\) est noté \( \gS(E)\)\nomenclature[A]{\( \gS(E)\)}{Les opérateurs auto-adjoints de $E$}. Cette notation provient du fait que dans \( \eR^n\) muni du produit scalaire usuel, les opérateurs auto-adjoints sont les matrices symétriques.
-
-\begin{theorem}[Théorème spectral auto-adjoint] \label{ThoRSBahHH}
-    Un endomorphisme auto-adjoint d'un espace euclidien
+\begin{theorem}[Théorème spectral autoadjoint] \label{ThoRSBahHH}
+    Un endomorphisme autoadjoint d'un espace euclidien
     \begin{enumerate}
         \item
             est diagonalisable dans une base orthonormée,
@@ -556,7 +1006,7 @@ L'ensemble des opérateurs auto-adjoints de \( E\) est noté \( \gS(E)\)\nomencl
     \end{enumerate}
 \end{theorem}
 \index{théorème!spectral!autoadjoint}
-\index{diagonalisation!endomorphisme auto-adjoint}
+\index{diagonalisation!endomorphisme autoadjoint}
 
 \begin{proof}
     Nous procédons par récurrence sur la dimension de \( E\), et nous commençons par \( n=1\)\footnote{Dans \cite{KXjFWKA}, l'auteur commence avec \( n=0\) mais moi je n'en ai \wikipedia{en}{Vacuous_truth}{pas le courage.}.}. Soit donc \( f\colon E\to E\) avec \( \langle f(x), y\rangle =\langle x, f(y)\rangle \). Étant donné que \( f\) est également linéaire, il existe \( \lambda\in \eR\) tel que \( f(x)=\lambda x\) pour tout \( x\in E\). Tous les vecteurs de \( E\) sont donc vecteurs propres de \( f\).
@@ -584,7 +1034,7 @@ L'ensemble des opérateurs auto-adjoints de \( E\) est noté \( \gS(E)\)\nomencl
     \begin{equation}
         \Phi_1(y,x)=\langle y, g(x)\rangle =\langle g(y), x\rangle =\langle x, g(y)\rangle =\Phi_1(x,y)
     \end{equation}
-    où nous avons utilisé le fait que \( g\) était auto-adjoint et la symétrie du produit scalaire. De plus \( \Phi_1\) est semi-définie positive parce que
+    où nous avons utilisé le fait que \( g\) était autoadjoint et la symétrie du produit scalaire. De plus \( \Phi_1\) est semi-définie positive parce que
     \begin{equation}
         \Phi_1(x,x)=\langle x, \lambda x-f(x)\rangle =\lambda\| x \|^2-\phi(x).
     \end{equation}
@@ -600,7 +1050,7 @@ L'ensemble des opérateurs auto-adjoints de \( E\) est noté \( \gS(E)\)\nomencl
     \begin{equation}
         f(e_1)=\lambda e_1,
     \end{equation}
-    c'est à dire que \( \lambda\in\Spec(f)\). Et \( \phi\) étant une forme quadratique réelle nous avons \( \lambda\in \eR\).
+    c'est-à-dire que \( \lambda\in\Spec(f)\). Et \( \phi\) étant une forme quadratique réelle nous avons \( \lambda\in \eR\).
 
     Nous posons à présent \( H=\Span\{ e_1 \}^{\perp}\). C'est un sous-espace stable par \( f\) parce que si \( x\in H\) alors
     \begin{equation}
@@ -648,7 +1098,7 @@ Nous pouvons effectuer la somme sur $k$ en remarquant qu'à cause du $\delta_{ik
 Une des propriétés intéressantes du produit scalaire est qu'il permet de décomposer un vecteur dans une base, comme nous le montre la proposition suivante.
 
 \begin{proposition}		\label{PropScalCompDec}
-	Si nous notons $v_i$ les composantes du vecteur $v$, c'est à dire si $v=\sum_{i=1}^m v_ie_i$, alors nous avons $v_j=\langle v, e_j\rangle $.
+	Si nous notons $v_i$ les composantes du vecteur $v$, c'est-à-dire si $v=\sum_{i=1}^m v_ie_i$, alors nous avons $v_j=\langle v, e_j\rangle $.
 \end{proposition}
 
 \begin{proof}
@@ -696,7 +1146,7 @@ Cette définition est motivée par le fait que le produit scalaire $u\cdot u$ do
 	u\cdot u=\sum_{i=1}^mu_iu_i=\sum_{i=1}^m u_i^2=u_1^2+u_2^2+\cdots+u_m^2.
 \end{equation}
 
-Le fait que $e_i\cdot e_j=\delta_{ij}$ signifie que la base canonique est \defe{orthonormée}{orthonormé}, c'est à dire que les vecteurs de la base canonique sont orthogonaux deux à deux et qu'ils ont tout $1$ comme norme.
+Le fait que $e_i\cdot e_j=\delta_{ij}$ signifie que la base canonique est \defe{orthonormée}{orthonormé}, c'est-à-dire que les vecteurs de la base canonique sont orthogonaux deux à deux et qu'ils ont tout $1$ comme norme.
 
 \begin{lemma}\label{LemSclNormeXi}
 	Pour tout $u\in\eR^m$, il existe un $\xi\in\eR^m$ tel que $\| u \|=\xi\cdot u$ et $\| \xi \|=1$.
@@ -707,201 +1157,6 @@ Le fait que $e_i\cdot e_j=\delta_{ij}$ signifie que la base canonique est \defe{
 	\begin{equation}
 		\xi\cdot u=\frac{ u\cdot u }{ \| u \| }=\frac{ \| u \|^2 }{ \| u \| }=\| u \|.
 	\end{equation}
-\end{proof}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{Produit tensoriel d'espaces vectoriels}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Si vous êtes pressés, vous pouvez aller lire la définition \ref{DEFooKTVDooSPzAhH} de produit tensoriel d'espaces vectoriels. Mais si vous étiez vraiment pressés, vous ne seriez pas en train de lire des choses sur le produit tensoriel (il vous suffit de croire que \( x\otimes y\) n'est finalement que la concatenation de \( x\) et \( y\)).
-
-\begin{definition}
-    Soient un espace vectoriel \( V\) et un sous-espace \( N\). Le \defe{quotient}{quotient d'un espace vectoriel} de \( V\) par \( N\), noté \( V/N\) est l'ensemble des classes d'équivalence pour la relation \( x\sim y\) si et seulement si \( x-y\in N\).
-\end{definition}
-
-\begin{proposition}
-    Soient un espace vectoriel \( V\) et un sous-espace vectoriel \( N\) de \( V\). Les définitions
-    \begin{enumerate}
-        \item
-            \( [v]+[w]=[v+w]\)
-        \item
-            \( \lambda[v]=[\lambda v]\)
-    \end{enumerate}
-    ont un sens et définissent une structure d'espace vectoriel sur \( V/N\).
-\end{proposition}
-
-\begin{proof}
-    Un élément général de la classe \( [v]\) est de la forme \( v+n\) avec \( n\in N\). Le calcul suivant montre que la somme fonctionne : 
-    \begin{equation}
-        [v+n_1]+[w+n_2]=[v+w+n_1+n_2]=[v+w]
-    \end{equation}
-    parce que \( n_1+n_2\in N\). De même,
-    \begin{equation}
-        \lambda[v+n]=[\lambda v+\lambda n]=[\lambda v]
-    \end{equation}
-    toujours parce que \( \lambda n\in N\).
-
-    Notons que nous avons utilisé de façon on ne peut plus cruciale le fait que \( N\) soit un sous-espace vectoriel.
-\end{proof}
-
-\begin{proposition}
-    Si \( \{ e_i \}\) est une base de \( V\) et si \( N\) est un sous-espace de \( V\), alors \( \{ [e_i] \}\) est une partie génératrice de \( V/N\).
-\end{proposition}
-
-\begin{proof}
-    Si \( x=\sum_kx_ke_k\), alors \( [x]=\sum_kx_k[e_k]\), donc oui.
-\end{proof}
-
-C'est le moment pour vous de relire la définition \ref{DEFooCPNIooNxsYMY} d'espace vectoriel librement engendré, et surtout le lemme \ref{LEMooLOPAooUNQVku} qui en donne une base.
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Les produits tensoriels}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous allons procéder en deux temps. D'abord nous allons définir ce qu'est \emph{un} produit tensoriel entre deux espaces vectoriels \( V\) et \( W\), et nous allons montrer que tous les produits tensoriels possibles sont isomorphes. Ensuite nous allons montrer qu'un produit tensoriel existe en en construisant un. Voir la proposition \ref{PROPooIWZDooRRZNCf}.
-
-\begin{definition}[\cite{ooWHNKooYVCiYc}]       \label{DEFooXKKQooAvWRNp}
-    Soient deux espaces vectoriels \( V\) et \( W\). Un \defe{produit tensoriel}{produit tensoriel} de \( V\) et \( W\) est un couple \( (T,h)\) où \( T\) est un espace vectoriel et \( h\colon V\oplus W\to T\) est une application
-    \begin{enumerate}
-        \item
-            bilinéaire\footnote{Définition \ref{DEFooEEQGooNiPjHz}.}
-        \item
-            surjective
-        \item
-            telle que pour tout espace vectoriel \( U\) et toute applications bilinéaire \( f\colon V\oplus W\to U\), il existe une application linéaire \( g\colon T\to U\) telle que \( f=g\circ h\).
-    \end{enumerate}
-\end{definition}
-
-\begin{definition}
-    Un \defe{morphisme}{morphisme de produits tensoriels} entre \( (T,h)\) et \( (T',h')\) est une application linéaire \( \psi\colon T\to T'\) telle que \( h'=\psi\circ h\).
-
-    Nous parlons d'\defe{isomorphisme}{isomorphisme} si \( \psi\) a un inverse qui est également un morphisme.
-\end{definition}
-
-\begin{proposition}[\cite{ooWHNKooYVCiYc}]
-    Si \( V\) et \( W\) sont des espaces vectoriels, tous les produits tensoriels entre \( V\) et \( W\) sont isomorphes entre eux.
-\end{proposition}
-
-\begin{proof}
-    Soient deux produits tensoriels \( (T,h)\) et \( (T',h')\). L'application \( h'\colon V\oplus W\to T'\) est bilinéaire, et \( (T,h)\) est un produit tensoriel. Donc il existe \( g\colon T\to T'\) tel que \( h'=g\circ h\). De même, il existe une application \( g'\colon T'\to T\) telle que \( h=g'\circ h\).
-    
-    Ces deux applications \( g\) et \( g'\) vérifient $h'=gg'h$ et $h=g'gh$, et de plus \( h\colon V\oplus W\to T\) est surjective. Soient \( t\in T\) et \( x\in V\oplus W\) tel que \( t=h(x)\). Nous avons \( h(x)=g'gh(x)\). C'est à dire \( t=(g'\circ g)(t)\). De même dans l'autre sens, il existe \( x'\in V\oplus W\) tel que \( t=h'(x')\). En appliquant l'égalité \( h'=gg'h'\) à \( x'\), nous trouvons \( t=(g\circ g')(t)\).
-
-    Tout cela pour dire que \( g'=g^{-1}\). Cette application \( g\) est donc un isomorphisme de produits tensoriels entre \( (T,h)\) et \( (T',h')\).
-\end{proof}
-
-Tout cela est fort bien : nous avons unicité à isomorphisme près du produit tensoriel d'espaces vectoriels. Mais nous n'avons pas encore de certitudes à propos de l'existence d'un couple \( (T,h)\) vérifiant les propriétés demandées pour être un produit tensoriel.
-
-Nous allons maintenant construire un produit tensoriel.
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Le produit tensoriel}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}[\cite{ooWHNKooYVCiYc}]       \label{DEFooKTVDooSPzAhH}
-    Soient deux espaces vectoriels \( V\) et \( W\) sur le corps \( \eK\). Dans \( F_{\eK}(V\times W)\) nous considérons les sous-espaces suivants:
-    \begin{subequations}
-        \begin{align}
-            A_1&=\{ \delta_{(v_1,w)}+\delta_{(v_2,w)}-\delta_{(v_1+v_2,w)}\tq v_1,v_2\in V,w\in W  \}\\
-            A_2&=\{ \delta_{(v,w_1)}+\delta_{(v,w_2)}-\delta_{(v,w_1+w_2)}\tq v\in V,w_1,w_2\in W  \}\\
-            A_3&=\{ \lambda\delta_{v,w}-\delta_{(\lambda v, w)}\tq v\in V,w\in W,\lambda\in \eK \}\\
-            A_3&=\{ \lambda\delta_{v,w}-\delta_{(v,\lambda w)}\tq v\in V,w\in W,\lambda\in \eK \}.
-        \end{align}
-    \end{subequations}
-    Nous considérons alors \( N=\Span(A_1,A_2,A_3,A_4)\) et le quotient
-    \begin{equation}
-        V\otimes_{\eK}W=F_{\eK}(V\times W)/N.
-    \end{equation}
-    Ce dernier espace vectoriel est le \defe{produit tensoriel}{produit tensoriel} de \( V\) par \( W\).
-\end{definition}
-
-La classe de l'élément \( \delta_{(v,w)}\in F(V\times W)\) sera d'habitude noté \( v\otimes w\). 
-\begin{remark}
-    Deux remarques.
-    \begin{enumerate}
-        \item
-            Les éléments de \( V\otimes W\) ne s'écrivent pas tous sous la forme \( v\otimes w\). Certains ont vraiment besoin d'être écrits avec des sommes. En cela, la situation de \( V\otimes W\) est réellement différente de celle de \( V\times W\). Dans ce dernier, tous les éléments sont des couples.
-        \item
-            Pour insister sur la notion de classe, nous allons aussi noter \( [x]\) la classe de \( x\in F(V\times W)\).
-    \end{enumerate}
-\end{remark}
-
-\begin{proposition}[\cite{ooWHNKooYVCiYc}]     \label{PROPooIWZDooRRZNCf}
-    L'espace vectoriel \( V\otimes W\) muni de
-    \begin{equation}
-        \begin{aligned}
-            h\colon V\oplus W&\to V\otimes W \\
-            (v,w) &\mapsto v\otimes w 
-        \end{aligned}
-    \end{equation}
-    est un produit tensoriel entre \( V\) et \( W\).
-\end{proposition}
-
-\begin{proof}
-    Nous devons prouver les conditions de la définition \ref{DEFooXKKQooAvWRNp}. 
-    
-    \begin{subproof}
-        \item[\( h\) est bilinéaire]
-
-            lkjljlk
-
-        \item[\(h \) est surjective]
-    
-            Un élément de \( V\otimes W\) est la classe d'un élément de \( F(V\times W)\), c'est à dire de la forme
-            \begin{equation}
-                \big[ \sum_{i\alpha}\delta_{(v_i,w_{\alpha})} \big]=\sum_{i\alpha}a_{i\alpha}v_i\otimes w_{\alpha}.
-            \end{equation}
-            Cet élément est dans l'image de \( h\) comme le montre le calcul suivant\footnote{Faites bien la distinction entre \( \delta_{v,w}\), \( (v,w)\) et \( v\otimes w\). Sachez dans quel ensemble se trouvent chacun de ces trois objets.} :
-            \begin{equation}
-                h\big( \sum_{i\alpha}(v_i,w_{\alpha}) \big)=\sum_{i\alpha}a_{i\alpha}h(v_i,w_{\alpha})=\sum_{i\alpha}v_i\otimes w_{\alpha}.
-            \end{equation}
-            <++>
-    
-    \end{subproof}
-    <++>
-\end{proof}
-<++>
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Définitions}
-%---------------------------------------------------------------------------------------------------------------------------
-\label{SECooUKRYooZjagcX}
-
-Soit \( E\), un espace vectoriel de dimension finie. Si \( \alpha\) et \( \beta\) sont deux formes linéaires sur un espace vectoriel \( E\), nous définissons \( \alpha\otimes \beta\) comme étant la \( 2\)-forme donnée par
-\begin{equation}        \label{EQooUNRYooKBrXyK}
-    (\alpha\otimes \beta)(u,v)=\alpha(u)\beta(v).
-\end{equation}
-Si \( a\) et \( b\) sont des vecteurs de \( E\), ils sont vus comme des formes sur \( E\) via le produit scalaire et nous avons
-\begin{equation}
-    (a\otimes b)(u,v)=(a\cdot u)(b\cdot v).
-\end{equation}
-Cette dernière équation nous incite à pousser un peu plus loin la définition de \( a\otimes b\) et de simplement voir cela comme la matrice de composantes
-\begin{equation}
-    (a\otimes b)_{ij}=a_ib_j.
-\end{equation}
-Cette façon d'écrire a l'avantage de ne pas demander de se souvenir qui est une vecteur ligne, qui est un vecteur colonne et où il faut mettre la transposée. Évidemment \( (a\otimes b)\) est soit \( ab^t\) soit \( a^tb\) suivant que \( a\) et \( b\) soient ligne ou colonne.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Application d'opérateurs}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{lemma}   \label{LemMyKPzY}
-    Soient \( x,y\in E\) et \( A,B\) deux opérateurs linéaires sur \( E\) vus comme matrices. Alors
-    \begin{equation}        \label{EqXdxvSu}
-        (Ax\otimes By)=A(x\otimes y)B^t.
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Calculons la composante \( ij\) de la matrice \( (Ax\otimes By)\). Nous avons
-    \begin{subequations}
-        \begin{align}
-            (Ax\otimes By)_{ij}&=(Ax)_i(By)_j\\
-            &=\sum_{kl}A_{ik}x_kB_{jl}y_l\\
-            &=A_{ik}(x\otimes y)_{kl}B_{jl}\\
-            &=\big( A(x\otimes y)B^t \big)_{ij}.
-        \end{align}
-    \end{subequations}
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -932,7 +1187,7 @@ Pour résoudre un système d'équations linéaires, on procède comme suit:
 \[\text{p.ex. }  \left(\begin{array}{ccc|c} 3 & 4 & -2 & 2 \\ 4 & -1 & 3 & 0 \\ 0 & 0 & 0 & 0 \end{array}\right) \Leftrightarrow  \left(\begin{array}{ccc|c} 3 & 4 & -2 & 2 \\ 4 & -1 & 3 & 0 \end{array}\right) \]
 \item Si on obtient une ligne de zéros suivie d'un nombre non-nul, le système d'équations n'a pas de solution:
 \[\text{p.ex. }  \left(\begin{array}{ccc|c} 3 & 4 & -2 & 2 \\ 4 & -1 & 3 & 0 \\ 0 & 0 & 0 & 7 \end{array}\right) \Leftrightarrow  \begin{cases} \cdots \\ \cdots \\ 0x + 0y + 0z = 7 \end{cases} \Rightarrow \textbf{Impossible} \]
-\item Si on moins d'équations que d'inconnues, alors il y a une infinité de solutions qui dépendent d'un ou plusieurs paramètres:
+\item Si on a moins d'équations que d'inconnues, alors il y a une infinité de solutions qui dépendent d'un ou plusieurs paramètres:
 \[\text{p.ex. }  \left(\begin{array}{ccc|c} 1 & 0 & -2 & 2 \\ 0 & 1 & 3 & 0 \end{array}\right) \Leftrightarrow  \begin{cases} x - 2z = 2 \\ y + 3z = 0 \end{cases} \Leftrightarrow  \begin{cases} x = 2 + 2\lambda \\ y = -3\lambda \\ z = \lambda \end{cases} \]
 \end{itemize}
 \end{remark}

@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -9,7 +9,7 @@
 \label{SECooLQVJooTGeqiR}
 
 \begin{lemma}       \label{LemobATFP}
-    Soit \( \eL\) un corps fini et \( \eK\) un sous corps de \( \eL\). Alors il existe \( s\in \eN\) tel que
+    Soit \( \eL\) un corps\footnote{Définition \ref{DefTMNooKXHUd}.} fini et \( \eK\) un sous corps de \( \eL\). Alors il existe \( s\in \eN\) tel que
     \begin{equation}        \label{EqUgqlJQ}
         \Card(\eL)=\Card(\eK)^s.
     \end{equation}
@@ -24,14 +24,6 @@
 \end{definition}
 
     Nous identifions le plus souvent \( \eK\) avec \( i(\eK)\subset \eL\), mais il faut savoir que le corps \( \eL\) étendant \( \eK\) n'est pas toujours un sur-corps de \( \eK\).
-
-\begin{definition}      \label{DEFooREUHooLVwRuw}
-    Une extension est \defe{algébrique}{extension!de corps!algébrique}\index{algébrique!extension} de \( \eK\) est une extension dont tous les éléments sont racines de polynômes dans \( \eK[X]\).
-\end{definition}
-
-\begin{example}
-    Le corps \( \eR\) n'est pas une extension algébrique de \( \eQ\). En effet il existe seulement une infinité \emph{dénombrable} de polynômes dans \( \eQ[X]\) et donc une infinité dénombrable de racines de tels polynômes. Toute extension algébrique de \( \eQ\) est donc dénombrable.
-\end{example}
 
 \begin{lemma}       \label{LemooOLIIooXzdppM}
     Si \( (\eL,i)\) est une extension de \( \eK\), alors \( \eL\) est un espace vectoriel sur \( \eK\).
@@ -86,7 +78,7 @@ Notons que la formule \eqref{EQooOLLQooFdYtnh} n'est pas très instructive dans 
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Extension algébrique et polynôme minimal}
+\subsection{Extension et polynôme minimal}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{lemmaDef}[Polynôme minimal]    \label{DefCVMooFGSAgL}
@@ -97,22 +89,36 @@ Notons que la formule \eqref{EQooOLLQooFdYtnh} n'est pas très instructive dans 
     que nous supposons non réduite à \( \{ 0 \}\)\footnote{La non trivialité de \( I_a\) est une vraie hypothèse. En effet si nous prenons \( \eK=\eQ\) et l'extension \( \eL=\eR\), alors il suffit de prendre un réel \( a\) non algébrique sur \( \eQ\) pour que \( I_a\) soit réduit au seul polynôme identiquement nul.}
 
     \begin{enumerate}
-        \item
-            La partie \( I_a\) est un idéal principal dans \( \eK[X]\)
-        \item
-            L'idéal \( I_a\) possède un unique générateur unitaire.
+        \item       \label{ITEMooUNLCooIfYZry}
+            La partie \( I_a\) est un idéal dans \( \eK[X]\),
+        \item       \label{ITEMooDCDRooPDnnbu}
+            la partie \( I_a\) est un idéal principal dans \( \eK[X]\),
+        \item       \label{ITEMooXFYQooTuMzIu}
+            l'idéal \( I_a\) possède un unique générateur unitaire.
     \end{enumerate}
 
     Cet unique générateur unitaire est le \defe{polynôme minimal}{polynôme!minimal!d'un élément d'une extension} de \( a\) sur \( \eK\).
 \end{lemmaDef}
 
 \begin{proof}
-    Le fait que \( I_a\) soit un idéal est la définition du produit sur l'anneau des polynômes. Le théorème~\ref{ThoCCHkoU} fait le reste du travail : nous savons que \( \eK[X]\) est un anneau principal et donc que tous ses idéaux sont principaux (c'est la définition).
+    En plusieurs parties.
+    \begin{subproof}
+    \item[Pour \ref{ITEMooUNLCooIfYZry}]
+        Soit \( P\in I_a\) : \( P(a)=0\). Si \( Q\in \eK[X]\) alors la proposition \ref{PROPooGDQCooHziCPH} nous indique que
+        \begin{equation}
+            (PQ)(a)=P(a)Q(a)=0.
+        \end{equation}
+        Donc \( PQ\in I_a\). Comme de plus \( I_a\) est clairement vectoriel, \( I_a\) est un idéal.
 
-    Le théorème~\ref{ThoCCHkoU} dit également que \( I_a\) possède un unique générateur unitaire.
+        Notez que nous avons utilisé la règle du produit nul justifiée par le fait que \( \eK\) soit un corps\quext{Si vous connaissez un contre-exemple à cette proposition dans le cas où \( \eK\) serait remplacé par un anneau, écrivez-moi.} et donc soumis au point \ref{ITEMooQNTFooSRrVPK} de la proposition \ref{DEFooTAOPooWDPYmd}.
+    \item[Pour \ref{ITEMooDCDRooPDnnbu}]
+        Nous savons par le théorème \ref{ThoCCHkoU} que \( \eK[X]\) est un anneau principal. En particulier, tous ses idéaux sont principaux, c'est dans la définition \ref{DEFooGWOZooXzUlhK} d'un anneau principal.
+    \item[Pour \ref{ITEMooXFYQooTuMzIu}]
+        Le théorème~\ref{ThoCCHkoU}\ref{ITEMooASHKooZqkiCH} nous informe alors que \( I_a\) possède un unique générateur unitaire.
+    \end{subproof}
 \end{proof}
 
-Si nous avons un corps et un élément dans une extension du corps, il n'est pas autorisé de dire «soit le polynôme minimal de cet élément dans le premier corps». En effet, il n'existe peut-être pas de polynôme annulateur.
+Si nous avons un corps et un élément dans une extension du corps, il n'est pas autorisé de dire «soit le polynôme minimal de cet élément dans le premier corps» parce qu'il n'existe peut-être pas de polynôme annulateur.
 
 \begin{example}
     Le polynôme minimal dépend du corps sur lequel on le considère. Par exemple le nombre imaginaire pur \( i\) accepte \( X-i\) comme polynôme minimal sur \( \eC\) et \( X^2+1\) sur \( \eQ[X]\).
@@ -138,7 +144,7 @@ Si nous avons un corps et un élément dans une extension du corps, il n'est pas
             \begin{equation}
                 0=P(a)Q(a).
             \end{equation}
-            Vu que nous sommes sur un corps, nous avons la règle du produit nul et nous déduisons que soit \( P(a)\) soit \( Q(a)\) est nul, ou les deux. Pour fixer les idées, nous supposons \( P(a)=0\).
+            Vu que nous sommes sur un corps, nous avons la règle du produit nul\footnote{Parce que un corps est un anneau intègre par le lemme \ref{LemAnnCorpsnonInterdivzer} et qu'un anneau intègre est justement un anneau sur lequel nous avons la règle du produit nul, voir la définition \ref{DEFooTAOPooWDPYmd}.} et nous déduisons que soit \( P(a)\) soit \( Q(a)\) est nul, ou les deux. Pour fixer les idées, nous supposons \( P(a)=0\).
 
             Dans ce cas, \( P\) fait partie de l'idéal annulateur de \( a\), lequel idéal est engendré par \( \mu_a\). Donc il existe \( S\in \eK[X]\) tel que \( P=S\mu_a\). En récrivant \( \mu_a=PQ\) avec cela nous avons :
             \begin{equation}
@@ -148,7 +154,7 @@ Si nous avons un corps et un élément dans une extension du corps, il n'est pas
 
             Nous concluons que \( \mu_a\) ne peut pas être écrit sous forme de produit de deux non inversibles.
         \item
-            Soit \( Q\) un polynôme non annulateur de \( a\). Soit aussi un diviseur commun \( P\) de \( Q\) et \( \mu_a\) dans \( \eK[X]\). Nous devons prouver que \( P\) est un inversible, c'est à dire un élément de \( \eK\) (le fait que \( P\) ne soit pas le polynôme nul est évident).
+            Soit \( Q\) un polynôme non annulateur de \( a\). Soit aussi un diviseur commun \( P\) de \( Q\) et \( \mu_a\) dans \( \eK[X]\). Nous devons prouver que \( P\) est un inversible, c'est-à-dire un élément de \( \eK\) (le fait que \( P\) ne soit pas le polynôme nul est évident).
             Nous avons \( \mu_a=PR_1\) et \( Q=PR_2\) pour certains polynômes \( R_1,R_2\in \eK[X]\). Vu que \( \mu_a\) est irréductible par~\ref{ItemDOQooYpLvXri}, il n'est pas produit de deux non inversibles. En d'autres termes, soit \( P\) soit \( R_1\) est inversible. Si \( P \) n'est pas inversible, alors \( R_1\) est inversible; disons \( R_1=k\in \eK\). Alors
             \begin{equation}
                 0=\mu_a(a)=P(a)k,
@@ -167,55 +173,160 @@ Si nous avons un corps et un élément dans une extension du corps, il n'est pas
     Deux éléments \( \alpha\) et \( \beta\) dans \( \eL\) sont dit \defe{conjugués}{conjugués!éléments d'une extension} s'ils ont même polynôme minimal. Par exemple \( i\) et \( -i\) sont conjugués dans \( \eC\) vu comme extension de \( \eQ\).
 \end{definition}
 
-\begin{lemma}       \label{LEMooHKTMooKEoOuK}
-    Soient un corps \( \eK\), une extension \( \eL\) de \( \eK\) et \( \alpha\in \eL\), un élément algébrique sur \( \eK\). Si \( \mu\) est le polynôme minimal de \( \alpha\) sur \( \eK\) alors
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Extensions algébriques et éléments transcendants}
+%---------------------------------------------------------------------------------------------------------------------------
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Éléments algébriques et transcendants}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+%TODOooAAOWooWNqqVO. Dans LEMooLVPLooEkWYDN, LEMooTZSSooZmwYji, et DEFooREUHooLVwRuw il faut modifier les énoncés pour être explicite que
+% une extension L de K est bien une application i:K->L; nous n'avons pas spécialement que K est un sous-ensemble de L.
+% Ça ajoute des niveaux d'indirections, mais on est névrosé des abus de notations et on assume.
+
+\begin{definition}      \label{DEFooBBYGooWoOloR}
+    L'ensemble \( A[X]\) devient un \( \eK\)-espace vectoriel avec la définition
+    \begin{equation}
+        (\lambda P)_k=\lambda P_k.
+    \end{equation}
+\end{definition}
+
+Voici une définition d'un élément algébrique sur un corps. Une caractérisation plus «pratique» sera donnée dans le lemme \ref{LEMooTZSSooZmwYji}.
+\begin{lemmaDef}[Élément algébrique et transcendant\cite{ooTGTKooFenWAc}] \label{LEMooLVPLooEkWYDN}
+    Soit une extension \( \eL\) de \( \eK\) et \( \alpha\in \eL\). Nous considérons l'application
     \begin{equation}
         \begin{aligned}
-            \varphi\colon \eK[\alpha]&\to \eK[X]/(\mu) \\
-            Q(\alpha)&\mapsto \bar Q
+            \varphi\colon \eK[X]&\to \eL \\
+            P&\mapsto P(\alpha).
         \end{aligned}
     \end{equation}
-    avec \( Q\in\eK[X]\) est un isomorphisme de corps et de \( \eK\)-espaces vectoriels.
-    % position 118885898.
+    Alors
+    \begin{enumerate}
+        \item
+            L'application \( \varphi\) est un morphisme d'anneaux\footnote{Définition \ref{DEFooSPHPooCwjzuz}.}.
+        \item
+            L'application \( \varphi\) est un morphisme de \( \eK\)-espace vectoriel.
+    \end{enumerate}
+    Si \( \varphi\) est injective, nous disons que \( \alpha\) est \defe{transcendant}{transcendant}. Sinon, nous disons qu'il est \defe{algébrique}{algébrique}.
+\end{lemmaDef}
+
+\begin{proof}
+    Le fait que \( \varphi\) soit un morphisme d'anneaux est le lemme \ref{PROPooGDQCooHziCPH} déjà prouvé.
+
+    Pour le morphisme de \( \eK\)-espace vectoriel, il faut seulement ajouter le calcul
+    \begin{equation}
+        \varphi(\lambda P)=(\lambda P)(\alpha)=\lambda P(\alpha)=\lambda \varphi(P).
+    \end{equation}
+    Notons la justification suivante qui n'est pas tout à fait triviale :
+    \begin{equation}
+        (\lambda P)(\alpha)=\sum_k(\lambda P)_k\alpha^k=\sum_k\lambda P_k\alpha^k=\lambda P(\alpha)
+    \end{equation}
+    qui utilise la définition \ref{DEFooBBYGooWoOloR}.
+\end{proof}
+
+\begin{example}
+    L'injectivité de \( \varphi\) n'est pas automatique. Prenons par exemple \( \eL=\eQ[\sqrt{ 2 }]\) dans \( \eR\). Les polynômes dans \( \eQ[X]\) ont des degrés arbitrairement élevés en \( X\), tandis que les éléments de \( \eL\) n'ont pas de degré très élevés en \( \sqrt{ 2 }\) parce que \( \sqrt{ 2 }\sqrt{ 2 }=2\). L'ensemble \( \eQ[\sqrt{ 2 }]\) ne contient donc que des éléments de la forme \( a+b\sqrt{ 2 }\) avec \( a,b\in \eQ\).
+
+    Si par contre \( x_0\in \eR\) n'est racine d'aucun polynôme (cela existe parce que \( \eR\) n'est pas dénombrable), alors \( \eQ[x_0]\) contient tous les \( \sum_{k=0}^Na_kx_0^k\) avec \( N\) arbitrairement grand. Et tous ces nombres sont différents.
+\end{example}
+
+Le lemme suivant donne une caractérisation d'élément algébrique moins abstraire que la définition \ref{LEMooLVPLooEkWYDN}.
+\begin{lemma}       \label{LEMooTZSSooZmwYji}
+    Soit \( \eK\), un corps et \( \eL\), une extension de \( \eK\). Un élément \( \alpha\in \eL\) est algébrique sur \( \eK\) si et seulement si existe un polynôme non nul \( P\in \eK[X]\) tel que \( P(a)=0\).
 \end{lemma}
 
 \begin{proof}
-    D'abord, \( \alpha\) est algébrique, donc l'idéal annulateur \( I_{\alpha}\) n'est pas réduit à \( \{ 0 \}\), et l'existence d'un polynôme minimal est assurée par le lemme~\ref{DefCVMooFGSAgL}.
+    Nous considérons l'application \( \varphi\) de la définition \ref{LEMooLVPLooEkWYDN}. Si \( \varphi\) n'est pas injective, c'est qu'il existe un polynôme \( P\) dans \( \eK[X]\) tel que \( \varphi(P)=0\). Dans ce cas, \( P(\alpha)=0\).
 
-    Ensuite, le fait que \( \eK[X]/(\mu)\) soit un corps est le corollaire~\ref{CorsLGiEN}. Nous montrons à présent que \( \varphi\) est un isomorphisme (d'anneaux); cela suffit pour en déduire que \( \eK[\alpha]\) est également un corps.
-
-    Ces préliminaires étant dits, nous commençons.
-    \begin{subproof}
-        \item[Bien définie]
-            Nous devons prouver que \( \varphi\) est bien définie, c'est à dire que tout élément de \( \eK[\alpha]\) peut être écrit sous la forme \( Q(\alpha)\) pour un \( Q\in \eK[X]\), et que si \( Q_1(\alpha)=Q_2(\alpha)\) alors \( \bar Q_1=\bar Q_2\).
-
-            Le fait que tous les éléments de \( \eK[\alpha]\) peuvent être écrits sous la forme \( Q(\alpha)\) est le proposition~\ref{PROPooPMNSooOkHOxJ}. Supposons que \( Q_1(\alpha)=Q_2(\alpha)\). Alors nous définissons \( R\in \eK[X]\) par \( Q_1=Q_2+R\), et en évaluant cette égalité en \( \alpha\) nous avons
-            \begin{equation}
-                Q_1(\alpha)=Q_2(\alpha)+R(\alpha),
-            \end{equation}
-            autrement dit \( R(\alpha)=0\). Donc \( R\) est dans l'idéal annulateur de \( \alpha\) et est donc dans \( (\mu)\), c'est à dire que dans le quotient \( \eK[X]/(\mu)\) nous avons \( \bar R=0\) et donc \( \bar Q_1=\bar Q_2\).
-
-        \item[Surjective]
-
-            Tout élément de \( \eK[X]/(\mu)\) est de la forme \( \bar Q\) pour un \( Q\in \eK[X]\). Or ces éléments sont ceux de l'ensemble d'arrivée de \( \varphi\).
-
-        \item[Injective]
-
-            Si \( \bar Q_1=\bar Q_2\), alors \( Q_1=Q_2+R\) avec \( R\) dans l'idéal engendré par \( \mu\), c'est à dire entre autres \( R(\alpha)=0\). Donc \( Q_1(\alpha)=Q_2(\alpha)\).
-
-    \end{subproof}
-
-    Nous devons encore montrer que nous avons là un morphisme de \( \eK\)-espaces vectoriels.
-    \begin{enumerate}
-        \item
-            Si \( k\in \eK\) alors \( \varphi\big( kQ(\alpha) \big)=\overline{ kQ }\). Mais par définition de la structure d'espace vectoriel sur \( \eK[X]/(\mu)\), \( \overline{ kQ }=k\bar Q\) (vérifier que cette définition de la multiplication par un scalaire sur \( \eK[X]/(\mu)\) est correcte).
-        \item
-            Nous avons aussi \( \varphi\big( Q_1(\alpha)+Q_2(\alpha) \big)=\varphi\big( (Q_1+Q_2)(\alpha) \big)=\overline{ Q_1+Q_2 }=\bar Q_1+\bar Q_2\).
-    \end{enumerate}
+    À l'inverse si il existe \( P\) non nul dans \( \eK[X]\) tel que \( P(\alpha)=0\), alors \( \varphi(P)=0\) et \( \varphi\) n'est pas injective.
 \end{proof}
 
+\begin{definition}      \label{DEFooYZOYooAesmnP}
+    Un corps \( \eK\) est \defe{algébriquement clos}{corps algébriquement clos} si tout polynôme non constant à coefficients dans \( \eK\) contient au moins une racine dans \( \eK\).
+\end{definition}
+
+\begin{definition}[Extension algébrique, clôture algébrique]      \label{DEFooREUHooLVwRuw}
+    Soient un corps \( \eK\) et une extension \( \alpha\colon \eK\to \eL\).
+    \begin{enumerate}
+        \item
+            L'extension \( \eL\) est une extension \defe{algébrique}{extension algébrique} de \( \eK\) si tous ses éléments sont algébriques\footnote{Définition \ref{LEMooLVPLooEkWYDN}.} sur \( \eK\), c'est à dire sont racines de polynômes à coefficients dans  \(\alpha(\eK)\), voir le lemme \ref{LEMooTZSSooZmwYji}.
+        \item       \label{ITEMooEIWVooVjJRoR}
+            L'extension \( \eL\) est \defe{algébriquement close}{extension algébriquement clos} si tout \( \eL\) est algébriquement clos (définition \ref{DEFooYZOYooAesmnP}).
+        \item
+            L'extension \( \eL\) est une \defe{clôture algébrique}{clôture algébrique} du corps \( \eK\) si elle est une extension algébrique qui est algébriquement close. 
+    \end{enumerate}
+\end{definition}
+
+\begin{normaltext}
+    Donc une extension est algébrique si elle contient seulement des racines de polynômes; elle est close si elle contient au moins une racine de chaque polynôme. Elle est une clôture algébrique si elle est les deux en même temps.
+\end{normaltext}
+
+\begin{example}
+    Le corps \( \eR\) n'est pas une extension algébrique de \( \eQ\). En effet il existe seulement une infinité \emph{dénombrable} de polynômes dans \( \eQ[X]\) et donc une infinité dénombrable de racines de tels polynômes. Toute extension algébrique de \( \eQ\) est donc dénombrable. Voir aussi la proposition \ref{PROPooVPQFooScWvkS}.
+\end{example}
+
+\begin{lemma}       \label{LEMooEYRSooUREeDl}
+    Un corps est algébriquement clos si et seulement si tous ses polynômes sont scindés\footnote{Définition \ref{DefCPLSooQaHJKQ}}.
+\end{lemma}
+
+\begin{proof}
+    Si tout polynôme est scindé, tout polynôme possède des racines; c'est l'autre sens qui est plus consistant.
+
+    Soit un corps algébriquement clos \( \eK\). Nous allons par récurrence sur le degré des polynômes. Si \( P\) est un polynôme de degré \( 1\), alors il est scindé.
+    
+    Nous supposons que tous les polynômes de degré \( n-1\) sont scindés. Soit un polynôme \( P\) de degré \( n\). Le corps étant algébriquement clos, le polynôme \( P\) a une racine que nous notons \( a_n\in \eK\). La proposition \ref{PROPooQCZSooVokxXQ} nous explique qu'il existe un polynôme \( Q\) de degré \( n-1\) tel que \( P=(X-a_n)Q\).
+
+    Par hypothèse de récurrence, le polynôme \( Q\) est scindé : il existe \( \{ a_i \}_{i=1,\ldots, n-1}\) dans \( \eK\) tels que \( Q=\prod_{i=1}^{n-1}(X-a_i)\). Au final,
+    \begin{equation}
+        P=(X-a_n)Q=\prod_{k=1}^n(X-a_n)
+    \end{equation}
+    et \( P\) est scindé.
+\end{proof}
+
+\begin{lemma}       \label{LEMooYVHKooWhewKp}
+    Soient un corps \( \eK\) et un polynôme \( P\in \eK[X]\). Nous supposons que \( P\) est scindé :
+    \begin{equation}
+        P=\prod_{k=1}^n(X-a_k).
+    \end{equation}
+    Si \( \alpha\) est une racine de \( P\), alors \( \alpha\) est l'un des \( a_k\).
+\end{lemma}
+
+\begin{proof}
+    Dire que \( \alpha\) est une racine de \( P\) revient à dire que
+    \begin{equation}        \label{EQooXHSCooVdMiva}
+        \prod_{k=1}^n(\alpha-a_k)=0
+    \end{equation}
+    Un corps est toujours un anneau intègre (lemme \ref{LemAnnCorpsnonInterdivzer}), c'est à dire que la règle du produit nul est utilisable. Dans notre cas, le produit nul \eqref{EQooXHSCooVdMiva} nous indique que \( \alpha-a_i=0\) pour (au moins) un des \( i\). Donc effectivement \( \alpha\) est l'un des \( a_i\).
+\end{proof}
+
+\begin{lemma}
+    Soient un corps algébriquement clos \( \eK\) ainsi qu'une extension algébrique \( \alpha\colon \eK\to \eL\). Alors \( \alpha(\eK)=\eL\).
+\end{lemma}
+
+\begin{proof}
+    Nous allons montrer que tous les éléments de \( \eL\) sont dans l'image de \( \alpha\). Soit donc \( l\in \eL\). Vu que l'extension \( \alpha\colon \eK\to \eL\) est une extension algébrique, il existe un polynôme \( P\in \alpha(\eK)[X]\) tel que \( P(l)=0\).
+
+    Étant donné que \( \alpha\) est injective, il est possible de considérer le polynôme \( Q=\alpha^{-1}(P)\), c'est à dire que, si \( P=\sum_ka_kX^k\), nous posons \( Q=\sum_k\alpha^{-1}(a_k)X^k\).
+
+    Le corps \( \eK\) étant algébriquement clos, le polynôme \( Q\) est scindé (proposition \ref{LEMooEYRSooUREeDl}) :
+    \begin{equation}
+        Q=\prod_{k=1}^n(X-b_k)
+    \end{equation}
+    avec \( b_k\in \eK\). Nous avons alors aussi la factorisation
+    \begin{equation}
+        P=\prod_{k=1}^n(X-\alpha(b_k))
+    \end{equation}
+    dans \( \eL[X]\). Nous avons vu que \( l\) était une racine de \( P\). Donc \( l\) est un des \( \alpha(b_k)\) (lemme \ref{LEMooYVHKooWhewKp}). Cela prouve que \( l\in \alpha(\eK)\).
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Extension algébrique et polynôme minimal}
+%---------------------------------------------------------------------------------------------------------------------------
+
 \begin{proposition}[\cite{ooLIOMooBuCPUS}]      \label{PROPooALFJooDjmIcb}
-    Soit une extension algébrique \( \eL\) du corps $\eK$.
+    Soit une extension algébrique\footnote{Définition \ref{DEFooREUHooLVwRuw}.} \( \eL\) du corps $\eK$.
     \begin{enumerate}
         \item
             Pour tout \( a\in \eL\), il existe un polynôme \( P\in \eK[X]\) tel que \( P(a)=0\).
@@ -235,89 +346,306 @@ Si nous avons un corps et un élément dans une extension du corps, il n'est pas
     Vu que \( \mu\) et \( \mu_1\) sont unitaires, \( k=1\). Donc \( \mu_1=\mu\).
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Extensions algébriques et éléments transcendants}
-%---------------------------------------------------------------------------------------------------------------------------
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Élements algébriques et transcendants}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-\begin{lemmaDef}[\cite{ooTGTKooFenWAc}] \label{LEMooLVPLooEkWYDN}
-    Soit une extension \( \eL\) de \( \eK\) et \( \alpha\in \eL\). Nous considérons l'application
+\begin{lemma}       \label{LEMooHKTMooKEoOuK}
+    Soient un corps \( \eK\), une extension \( \eL\) de \( \eK\) et \( \alpha\in \eL\), un élément algébrique\footnote{Définition \ref{LEMooLVPLooEkWYDN}.} sur \( \eK\). Si \( \mu\) est le polynôme minimal de \( \alpha\) sur \( \eK\) alors
     \begin{equation}
         \begin{aligned}
-            \varphi\colon \eK[X]&\to \eL \\
-            P&\mapsto P(\alpha).
+            \varphi\colon \eK[\alpha]&\to \eK[X]/(\mu) \\
+            Q(\alpha)&\mapsto \bar Q
         \end{aligned}
     \end{equation}
-    Alors
+    avec \( Q\in\eK[X]\) est un isomorphisme de corps et de \( \eK\)-espaces vectoriels.
+    % position 118885898.
+\end{lemma}
+
+\begin{proof}
+    D'abord, \( \alpha\) est algébrique, donc l'idéal annulateur \( I_{\alpha}\) n'est pas réduit à \( \{ 0 \}\), et l'existence d'un polynôme minimal est assurée par le lemme~\ref{DefCVMooFGSAgL}.
+
+    Ensuite, le fait que \( \eK[X]/(\mu)\) soit un corps est le corolaire~\ref{CorsLGiEN}. Nous montrons à présent que \( \varphi\) est un isomorphisme (d'anneaux); cela suffit pour en déduire que \( \eK[\alpha]\) est également un corps.
+
+    Ces préliminaires étant dits, nous commençons.
+    \begin{subproof}
+        \item[Bien définie]
+            Nous devons prouver que \( \varphi\) est bien définie, c'est-à-dire que tout élément de \( \eK[\alpha]\) peut être écrit sous la forme \( Q(\alpha)\) pour un \( Q\in \eK[X]\), et que si \( Q_1(\alpha)=Q_2(\alpha)\) alors \( \bar Q_1=\bar Q_2\).
+
+            Le fait que tous les éléments de \( \eK[\alpha]\) peuvent être écrits sous la forme \( Q(\alpha)\) est le proposition~\ref{PROPooPMNSooOkHOxJ}. Supposons que \( Q_1(\alpha)=Q_2(\alpha)\). Alors nous définissons \( R\in \eK[X]\) par \( Q_1=Q_2+R\), et en évaluant cette égalité en \( \alpha\) nous avons
+            \begin{equation}
+                Q_1(\alpha)=Q_2(\alpha)+R(\alpha),
+            \end{equation}
+            autrement dit \( R(\alpha)=0\). Donc \( R\) est dans l'idéal annulateur de \( \alpha\) et est donc dans \( (\mu)\), c'est-à-dire que dans le quotient \( \eK[X]/(\mu)\) nous avons \( \bar R=0\) et donc \( \bar Q_1=\bar Q_2\).
+
+        \item[Surjective]
+
+            Tout élément de \( \eK[X]/(\mu)\) est de la forme \( \bar Q\) pour un \( Q\in \eK[X]\). Or ces éléments sont ceux de l'ensemble d'arrivée de \( \varphi\).
+
+        \item[Injective]
+
+            Si \( \bar Q_1=\bar Q_2\), alors \( Q_1=Q_2+R\) avec \( R\) dans l'idéal engendré par \( \mu\), c'est-à-dire entre autres \( R(\alpha)=0\). Donc \( Q_1(\alpha)=Q_2(\alpha)\).
+
+    \end{subproof}
+
+    Nous devons encore montrer que nous avons là un morphisme de \( \eK\)-espaces vectoriels.
     \begin{enumerate}
         \item
-            L'application \( \varphi\) est un morphisme d'anneaux\footnote{Définition \ref{DEFooSPHPooCwjzuz}.}.
+            Si \( k\in \eK\) alors \( \varphi\big( kQ(\alpha) \big)=\overline{ kQ }\). Mais par définition de la structure d'espace vectoriel sur \( \eK[X]/(\mu)\), \( \overline{ kQ }=k\bar Q\) (vérifier que cette définition de la multiplication par un scalaire sur \( \eK[X]/(\mu)\) est correcte).
         \item
-            L'application \( \varphi\) est un morphisme de \( \eK\)-espace vectoriel.
+            Nous avons aussi \( \varphi\big( Q_1(\alpha)+Q_2(\alpha) \big)=\varphi\big( (Q_1+Q_2)(\alpha) \big)=\overline{ Q_1+Q_2 }=\bar Q_1+\bar Q_2\).
     \end{enumerate}
-    Si \( \varphi\) est injective, nous disons que \( \alpha\) est \defe{transcendant}{transcendant}. Sinon, nous disons qu'il est \defe{algébrique}{algébrique}.
+\end{proof}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Extensions et polynômes}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous savons déjà depuis la définition~\ref{DEFooFYZRooMikwEL} ce qu'est \( A[X]\) pour tout anneau \( A\) et donc a fortiori pour un corps.
+
+\begin{definition}  \label{DEFooQPZIooQYiNVh}
+    Soit un corps commutatif\footnote{Sauf mention du contraire, tous les corps du Frido sont commutatifs.}. Nous notons \( \eK(X)\) le corps des fractions\footnote{Définition~\ref{DEFooGJYXooOiJQvP}.} de \( \eK[X]\).
+\end{definition}
+
+\begin{lemmaDef}        \label{DEFooZHBZooKlNfGZ}
+    Si \( R\in \eK(X)\), avec \( R=P/Q\) et si \( \eL\) est une extension\footnote{Définition \ref{DEFooFLJJooGJYDOe}.} de \( \eK\) contenant l'élément \( \alpha\), alors nous définissons
+    \begin{equation}
+        R(\alpha)=P(\alpha)Q(\alpha)^{-1}.
+    \end{equation}
+    Cela est une bonne définition au sens où elle ne dépend pas du choix du représentant \( (P,Q)\) pris dans la classe \( P/Q\).
 \end{lemmaDef}
 
 \begin{proof}
-    Le fait que \( \varphi\) soit un morphisme d'anneaux est le lemme \ref{LEMooSFGGooGeVerf} déjà prouvé.
-
-    Pour le morphisme de \( \eK\)-espace vectoriel, il faut seulement ajouter le calcul
-    \begin{equation}
-        \varphi(\lambda P)=(\lambda P)(\alpha)=\lambda P(\alpha)=\lambda \varphi(P).
+    Supposons \( R=P_1/Q_1=P_2/Q_2\). Par définition des classes (définition~\ref{DEFooGJYXooOiJQvP}) nous avons
+    \begin{equation}        \label{EQooKHVNooABuHaO}
+        P_1Q_2=Q_1P_2.
     \end{equation}
-    Notons la justification suivante qui n'est pas tout à fait triviale :
-    \begin{equation}
-        (\lambda P)(\alpha)=\sum_k(\lambda P)_k\alpha^k=\sum_k\lambda P_k\alpha^k=\lambda P(\alpha)
+    Vu que l'évaluation est un morphisme \( \eK[X]\to\eK\) \footnote{Lemme~\ref{PROPooGDQCooHziCPH}.
+    % laisser ce saut de ligne
+    Certes ce lemme ne parle que d'anneaux, mais à y bien penser, dans le passage de \eqref{EQooKHVNooABuHaO} à \eqref{EQooJAIGooRADgiD}, nous ne considérons que les structures d'anneaux sur \( \eK[X]\) et \( \eK\).} nous pouvons évaluer l'équation \eqref{EQooKHVNooABuHaO} en \( \alpha\) :
+    \begin{equation}        \label{EQooJAIGooRADgiD}
+        P_1(\alpha)Q_2(\alpha)=Q_1(\alpha)P_2(\alpha).
     \end{equation}
-    qui utilise la définition \ref{DEFooBBYGooWoOloR}.
+    Cette dernière est une égalité dans le corps \( \eK\). Nous pouvons donc la multiplier par \( Q_2(\alpha)^{-1}P_2(\alpha)^{-1}\) (et utiliser toutes les hypothèses de commutativité des anneaux et corps) pour obtenir
+    \begin{equation}
+        P_1(\alpha)Q_1(\alpha)^{-1}=P_2(\alpha)Q_2(\alpha)^{-1},
+    \end{equation}
+    c'est-à-dire
+    \begin{equation}
+        (P_1/Q_1)(\alpha)=(P_2/Q_2)(\alpha).
+    \end{equation}
 \end{proof}
+
+\begin{propositionDef}[\cite{MonCerveau}]  \label{DEFooVSKGooMyeGel}
+    Soient un corps \( \eK\), une extension \( (\eL,j_{\eL})\) de \( \eK\) et un élément \( \alpha\in\eL\). Nous définissons \( \eK(\alpha)_{\eL} \) comme étant l'intersection de tous les sous-corps de \( \eL\) contenant \( j_{\eL}(\eK)\) et \( \alpha\).
+
+    Alors
+    \begin{enumerate}
+        \item
+            \( \eK(\alpha)_{\eL}\) est un sous-corps de \( \eL\),
+        \item
+            \( \eK(\alpha)_{\eL}\) est une extension\footnote{Définition \ref{DEFooFLJJooGJYDOe}.} de \( \eK\).
+    \end{enumerate}
+\end{propositionDef}
+
+\begin{proof}
+    Nous commençons par prouver que \( \eK(\alpha)_{\eL}\) est bien un corps. Si \( a,b\in \eK(\alpha)_{\eL}\) alors il suffit de calculer \( ab\), \( a+b\) et \( a^{-1}\) dans n'importe quel sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\); nous avons une garantie que \( a\), \( b\), \( ab  \), \( a+b\) et \( a^{-1}\) sont dans tous les tels sous-corps.
+
+    Pour prouver que \( \eK(\alpha)_\eL\) est bien une extension, nous devons trouver une homomorphisme de corps \( j\colon \eK\to \eK(\alpha)_{\eL}\). Il se fait que prendre \( j=j_{\eL}\) fonctionne parce que par définition, \( \eK(\alpha)_{\eL}\) est une partie de \( \eL\) contenant l'image de \( j_{\eL}\).
+\end{proof}
+
+\begin{lemma}       \label{LEMooHZLCooPLHkLS}
+    Soit \( n\) tel que \( \sqrt{ n }\) ne soit pas un rationnel. Si \( \alpha\in \{ a+b\sqrt{ n } \}_{a,b\in \eQ}\), alors il existe un unique choix \( (x,y)\in \eQ^2\) tel que
+    \begin{equation}
+        \alpha=x+y\sqrt{ n }.
+    \end{equation}
+\end{lemma}
 
 \begin{example}
-    L'injectivité de \( \varphi\) n'est pas automatique. Prenons par exemple \( \eL=\eQ[\sqrt{ 2 }]\) dans \( \eR\). Les polynômes dans \( \eQ[X]\) ont des degrés arbitrairement élevés en \( X\), tandis que les éléments de \( \eL\) n'ont pas de degré très élevés en \( \sqrt{ 2 }\) parce que \( \sqrt{ 2 }\sqrt{ 2 }=2\). L'ensemble \( \eQ[\sqrt{ 2 }]\) ne contient donc que des éléments de la forme \( a+b\sqrt{ 2 }\) avec \( a,b\in \eQ\).
+    Nous avons 
+    \begin{equation}
+        \eQ(\sqrt{ 2 })_{\eR}=\{ a+b\sqrt{ 2 } \}_{a,b\in \eQ}
+    \end{equation}
+    où à droite nous calculons les sommes et et les produits dans \( \eR\). Le tout est un sous-ensemble de \( \eR\) qui se révèle être un corps contenant \( \eQ\) et \( \sqrt{ 2 }\).
 
-    Si par contre \( x_0\in \eR\) n'est racine d'aucun polynôme (cela existe parce que \( \eR\) n'est pas dénombrable), alors \( \eQ[x_0]\) contient tous les \( \sum_{k=0}^Na_kx_0^k\) avec \( N\) arbitrairement grand. Et tous ces nombres sont différents.
+    En particulier, dans \( \eQ(\sqrt{ 2 })_{\eR}\) nous avons \( \sqrt{ 2 }\sqrt{ 2 }=2\).
 \end{example}
 
-Le lemme suivant donne une caractérisation d'élément algébrique moins abstraire que la définition.
-\begin{lemma} 
-    Soit \( \eK\), un corps et \( \eL\), une extension de \( \eK\). Un élément \( \alpha\in \eL\) est algébrique sur \( \eK\) si et seulement si existe un polynôme non nul \( P\in \eK[X]\) tel que \( P(a)=0\).
+\begin{lemma}   \label{LEMooKVPZooPqPrce}
+    Les corps \( \eQ(\sqrt{ 2 })_{\eR}\) et \( \eQ(\sqrt{ 3 })_{\eR}\) ne sont pas isomorphes.
+\end{lemma}
+
+\begin{proof}
+    Supposons l'existence d'un morphisme de corps\footnote{Définition \ref{DEFooSPHPooCwjzuz}. Oui, c'est un bête morphisme d'anneaux. Il n'y a pas plus de structure dans un corps que dans un anneau.}
+    \begin{equation}
+        \psi\colon \eQ(\sqrt{ 2 })_{\eR}\to \eQ(\sqrt{ 3 })_{\eR}.
+    \end{equation}
+    Nous notons «\( 1\)» à la fois le neutre de la multiplication dans \( \eQ(\sqrt{ 2 })_{\eR}\) et \( \eQ(\sqrt{ 3 })_{\eR}\) (qui s'évèrent être les mêmes en tant qu'élément de \( \eR\), mais ça n'a pas d'importance ici).
+
+    Soit \( \alpha\in \eQ(\sqrt{ 2 })_{\eR}\) tel que \( \alpha^2-1=0\). Alors nous avons aussi
+    \begin{equation}
+        \psi(\alpha)^2-1=\psi(\alpha^2)-\psi(1)=\psi(\alpha^2-1)=\psi(0)=0.
+    \end{equation}
+    Donc \( \psi(\alpha)\) est un élément de \( \eQ(\sqrt{ 3 })_{\eR}\) qui est une racine de \( X^2-1\).
+
+    Or un tel élément n'existe pas dans \( \eQ(\sqrt{ 3 })_{\eR}\) parce que nous savons que dans \( \eR\) entier, il n'y a que deux racines : \( \pm\sqrt{ 2 }\), et aucune des deux n'est dans \( \eQ(\sqrt{ 3 })_{\eR}\).
+\end{proof}
+
+\begin{example}      \label{EXooJRSUooYhAZkR}
+    Est-ce que \( \eK(\alpha)_{\eL}\) dépend réellement de \( \eL\) ? Si \( \eL_2\) est une extension de \( \eL\) alors nous avons évidemment\footnote{Vérifiez-le tout de même.} \( \eK(\alpha)_{\eL_2}=\eK(\alpha)_{\eL}\).
+
+    Nous commençons par construire un corps \( \eK\) un peu idiot qui, comme ensemble, est comme \( \eQ(\sqrt{ 2 })_{\eR}\), c'est-à-dire la partie
+    \begin{equation}
+        \{ a+b\sqrt{ 2 } \}_{a,b\in \eQ},
+    \end{equation}
+    de \( \eR\).
+
+    Mais cette fois nous définissons la multiplication suivante :
+    \begin{equation}
+        (a+b\sqrt{ 2 })(c+d\sqrt{ 2 })=ac+3bd+(ad+bc)\sqrt{ 2 }.
+    \end{equation}
     
-Il est bon de remarquer que cette définition est équivalente à celle donnée dans le lemme-définition~\ref{LEMooLVPLooEkWYDN} \dots
-\end{lemma}
+    Cela est un corps parce que tout élément non nul est inversible. En effet, l'équation
+    \begin{equation}        \label{EQooIZLEooLPOBcC}
+        (a+b\sqrt{ 2 })(x+y\sqrt{ 2 })=1
+    \end{equation}
+    donne 
+    \begin{equation}
+        \begin{pmatrix}
+            a    &   3b    \\ 
+            b    &   a    
+        \end{pmatrix}\begin{pmatrix}
+            x    \\ 
+            y    
+        \end{pmatrix}=\begin{pmatrix}
+            1    \\ 
+            0    
+        \end{pmatrix}.
+    \end{equation}
+    Ce système a une unique solution si et seulement si \( \det\begin{pmatrix}
+        a    &   3b    \\ 
+        b    &   a    
+    \end{pmatrix}=0\). Cela survient si et seulement si
+    \begin{equation}
+        a^2-3b^2=0.
+    \end{equation}
+    Les solutions de cela dans \( \eR\) sont \( a=\pm\sqrt{ 3 }| b |\). Dès que \( a\) ou \( b\) est non nul, cela ne peut pas satisfaire \( a,b\in \eQ\). Donc le déterminant est toujours non nul et il existe \( x,y\in \eQ\) tels que \eqref{EQooIZLEooLPOBcC} soit satisfaite.
+
+    Tout cela nous a donné une corps \( \eK\) dont \( \eQ\) est un sous-corps et qui contient l'élément \( \sqrt{ 2 }\) de \( \eR\). Il n'est cependant pas un sous-corps de \( \eR\).
+
+    Ce corps est isomorphe à \( \eQ(\sqrt{ 3 })_{\eR}\). En effet, nous montrons que
+    \begin{equation}
+        \begin{aligned}
+            \psi\colon \eK&\to \eQ(\sqrt{ 3 })_{\eR} \\
+            a+b\sqrt{ 2 }&\mapsto q+b\sqrt{ 3 } 
+        \end{aligned}
+    \end{equation}
+    est un isomorphisme de corps. Pour le produit, nous avons
+    \begin{subequations}
+        \begin{align}
+            \psi\big( (a+b\sqrt{ 2 })(c+d\sqrt{ 2 }) \big)&=\psi\big( qc+3bd+(ad+bc)\sqrt{ 2 } \big) \label{SUBEQooQSZBooHZDTKo}\\
+            &=ac+3bd+(ad+bc)\sqrt{ 3 }\label{SUBEQooPEKHooNPcIjE}\\
+            &=(a+b\sqrt{ 3 })(c+d\sqrt{ 3 })\label{SUBEQooIGBZooMwrmFe}\\
+            &=\psi(a+b\sqrt{ 2 })\psi(c+d\sqrt{ 2 }).
+        \end{align}
+    \end{subequations}
+    Remarques :
+    \begin{itemize}
+        \item L'application \( \psi\) est bien définie grâce au lemme \ref{LEMooHZLCooPLHkLS} couplé au théorème \ref{THOooYXJIooWcbnbm} appliqué à \( n=2\) et \( n=3\).
+        \item Dans le membre de gauche de \eqref{SUBEQooQSZBooHZDTKo}, \( b\sqrt{ 2 }\) est un produit dans \( \eR\) (d'où l'importance du lemme \ref{LEMooHZLCooPLHkLS} qui permet de re-séparer les éléments de \( \eR\) partie rationnelle et partie multiple de \( \sqrt{ 2 }\)), et le produit entre \( (a+b\sqrt{ 2 })\) et \( (c+d\sqrt{ 2 })\) est un produit dans \( \eK\).
+        \item
+            Dans \eqref{SUBEQooPEKHooNPcIjE} et \eqref{SUBEQooIGBZooMwrmFe}, tous les produits sont dans \( \eR\).
+    \end{itemize}
+
+    En comparant avec le lemme \ref{LEMooKVPZooPqPrce}, nous avons alors
+    \begin{equation}
+        \eQ(\sqrt{ 2 })_\eK=\eQ(\sqrt{ 3 })_\eR\neq \eQ(\sqrt{ 2 })_{\eR}
+    \end{equation}
+\end{example}
+
+\begin{normaltext}
+    Nous allons encore enfoncer le clou sur le fait que \( \eK(\alpha)_{\eL}\) dépend de \( \eL\).
+
+    Le fait est que si on y pense, l'objet \( \sqrt{ 2 }\) n'a aucun rapport avec \( \eQ\). En effet les objets de \( \eQ\) sont des classes d'équivalence de couples d'éléments de \( \eZ\), alors que l'élément \( \sqrt{ 2 }\) est une classe d'équivalence de suites de Cauchy dans \( \eQ\).
+
+    Lorsque nous écrivons \( \eQ(\sqrt{ 2 })\), nous associons des objets de nature complètement différentes, et il n'y a aucune raison à priori de définir la multiplication entre eux d'une façon plutôt qu'une autre.
+
+    Plus généralement, dans ZF (que nous faisons du semblant de suivre tout en sachant que nous ne savons pas ce que c'est réellement\footnote{En lisant quelques pages de Wikipédia, vous pourrez briller en société, mais ne tentez pas le coup à l'agrégation.}), tout est ensemble. Peut-on dire ce que serait \( \eQ(I)\) si \( I\) est un ensemble quelconque ? Attention : en écrivant \( \eQ(I)\), nous entendons un corps dont \( I\) est un élément, pas un corps qui contiendrait comme éléments tous les éléments de \( I\).
+
+    Si \( I\) est juste un ensemble, quelle définition donner de \( I^2\) ? Il y a plein de choix et rien ne se dégage clairement comme étant pertinent. Si par contre, en guise de \( I\) nous considérons l'ensemble \( \sqrt{ 2 }\) (oui, c'est un ensemble : un ensemble de suites de Cauchy dans \( \eQ\)), alors tout de suite nous nous disons que la bonne façon de faire est \( \sqrt{ 2 }^2=2\). Ce réflexe est juste conditionné par le fait que nous connaissons déjà par ailleurs le corps \( \eR\). Rien de plus.
+
+    Donc oui, \( \eK(\alpha)_{\eL}\) dépend de \( \eL\), mais dans les cas particuliers où \( \eK\) est un sous-corps de \( \eC\), il y a un implicite comme quoi \( \eL=\eC\). Cela étant dit, il n'y a plus d'ambiguïtés en écrivant \( \eQ(\sqrt{ 2 })\).
+\end{normaltext}
+
+Dans l'énoncé suivant, la notation \( R(\alpha)_{\eL}\) signifie que l'évaluation de \( R\) sur \( \alpha\) se fait en calculant dans le sur-corps \( \eL\) de \( \eK\).  Cette proposition semble indiquer que \( \eK(\alpha)\) est donné en termes de \( \eK(X)\), lequel est défini de façon très intrinsèque sans faire appel à un corps ambiant de \( \eK\).
+
+\begin{proposition}[\cite{MonCerveau}]     \label{PROPooYSFNooFGbbCi}
+    Soit une extension \( \eL\) du corps \( \eK\) et \( \alpha\in \eL\). Alors nous avons les isomorphismes de corps suivants :
+    \begin{enumerate}
+        \item
+            \( \eK(\alpha)_{\eL}=\Frac\big( \eK[\alpha]_{\eL} \big)\),
+        \item       \label{ITEMooATPTooVXKdlK}
+            \( \eK(\alpha)_{\eL}=\{ R(\alpha)_{\eL}\tq R\in \eK(X) \}\).
+    \end{enumerate}
+\end{proposition}
 
 \begin{proof}
-    Nous considérons l'application \( \varphi\) de la définition \ref{LEMooLVPLooEkWYDN}. Si \( \varphi\) n'est pas injective, c'est qu'il existe un polynôme \( P\) dans \( \eK[X]\) tel que \( \varphi(P)=0\). Dans ce cas, \( P(\alpha)=0\).
+    Le corps \( \eK(\alpha)\) est un sous-corps de \( \eL\) contenant \( \eK[\alpha]\) comme sous-anneau. La proposition~\ref{PROPooGSHDooJOnDsp} nous dit alors que l'application suivante est un morphisme injectif de corps :
+    \begin{equation}
+        \begin{aligned}
+            \epsilon\colon \Frac\big( \eK[\alpha] \big)&\to \eK(\alpha) \\
+            P/Q&\mapsto PQ^{-1}.
+        \end{aligned}
+    \end{equation}
+    Pour rappel, la notation \( P/Q\) est bien une notation pour la classe d'équivalence du couple \( (P,Q)\) pour la relation définie en~\ref{DEFooGJYXooOiJQvP}.
 
-    À l'inverse si il existe \( P\) non nul dans \( \eK[X]\) tel que \( P(\alpha)=0\), alors \( \varphi(P)=0\) et \( \varphi\) n'est pas injective.
+    Par ailleurs, la partie \( \epsilon\Big( \Frac\big( \eK[\alpha] \big) \Big) \) est inclue à \( \eL\) et est un corps contenant \( \eK\) et \( \alpha\). Donc le corps \( \eL\) fait partie des corps sur lesquels on prend l'intersection pour définir \( \eK(\alpha)\). Cela prouve que
+    \begin{equation}
+        \eK(\alpha)\subset  \epsilon\Big( \Frac\big( \eK[\alpha] \big) \Big).
+    \end{equation}
+    L'application \( \epsilon\) est donc surjective sur \( \eK(\alpha)\). Vu qu'elle était déjà injective, elle est bijective.
+
+    Pour la seconde partie, veuillez lire la définition~\ref{DEFooLBIWooCPCaSY} de l'évaluation d'une fraction rationnelle sur un élément de l'anneau. Si \( R=P/Q\in \eK(X)\) et si \( \alpha\in \eL\), nous avons
+    \begin{equation}
+        R(\alpha)=P(\alpha)Q(\alpha)^{-1}.
+    \end{equation}
+    Tout sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\) doit contenir en particulier \( \{ P(\alpha)\tq P\in \eK[X] \} \), les inverses \( \{ P(\alpha)^{-1}\tq P\in \eK[X],\,P(\alpha)\neq 0 \}\) et les produits d'iceux. Donc tout sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\) contient \( \{ R(\alpha)\tq R\in \eK(X) \}\).
+
+    Nous avons donc
+    \begin{equation}
+        \{ R(\alpha)\tq R\in \eK(X) \}\subset \eK(\alpha).
+    \end{equation}
+    Mais vu que \( \eK(\alpha)\) est lui-même un sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\), il est contenu dans \( \{ R(\alpha)\tq R\in \eK(X) \}\). D'où l'égalité.
 \end{proof}
 
-\begin{definition}
-    Soit \( \eK\) un corps et \( \eL \) une extension de \( \eK \). On dit que l'extension est \defe{algébriquement close}{algébriquement clos} si tout polynôme non-constant à coefficients dans \( \eK\) admet des racines dans \( \eL \).
-\end{definition}
+Pourquoi cela ne contredit pas l'exemple~\ref{EXooJRSUooYhAZkR} ? Lorsque nous écrivons
+\begin{equation}
+    \eK(\alpha)=\{ R(\alpha)\tq R\in \eK(X) \},
+\end{equation}
+certes \( \eK(X)\) est défini sans faire appel à un corps contenant \( \eK\). Mais l'évaluation \( R(\alpha)\), oui. Pour calculer \( R(\alpha)\), il faut écrire \( R=P/Q\) et calculer \( P(\alpha)Q(\alpha)^{-1}\). Tous les calculs de cette dernière expression doivent se faire dans un sur-corps de \( \eK\). Il suffit que le sur-corps en question soit un monceau de mauvaise foi comme celui de l'exemple~\ref{EXooJRSUooYhAZkR}, et en réalité \( \eK(\alpha)\) peut ne pas être ce que l'on croit.
 
-\begin{definition}
-    Une \defe{clôture algébrique}{clôture algébrique} du corps \( \eK\) est une extension algébriquement close de \( \eK\) dont tous les éléments sont algébriques sur \( \eK\).
-\end{definition}
+Le corolaire suivant montre que les choses s'arrangent.
 
-Bien que \( \eC\) soit une extension algébriquement close de \( \eQ\), l'ensemble \( \eC\) n'est pas une clôture algébrique de \( \eQ\). C'est ce que nous montrons maintenant.
-\begin{lemma}       \label{LEMooRDIZooRjWNMa}
-    Le corps \( \eC\) n'est pas une clôture algébrique de \( \eQ\).    
-\end{lemma}
+\begin{corollary}
+    Soient un corps \( \eK\), une extension \( \eL_1\) de \( \eK\), un élément \( \alpha\in \eL_1\) et une extension \( \eL_2\) de \( \eL_1\). Alors
+    \begin{equation}
+        \eK(\alpha)_{\eL_1}=\eK(\alpha)_{\eL_2}.
+    \end{equation}
+\end{corollary}
 
 \begin{proof}
-    Nous montrons qu'il existe des éléments de \( \eC\) qui ne sont pas des racines de polynômes à coefficients rationnels.
+    La proposition~\ref{PROPooYSFNooFGbbCi} nous dit que
+    \begin{subequations}
+        \begin{align}
+            \eK(\alpha)_{\eL_1}=\{ R(\alpha)_{\eL_1}\tq R\in\eK(X) \}\\
+            \eK(\alpha)_{\eL_2}=\{ R(\alpha)_{\eL_2}\tq R\in\eK(X) \}.
+        \end{align}
+    \end{subequations}
+    Mais lorsque \( R\in \eK(X)\), le calcul de \( R(\alpha)\) est exactement le même dans \( \eL_1\) et dans \( \eL_2\) parce que \( \eL_2\) est un sur-corps de \( \eL_1\) et que les calculs effectifs de \( R(\alpha)=P(\alpha)Q(\alpha)^{-1}\) ne font intervenir que des quantités de \( \eK\) et des puissances de \( \alpha\).
 \end{proof}
 
-L'existence d'une clôture algébrique pour tout corps est le théorème de Steinitz.
+Ce que ce corolaire nous dit est que si le contexte fixe une extension de \( \eK\), nous pouvons faire tous les calculs dans cette extension, même si il y a des piles d'extensions à côté.
 
-% position 363322493
-%TODO : à faire, le théorème de Steinitz.
-% Lorsque ce sera fait, le référentier à la position EYRooJkxiFf
+Typiquement, à chaque fois que nous considérons des sous-corps de \( \eC\), les extensions se feront dans \( \eC\) : pour tout \( \alpha\in \eC\), les corps \( \eQ(\alpha)\), \( \eR(\alpha)\) se calculent dans \( \eC\).
 
-C'est cela que la proposition suivante tente de systématiser.
+
 \begin{proposition}     \label{PROPooSYQWooFbfQtm}
     Soit un corps \( \eK\), une extension \( \eL\) et un élément \( \alpha\in \eL\). Nous considérons l'application
     \begin{equation}
@@ -351,7 +679,7 @@ C'est cela que la proposition suivante tente de systématiser.
             \end{equation}
             Note : cette application n'est pas \( \varphi\). En effet \( \varphi\) n'est définie que sur \( \eK[X]\); le corps des fractions \( \eK(X)\) est nettement plus grand (classes d'équivalence de couples).
 
-            Le fait que cette application soit surjective est la proposition~\ref{PROPooYSFNooFGbbCi}\ref{ITEMooATPTooVXKdlK}. Pour l'injectivité nous supposons que \( \psi(R)=0\), c'est à dire que \( R(\alpha)=0\). Nous considérons un représentant \( (P,Q)\) de \( R\); c'est à dire \( R=P/Q\). L'égalité \( R(\alpha)=0\) signifie \( P(\alpha)Q(\alpha)^{-1}=0\) (égalité dans \( \eL\)). Vu que \( \eL\) est un corps, c'est un anneau intègre et nous avons la règle du produit nul; soit \( P(\alpha)=0\), soit \( Q(\alpha)^{-1}=0\). La seconde possibilité est impossible parce que zéro n'est pas inversible. Donc \( P(\alpha)=0\). Donc \( \varphi(P)=0\) et \( \varphi\) étant injective, \( P=0\).
+            Le fait que cette application soit surjective est la proposition~\ref{PROPooYSFNooFGbbCi}\ref{ITEMooATPTooVXKdlK}. Pour l'injectivité nous supposons que \( \psi(R)=0\), c'est-à-dire que \( R(\alpha)=0\). Nous considérons un représentant \( (P,Q)\) de \( R\); c'est-à-dire \( R=P/Q\). L'égalité \( R(\alpha)=0\) signifie \( P(\alpha)Q(\alpha)^{-1}=0\) (égalité dans \( \eL\)). Vu que \( \eL\) est un corps, c'est un anneau intègre et nous avons la règle du produit nul; soit \( P(\alpha)=0\), soit \( Q(\alpha)^{-1}=0\). La seconde possibilité est impossible parce que zéro n'est pas inversible. Donc \( P(\alpha)=0\). Donc \( \varphi(P)=0\) et \( \varphi\) étant injective, \( P=0\).
 
             Lorsque \( P=0\), la classe \( P/Q\) est nulle dans \( \eK(X)= \Frac\big(\eK[X]\big)\).
 
@@ -384,7 +712,7 @@ C'est cela que la proposition suivante tente de systématiser.
 \end{proposition}
 
 \begin{proof}
-    Soient un corps \( \eK\), une extension \( \eL\) de degré \( n\) de \( \eK\) et \( a\in \eL\). Nous devons montrer qu'il existe un polynôme annulateur de \( a\) à coefficients dans \( \eK\).
+    Soient un corps \( \eK\), une extension \( \eL\) de degré\footnote{Définition \ref{DefUYiyieu}.} \( n\) de \( \eK\) et \( a\in \eL\). Nous devons montrer qu'il existe un polynôme annulateur de \( a\) à coefficients dans \( \eK\).
 
     Soit la partie \( S=\{1,a,a^2,\ldots, a^n\}\) de \( \eL\). Si cette partie contient des éléments non distincts, alors c'est plié. En effet, si \( a^k=a^l\), alors le polynôme \( X^{k-l}\) est un polynôme annulateur de \( a\).
 
@@ -394,7 +722,7 @@ C'est cela que la proposition suivante tente de systématiser.
 \end{proof}
 
 \begin{proposition}[Propriétés d'extensions algébriques\cite{MonCerveau}]   \label{PropURZooVtwNXE}
-    Soit \( \eK\) un corps commutatif\footnote{Juste en passant nous rappelons que tous les corps considérés ici sont commutatifs} et \( a\) un élément algébrique sur \( \eK\), de polynôme minimal \( \mu_a\) de degré \( n\). Alors
+    Soit \( \eK\) un corps commutatif\footnote{Juste en passant nous rappelons que tous les corps considérés ici sont commutatifs} et \( a\) un élément algébrique\footnote{Définition \ref{LEMooLVPLooEkWYDN}.} sur \( \eK\), de polynôme minimal \( \mu_a\) de degré \( n\). Alors
     \begin{enumerate}
         \item\label{ItemJCMooDgEHajmi}
             En considérant l'application d'évaluation
@@ -417,16 +745,18 @@ C'est cela que la proposition suivante tente de systématiser.
         \item\label{ItemJCMooDgEHaji}
             \( \eK(a)=\eK[a]\).
         \item   \label{ItemJCMooDgEHajii}
+            Il existe un isomorphisme d'anneaux \( \varphi\colon \eK[a]\to \eK[X]/(\mu_a)\) tel que \( \varphi(k)=\bar k\) pour tout \( k\in \eK\).
             \( \eK[a]\simeq\eK[X]/(\mu_a)\) (isomorphisme d'anneau).
     \end{enumerate}
 \end{proposition}
 \index{extension!de corps!algébrique}
 L'intérêt de~\ref{ItemJCMooDgEHajii} est qu'il permet de caractériser \( \eK[a]\) sans avoir recours à un sur-corps de \( \eK\). Le point~\ref{ItemJCMooDgEHajiii} indique que le degré d'une extension algébrique est égal au degré du polynôme minimal.
 
+
 \begin{proof}
     \begin{enumerate}
         \item
-            Nous avons \( \eK[a]\subset \Image(\varphi_a)\) parce que \( \Image(\varphi_a)\) est lui-même un un sous-anneau de \( \eL\) contenant \( \eK\) et \( a\). Pour rappel, \( \eK[a]\) est l'intersection de tous les tels sous-anneaux.
+            Nous avons \( \eK[a]\subset \Image(\varphi_a)\) parce que \( \Image(\varphi_a)\) est lui-même un sous-anneau de \( \eL\) contenant \( \eK\) et \( a\). Pour rappel, \( \eK[a]\) est l'intersection de tous les tels sous-anneaux.
 
             L'inclusion inverse est le fait que si \( Q\in \eK[X]\) alors \( Q(a)\in \eK[a]\) parce que \( \eK[a]\) est un anneau et contient donc tous les \( a^n\).
         \item
@@ -501,7 +831,7 @@ L'intérêt de~\ref{ItemJCMooDgEHajii} est qu'il permet de caractériser \( \eK[
     Un nombre complexe algébrique dont tous les conjugués sont de module \( 1\) est une racine de l'unité.
 \end{lemma}
 
-\begin{proposition}[\cite{ooTGTKooFenWAc}]
+\begin{proposition}[\cite{ooTGTKooFenWAc}]      \label{PROPooNGJWooYSpwVn}
     Soient un corps \( \eK\), un extension \( \eL\) de \( \eK\) et un élément \( \alpha\) de \( \eL\). Il y a équivalence entre les trois points suivants :
     \begin{enumerate}
         \item   \label{ITEMooYTEBooUuEfBz}
@@ -514,10 +844,6 @@ L'intérêt de~\ref{ItemJCMooDgEHajii} est qu'il permet de caractériser \( \eK[
     Si ces affirmation sont vraies, alors \( [\eK(\alpha):\eK]\) est le degré du polynôme minimal de \( \alpha\) sur \( \eK\).
 \end{proposition}
 
-\begin{probleme}
-Il y a des redites avec la propriété \ref{PropURZooVtwNXE}: une meilleure articulation est sans doute possible.
-\end{probleme}
-
 \begin{proof}
     Démonstration décomposée en plusieurs implications.
     \begin{subproof}
@@ -529,7 +855,7 @@ Il y a des redites avec la propriété \ref{PropURZooVtwNXE}: une meilleure arti
 
             Donc \( \eK[X]/(\mu)\) est un corps isomorphe à \( \eK[\alpha]\) en tant qu'anneaux. En conséquence de quoi \( \eK[\alpha]\) est un corps.
 
-            Le corps \( \eK[\alpha]\) est un sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\); par définition nous avons donc \( \eK(\alpha)\subset \eK[\alpha]\). Mais d'autre part, \( \eK[\alpha]\) est contenu dans tout sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\), donc il est inclus à l'intersection de tout ces corps, donc \( \eK[\alpha]\subset \eK(\alpha)\).
+            Le corps \( \eK[\alpha]\) est un sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\); par définition nous avons donc \( \eK(\alpha)\subset \eK[\alpha]\). Mais d'autre part, \( \eK[\alpha]\) est contenu dans tout sous-corps de \( \eL\) contenant \( \eK\) et \( \alpha\), donc il est inclus dans l'intersection de tout ces corps, donc \( \eK[\alpha]\subset \eK(\alpha)\).
 
             Les deux inclusions sont prouvées.
 
@@ -555,19 +881,21 @@ Il y a des redites avec la propriété \ref{PropURZooVtwNXE}: une meilleure arti
 \end{lemma}
 
 \begin{definition}  \label{DefZCYIbve}
-    Soit \( \eL\) une extension de \( \eK\) et \( A\subset \eL\).
+    Soit une extension\footnote{Définition \ref{DEFooFLJJooGJYDOe}.} de corps \( j\colon \eK\to \eL\). Soit \( A\subset \eL\).
     \begin{enumerate}
         \item
-
-    Nous notons \( \eK(A)\)\nomenclature[A]{$\eK(A)$}{corps contenant $\eK$ et $A$} le plus petit sous corps de \( \eL\) contenant \( \eK\) et \( A\). C'est l'intersection de tous les sous-corps de \( \eL\) contenant \( A\).
+            Nous notons \( \eK(A)_{\eL}\)\nomenclature[A]{$\eK(A)$}{corps contenant $\eK$ et $A$} le plus petit sous corps de \( \eL\) contenant \( j(\eK)\) et \( A\). C'est l'intersection de tous les sous-corps de \( \eL\) contenant \( A\) et \( j(\eK)\).
 \item
-    Nous notons \( \eK[A]\)\nomenclature[A]{$\eK[A]$}{anneau contenant $ \eK$ et $ A$} le plus petit sous anneau de \( \eL\) contenant \( \eK\) et \( A\). C'est l'intersection de tous les sous-anneaux de \( \eL\) contenant \( A\).
+    Nous notons \( \eK[A]_{\eL}\)\nomenclature[A]{$\eK[A]$}{anneau contenant $ \eK$ et $ A$} le plus petit sous anneau de \( \eL\) contenant \( j(\eK)\) et \( A\). C'est l'intersection de tous les sous-anneaux de \( \eL\) contenant \( A\) et \( j(\eK)\).
     \end{enumerate}
+    Le plus souvent, l'indice \( \eL\) dans \( \eK(A)_{\eL}\) et \( \eK[A]_{\eL}\) est omis parce que le contexte est clair\quext{Et je me demande si il est possible de trouver un cas tordu où \( \eK(A)_{\eL}\neq \eK(A)_\eM\). Par exemple lorsque \( A\) est dans \( \eL\) et \( \eM\), mais que \( \eL\) n'est pas inclus à \( \eM\), ni \( \eM\) dans \( \eL\).}, et nous avons même très souvent \( \eK\subset \eL\) en tant que ensembles. Dans ce cas, l'application \( j\) est l'identité et elle sera omise.
+
+
     Nous disons que l'extension \( \eL\) de \( \eK\) est \defe{monogène}{monogène!extension de corps} ou \defe{\wikipedia{fr}{Extension_simple}{simple}}{extension!de corps!simple}\index{simple!extension de corps} s'il existe \( \theta\in\eL\) tel que \( \eL=\eK(\theta)\). Un tel élément \( \theta\) est dit \defe{élément primitif}{primitif!élément d'une extension de corps} de \( \eL\). Il n'est pas nécessairement unique.
 \end{definition}
 
 \begin{remark}
-    Les ensembles \( \eK(A)\) et \( \eK[A]\) sont aussi appelés respectivement corps \defe{engendré}{engendré!corps, extension} et anneau engendré par \( A\). Cependant il faut bien remarquer que ce sont les parties de \( \eL\) engendrées par \( A\). Il n'est pas question a priori de parler de corps engendré par \( A\) sans dire dans quel corps plus grand nous nous plaçons.
+    Les ensembles \( \eK(A)\) et \( \eK[A]\) sont aussi appelés respectivement corps \defe{engendré}{engendré!corps, extension} et anneau engendré par \( A\). Cependant il faut bien remarquer que ce sont les parties de \( \eL\) engendrées par \( A\). Il n'est pas question à priori de parler de corps engendré par \( A\) sans dire dans quel corps plus grand nous nous plaçons.
 \end{remark}
 
 \begin{example}
@@ -575,7 +903,7 @@ Il y a des redites avec la propriété \ref{PropURZooVtwNXE}: une meilleure arti
 \end{example}
 
 \begin{example}
-    Nous avons déjà vu à l'occasion de la définition~\ref{DefRGOooGIVzkx} que \( A[X]\) est l'anneau de tous les polynômes de degré fini en \( X\). Cela rentre dans le cadre de la définition~\ref{DefZCYIbve} parce un anneau contenant \( X\) doit contenir tous les \( X^n\).
+    Nous avons déjà vu à l'occasion de la définition~\ref{DEFooFYZRooMikwEL} que \( A[X]\) est l'anneau de tous les polynômes de degré fini en \( X\). Cela rentre dans le cadre de la définition~\ref{DefZCYIbve} parce un anneau contenant \( X\) doit contenir tous les \( X^n\).
 
     Notons que même si \( \eK\) est un corps, \( \eK[X]\) reste un anneau parce qu'un éventuel inverse de \( X\) n'est pas dedans\footnote{Lorsqu'on multiplie, les degrés montent toujours.}. Par contre, \( \eK(X)\) est un corps parce qu'il contient également les fractions rationnelles.
 \end{example}
@@ -591,7 +919,7 @@ Il y a des redites avec la propriété \ref{PropURZooVtwNXE}: une meilleure arti
 \end{lemma}
 
 \begin{proof}
-    Nous prenons \( \eL=\eK[X]/(P)\) où \( (P)\) est l'idéal dans \( \eK[X]\) généré par \( P\). Cela est un corps par le corollaire~\ref{CorsLGiEN}. Nous identifions \( \eK\) avec \( \phi(\eK)\) où
+    Nous prenons \( \eL=\eK[X]/(P)\) où \( (P)\) est l'idéal dans \( \eK[X]\) généré par \( P\). Cela est un corps par le corolaire~\ref{CorsLGiEN}. Nous identifions \( \eK\) avec \( \phi(\eK)\) où
     \begin{equation}
         \phi\colon \eK[X]\to \eL
     \end{equation}
@@ -621,11 +949,11 @@ Il y a des redites avec la propriété \ref{PropURZooVtwNXE}: une meilleure arti
         P=\mu_aQ.
     \end{equation}
 
-    Montrons que \( \mu_a(b)\neq 0\). Pour cela, nous  supposons que \( \mu_a(b)=0\), c'est à dire que \( \mu_a\in I_b\). Il existe alors \( R\in \eK[X]\) tel que \( \mu_a=\mu_bR\). Mais par la proposition~\ref{PropRARooKavaIT}, le polynôme \( \mu_a\) est irréductible, donc soit \( \mu_b\) soit \( R\) est inversible. Vu que les inversibles sont les éléments de \( \eK\) (polynômes de degré zéro), \( \mu_b\) n'est pas inversible (sinon il serait constant et ne pourait pas être annulateur de \( b\)). Donc \( R\) est inversible. Disons \( R=k\).
+    Montrons que \( \mu_a(b)\neq 0\). Pour cela, nous  supposons que \( \mu_a(b)=0\), c'est-à-dire que \( \mu_a\in I_b\). Il existe alors \( R\in \eK[X]\) tel que \( \mu_a=\mu_bR\). Mais par la proposition~\ref{PropRARooKavaIT}, le polynôme \( \mu_a\) est irréductible, donc soit \( \mu_b\) soit \( R\) est inversible. Vu que les inversibles sont les éléments de \( \eK\) (polynômes de degré zéro), \( \mu_b\) n'est pas inversible (sinon il serait constant et ne pourait pas être annulateur de \( b\)). Donc \( R\) est inversible. Disons \( R=k\).
 
     Donc \( \mu_a=k\mu_b\). Mais vu que \( \mu_a\) et \( \mu_b\) sont unitaires, nous avons obligatoirement \( k=1\). Cela donnerait \( \mu_a=\mu_b\), ce qui est contraire aux hypothèses. Nous en déduisons que \( \mu_a(b)\neq 0\).
 
-    Étant donné que \( \mu_a(b)\neq 0\), l'évaluation de \eqref{EqvTPoSq} en \( b\) montre que \( Q(b)=0\), de telle sorte que \( Q\in I_b\) et il existe un polynôme \( S\) tel que \( Q=\mu_bS\), c'est à dire tel que \( P=\mu_a\mu_bS\), ce qui signifie que \( \mu_a\mu_b\) divise \( P\).
+    Étant donné que \( \mu_a(b)\neq 0\), l'évaluation de \eqref{EqvTPoSq} en \( b\) montre que \( Q(b)=0\), de telle sorte que \( Q\in I_b\) et il existe un polynôme \( S\) tel que \( Q=\mu_bS\), c'est-à-dire tel que \( P=\mu_a\mu_bS\), ce qui signifie que \( \mu_a\mu_b\) divise \( P\).
 \end{proof}
 
 \begin{example}
@@ -663,7 +991,7 @@ Avant de lire l'énoncé suivant, allez relire la définition \ref{NORMooQFTJooL
     \end{subequations}
     La différence entre les deux donne \( a(\alpha-\beta)=0\). Vu que \( \alpha\neq \beta\), la règle du produit nul (lemme~\ref{LemAnnCorpsnonInterdivzer}) nous donne \( a=0\). Maintenant que \( a=0\), l'annulation de \( b\) est alors immédiate.
 
-    Nous faisons maintenant la récurrence en supposant le théorème vrai pour le degré \( n\) et en considérant un polynôme \( P\) de degré \( n+1\) possédant \( n+2\) racines distinctes. Vu que \( P(\alpha_1)=0\), le corollaire~\ref{CorDIYooEtmztc} nous donne un polynôme \( Q\) de degré \( n\) tel que
+    Nous faisons maintenant la récurrence en supposant le théorème vrai pour le degré \( n\) et en considérant un polynôme \( P\) de degré \( n+1\) possédant \( n+2\) racines distinctes. Vu que \( P(\alpha_1)=0\), le corolaire~\ref{CorDIYooEtmztc} nous donne un polynôme \( Q\) de degré \( n\) tel que
     \begin{equation}    \label{EqQGSooNdTWfz}
         P=(X-\alpha_1)Q.
     \end{equation}
@@ -673,10 +1001,6 @@ Avant de lire l'énoncé suivant, allez relire la définition \ref{NORMooQFTJooL
     \end{equation}
     et la règle du produit nul donne \( Q(\alpha_i)=0\). Par conséquent le polynôme \( Q\) est de degré \( n\) et possède \( n+1\) racines distinctes; tous ses coefficients sont alors nuls par hypothèse de récurrence. Tous les coefficients du produit \eqref{EqQGSooNdTWfz} sont alors également nuls.
 \end{proof}
-
-\begin{probleme}
-On a déjà utilisé par ailleurs le fait qu'un polynôme ayant davantage de racines que son degré s'annule. Donc ce théorème doit être énoncé et prouvé plus haut.
-\end{probleme}
 
 \begin{example}\label{ExGRHooBNpjSP}
     Un polynôme à plusieurs variables peut s'annuler en une infinité de points sans être nul. Par exemple le polynôme \( X^2+Y^2-1\in\eR[X,Y]\) s'annule sur tout un cercle de \( \eR^2\) mais n'est pas nul, loin s'en faut.
@@ -702,10 +1026,6 @@ On a déjà utilisé par ailleurs le fait qu'un polynôme ayant davantage de rac
     Nous discuterons brièvement le pourquoi de cela dans la section~\ref{SUBSECooEDMJooTXBfOu} et surtout dans la question~\ref{ITEMooUBZIooDDcfWg} des questions difficiles d'algèbre.
 \end{normaltext}
 
-\begin{definition}[Polynôme scindé]\label{DefPolynomeScinde}
-  Soit \( P\in\eK[X]\) un polynôme irréductible, et \( \eL\) un corps, extension du corps \( \eK\). On dit que \( P \) est \defe{scindé}{polynôme!scindé} dans \( \eL \) si \( P \) se décompose en un produit de polynômes de degré 1 dans \( \eL[X]\).
-\end{definition}
-
 \begin{example}     \label{ExemGVxJUC}
     Soit \( \eK=\eQ\) et \( P=X^2-2\). On pose \( a=\sqrt{2}\) et \( \eL=\eQ(\sqrt{2})\subset\eR\). De cette façon \( P\) est scindé dans \( \eL \):
     \begin{equation}
@@ -723,7 +1043,7 @@ On a déjà utilisé par ailleurs le fait qu'un polynôme ayant davantage de rac
 \end{example}
 
 \begin{example}
-    Nous considérons le corps \( \eZ/p\eZ\) où \( p\) est un nombre premier. Si \( s\in \eZ/p\eZ\) n'est pas un carré, alors le polynôme \(P= X^2+s\) est irréductible et un corps de rupture de \( P\) sur \( \eZ/p\eZ\) est donné par \( (\eZ/p\eZ)[X]/(X^2+s)\), c'est à dire l'ensemble des polynômes de degré \( 1\) en \( \sqrt{s}\). Le cardinal en est \( p^2\).
+    Nous considérons le corps \( \eZ/p\eZ\) où \( p\) est un nombre premier. Si \( s\in \eZ/p\eZ\) n'est pas un carré, alors le polynôme \(P= X^2+s\) est irréductible et un corps de rupture de \( P\) sur \( \eZ/p\eZ\) est donné par \( (\eZ/p\eZ)[X]/(X^2+s)\), c'est-à-dire l'ensemble des polynômes de degré \( 1\) en \( \sqrt{s}\). Le cardinal en est \( p^2\).
 \end{example}
 
 Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous permettons un petit lemme.
@@ -736,7 +1056,7 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
 
     Il ne nous reste qu'à montrer que \( (P)\) est engendré par un irréductible si et seulement si \( P\) est irréductible. Il y a un sens dans lequel c'est évident.
 
-    Soit un irréductible \( \mu\) tel que \( (P)=(\mu)\). En particulier \( \mu\in (P)\), c'est à dire qu'il existe \( Q\) tel que \( \mu=PQ\). Vu que \( \mu\) est irréductible, soit \( P\) soit \( Q\) est inversible. Si \( P\) est inversible, c'est à dire constant, ce que nous avons exclu par hypothèse. Si par contre \( Q\) est inversible, alors \( P=k\mu\) pour un certain \( k\in \eK\), ce qui montre que \( P\) est irréductible autant que \( \mu\).
+    Soit un irréductible \( \mu\) tel que \( (P)=(\mu)\). En particulier \( \mu\in (P)\), c'est-à-dire qu'il existe \( Q\) tel que \( \mu=PQ\). Vu que \( \mu\) est irréductible, soit \( P\) soit \( Q\) est inversible. Si \( P\) est inversible, c'est-à-dire constant, ce que nous avons exclu par hypothèse. Si par contre \( Q\) est inversible, alors \( P=k\mu\) pour un certain \( k\in \eK\), ce qui montre que \( P\) est irréductible autant que \( \mu\).
 \end{proof}
 
 \begin{proposition}[Existence d'un corps de rupture]        \label{PROPooUBIIooGZQyeE}
@@ -766,7 +1086,7 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
             \end{equation}
         \item[L'égalité]
 
-            Nous montrons à présent que \( \eK(\bar X)_{\eL}=\eL\). C'est à dire que \( \eL\) est bien engendrée par \( \eK\) et un seul élément. D'abord, \( \eL=\eK[X]/(P)\) contient bien évidemment \( \eK\) et \( \bar X\). Ensuite nous devons prouver que tout sous-corps de \( \eL\) contenant \( \eK\) et \( \bar X\) est en réalité \( \eL\) entier.
+            Nous montrons à présent que \( \eK(\bar X)_{\eL}=\eL\). C'est-à-dire que \( \eL\) est bien engendrée par \( \eK\) et un seul élément. D'abord, \( \eL=\eK[X]/(P)\) contient bien évidemment \( \eK\) et \( \bar X\). Ensuite nous devons prouver que tout sous-corps de \( \eL\) contenant \( \eK\) et \( \bar X\) est en réalité \( \eL\) entier.
 
             Soit \( Q\in \eK[X]\), et montrons que \( \bar Q\) est dans tout sous-corps de \( \eL\) contenant \( \eK\) et \( \bar X\).
 
@@ -776,7 +1096,7 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
 \end{proof}
 
 \begin{example}
-    Soit le polynôme \( P=X^2+1\in \eZ[X]\). Dans le quotient \( \eZ[X]/(P)\) nous avons \( \bar X^2+1=0\) et donc \( \bar X^2=-1\). C'est à dire que \( \eZ[X]/(P)\) contient un élément dont le carré est \( -1\). Avouez que c'est bien ce à quoi nous nous attendions.
+    Soit le polynôme \( P=X^2+1\in \eZ[X]\). Dans le quotient \( \eZ[X]/(P)\) nous avons \( \bar X^2+1=0\) et donc \( \bar X^2=-1\). C'est-à-dire que \( \eZ[X]/(P)\) contient un élément dont le carré est \( -1\). Avouez que c'est bien ce à quoi nous nous attendions.
 
     Notons que \( -\bar X\) est également une racine de \( P\) dans \( \eZ[X]/(P)\).
 
@@ -784,7 +1104,7 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
     \begin{equation}
         (X+\bar X)(X-\bar X)=X^2-\bar X^2=X^2+1,
     \end{equation}
-    c'est à dire que \( P\) est bien factorisé, et que nous avons retrouvé la multiplication \( x^2+1=(x+i)(x-i)\).
+    c'est-à-dire que \( P\) est bien factorisé, et que nous avons retrouvé la multiplication \( x^2+1=(x+i)(x-i)\).
 \end{example}
 
 \begin{normaltext}
@@ -869,6 +1189,10 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooTURZooXnjmjT}
     Soient un corps \( \eK\), des extensions \( \eL_1\),\ldots, \( \eL_n\) et des éléments \( \alpha_i\in \eL_i\) tels que
+    \begin{equation}    \label{EQooOCQSooFMkzTc}
+        \eL_1=\eK(\alpha_1)_{\eL_1}
+    \end{equation}
+    et
     \begin{equation}
         \eL_k=\eL_{k-1}(\alpha_k)_{\eL_k}.
     \end{equation}
@@ -879,7 +1203,9 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
 \end{lemma}
 
 \begin{proof}
-    Nous démontrons par récurrence sur \( n\), en supposant que c'est fait pour \( n=1\). Supposons donc que le lemme soit correct pour \( n\), et étudions le cas \( n+1\). Nous avons, par définition et par hypothèse de récurrence :
+    Nous démontrons par récurrence sur \( n\). Le cas \( n=1\) est simplement l'hypothèse \eqref{EQooOCQSooFMkzTc}. 
+    
+    Supposons donc que le lemme soit correct pour \( n\), et étudions le cas \( n+1\). Nous avons, par définition et par hypothèse de récurrence :
     \begin{equation}
         \eL_{n+1}=\eL_n(\alpha_{n+1})_{\eL_{n+1}}=\Big( \eK(\alpha_1,\ldots, \alpha_n)_{\eL_n} \Big)(\alpha_{n+1})_{\eL_{n+1}}.
     \end{equation}
@@ -894,13 +1220,13 @@ Vu que nous allons abondamment parler du quotient \( \eK[X]/(P)\), nous nous per
         \eK(\alpha_1,\ldots,\alpha_{n+1})\subset \big( \eK(\alpha_1,\ldots, \alpha_n)_{\eL_n} \big)(\alpha_{n+1})_{\eL_{n+1}}.
     \end{equation}
 
-    Il faut donc prouver l'inclusion inverse; c'est-à-dire montrer que tout élément \( x \) du corps \( \big( \eK(\alpha_1,\ldots, \alpha_n)_{\eL_n} \big)(\alpha_{n+1})\) est forcément dans tout sous-corps de \( \eL_{n+1}\) contenant \( \eK\) et les \( \alpha_i\). Un tel élément \( x \) est, par la proposition~\ref{PROPooYSFNooFGbbCi}\ref{ITEMooATPTooVXKdlK}, de la forme \( r(\alpha_{n+1})\) avec \( r\in \eK(\alpha_1,\ldots, \alpha_{n})(X)\), c'est à dire
+    Il faut donc prouver l'inclusion inverse; c'est-à-dire montrer que tout élément \( x \) du corps \( \big( \eK(\alpha_1,\ldots, \alpha_n)_{\eL_n} \big)(\alpha_{n+1})\) est forcément dans tout sous-corps de \( \eL_{n+1}\) contenant \( \eK\) et les \( \alpha_i\). Un tel élément \( x \) est, par la proposition~\ref{PROPooYSFNooFGbbCi}\ref{ITEMooATPTooVXKdlK}, de la forme \( r(\alpha_{n+1})\) avec \( r\in \eK(\alpha_1,\ldots, \alpha_{n})(X)\), c'est-à-dire
             \begin{equation}
                 P(\alpha_{n+1})Q(\alpha_{n+1})^{-1}
             \end{equation}
             avec \( P,Q\in \eK(\alpha_1,\ldots, \alpha_n)[X]\).
 
-        Prouvons d'abord que \( P(\alpha_{n+1})\) est dans tout sous-corps de \( \eL_{n+1}\) contenant \( \eK\) et les \( \alpha_i\), lorsque \( P\in \eK(\alpha_1,\ldots, \alpha_n)[X]\). Nous avons \( P=\sum_ia_iX^i\) pour \( a_i\in \eK(\alpha_1,\ldots, \alpha_n)\), et donc
+            Prouvons d'abord que si \( P\in \eK(\alpha_1,\ldots, \alpha_n)[X]\), alors \( P(\alpha_{n+1})\) est dans tout sous-corps de \( \eL_{n+1}\) contenant \( \eK\) et les \( \alpha_i\). Nous pouvons écrire \( P=\sum_ia_iX^i\) avec \( a_i\in \eK(\alpha_1,\ldots, \alpha_n)\), et donc
             \begin{equation}
                 P(\alpha_{n+1})=\sum_ia_i\alpha_{n+1}^i.
             \end{equation}
@@ -915,5 +1241,395 @@ On vient ainsi de montrer que tout élément \( x \in  \big( \eK(\alpha_1,\ldots
     \begin{equation}\label{EQooUFSMooJozpqL}
        \big( \eK(\alpha_1,\ldots, \alpha_n)_{\eL_n} \big)(\alpha_{n+1})_{\eL_{n+1}} \subset \eK(\alpha_1,\ldots,\alpha_{n+1}).
     \end{equation}
-    Les inclusions \eqref{EQooLLRHooHOjLfk} et \ref{EQooUFSMooJozpqL} prouvent l'égalité d'ensembles \eqref{EQooIHMGooTlPcsd} que l'on voulait montrer.
+    Les inclusions \eqref{EQooLLRHooHOjLfk} et \eqref{EQooUFSMooJozpqL} prouvent l'égalité d'ensembles \eqref{EQooIHMGooTlPcsd} que nous voulions montrer.
 \end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Clôture algébrique}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Le concept de clôture algébrique a été défini dans \ref{DEFooREUHooLVwRuw}. Voici un lemme qui dit qu'une clôture algébrique est en quelque sorte une extension algébrique maximale.
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooQSCGooMyCktA}
+    Soient un corps \( \eK\) et une extension algébrique \( \eF\) de \( \eK\). Nous supposons que pour toute extension algébrique de \( \eL\) nous avons \( \eL=\eF\)
+
+    Alors \( \eF\) est algébriquement clos\footnote{Définition \ref{DEFooREUHooLVwRuw}\ref{ITEMooEIWVooVjJRoR}.}.
+\end{lemma}
+
+\begin{proof}
+    Soit un polynôme \( P\in \eK[X]\). Nous voudrions prouver que \( P\) a des racines dans \( \eF\). Pour cela, nous voyons \( P\) comme un polynôme sur \( \eF[X]\) et, grace à la proposition \ref{PROPooUBIIooGZQyeE} nous considérons un corps de rupture \( \eL\) pour \( P\). Vu que \( \eL\) est une extension de \( \eF\), nous avons \( \eL=\eF\). Donc \( \eF\) contient des racines de \( P\).
+\end{proof}
+
+
+\begin{normaltext}
+    Nous avons défini le concept d'extension algébrique en \ref{DEFooREUHooLVwRuw}. Nous allons en construire un petit exemple très piéton.
+
+    D'abord la proposition \ref{PROPooUHKFooVKmpte} nous donne l'existence et l'unicité d'un réel \( \sqrt{ 2 }\) strictement positif dont le carré est \( 2\). Ce réel est irrationnel par la proposition \ref{PropooRJMSooPrdeJb}. Cela étant posé, nous y allons.
+\end{normaltext}
+
+\begin{proposition}[\cite{BIBooAOINooYRFZFb}]
+    Soit \( \eL=\{ a+b\sqrt{ 2 } \}_{a,b\in \eQ}\).
+    \begin{enumerate}
+        \item
+            C'est un sous-corps de \( \eR\).
+        \item   \label{ITEMooUSOAooZoBhla}
+            Tout sous-corps de \( \eR\) contenant \( \eQ\) et \( \sqrt{ 2 }\) contient \( \eL\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Nous devons d'abord prouver que \( \eL\) est un corps en vérifiant d'une part que c'est un anneau (définition \ref{DefHXJUooKoovob}) et d'autre part le fait que tous les éléments non nuls sont inversibles.
+    \begin{itemize}
+        \item La partie \( \eL\) de \( \eR\) est stable pour l'addition : dès que \( a,b,a',b'\in \eQ\),
+            \begin{equation}
+                (a+b\sqrt{ 2 })+(a'b'\sqrt{ 2 })=(a+a')+(b+b')\sqrt{ 2 }\in \eL.
+            \end{equation}
+        \item
+            Les neutres \( 0\) et \( 1\) sont dans \( \eL\).
+        \item
+            Si \( \alpha\in \eL\), alors \( -\alpha\in \eL\) :
+            \begin{equation}
+                -(a+b\sqrt{ 2 })=-a-b\sqrt{ 2 }.
+            \end{equation}
+        \item
+            La partie \( \eL\) est stable pour le produit parce que
+            \begin{equation}
+                (a+b\sqrt{ 2 })(a'+b'\sqrt{ 2 })=(aa'+2bb')+(ab'+ba')\sqrt{ 2 }.
+            \end{equation}
+        \item
+            L'inverse d'un élément de \( \eL\) est dans \( \eL\). C'est le seul point pas tout à fait évident. D'abord, l'ensemble \( \eR\) est un corps par le théorème \ref{DefooFKYKooOngSCB}. Donc pour tout \( a,b\in \eR\), le nombre
+            \begin{equation}
+                \frac{1}{ a+b\sqrt{ 2 } }
+            \end{equation}
+            existe dans \( \eR\).
+            
+            D'abord \( a-b\sqrt{ 2 }\) n'est pas nul, parce que si il l'était, nous aurions \( \sqrt{ 2 }=-a/b\in \eQ\) alors que \( \sqrt{ 2 }\) n'est pas rationnel par la proposition \ref{PropooRJMSooPrdeJb}. Nous pouvons donc faire le coup de multiplier le numérateur et le dénominateur par le binôme conjugué :
+            \begin{equation}
+                \frac{1}{ a+b\sqrt{ 2 } }=\frac{ a-b\sqrt{ 2 } }{ (a+b\sqrt{ 2 })(a-b\sqrt{ 2 }) }=\frac{ a }{ a^2-2b^2 }-\frac{ b }{ a^2-2b^2 }\sqrt{ 2 }.
+            \end{equation}
+            Cela est un rationnel. Donc le éléments non nuls de \( \eL\) ont un inverse qui appartient également à \( \eL\).
+    \end{itemize}
+    Nous passons à la preuve du point \ref{ITEMooUSOAooZoBhla}. Si \( \eL'\) est un corps qui contient \( \eQ\) et \( \sqrt{ 2 }\), il doit contenir \( b\sqrt{ 2 }\) pour tout \( b\in \eQ\) et donc aussi tous les \( a+b\sqrt{ 2 }\) avec \( a,b\in \eQ\). En conséquence de quoi \( \eL'\) doit contenir au moins tout \( \eL\).
+\end{proof}
+
+\begin{proposition}
+    Soit \( \eL=\{ a+b\sqrt{ 2 } \}_{a,b\in \eQ}\).
+    \begin{enumerate}
+        \item   \label{ITEMooOMDMooLNhlyh}
+            C'est un espace vectoriel de dimension \( 2\) sur \( \eQ\).
+        \item       \label{ITEMooWGGDooSbsesf}
+            Si \( \alpha\in \eL\), alors il existe un polynôme \( P\in \eL[X]\) de degré \( 2\) ou moins tel que \( P(\alpha)=0\).
+        \item   \label{ITEMooPNNYooPtKYwQ}
+            Le corps \( \eL\) est une extension algébrique de \( \eQ\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    En plusieurs parties.
+    \begin{subproof}
+        \item[\ref{ITEMooOMDMooLNhlyh}]
+            Pour la dimension, notez que \( \{ 1,\sqrt{ 2 } \}\) est une partie libre et génératrice de \( \eL\).
+
+        \item[\ref{ITEMooWGGDooSbsesf}]
+
+            Soit \( \alpha\in \eL\). La partie \( \{ 1,\alpha,\alpha^2 \}\) est de cardinal \( 1\), \( 2\) ou \( 3\). Si c'est \( 1\) ou \( 2\), c'est que \( 1=\alpha\) ou \( 1=\alpha^2\) ou \( \alpha=\alpha^2\). Si par exemple \( 1=\alpha\) alors avec \( P=X-1\) nous avons \( P(\alpha)=0\).
+
+            Si au contraire \( \{ 1,\alpha,\alpha^2 \}\) est de cardinal \( 3\), alors c'est une partie liée par la proposition \ref{PROPooEIQIooXfWDDV}. Il existe donc des rationnels \( a,b,c\) tels que \( a+b\alpha+c\alpha^2=0\), c'est-à-dire \( P(\alpha)=0\) avec \( P=cX^2+bX+a\).
+        \item[\ref{ITEMooPNNYooPtKYwQ}]
+            Nous venons de voir que tous les éléments de \( \eL\) sont des racines de polynômes de \( \eQ[X]\).
+    \end{subproof}
+\end{proof}
+
+\begin{lemma}       \label{LEMooHWPHooZeWqns}
+    Si \( \eK\) est un corps infini, alors \( \eK[X]\) est équipotent\footnote{Définition \ref{DEFooXGXZooIgcBCg}.} à \( \eK\).
+\end{lemma}
+
+\begin{proof}
+    Notons provisoirement \( \eK_n[X]\) l'ensemble des polynômes de degré \( n\). Nous avons une surjection
+    \begin{equation}    \label{EQooFGZVooKIMKRA}
+        \begin{aligned}
+            \varphi\colon \eK^{n+1}&\to \eK_n[X] \\
+            (k_0,\ldots, k_n)&\mapsto \sum_{i=0}^nk_iX^i. 
+        \end{aligned}
+    \end{equation}
+    Par récurrence sur le théorème\quext{J'ai quand même du mal à croire qu'il faut vraiment le lemme de Zorn pour prouver que \( \eK[X]\) est équipotent à \( \eK\). Si vous connaissez un moyen plus direct, écrivez-moi.} \ref{THOooDGOVooRdURVi}, nous avons \( \eK^{n+1}\approx \eK\). La surjection \eqref{EQooFGZVooKIMKRA} dit alors que
+    \begin{equation}
+        \eK_n[X]\preceq \eK^{n+1}\approx \eK.
+    \end{equation}
+    Mais vu qu'il y a une surjection \( \eK\to \eK_n[X]\), nous avons aussi \( \eK_n[X]\succeq \eK\). Le théorème \ref{THOooRYZJooQcjlcl} dit alors que \( \eK_n[X]\approx \eK\).
+
+    Le lemme \ref{LEMooNKKDooUvSYPO} nous permet alors de conclure que
+    \begin{equation}
+        \eK[X]=\bigcup_{n=0}^{\infty}\eK_n[X]\approx \eK.
+    \end{equation}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooVPQFooScWvkS}
+    Soit un corps \( \eK\). Une extension algébrique de \( \eK\) est
+    \begin{enumerate}
+        \item
+            au plus dénombrable si \( \eK\) est fini,
+        \item
+            équipotente à \( \eK\) si \( \eK\) est infini.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    En deux parties.
+    \begin{subproof}
+        \item[Si \( \eK\) est fini]
+            Un polynôme non nul possède toujours au maximum un nombre fini de racines (éventuellement zéro) par la proposition \ref{ThoLXTooNaUAKR}. Par ailleurs, chaque degré de polynôme ayant seulement un nombre fini de possibilités, l'ensemble \( \eK[X]\) est au plus dénombrable (proposition \ref{PROPooENTPooSPpmhY}).
+
+            Pour \( P\in \eK[X]\) nous avons une surjection de \( \eN\) vers l'ensemble des racines de \( P\). Nous la notons \( \varphi_P\colon \eN\to \eL\), en posant par exemple \( \varphi_P(n)=1\) si \( P\) n'a pas de racines. Enfin nous posons
+            \begin{equation}
+                \begin{aligned}
+                    \varphi\colon \eK[X]\times \eN&\to \eL \\
+                    (P,n)&\mapsto \varphi_P(n). 
+                \end{aligned}
+            \end{equation}
+            C'est la fonction qui à un polynôme \( P\) et un nombre \( n\) fait correspondre la \( n\)\ieme racine de \( P\).
+
+            Vu que \( \eL\) est une extension algébrique, \( \varphi\) est surjective.
+
+            En termes de cardinalité, que \( \eK[X]\) soit fini ou dénombrable, dans les deux cas, \( \eK[X]\times \eN\) est dénombrable (proposition \ref{PROPooLPKUooAlsYJg}). Il existe donc une surjection d'un ensemble dénombrable vers \( \eL\). Le lemme \ref{LEMooDLWFooNAJbbq} conclu que \( \eL\) est fini ou dénombrable.
+        \item[Si \( \eK\) est infini]
+            Nous procédons de la même manière, mais nous devons faire appel à des résultats plus technologiques pour maitriser la cardinalité. Nous considérons à nouveau l'application
+            \begin{equation}
+                \begin{aligned}
+                    \varphi\colon \eK[X]\times \eN&\to \eL \\
+                    (P,n)&\mapsto \varphi_P(n).
+                \end{aligned}
+            \end{equation}
+            Cette application est encore surjective : \( \eL\preceq \eK[X]\times \eN\). Le lemme \ref{LEMooHWPHooZeWqns} nous assure que \( \eK[X]\approx \eK\) parce que \( \eK\) est infini. Ensuite la proposition \ref{PROPooFKBEooKXqujV} nous dit que \( \eK[X]\times \eN\approx \eK[X]\). Donc
+            \begin{equation}
+                \eK\approx \eK[X]\approx \eK[X]\times \eN\succeq \eF.
+            \end{equation}
+            Mais \( \eF\) est une extension de \( \eK\). Donc il existe une injection \( \eK\to \eF\), c'est à dire \( \eK\preceq \eF\).
+
+            Vu que \( \eK\preceq \eF\preceq \eK\), le théorème \ref{THOooRYZJooQcjlcl} implique que \( \eK\approx \eF\).
+    \end{subproof}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]
+    Soient des corps \( \eK\) et \( \eL\) ainsi qu'un homomorphisme de corps \( \rho \colon \eK\to \eL\). Si \( P\in \eK[X]\) a une racine dans \( \eK\), alors le polynôme \( \rho(P)\) a une racine dans \( \eL\).
+\end{lemma}
+
+\begin{proof}
+    Nous notons \( P=\sum_kP_kX^k\). Si \( a\in \eK\) est une racine de \( P\), alors \( \sum_kP_ka^k=0\). Nous appliquons \( \rho\) à cette égalité : \( \sum_k\rho(P_k)\rho(a)^k=0\), c'est à dire \( \rho(P)\big( \rho(a) \big)=0\). Donc \( \rho(a)\in \eL\) est une racine de \( \rho(P)\).
+\end{proof}
+
+\begin{lemma}[\cite{BIBooYYZPooMgFzkp}]     \label{LEMooIIKYooHMNqYn}
+    Nous considérons un triple \( (\eK,\eL,\eF)\) où
+    \begin{enumerate}
+        \item
+            \( \eK\), \( \eL\) et \( \eF\) sont des corps
+        \item
+            il existe \( a\in \eL\) algébrique sur \( \eK\) tel que \( \eL=\eK(a)\) et un morphisme de corps \( \alpha\colon \eK\to \eL\).
+        \item
+            \( \eF\) est une extension algébriquement close de \( \eK\) : il existe un morphisme \( \beta\colon \eK\to \eF\).
+    \end{enumerate}
+    Alors il existe un morphisme de corps \( \sigma\colon \eL\to \eF\) tel que \( \sigma|_{\alpha(\eL)}=\beta\).
+\end{lemma}
+
+Note : en pratique, les corps \( \eL\) et \( \eF\) sont le plus souvent des sur-corps de \( \eK\), de telle sorte que les applications \( \alpha\) et \( \beta\) sont l'identité. En particulier, la conclusion de ce lemme s'écrit le plus souvent \( \sigma|_{\eK}=\id\). Il faut juste savoir que le Frido est un névrosé des notations précises.
+
+\begin{proof}
+    Vu que \( \eL\) est monogène, si \( \mu_a\in \eK[X]\) est le polynôme minimal de \( a\in \eL\), alors les points \ref{ItemJCMooDgEHaji} et \ref{ItemJCMooDgEHajii} de la proposition \ref{PropURZooVtwNXE} disent que \( \eL\simeq \eK[a]\simeq \eK[X]/(\mu_a)\).
+
+    Les coefficients de \( \mu_a\) sont dans \( \eK\), donc nous pouvons voir \( \mu_a\in \eF[X]\). Plus précisément, si \( \mu_a=\sum_ka_kX^k\), nous définissons
+    \begin{equation}
+        \mu'_a=\sum_k\beta(a_k)X^k\in \eF[X].
+    \end{equation}
+    Comme \( \eF\) est algébriquement clos, le polynôme \( \mu'_a\) possède une racine (au moins) \( b\in \eF\) : \( \mu'_a(b)=0\).
+
+    Nous posons
+    \begin{equation}
+        \begin{aligned}
+            \sigma'\colon \eK[X]/(\mu_a)&\to \eF \\
+            \overline{ \sum_k s_kX^k }&\mapsto \sum_k\beta(s_k)b^k. 
+        \end{aligned}
+    \end{equation}
+    Montrons que cela est bien défini. Si \( P=\sum_ks_kX^k\) et \( \mu_a=\sum_ka_kX^k\) (\( a_k, s_k\in \eK\)), alors
+    \begin{equation}
+        \sigma'(\overline{ P+\mu_a })=\sigma'\big( \overline{ \sum_k (a_k+s_k)X^k } \big)=\sum_k\beta(a_k)b^k+\sum_ks_kb^k=\mu'_a(b)+\sigma'(\overline{ P })=\sigma'(\overline{ P }).
+    \end{equation}
+    L'application \( \sigma'\) est un morphisme de corps.
+
+    Si \( \varphi\colon \eL\to \eK[X]/(\mu_a)\) est l'isomorphisme dont nous parlions plus haut, il vérifie \( \varphi\big( \alpha(k) \big)=\bar k\) (la classe du polynôme de degré zéro). En posant \( \sigma=\sigma'\circ \varphi\) nous avons, pour tout \( k\in \eK\), 
+    % TODO: il faut un peu justifier ce \varphi(alpha(k))=bar k, à partir de la forme explicite du varphi. C'est mon todo 368.
+    \begin{equation}
+        (\sigma'\varphi\alpha)(k)=\sigma'(\bar k)=\beta(k),
+    \end{equation}
+    c'est ce qu'il fallait.
+\end{proof}
+
+\begin{lemma}[\cite{BIBooYYZPooMgFzkp}] \label{LEMooUULTooYcytat}
+    Soit un corps \( \eK\) muni de deux extensions \( \alpha\colon \eK\to \eL\) et \( \beta\colon \eK\to \eF\) où \( \eL\) est algébrique sur \( \eK\) et \( \eF\) est algébriquement clos.
+
+    Alors il existe un morphisme de corps \( \sigma\colon \eL\to \eF\) tel que \( \sigma\circ \alpha=\beta\).
+\end{lemma}
+
+\begin{proof}
+    Nous allons utiliser le lemme de Zorn \ref{LemUEGjJBc} sur l'ensemble
+    \begin{equation}
+        \mA=\Big\{  (\eM,\varphi)  \tq
+        \begin{cases}
+            \eM\text{ est un sous-corps de } \eL\\
+            \alpha(\eK)\subset \eM\\
+            \varphi\colon \eM\to \eF\text{ est une extension de corps}\\
+            \varphi\circ \alpha=\beta
+        \end{cases}
+    \Big\}.
+    \end{equation}
+    Nous ordonnons (partiellement) cet ensemble en disant que \( (\eM_1,\varphi_1)<(\eM_2,\varphi_2)\) si \( \eM_1\subset \eM_2\) et \( \varphi_2|_{\eM_1}=\varphi_1\). Il se fait que \( \mA\) est un ensemble inductif et que nous pouvons donc lui appliquer le lemme de Zorn.
+
+    Soit un élément maximum \( (\eM,\varphi)\). Nous allons montrer que \( \eM=\eL\).
+    
+    Soit \( l\in \eL\). Vu que \( \eL\) est une extension algébrique de \( \eK\), il existe un polynôme \( P\) à coefficients dans \( \alpha(\eK)\) tel que \( P(l)=0\). Mais vu que \( \alpha(\eK)\subset \eM\), ce polynôme est également à coefficients dans \( \eM\). Donc \( l\) est un élément algébrique sur \( \eM\).
+
+    Nous pouvons donc considérer le triple \( \big( \eM,\eM(l),\eF \big)\) qui vérifie les hypothèses du lemme \ref{LEMooIIKYooHMNqYn}. Il existe donc un morphisme de corps \( \sigma\colon \eM(l)\to \eF\) tel que \( \sigma|_{\eM}=\varphi\).
+
+    Nous avons
+    \begin{equation}
+        \sigma\circ\alpha=\sigma|_{\sigma(\eK)}\circ \alpha=\sigma|_{\eM}\circ \alpha=\varphi\circ \alpha=\beta.
+    \end{equation}
+    Donc l'élément \( \big( \eM(l),\sigma \big)\) majore \( (\eM,\varphi)\) dans \( \mA\).
+
+    Par maximalité, nous déduisons que \( \eM=\eL\). Donc le morphisme \( \varphi\colon \eL\to \eF\) vérifie \( \varphi\circ \alpha=\beta\), ce qu'il nous fallait.
+\end{proof}
+
+\begin{theorem}[Steinitz\cite{BIBooRTTUooSPwAKJ,BIBooFQQWooIuoZyf}]       \label{THOooEDQKooLEGlDv}
+    À propos de clôture algébrique.
+    \begin{enumerate}
+        \item
+            Tout corps possède une clôture algébrique.
+        \item
+            Si \( \alpha_1\colon \eK\to \eF_1\) et \( \alpha_2\colon \eK\to \eF_2\) sont deux clôtures algébriques du même corps \( \eK\), alors il existe un isomorphisme de corps \( \varphi\colon \eF_1\to \eF_2\) tel que \( \varphi\circ\alpha_1=\alpha_2\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Nous commençons par l'existence, en plusieurs points.
+    \begin{subproof}
+    \item[Un ensemble]
+    Nous considérons un ensemble \( \Omega\) qui contient \( \eK\), qui est strictement surpotent\footnote{Définition \ref{DEFooXGXZooIgcBCg}.} à \( \eK\) et qui est infini non dénombrable si \( \eK\) est fini. Par exemple \( \mP(\eK)\cup \eK\) si \( \eK\) est infini et \( \eR\cup \eK\) si \( \eK\) est fini (voir le théorème de Cantor \ref{THOooJPNFooWSxUhd}).
+
+    \item[L'ensemble pour Zorn]
+    Nous considérons l'ensemble des extensions algébriques de \( \eK\) contenues dans \( \Omega\), c'est à dire
+    \begin{equation}
+        \mA=\Big\{  (\eL, +_{\eL}, \times_{\eL})  \tq
+        \begin{cases}
+            \eK\subset \eL\subset \Omega\\
+            (\eL, +_{\eL}, \times_{\eL}) \text{ est une extension algébrique de } (\eK, +, \times).
+        \end{cases}
+    \Big\}
+    \end{equation}
+    Nous ordonnons \( \mA\) par l'inclusion : nous disons que
+    \begin{equation}
+        (\eL_1, +_{1}, \times_1)< (\eL_2,+_2,\times_2)
+    \end{equation}
+    lorsque $(\eL_2, +_2, \times_2)$ est un sur-coprs de $(\eL_1,+_1,\times_1)$ (en particulier \( \eL_1\subset \eL_2\)).
+
+\item[\( \mA\) est inductif]
+    Soit une partie \( \mF=\{ (\eL_i, +_i,\times_i) \}_{i\in I}\) de \( \mA\) que nous supposons être totalement ordonnées. Nous allons lui trouver un majorant dans \( \mA\). Nous posons \( \eL=\bigcup_{i\in I}\eL_i\), et si \( a\in \eL_1\), \( b\in \eL_j\), alors nous définissons
+    \begin{subequations}
+        \begin{numcases}{}
+            a+_{\eL}b=a+_kb\\
+            a\times_{\eL}b=a\times_kb
+        \end{numcases}
+    \end{subequations}
+    où \( k\in I\) est sélectionné de telle façon à avoir \( (\eL_i,+_i,\times_i )<(\eL_k,+_k,\times_k)\) et \( (\eL_j,+_j,\times_j )<(\eL_k,+_k,\times_k)\). Vu que tous les corps \( L_i\) sont des sous-corps les uns des autres, cela est une bonne définition.
+\item[Lemme de Zorn]
+    Nous utilisons le lemme de Zorn \ref{LemUEGjJBc}. Nous notons \( (\eF,+,\times)\) un élément maximal de \( \mA\). Vu que \( \eK\) en est un sous-corps, il n'y a pas d'ambiguïté de noter \( +\) et \( \times\) ses opérations.
+\item[Stratégie pour la suite]
+    Nous allons montrer que si \( \eE\) est une extension algébrique de \( \eF\), alors \( \eE=\eF\) (le but est d'utiliser le lemme \ref{LEMooQSCGooMyCktA}).
+
+\item[Un peu de cardinalité]
+    D'abord, vu que \( \eF\) est algébrique sur \( \eK\), l'ensemble \( \eF\) est équipotent à \( \eK\) si \( \eK\) est infini, et au plus dénombrable sur \( \eK\) est fini; c'est la proposition \ref{PROPooVPQFooScWvkS}. En bref :
+    \begin{itemize}
+        \item Si \( \eK\) est infini, \( \eK\approx \eF\approx \eE\prec\Omega\).
+        \item Si \( \eK\) est fini, \(  \eK\preceq \eF\preceq \eE\prec \Omega \) où \( \eE\) est au maximum dénombrable et \( \Omega\) est indénombrable.
+    \end{itemize}
+    Dans tous les cas, \( \Omega\) est strictement surpotent à \( \eF\), et le lemme \ref{LEMooIVCBooHWQiZB} permet de dire
+    \begin{equation}
+        \eE\setminus \eF\preceq \eE\prec \Omega\approx\Omega\setminus \eF.
+    \end{equation}
+\item[Quelques injections]
+    Il existe donc une injection \( \varphi\colon \eE\setminus \eF\to \Omega\setminus \eF\). Nous posons 
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eE&\to \Omega \\
+            x&\mapsto \begin{cases}
+                x    &   \text{si }x\in \eF\\
+                \varphi(x)    &    \text{si } x\notin \eF.
+            \end{cases}
+        \end{aligned}
+    \end{equation}
+    Nous montrons que \( f\) est injective. Soient \( x,y\in \eE\) tels que \( f(x)=f(y)\). Si \( x,y\in \eF\), alors \( x=f(x)=f(y)=y\). Si \( \in \eF\) et \( y\notin \eF\), alors \( x=\varphi(y)\) alors que \( x\in \eF\) et \( \varphi(y)\in \Omega\setminus F\); ce cas est impossible. Enfin si \( x\) et \( y\) sont hors de \( \eF\), alors \( f(x)=\varphi(x)\) et \( f(y)=\varphi(y)\); donc \( \varphi(x)=\varphi(y)\) et \( x=y\) par injectivité de \( \varphi\).
+
+    Nous avons donc bien une injection \( f\colon \eE\to \Omega\).
+
+\item[La maximalité]
+
+    Nous pouvons mettre sur \( f(\eE)\subset \Omega\) la structure de corps venant de \( \eE\). Vu que \( f(\eF)=\eF\), le corps \( f(\eE)\) est une extension algébrique de \( \eF\). Par maximalité, \( f(\eE)=\eF\).
+
+    Mais si \( x\in\eE\setminus \eF\), alors \( f(x)\in \Omega\setminus \eF\). Donc en réalité nous avons aussi \( \eE\subset \eF\).
+\item[Conclusion]
+    En conclusion \( \eE=\eF\) et le lemme \ref{LEMooQSCGooMyCktA} termine en disant que \( \eF\) est une clôture algébrique de \( \eK\).
+    \end{subproof}
+    Nous passons à la partie «unicité» de la clôture algébrique. Étant donné que \( \eF_1\) est une extension algébrique de \( \eK\) et que \( \eF_2\) est algébriquement clos, le lemme \ref{LEMooUULTooYcytat} nous donne un morphisme de corps \( \sigma\colon \eF_1\to \eF_2\) tel que \( \sigma\circ \alpha_1=\alpha_2\).
+
+    Nous sommes donc dans la situation où \( \sigma\colon \eF_1\to \eF_2\) est une extension de corps où \( \eF_1\) est algébriquement clos et \( \eF_2\) est algébrique. Le lemme \ref{LEMooYVHKooWhewKp} conclu que \( \sigma(\eF_1)=\eF_2\), c'est à dire que \( \sigma\) est surjectif. En tant que morphisme de corps, \( \sigma\) était déjà injective; elle est donc bijective.
+
+    Donc \( \sigma\colon \eF_1\to \eF_2\) est un isomorphisme de corps vérifiant \( \sigma\circ \alpha_1=\alpha_2\).
+\end{proof}
+
+\begin{normaltext}
+    Bien que \( \eC\) soit une extension algébriquement close de \( \eQ\), l'ensemble \( \eC\) n'est pas une clôture algébrique de \( \eQ\). C'est ce que nous montrons maintenant.
+\end{normaltext}
+
+\begin{lemma}       \label{LEMooRDIZooRjWNMa}
+    Le corps \( \eC\) n'est pas une clôture algébrique\footnote{Clôture algébrique, définition \ref{DEFooREUHooLVwRuw}.} de \( \eQ\).    
+\end{lemma}
+
+\begin{proof}
+    Nous montrons qu'il existe des éléments de \( \eC\) qui ne sont pas des racines de polynômes à coefficients rationnels. L'ensemble \( \eQ\) est dénombrable par la proposition \ref{PROPooDHIAooZysvNs}. L'ensemble des polynômes de degré \( n\) à coefficients dans \( \eQ\) est en bijection avec les \( n\)-uples de rationnels, c'est-à-dire avec \( \eQ^n\) qui est également dénombrable par la proposition \ref{PROPooDMZHooXouDrQ}. Enfin l'ensemble des polynômes à coefficients sur \( \eQ\) est l'union des polynômes de degré fixés, donc dénombrable par la proposition \ref{PROPooENTPooSPpmhY}.
+
+    Jusqu'ici nous avons prouvé que l'ensemble des polynômes à coefficients rationnels était dénombrable. Or chaque polynôme possède une quantité finie de racines par le corolaire \ref{CORooUGJGooBofWLr}. Donc la partie de \( \eC\) constituée des nombres qui sont des racines de polynômes à coefficients dans \( \eQ\) est dénombrable. Mais \( \eC\) n'est pas dénombrable, donc possède des éléments qui ne sont pas des racines de polynômes.
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Polynômes à plusieurs variables}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous avons déjà vu \( A[X,Y]\) lorsque \( A\) est un anneau en la définition~\ref{DEFooZNHOooCruuwI}.
+
+\begin{definition}      \label{DEFooRHRKooPqLNOp}
+    Soit un corps \( \eK\). Le corps \( \eK(X_1,\ldots, X_n)\) est le corps des fractions de l'anneau \( \eK[X_1,\ldots, X_n]\).
+\end{definition}
+
+\begin{definition}  \label{DEFooOCPHooXneutp}
+    Soient un corps \( \eK\) et une extension \( \eL\) de \( \eK\) contenant les éléments \( \alpha_1\),\ldots, \( \alpha_n\) de \( \eK\). Nous définissons \( \eK(\alpha_1,\ldots, \alpha_n)\) comme étant l'intersection de tous les sous-corps de \( \eL\) contenant \( \eK\) et les \( \alpha_i\).
+\end{definition}
+
+La proposition suivante est analogue à~\ref{PROPooYSFNooFGbbCi}\ref{ITEMooATPTooVXKdlK}.
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooQEJHooAmSNxU}
+    Soient un corps \( \eK\), une extension \( \eL\) et des éléments \( \alpha_1,\ldots, \alpha_n\) dans \( \eL\). Alors
+    \begin{equation}
+        \eK(\alpha_1,\ldots, \alpha_n)=\{ r(\alpha_1,\ldots, \alpha_n)\tq r\in \eK(X_1,\ldots, X_n) \}.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Ce que nous avons à droite est un corps : par exemple pour l'inverse, si \( r=P/Q\) alors \( r(\alpha_1,\ldots,\alpha_n)=P(\alpha_1,\ldots, \alpha_n)Q(\alpha_1,\ldots, \alpha_n)^{-1}\). Cet élément a un inverse en la personne de \( (Q/P)(\alpha_1,\ldots, \alpha_n)\).
+
+    Donc à droite nous avons un sous-corps de \( \eL\) contenant \( \eK\) ainsi que les \( \alpha_i\). Donc
+    \begin{equation}
+        \eK(\alpha_1,\ldots, \alpha_n)\subset \big\{ r(\alpha_1,\ldots, \alpha_n)\tq r\in \eK(X_1,\ldots, X_n) \big\}.
+    \end{equation}
+
+    D'autre part, tout corps contenant \( \eK\) et les \( \alpha_i\) doit contenir tous les \( P(\alpha_1,\ldots, \alpha_n)\) (\( P\in \eK[X_1,\ldots, X_n]\)), leurs inverses ainsi que leurs produits; bref doit contenir tous les \( r(\alpha_1,\ldots, \alpha_n)\) avec \( r\in\eK[X_1,\ldots, X_n]\).
+\end{proof}
+
+
+

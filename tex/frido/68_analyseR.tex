@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2006-2018
+% Copyright (c) 2006-2020
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -25,68 +25,514 @@ Nous savons que $\aL(\eR^m, \eR^n)$ est un espace vectoriel normé avec la défi
 Lorsqu'il existe un $M>0$ tel que $\| df(a) \|_{\aL(\eR^m,\eR^n)}<M$ pour tout $a$ dans $U$, nous disons que la différentielle de $f$ est \defe{bornée}{bornée!différentielle} sur $U$.
 
 \begin{definition}
-	La fonction $f$ est dite \defe{de classe $\mathcal{C}^1$}{fonction!de classe  $\mathcal{C}^1$} de $U\subset\eR^m$  dans $\eR^n$ si son application différentielle $df$ est continue de $\eR^m$ dans $\aL(\eR^m, \eR^n)$. Nous écrivons $f\in\mathcal{C}^1(U,\eR^n)$\nomenclature{$C^1(U,\eR^n)$}{Les applications une fois continument dérivables}.
+    Une application \( f\colon V\to E\) entre deux espaces vectoriels normés est dite être de \defe{de classe \( C^1\)}{fonction de classe \( C^1\)} si son application différentielle \( df\colon V\to \aL(V,E)\) est continue\footnote{Sur \( \aL(V,E)\) nous considérons la topologie de la norme opérateur \ref{DefNFYUooBZCPTr}.}.
 \end{definition}
 
-\begin{proposition}		\label{PropDerContCun}
-	Une fonction \( f\colon U\to \eR^n\) où \( U\) est ouvert dans \( \eR^m\) est de classe \( C^1\) si et seulement si les dérivées partielles de $f$ existent et sont continues.
+\begin{normaltext}
+    Dans la suite, si \( \{ e_i \}\) est une base d'un espace vectoriel \( V\), nous allons noter
+    \begin{equation}
+        \begin{aligned}
+            \omega_i\colon V&\to \eR \\
+            x&\mapsto x_i.
+        \end{aligned}
+    \end{equation}
+    Ce \( \omega_i\) est ce qu'on appelle souvent \( e_i^*\). Plus généralement, si \( I\) est le multiindice \( (i_1,\ldots, i_l)\) nous notons \( \omega_I\in \aL^l(V,\eR)\) par
+    \begin{equation}
+        \begin{aligned}
+            \omega_I\colon V^l&\to \eR \\
+            (x^{(1)},\ldots, x^{(l)})&\mapsto  x^{(1)}_{i_1}\ldots x^{(l)}_{i_l}.
+        \end{aligned}
+    \end{equation}
+    Ce seront nos formes multilinéaires de base.
+\end{normaltext}
+
+Afin de garder des notations très explicites, nous ne pouvons pas écrire des formules comme
+\[
+    df_a=\sum_i\frac{ \partial f }{ \partial x_i }(a)\omega_i
+\]
+parce que si \( f\) prend ses valeurs dans \( \aL(V,\eR)\), lorsqu'on écrit \( df_a(v)\), il n'y a aucune raison à priori de vouloir que \( v\) soit pris par \( \omega_i\) au lieu de \( \partial_if(a)\).
+
+Nous introduisons donc un produit fait exprès pour dire que «c'est celui de droite qui prend».
+\begin{definition}[\cite{MonCerveau}]       \label{DEFooLULCooYjBEaZ}
+    Si \( W\) est un espace vectoriel, nous définissons le produit \( \times_n\) par
+    \begin{equation}
+        \begin{aligned}
+            \times_1\colon W\times \aL(V,\eR)&\to \aL(V,W) \\
+            (w\times_1\alpha)(v)&=\alpha(v)w
+        \end{aligned}
+    \end{equation}
+    et par
+    \begin{equation}
+        \begin{aligned}
+            \times_n\colon W\times \eR_n&\to W_n \\
+            (w\times_n\alpha)(v)&=w\times_{n-1} \alpha(v)
+        \end{aligned}
+    \end{equation}
+\end{definition}
+
+\begin{normaltext}      \label{NORMooDAZZooDiGFoW}
+    Quelque précisions sur l'énoncé de la proposition \ref{PROPooUDJLooHwzjQF}. Lorsque nous parlons de \( \partial_if\), nous supposons donnée une base de \( V\). Il n'y a aucune raison que la norme sur \( V\) soit adaptée à cette base. Nous allons donc utiliser une norme «euclidienne» adaptée à la base, et invoquer l'équivalence de toutes les normes pour dire que si une fonction est différentiable pour une norme elle l'est pour toutes les normes.
+\end{normaltext}
+
+\begin{proposition}[\cite{TrenchRealAnalisys}]     \label{PROPooUDJLooHwzjQF}
+    Soient des espaces vectoriels normés de dimensions finies \( V\) et \( E\) ainsi qu'une application \( f\colon V\to E\). Nous supposons que les dérivées partielles \( \frac{ \partial f }{ \partial x_i }\) existent sur un voisinage de \( a\in V\) et qu'elles sont continues en \( a\).
+    
+    Alors
+    \begin{enumerate}
+        \item
+            l'application \( f\) est différentiable en \( a\),
+        \item
+            la différentielle est donnée par
+            \begin{equation}
+                df_a=\sum_{j=1}^n\frac{ \partial f }{ \partial x_j }(a)\times_1\omega_j.
+            \end{equation}
+    \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	Supposons que les dérivées partielles de $f$ existent et sont continues. Nous savons alors déjà par la proposition~\ref{Diff_totale} que la fonction $f$ est différentiable et qu'elle s'exprime sous la forme
-	\[
-		df_a(h)=\sum_{i=1}^{m}\partial_if (a)h_i, \qquad \forall a \in U,\,\forall h\in\eR^m.
-	\]
-	Pour montrer que $df$ est continue, nous devons montrer que la quantité $\| df(x)-df(a) \|_{\aL(\eR^m,\eR^n)}$ peut être rendue arbitrairement petite si $\| x-a \|_m$ est rendu petit. Nous avons
-	\begin{equation}
-		\begin{aligned}
-			\| df_x-df_a \|_{\aL}&=\sup_{\| h \|=1}\| df_x(h)-df_a(h) \|\\
-			&=\sup_{\| h \|_m=1}\left\|\sum_{i=1}^{m}\left(\partial_if (x)-\partial_if (a)\right)h_i\right\|_n\leq\\
-			&\leq\sup_{\| h \|_m=1}\sum_{i=1}^{m} \left\|\left(\partial_if (x)-\partial_if (a)\right)\right\|_n|h_i|\leq\\
-			&\leq\sup_{\| h \|_m=1} \|h\|_\infty\sum_{i=1}^{m} \left\|\left(\partial_if (x)-\partial_if (a)\right)\right\|_n\\
-			&\leq \sum_{i=1}^m\| \partial_if(x)-\partial_if(a) \|.
-		\end{aligned}
-	\end{equation}
-	Dans ce calcul, nous avons utilisé le fait que si $\| h \|_m\leq 1$, alors $\| h \|_{\infty}\leq 1$. Étant donné la continuité de $\partial_if$, la dernière ligne peut être rendue arbitrairement petite lorsque $x$ est proche e $a$.
+    L'espace \( V\) a une norme que nous notons \( \| . \|_V\); nous n'allons presque pas l'utiliser. Nous nommons \( \{ e_i \}\) la base de \( V\) sous-entendue lorsque nous parlons des dérivées partielles, et nous considérons la norme \( \|  \|\) sur \( V\) donnée par \( \| v \|=\sqrt{ \sum_{i=1}^n }x_i^2\) pour \( x=\sum_ix_ie_i\). Toutes les normes et boules dont nous allons parler dans la suite seront par rapport à cette norme.
 
-Supposons maintenant que $f$ soit dans $\mathcal{C}^1(U,\eR^n)$. Alors
-\[
-\left\|\partial_if (x)-\partial_if (a)\right\|_n= \left\|df(x).e_i-df(a).e_i\right\|_n \leq  \left\|df(x)-df(a)\right\|_{\aL(\eR^m,\eR^n)},
-\]
-la continuité de $df$ implique donc celle de $\partial_i f$ pour tout $i$ dans $\{1,\ldots,m\}$.
+    Nous posons \( \epsilon>0\). La continuité des dérivées partielles en \( a\) nous permet de considérer \( \delta>0\) tel que
+    \begin{equation}        \label{EQooPBYDooAtPkGl}
+        \| \frac{ \partial f }{ \partial x_j }(s)-\frac{ \partial f }{ \partial x_j }(a) \|<\epsilon
+    \end{equation}
+    pour tout \( s\in  B(a,\delta)\), et pour tous les \( j\) en même temps\footnote{Ce qui peut n'être pas possible en dimension infine. Je dis ça comme ça, juste pour faire remarquer que cette proposition n'est peut-être pas vraie en dimension infine. Voir aussi l'exemple de la fonction \eqref{EqCJVooJOuXdN}.}.
+
+    Soit \( x\in B(a,\delta)\). Nous considérons les points 
+    \begin{equation}
+        s_j=(x_1,\ldots, x_j,a_{j+1},\ldots, a_n).
+    \end{equation}
+    Précision : \( s_n=x\).
+
+    \begin{subproof}
+        \item[Un peu de convexité]
+            Nous montrons que le segment \( [s_j,s_{j-1}]\) est dans \( B(a,\delta)\). Nous avons \( s_j-a=(x_1-a_1,\ldots, x_j-a_j,0,\ldots, 0)\), et donc
+            \begin{equation}
+                \| s_j-a \|\leq \| x-a \|<\delta,
+            \end{equation}
+            et donc \( s_j\in B(a,\delta)\) pour tout \( j\). Vu que la sphère \( B(a,\delta)\) est convexe\footnote{Proposition \ref{PROPooUQLUooDQfYLT}.}, tout le segment entre \( s_j\) et \( s_{j-1}\) est dedans.
+        \item[Accroissements finis]
+            En nous souvenant que \( x\) et \( a\) ont été fixés, nous considérons les fonctions intermédiaires suivantes :
+            \begin{subequations}
+                \begin{numcases}{}
+                    g_1(t)=f(f,a_2,\ldots, a_n)\\
+                    g_j(t)=f(x_1,\ldots, x_{j-1},t,a_{j+1},\ldots, a_n)\\
+                    g_n(t)=f(x_1,\ldots, x_{n-1},t).
+                \end{numcases}
+            \end{subequations}
+            Elles vérifient en particulier \( g_j(x_j)=f(s_j)\) et \( g_j(a_j)=f(s_{j-1})\). Donc le théorème des accroissements finis \ref{ThoAccFinis} nous donne l'existence de \( \tau_j\) entre \( x_j\) et \( a_j\) tel que
+            \begin{equation}        \label{EQooVALVooXmUmwR}
+                f(s_j)-f(s_{j-1})=g_j(x_j)-g_j(a_j)=g_j'(\tau_j)(x_j-a_j).
+            \end{equation}
+        \item[Dérivées partielles]
+            Les fonctions \( g_j\) ont été construites de telle sorte à donner les dérivées partielles de \( f\) via une simple dérivation :
+            \begin{equation}
+                g'_j(t_0)=\frac{ \partial f }{ \partial x_j }(x_1,\ldots, x_{j-1},t_0,a_{j+1},\ldots, a_n).
+            \end{equation}
+            Or lorsque\footnote{Retournez éventuellement les intervalles sur \( a_j<x_j\).} \( t_0\in [x_j,a_{j}]\), le point \( (x_1,\ldots, x_{j-1},t_0,a_{j+1},\ldots, a_n)\) est dans \( \mathopen[ s_j , s_{j-1} \mathclose]\). Cela est le cas pour \( t_0=\tau_j\). Nous notons
+            \begin{equation}
+                \bar s_j=(x_1,\ldots, x_{j-1},\tau_j,a_{j+1},\ldots, a_n)
+            \end{equation}
+            et nous avons
+            \begin{equation}
+                g'_j(\tau_j)=\frac{ \partial f }{ \partial x_j }(\bar s_j)
+            \end{equation}
+            avec \( \bar s_j\in\mathopen[ s_{j-1} , s_j \mathclose]\). Tout cela pour récrire \eqref{EQooVALVooXmUmwR} sous la forme
+            \begin{equation}
+                f(s_j)-f(s_{j-1})=\frac{ \partial f }{ \partial x_j }(\bar s_j)(x_j-a_j).
+            \end{equation}
+        \item[Une belle somme télescopique]
+            En nous souvenant que \( s_0=a\) et que \( s_n=x\), nous avons cette somme télescopique
+            \begin{subequations}
+                \begin{align}
+                    f(x)-f(a)&=\sum_{j=1}^n\big( f(s_j)-f(s_{j-1}) \big)\\
+                    &=\sum_{j=1}^n\frac{ \partial f }{ \partial x_j }(\bar s_j)(x_j-a_j)\\
+                    &=\sum_{j=1}^n\big[ (\partial_jf)(\bar s_j)-(\partial_jf)(a) \big](x_j-a_j)+\sum_{j=1}^n(\partial_if)(a)(x_j-a_j).
+                \end{align}
+            \end{subequations}
+            Nous isolons les termes qui nous intéressent dans la définition de la différentielle :
+            \begin{equation}
+                f(x)-f(a)-\sum_{j=1}^n(\partial_jf)(a)(x_j-a_j)=\sum_{j=1}^n\big[ (\partial_jf)(\bar s_j)-(\partial_jf)(a) \big](x_j-a_j).
+            \end{equation}
+        \item[Et enfin : le quotient différentiel]
+            En utilisant la majoration \eqref{EQooPBYDooAtPkGl}, et en remarquant que \( \| x-a \|\) majore \( | x_j-a_j |\) pour chaque \( j\), nous avons l'inégalité
+            \begin{equation}
+                \| f(x)-f(a)-\sum_{j=1}^n\frac{ \partial f }{ \partial x_j }(a)(x_j-a_j) \|\leq n\epsilon\| x-a \|.
+            \end{equation}
+            Autrement dit, en posant \( T=\sum_{j=1}^n\frac{ \partial f }{ \partial x_j }(a)\omega_j\) nous avons
+            \begin{equation}
+                \| f(a+h)-f(a)-T(h) \|\leq n\epsilon\| h \|,
+            \end{equation}
+            et donc
+            \begin{equation}        \label{EQooVBYTooEYutva}
+                \lim_{h\to 0} \frac{ \| f(a+h)-f(a)-T(h) \| }{ \| h \| }=0.
+            \end{equation}
+        \item[Et donc ?]
+            La limite \eqref{EQooVBYTooEYutva} nous indique que \( f\) serait différentiable de différentielle \( T\) si \( \| . \|\) était la norme sur \( V\). C'est l'équivalence de toutes les normes\footnote{Sur un espace de dimension finie, \ref{ThoNormesEquiv}.} qui fait en sorte que la norme sur \( V\) n'est pas importante.
+    \end{subproof}
 \end{proof}
-\begin{proposition}
-  Soient $U$ un ouvert de $\eR^m$ et $V$ un ouvert de $\eR^n$. Soient $f: U\to V$  dans $\mathcal{C}^1(U,V)$ et $g: V \to \eR^p$ dans $\mathcal{C}^1(V,\eR^n)$.  Alors la fonction composée $g\circ f: U\to \eR^p $ est dans $\mathcal{C}^1(U,\eR^p)$.
+
+\begin{proposition}     \label{PROPooUUOSooPuXJjQ}
+    Soient des espaces vectoriels normés de dimensions finies \( V\) et \( E\) ainsi qu'une application \( f\colon V\to E\). Nous supposons que les dérivées partielles \( \frac{ \partial f }{ \partial x_i }\) existent et sont continues sur un ouvert \( \mU\) de \( V\).
+    
+    Alors \( f\) est de classe \( C^1\) sur \( \mU\).
 \end{proposition}
-\begin{proof} On fixe $a$ dans $U$
-  \begin{equation}
-    \begin{aligned}
-     \big\|d(g\circ f)(x)&-d(g\circ f)(a)\big\|_{\aL(\eR^m,\eR^p)}\\
-     &=\left\|dg(f(x))\circ df(x)-dg(f(a))\circ df(a)\right\|_{\aL(\eR^m,\eR^p)}\leq\\
-&\leq \left\|\left(dg(f(x))-dg(f(a))\right)\circ df(x)\right\|_{\aL(\eR^m,\eR^p)}+\\
-&\quad+ \left\|dg(f(a))\circ \left(df(x)-df(a)\right)\right\|_{\aL(\eR^m,\eR^p)}\leq\\
-&\leq \left\|dg(f(x))-dg(f(a))\right\|_{\aL(\eR^n,\eR^p)}\left\| df(x)\right\|_{\aL(\eR^m,\eR^n)}+\\
-&\quad+ \left\|dg(f(a))\right\|_{\aL(\eR^n,\eR^p)}\left\| df(x)-df(a)\right\|_{\aL(\eR^n,\eR^p)}.\\
-    \end{aligned}
-  \end{equation}
-On peut conclure en passant à la limite $x\to a$ parce que les fonctions $f$, $g$, $df$ et $dg$ sont continues, de telle sorte que
-\begin{equation}
-	\begin{aligned}[]
-		\lim_{x\to a} dg\big( f(x) \big)=dg\big( f(a) \big)\\
-		\lim_{x\to a} df(x)=df(a).
-	\end{aligned}
-\end{equation}
+
+\begin{proof}
+    Nous notons \( \mU\) le voisinage sur lequel les dérivées partielles de \( f\) existent et sont continues. Il s'agit d'appliquer la proposition \ref{PROPooUDJLooHwzjQF} en chaque point de \( \mU\). Nous avons alors
+    \begin{equation}
+        df_x=\sum_{j=1}^n\frac{ \partial f }{ \partial x_j }(x)\times_1\omega_j
+    \end{equation}
+    pour tout \( x\in \mU\). Pour \( a\in V\) et \( h\in V\) supposé petit, nous avons
+    \begin{subequations}
+        \begin{align}
+            \| df_a-df_{a+h} \|_{\aL(V,E)}&=\sup_{\| v \|=1}\| df_a(v)-df_{a+h}(v) \|_E\\
+            &=\sup_{\| v \|=1}\| \sum_{j=1}^n\big( \frac{ \partial f }{ \partial x_j }(a)-\frac{ \partial f }{ \partial x_j }(a+h) \big)v_j \|\\
+            &\leq \sup_{\| v \|=1}\| \sum_{j=1}^n\big( \frac{ \partial f }{ \partial x_j }(a)-\frac{ \partial f }{ \partial x_j }(a+h) \big) \| |v_i |     \label{SUBEQooHMUIooNSjoxZ}\\
+            &\leq\| \sum_{j=1}^n\big( \frac{ \partial f }{ \partial x_j }(a)-\frac{ \partial f }{ \partial x_j }(a+h) \big) \|      \label{SUBEQooPBLWooUqNlhV}
+        \end{align}
+    \end{subequations}
+    Justifications :
+    \begin{itemize}
+        \item 
+            Pour \eqref{SUBEQooPBLWooUqNlhV}, nous avons majoré \( | v_i |\leq \| v \|=1\).
+        \item
+            Pour \eqref{SUBEQooHMUIooNSjoxZ}, nous avons utilisé le lemme \ref{LEMooIBLEooLJczmu}.
+    \end{itemize}
+    La continuité de \( \partial_jf\) conclu que \( \lim_{h\to 0}\|  df_a-df_{a+h}  \|=0\), ce qui signifie que \( df\) est continue et donc que \( f\) est de classe \( C^1\).
+\end{proof}
+ 
+\begin{theorem}     \label{THOooBEAOooBdvOdr}
+    Soient des espaces vectoriels normés de dimensions finies \( V\) et \( E\). Soit un ouvert \( \mU\) de \( V\). Une application \( f\colon V\to E\) est de classe \( C^1\) sur \( \mU\) si et seulement si ses dérivées partielles existent et sont continues sur \( \mU\).
+
+    Dans ce cas, nous avons la formule
+    \begin{equation}        \label{EQooPREWooVHVIAF}
+        df_a=\sum_i\frac{ \partial f }{ \partial x_i }(a)\times_1 \omega_i.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Le premier sens, y compris la formule \eqref{EQooPREWooVHVIAF}, a été fait dans la proposition \ref{PROPooUUOSooPuXJjQ}. Nous supposons maintenant que \( f\) est de classe \( C^1\) sur \( \mU\) et nous allons prouver que ses dérivées partielles existent et sont continues. Pour tout \( t\neq 0\) nous avons l'égalité
+    \begin{equation}
+        \frac{ f(a+te_i)-f(a) }{ t }=\frac{ f(a+te_i)-f(a)-df_a(fe_i) }{ t }+df_a(e_i).
+    \end{equation}
+    Par définition de la différentielle, prendre la limite \( t\to 0\) à droite donne \( df_a(e_i)\) parce que la fraction tend vers zéro. La limite définissant la dérivée partielle existe donc et vaut
+    \begin{equation}
+        \frac{ \partial f }{ \partial x_i }(a)=df_a(e_i).
+    \end{equation}
+    
+    Il nous reste à prouver que les dérivées partielles sont continues :
+    \begin{subequations}
+        \begin{align}
+            \| \frac{ \partial f }{ \partial x_i }(a+h)-\frac{ \partial f }{ \partial x_i }(a) \|&=\| df_{a}(e_i)-df_{a+h}(e_i) \|\\
+            &=\| (df_{a+h}-df_a)(e_i) \|\\
+            &\leq \| df_{a+h}-df_a \|\| e_i \|\\
+            &= \| df_{a+h}-df_a \|.
+        \end{align}
+    \end{subequations}
+    Vu que \( f\) est de classe \( C^1\), la limite \( h\to 0\) de cela donne zéro.
+\end{proof}
+
+Voici une version du même théorème, démontré dans le cas seulement de dimension deux. Il rend peut-être aussi plus clairement pourquoi ça ne marche pas en dimension infinie.
+
+\begin{proposition}		\label{Diff_totale}     % Il ne faut pas référentier cette proposition, mais le théorème THOooBEAOooBdvOdr.
+    Soit $U$ un ouvert dans $\eR^m$ et $a$ un point dans $U$. Soit $f$ une application de $U$ dans $\eR^n$. Si toutes les dérivées partielles de $f$ existent sur \( U\) et sont continues au point $a$ alors $f$ est différentiable au point $a$.
+\end{proposition}
+
+\begin{proof}
+    On se limite au cas $m=2$.  Pour rendre les calculs plus simples on utilise ici la norme $\|\cdot\|_\infty$ dans l'espace $\eR^2$, mais comme on a vu plus en haut, cela ne peut pas avoir des conséquences sur la différentiabilité de $f$. Si la différentielle de $f$ au point $a$ existe alors elle est définie par la formule
+    \[
+        df_a(v)=\frac{ \partial f }{ \partial x }(a)v_1+\frac{ \partial f }{ \partial y }(a)v_2
+    \]
+    pour tout $v$ dans $\eR^m$.
+
+    On commence par prouver le résultat en supposant que les dérivées partielles de $f$ au point $a$ sont nulles. La différentiabilité de $f$ signifie que pour toute constante  $\varepsilon> 0$ il y a une constante $\delta>0$ telle que si $\|v\|_\infty\leq \delta $ alors
+    \[
+    \frac{\|f(a_1+v_1, a_2+v_2)-f(a_1, a_2)\|_n}{\|v\|_\infty}\leq \varepsilon.
+    \]
+    On écrit alors
+    \begin{equation}
+      \begin{aligned}
+       & \|f(a_1+v_1, a_2+v_2)-f(a_1, a_2)\|_n=\\
+    &=\|f(a_1+v_1, a_2+v_2)-f(a_1+v_1, a_2)+f(a_1+v_1, a_2)-f(a_1, a_2)\|_n\leq\\
+    &\leq \|f(a_1+v_1, a_2+v_2)-f(a_1+v_1, a_2)\|_n+\|f(a_1+v_1, a_2)-f(a_1, a_2)\|_n.
+      \end{aligned}
+    \end{equation}
+    Comme la dérivée partielle $\partial_x f$ est nulle au point $a$  on sait que  pour toute constante  $\varepsilon> 0$ il y a une constante $\delta_1>0$ telle que si $|v_1|\leq \delta_1 $ alors
+    \[
+    \|f(a_1+v_1, a_2)-f(a_1, a_2)\|_n\leq \varepsilon |v_1|.
+    \]
+    Pour l'autre terme on a, par la proposition~\ref{val_medio_1},
+    \begin{equation}
+       \|f(a_1+v_1, a_2+v_2)-f(a_1+v_1, a_2)\|_n\leq \sup\{\|\partial_yf(x)\|_n\,\vert\, x\in S\}|v_2|.
+    \end{equation}
+    où $S$ est le segment d'extrémités  $(a_1+v_1, a_2)$ et $ (a_1+v_1, a_2+v_2)$. Comme la  dérivée partielle $\partial_y f$ est continue et nulle au point $a$ on sait que  pour toute constante  $\varepsilon> 0$ il existe une constante $\delta_2>0$ telle que si $\|(u_1,u_2)\|_\infty\leq \delta_2 $ alors $\|\partial_yf(a_1+u_1,a_2+u_2)\|_n\leq \varepsilon$. Si on choisit $\delta = \min\{\delta_1,\,\delta_2\}$ le segment $S$ est contenu dans la boule de rayon $\delta$ centrée au point $a$ et on obtient
+    \[
+     \|f(a_1+v_1, a_2+v_2)-f(a_1, a_2)\|_n\leq \varepsilon |v_1|+\varepsilon |v_2|\leq 2\varepsilon \|v\|_\infty.
+    \]
+    Cela prouve que \( f\) est différentiable en \( (a_1,a_2)\) et que la différentielle est nulle :
+    \begin{equation}
+        df_{(a_1,a_2)}=0.
+    \end{equation}
+
+    Dans le cas général, où les dérivées partielles de $f$ au point $a$ ne sont pas spécialement nulles, on peut considérer la fonction\footnote{Vous verrez dans la discussion à propos de la fonction \eqref{EqCJVooJOuXdN} pourquoi cette fonction ne fonctionne pas dans le cas de la dimension infinie.}
+    \begin{equation}    \label{EqXHVooJeQKrB}
+        g(x,y)=f(x,y)-\partial_1 f(a)x-\partial_2 f(a)y,
+    \end{equation}
+    qui a dérivées partielles nulles au point $a$. La fonction $g$ est donc différentiables. La fonction $f$ est maintenant la somme de $g$ et de la fonction linéaire et continue $(x,y)\mapsto \partial_1 f(a)x-\partial_2 f(a)y$. On verra dans la prochaine section que la somme de deux fonctions différentiables est une fonction différentiable. Par conséquent, la fonction $f$ est différentiable.
 \end{proof}
 
 \begin{remark}
-  On peut prouver le même résultat en utilisant la continuité de l'application bilinéaire
-\begin{equation}
-  \begin{array}{rccc}
-    \circ : & \mathcal{C}^1(U,V)\times\mathcal{C}^1(V,\eR^p)  & \to & \aL(U, \eR^p)\\
-& (T,S)& \mapsto & T\circ S.
-  \end{array}
-\end{equation}
+    En dimension infinie, il n'est pas vrai que l'existence et la continuité de toutes les dérivées partielles en un point implique la différentiabilité en ce point. Pour donner un exemple, nous allons continuer l'exemple~\ref{ExHKsIelG}
+    avec la fonction~\ref{EqCJVooJOuXdN} sur un espace de Hilbert.
+
+    En dimension infinie nous aurons le théorème~\ref{ThoOYwdeVt} qui donnera quelque chose de moins fort.
 \end{remark}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Différentielle et dérivée complexe}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooJWNOooOgMiWR}
+
+\begin{normaltext}
+    Nous commençons par donner quelques éléments à propos de dérivée et de différentielle pour des fonctions \( \eC\to \eC\) parce que les séries entières vont souvent être des fonctions complexes. Le gros du chapitre sur les fonctions holomorphes est le chapitre~\ref{ChapICHIooXbLccl}.
+\end{normaltext}
+
+Nous identifions \( \eR^2\) à \( \eC\) par l'application
+\begin{equation}
+    \begin{aligned}
+        \varphi\colon \eR^2&\to \eC \\
+        (x,y)&\mapsto x+iy.
+    \end{aligned}
+\end{equation}
+Dans cette partie, nous désignons par \( \Omega\) un ouvert de \( \eC\).
+
+\begin{definition}      \label{DEFooVJVXooKlnFkh}
+    Une fonction \( f\colon \Omega\to \eC\) est \defe{$\eC$-dérivable}{dérivable!au sens complexe} si la limite
+    \begin{equation}
+        \lim_{\substack{h\to0\\h\in \eC}} \frac{ f(a+h)-f(a) }{ h }
+    \end{equation}
+    existe. Dans ce cas, cette limite est la dérivée de \( f\) et est notée \( f'\).
+\end{definition}
+
+\begin{definition}  \label{DefMMpjJZ}
+    Soit \( \Omega\) un ouvert dans \( \eC\). Une fonction \( f\colon \Omega\to \eC\) est \defe{holomorphe}{holomorphe}\index{fonction!holomorphe} si elle est \( \eC\)-dérivable sur \( \Omega\).
+\end{definition}
+
+\begin{definition}      \label{DEFooQSMCooOoWVZk}
+    Si \( K\) est un compact de \( \eC\), nous disons qu'une fonction est \defe{holomorphe}{holomorphe!sur un compact} sur \( K\) si il existe un ouvert contenant \( K\) sur lequel \( f\) est holomorphe.
+
+    Et si \( f\) n'est réellement définie que sur \( K\), elle est holomorphe sur \( K\) si il existe une extension holomorphe de \( f\) vers un ouvert contenant \( K\).
+\end{definition}
+
+\begin{definition}
+    Une matrice de la forme
+    \begin{equation}
+        \begin{pmatrix}
+            \alpha    &   \beta    \\
+            -\beta    &   \alpha
+        \end{pmatrix}
+    \end{equation}
+    avec \( \alpha,\beta\in \eR\) est une \defe{similitude}{matrice!de similitude}\index{similitude}.
+\end{definition}
+
+\begin{lemma}       \label{LEMooJNFEooZCbJMo}
+    En tant qu'application linéaire \( \eC\to \eC\), l'opération de multiplication par \( \alpha+\beta i\) est la matrice
+    \begin{equation}
+        \begin{pmatrix}
+            \alpha    &   -\beta    \\
+            \beta    &   \alpha
+        \end{pmatrix}.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Cela est vite remarqué en calculant explicitement \( (\alpha+\beta i)(u_1+iu_2)\).
+\end{proof}
+
+\begin{lemma}
+    Une application \( A\colon \eC\to \eC\) est \( \eC\)-linéaire si et seulement si elle est une similitude en tant qu'application \( \eR^2\to \eR^2\).
+
+    Dans ce cas, il existe \( z_0\in \eC\) tel que \( A(z)=z_0z\) pour tout \( z\in \eC\).
+\end{lemma}
+
+\begin{proof}
+    Commençons par considérer l'application \( A\) sur \( \eR^2\). Elle est en particulier une application \( \eR\)-linéaire et par conséquent il existe une matrice \( \begin{pmatrix}
+        \alpha    &   \beta    \\
+        \gamma    &   \delta
+    \end{pmatrix}\) telle que
+    \begin{equation}
+        A\begin{pmatrix}
+            x    \\
+            y
+        \end{pmatrix}=\begin{pmatrix}
+            \alpha    &   \beta    \\
+            \gamma    &   \delta
+        \end{pmatrix}\begin{pmatrix}
+            x    \\
+            y
+        \end{pmatrix}.
+    \end{equation}
+    Nous voulons maintenant imposer la \( \eC\)-linéarité, c'est-à-dire que nous voulons
+    \begin{equation}
+        A\big( (a+bi)(x+iy) \big)=(a+bi)A(x+iy)
+    \end{equation}
+    pour tout \( a,b,x,y\in \eR\). À gauche nous avons
+    \begin{equation}
+        A\big( ax-by+i(bx+ay) \big)
+    \end{equation}
+    et à droite nous avons
+    \begin{equation}
+        (a+bi)\big( \alpha x+\beta y+i(\gamma x+\delta y) \big).
+    \end{equation}
+    En égalant les deux expressions nous obtenons les équations
+    \begin{subequations}
+        \begin{numcases}{}
+            \beta b=-b\gamma\\
+            -\alpha b+\beta a =a\beta -b\delta\\
+            \delta b=b\alpha\\
+            -\gamma b+\delta a=b\beta+a\delta,
+        \end{numcases}
+    \end{subequations}
+    dont nous tirons immédiatement que \( \gamma=-b\beta\) et \( \delta=\alpha\). La matrice de \( A\) est donc de la forme demandée.
+
+    Inversement nous devons prouver que la fonction
+    \begin{equation}        \label{EqOEWYooMaHCNb}
+        f(x+iy)=\alpha x+\beta y+i(-\beta x+\alpha y)
+    \end{equation}
+    est \( \eC\)-linéaire, c'est-à-dire qu'elle vérifie \( f(z_0z)=z_0f(z)\) pour tout \( z_0,z\in \eC\). Cela est un simple calcul que nous confions à Sage : le code suivant affiche «\( 0\)».
+    \lstinputlisting{tex/frido/code_sage3.py}
+
+    Pour conclure, notons que la fonction \eqref{EqOEWYooMaHCNb} est la fonction de multiplication par \( \alpha-i\beta\).
+\end{proof}
+
+\begin{normaltext}      \label{NORMooMKNDooBeoGRN}
+    Soient une fonction \( f\colon \eC\to \eC\) et l'isomorphisme canonique \( \varphi\colon \eC\to \eR^2\). La fonction \( f\) définit une la fonction
+    \begin{equation}
+        F=\varphi^{-1} \circ f\circ \varphi\colon \eR^2\to \eR^2.
+    \end{equation}
+    Cela est la fonction \( \eR^2\to \eR^2\) associée à \( f\). Il serait tentant de croire que tout ce qui est vrai pour \( F\) est également vrai pour \( f\). Eh bien non.
+
+    Par exemple, \( F\) peut être différentiable sans que \( f\) le soit. La proposition suivant donne une condition sur \( dF\) pour que \( f\) soit différentiable.
+\end{normaltext}
+
+\begin{proposition}     \label{PropKJUDooJfqgYS}
+    Une fonction \( f\colon \Omega\to \eC\) est $\eC$-dérivable en \( a\in\Omega\) si et seulement si elle est différentiable en \( a\) et si \( df_a\) est une similitude.
+
+    Plus précisément avec les notations de~\ref{NORMooMKNDooBeoGRN}, la fonction \( f\) est $\eC$-dérivable (donc holomorphe) au point \( z_0=x_0+iy_0\) si et seulement si la fonction \( F\) est différentiable en \( (x_0,y_0)\) et si la matrice de \( dF\) est de la forme
+    \begin{equation}        \label{EQooWZGKooLDEHGr}
+        dF=\begin{pmatrix}
+            \alpha    &   \beta    \\
+            -\beta    &   \alpha
+        \end{pmatrix},
+    \end{equation}
+    c'est-à-dire si \( dF_{(x_0,y_0)}\) fournit une application \( \eC\)-linéaire.
+
+    Dans ce cas, le lien entre \( \eC\)-dérivée et différentielle est donné par
+    \begin{equation}        \label{EqPAEFooYNhYpz}
+        (df_{z_0})(z)=f'(z_0)z.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Nous décomposons \( f\) en parties réelles et imaginaires :
+    \begin{equation}
+        f(x+iy)=P(x,y)+iQ(x,y)
+    \end{equation}
+    où \( P\) et \( Q\) sont des fonctions réelles. La jacobienne de \( F\) est la matrice
+    \begin{equation}
+        \begin{pmatrix}
+            \frac{ \partial P }{ \partial x }    &   \frac{ \partial P }{ \partial y }    \\
+            \frac{ \partial Q }{ \partial x }    &   \frac{ \partial Q }{ \partial y }
+        \end{pmatrix},
+    \end{equation}
+    et la condition dont nous parlons s'écrit comme le système
+    \begin{subequations}    \label{EqFDUrXBP}
+        \begin{numcases}{}
+            \frac{ \partial P }{ \partial x }=\frac{ \partial Q }{ \partial y }\\
+            \frac{ \partial P }{ \partial y }=-\frac{ \partial Q }{ \partial x}.
+        \end{numcases}
+    \end{subequations}
+    Si \( F\) est différentiable en \( (x_0,y_0)\) alors nous avons
+    \begin{equation}        \label{EqwlVfiR}
+        F\big( (x_0,y_0)+(h,k) \big)=F(x_0,y_0)+dF_{(x_0,y_0)}\begin{pmatrix}
+            h    \\
+            k
+        \end{pmatrix}+s(| h |+| k |)
+    \end{equation}
+    où \( s\) est une fonction vérifiant \( \lim_{t\to 0} \frac{ s(t) }{ t }=0\). Soit
+    \begin{equation}
+        dF_{(x_0,y_0)}=\begin{pmatrix}
+            \alpha    &   \beta    \\
+            -\beta    &   \alpha
+        \end{pmatrix}.
+    \end{equation}
+    Si nous posons \( \sigma=\alpha-i\beta\) et \( w=h+ik\), l'équation \eqref{EqwlVfiR} s'écrit dans \( \eC\) sous la forme
+    \begin{equation}        \label{EqYFmoiM}
+        f(z_0+w)=f(z_0)+\sigma w+s(|w|),
+    \end{equation}
+    ce qui implique que \( f\) est $\eC$-dérivable en \( z_0\).
+
+    Supposons maintenant que \( f\) soit $\eC$-dérivable en \( z_0\). Alors nous avons
+    \begin{equation}
+        f'(z_0)=\lim_{w\to 0} \frac{ f(z_0+w)-f(z_0) }{ w }=\sigma\in \eC,
+    \end{equation}
+    ce qui se récrit sous la forme
+    \begin{equation}
+        \lim_{w\to 0} \frac{ f(z_0+w)-f(z_0)-\sigma w }{ w }=0.
+    \end{equation}
+    Si nous posons \( z_0=x_0+iy_0\), \( w=h+ik\) et \( \sigma=\alpha-i\beta\) nous avons
+    \begin{equation}
+        \lim_{(h,k)\to (0,0)} \left| \frac{ F\big( (x_0,y_0)+(h,k) \big)-F(x_0,y_0)-\begin{pmatrix}
+            \alpha    &   \beta    \\
+            -\beta    &   \alpha
+        \end{pmatrix}\begin{pmatrix}
+            h    \\
+            k
+        \end{pmatrix}}{ | w | } \right| =0,
+    \end{equation}
+    ce qui signifie que \( F\) est différentiable et que sa différentielle est la matrice
+    \begin{equation}    \label{EqMLtbLD}
+       \begin{pmatrix}
+           \alpha &   \beta    \\
+           -\beta &   \alpha
+       \end{pmatrix}.
+    \end{equation}
+
+    La matrice \eqref{EqMLtbLD} est, vue dans \( \eR^2\), la matrice de multiplication dans \( \eC\) par \( \alpha-i\beta=f'(z_0)\). En d'autre termes, dans \( \eC\) nous avons
+    \begin{equation}
+        df_{z_0}(z)=f'(z_0)z,
+    \end{equation}
+    et en particulier la différentielle est donnée par
+    \begin{equation}        \label{EqPropZOkfmO}
+        df_{z_0}=f'(z_0)dz.
+    \end{equation}
+\end{proof}
+
+\begin{example}[Une application \( C^{\infty}\) mais pas \( \eC\)-dérivable]
+    Nous considérons la fonction
+    \begin{equation}
+        \begin{aligned}
+            f\colon \eC&\to \eC \\
+            x+iy&\mapsto x.
+        \end{aligned}
+    \end{equation}
+    Vu que c'est une application linéaire, elle est différentiable une infinité de fois et sa différentielle est elle-même. C'est donc une application \( C^{\infty}\).
+
+    Elle n'est cependant pas \( \eC\)-dérivable. En effet le quotient différentiel est, pour \( \epsilon\in \eC\) :
+    \begin{equation}
+        \frac{ f(x+iy+\epsilon_x+i\epsilon_y)-f(x+iy) }{ \epsilon }=\frac{ \epsilon_x }{ \epsilon }.
+    \end{equation}
+    Cela n'a pas de limite lorsque \( \epsilon\to 0\). Pour voir cela nous invoquons la méthode des chemins du corolaire~\ref{CorMethodeChemin} avec les chemins \( \epsilon_1(t)=t\) et \( \epsilon_2(t)=it\). Dans le premier cas, le quotient différentiel vaut \( 1\) pour tout \( t\), tandis que dans le second il vaut zéro pour tout \( t\).
+\end{example}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Quelques règles de calcul}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{lemma}       \label{LEMooVDXOooUyFHXZ}
+    Si \( f\) et \( g\) sont deux fonctions holomorphes sur un ouvert \( \Omega\subset \eC\) et si \( g\) ne s'annule pas sur \( \Omega\), alors \( f/g\) est holomorphe sur \( \Omega\).
+\end{lemma}
 
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -134,10 +580,10 @@ La proposition suivante est une application fondamentale du théorème des accro
 
 	Afin de voir que la condition~\ref{ItemPropCstDiffZeroii} implique la condition~\ref{ItemPropCstDiffZeroiii}, remarquons d'abord que la différentiabilité de $f$ implique que les dérivées partielles existent (proposition~\ref{diff1}) et que nous avons l'égalité $df(a).u=\sum_iu_i\partial_if(a)$ pour tout $u\in\eR^m$ (lemme~\ref{LemdfaSurLesPartielles}). L'annulation de $\sum_iu_i\partial_if(a)$ pour tout $u$ implique l'annulation des $\partial_if(a)$ pour tout $i$.
 
-	Prouvons maintenant que la propriété~\ref{ItemPropCstDiffZeroiii} implique la propriété~\ref{ItemPropCstDiffZeroii}. D'abord, par la proposition~\ref{Diff_totale}, l'existence et la continuité des dérivées partielles $\partial_if(a)$ implique la différentiabilité de $f$. Ensuite, la formule $df(a).u=\sum_i u_i\partial_if(a)$ implique que $df(a)=0$.
+    Prouvons maintenant que la propriété~\ref{ItemPropCstDiffZeroiii} implique la propriété~\ref{ItemPropCstDiffZeroii}. D'abord, par le théorème \ref{THOooBEAOooBdvOdr}, l'existence et la continuité des dérivées partielles $\partial_if(a)$ implique la différentiabilité de $f$. Ensuite, la formule $df(a).u=\sum_i u_i\partial_if(a)$ implique que $df(a)=0$.
 
 
-	Il reste à montrer que~\ref{ItemPropCstDiffZeroii} implique la condition~\ref{ItemPropCstDiffZeroi}, c'est à dire que l'annulation de la différentielle implique la constance de la fonction. C'est ici que nous allons utiliser le théorème des accroissements finis. En effet, si $a$ et $b$ sont des points de $U$, le théorème~\ref{val_medio_2} nous dit que
+	Il reste à montrer que~\ref{ItemPropCstDiffZeroii} implique la condition~\ref{ItemPropCstDiffZeroi}, c'est-à-dire que l'annulation de la différentielle implique la constance de la fonction. C'est ici que nous allons utiliser le théorème des accroissements finis. En effet, si $a$ et $b$ sont des points de $U$, le théorème~\ref{val_medio_2} nous dit que
 	\begin{equation}
 		\|f(b)-f(a)\|_n\leq \sup_{x\in[a,b]}\|df(x)\|_{\aL(\eR^m,\eR^n)}\|b-a\|_m.
 	\end{equation}
@@ -265,21 +711,522 @@ Notez cependant qu'une fonction peut être Lipschitzienne sans être différenti
     Nous avons utilisé l'équivalence de norme de la proposition~\ref{PropLJEJooMOWPNi}\ref{ItemABSGooQODmLNi}.
 \end{proof}
 
-
-
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Différentielles d'ordre supérieur}		\label{SecDiffOrdSup}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\begin{definition}
-	Soit $U$ un ouvert de $\eR^m$ et  $f:U\subset\eR^m\to \eR^n$ une fonction. La fonction $f$ est dite \defe{deux fois différentiable}{différentiable!deux fois} au point $a$ dans $U$,  si $f$ est différentiable dans un voisinage de $a$, et sa différentielle $df$ est différentiable au point $a$ en tant que application de $U$ dans $\aL(\eR^m, \eR^n)$.
 
-La fonction $f$ sera dite deux fois différentiable sur l'ensemble $U$ si elle est deux fois différentiable en chaque point de $U$.
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Différentielle et dérivées partielles}
+%---------------------------------------------------------------------------------------------------------------------------
 
+\begin{definition}[\cite{ZCKMFRg, MonCerveau}]  \label{DefPNjMGqy}
+    Soient deux espaces vectoriels normés \( V\) et \( W\) ainsi qu'une application \( f\colon V\to W\). Nous disons que \( f\) est de classe \( C^1\) si elle est différentiable et si sa différentielle \( df\colon V\to \aL(V,W)\) est une application continue.
+
+    Nous disons que \( f\) est de classe \( C^k\) si sa différentielle est de classe \( C^{k-1}\).
+
+    Deux cas un peu particuliers :
+    \begin{itemize}
+        \item l'application \( f\) est de classe \( C^0\) si elle est continue,
+        \item elle est de classe \( C^{\infty}\) si elle est de classe \( C^k\) pour tout \( k\).
+    \end{itemize}
 \end{definition}
+\index{application!différentiable}
+\index{application!de classe \( C^k\)}
+
+Soient deux espaces vectoriels normés \( V\) et \( W\) ainsi qu'une application \( f\colon V\to W\). La différentielle est une application \( df\colon V\to \aL(V,W)\). Pour être clair, la différentielle seconde consiste à différentier \( df_x\) par rapport à \( x\). C'est à dire que la différentielle seconde est une application \( d(df)\colon V\to \aL\big( V,\aL(V,W) \big)\).
+
+Et c'est là que commencent les problèmes. Les différentielles successives font intervenir des emboîtements de plus en plus profonds d'espaces comme \( d^2f\colon V\to \aL\Big( V,\aL\big( V,\aL(V,W) \big) \Big)\).
+
+Nous introduisons maintenant quelque notations et lemmes pour traiter ces problèmes. Soient des espaces vectoriels normés \( V\) et \( W\). Nous commençons par les espaces emboîtés par récurrence :
+\begin{subequations}
+    \begin{numcases}{}
+        E_0=E\\
+        E_{k+1}=\aL(V,E_k).
+    \end{numcases}
+\end{subequations}
+
+\begin{lemma}[\cite{MonCerveau,BIBooLWVSooOZSJBR}]      \label{LEMooSMZQooJBVySP}
+    À propos de dimensions,
+    \begin{enumerate}
+        \item       \label{ITEMooUWEBooSzFseN}
+         $\dim(E_n)=\dim(V)^n\dim(E)$.
+     \item       \label{ITEMooFMKQooFSMpgF}
+        \( \dim\big( \aL^n(V,E) \big)=\dim(E)\dim(V)^n\).
+    \end{enumerate}
+\end{lemma}
+
+
+Nous commençons par une sorte de projection; pour \( u\in V\) nous définissons
+\begin{equation}
+    \begin{aligned}
+        \pr_u\colon \aL^n(V,E)&\to \aL^{n-1}(V,E) \\
+        \pr_u(\omega)(v_1,\ldots, v_{n-1})&=\omega(u,v_1,\ldots, v_{n-1}). 
+    \end{aligned}
+\end{equation}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooTDLNooTcPkLg}
+    Nous définissons les \( \phi_k\) par récurrence. D'abord
+    \begin{equation}
+        \begin{aligned}
+            \phi_1\colon \aL^n(V,E)&\to \aL\big( V,\aL^{n-1}(V,E) \big) \\
+            \phi_1(\omega)u&=\pr_u(\omega),
+        \end{aligned}
+    \end{equation}
+    et ensuite
+    \begin{equation}
+        \begin{aligned}
+            \phi_k\colon \aL^n(V,E)&\to \aL^{n-k}(V,E)_{k} \\
+            \phi_k(\omega)u&=\phi_{k-1}\big( \pr_u(\omega) \big).
+        \end{aligned}
+    \end{equation}
+    Les applications \( \phi_k\) sont bijectives.
+\end{lemma}
+
+\begin{proof}
+    Nous prouvons par récurrence. 
+    \begin{subproof}
+        \item[Injective, \( k=1\)]
+            Soit \( \omega\in \aL^n(V,E)\) tel que \( \phi_1(\omega)=0\). Pour tout \( u\in V\) nous avons \( \phi_1(\omega)u=0\), ce qui signifie que \( \pr_u(\omega)=0\) ou encore que pour tout \( v_1,\ldots, v_{n-1}\in V\) nous avons \( \omega(u,v_1,\ldots, v_{n-1})=0\). Nous avons donc bien \( \omega=0\).
+        \item[Surjective, \( k=1\)]
+            Soit \( \alpha\in\aL\big( V,\aL^{n-1}(V,E) \big)\). Nous allons construire \( \omega\in \aL^n(V,E)\) tel que \( \phi_1(\omega)=\alpha\). Nous posons
+            \begin{equation}
+                \omega(v_0,\ldots, v_{n-1})=\alpha(v_0)(v_1,\ldots, v_{n-1}).
+            \end{equation}
+            Avec lui nous avons bien \( \pr_{v_0}(\omega)=\alpha(v_0)\).
+        \item[Injective, \( k=k\)]
+            Nous supposons que \( \phi_k(\omega)=0\), c'est à dire que pour tout \( u\in V\) nous avons 
+            \begin{equation}
+                \phi_{k-1}\big( \pr_u(\omega) \big)=0.
+            \end{equation}
+            Cela implique \( \pr_u(\omega)=0\) parce que \( \phi_{k-1}\) est injective par hypothèse de récurrence. Nous déduisons que \( \omega=0\), et que \( \phi_k\) est injective.
+
+        \item[Surjective, \( k=k\)]
+            Nous allons montrer que \(   \phi_k\colon \aL^n(V,E)\to \aL^{n-k}(V,E)_k  \) est une application linéaire injective entre deux espaces de même dimension.
+
+            Il s'agit d'utiliser le lemme \ref{LEMooSMZQooJBVySP}. D'abord
+            \begin{equation}
+                \dim\big( \aL^{n-k}(V,E)_k \big)=\dim(V)^k\dim\big( \aL^{n-k}(V,E) \big)=\dim(V)^n\dim(E).
+            \end{equation}
+            Ensuite \( \dim\big( \aL^n(V,E) \big)=\dim(V)^n\dim(E)\). Le compte est bon.
+
+            Le théorème du rang (formule \eqref{EQooUEOQooLySRiE}) avec \( \dim\big( \ker(\phi_k) \big)=0\) nous dit que le rang de \( \phi_k\) est maximal et donc que \( \phi_k\) est surjective.
+    \end{subproof}
+\end{proof}
+
+\begin{lemma}       \label{LEMooLTYCooAoMJKD}
+    Soit \( w\in W\). Nous avons
+    \begin{equation}
+        \big[ w\times_k\phi_k(\omega_I) \big]\times_1\omega_l=w\times_{k+1}\phi_{k+1}(\omega_{l,I}).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Il s'agit d'appliquer les deux membres à un élément \( v\in V\). D'abord
+    \begin{subequations}
+        \begin{align}
+            \big[ w\times_k\phi_k(\omega_I) \big]\times_1\omega_l(v)&=\omega_l(v)w\times_k\phi_k(\omega_I)\\
+            &=w\times_k\big( \phi_k(\omega_I)v_l \big)      \label{SUBEQooMWPMooYAsYCB}
+        \end{align}
+    \end{subequations}
+    Pour \eqref{SUBEQooMWPMooYAsYCB} nous avons utilisé le fait que \( \omega_{l,I}(v)=v_l\in\eR\) et que le produit \( \times_k\) est linéaire. De l'autre côté, en utilisant les définitions de \( \times_{k}\) et de \( \phi_k\), nous avons
+    \begin{subequations}
+        \begin{align}
+            \big[ w\times_{k+1}\phi_{k+1}(\omega_{l,I}) \big]v&=w\times_k\big( \phi_{k+1}(\omega_{l,I})v \big)\\
+            &=w\times_k\phi_k\big( \pr_v(\omega_{l,I}) \big)\\
+            &=w\times_k\phi_k(v_l\omega_I)
+        \end{align}
+    \end{subequations}
+    parce que \( \pr_v(\omega_{l,I})=v_l\omega_I\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooVGRRooHSwcPl}
+    Soit une application \( f\colon V\to E\) de classe \( C^n\). Alors
+    \begin{enumerate}
+        \item
+            pour tout \( n\)-multiindice \( I\), la dérivée partielle \( \partial^n_If\) existe,
+        \item
+            nous avons la formule
+            \begin{equation}
+                (d^nf)_a=\sum_{i_1,\ldots, i_n}\frac{ \partial^nf }{ \partial x_{i_1}\ldots \partial x_{i_n} }(a)\times_n\phi_n(\omega_{i_1,\ldots, i_n})
+            \end{equation}
+            où la somme porte sur tous les multiindices de taille \( n\), le produit \( \times_n\) est la définition \ref{DEFooLULCooYjBEaZ} et l'application \( \phi_n\) est donnée dans l'énoncé du lemme \ref{LEMooTDLNooTcPkLg}.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Nous faisons tout cela par récurrence. Le cas \( n=1\) est déjà fait par le théorème \ref{THOooBEAOooBdvOdr} parce que \( \phi_1(\omega)=\omega\). Nous supposons que le résultat est démontré pour une valeur \( k\), et nous considérons \( f\) de classe \( C^n\) avec \( n\geq k+1\). L'hypothèse de récurrence dit que
+    \begin{equation}        \label{EQooBOZUooCiEIYR}
+        (d^kf)_a=\sum_{I}(\partial_{I}f)(a)\times_k\phi_k(\omega_{I})
+    \end{equation}
+    est continuement différentiable par rapport à \( a\). Nous pouvons donc utiliser la formule \eqref{EQooPREWooVHVIAF} pour calculer la différentielle de \eqref{EQooBOZUooCiEIYR} :
+    \begin{subequations}
+        \begin{align}
+            (d^{k+1}f)_a&=\sum_l\frac{ \partial (d^kf) }{ \partial x_l }(a)\times_1\omega_l\\
+            &=\sum_l\sum_{I}\big[ (\partial_l\partial_{I}f)(a)\times_k\phi_k(\omega_{I}) \big]\times_1\omega_l\\
+            &=\sum_{l,I}(\partial_{l,I}f)(a)\times_{k+1}\phi_{k+1}(\omega_{l,I})        \label{SUBEQooOXUHooFDJiow}
+        \end{align}
+    \end{subequations}
+    où nous avons utilisé le lemme \ref{LEMooLTYCooAoMJKD} pour obtenir \eqref{SUBEQooOXUHooFDJiow}.
+\end{proof}
+
+\begin{proposition}     \label{PROPooKOBVooQhrAeJ}
+    Soit une application \( f\colon V\to E\) telle que les dérivées partielles \( \frac{ \partial f }{ \partial x_{i_1}\ldots \partial x_{i_n} }\) existent et sont continues sur un ouvert \( \mU\). Alors \( f\) est de classe \( C^n\) sur \( \mU\).
+\end{proposition}
+
+\begin{proof}
+    Pour \( n=1\), cette proposition est déjà contenue dans le théorème \ref{THOooBEAOooBdvOdr}. Nous pouvons donc directement passer au pas de récurrence. Nous définissons les objets
+    \begin{equation}
+        T_k(a)=\sum_I(\partial_If)(a)\times_k\phi_k(\omega_{I})
+    \end{equation}
+    où la somme porte sur tous les \( k\)-multiindices. Ces applications \( T_k\) existent et sont continues par hypothèse. 
+
+    Le théorème \ref{THOooBEAOooBdvOdr} nous indique que \( T_1(a)=df_a\). Nous supposons maintenant que \( (d^kf)_a=T_k(a)\) et nous allons prouver que \( T_{k+1}\) est la différentielle de \( d^kf\). Pour cela nous devons prouver que
+    \begin{equation}        \label{EQooPKXDooWWVikT}
+        \lim_{h\to 0} \frac{ T_k(a+h)-T_k(a)-T_{k+1}(a)h }{ \| h \| }=0.
+    \end{equation}
+    En utilisant le lemme \ref{LEMooLTYCooAoMJKD} nous pouvons dégrossir le terme \( T_{k+1}(a)h\) :
+    \begin{subequations}
+        \begin{align}
+            T_{k+1}(a)h&=\sum_{l,I}\big[ (\partial_{l,I}f)(a)\times_{k+1}\phi_{k+1}(\omega_{l,I}) \big]h\\
+            &=\sum_{l,I}\big[ (\partial_{l,I}f)(a)\times_k\phi_k(\omega_I) \big]\times_1\omega_l(h)\\
+            &=\sum_{l,I}h_l(\partial_{l,I}f)(a)\times_k\phi_k(\Omega_I)\\
+            &=\sum_lh_l\big[ \partial_l\sum_I(\partial_If)(a) \big]\times_k\phi_k(\omega_I).        \label{SUBEQooACCZooXrxHpY}
+        \end{align}
+    \end{subequations}
+    Vu que \( \partial_If\) est une fonction dont les dérivées partielles existent et sont continues, le théorème \ref{THOooBEAOooBdvOdr} (toujours lui) nous dit qu'elle est différentiable et que
+    \begin{equation}
+        d(\partial_If)_a(h)=\sum_lh_l\partial_l(\partial_If)(a).
+    \end{equation}
+    En mettant la somme sur \( I\) tout devant dans \eqref{SUBEQooACCZooXrxHpY}, nous trouvons
+    \begin{equation}
+        T_{k+1}(a)h=\sum_Id(\partial_If)_a(h)\times_k\phi_k(\omega_I).
+    \end{equation}
+    C'est pas beau la vie ? Nous pouvons écrire le numérateur du quotient différentiel \eqref{EQooPKXDooWWVikT} :
+    \begin{subequations}
+        \begin{align}
+            T_k(a+h)-T_k(a)-T_{k+1}(a)h&=\sum_I\big[ (\partial_If)(a+h)-(\partial_If)(a) \big]\times_k\phi_k(\omega_I)\\
+                                        &\qquad-\sum_Id(\partial_If)_a(h)\times_k\phi_k(\omega_I)\\
+                                        &=\sum_I\big[ (\partial_If)(a+h)-(\partial_If)(a)-d(\partial_If)(a)h \big]\times_l\phi_k(\omega_I).
+        \end{align}
+    \end{subequations}
+    Nous utilisons le fait que l'application \( w\mapsto w\times_k\phi_k(\omega_I)\) est linéaire et commute avec la limite, c'est à dire que
+    \begin{equation}
+        \lim_{h\to 0} \big( w(h)\times_k\phi_k(\omega_I) \big)=\big( \lim_{h\to 0} w(h) \big)\times_k\phi_k(\omega_I).
+    \end{equation}
+    Et bien sûr, la somme sur les multiindices \( I\) commute également avec la limite. Donc
+    \begin{subequations}
+        \begin{align}
+        \lim_{h\to 0} \frac{ T_k(a+h)-T_k(a)-T_{k+1}(a)h }{ \| h \| }&=\sum_I\left( \lim_{h\to 0} \frac{ (\partial_If)(a+h)-(\partial_If)(a)-d(\partial_If)_ah }{ \| h \| } \right)\times_k\phi_k(\omega_I)\\
+        &=0.
+        \end{align}
+    \end{subequations}
+    Cela prouve que \( T_{k+1}\) est bien la différentielle de \( T_k\). Par récurrence, la fonction \( f\) est bien \( n\) fois continuement différentiable.
+\end{proof}
+
+Maintenant que nous avons plein de lemmes et de résultats, il est facile de démontrer un très gros résultat en peu de lignes.
+
+\begin{theorem}     \label{THOooPZTAooTASBhZ}
+    Soit une application \( f\colon V\to E\) entre deux espaces vectoriels normés de dimension finies. Nous avons équivalence entre
+    \begin{enumerate}
+        \item       \label{ITEMooBOWTooXgxhpS}
+            \( f\) est de classe \( C^n\)
+        \item       \label{ITEMooPVZHooHihSRD}
+            les dérivées partielles \( \partial_if\) sont de classe \( C^{n-1}\)
+        \item       \label{ITEMooVBQMooBleazN}
+            les dérivées partielles \( \partial^n_If\) existent et sont continues pour tout multiiindice de longueur \( n\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    En plusieurs implications.
+    \begin{subproof}
+        \item[\ref{ITEMooVBQMooBleazN} implique \ref{ITEMooBOWTooXgxhpS}]
+            C'est la proposition \ref{PROPooKOBVooQhrAeJ}.
+        \item[\ref{ITEMooBOWTooXgxhpS} implique \ref{ITEMooVBQMooBleazN}]
+            C'est la proposition \ref{PROPooVGRRooHSwcPl}.
+        \item[\ref{ITEMooVBQMooBleazN} implique \ref{ITEMooPVZHooHihSRD}]
+            En posant \( g_i=\partial_if\), l'hypothèse est que les \( \partial^{n-1}_Ig_i\) existent et sont continues pour tout multiindices \( I\) de longueur \( n-1\). En appliquant «\ref{ITEMooVBQMooBleazN} implique \ref{ITEMooBOWTooXgxhpS}» à la fonction \( g_i\), la fonction \( g_i\) est de classe \( C^{n-1}\).
+        \item[\ref{ITEMooPVZHooHihSRD} implique \ref{ITEMooVBQMooBleazN}]
+            Les fonctions \( g_i\) déjà définies sont de classe \( C^{n-1}\). Nous leur appliquons «\ref{ITEMooBOWTooXgxhpS} implique \ref{ITEMooVBQMooBleazN}», nous savons que les fonctions \( \partial^{n-1}_Ig_i\) sont continues, c'est à dire que les \( \partial_I\partial_if\). Vu que tout multiiindice de longueur \( n\) peut être écrit sous la forme \( iI\) où \( I\) est de longueur \( n-1\), nous avons prouvé que les \( \partial^n_Jf\) existent et sont continues pour tout multiindice \( J\) de longueur \( n\).
+    \end{subproof}
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Espaces d'applications multilinéaires et identifications}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Si \( V\) et \( E\) sont des espaces vectoriels de dimensions finies, la différentielle de \( f\colon V\to E\) est une application \( df\colon V\to \aL(V,E)\). La différentielle seconde est une application \( d(df)\colon V\to \aL\big( V,\aL(V,E) \big)\) et ainsi de suite.
+
+Une grande difficulté de la manipulation des différentielles d'ordre supérieurs provient de cet emboîtement d'espaces d'applications linéaires. Nous nous attaquons à présent à la description de ces espaces emboîtés\footnote{Toutes les constructions, tous les énoncés et les preuves qui suivent sont de l'invention personnelle de l'auteur de ces lignes. Je n'ai trouvé nulle part une source qui s'attaque réellement à le récurrence.}.
+
+Pour la suite, nous considérerons des espaces vectoriels normés \( V\) et \( E\) de dimension finie. Nous notons \( \aL^n(V,E)\) l'espace des applications multilinéaires \( V^n\to E\).
+
+Nous introduisons le produit suivant\cite{MonCerveau} :
+\begin{equation}
+    \begin{aligned}
+        \cdot\colon W\times \aL\big( V,\aL(V,\eR) \big)   &\to \aL\big( V,\aL(V,W) \big) \\
+        \big( (w\cdot \psi)(u) \big)v&=\big( \psi(u)v \big)w. 
+    \end{aligned}
+\end{equation}
+Dans la suite, pour économiser des parenthèses et des maux de tête, nous allons noter \( \psi(u,v)\) le nombre \( \psi(u)v\). Il n'est cependant pas question de dire que \( \psi\) est une application bilinéaire. En effet, identifier \( \aL\big( V,\aL(V,W) \big)\) à l'espace des applications bilinéaires \( V\times V\to W\) ne sert pas à grand chose pour l'instant parce qu'une telle identification a le prix de devoir prouver que toutes les propriétés des différentielles passent à travers l'identification, tâche qui est à priori (conservation de la difficulté) de la même nature que celle à laquelle nous nous attachons à présent.
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooHCUSooXYHuBR}
+    Soient deux espaces vectoriels normés \( V\) et \( E\) ainsi que \( \psi\in\aL\big( V,\aL(V,\eR) \big)\). Pour tout \( a\in E\) nous avons
+    \begin{equation}
+        \| a\cdot \psi \|_{\aL\big( V,\aL(V,E) \big)}= \| \psi \|_{\aL\big( V,\aL(V,\eR) \big)}\| a \|_E.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Il s'agit seulement d'un calcul :
+    \begin{subequations}
+        \begin{align}
+            \| a\cdot \psi \|&=\sup_{\| v \|=1}\| (a\cdot \psi)(v) \|_{\aL(V,E)}\\
+            &=\sup_{\| v \|=1}\sup_{\| w \|=1}\| (a\cdot\psi)(v)w \|_E\\
+            &=\sup_{\| v \|=1}\sup_{\| w \|=1}\| \big( \psi(v)w \big)a \|_E  \label{SUBEQooDVSVooFkgDQb}   \\
+            &=\sup_{\| v \|=1}\sup_{\| w \|=1}| \psi(v)w |\,\| a \|_{E} \label{SUBEQooBJQDooDyZMOy}   \\
+            &=\sup_{\| v \|=1}\| \psi(v) \|\,\| a \|\\
+            &=\| \psi \|\| a \|.
+        \end{align}
+    \end{subequations}
+    Notez que dans \eqref{SUBEQooDVSVooFkgDQb}, \( | \psi(v)w |\) est un simple réel; c'est pourquoi nous le retrouvons hors de la norme \( \| . \|_E\) dans \eqref{SUBEQooBJQDooDyZMOy}, muni d'une simple valeur absolue.
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]
+    Soient \( \psi\in\aL\big( V,\aL(V,\eR) \big)\) et une fonction continue \( f\colon V\to E\). Alors la fonction
+    \begin{equation}
+        \begin{aligned}
+            g\colon V&\to \aL\big( V,\aL(V,E) \big) \\
+            x&\mapsto f(x)\cdot \psi 
+        \end{aligned}
+    \end{equation}
+    est continue.   
+\end{lemma}
+
+\begin{proof}
+    Pour des raisons de notations, nous allons écrire \( g_x\) pour \( g(x)\). Cela étant dit nous considérons \( a\in E\), une suite \( x_k\stackrel{E}{\longrightarrow}a \) et nous calculons :
+    \begin{subequations}
+        \begin{align}
+            \| g_a-g_{x_k} \|&=\sup_{\| u \|=1}\| g_a(u)-g_{x_k}(u) \|_{\aL(V,E)}\\
+            &=\sup_{\| u \|=1}\sup_{\| v \|=1}\| g_a(u)v-g_{x_k}(u)v \|_{E}\\
+            &=\sup_{\| u \|=1}\sup_{\| v \|=1}\| f(a)\psi(u)v-f(x_k)\psi(u)v \|\\
+            &=\sup_{\| u \|=1}\sup_{\| v \|=1}\| f(a)-f(x_k) \|\big| \psi(u)v \big|\\
+            &=\big| f(a)-f(x_k) \big|\sup_{u,v}| \psi(u)v |\\
+            &=\| f(a)-f(x_k) \|\,\| \psi \|.
+        \end{align}
+    \end{subequations}
+    En prenant la limite \( k\to \infty\), et en considérant que \( f\) est continue en \( a\), nous obtenons
+    \begin{equation}
+        \lim_{k\to \infty} \| g_a-g_{x_k} \|=0.
+    \end{equation}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]
+    Soient une application différentiable \( f\colon V\to E\) ainsi que \( \psi\in\aL\big( V,\aL(V,\eR) \big)\). Soit
+    \begin{equation}
+        \begin{aligned}
+            g\colon V&\to \aL\big(V, \aL(V,E) \big) \\
+            x&\mapsto f(x)\cdot \psi. 
+        \end{aligned}
+    \end{equation}
+    Alors \( g\) est différentiable et pour tout \( a\in V\) nous avons
+    \begin{equation}
+        dg_a(h)=df_a(h)\cdot \psi.
+    \end{equation}
+\end{lemma}
+
+Notons que nous n'avons pas \( dg_a=df_a\cdot \psi\). En effet, \( df_a\in \aL( V,W )\), de telle sorte que \( df_a\cdot\psi\in \aL\big( V,\aL\big( V,\aL(V,W) \big) \big)\). Les espaces ne s'emboîtent pas dans le bon ordre.
+
+\begin{proof}
+    Il s'agit de vérifier que \( h\mapsto df_a(h)\cdot \psi\) vérifie la condition de la définition \ref{DefDifferentiellePta}. En utilisant le fait que \( (a+b)\cdot \psi = a\cdot \psi+b\cdot \psi\) ainsi que le lemme \ref{LEMooHCUSooXYHuBR} nous écrivons
+    \begin{subequations}
+        \begin{align}
+            \frac{ \| f(a+h)\cdot \psi-f(a)\cdot\psi-df_a(h)\cdot \psi\|  }{ \| h \| }&=\| \frac{ f(a+h)-f(a)-df_a(h) }{ h  }\cdot \psi\| \\
+            &=\| \frac{ f(a+h)-f(a)-df_a(h) }{ h } \|\| \psi \|.
+        \end{align}
+    \end{subequations}
+    Vu que \( f\) est différentiable en \( a\) et que \( df_a\) est la différentielle, nous avons bien
+    \begin{equation}
+        \lim_{h\to 0}  \| \frac{ f(a+h)-f(a)-df_a(h) }{ h } \|\| \psi \|=0.
+    \end{equation}
+\end{proof}
+
+
+\begin{proof}
+    Nous faisons \ref{ITEMooUWEBooSzFseN} par récurrence. D'abord \( \dim(E_0)=\dim(E)\) et ensuite
+    \begin{equation}
+        \dim(E_{k+1})=\dim\aL(V,E_k)=\dim(V)\dim(E_k)=\dim(V)^{n+1}\dim(E).
+    \end{equation}
+    
+    Pour \ref{ITEMooFMKQooFSMpgF}, si \( \{ e_i \}\) est une base de \( V\), un élément \( \omega\in \aL^n(V,E)\) est déterminé par les valeurs de \( \omega(e_{i_1},\ldots, e_{i_n})\) qui peuvent être n'importe quel vecteur de \( E\). Donc la dimension est \( \dim(V)^n\dim(E)\).
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]
+    Soit \( n\in \eN\) nous définissons par récurrence
+    \begin{equation}
+        \begin{aligned}
+            \psi_{n,0}\colon E_n&\to E_n \\
+            \alpha&\mapsto \alpha. 
+        \end{aligned}
+    \end{equation}
+    et
+    \begin{equation}
+        \begin{aligned}
+            \psi_{n,k}\colon E_n&\to \aL^k(V,E_{n-k}) \\
+            \psi_{n,k}(\alpha)(v_1,\ldots, v_k)&=\big( \psi_{n,k-1}(\alpha)(v_1,\ldots, v_{k-1}) \big)v_k. 
+        \end{aligned}
+    \end{equation}
+    L'application
+    \begin{equation}
+        \psi_{n,n}\colon E_n\to \aL^n(V,E) 
+    \end{equation}
+    est un isomorphisme isométrique.
+\end{lemma}
+
+\begin{proof}
+    Nous allons démontrer par récurrence sur \( k\) que tous les \( \psi_{n,k}\) sont des isomorphismes isométriques. Pour \( k=1\) c'est évident parce que \( \psi_{n,1}\) est l'identité.
+
+    \begin{subproof}
+        \item[Injective]
+            Soient \( \alpha\in E_n\) tels que \( \psi_{n,k+1}(\alpha)=O\). Cela signifie que pour tout \( v_1,\ldots, v_{k+1}\) nous avons
+            \begin{equation}
+                \psi_{n,k}(\alpha)(v_1,\ldots, v_k)v_{k+1}=0.
+            \end{equation}
+            c'est à dire \( \psi_{n,k}(\alpha)(v_1,\ldots, v_{k}=0)\). Vu que \( \psi_{n,k}\) est injective (hypothèse de récurrence), nous avons \( \alpha=0\).
+
+        \item[Surjective]
+            Soit \( \omega\in \aL^{k+1}(V,E_{n-k})\); nous cherchons \( \alpha\in E_n\) tel que \( \psi_{n,k+1}(\alpha)=\omega\). Cette condition s'exprime
+            \begin{equation}        \label{EQooACUOooKCKame}
+                \psi_{n,k+1}(\alpha)(v_1,\ldots, v_{k+1})=\psi_{n,k}(\alpha)(v_1,\ldots, v_k)v_{k+1}=\stackrel{!}{=}\omega(v_1,\ldots, v_{k+1}).
+            \end{equation}
+            Notez que
+            \begin{equation}
+                \psi_{n,k}(\alpha)\in \aL^k(V,E_{n-k})=\aL^k\big( V,\aL(V,E_{n-k-1}) \big).
+            \end{equation}
+            En considérant \( \sigma\in \aL^k\big( V,\aL(V,E_{n-k-1}) \big)\) donné par
+            \begin{equation}
+                \sigma(v_1,\ldots, v_k)v_{k+1}=\omega(v_1,\ldots, v_{k+1}),
+            \end{equation}
+            il existe (hypothèse de récurrence sur \( k\)) un \( \alpha\in E_n\) tel que \( \psi_{n,k}(\alpha)=\sigma\).
+
+            Pour ce \( \alpha\), la condition \eqref{EQooACUOooKCKame} est satisfaite.
+
+        \item[Isométrique]
+            Encore une fois par récurrence. Soit \( \alpha\in E_n\). Nous avons
+            \begin{subequations}
+                \begin{align}
+                    \| \psi_{n,k}(\alpha) \|_{\aL^k(V,E_{n-k})}&=\sup_{\| v_i \|=1}\| \psi_{n,k}(\alpha)(v_1,\ldots, v_k) \|_{E_{n-k}}\\
+                    &=\sup_{\| v_i \|=1}\| \psi_{n,k-1}(\alpha)(v_1,\ldots, v_{k-1})v_k \|_{E_{n-k}}\\
+                    &=\sup_{\substack{\| v_i \|=1\\i=1,\ldots, k-1}}\| \psi_{n,k-1}(v_1,\ldots, v_{k-1}) \|_{\aL(V,E_{n-k-1})}\\
+                    &=\| \psi_{n,k-1}(\alpha) \|\\
+                    &=\| \alpha \|.
+                \end{align}
+            \end{subequations}
+            La dernière égalité est l'hypothèse de récurrence. Notez la subtile utilisation du lemme \ref{LEMooQLVAooICaPvR} qui permet de donner un sens aux supremums, grace au fait que \( \{ v\in V\tq \| v \|=1 \}\) est compact.
+    \end{subproof}
+\end{proof}
+
+L'application \( \psi_{n,n}\) est l'application inverse de l'isomorphisme \( \phi_n\) donné dans le lemme \ref{LEMooTDLNooTcPkLg}.
+
+
+
+\begin{lemma}       \label{LEMooFBEGooCqrzxH}
+    Nous avons \( \psi_{n,n}=\phi_n^{-1}\).
+\end{lemma}
+
+\begin{proof}
+    Pour nous échauffer nous posons \( \omega\in\aL^n(V,\eR)\), et nous calculons
+    \begin{subequations}        \label{EQooPBQIooUValDA}
+        \begin{align}
+            \psi_{n,2}\big( \phi_n(\omega) \big)(v_1,v_2)&=\Big( \psi_{n,1}\big( \phi_n(\omega) \big)v_1 \Big)v_2\\
+            &=\big( \phi_n(\omega)v_1 \big)v_2\\
+            &=\phi_{n-1}\big( \pr_{v_1}(\omega) \big)\\
+            &=\phi_{n-2}\big( \pr_{v_2}\pr_{v_1}(\omega) \big).
+        \end{align}
+    \end{subequations}
+    Cela étant dit, nous allons prouver ceci par récurrence :
+    \begin{equation}
+        \psi_{n,k}\big( \phi_n(\omega) \big)(v_1,\ldots, v_k)=\phi_{n-k}\Big( \prod_{i=1}^k\pr_{v_i}(\omega) \Big).
+    \end{equation}
+    Notez l'ordre du produit des projections. En ce qui concerne cet ordre, pour fixer les idées voici un exemple :
+    \begin{equation}
+        \pr_{v_2}\pr_{v_1}(\omega)=\big( \pr_{v_1}(\omega) \big)(v_2)=\omega(v_1,v_2).
+    \end{equation}
+    
+    Faisons maintenant la récurrence.
+    \begin{subproof}
+        \item[Pour \( k=2\)]
+            C'est le calcul \eqref{EQooPBQIooUValDA}.
+        \item[Pour \( k+1\)]
+            C'est encore un calcul, en faisant attention à l'ordre dans lequel viennent les projections :
+            \begin{subequations}
+                \begin{align}
+                    \psi_{n,k+1}\big( \phi_n(\omega) \big)(v_1,\ldots, v_{k+1})&=\Big( \psi_{n,k}\big( \phi_n(\omega) \big)(v_1,\ldots, v_k) \Big)v_{k+1}\\
+                    &=\Big( \phi_{n-k}\big( \prod_{i=1}^k\pr_{v_i}(\omega) \big) \Big)v_{k+1}\\
+                    &=\phi_{n-k-1}\big( \pr_{v_{k+1}}\prod_{i=1}^k\pr_{v_i}(\omega) \big)\\
+                    &=\phi_{n-(k+1)}\big( \prod_{i=1}^{k+1}\pr_{v_i}(\omega) \big).
+                \end{align}
+            \end{subequations}
+    \end{subproof}
+    Il ne reste qu'à écrire la formule démontrée avec \( k=n\) :
+    \begin{equation}
+        \psi_{n,n}\big( \phi_n(\omega) \big)(v_1,\ldots, v_n)=\phi_{n-n}\big( \prod_{i=1}^n\pr_{v_i(\omega)} \big)=\omega(v_1,\ldots, v_n).
+    \end{equation}
+    Donc nous avons bien que \( \psi_{n,n}\big( \phi_n(\omega) \big)=\omega\).
+\end{proof}
+
+\begin{lemma}
+    Soient deux espaces vectoriels normés \( V\) et \( E\). Nous considérons une application linéaire \( A\colon V\to E\), une forme \( \omega\in\aL^n(V,\eR)\) ainsi que la forme
+    \begin{equation}
+        \begin{aligned}
+            \alpha\colon V&\to E_n \\
+            u&\mapsto A(u)\psi^{-1}(\omega).
+        \end{aligned}
+    \end{equation}
+    Alors
+    \begin{equation}
+        \psi_{n+1,n+1}(\alpha)(v_1,\ldots, v_{n+1})=A(v_1)\omega(v_2,\ldots, v_{n+1}).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Nous prouvons la formule suivante par récurrence :
+    \begin{equation}
+        \psi_{n+1,k}(\omega)(v_1,\ldots, v_k)=A(v_1)\phi_{n-k+1}\big( \prod_{i=2}^k\pr_{v_i}(\omega) \big).
+    \end{equation}
+    Nous commençons la récurrence avec \( k=2\), en tenant compte que \( \psi^{-1}=\phi_n\) (lemme \ref{LEMooFBEGooCqrzxH}) :
+    \begin{subequations}
+        \begin{align}
+            \psi_{n+1,2}(\alpha)(v_1,v_2)&=\big( \psi_{n+1,1}(\alpha)v_1 \big)v_2\\
+            &=\alpha(v_1)v_2\\
+            &=A(v_1)\big( \psi^{-1}(\omega)v_2 \big)\\
+            &=A(v_1)\big( \phi_n(\omega)v_2 \big)\\
+            &=A(v_1)\phi_{n-1}\big( \pr_{v_2}(\omega) \big).
+        \end{align}
+    \end{subequations}
+    C'est bon pour \( k=2\). Nous passons à la récurrence :
+    \begin{subequations}
+        \begin{align}
+            \psi_{n+1,k+1}(\omega)(v_1,\ldots, v_{k+1})&=\big( \phi_{n+1,k}(\omega)(v_1,\ldots, v_k) \big)v_{k+1}\\
+            &=A(v_1)\Big( \phi_{n-k+1}\big( \prod_{i=2}^k\pr_{v_i}\omega \big) \Big)v_{k+1}\\
+            &=A(v_1)\phi_{n-k}\big( \pr_{v_{k+1}}\prod_{i=2}^k\pr_{v_i}\omega \big)\\
+            &=A(v_1)\phi_{n-(k+1)}\big( \prod_{i=2}^{k+1}\pr_{v_i}\omega \big).
+        \end{align}
+    \end{subequations}
+    La récurrence est terminée. Nous écrivons la formule pour \( k=n+1\) en tenant compte de \( \phi_0=\id\) pour terminer la preuve de ce lemme :
+    \begin{equation}
+        \psi_{n+1,n+1}(\omega)(v_1,\ldots, v_{n+1})=A(v_1)\phi_0\big( \prod_{i=2}^{n+1}\pr_{v_i}\omega \big)=A(v_1)\omega(v_2,\ldots, v_{n+1}).
+    \end{equation}
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Identification des espaces d'applications multilinéaires}
+\subsection{Identification des espaces d'applications multilinéaires (vieux)}
 %---------------------------------------------------------------------------------------------------------------------------
+\label{SUBSECooXBGUooXYFZjy}
+
+\begin{probleme}        \label{PROBooDLAWooLqHDPs}
+    Les choses dites en \ref{SUBSECooXBGUooXYFZjy} sont obsolètes par le lemme \ref{LEMooSMZQooJBVySP}. Il faut soit les retirer soit les déplacer.
+\end{probleme}
 
 La différentielle de la différentielle de $f$ est notée
 \[
@@ -296,28 +1243,11 @@ Plus précisément, l'identification se fait de la façon suivante : si \( \omeg
 \begin{equation}
     \omega(u_1,\ldots, u_{k+1})=\omega(u_1)(u_2,\ldots, u_{k+1}).
 \end{equation}
-
-Cela étant posé nous pouvons donner les définitions.
+Cela étant posé nous pouvons donner des définitions.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Fonctions différentiables plusieurs fois}
 %---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}[\cite{ZCKMFRg}]  \label{DefPNjMGqy}
-    La fonction \( f\colon \mO\subset V\to W\) est
-    \begin{enumerate}
-        \item
-            de classe \( C^0\) si elle est continue,
-        \item
-            de classe \( C^1\) si \( df\colon \mO\to \aL(V,W)\) est continue,
-        \item
-            de classe \( C^k\) si \( d^kf\colon \mO\to \aL^{(k)}(V,W)\) est continue,
-        \item
-            de classe \(  C^{\infty}\) si \( f\) est dans \( \bigcap_{k=0}^{\infty}C^k(V,W)\).
-    \end{enumerate}
-\end{definition}
-\index{application!différentiable}
-\index{application!de classe \( C^k\)}
 
 \begin{definition}
     Un \defe{\( C^k\)-difféomorphisme}{difféomorphisme!de classe $C^k$} est une application inversible de classe \( C^k\) dont l'inverse est également de classe \( C^k\).
@@ -343,14 +1273,7 @@ Cela étant posé nous pouvons donner les définitions.
 \subsection{Différentielle seconde, fonction de classe \texorpdfstring{$ C^2$}{C2}}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Une condition nécessaire et suffisante pour l'existence de la différentielle seconde est la suivante
-\begin{proposition}
-   Soit $U$ un ouvert de $\eR^m$ et  $f:U\subset\eR^m\to \eR^n$ une fonction. La fonction $f$ est deux fois différentiable au point $a$ si et seulement si les dérivées partielles $\partial_1 f, \ldots, \partial_m f $ sont différentiables en $a$.
-\end{proposition}
-Cela veut dire, en particulier, que $f$ est deux fois différentiable si et seulement si ses dérivées partielles secondes, $\partial_i\partial_j f$, pour tout couple d'indices $i,j$  dans $\{1,\ldots, m\}$, existent et sont continues. Pour les différentielles d'ordre supérieur on a la proposition suivante.
-
-La différentielle seconde dans l'exemple ~\ref{bilin_2diff} est symétrique, c'est à dire que $d^2f(a)(x_1,x_2)=d^2f(a)(x_2,x_1)$. En fait toute différentielle seconde est symétrique.
-
+La différentielle seconde dans l'exemple ~\ref{bilin_2diff} est symétrique, c'est-à-dire que $d^2f(a)(x_1,x_2)=d^2f(a)(x_2,x_1)$. En fait toute différentielle seconde est symétrique.
 
 \begin{theorem}[Schwarz]\label{Schwarz}
  Soit $U$ un ouvert de $\eR^m$ et  $f:U\subset\eR^m\to \eR^n$ une fonction de classe $\mathcal{C}^2$. Alors, pour tout couple $i,j$ d'indices dans $\{1,\ldots, m\}$ et pour tout point $a$ dans $U$, on a
@@ -393,7 +1316,7 @@ En appliquant encore une fois le théorème des accroissements finis on a
  \begin{equation}
   \partial_2\partial_1f(x+t_1h, y+s_1g) = \partial_1\partial_2 f(x+s_2h, y+t_2g).
 \end{equation}
-Il suffit maintenant de passer à la limite pour $(h,g) \to (0,0)$ et de se souvenir du fait que $f$ est $\mathcal{C}^2$ seulement si ses dérivées partielles secondes sont continues pour avoir $\partial_2\partial_1f(v)=\partial_1\partial_2 f(v)$.
+Il suffit maintenant de passer à la limite pour $(h,g) \to (0,0)$ et de se souvenir du fait que $f$ est $\mathcal{C}^2$ seulement si ses dérivées partielles secondes sont continues\footnote{Théorème \ref{THOooPZTAooTASBhZ}.} pour avoir $\partial_2\partial_1f(v)=\partial_1\partial_2 f(v)$.
 \end{proof}
 Si $f$ est deux fois différentiable $d^2f(a)$ est l'application bilinéaire associée avec la matrice symétrique
 \begin{equation}
@@ -415,9 +1338,13 @@ Cette matrice est dite la matrice \defe{hessienne}{hessienne} de $f$.
   \end{subequations}
   Ceci est vite fait en appliquant le théorème de Schwarz,~\ref{Schwarz}; ce que nous trouvons est
 \[
-\partial_y (\partial_xf)= 0\neq \partial_x(\partial_yf)= 6.
+\partial_y (\partial_xf)= 0
 \]
-Donc, l'existence d'une fonction $f$ de classe $\mathcal{C}^2$ telle que $\partial_x(x,y)= 5\sin x$ et $\partial_yf(x,y)=6x+y$ serait en contradiction avec le théorème.
+alors que
+\begin{equation}
+ \partial_x(\partial_yf)= 6.
+\end{equation}
+Vu que \( \partial_x(\partial_yf)\neq \partial_y(\partial_xf)\), le théorème \ref{Schwarz} dit que \( f\) ne peut pas être de classe \( C^2\).
 \end{example}
 
 Soit une fonction de classe \( C^2\) \( f\colon V\to \eR\) où \( V\) est un espace vectoriel de dimension \( n<\infty\). Nous avons
@@ -539,6 +1466,126 @@ Enfin pour celles qui aiment les notations matricielles de tout poil, il y a cet
 \subsection{Ordre supérieur}
 %---------------------------------------------------------------------------------------------------------------------------
 
+Intuitivement, une fonction est de classe \( C^p\) si elle est \( p\) fois continûment différentiable. Nous posons la définition suivante.
+
+\begin{definition}
+    Une fonction \( f\colon E\to F\) est \defe{de classe \( C^0\)}{classe \( C^0\)} si elle est continue.
+
+    Nous disons que la fonction \( f\colon E\to F\) est \defe{de classe \( C^p\)}{classe \( C^p\)} si elle est différentiable et si sa différentielle \( df\colon E\to \aL(E,F)\) est de classe \( C^{p-1}\).
+\end{definition}
+
+Ce qui est terrible avec les différentielles d'ordre supérieurs, c'est l'emboîtement des espaces. Pour une fonction \( f\colon E\to F\), nous allons souvent poser
+\begin{subequations}
+    \begin{align}
+        V_0&=F\\
+        V_{k+1}&=\aL(E,V_k),
+    \end{align}
+\end{subequations}
+de telle sorte à avoir
+\begin{equation}
+    df\colon E\to \aL(E,F)=V_1
+\end{equation}
+et 
+\begin{equation}
+    d^2f\colon E\to \aL(E,V_1)=V_2,
+\end{equation}
+ce qui donne en général
+\begin{equation}
+    d^kf\colon E\to \aL(E,v_{k-1})=V_k.
+\end{equation}
+
+La proposition suivante lie une bonne fois pour toute dérivée et différentielle dans le cadre de fonctions \( \eR\to \eR\).
+\begin{proposition}[\cite{MonCerveau}]      \label{PROPooCNDHooKRwils}
+    Une fonction \( f\colon \eR\to \eR\) est de classe \( C^p\) si et seulement si elle est \( p\) fois continûment dérivable.
+\end{proposition}
+
+\begin{proof}
+    Nous commençons par poser un certain nombre de notations. Comme souvent nous posons \( V_0=\eR\) et
+    \begin{equation}
+        V_{k+1}=\aL(\eR,V_k).
+    \end{equation}
+    De plus nous considérons \( M_1\in \aL(\eR,\eR)\) donnée par \( M_1(t)=t\). Et par récurrence
+    \begin{equation}
+        M_{k+1}(t)=tM_{k}.
+    \end{equation}
+    Nous avons \( M_1\in V_1\) et \( M_k\colon \eR\to V_{k-1}\), c'est-à-dire \( M_k\in V_k\).
+
+    Les formules que nous allons prouver sont que d'une part,
+    \begin{equation}
+        df_a=f'(a)M_1.
+    \end{equation}
+    et que d'autre part, plus généralement,
+    \begin{equation}
+        (d^kf)_a=f^{(k)}(a)M_k.
+    \end{equation}
+
+    En plusieurs parties et par récurrence.
+    \begin{subproof}
+    \item[Si \( f\) est continûment dérivable, alors \( f\) est \( C^1\) ]
+        Nous montrons que l'application \( T\) donnée par \( T(h)=hf'(a)\) vérifie la condition pour être la différentielle de \( f\) en \( a\) :
+        \begin{equation}        \label{EQooCPWKooWdgbED}
+            \frac{ f(a+h)-f(a)-f'(a)h }{ \| h \| }=\frac{ f(a+h)-f(a) }{ \| h \| }-1_h'f(a).
+        \end{equation}
+        où nous avons noté \( 1_h\) le vecteur unité dans la direction de \( h\), c'est-à-dire \( 1_h=h/\| h \|\). Vu que \( h\in \eR\), c'est simplement
+        \begin{equation}
+            1_h=\begin{cases}
+                1    &   \text{si } h>0\\
+                -1    &    \text{si }h<0
+            \end{cases}
+        \end{equation}
+        et nous ne définissons pas \( 1_h\) si \( h=0\).
+        
+        C'est le moment de prendre la limite de \eqref{EQooCPWKooWdgbED} pour \( h\to 0^+\) et \( h\to 0^-\) séparément. Lorsque \( h\to 0^+\), nous avons \( \| h \|=h\) et \( 1_h=h\). Vu que \( f\) est supposée dérivable, la limite du quotient existe et vaut \( f'(a)\). Donc le tout a une limite nulle :
+        \begin{equation}       
+            \lim_{h\to 0^+} \frac{ f(a+h)-f(a)-f'(a)h }{ \| h \| }=\lim_{h\to 0^+}\frac{ f(a+h)-f(a) }{  h  }-'f(a)=0.
+        \end{equation}
+        En ce qui concerne la limite \( h\to 0^-\), nous avons \( \| h \|=-h\) et \( 1_h=-1\), et à nouveau une limite nulle. La proposition \ref{PROPooGDDJooDCmydE} nous permet alors de conclure que la limite existe et est nulle. Les limites à gauche et à droite étant nulles, la limite existe et est nulle par la proposition \ref{PROPooGDDJooDCmydE}.
+
+    \item[Si \( f^{(p)}\) est continue alors \( d^pf\) aussi]
+        Nous passons à la récurrence de notre preuve. Sous l'hypothèse que \( f^{(p)}\) existe et est continue, nous allons montrer que \( d^pf\) existe, est continue et vaut
+        \begin{equation}
+            (d^pf)_a=f^{(p)}(a)M_p.
+        \end{equation}
+        Soit \( k<p\) tel que ce soit bon (pour \( k=1\) c'est déjà fait). Nous avons \( (d^kf)_a=f^{(k)}(a)M_k\), et pour prouver que \( (d^{k+1}f)_a=f^{(k+1)}(a)M_{k+1}\) nous l'y mettons dans la définition de la différentielle. Nous avons :
+        \begin{equation}
+            \frac{ (d^kf)_{a+h}-(d^kf)_a-f^{(k+1)}(a)M_{k+1}(h) }{ \| h \| }=\frac{ f^{(k)}(a+h)M_k-f^{(k)}(a)M_k-hf^{(k+1)}(a)M_k }{ \| h \| }.
+        \end{equation}
+        La limite \( h\to 0\) est une limite dans \( V_k\), et elle se traite comme précédemment. Elle vaut zéro parce que \( f^{(k+1)}\) est la dérivée de \( f^{(k)}\). Cela justifie les faits que \( d^kf\) est différentiable en \( a\) et que la différentielle est donné par la formule voulue.
+
+        Par hypothèse, \( k+1\leq p\), donc \( f^{(k+1)}\) est continue. Par conséquent l'application \( a\mapsto f^{(k+1)}(a)M_{k+1}\) est continue.
+
+    \item[Si \( f\) est de classe \( C^1\) alors \( f'\) existe et est continue]
+        Dire que \( f\) est de classe \( C^1\) revient à dire que la différentielle \( df\colon \eR\to \aL(\eR,\eR)\) existe et est continue. Soyons conscient que \( df_a(\epsilon)=\epsilon df_a(1)\) et calculons
+        \begin{equation}
+            \frac{ f(a+\epsilon)-f(a)-df_a(\epsilon) }{ \epsilon }=\frac{ f(a+\epsilon)-f(a) }{ \epsilon }-df_a(1).
+        \end{equation}
+        La définition de la différentielle est que la limite de cela pour \( \epsilon\to 0\) soit nulle. Cela implique que la limite suivante existe et vaut
+        \begin{equation}
+            \lim_{\epsilon\to 0}\frac{ f(a+\epsilon)-f(a) }{ \epsilon }=df_a(1).
+        \end{equation}
+        Nous avons prouvé que \( f'(a)=df_a(1)\).
+
+        La fonction \( a\mapsto df_a\) est continue. Pouvons-nous en déduire que \( f'\) est continue ? Nous avons
+        \begin{equation}
+            f'=ev_1\circ df
+        \end{equation}
+        où \( ev_1\) est l'application d'évaluation dont le lemme \ref{LEMooWFNXooLyTyyX} a déjà donné la continuité. Donc \( f'\) est continue comme composée d'applications continues.
+    \item[\( f\) est \( C^p\). Récurrence]
+        Nous supposons que \( f\) est de classe \( C^p\), et nous allons montrer par récurrence que \( f^{(k)}\) existe et est continue pour tout \( k\leq p\). Posons exactement l'énoncé de notre récurrence.
+
+        Pour \( k=1\) c'est fait. Nous supposons que la formule soit correcte pour un certain \( k\leq p\) et nous y allons pour \( k+1\). Nous avons
+        \begin{subequations}        \label{SUBEQSooUPLAooQhueCl}
+            \begin{align}
+            \frac{ (d^kf)(a+h)-(d^kf)(a)-f^{(k+1)}(a)M_{k+1}(h) }{ \| h \| }&=\frac{ \big[ f^{(k)}(a+h)-f^k(a)-hf^{(k+1)}(a) \big]M_k  }{ \| h \| }\\
+                &=\big[ \frac{ f^{(k)}(a+h)-f^{(k)}(a) }{ \| h \| }-1_hf^{(k+1)}(a) \big]M_k.
+            \end{align}
+        \end{subequations}
+        où nous avons aussi tenu compte que \( M_{k+1}(h)=hM_k\).
+
+        C'est le moment de calculer séparément les limites \( h\to 0^+\) et \( h\to 0^-\). Cela fonctionne comme toutes les autres fois.
+    \end{subproof}
+\end{proof}
+
 Soit une fonction \( f\colon \eR^n\to \eR\) différentiable \( l\) fois. L'application
 \begin{equation}
     d^lf\colon \eR^n\to \aL\Big( \eR^n,\aL\big( \eR^n,\aL(\ldots \big) \Big)
@@ -574,680 +1621,64 @@ au point \( x\) appliquée à \( v^{(1)}\) appliquée au point \( v^{(2)}\), \ld
     \end{equation}
 \end{normaltext}
 
-\begin{proposition}[Dérivées partielles et fonctions \( C^k\)] \label{PropDYKooHvrfGw}
-    Soit $U$ un ouvert de $\eR^m$ et  $f:U\subset\eR^m\to \eR^n$. La fonction $f$ est de classe $C^k$ si et seulement si les dérivées partielles $\partial_1 f, \ldots, \partial_m f $ existent et sont de classe $C^{k}$.
-\end{proposition}
-% TODO : une preuve serait importante.
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Polynômes de Taylor}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{AppSecTaylorR}
-
-\begin{definition}
-    Soit une fonction \( f\colon \eR\to \eR\). Si il existe, nous définissons le \( n\)\ieme\ \defe{polynôme de Taylor}{polynôme de Taylor} de $f$ au point \( a\in \eR\) par
+\begin{proposition}[\cite{MonCerveau}]
+    Soient des espaces vectoriels \( E\),  \( V\) et \( W\) de dimension fine, et une fonction \( f\colon E\to V\) de classe \( C^p\). Si \( \varphi\colon V\to W\) est linéaire, alors
     \begin{equation}
-        P_n(x)=\sum_{k=0}^n\frac{ f^{(k)}(a) }{ k! }(x-a)^k.
+        \varphi\circ f\colon E\to W
     \end{equation}
-    Et la \defe{série de Taylor}{série de Taylor} de \( f\) est la limite :
-    \begin{equation}
-        T(x)=\sum_{k=0}^{\infty}\frac{ f^{(k)}(a) }{ k! }(x-a)^k
-    \end{equation}
-    dans la mesure où la somme converge.
-\end{definition}
-
-Tant que \( f\) est \( n\) fois dérivable, le polynôme \( P_n\) existe et vérifie \( P_n(a)=f(a)\). Nous ne pouvons rien en dire de plus pour l'instant. En particulier, si \( f\) est de classe \(  C^{\infty}\) il ne faudrait pas croire que
-\begin{equation}
-    \lim_{n\to \infty} P_n(x)=f(x)
-\end{equation}
-pour tout \( x\) dans un voisinage de \( a\). Autrement dit, même si toutes les dérivées de \( f\) existent, la série entière \( T\) n'est pas garantie de
-\begin{itemize}
-    \item 
-        un rayon de convergence\footnote{Définition \ref{DefZWKOZOl}.} plus grand que zéro,
-    \item
-        et même avec un grand rayon de convergence, que la limite soit les valeurs de \( f\).
-\end{itemize}
-
-\begin{normaltext}      \label{NORMooADIZooUmevqk}
-    Il n'est pas très compliqué de construire une fonction \( f\) telles que \( f(0)=0\) et telle que \( f^{(k)}(0)=0\) pour tout \( k\), sans pour autant que \( f\) soit nulle partout (voir les fonctions plateaux \ref{subsecOSYAooXXCVjv}). Les polynômes de Taylor d'une telle fonction sont tous identiquement nuls.
-
-    Ceci pour dire qu'en posant
-    \begin{equation}
-        T(x)=\sum_{n=0}^{\infty}\frac{ f^{(k)}(0) }{ k! }x^k,
-    \end{equation}
-    nous n'avons aucune garantie de \( T=f\), même pas sur le rayon de convergence de la série entière définissant \( P\). Et nous n'avons pas de garanties d'avoir un rayon de convergence plus grand que \( 0\).
-
-    Notons toutefois que les polynômes étant denses pour la norme supremum parmi les fonctions continues\footnote{Théorème \ref{ThoGddfas}.}, pour tout compact, il existe une suite de polynômes qui converge uniformément uniformément \( f\). Mais ces polynômes ne sont pas spécialement ceux de Taylor.
-\end{normaltext}
-
-Le théorème de Taylor que nous démontrons à présent n'est pas un résultat que va dans le sens de \( \lim_{n\to \infty} P_n(x)=f(x)\). C'est un résultat qui dit juste que \( \lim_{x\to a} P_n(x)=f(a)\), et que la limite va d'autant plus vite que \( n\) est grand.
-
-Le théorème de Taylor généralise le développement limité au premier ordre de la proposition \ref{PropUTenzfQ}.
-
-\begin{normaltext}
-    Lorsque le contexte n'est pas ambigu, nous notons simplement \( P_n\) le polynôme d'ordre \( n\) de \( f\) au point \( a\). De même nous notons le reste
-    \begin{equation}
-        R_n(x)=f(x)-P_n(x).
-    \end{equation}
-\end{normaltext}
-
-\begin{proposition}[\cite{ooSZKEooLejXAh}]      \label{PROPooUYCMooQjeXpn}
-    Soit une fonction \( f\) qui est \( n\) fois dérivable sur l'intervalle ouvert \( I\subset \eR\) contenant \( a\). Alors
-    \begin{equation}
-        \lim_{x\to a} \frac{ R_n(x) }{ (x-a)^n }=\lim_{x\to a} \frac{ f(x)-P_n(x) }{ (x-a)^n }=0
-    \end{equation}
-    où \( P_n\) est le \( n\)\ieme\ polynôme de Taylor de \( f\) autour de \( x=a\).
+    est de classe \( C^p\).
 \end{proposition}
 
 \begin{proof}
-    Pour tout \( k=0,\ldots, n\) nous avons \( f^{(k)}(a)=P_n^{(k)}(a)\) et donc
+    En utilisant le théorème de différentiation de fonctions composées \ref{THOooIHPIooIUyPaf},
     \begin{equation}
-        R_n^{(k)}(a)=0
+        f(\varphi\circ f)_a(u)=d\varphi_{f(a)}df_a(u),
     \end{equation}
-    pour \( k=0,\ldots, n\). En posant d'autre par \( s(x)=(x-a)^n\) nous avons \( s^{(k)}(a)=0\) pour tout \( k=0,\ldots, n-1\). Par conséquent la règle de l'Hospital de la proposition \ref{PROPooBZHTooHmyGsy} s'applique au quotient \( R_n(x)/s(x)^n\). En l'utilisant \( n\) fois,
+    et donc, parce que \( \varphi\) est linéaire,
     \begin{equation}
-        \lim_{x\to a} \frac{ R_n(x) }{ s(x) }=\lim_{x\to a} \frac{ R^{(k)}(x) }{ k!(x-a)^0 }=\frac{ 0 }{ k! }=0.
+        d(\varphi\circ f)_a=\varphi\circ df_a.
     \end{equation}
-\end{proof}
-
-Nous démontrons à présent que le polynôme de Taylor est le seul à avoir la propriété de la proposition \ref{PROPooUYCMooQjeXpn}.
-\begin{proposition}[\cite{ooSZKEooLejXAh}]
-    Soit \( f\), une fonction \( n\) fois dérivable sur l'intervalle \( I\subset \eR\) contenant \( 0\). Soit un polynôme \( Q\) de degré \( n\) (ou moins) tel que
-    \begin{equation}    \label{EQooXPTIooOZqBaD}
-        \lim_{x\to a} \frac{ f(x)-Q(x) }{ (x-a)^n  }=0.
-    \end{equation}
-    Alors \( Q\) est le polynôme de Taylor de degré \( n\) pour \( f\) en \( a\) ci-après simplement noté \( P_n\).
-\end{proposition}
-
-\begin{proof}
-    D'après la proposition \ref{PROPooUYCMooQjeXpn}, la fonction \( f-P_n\) vérifie la même limite que \( f-Q\). DOnc \( P_n-Q\) vérifie également la limite
-    \begin{equation}        \label{EQooYBHHooEgZxtk}
-        \lim_{x\to 0} \frac{ (P_n-Q)(x) }{ x^n }=0.
-    \end{equation}
-    Nous notons \( P_n(x)=\sum_{k=0}^na_kx^k\) et \( Q(x)=\sum_{k=0}^nb_kx^k\). La relation \eqref{EQooYBHHooEgZxtk} donne en particulier 
+    Nous pouvons exprimer cela de façon un peu différente en posant \( \varphi_1\colon \aL(E,V)\to \aL(E,W)\),
     \begin{equation}
-        \lim_{x\to 0} (P_n-Q)(x)=0
+        \varphi_1(\alpha)(a)=(\varphi\circ \alpha)(a).
     \end{equation}
-    qui donne \( a_0-b_0=0\). Nous continuons par récurrence en supposant que \( a_i=b_i\) pour \( i=0,\ldots, k\). Alors
-    \begin{equation}
-        0=\lim_{x\to 0} \frac{ (P_n-Q)(x) }{ x^{k+1} }=\lim_{x\to 0} \sum_{l=k+1}^n(a_l-b_l)x^{l-(k+1)}.
+    Cela nous permet d'écrire \( \varphi\circ df_a=(\varphi_1\circ df)(a)\) et donc
+    \begin{equation}        \label{EQooUJPWooTzgSJx}
+        d(\varphi\circ f)=\varphi_1\circ df
     \end{equation}
-    Le seul terme non nul à droite est celui vérifiant \( l-(k+1)=0\). Et ce terme donne l'équation
-    \begin{equation}
-        a_{k+1}-b_{k+1}=0,
-    \end{equation}
-    c'est à dire \( a_{k+1}=b_{k+1}\). La récurrence continue ainsi jusqu'à \( k=n\), et nous pouvons conclure que \( Q=P_n\).
-\end{proof}
-L'intérêt de cette proposition est que si l'on trouve, par n'importe quel moyen, un polynôme \( Q\) vérifiant la condition \eqref{EQooXPTIooOZqBaD}, alors nous savons que c'est le polynôme de Taylor.
-
-\begin{theorem}[Théorème de Taylor\cite{TrenchRealAnalisys,ooCNZAooJEcgHZ}]		\label{ThoTaylor}
-Soit $I\subset$ un intervalle non vide et non réduit à un point de $\eR$ ainsi que $a\in I$. Soit une fonction $f\colon I\to \eR$ telle que $f^{(n)}(a)$ existe. Alors il existe une fonction $\alpha$ définie sur $I$ et à valeurs dans $\eR$ vérifiant les deux conditions suivantes :
-\begin{subequations}		\label{SubEqsDevTauil}
-	\begin{align}
-		f(x)&= \sum_{k=0}^n\frac{ f^{(k)}(a) }{ k! }(x-a)^k +\alpha(x)(x-a)^{n},	\\	\label{subeqfTepseqb}
-		\lim_{t\to a}\alpha(t)&=0
-	\end{align}
-\end{subequations}
-pour tout \( x\in I\). Ici $f^{(k)}$ dénote la $k$-ième dérivée de $f$ (en particulier, $f^{(0)}=f$, $f^{(1)}=f'$).\nomenclature{$f^{(n)}$}{La $n$-ième dérivée de la fonction $f$}
-\end{theorem}
-
-\begin{proof}
-    Si \( R_n(x)=f(x)-P_n(x)\), il suffit de poser
-    \begin{equation}
-        \alpha(x)=R_n(x)(x-a)^n
-    \end{equation}
-    et d'utiliser la proposition \ref{PROPooUYCMooQjeXpn}.
-\end{proof}
-
-\begin{remark}
-    Quelque remarques.
-    \begin{enumerate}
-        \item
-            La formule \eqref{subeqfTepseqb} est une égalité, et non une approximation. Ce qui serait une approximation serait de récrire la formule dans le terme contenant $\alpha$.
-        \item
-            Nous avons l'égalité \eqref{subeqfTepseqb} uniquement sur \( I\). Pour les \( x\) hors de \( I\), le polynôme existe évidemment, mais nous n'avons pas spécialement de fonction \( \alpha\), et d'ailleurs la fonction \( f\) n'est pas spécialement définie.
-    \end{enumerate}
-\end{remark}
-
-\begin{normaltext}
-    Les conditions \eqref{SubEqsDevTauil} sont souvent aussi énoncées sous la forme qu'il existe une fonction \( \alpha\) telle que
-    \begin{subequations}    \label{SUBEQooPYABooKpDgdu}
-        \begin{numcases}{}
-            \lim_{t\to 0} \frac{ \alpha(t) }{ t^n }=0\\
-            f(a+h)=f(a)+hf'(a)+\frac{ h^2 }{2}f''(a)+\cdots+ \frac{ h^n }{ n! }f^{(n)}(a)+\alpha(h).
-        \end{numcases}
-    \end{subequations}
-\end{normaltext}
-
-Le théorème suivant donne une expression pas tout à fait explicite, mais pas mal quand même pour le reste de Taylor.
-\begin{theorem}     \label{THOooSIGRooJTLvlV}
-Soient un intervalle ouvert \( I\subset \eR\) ainsi que \( a\in I\). Soit encore une fonction de classe \( C^{k+1}\) sur $I$. Pour tout \( x\in I\), il existe un \( c\in \mathopen] a , x \mathclose[\) tel que l'égalité
-    \begin{equation}        \label{EQooQFMFooBVpGzy}
-        f(x)=\sum_{k=0}^n\frac{ f^{(k)}(a) }{k!}(x-a)^k+\frac{ f^{(n+1)}(c) }{ (n+1)! }(x-a)^{n+1}
-    \end{equation}
-    soit vérifiée.
-\end{theorem}
-
-\begin{proof}
-    Pour les besoins de la preuve, nous allons démontrer la formule \eqref{EQooQFMFooBVpGzy} pour un \( b\in I\) au lieu de \( x\). C'est juste que nous allons écrire \( b\) au lieu de \( x\) parce que nous aurons besoin de la notation \( x\) dans le courant de la preuve.
-
-    Nous posons
-    \begin{equation}
-        R(x)=f(x)-P_n(x)=f(x)-\sum_{k=0}^n\frac{ f^{(k)}(a) }{ k! }(x-a)^k.
-    \end{equation}
-    Cela vérifie \( R(a)=f(a)-f(a)=0\) et même
-    \begin{equation}
-        R^{(j)}(a)=0
-    \end{equation}
-    pour tout \( j=1,\ldots, n\). Nous posons encore
-    \begin{equation}
-        F(x)=R(x)-\frac{ R(b) }{ (b-a)^{n+1} }(x-a)^{n+1}.
-    \end{equation}
-    Nous avons \( F^{(j)}(a)=0\) pour tout \( j=0,\ldots, n\) ainsi que
-    \begin{equation}
-        F(b)=R(b)-\frac{ R(b) }{ (b-a)^{n+1} }(b-a)^{n+1}=0.
-    \end{equation}
-    et aussi
-    \begin{equation}
-        F(a)=R(a)-0=0.
-    \end{equation}
-Bref, la fonction \( F\) vérifie les conditions de la généralisation \ref{PROPooCPCAooJjOZNy} du lemme de Rolle. Il existe donc \( c\in\mathopen] a , b \mathclose[\) tel que \( F^{(n+1)}(c)=0\). Mais vu que \( P_n^{(n+1)}(x)=0\), nous avons \( R^{(n+1)}(x)=f^{(n+1)}(x)\), de telle sorte que
-    \begin{equation}
-        f^{(n+1)}(c)=\frac{ R(b)(n+1)! }{ (b-a)^{n+1} }.
-    \end{equation}
-    En injectant cela dans la définition de \( F\)
-    \begin{equation}
-        F(x)=R(x)-\frac{ f^{(n+1)}(c) }{ (n+1)! }(x-a)^{n+1}.
-    \end{equation}
-    En évaluant en \( x=b\), et en nous souvenant que \( F(b)=0\), nous trouvons
-    \begin{equation}
-        0=R(b)-\frac{ f^{(n+1)}(c) }{ (n+1)! }(b-a)^{n+1}
-    \end{equation}
-    qui est ce que nous voulions prouver.
-\end{proof}
-
-Voici un énoncé pour les fonctions à plusieurs variables.
-\begin{theorem}[\cite{ooLZSZooIOILHY}]      \label{THOooTDFRooEkChgi}
-    Si \( f\colon E\to \eR\) est une application \( n\) fois différentiable en \( a\in E\) alors il existe une fonction \( \epsilon\colon \eR\to \eR\) telle que
-    \begin{subequations}
-        \begin{numcases}{}
-            f(a+h)=f(a)+df_a(h)+\frac{ 1 }{2}(d^2f)_a(h,h)+\ldots +\\
-            \qquad+\ldots+\frac{1}{ n! }(d^nf)_a(h,\ldots, h)+\| h \|^n\epsilon(\| h \|)\\
-            \lim_{t\to 0} \epsilon(t)=0.
-        \end{numcases}
-    \end{subequations}
-\end{theorem}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Fonctions «petit o» }
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous voulons formaliser l'idée d'une fonction qui tend vers zéro « plus vite » qu'une autre. Nous disons que $f\in o\big(\varphi(x)\big)$ si
-\begin{equation}
-    \lim_{x\to 0} \frac{ f(x) }{ \varphi(x) }=0.
-\end{equation}
-En particulier, nous disons que $f\in o(x)$ lorsque $\lim_{x\to 0} f(x)/x=0$.
-
-
-En termes de notations, nous définissons l'ensemble $o(x)$\nomenclature{$o(x)$}{fonction tendant rapidement vers zéro} l'ensemble des fonctions $f$ telles que
-\begin{equation}
-	\lim_{x\to 0} \frac{ f(x) }{ x }=0.
-\end{equation}
-Plus généralement si $g$ est une fonction telle que $\lim_{x\to 0} g(x)=0$, nous disons $f\in o(g)$ si
-\begin{equation}
-	\lim_{x\to 0} \frac{ f(x) }{ g(x) }=0.
-\end{equation}
-De façon intuitive, l'ensemble $o(g)$ est l'ensemble des fonctions qui tendent vers zéro «plus vite» que $g$.
-
-Nous pouvons donner un énoncé alternatif au théorème~\ref{ThoTaylor} en définissant $h(x)=\epsilon(x+a)x^n$. Cette fonction est définie exprès pour avoir
-\begin{equation}
-	h(x-a)=\epsilon(x)(x-a)^n,
-\end{equation}
-et donc
-\begin{equation}
-	\lim_{x\to 0} \frac{ h(x) }{ x^n }=\lim_{x\to 0} \epsilon(x-a)=\lim_{x\to a}\epsilon(x)=0.
-\end{equation}
-Donc $h\in o(x^n)$.
-
-Le théorème dit donc qu'il existe une fonction $\alpha\in o(x^n)$ telle que
-\begin{equation}
-	f(x)=T^a_{f,n}(x)+\alpha(x-a).
-\end{equation}
-pour tout $x\in I$.
-
-\begin{remark}
-    À titre personnel, l'auteur de ces lignes déconseille d'utiliser cette notation qui est un peu casse-figure pour qui ne la maîtrise pas bien.
-\end{remark}
-
-\begin{example}
-    Le développement en série du cosinus sera traité dans la proposition \ref{PROPooNPYXooTuwAHP}.
-\end{example}
-
-\begin{proposition}[Ordre deux sur \( \eR^n\)\cite{MonCerveau}]         \label{PROPooTOXIooMMlghF}
-    Soit un ouvert \( \Omega\) de \( \eR^n\) et \( a\in \Omega\) ainsi qu'une fonction \( f\colon \Omega\to \eR\) de classe \( C^2\). Alors il existe une fonction \( \alpha\colon \eR^n\to \eR\) telle que
-    \begin{subequations}
-        \begin{numcases}{}
-            f(a+h)=f(a)+df_a(h)+\frac{ 1 }{2}(d^2f)_a(h,h)+\| h \|^2\alpha(h)\\
-            \lim_{h\to 0} \alpha(h)=0.
-        \end{numcases}
-    \end{subequations}
-    Ici, la notation \( (d^2f)_a(h,h)\) réfère à ce qui est expliqué en~\ref{NORMooZAOEooGqjpLH}.
-\end{proposition}
-
-\begin{proof}
-    Dans la suite nous considérons \( t\) et \( h\) tels que toutes les expressions suivantes aient un sens, c'est à dire que tous les trucs comme \( a+th\) restent dans \( \Omega\). Pour \( h\in \eR^n\) nous nommons \( e_h\) le vecteur unitaire dans la direction de \( h\), c'est à dire \( e_h=h/\| h \|\) et nous posons
-    \begin{equation}
-        k_h(t)=f(a+te_h).
-    \end{equation}
-    et nous lui appliquons Taylor~\ref{ThoTaylor} à l'ordre deux : il existe une fonction \( \beta_h\) telle que
-    \begin{equation}        \label{EQooETDFooAmiRcV}
-        k_h(x)=k_h(0)+xk_h'(0)+\frac{ x^2 }{2}k''_h(0)+x^2\beta_h(x).
-    \end{equation}
-    avec \( \lim_{x\to 0} \beta_h(x)=0\).
-
-    En ce qui concerne les dérivées de \( k_h\) nous avons
-    \begin{equation}
-        k'_h(0)=df_a(e_h)
-    \end{equation}
-    et
-    \begin{equation}
-        k_h''(0)=(d^2f)_{a}(e_h,e_h).
-    \end{equation}
-    Il est maintenant temps d'écrire \( f(a+h)=k(\| h \|)\) et de substituer les dérivées de \( k\) par les différentielles de \( f\) dans \eqref{EQooETDFooAmiRcV} :
-    \begin{equation}        \label{EQooUSUGooYPscxV}
-            f(a+h)=k(\| h \|)=f(a)+df_a(h)+\frac{ 1 }{2}(d^2f)_a(h,h)+\| h^2 \|\beta_{h}(\| h \|).
-    \end{equation}
-    Il reste à voir que la fonction \( \alpha\colon h\mapsto \beta_h(\| h \|)\) tend vers zéro pour \( h\to 0\). En prenant la limite \( h\to 0\) dans \eqref{EQooUSUGooYPscxV}, il est manifeste que la limite du membre de gauche existe et vaut \( f(a)\). Donc la limite du membre de droite doit exister et valoir également \( f(a)\). Nous en déduisons que la limite de
-    \begin{equation}
-        df_a(h)+\frac{ 1 }{2}(d^2f)_a(h,h)+\| h \|^2\beta_h(\| h \|)
-    \end{equation}
-    existe et vaut zéro. La limite des deux premiers termes existe et vaut zéro, donc la limite du troisième existe et vaut zéro :
-    \begin{equation}
-        \lim_{h\to 0} \| h \|^2\beta_h(\| h \|)=0.
-    \end{equation}
-\end{proof}
-
-\begin{proposition}     \label{PROPooWWMYooPOmSds}
-Soit un ouvert \( \Omega\) de \( \eR^n\) et une fonction \( f\colon \Omega\to \eR\) de classe \( C^1\) et deux fois différentiable sur \( \mathopen] x , x+h \mathclose[\). Alors il existe \( \theta\in \mathopen] 0 , 1 \mathclose[\) tel que
-    \begin{equation}
-        f(x+h)=f(x)+df_x(h)+\frac{ 1 }{2}(d^2f)_{x+\theta h}(h,h).
-    \end{equation}
-\end{proposition}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Autres formulations}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{example}		\label{ExempleUtlDev}
-	Une des façons les plus courantes d'utiliser les formules \eqref{SubEqsDevTauil} est de développer $f(a+t)$ pour des petits $t$ en posant $x=a+t$ dans la formule :
-	\begin{equation}	\label{EqDevfautouraeps}
-		f(a+t)=f(a)+f'(a)t+f''(a)\frac{ t^2 }{ 2 }+\epsilon(a+t)t^2
-	\end{equation}
-	avec $\lim_{t\to 0} \epsilon(a+t)=0$. Ici, la fonction $T$ dont on parle dans le théorème est $T_{f,2}^a(a+t)=f(a)+f'(a)t+f''(a)\frac{ t^2 }{2}$.
-
-	Lorsque $x$ et $y$ sont deux nombres «proches\footnote{par exemple dans une limite $(x,y)\to(h,h)$.}», nous pouvons développer $f(y)$ autour de $f(x)$ :
-	\begin{equation}		\label{Eqfydevfx}
-		f(y)=f(x)+f'(x)(y-x)+f''(x)\frac{ (y-x)^2 }{ 2 }+\epsilon(y-x)(y-x)^2,
-	\end{equation}
-	et donc écrire
-	\begin{equation}
-		f(x)-f(y)=-f'(x)(y-x)-f''(x)\frac{ (y-x)^2 }{ 2 }-\epsilon(y-x)(y-x)^2.
-	\end{equation}
-	De cette manière nous obtenons une formule qui ne contient plus que $y$ dans la différence $y-x$.
-\end{example}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Formule et reste}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition}     \label{PropDevTaylorPol}
-    Soient $f\colon I\subset\eR\to \eR$ et $a\in\Int(I)$. Soit un entier $k\geq 1$. Si $f$ est $k$ fois dérivable en $a$, alors il existe un et un seul polynôme $P$ de degré $\leq k$ tel que
-    \begin{equation}
-        f(x)-P(x-a)\in o\big( | x-a |^k \big)
-    \end{equation}
-    lorsque $x\to a$, $x\neq a$. Ce polynôme  est donné par
-    \begin{equation}
-        P(h)=f(a)+f'(a)h+\frac{ f''(a) }{ 2! }h^2+\cdots+\frac{ f^{(k)}(a) }{ k! }h^k.
-    \end{equation}
-    Notons encore deux façons alternatives d'écrire le résultat. Si \( f\in C^k\) il existe une fonction \( \alpha\) telle que \( \lim_{t\to 0} \alpha(t)=0\) et
-    \begin{equation}
-        f(x)=\sum_{n=0}^k\frac{ f^{(n)}(a) }{ n! }(x-a)^n+(x-a)^n\alpha(x-a).
-    \end{equation}
-    Si \( f\in C^{k+1}\) alors
-    \begin{equation}        \label{EquQtpoN}
-        f(x)=\sum_{n=0}^k\frac{ f^{(n)}(a) }{ n! }(x-a)^n+(x-a)^{n+1}\xi(x-a)
-    \end{equation}
-    où \( \xi\) est une fonction telle que \( \xi(t)\) tend vers une constante lorsque \( t\to 0\).
-\end{proposition}
-
-La proposition suivant donne une intéressante façon de trouver le reste d'un développement de Taylor.
-\begin{proposition}     \label{PropResteTaylorc}
-Soient $I$, un intervalle dans $\eR$ et $f\colon I\to \eR$ une fonction de classe $C^k$ sur $I$ telle que $f^{(k+1)}$ existe sur $I$. Soient $a\in\Int(I)$ et $x\in I$. Alors il existe $c\in\mathopen] x , a \mathclose[$ tel que
-\begin{equation}
-    f(x)=\sum_{k=0}^n\frac{ f^{(k)}(a) }{ k! }(x-a)^k+\frac{ f^{(n+1)}(c) }{ (n+1)! }(x-a)^{n+1}.
-\end{equation}
-\end{proposition}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Reste intégral}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Comme son nom l'indique, le «reste intégral» demande de savoir les intégrales. La formule du reste intégral sera donc pour après la définition des intégrales, proposition~\ref{PropAXaSClx}.
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Développement limité autour de zéro}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Dans cette sections nous supposons toujours que les fonctions sont définies sur un intervalle ouvert de $\eR$, $I$, contenant \( 0\).
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Généralités}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}
-    Soit \( f\colon I\to 0\) une fonction définie sur un ouvert \( I\) autour de zéro. Nous disons que \( f\) admet un \defe{développement limité}{développement!limité!en zéro} autour de \( 0\) à l'ordre \( n\) s'il existe une fonction \( \alpha\colon I\to \eR\) telle que
-    \begin{subequations}
-        \begin{numcases}{}
-            f(x)=P_n(x)+x^n\alpha(x)\\
-            \lim_{x\to 0} \alpha(x)=0
-        \end{numcases}
-    \end{subequations}
-    où \( P(x)=a_0+a_1x+\cdots +a_nx^n\) est une polynôme de degré \( n\). Le polynôme \( P_n\) est appelé la \defe{partie régulière}{partie!régulière} du développement.
-\end{definition}
-La fonction \( \alpha\) est appelé le \defe{reste}{reste!d'un développement limité} du développement et sera parfois noté \( \alpha_f\). Lorsque \( P\) est la partie régulière d'un développement limité de \( f\) nous notons parfois \( f\sim P\).
-
-\begin{proposition}[Troncature]
-    Si \( f\) admet un développement limité d'ordre \( n\) alors il admet également un développement limité d'ordre \( n'\) pour tout \( n'<n\). Ce dernier s'obtient en tronquant le polynôme d'ordre \( n\) à l'ordre \( n'\).
-\end{proposition}
-
-\begin{proposition}[Unicité]
-    Si \( f\) admet une développement limité alors ce dernier est unique : il existe un unique polynôme \( P_n\) d'ordre \( n\) et une unique fonction \( \alpha\) vérifiant simultanément les deux conditions
-    \begin{subequations}
-        \begin{numcases}{}
-            f(x)=P_n(x)+x^n\alpha(x),\\
-            \lim_{x\to 0} \alpha(x)=0.
-        \end{numcases}
-    \end{subequations}
-\end{proposition}
-
-\begin{example} \label{ExTHGooCBcnAy}
-    En ce qui concerne les séries géométriques de raison \( x\) nous savons les formules
-    \begin{equation}
-        1+x+x^2+\cdots +x^n=\frac{ 1-x^{n+1} }{ 1-x }
-    \end{equation}
-    et
-    \begin{equation}
-        1+x+x^2+x^3+\cdots=\frac{ 1 }{ 1-x }
-    \end{equation}
-    pour tout \( x\in\mathopen] -\infty , 1 \mathclose[\). Comparant les deux, il est naturel d'essayer de prendre \( 1+x+x^2+\cdots +x^n\) comme développement limité de la fonction \( f(x)=\frac{1}{ 1-x }\). Pour voir si cela fonctionne, il faut vérifier si «le reste» est bien de la forme \( x^n\alpha(x)\) avec \( \lim_{x\to 0} \alpha(x)=0\).
-
-    Le reste en question est donné par
-    \begin{equation}
-        \frac{1}{ 1-x }-1-x-x^2-\ldots-x^n=\frac{1}{ 1-x }-\frac{ 1-x^{n+1} }{ 1-x }=\frac{ x^{n+1} }{ 1-x }=x^n\frac{ x }{ 1-x }.
-    \end{equation}
-    En posant \( \alpha(x)=\frac{ x }{ 1-x }\) nous avons donc bien
-    \begin{equation}
-        f(x)=\frac{1}{ 1-x }=1+x+x^2+\cdots +x^n+x^n\frac{ x }{ 1-x }
-    \end{equation}
-    et \( \lim_{x\to 0} \frac{ x }{ 1-x }=0\). Cela est le développement limité de \( f\) à l'ordre \( n\) autour de \( 0\).
-\end{example}
-
-La formule des accroissements finis est un cas particulier de développement fini. Supposons que \( f\) soit dérivable en \( 0\). En effet nous pouvons facilement trouver la fonction \( \alpha\) qui convient. Sachant que \( f(0)+xf'(0)\) donne l'approximation affine de \( f\) autour de \( 0\), nous cherchons \( \alpha\) en écrivant
-\begin{equation}
-    f(x)=f(0)+xf'(0)+x\alpha(x).
-\end{equation}
-Cela nous pousse à définir
-\begin{equation}    \label{EqDCFooKozKrt}
-    \alpha(x)=\frac{ f(x)-f(0) }{ x }-f'(0).
-\end{equation}
-Notons que cette fonction n'est pas définie en \( x=0\), mais cela n'a pas d'importance : seule la limite \( \lim_{x\to 0} \alpha(x)\) nous intéresse. Par définition de la dérivée,
-\begin{equation}
-    \lim_{x\to 0} \alpha(x)=\lim_{x\to 0} \frac{ f(x)-f(0) }{ x }-f'(0)=0.
-\end{equation}
-
-En conclusion si \( f\) est dérivable, son développement limité à l'ordre \(  1\) est donné par
-\begin{equation}
-    f(x)=f(0)+xf'(0)+x\alpha(x)
-\end{equation}
-où \( \alpha(x)\) est donnée par la formule \eqref{EqDCFooKozKrt}.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Formule de Taylor-Young}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Plus généralement nous avons la proposition suivante qui donne le développement limité de toute fonction dérivable \( n\) fois.
-
-\begin{proposition}[Formule de Taylor-Young]    \label{PropVDGooCexFwy}
-    Soit \( f\) une fonction \( n\) fois dérivable sur un intervalle \( I\) contenant \( 0\). Alors il existe une fonction \( \alpha\colon I\to \eR\) telle que
-    \begin{equation}        \label{EQooBKZDooTqYyIB}
-        f(x)=f(0)+f'(0)x+\frac{ f''(0) }{ 2 }x^2+\frac{ f^{(3)}(0) }{ 3! }x^3+\cdots +\frac{ f^{(n)}(0) }{ n! }x^n+x^n\alpha(x)
-    \end{equation}
-    et
-    \begin{equation}
-        \lim_{x\to 0} \alpha(x)=0.
-    \end{equation}
-\end{proposition}
-
-Cette proposition nous permet de calculer facilement des développements limités tant que nous sommes capables de calculer les dérivées successives de la fonction à développer. Dans l'exemple \ref{ExTHGooCBcnAy} nous avons dû utiliser des astuces et des formules pour déterminer le développement limité de \( \frac{1}{ 1-x }\). Au contraire la formule \eqref{EQooBKZDooTqYyIB} nous permet de trouver le polynôme en appliquant mécaniquement une formule simple.
-
-\begin{example}
-    Utilisation de la formule \eqref{EQooBKZDooTqYyIB} pour déterminer le développement limité de la fonction
-    \begin{equation}
-        f(x)=\frac{1}{ 1-x }.
-    \end{equation}
-    Il faut calculer les dérivées successives de \( f\) :
+    où \( \varphi_1\) est encore une application linéaire. Une récurrence semble possible. Nous posons \( V_0=V\) et \( W_0=W\) puis
     \begin{subequations}
         \begin{align}
-            f(x)&=\frac{1}{ 1-x }\\
-            f'(x)&=\frac{ 1 }{ (1-x)^2 }\\
-            f''(x)&=\frac{ 2 }{ (1-x)^3 }
+            V_{k+1}&=\aL(E,V_k)\\
+            W_{k+1}&=\aL(E,W_k)
         \end{align}
     \end{subequations}
-    Avec ces résultats, nous devinons que
-    \begin{equation}
-        f^{(n)}(x)=\frac{ n! }{ (1-x)^{n+1} }.
-    \end{equation}
-    Pour en être sûr nous le prouvons par récurrence. La dérivée de \(\frac{ n! }{ (1-x)^{n+1} } \) est donnée par
-    \begin{equation}
-        \frac{ n!(n+1)(1-x)^n }{ (1-x)^{2n+2} }=\frac{(n+1)! }{ (1-x)^{n+2} }.
-    \end{equation}
-    Évaluées en \( x=0\), les dérivées successives de \( f\) sont \( f(0)=0\), \( f'(0)=1\), \( f''(0)=2\),\ldots,\( f^{(n)}(0)=n!\). Utilisant la formule \eqref{EQooBKZDooTqYyIB} nous avons
-    \begin{equation}
-        f(x)=1+x+x^2+\cdots +x^n+x^n\alpha(x),
-    \end{equation}
-    conformément à ce que nous avions déjà trouvé.
-\end{example}
-
-\begin{example}     \label{EXooFLBJooYfuRsG}
-    Soient \( r\in \eQ\) et la fonction donnée par
-    \begin{equation}
-        f(x)=(1+x)^r.
-    \end{equation}
-    Nous notons \( I\) le domaine de cette fonction : c'est \( \eR\) si \( r>0\) ou \( \mathopen[ -1 , \infty \mathclose]\) si \( r<0\). Si par contre \( r=0\), la fonction est constante et le domaine est \( I=\eR\).
-
-    En ce qui concerne les dérivées\footnote{Nous utilisons la proposition \ref{PROPooSGLGooIgzque}.} : \( f'(x)=r(1+x)^{r-1}\) et plus généralement
-    \begin{equation}
-        f^{(k)}(x)=r(r-1)\ldots (r-k+1)(1+x)^{r-k}
-    \end{equation}
-    si \( k>0\). Pour \( k=0\) nous avons \( f^{(k)}(0)=1\). Le développement de Taylor-Young est alors
-    \begin{equation}
-      (1+x)^r=1+\sum_{k=1}^n\frac{r(r-1)\ldots (r-k+1)}{ k! }x^k+x^n\alpha(x).
-    \end{equation}
-    
-    Notons que que si \( r\) est un entier, pour \( k=r\), le produit au numérateur s'annule et le développement s'arrête. 
-    
-    Dans le développement de \( (1+x)^{r}\), nous reconnaissons la formule de \( \binom{ k }{r}\), sauf que nous ne pouvons pas l'écrire avec cette notation lorsque \( r\) n'est pas entier.
-\end{example}
-Cet exemple fonctionnera encore avec \( r\in \eR\) au lieu de \( r\in \eQ\), mais il faudra la proposition \ref{PROPooKUULooKSEULJ} pour la dérivée
-
-\begin{remark}
-  Pour alléger la notation et ne pas écrire \(\ldots +x^n\alpha(x)\) nous pouvons aussi écrire
-    \begin{equation}
-         f(x)\sim 1+x+x^2+\cdots +x^n,
-    \end{equation}
-    mais il est interdit d'écrire
-    \begin{equation}
-         f(x)= 1+x+x^2+\cdots +x^n
-    \end{equation}
-    en mettant un signe d'égalité entre une fonction et son développement limité\footnote{Il faut cependant être très prudents avec la notation abrégée. Elle pourrait nous faire oublier des informations importantes, voir les développements des fonctions trigonométriques pour un exemple.}.
-\end{remark}
-
-Notons cependant que la proposition~\ref{PropVDGooCexFwy} ne donne pas de moyen simple de trouver la fonction \( \alpha\). Si la fonction $f$ est très régulière dans l'intervalle $I$ on a le résultat suivant.
-
-\begin{proposition}[Reste dans la forme de Lagrange]
-    Si la fonction $f$ est dérivable $n+1$ fois dans $I$ alors il existe $\bar x$ dans l'intervalle \( \mathopen[ 0 , x \mathclose]\) tel que
-  \begin{equation}
-    f(x) = P_n(x) + \frac{1}{(n+1)!} f^{n+1}(\bar x) x^{n+1}.
-  \end{equation}
-\end{proposition}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Règles de calcul}
-%---------------------------------------------------------------------------------------------------------------------------
-
-    Les règles suivantes permettent de calculer les développements limités des fonctions qu'on peut écrire comme combinaison de fonctions dont nous savons déjà le développement.
-
-    Il est toujours possible de calculer le développement limité d'une fonction par la formule de Taylor-Young (proposition \ref{PropVDGooCexFwy}). Les règles suivantes peuvent nous economiser de l'effort et du temps.
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Linéarité des développements limités}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-L'opération qui consiste à prendre le développement limité d'une fonction est une opération linéaire : connaissant les développements limités de \( f\) et de \( g\), il suffit de les sommer pour obtenir celui de \( f+g\). De m\^eme, si $\lambda$ est une constante, le développement limité de $\lambda f$ est le développement limité de $f$ fois $\lambda$.
-\begin{proposition}
-Soient $\lambda$ et $\mu$ dans $\eR$.  Si \( f\) et \( g\) sont deux fonctions acceptant des développements limités d'ordre \( n\)
-    \begin{subequations}    \label{EqJPPooCHihNn}
-        \begin{align}
-            f(x)&=P(x)+x^n\alpha_f(x)\\
-            g(x)&=Q(x)+x^n\beta(x)
-        \end{align}
-    \end{subequations}
-    avec \( \lim_{x\to 0} \alpha(x)=\lim_{x\to 0} \beta(x)=0\), alors la fonction \( \lambda f+\mu g\) admet le développement limité
-    \begin{equation}    \label{EqCJFooVpyCtz}
-        (f+g)(x)=(\lambda P+\mu Q)(x)+(\lambda \alpha+\mu\beta)(x).
-    \end{equation}
-\end{proposition}
-\begin{remark}
-  La forme explicite du reste ne nous interesse pas. Dans la pratique on écrira toujours $(f+g)(x)=(P+Q)(x)+\alpha(x)$, où on appelle $\alpha$ une fonction apportune telle que $\lim_{x\to 0} \alpha(x)=0$.
-\end{remark}
-\begin{proof}
-    Vu les définitions \eqref{EqJPPooCHihNn} des polynômes \( P\), \( Q\) et des restes \( \alpha\) et \( \beta\), l'égalité \eqref{EqCJFooVpyCtz} est une conséquence de la linéarité de la dérivation et de la proposition~\ref{PropVDGooCexFwy}
-
-    De plus \( P+Q\) est un polynôme de degré \( n\) dès que \( P\) et \( Q\) sont des polynômes de degré \( n\), et
-    \begin{equation}
-        \lim_{x\to 0} (\lambda \alpha+\mu\beta)(x)=\lim_{x\to 0} \lambda\alpha(x)+\lim_{x\to 0} \mu\beta(x)=0.
-    \end{equation}
-    Par conséquent \(\lambda \alpha+\mu\beta\) est la fonction de reste de \( \lambda f+\mu g\).
-\end{proof}
-
-\begin{example} \label{ExKPBooJmdFvY}
-    Calculer le développement de la fonction
-    \begin{equation}
-        f(x)=3\sqrt[3]{1+x}+ e^{-2x}.
-    \end{equation}
-    Le développement de \( \sqrt[3]{1+x}\) est donné par la formule de l'exemple \ref{EXooFLBJooYfuRsG} avec \( \alpha=\frac{1}{ 3 }\). Nous avons donc dans un premier temps
-    \begin{subequations}
-        \begin{align}
-            \sqrt[3]{1+x}&=1+\frac{ 1 }{ 3 }x+\frac{ \frac{1}{ 3 }\left( \frac{1}{ 3 }-1 \right) }{ 2 }x^2+\frac{ \frac{1}{ 3 }\left( \frac{1}{ 3 }-1 \right)\left( \frac{1}{ 3 }-2 \right) }{ 6 }x^3+x^3\alpha(x)\\
-            &=1+\frac{1}{ 3 }x-\frac{1}{ 9 }x^2+\frac{ 5 }{ 81 }x^3+x^3\alpha(x).
-        \end{align}
-    \end{subequations}
-    Nous avons alors
-    \begin{subequations}
-        \begin{align}
-            3\sqrt[3]{1+x}+ e^{-2x}&=3\Big[  1+\frac{1}{ 3 }x-\frac{1}{ 9 }x^2+\frac{ 5 }{ 81 }x^3+x^3\alpha(x)\Big]+1-2x+2x^2-\frac{ 4 }{ 3 }x^3+x^3\beta(x)\\
-            &=4-x+\frac{ 5 }{ 3 }x^2-\frac{ 31 }{ 27 }x^3+x^3\big( \alpha(x)+\beta(x) \big).
-        \end{align}
-    \end{subequations}
-
-\end{example}
-
-La condition \( \lim_{x\to 0} \alpha(x)=0\) signifie que l'approximation qui consiste à remplacer \( f(x) \) par le polynôme n'est pas une trop mauvaise approximation lorsque \( x\) est petit. Cela ne signifie rien de plus. En particulier si \( x\) est grand, l'approximation polynomiale peut-être (et est souvent) très mauvaise.
-
-À ce propos, notez qu'un polynôme tend toujours vers \( \pm\infty\) lorsque \( x\) est grand. Une approximation polynomiale d'une fonction bornée est donc toujours (très) mauvaise pour les grandes valeurs de \( x\).
-
-À titre d'exemple nous avons tracé sur la figure~\ref{LabelFigWUYooCISzeB} la fonction
-\begin{equation}
-    f(x)=3\sqrt[3]{x+1}+ e^{-2x}
-\end{equation}
-et ses développements limités d'ordre \( 1\) à \( 3\). Il est particulièrement visible que l'approximation est assez bonne pour la partie gauche du graphe sur laquelle la fonction est bien croissante, alors qu'elle est franchement mauvaise sur la droite où le graphe ressemble plutôt à une constante\footnote{Pouvez-vous cependant dire que vaut \( \lim_{x\to \infty} f(x)\) ?}.
-
-\newcommand{\CaptionFigWUYooCISzeB}{Les développements limités d'ordre de plus en plus grand de la fonction de l'exemple~\ref{ExKPBooJmdFvY}. La fonction est en bleu et les «approximations» sont en rouge.}
-\input{auto/pictures_tex/Fig_WUYooCISzeB.pstricks}
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Développement limité d'un quotient}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-\begin{proposition}     \label{PROPooMANAooXhuanS}
-    Si \( P_f\) est le polynôme du développement limité de \( f\) à l'ordre \( n\) et \( P_g\) celui de \( g\), alors nous obtenons le développement limité de \( f/g\) à l'ordre \( n\) en effectuant la division selon les puissances croissantes de \( P_f\) par \( P_g\).
-\end{proposition}
-Attention : il s'agit bien de faire une division selon les puissances croissantes, et non une divisions euclidienne. La division euclidienne de \( A\) par \( B\) consiste à écrire \( A=BQ+R\) avec le reste \( R\) de degré le plus \emph{petit} possible. Ici nous voulons avoir un reste de degré le plus \emph{grand} possible.
-
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Développement limité d'une fonction composée}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-\begin{proposition}
-    Soient \( f\) et \( g\) des fonctions admettant des développements limités d'ordre $n$ au voisinage de $0$. Nous supposons que \( \lim_{x\to 0} g(x)=0\). Alors la composée \( f\big( g(x) \big)\) admet un développement limité d'ordre $n$ au voisinage de $0$ qui s'obtient en substituant le développement de \( g\) à chaque <<\(x \)>> du développement de \( f\), et en supprimant tous les termes de degré plus élevé que $n$.
-\end{proposition}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Développement ailleurs qu'à l'origine}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Il est intéressant de développer une fonction au voisinage de zéro lorsque nous nous intéressons à son comportement pour les \( x\) pas très grands. Il est toutefois souvent souhaitable de savoir le comportement d'une fonction au voisinage d'autres valeurs que zéro.
-
-Pour développer la fonction \( f\) autour de \( x_0\), nous considérons la fonction \( h\mapsto f(x_0+h)\) que nous développons autour de zéro (pour \( h\)). L'objectif est de trouver une polynôme \( P\) et une fonction \( \alpha\) tels que
-\begin{subequations}
-    \begin{numcases}{}
-        f(x)=P(x)+(x-x_0)^n\alpha(x)\\
-        \lim_{x\to x_0} \alpha(x)=0.
-    \end{numcases}
-\end{subequations}
-En pratique, le développement limité à l'ordre $n$ d'une fonction autour d'un point $x_0$ quelconque à l'intérieur de son domaine prend la forme suivante, qui généralise la formule de Taylor-Young vue dans la proposition~\ref{PropVDGooCexFwy}
-\begin{proposition}[Formule de Taylor-Young, cas général]
-    Soit \( f\) une fonction \( n\) fois dérivable sur un intervalle \( I\) contenant \(x_0\). Alors il existe une fonction \( \alpha\colon I\to \eR\) telle que
-    \begin{equation}    \label{EqTJRooUbsyzJ}
-      \begin{aligned}
-        f(x)=f(x_0)+&f'(x_0)(x-x_0)+\frac{ f''(x_0) }{ 2 }(x-x_0)^2+\\
-        &+\frac{ f^{(3)}(x_0) }{ 3! }(x-x_0)^3+\cdots +\frac{ f^{(n)}(x_0) }{ n! }(x-x_0)^n+(x-x_0)^n\alpha(x-x_0)
-      \end{aligned}
-    \end{equation}
     et
     \begin{equation}
-        \lim_{t\to 0} \alpha(t)=0.
+        \begin{aligned}
+            \varphi_k\colon \aL(E,V_{k-1})&\to \aL(E,W_{k-1}) \\
+            g&\mapsto \varphi_{k-1}\circ g.
+        \end{aligned}
     \end{equation}
-\end{proposition}
+    Avec tout cela, nous prétendons que \( d^k(\varphi\circ f)=\varphi_k\circ d^kf\) avec \( \varphi_k\) linéaire.
 
+    \begin{subproof}
+        \item[\( \varphi_k\) est linéaire]
+            Soient \( \alpha_1,\alpha_2\in \aL(E,V_{k-1})\), ainsi que \( \lambda,\mu\in \eK\). Nous avons, en utilisant la linéarité de \( \varphi_{k-1}\) :
+            \begin{subequations}
+                \begin{align}
+                    \varphi_k(\lambda\alpha_1+\mu\alpha_2)(a)&=\varphi_{k-1}\big( (\lambda\alpha_1+\mu\alpha_2)(a) \big)\\
+                    &=\varphi_{k-1}\big(\lambda \alpha_1(a)\big)+\mu\varphi_{k-1}\big( \alpha_2(a) \big)\\
+                    &=\lambda\varphi_k(\alpha_1)a+\mu\varphi_k(\alpha_2)(a).
+                \end{align}
+            \end{subequations}
+            Donc \( \varphi_k\) est linéaire pour tout \( k\).
+        \item[La relation]
+            La relation 
+            \begin{equation}
+                d^k(\varphi\circ f)=\varphi_k\circ d^kf
+            \end{equation}
+            se démontre par récurrence, chaque pas étant justifié de la même manière que \eqref{EQooUJPWooTzgSJx}.
+    \end{subproof}
+\end{proof}
 
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Application au calcul de limites}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Lors d'un calcul de limite, développer une partie d'une expression peut être utile.
-
-\begin{example}
-    À calculer :
-    \begin{equation}
-        \lim_{x\to 0} \frac{ \ln(1+x) }{ x }.
-    \end{equation}
-    Cela est une indétermination de type \( \frac{ 0 }{ 0 }\). Le développement limité du numérateur nous donne une fonction \( \alpha(x)\) telle que \( \lim_{x\to 0} \alpha(x)=0\) et
-    \begin{equation}
-        \frac{ \ln(1+x) }{ x }=\frac{ x-\frac{ x^2 }{2}+x^2\alpha(x) }{ x }=1-\frac{ x }{ 2 }+x\alpha(x).
-    \end{equation}
-    Sur le membre de droite la limite est facile à calculer :
-    \begin{equation}
-        \lim_{x\to 0} \frac{ \ln(1+x) }{ x }=\lim_{x\to 0} \Big( 1-\frac{ x }{ 2 }+x\alpha(x) \Big) =1.
-    \end{equation}
-\end{example}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Développement au voisinage de l'infini}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Il est souvent utile de connaître le comportement d'une fonction pour les grandes valeurs de \( x\) et de déterminer ses asymptotes éventuelles. La technique que nous allons utiliser consiste à poser \( x=\frac{1}{ h }\) et de développer la fonction ``auxiliaire'' $g(h) = f(1/h)$ autour de \( h=0\). La limite avec \( h\to 0^+\) donnera le comportement pour \( x\to \infty\) et la limite \( h\to 0^-\) donnera le comportement pour \( x\to -\infty\).
-
-Dans le cas d'une développement autour de \( \pm\infty\) nous ne parlons plus de développement \emph{limité} mais de \defe{développement asymptotique}{développement!asymptotique}.

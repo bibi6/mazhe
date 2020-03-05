@@ -1,5 +1,5 @@
 % This is part of (everything) I know in mathematics
-% Copyright (c) 2011-2013,2016-2018
+% Copyright (c) 2011-2013,2016-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -69,7 +69,7 @@ Le lemme suivant donne les autres générateurs.
     \end{equation}
     ce qui signifie que \( \xi\) est dans le groupe engendré par \( \xi^a\), et par conséquent tout \( \gU_n\) est engendré.
 
-    Pour l'implication inverse, nous utilisons Bézout dans le sens inverse. Soit \( \xi^a\) un générateur de \( \gU_n\). Alors il existe \( u\) tel que \( (\xi^a)^u=\xi\), donc \( \xi^{au-1}=1\), c'est à dire qu'il existe \( v\) tel que \( au-1=vn\). Cette dernière égalité implique que \( \pgcd(a,n)=1\).
+    Pour l'implication inverse, nous utilisons Bézout dans le sens inverse. Soit \( \xi^a\) un générateur de \( \gU_n\). Alors il existe \( u\) tel que \( (\xi^a)^u=\xi\), donc \( \xi^{au-1}=1\), c'est-à-dire qu'il existe \( v\) tel que \( au-1=vn\). Cette dernière égalité implique que \( \pgcd(a,n)=1\).
 \end{proof}
 
 \begin{example}
@@ -88,9 +88,9 @@ Une conséquence tout à fait extraordinaire de ce lemme est que \( 7\) est gén
         \begin{equation}
             ( e^{2i\pi k/\alpha})^{\beta}= e^{2i\pi k\beta/\alpha}=1,
         \end{equation}
-        c'est à dire une valeur de \( k\) telle que \( k\beta/\alpha\) soit un entier. Mais \( k\beta/\alpha=k\beta'/\alpha'\) et par conséquent prendre \( k=\alpha'\) fonctionne. Surtout que par hypothèse \( d>1\) et donc \( k=\alpha'<\alpha\).
+        c'est-à-dire une valeur de \( k\) telle que \( k\beta/\alpha\) soit un entier. Mais \( k\beta/\alpha=k\beta'/\alpha'\) et par conséquent prendre \( k=\alpha'\) fonctionne. Surtout que par hypothèse \( d>1\) et donc \( k=\alpha'<\alpha\).
     \item[Sens réciproque]
-        Supposons maintenant que \( \alpha\) et \( \beta \) soient premiers entre eux. Soit \( z\in U_{\alpha}\cap U_{\beta}\). Le fait que \( z\) soit une racine \( \alpha\)\ieme de l'unité implique qu'il existe un \( k<\alpha\) tel que \( z= e^{2i\pi k/\alpha}\). Mais si \( z\) est également une racine \( \beta\)\ieme de l'unité, alors \( z^{\beta}=1\), c'est à dire que \( k\beta/\alpha\) doit être un entier, soit \( l\) cet entier. Nous avons
+        Supposons maintenant que \( \alpha\) et \( \beta \) soient premiers entre eux. Soit \( z\in U_{\alpha}\cap U_{\beta}\). Le fait que \( z\) soit une racine \( \alpha\)\ieme de l'unité implique qu'il existe un \( k<\alpha\) tel que \( z= e^{2i\pi k/\alpha}\). Mais si \( z\) est également une racine \( \beta\)\ieme de l'unité, alors \( z^{\beta}=1\), c'est-à-dire que \( k\beta/\alpha\) doit être un entier, soit \( l\) cet entier. Nous avons
         \begin{equation}
             k\beta=l\alpha.
         \end{equation}
@@ -103,7 +103,7 @@ Une conséquence tout à fait extraordinaire de ce lemme est que \( 7\) est gén
     \begin{equation}
         \bigcup_{i=1}^pU_{\alpha_i}=\{ 1 \}
     \end{equation}
-    si et seulement si \( \pgcd(\alpha_1,\ldots, \alpha_p)=1\) (c'est à dire que les \( \alpha_i\) sont premiers dans leur ensemble).
+    si et seulement si \( \pgcd(\alpha_1,\ldots, \alpha_p)=1\) (c'est-à-dire que les \( \alpha_i\) sont premiers dans leur ensemble).
 \end{proposition}
 
 \begin{proof}
@@ -117,7 +117,7 @@ Une conséquence tout à fait extraordinaire de ce lemme est que \( 7\) est gén
         \end{equation}
         avec \( 0<k<\alpha_1\).
 
-        Pour tout \( i\neq 1\), le fait que \( z\in U_{\alpha_i}\cap U_{\alpha_1}\) se traduit par le fait que \( \big(  e^{2i\pi k/\alpha_1} \big)^{\alpha_i}=1\), c'est à dire que \( \alpha_ik/\alpha_1\) est entier, donc que \( \alpha_1\) divise \( k\alpha_i\). Par conséquent il existera un élément différent de \( 1\) dans l'intersection des \( U_{\alpha_i}\) si et seulement s'il existe un entier \( k\) strictement compris entre \( 0\) et \( \alpha_1\) pour lequel \( \alpha_1\) divise tous les \( k\alpha_i\).
+        Pour tout \( i\neq 1\), le fait que \( z\in U_{\alpha_i}\cap U_{\alpha_1}\) se traduit par le fait que \( \big(  e^{2i\pi k/\alpha_1} \big)^{\alpha_i}=1\), c'est-à-dire que \( \alpha_ik/\alpha_1\) est entier, donc que \( \alpha_1\) divise \( k\alpha_i\). Par conséquent il existera un élément différent de \( 1\) dans l'intersection des \( U_{\alpha_i}\) si et seulement s'il existe un entier \( k\) strictement compris entre \( 0\) et \( \alpha_1\) pour lequel \( \alpha_1\) divise tous les \( k\alpha_i\).
 
         Un entier \( 0<k<\alpha_1\) convient si et seulement si pour tout \( l\), la puissance de \( p_l\) dans la décomposition de \( k\) est au moins égale à
         \begin{equation}
@@ -182,7 +182,7 @@ Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\).
     \begin{equation}
         \Delta_d=\{ \frac{ k }{ d }\tq k=0,\ldots, d-1, \pgcd(k,d)=1 \},
     \end{equation}
-    c'est à dire l'ensemble des fractions irréductibles dont le dénominateur est \( d\). L'union des \( \Delta_d\) sera donc disjointe.
+    c'est-à-dire l'ensemble des fractions irréductibles dont le dénominateur est \( d\). L'union des \( \Delta_d\) sera donc disjointe.
 
     Toujours à l'application \( x\mapsto  e^{2i\pi x}\) près, le groupe \( \gU_n\) est donné par
     \begin{equation}
@@ -214,7 +214,7 @@ Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\).
 \end{lemma}
 
 \begin{proof}
-    Les éléments de \( \{ 1,\ldots,p^n \}\) qui ont un \( \pgcd\) différent de \( 1\) avec \( p^n\) sont des nombres qui s'écrivent sous la forme \( qp\) avec \( q\leq p^{n-1}\)\footnote{Corollaire~\ref{CORooQIMHooUzLUJY}.}. Il y a évidemment \( p^{n-1}\) tels nombres.
+    Les éléments de \( \{ 1,\ldots,p^n \}\) qui ont un \( \pgcd\) différent de \( 1\) avec \( p^n\) sont des nombres qui s'écrivent sous la forme \( qp\) avec \( q\leq p^{n-1}\)\footnote{Corolaire~\ref{CORooQIMHooUzLUJY}.}. Il y a évidemment \( p^{n-1}\) tels nombres.
 
     Par conséquent le cardinal de \( P_{p^n}\) est \( \varphi(p^{n})=p^n-p^{n-1}\).
 \end{proof}
@@ -234,11 +234,11 @@ Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\).
 \end{proposition}
 
 \begin{proof}
-    Nous avons \( \gr\big( [1]_n \big)=\eZ/n\eZ\). L'élément \( [x]_n\) sera générateur si et seulement s'il génère \( [1]_n \), c'est à dire s'il existe \( u\) tel que \( u[x]_n=[1]_n\). Cette dernière égalité étant une égalité de classes dans \( \eZ/n\eZ\), elle sera vraie si et seulement s'il existe \( v\) tel que
+    Nous avons \( \gr\big( [1]_n \big)=\eZ/n\eZ\). L'élément \( [x]_n\) sera générateur si et seulement s'il génère \( [1]_n \), c'est-à-dire s'il existe \( u\) tel que \( u[x]_n=[1]_n\). Cette dernière égalité étant une égalité de classes dans \( \eZ/n\eZ\), elle sera vraie si et seulement s'il existe \( v\) tel que
     \begin{equation}
         ux+vn=1.
     \end{equation}
-    Cela signifie entre autres que\footnote{Corollaire~\ref{CorgEMtLj}} \( x\eZ+n\eZ=\eZ\), et aussi que \( \pgcd(x,n)=1\) par le théorème de Bézout~\ref{ThoBuNjam}, et donc que \( x\in P_n\).
+    Cela signifie entre autres que\footnote{Corolaire~\ref{CorgEMtLj}} \( x\eZ+n\eZ=\eZ\), et aussi que \( \pgcd(x,n)=1\) par le théorème de Bézout~\ref{ThoBuNjam}, et donc que \( x\in P_n\).
 \end{proof}
 
 \begin{corollary}\label{CORooMBLSooMHKmAq}
@@ -323,7 +323,7 @@ Bob se crée une paire de clef publique, clef privée de la façon suivante.
     \item
         Il calcule \( n=pq\) .
     \item
-        Par le corollaire~\ref{CorlvTmsf}, l'indicatrice d'Euler \( \varphi(n)=(p-1)(q-1)\) est facile à calculer pour Bob.
+        Par le corolaire~\ref{CorlvTmsf}, l'indicatrice d'Euler \( \varphi(n)=(p-1)(q-1)\) est facile à calculer pour Bob.
     \item
         Bob choisit \( e\in \eN\) premier avec \( \varphi(n)\), puis \( d\) tel que \( ed\in[1]_{\varphi(n)}\).
 \end{enumerate}
@@ -372,7 +372,7 @@ Le lemme chinois~\ref{LemCtUeGA} nous dit immédiatement\footnote{C'est ici qu'i
 \begin{equation}
     M^{1+k\varphi(n)}-M
 \end{equation}
-est un multiple de \( pq=n\), c'est à dire que
+est un multiple de \( pq=n\), c'est-à-dire que
 \begin{equation}
     C^d=M^{ed}\in [M]_n.
 \end{equation}
@@ -520,7 +520,7 @@ Pour le dernier nous avons utilisé le fait que \(  e^{6\pi i/3}=1\) et \(  e^{4
 \end{proposition}
 
 \begin{proof}
-            Nous devons démontrer que les coefficients de \( \phi_n\) sont dans \( \eZ\) alors qu'ils sont a priori dans \( \eC\). Nous démontrons cela par récurrence. D'abord \( \phi_1(X)=X-1\), d'accord. Ensuite
+            Nous devons démontrer que les coefficients de \( \phi_n\) sont dans \( \eZ\) alors qu'ils sont à priori dans \( \eC\). Nous démontrons cela par récurrence. D'abord \( \phi_1(X)=X-1\), d'accord. Ensuite
             \begin{equation}
                 X^{n+1}-1=\prod_{d\divides n+1}\phi_d(X)=\phi_{n+1}(X)\cdot\underbrace{\prod_{_{\substack{d\divides n+1\\d\leq n}}}\phi_d(X)}_{\in\eZ[X]\text{ par récurrence}}
             \end{equation}
@@ -604,7 +604,7 @@ Pour le dernier nous avons utilisé le fait que \(  e^{6\pi i/3}=1\) et \(  e^{4
 \begin{proof}
     Pour rappel, nous savons déjà que pour tout \( n\in\eN\), \( \phi_n\in \eZ[X]\). Vu que les racines de \( \phi_n\) sont les racines primitives de l'unité, nous devons montrer que toutes les racines primitives de l'unité ont même polynôme minimal (qui sera alors \( \phi_n\)); en effet vu que ces polynômes divisent \( \phi_n\), s'ils sont distincts, la proposition~\ref{PropyMTEbH} s'applique et le produit des polynômes minimaux diviserait \( \phi_n\). Dans le cas inverse, \( \phi_n\) est polynôme minimal des racines primitives de l'unité et est donc irréductible. Soit donc \( \xi\), une telle racine primitive. Une autre racine primitive est de la forme \( \xi^l\) où \( l\) est un nombre premier tel que \( \pgcd(l,n)=1\).
 
-    Soient \( f\) et \( g\), les polynômes minimaux dans \( \eZ[X]\) de \( \xi\) et \( \xi^l\). Nous allons montrer que \( f=g\) et donc que \( f=g=\phi_n\). Supposons par l'absurde que \( f\neq g\). Dans ce cas ils seraient des facteurs irréductibles distincts de \( \phi_n\) et il existerait un polynôme \( h\) tel que \( \phi_n=fgh\). A priori, \( h\in \eQ[X]\) parce que nous sommes justement en train de prouver que \( \phi_n\) est irréductible dans \( \eQ[X]\). Quoi qu'il en soit, le lemme de Gauss~\ref{LemEfdkZw} nous montre que \( h\in \eZ[X]\) parce que \( \phi_n\), \( f\) et \( g\) ont des coefficients entiers. Nous avons
+    Soient \( f\) et \( g\), les polynômes minimaux dans \( \eZ[X]\) de \( \xi\) et \( \xi^l\). Nous allons montrer que \( f=g\) et donc que \( f=g=\phi_n\). Supposons par l'absurde que \( f\neq g\). Dans ce cas ils seraient des facteurs irréductibles distincts de \( \phi_n\) et il existerait un polynôme \( h\) tel que \( \phi_n=fgh\). À priori, \( h\in \eQ[X]\) parce que nous sommes justement en train de prouver que \( \phi_n\) est irréductible dans \( \eQ[X]\). Quoi qu'il en soit, le lemme de Gauss~\ref{LemEfdkZw} nous montre que \( h\in \eZ[X]\) parce que \( \phi_n\), \( f\) et \( g\) ont des coefficients entiers. Nous avons
     \begin{equation}
         f(\xi)=g(\xi^l)=0.
     \end{equation}
@@ -619,7 +619,7 @@ Pour le dernier nous avons utilisé le fait que \(  e^{6\pi i/3}=1\) et \(  e^{4
     Par conséquent dire que \( \bar f\) divise \( \bar\psi\) revient à dire que \( \bar f(X)\) divise \( \bar g(X)^l\). En particulier tous facteur irréductible de \( \bar f\) divise \( \bar g\). Un facteur irréductible de \( \bar f\) serait donc à la fois dans \( \bar f\) et dans \( \bar g\) et donc deux fois (au moins) dans \( \bar\phi_n\) parce que \( \bar f\bar g\) divise \( \phi_n\). Dans un corps de décomposition de ce facteur, \( \phi_n\) aurait une racine double, alors que ce n'est pas le cas. Contradiction. Nous concluons que \( f=g\).
 \end{proof}
 
-Le corollaire suivant va être utilisé pour déterminer les polygones constructibles à la règle et au compas, théorème de Gauss-Wantzel~\ref{ThoTWAooEsLjJu}.
+Le corolaire suivant va être utilisé pour déterminer les polygones constructibles à la règle et au compas, théorème de Gauss-Wantzel~\ref{ThoTWAooEsLjJu}.
 \begin{corollary}   \label{CorKRTooTJtyvP}
     Soit \( p\) un nombre premier et \( \alpha\) un entier non nul. Nous posons \( q=p^{\alpha}\). Alors le polynôme minimal de \(  e^{2 i\pi/q}\) sur \( \eQ\) est le polynôme cyclotomique \( \phi_q\).
 \end{corollary}
@@ -658,7 +658,7 @@ Le corollaire suivant va être utilisé pour déterminer les polygones construct
     %\end{equation}
     %Montrons que \( F_i\) est unitaire. Si \( b_i\) est le coefficient dominant de \( F_i\), alors nous avons \( \prod_ib_i=1\). Vu que les \( b_i\) sont dans \( \eZ\), il n'y a pas des tonnes de solutions : \( b_i= \pm 1\). Nous fixons donc le choix de \( \pm\) dans \eqref{EqKNKxqXI} de telle sorte à avoir \( b_i=1\).
 %
-    %Nous allons prouver maintenant que si \( k\) est premier avec \( n\) et si \( \xi\) est une racine de \( F_1\), alors \( F_1(\xi^k)=0\). Nous allons prouver cela par récurrence sur la longueur de la décomposition de \( k\) en nombres premiers. C'est à dire que nous posons \( k=p_1\ldots p_s\) (les \( p_i\) non spécialement distincts) et que nous faisons la récurrence sur \( s\).
+    %Nous allons prouver maintenant que si \( k\) est premier avec \( n\) et si \( \xi\) est une racine de \( F_1\), alors \( F_1(\xi^k)=0\). Nous allons prouver cela par récurrence sur la longueur de la décomposition de \( k\) en nombres premiers. C'est-à-dire que nous posons \( k=p_1\ldots p_s\) (les \( p_i\) non spécialement distincts) et que nous faisons la récurrence sur \( s\).
 %
     %Pour \( s=1\). Soit \( \xi\) une racine de \( F_1\) et \( p\) un nombre premier tel %que \( p\notdivides n\). Vu que \( \xi\) est une racine de \( \phi_n\), c'est une racine %\( n\)\ieme\ de l'unité. Vu que nous demandons \( \pgcd(n,p)=1\), le nombre \( \xi^p\) %est également une racine primitive de l'unité, et il existe donc \( i\in\{ 1,\ldots, r %\}\) tel que \( F_i(\xi^p)=0\). Nous considérons maintenant les polynômes \( F_1(X)\) et %\( F_i(X^p)\), et nous montrons qu'ils ne sont pas premiers entre eux sur \( \eQ\). S'ils l'étaient, le sieur Bézout nous donnerait \( U,V\in \eQ[X]\) tels que
     %\begin{equation}
@@ -765,7 +765,7 @@ Le corollaire suivant va être utilisé pour déterminer les polygones construct
     \begin{equation}
         B(X)=\prod_{_{\substack{d\divides n\\d\neq n}}}\phi_d(X),
     \end{equation}
-    et nous commençons par montrer que \( \phi_n\) est premier avec \( B\). Nous avons \( X^n-1=B\phi_n\), donc \( B\) et \( \phi_n\) n'ont pas de racines communes (même pas dans \( \eC\)) parce que ce serait une racine double de \( X^n-1\). Notons que par définition~\ref{EqLjGYKK}, les polynômes cyclotomiques sont scindés (dans \( \eC\)), donc en particulier les polynômes \( \phi_n\) et \( B\) sont scindés et donc premiers entre eux, dans \( \eC\) et a fortiori dans \( \eQ\). Par Bézout (corollaire~\ref{CorimHyXy}), il existe \( U,V\in\eQ[X]\) tels que
+    et nous commençons par montrer que \( \phi_n\) est premier avec \( B\). Nous avons \( X^n-1=B\phi_n\), donc \( B\) et \( \phi_n\) n'ont pas de racines communes (même pas dans \( \eC\)) parce que ce serait une racine double de \( X^n-1\). Notons que par définition~\ref{EqLjGYKK}, les polynômes cyclotomiques sont scindés (dans \( \eC\)), donc en particulier les polynômes \( \phi_n\) et \( B\) sont scindés et donc premiers entre eux, dans \( \eC\) et a fortiori dans \( \eQ\). Par Bézout (corolaire~\ref{CorimHyXy}), il existe \( U,V\in\eQ[X]\) tels que
     \begin{equation}
         U\phi_n+VB=1.
     \end{equation}
@@ -795,7 +795,7 @@ Le corollaire suivant va être utilisé pour déterminer les polygones construct
 \end{proof}
 
 \begin{lemma}       \label{LemrZnmpG}
-    Si \( n\geq 1\), alors il existe un nombre premier dans \( [1]_n\), c'est à dire un nombre premier de la forme \( 1+kn\) avec \( k\in \eN^*\).
+    Si \( n\geq 1\), alors il existe un nombre premier dans \( [1]_n\), c'est-à-dire un nombre premier de la forme \( 1+kn\) avec \( k\in \eN^*\).
 \end{lemma}
 
 \begin{proof}
@@ -810,7 +810,7 @@ Le corollaire suivant va être utilisé pour déterminer les polygones construct
     \begin{equation}
         [\phi_{d'}(a)]_p\neq 0
     \end{equation}
-    Vu que \( \eZ/p\eZ\) est intègre, le produit est également non nul, c'est à dire
+    Vu que \( \eZ/p\eZ\) est intègre, le produit est également non nul, c'est-à-dire
     \begin{equation}
         \big[ \prod_{d'\divides d}\phi_{d'}(a) \big]_p\neq 0,
     \end{equation}
@@ -839,7 +839,7 @@ Le corollaire suivant va être utilisé pour déterminer les polygones construct
     \begin{equation}
         N=np_1\ldots p_r.
     \end{equation}
-    Nous utilisons maintenant le lemme~\ref{LemrZnmpG} avec ce \( N\), c'est à dire qu'on a un nombre premier de la forme
+    Nous utilisons maintenant le lemme~\ref{LemrZnmpG} avec ce \( N\), c'est-à-dire qu'on a un nombre premier de la forme
     \begin{equation}
         p=1+kN=1+knp_1\ldots p_r.
     \end{equation}
@@ -923,9 +923,9 @@ Le corollaire suivant va être utilisé pour déterminer les polygones construct
 \end{proof}
 
 \begin{example}
-    Pour \( p=1\), l'équation est \( \alpha x=n\), qui possède au maximum une solution, quel que soit \( n\). Et de plus pour avoir une solution il faut et suffit que \( \alpha\) divise \( n\), c'est à dire que \( n\) soit un multiple de \( \alpha\). Il n'y a que un nombre sur \( \alpha\) à être multiple de \( \alpha\). D'où le comportement en \( \frac{1}{ \alpha }\).
+    Pour \( p=1\), l'équation est \( \alpha x=n\), qui possède au maximum une solution, quel que soit \( n\). Et de plus pour avoir une solution il faut et suffit que \( \alpha\) divise \( n\), c'est-à-dire que \( n\) soit un multiple de \( \alpha\). Il n'y a que un nombre sur \( \alpha\) à être multiple de \( \alpha\). D'où le comportement en \( \frac{1}{ \alpha }\).
 
-    Pour \( p=2\), c'est l'équation \eqref{EqTOVSooJbxlIq} déjà étudiée. Il y a une famille à un paramètre de solutions dont seulement un certain nombre sont positives. A priori, le nombre de solutions positives croît linéairement en \( n\).
+    Pour \( p=2\), c'est l'équation \eqref{EqTOVSooJbxlIq} déjà étudiée. Il y a une famille à un paramètre de solutions dont seulement un certain nombre sont positives. À priori, le nombre de solutions positives croît linéairement en \( n\).
 \end{example}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1040,7 +1040,7 @@ Nous avons déjà défini le corps fini \( \eF_p\) lorsque \( p\) est un nombre 
 \end{theorem}
 
 \begin{proof}
-    Montrons l'unicité. Soit \( \eK\) un corps fini de cardinal \( q=p^n\). Le groupe multiplicatif \( \eK^*\) est de cardinal \( q-1\), et par le corollaire~\ref{CorpZItFX} tous les éléments de \( \eK^*\) vérifient \( g^{q-1}=e\), c'est à dire que dans \( \eK[X]\), les éléments de \( \eK^*\) sont des racines du polynôme
+    Montrons l'unicité. Soit \( \eK\) un corps fini de cardinal \( q=p^n\). Le groupe multiplicatif \( \eK^*\) est de cardinal \( q-1\), et par le corolaire~\ref{CorpZItFX} tous les éléments de \( \eK^*\) vérifient \( g^{q-1}=e\), c'est-à-dire que dans \( \eK[X]\), les éléments de \( \eK^*\) sont des racines du polynôme
     \begin{equation}
         X^{q-1}-1
     \end{equation}
@@ -1077,7 +1077,7 @@ Le théorème~\ref{ThoOzgSfy} ne permet pas de \emph{construire} le corps à \( 
 \end{proposition}
 
 \begin{proof}
-    Soit \( \eK\) un corps ayant \( q\) éléments. Le groupe \( \eK^*\) en a \( q-1\); ergo l'ordre des éléments de \( \eK^*\) sont des diviseurs de \( q-1\); c'est le corollaire~\ref{CorpZItFX}. Soit \( d\) un diviseur de \( q-1\) et
+    Soit \( \eK\) un corps ayant \( q\) éléments. Le groupe \( \eK^*\) en a \( q-1\); ergo l'ordre des éléments de \( \eK^*\) sont des diviseurs de \( q-1\); c'est le corolaire~\ref{CorpZItFX}. Soit \( d\) un diviseur de \( q-1\) et
     \begin{subequations}
         \begin{align}
             H^*_d&=\{ x\,\text{d'ordre } d\text{ dans } \eK^* \}\\
@@ -1142,7 +1142,7 @@ Lorsque \( \eK\) est un corps les éléments du groupe \( \eK^*\) sont les \defe
 \end{proposition}
 
 \begin{proof}
-    Le groupe \( \eK^*\) ayant \( q-1\) éléments, ses éléments vérifient \( a^{q-1}=1\) par le corollaire~\ref{CorpZItFX} et par conséquent \( a^q=aa^{q-1}=a \).
+    Le groupe \( \eK^*\) ayant \( q-1\) éléments, ses éléments vérifient \( a^{q-1}=1\) par le corolaire~\ref{CorpZItFX} et par conséquent \( a^q=aa^{q-1}=a \).
 
     Soit \( a\in \eK\). Étant donné que \( a^q-a=0\), le polynôme \( (X-a)\) divise \( X^q-X\) dans \( \eK[X]\). Par conséquent
     \begin{equation}
@@ -1282,7 +1282,7 @@ Notons que la somme de Gauss dépend de \( q\) et du \( \alpha\) choisis.
     Justifications :
     \begin{itemize}
         \item
-            Pour obtenir \eqref{EqlObFeo} nous avons utilisé le corollaire~\ref{CoruJosNz}.
+            Pour obtenir \eqref{EqlObFeo} nous avons utilisé le corolaire~\ref{CoruJosNz}.
         \item
             \eqref{EqWyIhhk} est un changement de variable \( z=x+y\) dans la somme sur \( x\).
         \item
@@ -1374,7 +1374,7 @@ Notons que la somme de Gauss dépend de \( q\) et du \( \alpha\) choisis.
     \begin{equation}
         \eA=\eF_p[X]/(\phi_q).
     \end{equation}
-    Cela est un anneau de caractéristique \( p\) parce que son unité est le polynôme constant \( 1\). Nous nommons \( \alpha=X/(\phi_q)\), c'est à dire que \( \phi_q(\alpha)=0\) dans \( \eA\), et nous pouvons considérer la somme de Gauss
+    Cela est un anneau de caractéristique \( p\) parce que son unité est le polynôme constant \( 1\). Nous nommons \( \alpha=X/(\phi_q)\), c'est-à-dire que \( \phi_q(\alpha)=0\) dans \( \eA\), et nous pouvons considérer la somme de Gauss
     \begin{equation}
         \tau=\sum_{i\in \eF_q}\left(\frac{i}{q}\right)\alpha^i.
     \end{equation}
@@ -1413,7 +1413,7 @@ Notons que la somme de Gauss dépend de \( q\) et du \( \alpha\) choisis.
 \end{lemma}
 
 \begin{proof}
-    Le fait que le symbole de Legendre soit non trivial est simplement le fait qu'il y ait des carrés et des non carrés dans \( \eF_p^*\); voir la proposition~\ref{PropcGsJjk}. Pour l'unicité, soit \( \alpha\colon \eF^*_p\to \{ -1,1 \}\) un morphisme surjectif (c'est à dire non trivial). Étant donné que
+    Le fait que le symbole de Legendre soit non trivial est simplement le fait qu'il y ait des carrés et des non carrés dans \( \eF_p^*\); voir la proposition~\ref{PropcGsJjk}. Pour l'unicité, soit \( \alpha\colon \eF^*_p\to \{ -1,1 \}\) un morphisme surjectif (c'est-à-dire non trivial). Étant donné que
     \begin{equation}
         \eF^*_p=\ker(\alpha)\cup-\ker(\alpha),
     \end{equation}
@@ -1421,7 +1421,7 @@ Notons que la somme de Gauss dépend de \( q\) et du \( \alpha\) choisis.
 
     Or \( \eF_p^*\) ne possède qu'un seul sous-groupe d'indice \( 2\). En effet soit \( S\) un tel sous-groupe et \( a\), un générateur de \( \eF_p^*\) (qui est cyclique par la proposition~\ref{PropnfebjI}), alors \( a^2\in S\) par le lemme~\ref{PropubeiGX}. Par conséquent \( S\) contient le groupe des puissances paires de \( a\). Le groupe $S$ ne peut rien contenir de plus parce qu'il est d'indice \( 2\) et que l'ordre de \( \eF_p^*\) est pair.
 
-    Bref, le sous-groupe \( \ker(\alpha)\) est l'unique sous-groupe d'indice \( 2\) dans \( \eF_p^*\). Mais la proposition~\ref{PropcGsJjk} nous indique que \( | (\eF_p^*)^2 |=\frac{ p-1 }{2}\), c'est à dire que le groupe des carrés est d'indice \( 2\). Nous avons donc, par l'unicité,
+    Bref, le sous-groupe \( \ker(\alpha)\) est l'unique sous-groupe d'indice \( 2\) dans \( \eF_p^*\). Mais la proposition~\ref{PropcGsJjk} nous indique que \( | (\eF_p^*)^2 |=\frac{ p-1 }{2}\), c'est-à-dire que le groupe des carrés est d'indice \( 2\). Nous avons donc, par l'unicité,
     \begin{equation}
         \ker(\alpha)=(\eF_p^*)^2.
     \end{equation}
@@ -1456,7 +1456,7 @@ Notons que la somme de Gauss dépend de \( q\) et du \( \alpha\) choisis.
     \end{equation}
     parce que \( \alpha^2\) étant \( -1\), nous avons \( (\alpha^2)^{-1}=-\alpha^2\). Bref, \( \theta^2=2\).
 
-    Dire que \( 2\) est un carré modulo \( p\) revient à dire que \( \theta\) est dans \( \eF_p\). C'est à dire que pour calculer le symbole de Legendre \( \left(\frac{2}{p}\right)\), nous étudions pour quels \( p\), l'élément \( \theta\) est vraiment dans \( \eF_p\) et non seulement dans l'extension \( \eF_p(\alpha)\). En tenant compte de l'exemple~\ref{ExLQhLhJ}, il faut distinguer deux cas : \( \alpha^p=\alpha\) et \( \alpha^p\neq \alpha\). Autrement dit, si \( \alpha^k=\alpha\) pour un certain nombre premier \( k\), alors le cas \( p=k\) est à traiter à part. La liste des puissances de \( \alpha\) est :
+    Dire que \( 2\) est un carré modulo \( p\) revient à dire que \( \theta\) est dans \( \eF_p\). C'est-à-dire que pour calculer le symbole de Legendre \( \left(\frac{2}{p}\right)\), nous étudions pour quels \( p\), l'élément \( \theta\) est vraiment dans \( \eF_p\) et non seulement dans l'extension \( \eF_p(\alpha)\). En tenant compte de l'exemple~\ref{ExLQhLhJ}, il faut distinguer deux cas : \( \alpha^p=\alpha\) et \( \alpha^p\neq \alpha\). Autrement dit, si \( \alpha^k=\alpha\) pour un certain nombre premier \( k\), alors le cas \( p=k\) est à traiter à part. La liste des puissances de \( \alpha\) est :
     \begin{equation}
         1,\alpha,\alpha^2,\alpha^3,-1,-\alpha,-\alpha^2,-\alpha^3,1,\alpha,\ldots
     \end{equation}
@@ -1614,9 +1614,9 @@ Notons que la somme de Gauss dépend de \( q\) et du \( \alpha\) choisis.
             P_2(x,y,t,u)=x+y-3t.
         \end{align}
     \end{subequations}
-    La somme de leurs degrés est \( 3\) et ce sont des polynômes à \( 4\) variables. Nous devons donc avoir, en vertu du corollaire~\ref{CorfuHNKz}, des autres racines que la racine triviale \( (x,y,t,u)=(0,0,0,0)\).
+    La somme de leurs degrés est \( 3\) et ce sont des polynômes à \( 4\) variables. Nous devons donc avoir, en vertu du corolaire~\ref{CorfuHNKz}, des autres racines que la racine triviale \( (x,y,t,u)=(0,0,0,0)\).
 
-    Le corollaire nous donne aussi une borne inférieure nombre de racines à chercher : plus que la caractéristique du corps sur lequel nous travaillons. Nous pouvons dire cela sans avoir la moindre idée de la façon dont on pourrait résoudre le système \( P_1=P_2=0\).
+    Le corolaire nous donne aussi une borne inférieure nombre de racines à chercher : plus que la caractéristique du corps sur lequel nous travaillons. Nous pouvons dire cela sans avoir la moindre idée de la façon dont on pourrait résoudre le système \( P_1=P_2=0\).
 \end{example}
 
 
@@ -1771,7 +1771,7 @@ Nous serions donc intéressé à construire $\eF_{q}$ comme quotient de \( \eF_p
     \end{equation}
     et \( \ell=n\).
 
-    Montrons que \( P\) est irréductible dans \( \eF_p\). Si \( P\) était réductible dans \( \eF_p\), l'élément \( \alpha\in \eK\) serait une racine d'un des facteurs, c'est à dire qu'il serait racine d'un polynôme de degré inférieur à \( n\), ce qui contredirait le fait que
+    Montrons que \( P\) est irréductible dans \( \eF_p\). Si \( P\) était réductible dans \( \eF_p\), l'élément \( \alpha\in \eK\) serait une racine d'un des facteurs, c'est-à-dire qu'il serait racine d'un polynôme de degré inférieur à \( n\), ce qui contredirait le fait que
     \begin{equation}
         \{ \alpha^{\ell-1},\ldots, 1 \}
     \end{equation}
@@ -1825,7 +1825,7 @@ Nous serions donc intéressé à construire $\eF_{q}$ comme quotient de \( \eF_p
     \begin{equation}
         P(X^p)=\sum_k(a_kX^k)^p=\left( \sum_k a_kX^k\right)^p=P(X)^p.
     \end{equation}
-    Nous avons montré que si \( \beta\) est une racine de \( P\), alors \( \beta^p\) est également une racine de \( P\). Nous savons déjà que \( \alpha\) est une racine de \( P\), et que \( \alpha\) est également générateur de \( \eK\), c'est à dire que \( \alpha\) est d'ordre \( q-1\). Les puissances
+    Nous avons montré que si \( \beta\) est une racine de \( P\), alors \( \beta^p\) est également une racine de \( P\). Nous savons déjà que \( \alpha\) est une racine de \( P\), et que \( \alpha\) est également générateur de \( \eK\), c'est-à-dire que \( \alpha\) est d'ordre \( q-1\). Les puissances
     \begin{equation}
         \alpha,\alpha^p,\alpha^{p^2},\ldots, \alpha^{p^{n-1}}
     \end{equation}
@@ -1878,7 +1878,7 @@ Nous serions donc intéressé à construire $\eF_{q}$ comme quotient de \( \eF_p
     \end{equation}
     où nous avons utilisé le fait que \( a_k^p=a_k\) étant donné que \( a_k\in\eF_p\). Par hypothèse \( \alpha\) est une racine primitive; cela implique que les éléments \( \alpha,\alpha^p,\alpha^{p^2},\ldots,\alpha^{p^n-1}\) sont distincts dans \( \eF_p[X]/P\). Ces éléments constituent donc \emph{toutes} les racines de \( P\).
 
-    Soit \( \beta=\alpha^{p^k}\) une racine de \( P\). Montrons que \( \alpha\) est une puissance de \( \beta\). Étant donné que \( (\eF_p[X]/P)^*\) est un groupe à \( p^n-1\) éléments, le corollaire~\ref{CorpZItFX} indique que \( \alpha^{p^n}=\alpha\). En particulier avec \( r=p^{n-k}\) nous avons
+    Soit \( \beta=\alpha^{p^k}\) une racine de \( P\). Montrons que \( \alpha\) est une puissance de \( \beta\). Étant donné que \( (\eF_p[X]/P)^*\) est un groupe à \( p^n-1\) éléments, le corolaire~\ref{CorpZItFX} indique que \( \alpha^{p^n}=\alpha\). En particulier avec \( r=p^{n-k}\) nous avons
     \begin{equation}
         \beta^r=\alpha^{rp^k}=\alpha^{p^n}=\alpha.
     \end{equation}
@@ -1948,7 +1948,7 @@ Nous pouvons construire le corps à \( p^n\) éléments en prenant le quotient d
 \begin{proof}
     \begin{enumerate}
         \item
-            En vertu du corollaire~\ref{CorsLGiEN}, \( \eK\) est un corps. Il est aussi un espace vectoriel de dimension \( n\) sur \( \eF_p\), et contient donc \( p^n=q\) éléments.
+            En vertu du corolaire~\ref{CorsLGiEN}, \( \eK\) est un corps. Il est aussi un espace vectoriel de dimension \( n\) sur \( \eF_p\), et contient donc \( p^n=q\) éléments.
         \item
             Nous avons \( P(\bar X)=0\) par construction de \( \eK=\eF_p[X]/(P)\).
         \item
@@ -2030,7 +2030,7 @@ sage: Q.factor()
     Cela fait \( 15\) puissances distinctes, ce qui prouve que \( P_1\) est primitif. Nous verrons plus loin comment alléger un peu la vérification de la primitivité de \( P_1\).
 \end{example}
 
-\begin{proposition}     \label{PropNsLqWb}
+\begin{proposition}[\cite{MonCerveau}]     \label{PropNsLqWb}
     Soit \( P\) un polynôme irréductible unitaire primitif dans \( \eF_p[X]\). Nous considérons \( \eK=\eF_p[X]/P\) et \( \alpha=\bar X\in \eK\). Alors
     \begin{enumerate}
         \item
@@ -2053,10 +2053,10 @@ sage: Q.factor()
 \end{proposition}
 
 \begin{proof}
-    La plupart des assertions sont des corollaires ou des paraphrases de résultats contenus dans les propositions précédentes.
+    La plupart des assertions sont des corolaires ou des paraphrases de résultats contenus dans les propositions précédentes.
     \begin{enumerate}
         \item
-            L'assertion à propos des racines de \( P\) est contenue dans le lemme~\ref{Lembcerei}. D'autre part le groupe \( (\eF_p[X]/P)^*\) est cyclique d'ordre \( q-1\). Par conséquent le corollaire~\ref{CorpZItFX} indique que \( \alpha^{q-1}=1\) et donc \( \alpha^q=\alpha\).
+            L'assertion à propos des racines de \( P\) est contenue dans le lemme~\ref{Lembcerei}. D'autre part le groupe \( (\eF_p[X]/P)^*\) est cyclique d'ordre \( q-1\). Par conséquent le corolaire~\ref{CorpZItFX} indique que \( \alpha^{q-1}=1\) et donc \( \alpha^q=\alpha\).
         \item
             Soit \( \tilde P\) un polynôme annulateur de \( \alpha\). Nous voyons que si \( \beta\) est racine de \( \tilde P\) alors \( \beta^p\) est également racine de \( \tilde P\) en utilisant les techniques habituelles. Par conséquent toutes les racines de \( P\) sont racines de \( \tilde P\), ce qui implique que \( \tilde P\) est de degré au moins égal à celui de \( P\).
         \item
@@ -2471,7 +2471,7 @@ Pour toute la suite nous allons considérer les points et réels constructibles 
     La longueur \( AB\) est égale à \( xy\).
 \end{example}
 
-\begin{example}[Racine carré à la règle et au compas\cite{POUoocLUrO}]  \label{ExTYMooSMCvSr}
+\begin{example}[Racine carrée à la règle et au compas\cite{POUoocLUrO}]  \label{ExTYMooSMCvSr}
 
     Nous supposons que le nombre \( x\) est constructible, et nous voulons une construction qui donne un segment de longueur \( \sqrt{x}\). Nous traçons un segment $[BC]$ dont la longueur correspond à la plus grande des valeurs entre $x$ et $1$, puis le cercle de diamètre $BC$, ensuite le point $H$ sur $[BC]$ tel que $BH$ corresponde à la plus petite des valeurs entre $x$ et $1$, enfin la perpendiculaire à $(BC)$ menée par $H$, qui rencontre le cercle en un point $A$. D'après le théorème de Thalès sur le cercle, le triangle $ABC$ est rectangle en $A$.
 
@@ -2520,7 +2520,7 @@ L'exemple suivant qui permet d'additionner des angles repose sur le fait que deu
         \item
             \( \eL_0=\eQ\),
         \item
-            \( \eL_{i+1}\) est un extension quadratique\footnote{C'est à dire une extension finie de degré \( 2\).} de \( \eL_i\)
+            \( \eL_{i+1}\) est un extension quadratique\footnote{C'est-à-dire une extension finie de degré \( 2\).} de \( \eL_i\)
         \item
             \( a\in \eL_n\).
     \end{enumerate}
@@ -2665,7 +2665,7 @@ La raison est que si qu'il suffit de prendre la perpendiculaire à l'axe horizon
 \end{lemma}
 
 \begin{proof}
-    Le polygone régulier à \( n\) côtés est constructible si et seulement si l'angle \( \frac{ 2\pi }{ n }\) est constructible, c'est à dire si l'angle
+    Le polygone régulier à \( n\) côtés est constructible si et seulement si l'angle \( \frac{ 2\pi }{ n }\) est constructible, c'est-à-dire si l'angle
     \begin{equation}
         \frac{ 2\pi }{ \prod_{i=1}^kp_i^{\alpha_i} }
     \end{equation}
@@ -2678,7 +2678,7 @@ La raison est que si qu'il suffit de prendre la perpendiculaire à l'axe horizon
         \item   \label{ItemFSEooONDFrSi}
             L'angle \( \frac{ 2\pi }{ 2^{\alpha} } \) est constructible.
         \item\label{ItemFSEooONDFrSii}
-            Si \( p\) est premier \( p\neq 2\) alors l'angle \( \frac{ 2\pi }{ p^{\alpha} } \) est constructible si et seulement si \( \alpha=1\) et \( p\) est un \defe{nombre de Fermat}{nombre!de Fermat}, c'est à dire de la forme \( 1+2^{(2^{\beta})}\) pour \( \beta\in \eN\).
+            Si \( p\) est premier \( p\neq 2\) alors l'angle \( \frac{ 2\pi }{ p^{\alpha} } \) est constructible si et seulement si \( \alpha=1\) et \( p\) est un \defe{nombre de Fermat}{nombre!de Fermat}, c'est-à-dire de la forme \( 1+2^{(2^{\beta})}\) pour \( \beta\in \eN\).
         \item\label{ItemFSEooONDFrSiii}
             Le polygone régulier à \( n\) côtés est constructible si et seulement si \( n \) est le produit d'une puissance de \( 2\) et d'un nombre fini de nombres de Fermat premiers distincts.
     \end{enumerate}
@@ -2694,7 +2694,7 @@ La raison est que si qu'il suffit de prendre la perpendiculaire à l'axe horizon
             \begin{equation}
                 \left[ \eQ\Big( \cos(2\pi/p^{\alpha}) \Big):\eQ \right]=2^m
             \end{equation}
-            pour un certain \( m\). Posons \( q=p^{\alpha}\) et \( \omega= e^{2i\pi/q}\). Grâce au corollaire~\ref{CorKRTooTJtyvP}, nous savons que le polynôme minimal de \( \omega\) est le polynôme cyclotomique \( \phi_q\) dont le
+            pour un certain \( m\). Posons \( q=p^{\alpha}\) et \( \omega= e^{2i\pi/q}\). Grâce au corolaire~\ref{CorKRTooTJtyvP}, nous savons que le polynôme minimal de \( \omega\) est le polynôme cyclotomique \( \phi_q\) dont le
             degré est\footnote{Voir juste en dessous de la définition~\ref{DefXGHooRAXlpp}.}         % en deux lignes pour vérifier les références
             \begin{equation}
                 \varphi(q)=\varphi(p^{\alpha})=p^{\alpha-1}(p-1).
@@ -2711,7 +2711,7 @@ La raison est que si qu'il suffit de prendre la perpendiculaire à l'axe horizon
             \begin{equation}
                 \omega^2-2\cos\left( \frac{ 2\pi }{ q } \right)\omega+1=0.
             \end{equation}
-            Cela signifie que \( \omega\) est de degré \( 2\) dans \( \eQ\big( \cos(2\pi/q) \big)\), c'est à dire
+            Cela signifie que \( \omega\) est de degré \( 2\) dans \( \eQ\big( \cos(2\pi/q) \big)\), c'est-à-dire
             \begin{equation}    \label{EqSJXooRCLJyt}
                 \big[ \eQ(\omega):\eQ\big( \cos(2\pi/q) \big) \big]=2.
             \end{equation}
@@ -2750,7 +2750,7 @@ La raison est que si qu'il suffit de prendre la perpendiculaire à l'axe horizon
                             g_k&\mapsto [k]_p .
                         \end{aligned}
                     \end{equation}
-                    est un morphisme surjectif entre deux groupes finis de même cardinal, donc c'est un isomorphisme. Le corollaire~\ref{CorpRUndR} nous donne de plus l'isomorphisme \( (\eZ/p\eZ)^*\simeq \eZ/(p-1)\eZ\), ce qui fait que \( G\) a un élément d'ordre \( p-1\) (parce que \( \eZ/(p-1)\eZ\) en a un). Nous notons \( g_0\) cet élément.
+                    est un morphisme surjectif entre deux groupes finis de même cardinal, donc c'est un isomorphisme. Le corolaire~\ref{CorpRUndR} nous donne de plus l'isomorphisme \( (\eZ/p\eZ)^*\simeq \eZ/(p-1)\eZ\), ce qui fait que \( G\) a un élément d'ordre \( p-1\) (parce que \( \eZ/(p-1)\eZ\) en a un). Nous notons \( g_0\) cet élément.
                 \item[La tour d'extensions]
                     À partir de cet élément \( g_0\in G\) nous définissons avec \( 0\leq i\leq n\) :
                     \begin{equation}
@@ -2776,7 +2776,7 @@ La raison est que si qu'il suffit de prendre la perpendiculaire à l'axe horizon
                     \begin{equation}
                         z=\lambda_0g_0(\omega+\cdots +\omega^{p-1})=\lambda_0g_0\big( \phi_p(\omega)-1 \big)=-\lambda_0\in \eQ.
                     \end{equation}
-                    Dans cette chaîne d'égalités nous avons utilisé le fait que \( \phi_p(X)=1+X+\cdots +X^{p-1}\) (corollaire~\ref{CorTVUooErJiAC}) et que \( \phi_p(\omega)=0\) par définition.
+                    Dans cette chaine d'égalités nous avons utilisé le fait que \( \phi_p(X)=1+X+\cdots +X^{p-1}\) (corolaire~\ref{CorTVUooErJiAC}) et que \( \phi_p(\omega)=0\) par définition.
                     \item[\( \eK_i\subset \eK_{i+1}\) strictement]
                         Nous avons une inclusion pour la simple raison que si \( z\in \eK_i\), alors \( g_0^{2^i}(z)=z\). Par conséquent :
                         \begin{equation}

@@ -1,7 +1,8 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2018
+% Copyright (c) 2008-2020
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Valeur propre et vecteur propre}
@@ -11,7 +12,7 @@
 \subsection{Généralités}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous savons qu'une application \emph{linéaire} $A\colon \eR^3\to \eR^3$ est complètement définie par la donnée de son action sur les trois vecteurs de base, c'est à dire par la donnée de
+Nous savons qu'une application \emph{linéaire} $A\colon \eR^3\to \eR^3$ est complètement définie par la donnée de son action sur les trois vecteurs de base, c'est-à-dire par la donnée de
 \begin{equation}
 	\begin{aligned}[]
 		Ae_1,&&Ae_2&&\text{et}&&Ae_3.
@@ -60,9 +61,9 @@ Une chose intéressante est de savoir quelles sont les directions invariantes de
 	1	\\
 	0	\\
 	0
-\end{pmatrix}$ est invariante : elle est simplement multipliée par $3$. Dans cette direction, la transformation est juste une dilatation. Afin de savoir si $v$ est un vecteur d'une direction conservée, il faut voir s'il existe un nombre $\lambda$ tel que $Av=\lambda v$, c'est à dire voir si $v$ est simplement dilaté.
+\end{pmatrix}$ est invariante : elle est simplement multipliée par $3$. Dans cette direction, la transformation est juste une dilatation. Afin de savoir si $v$ est un vecteur d'une direction conservée, il faut voir s'il existe un nombre $\lambda$ tel que $Av=\lambda v$, c'est-à-dire voir si $v$ est simplement dilaté.
 
-L'équation $Av=\lambda v$ se récrit $(A-\lambda\mtu)v=0$, c'est à dire qu'il faut résoudre l'équation
+L'équation $Av=\lambda v$ se récrit $(A-\lambda\mtu)v=0$, c'est-à-dire qu'il faut résoudre l'équation
 \begin{equation}
 	(A-\lambda\mtu)\begin{pmatrix}
 		x	\\
@@ -86,7 +87,10 @@ Nous savons qu'une telle équation ne peut avoir de solutions que si $\det(A-\la
 
     L'\defe{espace propre}{espace!propre} de \( A\) pour la valeur \( \lambda\)\footnote{Nous laissons au lecteur le soin de vérifier que c'est bien un sous-espace vectoriel de \( E\).} est l'ensemble des vecteurs propres de \( A\) pour la valeur propre \( \lambda\) et zéro.
 \end{definition}
-L'ensemble de valeurs propres de l'endomorphisme \( u\) est son \defe{spectre}{spectre d'un endomorphisme} et est noté \( \Spec(u)\).
+
+\begin{definition}
+    L'ensemble de valeurs propres de l'endomorphisme \( u\) est son \defe{spectre}{spectre d'un endomorphisme} et est noté \( \Spec(u)\).
+\end{definition}
 
 \begin{remark}
     Le nombre zéro peut être une valeur propre; c'est le vecteur zéro qui ne peut pas être vecteur propre. La matrice nulle est une matrice diagonalisable.
@@ -332,7 +336,7 @@ La proposition suivante permet de caractériser le polynôme minimal.
 \begin{proof}
     En ce qui concerne l'existence, il existe le polynôme minimal de \( f\) qui satisfait les conditions. Pour l'unicité nous travaillons maintenant.
 
-    Supposons que l'application \eqref{EQooIBMDooVTaEhf} soit injective. Alors pour tout \( Q\in \eK[X]\) tel que \( Q(f)=0\) nous avons \( \bar Q=0\), c'est à dire \( Q=PR\) pour un certain \( R\in \eK[X]\). Autrement dit : \( P\) est un générateur unitaire de l'idéal annulateur de \( f\). Le théorème~\ref{ThoCCHkoU}\ref{ITEMooASHKooZqkiCH} nous dit alors que \( P=\mu\) parce que \( \mu\) est également générateur unitaire.
+    Supposons que l'application \eqref{EQooIBMDooVTaEhf} soit injective. Alors pour tout \( Q\in \eK[X]\) tel que \( Q(f)=0\) nous avons \( \bar Q=0\), c'est-à-dire \( Q=PR\) pour un certain \( R\in \eK[X]\). Autrement dit : \( P\) est un générateur unitaire de l'idéal annulateur de \( f\). Le théorème~\ref{ThoCCHkoU}\ref{ITEMooASHKooZqkiCH} nous dit alors que \( P=\mu\) parce que \( \mu\) est également générateur unitaire.
 \end{proof}
 
 \begin{lemma}[\cite{ooRJDSooXpVtMD}]\label{LemSYsJJj}
@@ -354,7 +358,7 @@ La proposition suivante permet de caractériser le polynôme minimal.
     \begin{equation}
         \prod_{i=1}^r\mu_{x_i}\divides \mu_a,
     \end{equation}
-    c'est à dire \( \mu\divides \mu_a\). Comme nous avons aussi \( \mu_a\divides \mu\), nous déduisons \( \mu_a=\mu\).
+    c'est-à-dire \( \mu\divides \mu_a\). Comme nous avons aussi \( \mu_a\divides \mu\), nous déduisons \( \mu_a=\mu\).
 \end{proof}
 
 \begin{definition}[Matrices, endomorphismes et vecteurs cycliques]      \label{DEFooFEIFooNSGhQE}
@@ -378,7 +382,7 @@ La proposition suivante permet de caractériser le polynôme minimal.
 \end{lemma}
 
 \begin{proof}
-    Soit \( l=\deg(\mu)=\deg(\mu_a)\). L'espace \( E_a\) étant engendré par les \( f^k(a)\) nous savons que \( e_1=a\), \( e_2=f(a)\),\ldots, \( e_l=k^{l-1}(a)\) forment une base de \( E_a\). Nous pouvons la compléter en une base \( \{ e_1,\ldots, e_n \}\) de \( E\). Et nous posons\footnote{ici, comme presque partout, \( e^*_{l}\) est le dual de \( e_l\), c'est à dire l'application linéaire sur \( E\) donnée par \( e^*_l(e_i)=\delta_{li}\). }
+    Soit \( l=\deg(\mu)=\deg(\mu_a)\). L'espace \( E_a\) étant engendré par les \( f^k(a)\) nous savons que \( e_1=a\), \( e_2=f(a)\),\ldots, \( e_l=k^{l-1}(a)\) forment une base de \( E_a\). Nous pouvons la compléter en une base \( \{ e_1,\ldots, e_n \}\) de \( E\). Et nous posons\footnote{ici, comme presque partout, \( e^*_{l}\) est le dual de \( e_l\), c'est-à-dire l'application linéaire sur \( E\) donnée par \( e^*_l(e_i)=\delta_{li}\). }
     \begin{subequations}
         \begin{align}
             G&=\{ x\in E\tq e^*_l\big( f^k(x) \big)=0\,\forall k\geq 0 \}\\
@@ -406,7 +410,7 @@ La proposition suivante permet de caractériser le polynôme minimal.
     \begin{equation}
         P(f)a\in G\cap E_a=\{ 0 \},
     \end{equation}
-    c'est à dire que \( P\) est un polynôme annulateur de \( a\). Mais \( P\) est de degré \( l-1\) alors que le polynôme minimal de \( a\) est de degré \( l\). Par conséquent \( P=0\) et \( \lambda_j=0\) pour tout \( j\).
+    c'est-à-dire que \( P\) est un polynôme annulateur de \( a\). Mais \( P\) est de degré \( l-1\) alors que le polynôme minimal de \( a\) est de degré \( l\). Par conséquent \( P=0\) et \( \lambda_j=0\) pour tout \( j\).
 \end{proof}
 
 \begin{definition}  \label{DEFooBOHVooSOopJN}
@@ -430,7 +434,7 @@ La proposition suivante permet de caractériser le polynôme minimal.
     \end{equation}
     Cela est un idéal non réduit à \( \{ 0 \}\) parce que le polynôme minimal de \( f\) par exemple est dans \( I_{u_1}\). Soit \( P_{u_1}\) un générateur unitaire de \( I_{u_1}\). Étant donné que \( \mu_f\in I_{u_1}\), nous avons que \( P_{u_1}\) divise \( \mu_f\) et donc \( P_{u_1}=\mu_f\) parce que \( \mu_f\) est irréductible par hypothèse.
 
-    Soit \( y\in E_{u_1}\cap F\). Par définition il existe \( P\in\eK[X]\) tel que \( y=P(f)u_1\) et si \( y\neq 0\), ce la signifie que \( P\notin I_{u_1}\), c'est à dire que \( P_{u_1} \) ne divise pas \( P\). Étant donné que \( P_{u_1}\) est irréductible cela implique que \( P_{u_1}\) et \( P\) sont premiers entre eux (ils n'ont pas d'autre \( \pgcd\) que \( 1\)).
+    Soit \( y\in E_{u_1}\cap F\). Par définition il existe \( P\in\eK[X]\) tel que \( y=P(f)u_1\) et si \( y\neq 0\), ce la signifie que \( P\notin I_{u_1}\), c'est-à-dire que \( P_{u_1} \) ne divise pas \( P\). Étant donné que \( P_{u_1}\) est irréductible cela implique que \( P_{u_1}\) et \( P\) sont premiers entre eux (ils n'ont pas d'autre \( \pgcd\) que \( 1\)).
 
     Nous utilisons maintenant Bézout (théorème~\ref{ThoBezoutOuGmLB}) qui nous donne \( A,B\in \eK[X]\) tels que
     \begin{equation}
@@ -558,7 +562,7 @@ La proposition suivante permet de caractériser le polynôme minimal.
         \item[Surjectif]
             Soit \( P\in \eK[X]\). L'élément \( P(f) \) de \( \eK[f]\) est dans l'image de \( \psi\) parce que c'est \( \psi(\bar P)\).
     \end{subproof}
-    En ce qui concerne la dimension, le corollaire~\ref{CorsLGiEN} en parle déjà : une base est donné par les projections de \( 1,X,\ldots, X^{\deg(\mu_a)-1}\).
+    En ce qui concerne la dimension, le corolaire~\ref{CorsLGiEN} en parle déjà : une base est donné par les projections de \( 1,X,\ldots, X^{\deg(\mu_a)-1}\).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -624,10 +628,6 @@ La proposition suivante permet de caractériser le polynôme minimal.
 
     \ref{ItemeXHXhHii} \( \Leftrightarrow\)~\ref{ItemeXHXhHiii}. Cela est une application directe du théorème~\ref{ThoNhbrUL} qui précise que le polynôme caractéristique a les mêmes racines dans \(\eK\) que le polynôme minimal.
 \end{proof}
-
-\begin{definition}
-    Si \( \lambda\in\eK\) est une racine de \( \chi_u\), l'ordre de l'annulation est la \defe{multiplicité algébrique}{multiplicité!valeur propre!algébrique} de la valeur propre \( \lambda\) de \( u\). À ne pas confondre avec la \defe{multiplicité géométrique}{multiplicité!valeur propre!géométrique} qui sera la dimension de l'espace propre.
-\end{definition}
 
 \begin{example} \label{ExICOJcFp}
     Sur \( \eR^2\), nous considérons la matrice \( A=\begin{pmatrix}
@@ -735,7 +735,7 @@ Cette histoire de densité permet de donner une démonstration alternative du th
 
 Une démonstration plus simple via la densité des diagonalisables est donnée en théorème~\ref{ThoHZTooWDjTYI}.
 \begin{proof}
-    Nous devons prouver que \( \chi_f(f)x=0\) pour tout \( x\in E\). Pour cela nous nous fixons un \( x\in E\), nous considérons l'espace \( E_{f,x}\) et \( \chi_{f,x}\), le polynôme caractéristique de \( f|_{E_{f,x}}\). Étant donné que \( E_{f,x}\) est stable par \( f\), le polynôme caractéristique de \( f|_{E_{j,x}}\) divise \( \chi_f\), c'est à dire qu'il existe un polynôme \( Q_x\) tel que
+    Nous devons prouver que \( \chi_f(f)x=0\) pour tout \( x\in E\). Pour cela nous nous fixons un \( x\in E\), nous considérons l'espace \( E_{f,x}\) et \( \chi_{f,x}\), le polynôme caractéristique de \( f|_{E_{f,x}}\). Étant donné que \( E_{f,x}\) est stable par \( f\), le polynôme caractéristique de \( f|_{E_{j,x}}\) divise \( \chi_f\), c'est-à-dire qu'il existe un polynôme \( Q_x\) tel que
     \begin{equation}
         \chi_f=Q_x\chi_{f,x},
     \end{equation}
@@ -779,7 +779,7 @@ Une démonstration plus simple via la densité des diagonalisables est donnée e
     \begin{equation}
         1\leq \dim(E_e)\leq l.
     \end{equation}
-    C'est à dire que nous avons au moins un vecteur propre pour chaque racine du polynôme caractéristique.
+    C'est-à-dire que nous avons au moins un vecteur propre pour chaque racine du polynôme caractéristique.
 \end{proposition}
 
 \begin{proof}
@@ -798,5 +798,6 @@ Une démonstration plus simple via la densité des diagonalisables est donnée e
                 &       &       &   *
          \end{pmatrix}
     \end{equation}
-    où les étoiles représentent des blocs a priori non nuls. En tout cas il est vu sous cette forme que \( (X-z\mtu)^k\) divise \( \chi_u\).
+    où les étoiles représentent des blocs à priori non nuls. En tout cas il est vu sous cette forme que \( (X-z\mtu)^k\) divise \( \chi_u\).
 \end{proof}
+

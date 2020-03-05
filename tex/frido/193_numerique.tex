@@ -23,7 +23,7 @@ Soit \( u\colon \eR\to \eR\) une fonction et \( h>0\). Nous définissons les op�
         (D^0_hu)(x)=\frac{ u(x+h)-u(x-h) }{ 2h }.
     \end{equation}
 \end{definition}
-Nous ne noterons pas toujours la dépendance en \( h\), c'est à dire que nous noterons \( D^+u\) au lieu de \( D^+_hu\) lorsque cela ne pose pas de problèmes.
+Nous ne noterons pas toujours la dépendance en \( h\), c'est-à-dire que nous noterons \( D^+u\) au lieu de \( D^+_hu\) lorsque cela ne pose pas de problèmes.
 
 Notons que \( u''\) peut être approximé par \( D^+D^+u\), \( D^0D^+\), \( D^+D^-\), et encore de nombreuses autres possibilités.
 
@@ -149,7 +149,7 @@ et
 \begin{equation}
     \bar\Omega_h=\{ x_i \}_{i=0,\ldots, N+1}.
 \end{equation}
-Enfin, nous ne considérons plus \( u_h\) que comme une fonction \( u_h\colon \bar\Omega_h\to \eR\). C'est à dire que \( u_h\) est un vecteur à \( N+2\) composantes.
+Enfin, nous ne considérons plus \( u_h\) que comme une fonction \( u_h\colon \bar\Omega_h\to \eR\). C'est-à-dire que \( u_h\) est un vecteur à \( N+2\) composantes.
 
 L'équation \eqref{EQooECLXooFxZEeA} devient
 \begin{equation}        \label{EQooZMVMooTqlpkF}
@@ -240,7 +240,7 @@ où nous avions déjà posé l'hypothèse \( c_i\geq 0\) pour tout \( i\).
 
         \item[Irréductible]
 
-            Nous allons utiliser la caractérisation de la proposition~\ref{PROPooZTYDooZAxQxF}\ref{ITEMooVNOHooRUNpwG}. Pour cela nous considérons le chaîne d'éléments non nuls
+            Nous allons utiliser la caractérisation de la proposition~\ref{PROPooZTYDooZAxQxF}\ref{ITEMooVNOHooRUNpwG}. Pour cela nous considérons le chaine d'éléments non nuls
             \begin{equation}
                 A_{12}, A_{23},\ldots, A_{N-1,N}=-\frac{1}{ h^2 }.
             \end{equation}
@@ -361,7 +361,7 @@ Cela étant rappelé, nous pouvons continuer.
     \begin{equation}
         L_h^{-1}\leq (L_h^0)^{-1}.
     \end{equation}
-    Mais nous savons que les coefficients de \( L_h^{-1}\) sont positifs, donc le maximum de ses coefficients en valeur absolue est plus petit que ceux de \( (L_h^0)^{-1}\), c'est à dire
+    Mais nous savons que les coefficients de \( L_h^{-1}\) sont positifs, donc le maximum de ses coefficients en valeur absolue est plus petit que ceux de \( (L_h^0)^{-1}\), c'est-à-dire
     \begin{equation}
         \| L_h^{-1} \|_{\infty}\leq\| (L_h^0)^{-1} \|_{\infty}\leq\frac{1}{ 8 }.
     \end{equation}
@@ -726,14 +726,14 @@ Cela pour dire que le lien entre la solution exacte \( u\) et la solution approc
         \tau_h(x_i)=(L_hu)_i-(Lu)(x_i).
     \end{equation}
 \end{definition}
-Il y a un jeu de notation pas tout à fait évident dans la définition \eqref{EQooPFBBooJumDZO}. En effet, \( L_h\) est une matrice, et ne s'applique donc a priori pas immédiatement à une fonction. Ce que signifie la notation \( (L_hu)_i\) est que l'on applique la matrice \( L_h\) au vecteur \( j\mapsto u(x_j)\) et que l'on prend la composante \( i\) du résultat.
+Il y a un jeu de notation pas tout à fait évident dans la définition \eqref{EQooPFBBooJumDZO}. En effet, \( L_h\) est une matrice, et ne s'applique donc à priori pas immédiatement à une fonction. Ce que signifie la notation \( (L_hu)_i\) est que l'on applique la matrice \( L_h\) au vecteur \( j\mapsto u(x_j)\) et que l'on prend la composante \( i\) du résultat.
 
 \begin{definition}
     Nous disons que le schéma est \defe{consistant}{schéma!consistant} avec l'opérateur différentiel \( L\) lorsque
     \begin{equation}        \label{EQooMPQYooCZsaAT}
         \lim_{h\to 0^+} \| \tau_h \|=0
     \end{equation}
-    où la norme \( \| . \|\) est souvent la norme uniforme, c'est à dire \( \| \tau_h \|=\max_i\tau_h(x_i)\).
+    où la norme \( \| . \|\) est souvent la norme uniforme, c'est-à-dire \( \| \tau_h \|=\max_i\tau_h(x_i)\).
 \end{definition}
 
 Notons que le lien entre \( h\) et le choix des \( x_i\) fait partie de la définition des schéma. Sur un segment de longueur \( L\), lorsque \( h\) n'est pas un diviseur de \( L\), le schéma devrait expliquer ce que l'on fait pour que la limite \eqref{EQooMPQYooCZsaAT} ait un sens.
@@ -810,7 +810,7 @@ où \( c\) est une fonction. Nous considérons sur \( \Omega=\mathopen] 0 , 1 \m
 \begin{equation}
     Lu=0.
 \end{equation}
-En ce qui concerne la discrétisation, nous définissons le maillage \( \Omega_h=\{x_i=ih\}\) avec \( i=0,\ldots, N+1\). La solution approchée discrètement sera le vecteur \( v\) qui peut être vu comme fonction \( v\colon \Omega_h\to \eR\). Les nombres \( v_0\) et \( v_{N+1}\) sont a priori donnés par les conditions aux bords. Pour les autres \( v_i\) nous avons les équations
+En ce qui concerne la discrétisation, nous définissons le maillage \( \Omega_h=\{x_i=ih\}\) avec \( i=0,\ldots, N+1\). La solution approchée discrètement sera le vecteur \( v\) qui peut être vu comme fonction \( v\colon \Omega_h\to \eR\). Les nombres \( v_0\) et \( v_{N+1}\) sont à priori donnés par les conditions aux bords. Pour les autres \( v_i\) nous avons les équations
 \begin{equation}
     (L_hv)_i=-\frac{ v_{i+1}-2v_i+v_{i-1} }{ h^2 }+c(x_i)v_i.
 \end{equation}
@@ -1017,7 +1017,7 @@ ainsi que le laplacien en carré \eqref{EQooLHBDooSBFkho}
 \end{subequations}
 qui vérifie également \( \Delta_h'f=\Delta f+Kh^2\).
 
-A priori toutes combinaisons de la forme
+À priori toutes combinaisons de la forme
 \begin{equation}
     a\Delta_h+b\Delta_h'
 \end{equation}
@@ -1062,7 +1062,7 @@ Commençons par calculer \( h^2(\Delta_hf)(x,y)\).
         \end{equation}
         à calculer.
 \end{description}
-Cela fait beaucoup de termes à calculer. Je vois laisse vous persuader que le programme suivant en Sage nous donne les coefficients.
+Cela fait beaucoup de termes à calculer. Je vous laisse vous persuader que le programme suivant en Sage nous donne les coefficients.
 \lstinputlisting{tex/sage/coefs.sage}
 
 Le résultat est que, en utilisant la formule
@@ -1078,7 +1078,7 @@ nous avons
     &=\Delta f+\frac{ h^2 }{ 12 }\Delta\Delta f-\frac{ h^2 }{ 6 }\partial^4_{xxyy}f+Kh^4
     \end{align}
 \end{subequations}
-où \( K\) est une constante qui peut être majorée en terme des dérivées quatrièmes de \( f\). En particulier la plus grande des normes supremum de ces dérivées.
+où \( K\) est une constante qui peut être majorée en termes des dérivées quatrièmes de \( f\). En particulier la plus grande des normes supremum de ces dérivées.
 
 Le même genre de calculs donnent
 \begin{equation}

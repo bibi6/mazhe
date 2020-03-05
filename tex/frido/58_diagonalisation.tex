@@ -322,7 +322,7 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{
     \end{equation}
     Mais \( \ker(u-\lambda_i)\) est l'espace propre \( E_{\lambda_i}(u)\). Donc \( u\) est diagonalisable.
 
-\item[\ref{ItemThoDigLEQEXRiv} implique~\ref{ItemThoDigLEQEXRiii}] Soit \( \{ e_1,\ldots, e_n \}\) une base qui diagonalise \( u\), soit \( F\) un sous-espace de \( E\) un \( \{ f_1,\ldots, f_r \}\) une base de \( F\). Par le théorème~\ref{ThoBaseIncompjblieG} (qui généralise le théorème de la base incomplète), nous pouvons compléter la base de \( F\) par des éléments de la base \( \{ e_i \}\). Le complément ainsi construit est invariant par \( u\).
+\item[\ref{ItemThoDigLEQEXRiv} implique~\ref{ItemThoDigLEQEXRiii}] Soit \( \{ e_1,\ldots, e_n \}\) une base qui diagonalise \( u\), soit \( F\) un sous-espace de \( E\), et \( \{ f_1,\ldots, f_r \}\) une base de \( F\). Par le théorème~\ref{ThoBaseIncompjblieG} (qui généralise le théorème de la base incomplète) (ou aussi \ref{ThoMGQZooIgrXjy}\ref{ITEMooCJQGooXwjsfm}), nous pouvons compléter la base de \( F\) par des éléments de la base \( \{ e_i \}\). Le complément ainsi construit est invariant par \( u\).
 
 \item[\ref{ItemThoDigLEQEXRiii} implique~\ref{ItemThoDigLEQEXRiv}] En dimension un, tout endomorphisme est diagonalisable, nous supposons donc que \( \dim E=n\geq 2\). Nous procédons par récurrence sur le nombre de vecteurs propres connus de \( u\). Supposons avoir déjà trouvé \( p\) vecteurs propres \( e_1,\ldots, e_p\) de \( u\). Considérons \( H\), un hyperplan qui contient les vecteurs \( e_1,\ldots, e_p\). Soit \( F\) un supplémentaire de \( H\) stable par \( u\); par construction \( \dim F=1\) et si \( e_{p+1}\in F\), il doit être vecteur propre de \( u\).
 
@@ -608,7 +608,7 @@ i
 \end{remark}
 
 \begin{remark}  \label{RemREOSooGEDJWX}
-    Cela nous donne une autre façon de prouver qu'une matrice nilpotente de \( \eM(n,\eC)\) ou \( \eM(n,\eR)\) est trigonalisable\cite{KDUFooVxwqlC}. D'abord dans \( \eM(n,\eC)\), toutes les matrices sont trigonalisables\footnote{Parce que le polynôme caractéristique est scindé, voir la proposition~\ref{PropKNVFooQflQsJ}..}, et les valeurs propres arrivent sur la diagonale. Mais comme les valeurs propres d'une matrice nilpotente sont zéro, elle est triangulaire stricte. Par ailleurs son polynôme caractéristique est alors \( X^n\).
+    Cela nous donne une autre façon de prouver qu'une matrice nilpotente de \( \eM(n,\eC)\) ou \( \eM(n,\eR)\) est trigonalisable\cite{KDUFooVxwqlC}. D'abord dans \( \eM(n,\eC)\), toutes les matrices sont trigonalisables\footnote{Parce que le polynôme caractéristique est scindé, voir la proposition~\ref{PropKNVFooQflQsJ}.}, et les valeurs propres arrivent sur la diagonale. Mais comme les valeurs propres d'une matrice nilpotente sont zéro, elle est triangulaire stricte. Par ailleurs son polynôme caractéristique est alors \( X^n\).
 
     Ensuite si \( u\in \eM(n,\eR)\) nous pouvons voir \( u\) comme une matrice dans \( \eM(n,\eC)\) et y calculer son polynôme caractéristique qui sera tout de même \( X^n\). Ce polynôme étant scindé, la proposition~\ref{PropKNVFooQflQsJ} nous assure que \( u\) est trigonalisable. Une fois de plus, les valeurs propres étant sur la diagonale, elle est triangulaire supérieure stricte.
 \end{remark}
@@ -697,6 +697,8 @@ i
 \begin{definition}  \label{DefWQNooKEeJzv}
     Un endomorphisme est \defe{normal}{normal!endomorphisme}\index{matrice!normale} s'il commute avec son adjoint.
 \end{definition}
+
+Les opérateurs normaux comprennent évidemment les opérateurs hermitiens, mais également les anti-hermitiens, et ça c'est bien parce que c'est le cas de l'algèbre associée à \( \SU(2)\).
 
 \begin{theorem}[Théorème spectral pour les matrices normales\footnote{Définition~\ref{DefWQNooKEeJzv}}\cite{LecLinAlgAllen,OMzxpxE,HOQzXCw}]\index{théorème!spectral!matrices normales}  \index{diagonalisation!cas complexe}  \label{ThogammwA}
     Soit \( A\in\eM(n,\eC)\) une matrice de valeurs propres \( \lambda_1,\ldots, \lambda_n\) (non spécialement distinctes). Alors les conditions suivantes sont équivalentes :
@@ -792,7 +794,7 @@ Tant que nous en sommes à parler de spectre de matrices hermitiennes\ldots Soit
     \begin{equation}
         Au+iAv=A(u+iv)=(\alpha+i\beta)(u+iv)=\alpha u-\beta v+i(\alpha v+\beta v),
     \end{equation}
-    et en égalisant les parties réelles et imaginaires,
+    et en égalant les parties réelles et imaginaires,
     \begin{subequations}
         \begin{align}
             Au&=\alpha u-\beta v\\
@@ -898,7 +900,7 @@ Le théorème spectral pour les opérateurs auto-adjoints sera traité plus bas 
     Nous voyons donc que si nous changeons les signes de \( a\), \( b\) et \( c\) en même temps, le résultat ne change pas.
 \end{remark}
 
-\begin{definition}[Matrice définie positive, opérateur définit positif]    \label{DefAWAooCMPuVM}
+\begin{definition}[Matrice définie positive, opérateur défini positif]    \label{DefAWAooCMPuVM}
     Un opérateur sur un espace vectoriel sur \( \eC\) ou \( \eR\) est \defe{définit positif}{opérateur!définit positif} si toutes ses valeurs propres sont réelles et strictement positives.  Il est \defe{semi-définie positive}{semi-définie positive} si ses valeurs propres sont réelles positives ou nulles.
 \end{definition}
 Afin d'éviter l'une ou l'autre confusion, nous disons souvent \emph{strictement} définie positive pour positive.
@@ -992,7 +994,7 @@ Tout à l'autre bout du spectre des personnes névrosées des notations, on trou
 \begin{equation}
     M(x\otimes x)\geq x\cdot x.
 \end{equation}
-Le penchant personnel de l'auteur de ces lignes est la notation avec le produit tensoriel. Si vous aimez ça, vous pouvez lire~\ref{SeOOpHsn}.
+Le penchant personnel de l'auteur de ces lignes est la notation avec le produit tensoriel. Si vous aimez ça, vous pouvez lire la section \ref{SECooUKRYooZjagcX} et en particulier ce qui suit \eqref{EQooUNRYooKBrXyK}, et aussi~\cite{SeOOpHsn}.
 
 La notation adoptée ici avec le produit scalaire \( \langle x, Mx\rangle \) est entre les deux. Elle a l'avantage de n'être pas technologique comme le produit tensoriel (si vous y mettez les pieds, vous devez savoir ce que vous faites), tout en évitant de se casser la tête à savoir qui est un vecteur ligne ou un vecteur colonne.
 

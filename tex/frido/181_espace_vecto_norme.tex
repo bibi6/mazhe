@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2008-2018
+% Copyright (c) 2008-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -13,144 +13,6 @@ On fixe maintenant une définition largement utilisée dans la suite.
 \begin{remark}
 	Il n'est pas possible d'avoir une application inversible d'un ouvert de $\eR^m$ vers un ouvert de $\eR^n$ si $m\neq n$. Il n'y a donc pas de notion de difféomorphismes entre ouverts de dimensions différentes.
 \end{remark}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Équivalence des normes}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{normes_equiv}
-
-Au premier coup d'œil, les notions dont nous parlons dans ce chapitre ont l'air très générales. Nous prenons en effet n'importe quel espace vectoriel $V$ de dimension finie, et nous le munissons de n'importe quelle norme (rien que dans $\eR^m$ nous en avons défini une infinité par l'équation \eqref{EqDeformeLp}). À partir de ces données, nous définissons les boules, la topologie, l'adhérence, etc.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{En dimension finie}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Dans $\eR^n$, les normes $\| . \|_{L^1}$, $\| . \|_{L^2}$ et $\| . \|_{\infty}$ ne sont pas égales. Cependant elles ne sont pas complètement indépendantes au sens où l'on sent bien que si un vecteur sera grand pour une norme, il sera également grand pour les autres normes; les normes «vont dans le même sens». Cette notion est précisée par le concept de norme équivalente.
-
-\begin{definition}		\label{DefEquivNorm}
-    Deux normes $N_1$ et $N_2$ sur $\eR^m$ sont \defe{\wikipedia{fr}{Norme_équivalente}{équivalentes}}{equivalence@équivalence!norme}\index{norme!équivalence}\index{équivalence!de norme} s'il existe deux nombres réels strictement positifs $k_1$ et $k_2$ tels que
-	\begin{equation}
-		k_1N_1(x)\leq N_2(x)\leq k_2 N_1(x),
-	\end{equation}
-	pour tout $x$ dans $\eR^m$. Dans ce cas nous écrivons que $N_1\sim N_2$.
-\end{definition}
-Il est possible de démontrer que cette notion est une relation d'équivalence (définition~\ref{DefHoJzMp}) sur l'ensemble des normes existantes sur $\eR^m$.
-
-\begin{proposition} \label{PropLJEJooMOWPNi}
-    Pour \( \eR^N\), nous avons les équivalences de normes $\| . \|_{L^1}\sim\| . \|_{L^2}$, $\| . \|_{L^1}\sim\| . \|_{\infty}$ et $\| . \|_{L^2}\sim\| . \|_{\infty}$. Plus précisément nous avons les inégalités
-    \begin{enumerate}
-        \item\label{ItemABSGooQODmLNi}
-           $ \| x \|_2\leq \| x \|_1\leq\sqrt{n}\| x \|_2$
-        \item\label{ItemABSGooQODmLNii}
-            $\| x \|_{\infty}\leq \| x \|_1\leq n \| x \|_{\infty}$
-        \item\label{ItemABSGooQODmLNiii}
-            $\| x \|_{\infty}\leq \| x \|_2\leq \sqrt{n}\| x \|_{\infty}$
-    \end{enumerate}
-\end{proposition}
-
-
-\begin{proof}
-    En mettant au carré la première inégalité nous voyons que nous devons vérifier l'inégalité
-    \begin{equation}
-        | x_1 |^2+\cdots+| x_n |^2\leq\big( | x_1 |+\cdots+| x_n | \big)^2
-    \end{equation}
-    qui est vraie parce que le membre de droite est égal au carré de chaque terme plus les double produits. La seconde inégalité provient de l'inégalité de Cauchy-Schwarz (théorème~\ref{ThoAYfEHG}) sur les vecteurs
-    \begin{equation}
-        \begin{aligned}[]
-            v&=\begin{pmatrix}
-                1/n    \\
-                \vdots    \\
-                1/n
-            \end{pmatrix},
-            &w&=\begin{pmatrix}
-                | x_1 |    \\
-                \vdots    \\
-                | x_n |
-            \end{pmatrix}.
-        \end{aligned}
-    \end{equation}
-    Nous trouvons
-    \begin{equation}
-        \frac{1}{ n }\sum_i| x_i |\leq\sqrt{n\cdot\frac{1}{ n^2 }}\sqrt{\sum_i| x_i |^2},
-    \end{equation}
-    et par conséquent
-    \begin{equation}
-        \sum_i| x_i |\leq\sqrt{n}\| x \|_2.
-    \end{equation}
-
-    La première inégalité de~\ref{ItemABSGooQODmLNiii} se démontre en remarquant que si \( a\) et \( b\) sont positifs, \( a\leq\sqrt{a^2+b}\). En appliquant cela à \( a=\max_i| x_i |\), nous avons
-    \begin{equation}
-        \max_i| x_i |\leq\sqrt{ | x_1 |^2+\cdots+| x_n |^2  }
-    \end{equation}
-    parce que \( \max_i| x_i |\) est évidemment un des termes de la somme. Pour la seconde inégalité de~\ref{ItemABSGooQODmLNiii}, nous avons
-    \begin{equation}
-        \sqrt{\sum_k| x_k |^2}\leq\left( \sum_k\max_i| x_i |^2 \right)^{1/2}=\sqrt{n}\| x \|_{\infty}.
-    \end{equation}
-    Pour obtenir cette inégalité, nous avons remplacé tous les termes \( | x_k |\) par le maximum.
-\end{proof}
-
-En réalité, toutes les normes \( \| . \|_{L^p}\) et \( \| . \|_{\infty}\) sont équivalentes et, plus généralement, nous avons le résultat suivant, très étonnant à première vue, et en réalité assez difficile à prouver :
-\begin{theorem}[\cite{TrenchRealAnalisys}]		\label{ThoNormesEquiv}
-	Sur un espace vectoriel de dimension finie, toutes les normes (pas seulement les normes $L^p$ que nous avons définies sur $\eR^m$) sont équivalentes.
-\end{theorem}
-% TODO : la preuve est à la page 583 de Trench.
-
-\begin{corollary}       \label{CORooBRDYooLmGJDE}
-    Soit \( V\) un espace vectoriel de dimension finie et \( \| . \|_1\), \( \| . \|_2\) deux normes sur \( V\). Alors l'identité \( \id\colon V\to V\) est un isomorphisme d'espace topologique \( (V,\| . \|_1)\to (V,\| . \|_2)\).
-
-    De plus les ouverts sont les mêmes : une partie de \( V\) est ouverte dans \( (V,\| . \|_1)\) si et seulement si elle est ouverte dans \( (V,\| . \|_2)\).
-\end{corollary}
-
-\begin{normaltext}
-    L'exemple~\ref{EXooCAPYooMgOSyH} donne une norme sur \( \eR^2\) qui ne dérive pas d'un produit scalaire. Vu que toutes les normes sur \( \eR^2\) produisent la même topologie (c'est le corollaire~\ref{CORooBRDYooLmGJDE}), il y a parfaitement moyen pour deux espaces vectoriels topologiques d'être isomorphes alors que l'un a une norme dérivant d'un produit scalaire et l'autre non.
-\end{normaltext}
-
-Le théorème d'équivalence de norme sera utilisé pour montrer que l'ensemble des formes quadratiques non dégénérées de signature \( (p,q)\) est ouvert dans l'ensemble des formes quadratiques, proposition~\ref{PropNPbnsMd}. Plus généralement il est utilisé à chaque fois que l'on fait de la topologie sur les espaces de matrices en identifiant \( \eM(n,\eR)\) à \( \eR^{n^2}\), pour se rassurer en se disant que ce qu'on fait ne dépend pas de la norme choisie.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Contre-exemple en dimension infinie}
-%---------------------------------------------------------------------------------------------------------------------------
-\label{SubSecPOlynomesCE}
-
-Lorsque nous considérons des espaces vectoriels de dimension infinie, les choses ne sons plus aussi simples. Nous voyons ici sur l'exemple de l'espace des polynômes que le théorème~\ref{ThoNormesEquiv} n'est plus valable si on enlève l'hypothèse de dimension finie.
-
-On considère l'ensemble des fonctions polynomiales à coefficients réels sur  l'intervalle $[0,1]$.
-\begin{equation}
-\mathcal{P}_\eR([0,1])=\{p:[0,1]\to \eR\,|\, p : x\mapsto a_0+a_1 x +a_2 x^2 + \ldots, \, a_i\in\eR,\,\forall i\in \eN\}.
-\end{equation}
-Cet ensemble, muni des opérations usuelles de somme entre polynômes et multiplications par les scalaires, est un espace vectoriel.
-
-Sur $\mathcal{P}(\eR)$ on définit les normes suivantes
-\begin{equation}
-\begin{aligned}
-&\|p\|_\infty=\sup_{x\in[0,1]}\{p(x)\},\\
-&\|p\|_1 =\int_0^1|p(x)|\, dx,\\
-&\|p\|_2 =\left(\int_0^1|p(x)|^2\, dx\right)^{1/2}.\\
-\end{aligned}
-\end{equation}
-Les inégalités suivantes sont  immédiates
-\begin{equation}
-\begin{aligned}
-&\|p\|_1 =\int_0^1|p(x)|\, dx\leq \|p\|_\infty,\\
-&\|p\|_2 =\left(\int_0^1|p(x)|^2\, dx\right)^{1/2}\leq \|p\|_\infty,\\
-\end{aligned}
-\end{equation}
-mais la norme $\|\cdot\|_\infty$ n'est  équivalente ni à $\|\cdot\|_1$, ni à $\|\cdot\|_2$. Soit $p_k(x)= x^k$. Alors
-\begin{equation}
-\begin{aligned}
-&\|p_k\|_\infty=1,\\
-&\|p_k\|_1 =\int_0^1x^k\, dx=  \frac{1}{k+1},\\
-&\|p_k\|_2 =\left(\int_0^1x^{2k}\, dx\right)^{1/2}=\sqrt{\frac{1}{2k+1}}.
-\end{aligned}
-\end{equation}
-Pour $k\to \infty$ les normes $\|p_k\|_1$, $\|p_k\|_2$ tendent vers zéro, alors que la norme $\|p_k\|_\infty$ est constante, donc les normes ne sont pas équivalentes parce que il n'existe pas un nombre positif $m$ tel que
-\begin{equation}
-\begin{aligned}
-& m \|p_k\|_\infty\leq \|p_k\|_1 ,\\
-& m \|p_k\|_\infty\leq \|p_k\|_2 ,\\
-\end{aligned}
-\end{equation}
-uniformément pour tout $k$ dans $\eN$.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Norme opérateur}
@@ -182,7 +44,7 @@ La proposition suivante donne une norme (au sens de la définition~\ref{DefNorme
     \begin{equation}
         x\mapsto \frac{ \| T(x) \| }{ \| x \| }
     \end{equation}
-    est une fonction continue sur un compact. Le corollaire~\ref{CorFnContinueCompactBorne} nous dit alors qu'elle est bornée. Le supremum est donc un nombre réel fini.
+    est une fonction continue sur un compact. Le corolaire~\ref{CorFnContinueCompactBorne} nous dit alors qu'elle est bornée. Le supremum est donc un nombre réel fini.
 
     Nous vérifions que l'application $\| . \|$ de $\aL(V,W)$ dans $\eR$ ainsi définie est effectivement une norme.
     \begin{enumerate}
@@ -211,7 +73,7 @@ La proposition suivante donne une norme (au sens de la définition~\ref{DefNorme
     \end{equation}
     Attention : ce sont des sous-ensembles de réels; pas de sous-ensembles de \( \eM(\eR)\) ou des sous-ensembles de \( \eR^n\).
 
-    Pour la première inclusion, prenons un élément de \( A\), et prouvons qu'il est dans \( B\). C'est à dire que nous prenons \( x\in V\) et nous considérons le nombre \( \| Ax \|/\| x \|\). Le vecteur \( y=x/\| x \|\) est un vecteur de norme $1$, donc la norme de \( Ay\) est un élément de \( B\), mais
+    Pour la première inclusion, prenons un élément de \( A\), et prouvons qu'il est dans \( B\). C'est-à-dire que nous prenons \( x\in V\) et nous considérons le nombre \( \| Ax \|/\| x \|\). Le vecteur \( y=x/\| x \|\) est un vecteur de norme $1$, donc la norme de \( Ay\) est un élément de \( B\), mais
     \begin{equation}
         \| Ay \|=\frac{ \| Ax \| }{ \| x \| }.
     \end{equation}
@@ -242,7 +104,7 @@ Il existe aussi la \defe{topologie faible}{topologie!faible} donnée par la noti
     %TODO : il faut mettre au clair quelle est vraiment la topologie faible à partir des ouverts.
 
 \begin{probleme}
-    Je crois, mais demande confirmation, que la topologie faible est celle des semi-normes \( \{ p_v \}_{v\in E}\) données par \( p_v(A)=\| A \|\). En effet la notion de convergence associée par la proposition~\ref{PropQPzGKVk} est \( A_i\to A\) si et seulement si \( p_v(A_i-A)\to 0\). Cette condition signifie \( \| A_i(v)-A(v) \|\to 0\), c'est à dire \( A_i(v)\to A(v)\).
+    Je crois, mais demande confirmation, que la topologie faible est celle des semi-normes \( \{ p_v \}_{v\in E}\) données par \( p_v(A)=\| A \|\). En effet la notion de convergence associée par la proposition~\ref{PropQPzGKVk} est \( A_i\to A\) si et seulement si \( p_v(A_i-A)\to 0\). Cette condition signifie \( \| A_i(v)-A(v) \|\to 0\), c'est-à-dire \( A_i(v)\to A(v)\).
 
     Si le lecteur veut parler de cela au jury d'un concours, il est évident qu'il devra être capable d'ajouter des petits symboles au-dessus de toutes les flèches «\( \to\)» du paragraphe précédent pour indiquer pour quelles topologies sont les convergences dont on parle.
 \end{probleme}
@@ -267,6 +129,8 @@ Il existe aussi la \defe{topologie faible}{topologie!faible} donnée par la noti
         \| xy \|\leq \| x \|\| y \|.
     \end{equation}
 \end{definition}
+La norme opérateur est une norme d'algèbre, comme nous le verrons dans le lemme \ref{LEMooFITMooBBBWGI}.
+
 Un des intérêts d'utiliser une norme d'algèbre est que l'on a l'inégalité \( \| x^k \|\leq \| x \|^k \). Cela sera particulièrement utile lors de l'étude des séries entières, voir par exemple~\ref{secEVnZXgf}.
 
 \begin{definition}[\cite{ooYLHAooCzQvoa}]      \label{DEFooEAUKooSsjqaL}
@@ -305,6 +169,42 @@ Un des intérêts d'utiliser une norme d'algèbre est que l'on a l'inégalité \
     donc le résultat annoncé : \( \| Au \|\leq \| A \|\| u \|\).
 \end{proof}
 
+Le lemme suivant est valable en dimension infinie. Nous en toucherons un mot dans l'exemple \ref{EXooTQPEooRRdddt}.
+\begin{lemma}       \label{LEMooWFNXooLyTyyX}
+    Soient des espaces vectoriels normés \( E\) et \( F\). Soit \( x\in E\). Alors l'application d'évaluation
+    \begin{equation}
+        \begin{aligned}
+            ev_x\colon \aL(E,F)&\to F \\
+            f&\mapsto f(x) 
+        \end{aligned}
+    \end{equation}
+    est continue.
+\end{lemma}
+
+\begin{proof}
+    Si \( x=0\), alors par linéarité de \( f\) nous avons \( ev_0(f)=0\) pour tout \( f\). Donc d'accord pour la continuité.
+
+    Soit une suite convergente \( f_k\stackrel{\aL(E,F)}{\longrightarrow}f\). Nous voulons prouver que \( ev_x(f_k)\stackrel{F}{\longrightarrow}ev_x(f)\), c'est-à-dire que
+    \begin{equation}
+        \lim_{k\to \infty} \| f_k(x)-f(x) \|=0.
+    \end{equation}
+    Par hypothèse si \( k\) est grand, alors \( \| f_k-f  \|_{\aL(E,F)}\leq \epsilon\), c'est-à-dire que\footnote{Définition \ref{DefNFYUooBZCPTr} de la norme sur \( \aL(E,F)\).}
+    \begin{equation}
+        \sup_{y\in E}\frac{ \| f_k(y)-f(y) \| }{ \| y \| }\leq \epsilon.
+    \end{equation}
+    En particulier pour notre \( x\) nous avons
+    \begin{equation}
+        \frac{ \| f_k(x)-f(x) \| }{ \| x \| }\leq \epsilon,
+    \end{equation}
+    c'est-à-dire \( \| f_k(x)-f(x) \|\leq \| x \|\epsilon\). Vu que \( \| x \|\) est une simple constante et que \( \epsilon\) est arbitraire, cela implique \( f_k(x)\to f(x)\).
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Matrices, spectre et norme}
+%---------------------------------------------------------------------------------------------------------------------------
+
+La lien entre la norme opérateur d'une matrice et son spectre sera entre autres utilisé pour étudier le conditionnement de problèmes numériques. Voir la définition \ref{DEFooBKQWooJuoCGX} et par exemple son lien avec la résolution numérique de systèmes linéaires dans la proposition \ref{PROPooGIXFooAhJkIs}.
+
 \begin{proposition}[\cite{ooYLHAooCzQvoa}]      \label{PROPooKLFKooSVnDzr}
     Soit une matrice \( A\in \eM(n,\eC)\) de rayon spectral \( \rho(A)\). Soit une norme \( \| . \|\) sur \( \eC^n\) et la norme opérateur correspondante. Alors
     \begin{equation}
@@ -329,6 +229,7 @@ Un des intérêts d'utiliser une norme d'algèbre est que l'on a l'inégalité \
     \begin{equation}
         \| AB \|\leq \| A \|\| B \|.
     \end{equation}
+    C'est à dire que la norme opérateur est une norme d'algèbre\footnote{Définition \ref{DefJWRWQue}.}.
 \end{lemma}
 
 \begin{proof}
@@ -345,6 +246,36 @@ Un des intérêts d'utiliser une norme d'algèbre est que l'on a l'inégalité \
     \end{subequations}
     La dernière inégalité provient que dans \( \sup_{\substack{x\in E\\Bx\neq 0}}\| ABx \|/\| x \|\), le supremum est pris sur un ensemble plus petit que celui sur lequel porte la définition de la norme de \( A\) : seulement l'image de \( B\) au lieu de tout l'espace de départ de \( A\).
 \end{proof}
+
+
+
+\begin{proposition}     \label{PROPooJGNFooEwtNmJ}
+    Soient deux espaces vectoriels normés \( E\) et \( V\). Soient des applications continues \( f,g\colon E\to \End(V)\). Alors l'application
+    \begin{equation}
+        \begin{aligned}
+            \psi\colon E&\to \End(V) \\
+            x&\mapsto f(x)\circ g(x) 
+        \end{aligned}
+    \end{equation}
+    est continue.
+\end{proposition}
+
+\begin{proof}
+    Soit une suite \( x_k\stackrel{E}{\longrightarrow}x\). Nous devons montrer que \( \psi(x_k)\stackrel{\End(V)}{\longrightarrow}\psi(x)\). Pour cela nous utilisons le lemme \ref{LEMooFITMooBBBWGI} qui indique que la norme opérateur est une norme d'algèbre. Nous avons :
+    \begin{subequations}
+        \begin{align}
+            \| \psi(x_k)-\psi(x) \|&=\| f(x_k)\circ g(x_k)-f(x)\circ g(x) \|\\
+            &\leq \| f(x_k)\circ g(x_k)-f(x_k)\circ g(x) \|+\| f(x_k)\circ g(x)-f(x)\circ g(x) \|\\
+            &=\| f(x_k)\circ \big( g(x_k)\circ g(x) \big) \|+\| \big(f(x_k)-f(x)\big)\circ g(x) \|\\
+            &\leq \| f(x_k) \|\| g(x_k)-g(x) \|+\| f(x_k)-f(x) \|\| g(x) \|.
+        \end{align}
+    \end{subequations}
+    Pour \( k\to \infty\) nous avons \( \| f(x_k)\to \| f(x) \| \|\), \( \| f(x_k)-f(x) \|\to 0\) (parce que \( f\) est continue) et similaire avec \( g\). Donc le tout tend vers zéro.
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Rayon spectral}
+%---------------------------------------------------------------------------------------------------------------------------
 
 La chose impressionnante dans la proposition suivante est que \( \rho(A)\) est définit indépendamment du choix de la norme sur \( \eM(n,\eK)\) ou sur \( \eK\). Lorsque nous écrivons \( \| A \|\), nous disons implicitement qu'une norme a été choisie sur \( \eK\) et que nous avons pris la norme subordonnée sur \( \eM(n,\eK)\).
 \begin{proposition}[\cite{ooETMNooSrtWet}]      \label{PROPooWZJBooTPLSZp}
@@ -367,7 +298,7 @@ La chose impressionnante dans la proposition suivante est que \( \rho(A)\) est d
 
         \item[Pour \( A\in \eM(n,\eR)\)]
 
-            L'endroit qui coince dans le raisonnement fait pour \( \eM(n,\eC)\) est que certes \( A\in \eM(n,\eR)\) possède une plus grande valeur propre en module et qu'un vecteur propre lui est associé. Mais ce vecteur propre est a priori dans \( \eC^n\), et non dans \( \eR^n\). Nous pouvons donc écrire \( Au=\lambda u\), mais pas \( \| Au \|=| \lambda |\| u \|\) parce que nous ne savons pas quelle norme prendre sur \( \eC^n\).
+            L'endroit qui coince dans le raisonnement fait pour \( \eM(n,\eC)\) est que certes \( A\in \eM(n,\eR)\) possède une plus grande valeur propre en module et qu'un vecteur propre lui est associé. Mais ce vecteur propre est à priori dans \( \eC^n\), et non dans \( \eR^n\). Nous pouvons donc écrire \( Au=\lambda u\), mais pas \( \| Au \|=| \lambda |\| u \|\) parce que nous ne savons pas quelle norme prendre sur \( \eC^n\).
 
             Il n'est pas certain que nous ayons une norme sur \( \eC^n\) qui se réduit sur \( \eR^n\) à celle choisie implicitement dans l'énoncé. Nous allons donc ruser un peu.
 
@@ -398,7 +329,7 @@ La chose impressionnante dans la proposition suivante est que \( \rho(A)\) est d
 \end{lemma}
 
 \begin{proof}
-    Soit par le lemme~\ref{LemSchurComplHAftTq} une matrice inversible \( U\) telle que \( T=UAU^{-1}\) soit triangulaire supérieure, avec les valeurs propres sur la diagonale. Notons que même si \( A\in \eM(n,\eR)\), les matrices \( U\) et \( T\) sont a priori complexes.
+    Soit par le lemme~\ref{LemSchurComplHAftTq} une matrice inversible \( U\) telle que \( T=UAU^{-1}\) soit triangulaire supérieure, avec les valeurs propres sur la diagonale. Notons que même si \( A\in \eM(n,\eR)\), les matrices \( U\) et \( T\) sont à priori complexes.
 
     Soit \( s\in \eR\) ainsi que les matrices
     \begin{equation}
@@ -440,7 +371,7 @@ La chose impressionnante dans la proposition suivante est que \( \rho(A)\) est d
     \begin{equation}
         N(T_s)\leq\max_i\sum_k| (T_s)_{ik} |\leq \epsilon+\rho(A).
     \end{equation}
-    En effet le \( \epsilon\) vient de la somme sur toute la ligne sauf la diagonale (c'est à dire la partie \( k\neq i\)) et du choix \eqref{EQooSIEIooTWAXQD} pour \( s\). Le \( \rho(A)\) provient du dernier terme de la somme (le terme sur la diagonale) qui est une valeur propre de \( A\), donc majorable par \( \rho(A)\).
+    En effet le \( \epsilon\) vient de la somme sur toute la ligne sauf la diagonale (c'est-à-dire la partie \( k\neq i\)) et du choix \eqref{EQooSIEIooTWAXQD} pour \( s\). Le \( \rho(A)\) provient du dernier terme de la somme (le terme sur la diagonale) qui est une valeur propre de \( A\), donc majorable par \( \rho(A)\).
 
     Nous devons encore prouver que \( N\) est une norme algébrique. Pour cela nous allons montrer qu'elle est subordonnée à la norme
     \begin{equation}
@@ -464,7 +395,7 @@ La chose impressionnante dans la proposition suivante est que \( \rho(A)\) est d
 \end{proposition}
 
 \begin{proof}
-    La matrice \( A\) peut être vue dans \( \eM(n,\eC)\) et nous pouvons lui appliquer le corollaire~\ref{CORooTPDHooXazTuZ} :
+    La matrice \( A\) peut être vue dans \( \eM(n,\eC)\) et nous pouvons lui appliquer le corolaire~\ref{CORooTPDHooXazTuZ} :
     \begin{equation}        \label{EQooJJIYooDBacjn}
         \Spec(A^k)=\{ \lambda^k\tq \lambda\in\Spec(A) \}.
     \end{equation}
@@ -512,81 +443,47 @@ La chose impressionnante dans la proposition suivante est que \( \rho(A)\) est d
 
 Le point important de la définition~\ref{DEFooTLQUooJvknvi} est la continuité. En dimension infine, la continuité n'est par exemple pas équivalente à l'inversibilité (penser à \( e_k\mapsto ke_k\)).
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Application linéaire continue et bornée}
-%---------------------------------------------------------------------------------------------------------------------------
+Si \( V\) est un espace vectoriel normé, nous avons déjà défini son dual topologique \( V'\) comme étant l'ensemble des applications linéaires continues \( V\to \eC\) ou \( V\to \eR\) selon le corps de base de \( V\). C'est la définition \ref{DefJPGSHpn}.
 
-Nous avons vu dans la proposition~\ref{PROPooQZYVooYJVlBd} que pour une application linéaire, être bornée est équivalent à être continue. Nous allons maintenant voir un certain nombre d'exemples illustrant ce fait.
-
-\begin{example}[Une application linéaire non continue]  \label{ExHKsIelG}
-    Soit \( V\) l'espace vectoriel normé des suites \emph{finies} de réels muni de la norme usuelle $\| c \|=\sqrt{\sum_{i=0}^{\infty}| c_i |^2}$ où la somme est finie. Nous nommons \( \{ e_k \}_{k\in \eN}\) la base usuelle de cet espace, et nous considérons l'opérateur \( f\colon V\to V\) donnée par \( f(e_k)=ke_k\). C'est évidemment linéaire, mais ce n'est pas continu en zéro. En effet la suite \( u_k=e_k/k\) converge vers \( 0\) alors que \( f(u_k)=e_k\) ne converge pas.
-\end{example}
-
-Cet exemple aurait pu également être donnée dans un espace de Hilbert, mais il aurait fallu parler de domaine.
-%TODO : le faire, et regarder si Hilbet n'est pas la complétion de cet espace. Référencer à l'endroit qui définit l'espace vectoriel librement engendré. Ici ce serait par N.
-
-%TODO : dire qu'une application bilinéaire sur RxR n'est pas une application linéaire sur R^2
-
-\begin{example}[Une autre application linéaire non continue\cite{GTkeGni}]      \label{EXooDMVJooAJywMU}
-    En dimension infinie, une application linéaire n'est pas toujours continue. Soit \( E\) l'espace des polynômes à coefficients réels sur \( \mathopen[ 0 , 1 \mathclose]\) muni de la norme uniforme. L'application de dérivation \( \varphi\colon E\to E\), \( \varphi(P)=P'\) n'est pas continue.
-
-    Pour la voir nous considérons la suite \( P_n=\frac{1}{ n }X^n\). D'une part nous avons \( P_n\to 0\) dans \( E\) parce que \( P_n(x)=\frac{ x^n }{ n }\) avec \( x\in \mathopen[ 0 , 1 \mathclose]\). Mais en même temps nous avons \( \varphi(P_n)=X^{n-1}\) et donc \( \| \varphi(P_n) \|=1\).
-
-    Nous n'avons donc pas \( \lim_{n\to \infty} \varphi(P_n)=\varphi(\lim_{n\to \infty} P_n)\) et l'application \( \varphi\) n'est pas continue en \( 0\). Elle n'est donc continue nulle part par linéarité.
-
-    Nous avons utilisé le critère séquentiel de la continuité, voir la définition~\ref{DefENioICV} et la proposition~\ref{PropFnContParSuite}.
-\end{example}
-
-\begin{remark}  \label{RemOAXNooSMTDuN}
-Cette proposition permet de retrouver l'exemple~\ref{ExHKsIelG} plus simplement. Si \( \{ e_k \}_{k\in \eN}\) est une base d'un espace vectoriel normé formée de vecteurs de norme \( 1\), alors l'opérateur linéaire donné par \( u(e_k)=ke_k\) n'est pas borné et donc pas continu.
-\end{remark}
-
-C'est également ce résultat qui montre que le produit scalaire est continu sur un espace de Hilbert par exemple.
-
-\begin{definition}      \label{DEFooKSDFooGIBtrG}
-    Soit un espace vectoriel \( E\) sur le corps \( \eK\). Son \defe{dual topologique}{dual topologique}, noté \( E'\), est l'ensemble des formes linéaires continues de \( E\) vers \( \eK\).
-\end{definition}
-
-\begin{lemma}   \label{LemWWXVSae}
-Soit \( F\) un espace de Banach et deux suites \( A_k\to A\) et \( B_k\to B\) dans \( \aL(F,F)\). Alors \( A_k\circ B_k\to A\circ B\) dans \( \aL(F,F)\), c'est à dire
-\begin{equation}
-    \lim_{n\to \infty} (A_kB_k)=\left( \lim_{n\to \infty} A_k \right)\left( \lim_{n\to \infty} B_k \right).
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-    Il suffit d'écrire
-    \begin{equation}
-        \| A_kB_k-AB \|\leq \| A_kB_k-A_kB \|+\| A_kB-AB \|.
-    \end{equation}
-    Le premier terme tend vers zéro pour \( k\to\infty\) parce que
-    \begin{subequations}
-        \begin{align}
-            \| A_kB_k-A_kB \|&=\| A_k(B_k-B) \|\\
-            &\leq \| A_k \|\| B_k-B \|\to \| A \|\cdot 0\\
-            &=0
-        \end{align}
-    \end{subequations}
-    où nous avons utilisé la propriété fondamentale de la norme opérateur : la proposition~\ref{PROPooQZYVooYJVlBd}. Le second terme tend également vers zéro pour la même raison.
-\end{proof}
-
-\begin{proposition}[Distributivité de la somme infinie] \label{PropQXqEPuG}
-    Soient \( E\) un espace normé, une suite \( (u_k)\) dans \( \GL(E)\) ainsi que \( a\in\GL(E)\). Pourvu que la série \( \sum_{n=0}^{\infty}u_k\) converge nous avons
-    \begin{equation}
-        \left( \sum_{k=0}^{\infty}u_k \right)a=\sum_{k=0}^{\infty}(u_ka).
-    \end{equation}
+\begin{proposition}
+    Soient un espace vectoriel normé \( V\) et un élément \( v\in V\) vérifiant \( \| v \|=1\). Il existe une forme \( \varphi\in V'\) telle que \( \| \varphi \|=1\) et \( \varphi(v)=1\).
 \end{proposition}
 
 \begin{proof}
-    Par définition de la somme infinie,
+    Nous allons utiliser le théorème de la base incomplète \ref{THOooOQLQooHqEeDK}. Pour cela nous considérons \( I=V\) et la partie clairement génératrice \( G=\{ e_i=i \}_{i\in I}\) (si vous avez bien suivi, \( G=V\) en fait; rien de bien profond). Nous considérons ensuite \( I_0=\{ v \}\). Le théorème de la base incomplète nous donne l'existence de \( I_1\) tel que \( I_0\subset I_I\subset I\) et tel que \( B=\{ e_i \}_{i\in I_1}\) est une base.
+
+    Tout cela pour dire que \( B=\{ e_i \}_{i\in I_1}\) est une base contenant \( v\). Nous allons aussi éventuellement redéfinir la norme de \( e_i\) pour avoir \( \| e_i \|=1\). Cette renormalisation n'affecte pas le fait que \( v\in B\).
+
+    Nous passons maintenant à la définition de \( \varphi\colon V\to \eK\). Pour \( x\in V\) nous commençons par écrire
     \begin{equation}
-        \spadesuit=\left( \sum_{k=0}^{\infty}u_k \right)a=\left( \lim_{n\to \infty} \sum_{k=0}^nu_k \right)a.
+        x=\sum_{j\in J}x_je_j
     \end{equation}
-    Le lemme~\ref{LemWWXVSae} appliqué à \( n\mapsto\sum_{k=0}^nu_k\) et à la suite constante \( a\) nous donne
-    \begin{equation}    \label{EqOAoopjz}
-        \spadesuit=\lim_{n\to \infty} \left( \sum_{k=0}u_ka \right),
+    et nous posons
+    \begin{equation}
+        \varphi(x)=\begin{cases}
+            x_v    &   \text{si } v\in J\\
+            0    &    \text{sinon. }
+        \end{cases}
     \end{equation}
-    ce que nous voulions par distributivité de la somme finie : dans \eqref{EqOAoopjz}, le \( a\) est dans ou hors de la somme, au choix. L'important est qu'il soit dans la limite.
+    Cette définition a un sens par la partie unicité de la proposition \ref{PROPooEIQIooXfWDDV} de décomposition d'un élément dans une base.
+
+    Nous devons calculer la norme de \( \varphi\). Par la proposition \ref{DefNFYUooBZCPTr}\ref{ITEMooUQPRooYQGZzu} nous avons
+    \begin{equation}        \label{EQooEFLLooOWPSev}
+        \| \varphi \|=\sup_{\| x \|=1}| \varphi(x) |.
+    \end{equation}
+    Avec \( x=v\) nous avons \( \varphi(x)=1\) et donc \( \| \varphi \|\geq 1\).
+
+    Nous devons encore montrer que \( \| \varphi \|\leq 1\). Un élément \( x\in V\) s'écrit toujours sous la forme
+    \begin{equation}
+        x=\sum_{i\in J}x_je_j
+    \end{equation}
+    pour un certain \( J\) fini dans \( I_1\) et pour certains \( x_j\in \eK\). Pour un tel \( x\) nous avons \( \varphi(x)=x_v\). Si \( |\varphi(x)|\geq 1\), alors \( | x_v |\geq 1\), mais alors
+    \begin{equation}
+        \| x \|\leq \sum_{j\in J}| x_j |\| e_j \|=\sum_{j\in J}| x_j |\geq | x_v |>1,
+    \end{equation}
+    ce qui fait que ce \( x\) ne participe pas au supremum \eqref{EQooEFLLooOWPSev}.
+
+    Notons que \( \varphi\) est continue (et donc bien dans \( V'\)) parce qu'elle est bornée (proposition \ref{PROPooQZYVooYJVlBd}).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -655,30 +552,11 @@ Notez que $T_{\lambda}$ n'est rien d'autre que l'homothétie de rapport $\lambda
 \end{example}
 
 \begin{example}
-	Considérons la rotation $T_{\alpha}$ d'angle $\alpha$ dans $\eR^2$. Elle est donnée par l'équation matricielle
+	Toutes les isométries ont norme \( 1\). En effet si \( T\) est une isométrie, $\| Tx \|=\| x \|$. En ce qui concerne la norme de $T$ nous avons alors
 	\begin{equation}
-		T_{\alpha}\begin{pmatrix}
-			x	\\
-			y
-		\end{pmatrix}=\begin{pmatrix}
-			\cos\alpha	&	\sin\alpha	\\
-			-\sin\alpha	&	\cos\alpha
-		\end{pmatrix}\begin{pmatrix}
-			x	\\
-			y
-		\end{pmatrix}=\begin{pmatrix}
-			\cos(\alpha)x+\sin(\alpha)y	\\
-			-\sin(\alpha)x+\cos(\alpha)y
-		\end{pmatrix}
+		\| T \|=\sup_{x\in\eR^2}\frac{ \| T(x) \| }{ \| x \| }=\sup_{x\in\eR^2}\frac{ \| x \| }{ \| x \| }=1.
 	\end{equation}
-	Étant donné que cela est une rotation, c'est une isométrie : $\| T_{\alpha}x \|=\| x \|$. En ce qui concerne la norme de $T_{\alpha}$ nous avons
-	\begin{equation}
-		\| T_{\alpha} \|=\sup_{x\in\eR^2}\frac{ \| T_{\alpha}(x) \| }{ \| x \| }=\sup_{x\in\eR^2}\frac{ \| x \| }{ \| x \| }=1.
-	\end{equation}
-	Toutes les rotations dans le plan ont donc une norme $1$. La même preuve tient pour toutes les rotations en dimension quelconque.
 \end{example}
-
-%TODO : le théorème de fuite des compacts qui dit qu'une solution de y'=f(y,t) cesse d'exister seulement si elle tend vers +- infini.
 
 \begin{example}
   Soit $m=n$, un point $b$ dans $\eR^m$ et $T_b$ l'application linéaire définie par $T_b(x)=b\cdot x$ (petit exercice : vérifiez qu'il s'agit vraiment d'une application linéaire).  La norme de $T_b$ satisfait les inégalités suivantes
@@ -705,75 +583,103 @@ donc $\|T_b\|_{\mathcal{L}}=\|b \|_{\eR^n}$.
 
 Note : dans un espace de dimension infinie, la linéarité ne suffit pas pour avoir la continuité : il faut de plus être borné (ce que sont toutes les applications linéaires \( \eR^m\to\eR^n\)). Voir la proposition~\ref{PROPooQZYVooYJVlBd}.
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Produit fini d'espaces vectoriels normés}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{sec_prod}
-
-Dans cette sections nous parlons de produits finis d'espaces. Cela ne signifie pas que chacun des espaces soient séparément de dimension finie.
-
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Norme}
+\subsection{Application linéaire continue et bornée}
 %---------------------------------------------------------------------------------------------------------------------------
 
-La définition de la norme sur un produit d'espaces vectoriels normés découle immédiatement de la définition de la distance~\ref{DefZTHxrHA} :
-\begin{lemmaDef}  \label{DefFAJgTCE}
-    Soient $V$ et $W$ deux espaces vectoriels normés. 
-    \begin{enumerate}
-        \item
-            L'ensemble
-            \begin{equation}
-            V\times W=\{(v,w)\,|\, v\in V,\, w\in W\}
-            \end{equation}
-            est un espace vectoriel.
-        \item 
-            L'opération
-            \begin{equation}	\label{EqNormeVxWmax}
-                \|(v,w) \|_{V\times W}=\max\{\|v\|_{V},\|w\|_W\}.
-            \end{equation}
-            est une norme sur \( V\times V\).
-            
-    \end{enumerate}
-    L'espace vectoriel \( V\times W\) muni de cette norme est l'\defe{espace produit}{produit!d'espaces vectoriels normés} de $V$ et $W$.
-\end{lemmaDef}
+Nous avons vu dans la proposition~\ref{PROPooQZYVooYJVlBd} que pour une application linéaire, être bornée est équivalent à être continue. Nous allons maintenant voir un certain nombre d'exemples illustrant ce fait.
 
-\begin{proof}
-    Il est presque immédiat de vérifier que le produit cartésien $V\times W$ est un espace vectoriel pour les opération de somme et multiplication par les scalaires définies composante par composante. C'est à dire,  si $(v_1,w_1)$, $(v_2,w_2)$ sont dans $V\times W$ et $a$, $b$ sont des scalaires, alors
+\begin{example}[Une application linéaire non continue]  \label{ExHKsIelG}
+    Soit \( V\) l'espace vectoriel normé des suites \emph{finies} de réels muni de la norme usuelle $\| c \|=\sqrt{\sum_{i=0}^{\infty}| c_i |^2}$ où la somme est finie. Nous nommons \( \{ e_k \}_{k\in \eN}\) la base usuelle de cet espace, et nous considérons l'opérateur \( f\colon V\to V\) donnée par \( f(e_k)=ke_k\). C'est évidemment linéaire, mais ce n'est pas continu en zéro. En effet la suite \( u_k=e_k/k\) converge vers \( 0\) alors que \( f(u_k)=e_k\) ne converge pas.
+\end{example}
+
+Cet exemple aurait pu également être donnée dans un espace de Hilbert, mais il aurait fallu parler de domaine.
+%TODO : le faire, et regarder si Hilbet n'est pas la complétion de cet espace. Référencer à l'endroit qui définit l'espace vectoriel librement engendré. Ici ce serait par N.
+
+%TODO : dire qu'une application bilinéaire sur RxR n'est pas une application linéaire sur R^2
+
+\begin{example}[Une autre application linéaire non continue\cite{GTkeGni}]      \label{EXooDMVJooAJywMU}
+    En dimension infinie, une application linéaire n'est pas toujours continue. Soit \( E\) l'espace des polynômes à coefficients réels sur \( \mathopen[ 0 , 1 \mathclose]\) muni de la norme uniforme. L'application de dérivation \( \varphi\colon E\to E\), \( \varphi(P)=P'\) n'est pas continue.
+
+    Pour la voir nous considérons la suite \( P_n=\frac{1}{ n }X^n\). D'une part nous avons \( P_n\to 0\) dans \( E\) parce que \( P_n(x)=\frac{ x^n }{ n }\) avec \( x\in \mathopen[ 0 , 1 \mathclose]\). Mais en même temps nous avons \( \varphi(P_n)=X^{n-1}\) et donc \( \| \varphi(P_n) \|=1\).
+
+    Nous n'avons donc pas \( \lim_{n\to \infty} \varphi(P_n)=\varphi(\lim_{n\to \infty} P_n)\) et l'application \( \varphi\) n'est pas continue en \( 0\). Elle n'est donc continue nulle part par linéarité.
+
+    Nous avons utilisé le critère séquentiel de la continuité, voir la définition~\ref{DefENioICV} et la proposition~\ref{PropFnContParSuite}.
+\end{example}
+
+\begin{remark}  \label{RemOAXNooSMTDuN}
+Cette proposition permet de retrouver l'exemple~\ref{ExHKsIelG} plus simplement. Si \( \{ e_k \}_{k\in \eN}\) est une base d'un espace vectoriel normé formée de vecteurs de norme \( 1\), alors l'opérateur linéaire donné par \( u(e_k)=ke_k\) n'est pas borné et donc pas continu.
+\end{remark}
+
+C'est également ce résultat qui montre que le produit scalaire est continu sur un espace de Hilbert par exemple.
+
+\begin{example}     \label{EXooTQPEooRRdddt}
+    Nous avons vu dans le lemme \ref{LEMooWFNXooLyTyyX} que pour un \( x\in E\) donné, l'application
     \begin{equation}
-        a (v_1,w_1)+ b(v_2,w_2)=(av_1,aw_1)+ (bv_2,bw_2)=(av_1+bv_2,aw_1+bw_2).
+        \begin{aligned}
+            ev_x\colon \aL(E,F)&\to F \\
+            f&\mapsto f(x) 
+        \end{aligned}
     \end{equation}
+    est continue. Vu que \( ev_x\) est linéaire, la proposition \ref{PROPooQZYVooYJVlBd} nous indique que \( ev_x\) est bornée. Vérifions-le directement. Le calcul n'est pas très compliqué :
+    \begin{equation}
+        \| ev_x \|=\sup_{\| f \|=1}\| ev_x(f) \|=\sup_{\| f \|=1}\| f(x) \|\leq \sup_{\| f \|=1}\| x \|\| f \|=\| x \|
+    \end{equation}
+    où nous avons utilisé le lemme \ref{LEMooIBLEooLJczmu} en passant. Donc la norme de \( ev_x\) est majorée par \( \| x \|\).
 
-	On doit vérifier les trois conditions de la définition~\ref{DefNorme}.
-	\begin{itemize}
-		\item Soit $(v,w)$ dans $V\times W$ tel que $\|(v,w)\|_{V\times W}=\max\{\|v\|_{V},\|w\|_W\}=0$. Alors $\|v\|_V=0$ et $\|w\|_W=0$, donc $v=0_V$ et $w=0_W$. Cela implique $(v,w)=(0_v,0_w)=0_{V\times W}$.
-		\item Pour tout $a$ dans $\eR$ et $(v,w)$ dans $V\times W$, la norme $\|a (v,w)\|_{V\times W}$ se calcule de la façon suivante :
-            \begin{equation}
-                \|a (v,w)\|_{V\times W}= \max\{ \| av \|_V,\| aw \|_W \} =|a|\max\{\|v\|_{V},\|w\|_W\}=|a|\|(v,w)\|_{V\times W}.
-            \end{equation}
-		\item Soient $(v_1,w_1)$ et $(v_2,w_2)$ dans $V\times W$.
-		\begin{equation}
-			\begin{aligned}
-				\|(v_1,w_1)+(v_2,w_2)\|_{V\times W}&=\max\{\|v_1+v_2\|_{V},\|w_1+w_2\|_W\}\\
-				&\leq \max\{\|v_1\|_V+\|v_2\|_{V},\|w_1\|_W+\|w_2\|_W\}\\
-				&\leq\max\{\|v_1\|_V,\|w_1\|_W\}+ \max\{\|v_2\|_{V},\|w_2\|_W\}\\
-				&=\|(v_1,w_1)\|_{V\times W}+\|(v_2,w_2)\|_{V\times W}.
-			\end{aligned}
-		\end{equation}
-	\end{itemize}
-\end{proof}
+    Elle est même égale à \( \| x \|\). En effet, pour chaque \( f\in \aL(E,F)\) tel que \(  \| f \|=1\), nous avons
+    \begin{equation}
+        \| ev_x \|\geq \| ev_x(f) \|=\| f(x) \|.
+    \end{equation}
+    En prenant \( f=\id\) nous trouvons \(  \| ev_x \|\geq \| x \|  \).
+\end{example}
 
-Toutes ces définitions se généralisent à un produit fini d'espaces vectoriels normés. Si les espaces \( V_i\) sont des espaces vectoriels normés, nous pouvons mettre sur le produit une topologie et une norme :
-\begin{itemize}
-    \item La topologie produit donnée en~\ref{DefIINHooAAjTdY}
-    \item La norme maximum \( \| v_1,\ldots, v_n \|_{max}=\max\{ \| v_1 \|,\ldots, \| v_n \| \}\). Dans le membre de droites, toutes les normes sont différentes.
-\end{itemize}
-Une question qui vient est la compatibilité entre ces deux constructions. Est-ce que la topologie associée à la norme maximum est le topologie produit ? Oui.
+\begin{definition}      \label{DEFooKSDFooGIBtrG}
+    Soit un espace vectoriel \( E\) sur le corps \( \eK\). Son \defe{dual topologique}{dual topologique}, noté \( E'\), est l'ensemble des formes linéaires continues de \( E\) vers \( \eK\).
+\end{definition}
 
-\begin{lemma}[\cite{ooALKGooMAzKpz}]       \label{LEMooWVVCooIGgAdJ}
-    La topologie de la norme maximum est la topologie produit\footnote{Définition~\ref{DefIINHooAAjTdY}.}.
+\begin{lemma}   \label{LemWWXVSae}
+Soit \( F\) un espace de Banach et deux suites \( A_k\to A\) et \( B_k\to B\) dans \( \aL(F,F)\). Alors \( A_k\circ B_k\to A\circ B\) dans \( \aL(F,F)\), c'est-à-dire
+\begin{equation}
+    \lim_{n\to \infty} (A_kB_k)=\left( \lim_{n\to \infty} A_k \right)\left( \lim_{n\to \infty} B_k \right).
+\end{equation}
 \end{lemma}
 
-En particulier, pour la topologie de la norme maximum, la convergence d'une suite implique la convergence «composante par composante» par la proposition~\ref{PROPooNRRIooCPesgO}.
+\begin{proof}
+    Il suffit d'écrire
+    \begin{equation}
+        \| A_kB_k-AB \|\leq \| A_kB_k-A_kB \|+\| A_kB-AB \|.
+    \end{equation}
+    Le premier terme tend vers zéro pour \( k\to\infty\) parce que
+    \begin{subequations}
+        \begin{align}
+            \| A_kB_k-A_kB \|&=\| A_k(B_k-B) \|\\
+            &\leq \| A_k \|\| B_k-B \|\to \| A \|\cdot 0\\
+            &=0
+        \end{align}
+    \end{subequations}
+    où nous avons utilisé la propriété fondamentale de la norme opérateur : la proposition~\ref{PROPooQZYVooYJVlBd}. Le second terme tend également vers zéro pour la même raison.
+\end{proof}
+
+\begin{proposition}[Distributivité de la somme infinie] \label{PropQXqEPuG}
+    Soient \( E\) un espace normé, une suite \( (u_k)\) dans \( \GL(E)\) ainsi que \( a\in\GL(E)\). Pourvu que la série \( \sum_{n=0}^{\infty}u_k\) converge nous avons
+    \begin{equation}
+        \left( \sum_{k=0}^{\infty}u_k \right)a=\sum_{k=0}^{\infty}(u_ka).
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Par définition de la somme infinie,
+    \begin{equation}
+        \spadesuit=\left( \sum_{k=0}^{\infty}u_k \right)a=\left( \lim_{n\to \infty} \sum_{k=0}^nu_k \right)a.
+    \end{equation}
+    Le lemme~\ref{LemWWXVSae} appliqué à \( n\mapsto\sum_{k=0}^nu_k\) et à la suite constante \( a\) nous donne
+    \begin{equation}    \label{EqOAoopjz}
+        \spadesuit=\lim_{n\to \infty} \left( \sum_{k=0}u_ka \right),
+    \end{equation}
+    ce que nous voulions par distributivité de la somme finie : dans \eqref{EqOAoopjz}, le \( a\) est dans ou hors de la somme, au choix. L'important est qu'il soit dans la limite.
+\end{proof}
 
 \begin{proposition}[\cite{ooCUHNooNYIeGt}]      \label{PROPooQFTSooPFfbCc}
     Soient des espaces vectoriels normés \( V\) et \( W\) ainsi qu'une forme sesquilinéaire \( \phi\colon V\times W\to \eC\). Il y a équivalence des faits suivants.
@@ -867,7 +773,7 @@ Ce que nous avons dit jusqu'ici est valable pour tout produit d'un nombre fini d
 \subsection{Suites}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous allons maintenant parler de suites dans $V\times W$. Nous noterons $(v_n,w_n)$ la suite dans $V\times W$ dont l'élément numéro $n$ est le couple $(v_n,w_n)$ avec $v_n\in V$ et $w_n\in W$. La notions de convergence de suite découle de la définition de la norme via la définition usuelle~\ref{DefCvSuiteEGVN}. Il se fait que dans le cas des produits d'espaces, la convergence d'une suite est équivalente à la convergence des composantes. Plus précisément, nous avons le lemme suivant.
+Nous allons maintenant parler de suites dans $V\times W$. Nous noterons $(v_n,w_n)$ la suite dans $V\times W$ dont l'élément numéro $n$ est le couple $(v_n,w_n)$ avec $v_n\in V$ et $w_n\in W$. La notions de convergence de suite découle de la définition de la norme via la proposition \ref{PROPooOSXCooJWXkWH}. Il se fait que dans le cas des produits d'espaces, la convergence d'une suite est équivalente à la convergence des composantes. Plus précisément, nous avons le lemme suivant.
 \begin{lemma}		\label{LemCvVxWcvVW}
 	La suite $(v_n,w_n)$ converge vers $(v,w)$ dans $V\times W$ si et seulement les suites $(v_n)$ et $(w_n)$ convergent séparément vers $v$ et $w$ respectivement dans $V$ et $W$.
 \end{lemma}
@@ -911,7 +817,7 @@ Nous allons maintenant parler de suites dans $V\times W$. Nous noterons $(v_n,w_
 \begin{proof}
     Nous ne disons pas que l'espace \( V\times V\) est muni d'un produit scalaire. Mais en tout cas c'est un espace métrique, et \( \eK\) l'est aussi. Donc \( a\) est une application entre deux espaces métriques et elle sera continue si et seulement si elle est séquentiellement continue (proposition~\ref{PropFnContParSuite}\ref{ItemWJHIooMdugfu}).
 
-    Soit donc une suite convergente dans \( E\times E\), c'est à dire \( (x_k,y_k)\stackrel{E\times E}{\longrightarrow}(x,y)\). Nous devons démontrer que \( \langle x_k, y_k\rangle \stackrel{\eR}{\longrightarrow}\langle x, y\rangle \). Les majorations usuelles donnent
+    Soit donc une suite convergente dans \( E\times E\), c'est-à-dire \( (x_k,y_k)\stackrel{E\times E}{\longrightarrow}(x,y)\). Nous devons démontrer que \( \langle x_k, y_k\rangle \stackrel{\eR}{\longrightarrow}\langle x, y\rangle \). Les majorations usuelles donnent
     \begin{subequations}
         \begin{align}
             \big| \langle x_k, y_k\rangle -\langle x, y\rangle  \big|&\leq \big| \langle x_k, y_k\rangle -\langle x, y_k\rangle  \big|+\big| \langle x, y_k\rangle -\langle x, y\rangle  \big|\\
@@ -945,8 +851,6 @@ Nous allons maintenant parler de suites dans $V\times W$. Nous noterons $(v_n,w_
 	Soit $A\subset\eR^m$ et $B\subset\eR^m$. Alors dans $\eR^{m+n}$ nous avons $\overline{ A\times B }=\bar A\times \bar B$.
 \end{proposition}
 
-La démonstration risque d'être longue; nous ne la faisons pas ici.
-
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Continuité du produit de matrices}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -972,7 +876,7 @@ Voyons comment montrer cela de façon plus directe (bien que le raisonnement pr�
 \begin{proof}
     L'espace \( \eM(n,\eK)\times \eM(n,\eK)\) est métrique (définition~\ref{DefFAJgTCE}), donc la caractérisation séquentielle de la continuité (proposition~\ref{PropXIAQSXr}) s'applique. Nous considérons donc une suite \( (A_k,B_k)\) dans \( \eM(n,\eK)\times \eM(n,\eK)\) convergente vers \( AB\).
 
-    Nous savons que la topologie sur \( \eM(n,\eK)\times \eM(n,\eK)\) est la topologie produit (lemme~\ref{LEMooWVVCooIGgAdJ}) et que celle-ci donne la convergence composante par composante dès que nous avons convergence d'une suite; c'est la proposition~\ref{PROPooNRRIooCPesgO}. Nous avons donc \( A_k\stackrel{\eM(n,\eK)}{\longrightarrow}A\) et \( B_k\stackrel{\eM(n,\eK)}{\longrightarrow}B\).
+    Nous savons que la topologie sur \( \eM(n,\eK)\times \eM(n,\eK)\) est la topologie produit (lemme~\ref{DefFAJgTCE}) et que celle-ci donne la convergence composante par composante dès que nous avons convergence d'une suite; c'est la proposition~\ref{PROPooNRRIooCPesgO}. Nous avons donc \( A_k\stackrel{\eM(n,\eK)}{\longrightarrow}A\) et \( B_k\stackrel{\eM(n,\eK)}{\longrightarrow}B\).
 
     Voilà pour le contexte. Maintenant, la preuve de la continuité. Nous effectuons les majorations suivantes :
     \begin{subequations}
@@ -986,283 +890,1075 @@ Voyons comment montrer cela de façon plus directe (bien que le raisonnement pr�
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Calcul différentiel dans un espace vectoriel normé}
+\section{Applications multilinéaires}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{SecLStKEmc}
 
-Quelque motivations pour la notion de différentielle sont données dans \ref{SEBSECooLPRQooJRQCFL}.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Définition de la différentielle}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{propositionDef}[\cite{MonCerveau}]      \label{DefDifferentiellePta}
-    Soient deux espaces vectoriels normés \( E\) et \( F\) ainsi qu'une fonction \( f\colon \mU\to F\) où \( \mU\) est un ouvert de \( E\).
-
-  Si il existe une une application linéaire \( T\in\aL(E,F)\) satisfaisant
-  \begin{equation}	\label{EqCritereDefDiff}
-      \lim_{\substack{h\to 0\\h\in E}}\frac{f(a+h)-f(a)-T(h)}{\|h\|_E}=0,
-  \end{equation}
-  alors il en existe une seule.
-
-  Dans ce cas nous disons que $f$ est \defe{différentiable au point $a$}{application!différentiable} et l'application $T$ ainsi définie est appelée \defe{différentielle}{différentielle} de $f$ au point $a$, et nous la notons $df_a$.
-\end{propositionDef}
-
-\begin{proof}
-    Soient deux applications linéaires \( T_1\), \( T_2\) satisfaisant la condition \eqref{EqCritereDefDiff}. Nous avons
-    \begin{equation}
-        \frac{ \| T_1(h)-T_2(h) \|_F }{ \| h \|_E }\leq \frac{ \| T_1(h)-f(a+h)+f(a) \| }{ \| h \| }+\frac{ \| f(a+h)-f(a)-T_2(h) \| }{ \| h \| }\to 0.
-    \end{equation}
-    Nous avons donc
-    \begin{equation}
-        \lim_{h\to 0} \frac{ \| (T_1-T_2)(h) \|_F }{ \| h \|_E }=0.
-    \end{equation}
-    Soit \( \epsilon>0\). Ce que signifie la limite est qu'il existe un \( r>0\) tel que pour tout \( u\in B_E(0,r)\), nous ayons
-    \begin{equation}
-        \frac{ \| (T_1-T_2)(u) \|_F }{ \| u \|_E }<\epsilon.
-    \end{equation}
-    Soit \( v\in E\). Nous considérons \( \lambda\in\eR\) tel que \( \lambda v\in B(0,r)\), par exemple \( \lambda<r/\| v \|\). Nous avons
-    \begin{equation}
-        \epsilon>\frac{ \| (T_1-T_2)(\lambda v) \|_F }{ \| \lambda v \|_E }=\frac{ \| (T_1-T_2)(v) \| }{ \| v \| }.
-    \end{equation}
-    Cela donne
-    \begin{equation}
-        \| (T_1-T_2)(v) \|<\| v \|\epsilon.
-    \end{equation}
-    Nous avons donc \( \| (T_1-T_2)(v) \|=0\), soit \( T_1(v)=T_2(v)\).
-\end{proof}
-
-
-L'application différentielle
-\begin{equation}
-    \begin{aligned}
-        df\colon E&\to \aL(E,F) \\
-        a&\mapsto df_a
-    \end{aligned}
-\end{equation}
-est également très importante.
-
-\begin{definition}      \label{DefJYBZooPTsfZx}
-Une application \( f\colon E\to F\) est de \defe{classe \( C^1\)}{classe $C^1$} lorsque l'application différentielle \( df\colon E\to \aL(E,F)\) est continue. Voir aussi les définitions~\ref{DefPNjMGqy} pour les applications de classe \( C^k\).
+\begin{definition}[Application multilinéaire]       \label{DefFRHooKnPCT}
+    Une application $T: \eR^{m_1}\times \ldots \times\eR^{m_k}\to\eR^p $ est dite \defe{\( k\)-linéaire}{application!multilinéaire} si pour tout $X=(x_1, \ldots,x_k)$ dans $ \eR^{m_1}\times \ldots \times\eR^{m_k}$ les applications $x_i\mapsto T(x_1, \ldots, x_i,\ldots,x_k)$ sont linéaires pour tout $i$ dans $\{1,\ldots,k\}$, c'est-à-dire
+	\begin{equation}
+		\begin{aligned}[]
+			T(\cdot,x_2, \ldots, x_i,\ldots,x_k)&\in \mathcal{L}(\eR^{m_1}, \eR^p),\\
+			T(x_1,\cdot, \ldots, x_i,\ldots,x_k)&\in \mathcal{L}(\eR^{m_2}, \eR^p),\\
+						& \vdots\\
+			T(x_1, \ldots, x_i,\ldots,x_{k-1},\cdot)&\in \mathcal{L}(\eR^{m_k}, \eR^p).\\
+		\end{aligned}
+	\end{equation}
+	En particulier lorsque $k=2$, nous parlons d'applications \defe{bilinéaires}{bilinéaire}. Vous pouvez deviner ce que sont les applications \emph{tri}linéaire ou \emph{quadri}linéaire.
 \end{definition}
 
-\begin{remark}      \label{RemATQVooDnZBbs}
-    L'application norme étant continue, le critère du théorème~\ref{ThoWeirstrassRn} est en réalité assez général. Par exemple à partir d'une application différentiable\footnote{Définition~\ref{DefDifferentiellePta}.} \( f\colon X\to Y\)  nous pouvons considérer la fonction réelle
+L'ensemble des applications $k$-linéaires de $ \eR^{m_1}\times \ldots \times\eR^{m_k}$ dans $\eR^p$ est noté $\mathcal{L}(\eR^{m_1}\times \ldots \times\eR^{m_k}, \eR^p)$ ou $\mathcal{L}(\eR^{m_1}, \ldots,\eR^{m_k}; \eR^p)$.
+
+\begin{example}
+  Soit $A$ une matrice avec $m$ lignes et $n$ colonnes. L'application bilinéaire de $\eR^m\times \eR^n$ dans $\eR$ associée à $A$ est définie par
+\[
+T_A(x,y)= x^TAy=\sum_{i,j}a_{i,j}x_i y_j, \qquad \forall x\in \eR^m, \, y \in \eR^n.
+\]
+\end{example}
+
+Nous énonçons la proposition suivante dans le cas d'espaces vectoriels normés\footnote{Sans hypothèses sur la dimension.} parce que nous allons l'utiliser dans ce cas, mais le cas particulier \( E_i=\eR^{m_i}\) et \( F=\eR^p\) est important.
+\begin{proposition} \label{PropUADlSMg}
+    Soient des espaces vectoriels normés \( E_i\) et \( F\). Une application \( n\)-linéaire
     \begin{equation}
-        a\mapsto \|  df_a   \|
+        T\colon E_1\times\ldots\times E_n\to F
     \end{equation}
-    où la norme est la norme opérateur\footnote{Définition~\ref{DefNFYUooBZCPTr}.}. Si \( f\) est de classe \( C^1\) alors cette application est continue et donc bornée sur un compact \( K\) de \( X\).
+    est est continue si et seulement s'il existe un réel $L\geq 0$ tel que
+  \begin{equation}\label{limitatezza}
+     \|T(x_1, \ldots,x_n)\|_F\leq L \|x_1\|_{F_1}\cdots\|x_n\|_{F_n}, \qquad \forall x_i\in E_i.
+  \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Pour simplifier l'exposition nous nous limitons au cas $n=2$ et nous notons $T(x,y)=x*y$
+
+    Supposons que l'inégalité \eqref{limitatezza} soit satisfaite.
+    \begin{equation}\label{LimImplCont}
+      \begin{aligned}
+        \|x*y-x_0*y_0\|&=\|(x-x_0)*y-x_0*(y-y_0)\|\\
+    &\leq \|(x-x_0)*y\|+\|x_0*(y-y_0)\|\\
+    &\leq L\|x-x_0\|\|y\| + L\|x_0\|\|y-y_0\|.
+      \end{aligned}
+    \end{equation}
+    Si $x\to x_0$ et $y\to y_0$  on voit que $T$ est continue en passant à la limite aux deux côtés de l'inégalité \eqref{LimImplCont}.
+
+    Soit $T$ continue en $(0,0)$. Évidemment\footnote{Dans la formule suivante, les trois zéros sont les zéros de trois espaces différents.} $0*0=0$, donc il existe $\delta>0$ tel que si $x\in B_{E_1}(0,\delta)$ et $y\in B_{E_2}(0,\delta)$ alors $\|x*y\|\leq 1$. En particulier si \( (x,y)\in B_{E_1\times E_2}(0,\delta)\) nous sommes dans ce cas. Soient maintenant  $x\in E_1\setminus\{ 0 \}$  et $y\in E_2\setminus\{ 0\}$
+    \begin{equation}
+        x*y=\left(\frac{\|x\|}{\delta}\frac{\delta x}{\|x\|}\right)*\left(\frac{\|y\|}{\delta}\frac{\delta y}{\|y\|}\right)
+    =\frac{\|x\|\|y\|}{\delta^2} \left(\frac{\delta x}{\|x\|}\right)*\left(\frac{\delta y}{\|y\|}\right).
+     \end{equation}
+    On remarque que $\delta x/\|x\|_m$ est dans la boule de rayon $\delta$ centrée en $0_m$ et que $\delta y/\|y\|_n$ est dans la boule de rayon $\delta$ centrée en $0_n$. On conclut
+    \[
+     x*y\leq \frac{\|x\|_m\|y\|_n}{\delta^2}.
+    \]
+    Il faut prendre $L=1/\delta^2$.
+\end{proof}
+
+La norme de \( T\) est alors définie comme la plus petite constante \( L\) qui fait fonctionner la proposition~\ref{PropUADlSMg}.
+\begin{definition}  \label{DefKPBYeyG}
+	La norme sur l'espace $\aL(E_1\times \cdots\times E_n, F)$ des applications $k$-linéaires et continues est
+	\begin{equation}
+        \|T\|_{E_1\times \ldots\times E_n}=\sup\{ \|T(u_1, \ldots,u_k)\|_{F}\,\vert\,\|u_i\|_{E_i}\leq 1, i=1,\ldots, k \}.
+	\end{equation}
+\end{definition}
+Nous avons donc automatiquement
+\begin{equation}    \label{EqYLnbRbC}
+    \| T(u,v) \|\leq \| T \|\| u \|\| v \|.
+\end{equation}
+Et nous notons que cette norme est uniquement définie pour les applications linéaires continues. Ce n'est pas très grave parce qu'alors nous définissons \( \| T \|=\infty\) si \( T\) n'est pas continue. Cela pour retrouver le principe selon lequel on est continue si et seulement si on est borné.
+
+\begin{proposition}\label{isom_isom}
+  On définit les fonctions
+  \begin{equation}
+    \begin{array}{rccc}
+      \omega_g: & \mathcal{L}(\eR^{m}\times\eR^{n}, \eR^p)&\to &\mathcal{L}(\eR^{m}, \mathcal{L}(\eR^{n}, \eR^p)),\\
+      \omega_d: & \mathcal{L}(\eR^{m}\times\eR^{n}, \eR^p)&\to &\mathcal{L}(\eR^{n}, \mathcal{L}(\eR^{m}, \eR^p)),
+    \end{array}
+  \end{equation}
+par
+\[
+\omega_g(T)(x)=T(x,\cdot), \qquad \forall x\in\eR^m,
+\]
+et
+\[
+\omega_d(T)(y)=T(\cdot, y), \qquad \forall y\in\eR^n.
+\]
+Les fonctions $\omega_g$ et $\omega_d$ sont des isomorphismes qui préservent les normes.
+\end{proposition}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Séries}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooYCQBooSZNXhd}
+
+Pour une définition plus générale de somme indexée par un ensemble infine, voir la définition \ref{DefIkoheE}.
+\begin{definition}\label{DefGFHAaOL}
+    Soit \( (a_k)\) une suite dans un espace vectoriel normé \( (V,\| . \| )\). La suite des \defe{sommes partielles}{somme!partielle} associée est la suite \( (s_k)\) définie par
+    \begin{equation}
+        s_k=\sum_{i=0}^ka_i
+    \end{equation}
+    La \defe{série}{série!dans un espace vectoriel normé} associée est la limite des sommes partielles
+    \begin{equation}
+        \sum_{n=0}^{\infty}a_k=\lim_{k\to \infty} \sum_{k=0}^na_k
+    \end{equation}
+    si elle existe.
+
+    Si une telle limite existe nous disons que \( \sum_{k=0}^{\infty}a_k\) \defe{converge}{série convergente} dans \( V\). Si la limite de la suite des sommes partielles n'existe pas nous disons que la série \defe{diverge}{série divergente}.
+\end{definition}
+
+\begin{remark}
+    Si la limite de la suite des sommes partielles n'existe pas dans \( V\), alors elle peut parfois exister dans des extensions de \( V\). Par exemple une série de rationnels convergeant vers \( \sqrt{2}\) dans \( \eR\) ne converge pas dans \( \eQ\). Autre exemple : avec une bonne topologie sur \( \bar \eR\), une série peut ne pas converger dans \( \eR\) mais converger vers \( \pm\infty\) dans \( \bar \eR\).
 \end{remark}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{(non ?) Différentiabilité des applications linéaires}
-%---------------------------------------------------------------------------------------------------------------------------
+Dans le cas des espaces de fonctions, nous avons une norme importante : la norme uniforme définie par \( \| f \|_{\infty}=\sup\{ f(x) \}\) où le supremum est pris sur l'ensemble de définition de \( f\).
 
-Si \( E\) et \( F\) sont deux espaces vectoriels nous notons \( \aL(E,F)\)\nomenclature[Y]{\( \aL(E,F)\)}{Les applications linéaires de \( E\) vers \( F\)} l'ensemble des applications linéaires de \( E\) vers \( F\) et \( \cL(E,F)\)\nomenclature[Y]{\( \cL\)}{Les applications linéaires continues de \( E\) vers \( F\)} l'ensemble des applications linéaires continues de \( E\) vers \( F\). Ces espaces seront bien entendu, sauf mention du contraire, toujours munis de la norme opérateur de la définition~\ref{DefNFYUooBZCPTr}.
-
-\begin{lemma}       \label{LemooXXUGooUqCjmp}
-    Soit une application linéaire \( f\).
+\begin{lemma}       \label{LEMooHUZEooSyPipb}
+    Soit une suite \( (a_k)\) dans un espace métrique complet\footnote{Définition \ref{DEFooHBAVooKmqerL}.} dont la série converge.
+    
     \begin{enumerate}
-        \item
-            Si \( f\) est continue, alors elle est différentiable et \( df_a(u)=f(u)\) pour tout \( a\) et \( u\).
-        \item
-            Si \( f\) n'est pas continue, alors elle n'est pas différentiable.
+        \item   \label{ITEMooPFSQooDhKFGL}
+            Pour tout \( N\) nous avons
+            \begin{equation}
+                \sum_{k=0}^{\infty}a_k=\sum_{k=0}^Na_k+\sum_{k=N+1}^{\infty}a_k.
+            \end{equation}
+        \item       \label{ITEMooQNHMooUPjupB}
+            La suite des queues de série converge vers \( 0\), c'est-à-dire que
+            \begin{equation}
+                \lim_{N\to \infty} \sum_{k=N}^{\infty}a_k=0.
+            \end{equation}
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    La linéarité de \( f\) donne :
+    Voici un petit calcul :
+    \begin{subequations}
+        \begin{align}
+            \lim_{n\to \infty} \sum_{k=0}^na_k&=\lim_{n\to \infty} \big( \sum_{k=0}^Na_k+\sum_{k=N+1}^{n}a_k \big)      \label{SUBEQooZRSHooSjismK}\\
+            &=\lim_{n\to \infty} \sum_{k=0}^{N}a_k+\lim_{n\to \infty} \sum_{k=N+1}^{n}a_k       \label{SUBEQooTLVKooQfYXam}\\
+            &=\sum_{k=0}^Na_k+\sum_{k=N+1}^{\infty}a_k.
+        \end{align}
+    \end{subequations}
+    Justifications :
+    \begin{itemize}
+        \item Pour \eqref{SUBEQooZRSHooSjismK}. Pour chaque \( n\), la somme est finie et nous pouvons la décomposer. Si vous voulez vraiment couper les cheveux en quatre, vous devez fixer un \( \epsilon\), et un \( n\) de telle sorte à avoir \( n>N\), parce que \( N\) est fixé dans l'énoncé du lemme.
+        \item Pour \eqref{SUBEQooTLVKooQfYXam}. Nous sommes dans un cas \( \lim_{n\to \infty}(u_n+v_n) \) où \( (u_n)\) est constante et où \( (u_n+v_n)\) converge. Nous pouvons donc permuter limite et somme\footnote{Pour rappel, la proposition \ref{PROPooICZMooGfLdPc} demande la convergence des deux suites pour fonctionner.}.
+    \end{itemize}
+    Voila que \ref{ITEMooPFSQooDhKFGL} est prouvé.
+
+    Nous écrivons \( s_n=\sum_{k=0}^na_k\); l'hypothèse est que la suite \( (s_n)\) est une suite convergente dans un espace métrique. Elle est donc de Cauchy par la proposition \ref{PROPooZZNWooHghltd}.
+
+    Soit \( \epsilon>0\). Il existe \( N\in \eN\) tel que pour tout \( p,q>N\), nous ayons \( \| s_p-s_q \|\leq \epsilon\). Soit \( p>N\). Pour tout \( n\geq 0\) nous avons
     \begin{equation}
-        f(a+h)-f(a)-f(h)=0,
+        \epsilon>\| s_{p+n}-s_{p+1} \|=\| \sum_{k=p}^{p+n}a_k \|.
     \end{equation}
-    et donc prendre \( T=f\) dans la définition~\ref{DefDifferentiellePta} fait fonctionner la limite. De plus \( T\) est alors continue par hypothèse; elle est donc bien la différentielle de \( f\).
-
-    Supposons que \( f\) ne soit pas continue, prenons une application linéaire continue \( T\), et calculons
-    \begin{equation}        \label{EQooFLYMooEKTeOC}
-        \frac{ f(a+h)-f(a)-T(h) }{ \| h \| }=\frac{ (f-T)(h) }{ \| h \| }=(f-T)(e_h)
+    En prenant la limite \( n\to \infty\) nous avons
+    \begin{equation}
+        \| \sum_{k=p}^{\infty}a_k \|\leq \epsilon.
     \end{equation}
-    où \( e_h\) est le vecteur unitaire dans la direction de \( h\). Vu que \( f\) n'est pas continue et que \( T\) l'est, l'application \( f-T\) n'est pas continue. Elle n'est pas pas bornée par la proposition~\ref{PROPooQZYVooYJVlBd}. Il existe alors un vecteur \( h\) tel que \( \| (f-T)(e_h) \|>1\) (et même plus grand que ce qu'on veut).
-
-    Donc la limite de \eqref{EQooFLYMooEKTeOC} pour \( h\to 0\) ne peut pas être nulle.
+    Nous avons donc démontré qu'il existe \( N\) tel que si \( p>N\), alors \( \| \sum_{k=p}^{\infty}a_k \|\leq \epsilon\). Cela signifie exactement que \( \lim_{n\to \infty} \sum_{k=n}^{\infty}a_k=0\).
 \end{proof}
 
-\begin{lemma}   \label{LemLLvgPQW}
-    Une application linéaire continue est de classe \(  C^{\infty}\).
-\end{lemma}
-
-\begin{proof}
-    Soit \( a\in E\). Étant donné que \( f\) est linéaire et continue, elle est différentiable et
-    \begin{equation}
-        \begin{aligned}
-            df\colon E&\to \cL(E,F) \\
-            a&\mapsto f
-        \end{aligned}
-    \end{equation}
-    est une fonction constante et en particulier continue; nous avons donc \( f\in C^1\). Pour la différentielle seconde nous avons \( d(df)_a=0\) parce que \( df(a+h)-df(a)=f-f=0\). Toutes les différentielles suivantes sont nulles.
-\end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Dérivation en chaine et formule de Leibnitz}
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Les trois types de convergence}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{proposition} \label{PropOYtgIua}
-    Soient \( f_i\colon U\to F_i\), des fonctions de classe \( C^r\) où \( U\) est ouvert dans l'espace vectoriel normé \( E\) et les \( F_i\) sont des espaces vectoriels normés. Alors l'application
-    \begin{equation}
-        \begin{aligned}
-        f=f_1\times \cdots\times f_n\colon U&\to F_1\times \cdots\times F_n \\
-    x&\mapsto \big( f_1(x),\ldots, f_n(x) \big)
-        \end{aligned}
+Trois notions de convergence à ne pas confondre :
+\begin{enumerate}
+    \item
+        La convergence absolue,
+    \item
+        la convergence normale. C'est la même que la convergence absolue, mais dans le cas particulier d'un espace de fonctions muni de la norme uniforme.
+    \item
+        la convergence uniforme.
+\end{enumerate}
+Voici les définitions.
+
+
+\begin{definition}[Convergence absolue] \label{DefVFUIXwU}
+    Nous disons que la série \( \sum_{n=0}^{\infty}a_n\) dans l'espace vectoriel normé \( V\) \defe{converge absolument}{convergence absolue} si la série \( \sum_{n=0}^{\infty}\| a_n \|\) converge dans \( \eR\).
+\end{definition}
+
+\begin{definition}[Convergence normale] \label{DefVBrJUxo}
+    Une série de fonctions \( \sum_{n\in \eN}u_n \) converge \defe{normalement}{convergence normale} si la série de nombres \( \sum_n\| u_n \|_{\infty}\) converge. C'est-à-dire si la série converge absolument pour la norme \( \| f \|_{\infty}\).
+\end{definition}
+
+
+\begin{definition}[Convergence uniforme]
+    La somme \( \sum_nf_n\) \defe{converge uniformément}{convergence uniforme!série de fonctions} vers la fonction \( F\) si la suite des sommes partielles converge uniformément, c'est-à-dire si
+    \begin{equation}        \label{EqLNCJooVCTiIw}
+        \lim_{N\to \infty} \| \sum_{n=1}^Nf_n-F \|_{\infty}=0.
     \end{equation}
-    est de classe \( C^r\) et
-    \begin{equation}
-    d^rf=d^rf_1\times\ldots d^rf_n.
-    \end{equation}
+\end{definition}
+
+\begin{proposition} \label{PropAKCusNM}
+    Une série convergeant absolument dans un espace de Banach\footnote{Un espace vectoriel normé complet. Typiquement \( \eR\).} y converge au sens usuel.
 \end{proposition}
 
 \begin{proof}
-    Soit \( x\in U\) et \( h\in E\). La différentiabilité des fonctions \( f_i\) donne
+    Soit \( (a_k)\) une suite dans un espace vectoriel normé complet dont la série converge absolument. Nous allons montrer que la suite des sommes partielles est de Cauchy. Cela suffira à montrer sa convergence par hypothèse de complétude.
+
+    Nous avons
     \begin{equation}
-        f_i(x+h)=f_i(x)+(df_i)_x(h)+\alpha_i(h)
+        \| s_p-s_l \|=\| \sum_{k=l+1}^{p}a_k\|  \leq\sum_{k=l+1}^p\| a_k \|=\bar s_p-\bar s_l
     \end{equation}
-    avec \( \lim_{h\to 0} \alpha_i(h)/\| h \|=0\). Par conséquent
+    où \( \bar s_n=\sum_{k=0}^n \| a_k \|\) est la suite des sommes partielles de la série des normes (qui converge). Vu que la suite \( (\bar s_n)\) converge dans \( \eR\), elle y est de Cauchy par la proposition~\ref{PROPooTFVOooFoSHPg}. Donc il existe un \( N\) tel que \( p,l>N\) implique
+    \begin{equation}
+        \| s_p-s_l \|=\bar s_p-\bar s_l\leq \epsilon.
+    \end{equation}
+    Cela signifie que \( (s_n)\) est une suite de Cauchy et donc convergente.
+\end{proof}
+
+\begin{example}[Si l'espace n'est pas complet\cite{MonCerveau}]
+    Dans un espace pas complet, il est possible de construire un série qui converge absolument sans converger au sens usuel.
+
+    Nous allons trouver dans \( \eQ\) une série qui converge simplement vers \( \sqrt{ 2 }\) (et donc ne converge pas dans \( \eQ\)) mais absolument vers \( 4\).
+
+    La base est que si \( A,B\in \eQ\) avec \( A<B\) il est possible de résoudre
     \begin{subequations}
-        \begin{align}
-            f(x+h)&=\big( \ldots, f_i(x)+(df_i)_x(h)+\alpha_i(h),\ldots \big)\\
-            &= \big( \ldots,f_i(x),\ldots \big)+ \big( \ldots,(df_i)_x(h),\ldots \big)+ \big( \ldots,\alpha_i(h),\ldots \big).
-        \end{align}
+        \begin{numcases}{}
+            r_1+r_2=A\\
+            | r_1 |+| r_2 |=B
+        \end{numcases}
     \end{subequations}
-    Mais la définition~\ref{DefFAJgTCE} de la norme dans un espace produit donne
+    pour \( r_1,r_2\in \eQ\). Ce n'est pas très compliqué : la solution est \( r_1=(A+B)/2\) et \( r_2=(A-B)/2\).
+
+    Nous considérons l'espace \( \eQ\) qui n'est pas complet dans \( \eR\). Soit une série \( (a_k)\) dans \( \eQ\) qui converge vers \( \sqrt{ 2 }\) (convergence dans \( \eR\)) nous nommons \( (s_k)\) la suite des ses sommes partielles. Soit aussi la suite \( (b_k)\) qui converge vers \( 4\) (zéro serait encore plus facile mais bon, juste pour faire un peu de généralité).
+
+    Nous supposons que \( a_k<b_k\) pour tout \( k\) et que les deux suites sont constituées de rationnels positifs. Nous nommons \( (s_k)\) et \( (s'_k)\) les sommes partielles. En particulier \( s_n<s'_n\) et ce sont des suites croissantes.
+
+    Nous savons comment trouver \( r_1,r_2\in \eQ\) tels que \( r_1+r_2=s_1\) et \( | r_1 |+| r_2 |=s'_1\). Par récurrence, si nous savons \( r_1,\ldots, r_k\) tels que
+    \begin{subequations}
+        \begin{numcases}{}
+            r_1+\ldots +r_k=s_n\\
+            |r_1|+\ldots +|r_k|=s'_n
+        \end{numcases}
+    \end{subequations}
+    (avec, soit dit en passant \( k=2n\)), alors nous pouvons trouver des rationnels \( r_{k+1}\), \( r_{k+2}\) tels que
+    \begin{subequations}
+        \begin{numcases}{}
+            r_1+\ldots +r_k+r_{k+1}+r_{k+2}=s_{n+1}\\
+            |r_1|+\ldots +|r_k|+|r_{k+1}|+|r_{k+2}|=s'_{n+1},
+        \end{numcases}
+    \end{subequations}
+    en effet il s'agit de résoudre
+    \begin{subequations}
+        \begin{numcases}{}
+            r_{k+1}+r_{k+2}=s_{n+1}-r_1-\ldots-r_k=s_{n+1}-s_n>0\\
+            | r_{k+1} |+| r_{k+2} |=s'_{n+1}-| r_1 | -\ldots -| r_k |=s'_{n+1}-s'_n>0.
+        \end{numcases}
+    \end{subequations}
+    Cela se résout comme plus haut. Au final nous pouvons construire une suite \( (r_k)\) dans \( \eQ\) telle que
     \begin{equation}
-        \lim_{h\to 0} \frac{ \| \big( \alpha_1(h),\ldots, \alpha_n(h) \big) \| }{ \| h \| }=0,
+        \sum_{k=0}^{2n}r_k=s_n
     \end{equation}
-    ce qui nous permet de noter \( \alpha(h)=\big( \alpha_1(h),\ldots, \alpha_n(h) \big)\) et avoir \( \lim_{h\to 0} \alpha(h)/\| h \|=0\). Avec tout ça nous avons bien
+    et
     \begin{equation}
-        f(x+h)=f(x)+\big( (df_1)_x(h)+\cdots +(df_n)_x(h) \big)+\alpha(h),
+        \sum_{k=0}^{2n}| r_k |=s'_n.
     \end{equation}
-    ce qui signifie que \( f\) est différentiable et
+\end{example}
+
+\begin{remark}
+    Nous savons que sur les espaces vectoriels de dimension finie toutes les normes sont équivalentes (théorème~\ref{DefEquivNorm}). La notion de convergence de série ne dépend alors pas du choix de la norme. Il n'en est pas de même sur les espaces de dimension infinie. Une série peut converger pour une norme mais pas pour une autre.
+\end{remark}
+Lorsque nous verrons la convergence de séries, nous verrons que la convergence normale est la convergence absolue pour la norme uniforme.
+
+\begin{lemma}       \label{LemCAIPooPMNbXg}
+    Si \( E\) et \( F\) sont des espaces de Banach\quext{Je crois qu'il ne faut pas que \( E\) soit complet.}, l'espace \( \aL(E,F)\) est également de Banach.
+\end{lemma}
+
+\begin{proof}
+    Soit \( (u_n)\) une suite de Cauchy dans \( \aL(E,F)\); si \( x\in E\) il existe \( N\) tel que si \( l,m>N\) alors \( \| u_l-u_m \|<\epsilon\), c'est-à-dire que pour tout \( \| x \|=1\) on a \( \| u_l(x)-u_n(x) \|<\epsilon\). Cela signifie que \( u_n(x)\) est une suite de Cauchy dans l'espace complet \( F\). Cette suite converge et nous pouvons définir l'application \( u\colon E\to F\) par
     \begin{equation}
-        df_x=\big( df_1,\ldots, df_n \big).
+        u(x)=\lim_{n\to \infty} u_n(x).
+    \end{equation}
+    Il suffit maintenant de prouver que \( u\) est linéaire, ce qui est une conséquence directe de la linéarité de la limite :
+    \begin{equation}
+        u(\alpha x+\beta y)=\lim_{n\to \infty} \big( \alpha u_n(x)+\beta u_n(y) \big).
     \end{equation}
 \end{proof}
 
-\begin{theorem}[Différentielle de fonctions composées\cite{SNPdukn}]    \label{ThoAGXGuEt}
-    Soient \( E\), \( F\) et \( G\) des espaces vectoriels normés, \( U\) ouvert dans \( E\) et \( V\) ouvert dans \( F\). Soient des applications de classe \( C^r\) (\( r\geq 1\))
+\begin{proposition}  \label{PROPooYDFUooTGnYQg}
+    Si une série converge dans un espace complet, la norme de son terme général converge vers $0$.
+\end{proposition}
+
+\begin{proof}
+    Soit une suite \( (a_n)\) dont la série converge vers \( s\). Soit \( \epsilon>0\). La suite des sommes partielles \( (s_n)\) est de Cauchy et converge vers \( s\) : \( s_n\to s\). En particulier il existe un \( N\) tel que si \( n>N\), nous avons \( \| s_n-s_{n-1} \|<\epsilon\). Pour de telles valeurs de \( n\) nous avons :
+    \begin{equation}
+        \| a_n \|=\| s_n-s_{n-1} \|\leq \epsilon.
+    \end{equation}
+    Cela prouve que \( a_n\to 0\).
+\end{proof}
+
+Dans le même ordre d'idée nous avons la convergence des queues de suites.
+
+\begin{lemma}       \label{LEMooFUCOooCOqLRj}
+    Si \( \sum_{k=0}^{\infty}a_k\) est finie, alors
+    \begin{equation}
+        \lim_{n\to \infty} \sum_{k=n}^{\infty}a_k=0.
+    \end{equation}
+\end{lemma}
+
+\begin{proposition}     \label{PROPooUEBWooUQBQvP}
+    Si la série converge alors la somme est associative :
+    \( \sum_k (a_k+b_k) = \sum_k a_k + \sum_k b_k \).
+\end{proposition}
+
+\begin{proof}
+    Associativité. Supposons que \( \sum_ka_k\) et \( \sum_kb_k\) convergent tous deux. Alors nous avons pour tout \( N\) :
+    \begin{equation}
+        \sum_{k=0}^N(a_k+b_k)=\sum_{k=0}^Na_k+\sum_{k=0}^Nb_k.
+    \end{equation}
+    Mais si deux limites existent alors la somme commute avec la limite. C'est le cas pour la limite \( N\to \infty\), donc
+    \begin{equation}
+        \lim_{N\to \infty} \sum_{k=1}^{\infty}(a_k+b_k)=\lim_{N\to \infty} \sum_{k=0}^{\infty}a_k+\lim_{N\to \infty} \sum_{k=0}^{\infty}b_k.
+    \end{equation}
+\end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Série réelle}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{secseries}
+
+La notion de série formalise le concept de somme infinie\footnote{La définition d'une somme infinie est la définition \ref{DefHYgkkA}.}. L'absence de certaines propriétés de ces objets (problèmes de commutativité et même d'associativité) incite à la prudence et montre à quel point une définition précise est importante.
+
+
+\subsection{Critères de convergence absolue}
+
+Étant donné le terme général d'une série, il est souvent --dans les cas qui nous intéressent-- difficile de déterminer la somme de la série. L'exemple de la série géométrique est particulier\footnote{Voir l'exemple \ref{ExZMhWtJS}.}, puisqu'on connaît une formule pour chaque somme partielle, mais pour l'exemple des séries de Riemann il n'y a aucune formule simple pour un $\alpha$ général. D'où l'intérêt d'avoir des critères de convergence ne nécessitant aucune connaissance de l'éventuelle limite de la série.
+
+\begin{lemma}[Critère de comparaison]   \label{LemgHWyfG}
+Soient $\sum_i a_i$ et $\sum_j
+b_j$ deux séries à termes positifs vérifiant
+\begin{equation*}
+  0 \leq a_i \leq b_i
+\end{equation*}
+alors
+\begin{enumerate}
+\item si $\sum_i a_i$ diverge, alors $\sum_j b_j$ diverge,
+\item si $\sum_j b_j$ converge, alors $\sum_i a_i$ converge
+  (absolument).
+  \end{enumerate}
+\end{lemma}
+
+\begin{proposition}[Critère d'équivalence\cite{TrenchRealAnalisys}]
+ Soient $\sum_i a_i$ et $\sum_j b_j$ deux séries à termes positifs. Supposons l'existence de la limite (éventuellement infinie) suivante
+\begin{equation}
+  \limite i \infty \frac{a_i}{b_i} = \alpha
+\end{equation}
+avec \( \alpha\in \eR\cup\{ +\infty \}\). Alors
+\begin{enumerate}
+\item si $\alpha \neq 0$ et $\alpha\neq \infty$, alors
+  \begin{equation}
+    \sum_i a_i \text{~converge} \ssi \sum_j b_j\text{~converge,}
+  \end{equation}
+\item si $\alpha = 0$ et $\sum_j b_j$ converge, alors $\sum_i a_i$
+  converge (absolument),
+\item si $\alpha = +\infty$ et $\sum_j b_j$ diverge, alors $\sum_i
+  a_i$ diverge.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+    \item
+        Le fait que la suite $a_n/b_n$ converge vers $\alpha$ signifie que tant sa limite supérieure que sa limite inférieure convergent vers $\alpha$. En particulier la suite $\frac{ a_n }{ b_n }$ est bornée vers le haut et vers le bas. À partir d'un certain rang $N$, il existe $M$ tel que
+        \begin{equation}
+            \frac{ a_n }{ b_n }<M
+        \end{equation}
+        et il existe $m$ tel que
+        \begin{equation}
+            \frac{ a_n }{ b_n }>m.
+        \end{equation}
+        Nous avons donc $a_n<Mb_n$ et $a_n>mb_n$. La série de $(a_n)$ converge donc si et seulement si la série de $(b_n)$ converge.
+    \item
+        Si $\alpha=0$, cela signifie que pour tout $\epsilon$, il existe un rang tel que $\frac{ a_n }{ b_n }<\epsilon$, et donc tel que $a_n<\epsilon b_k$. La suite de $(a_i)$ converge donc dès que la suite de $(b_i)$ converge.
+    \item
+        Pour tout $M$, il existe un rang dans la suite à partir duquel on a $\frac{ a_i }{ b_i }>M$, et donc $a_k>Mb_k$. Si la série de $(b_k)$ diverge, la série de $(a_k)$ doit également diverger.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}[Critère du quotient\cite{KeislerElemCalculus}]     \label{PropOXKUooQmAaJX}
+    Soit $\sum_i a_i$ une série. Supposons l'existence de la limite (éventuellement infinie) suivante
+    \begin{equation}
+      \limite i \infty \abs{\frac{a_{i+1}}{a_i}} = L
+    \end{equation}
+    avec \( L\in \eR\cup\{ +\infty \}\).  Alors
+    \begin{enumerate}
+    \item si $L < 1$, la série converge absolument,
+    \item si $L > 1$, la série diverge,
+    \item si $L = 1$ le critère échoue : il existe des exemples de convergence et des exemples de divergence.
+    \end{enumerate}
+\end{proposition}
+\index{critère du quotient}
+
+\begin{proof}
+\begin{enumerate}
+    \item
+        Soit $b$ tel que $L<b<1$. À partir d'un certain rang $K$, on a $\left| \frac{ a_{i+1} }{ a_i } \right| <b$. En particulier,
+        \begin{equation}
+            | a_{K+1} |<b| a_K |,
+        \end{equation}
+        et pour $a_{K+2}$ nous avons
+        \begin{equation}
+            | a_{K+2} |<b| a_{K+1} |<b^2| a_K |.
+        \end{equation}
+        Au final,
+        \begin{equation}
+            | a_{K+n} |<b^n| a_K |.
+        \end{equation}
+        Étant donné que la série $\sum_{n\geq K}b^n$ converge (parce que $b<1$), la queue de suite $\sum_{i\geq K}a_i$ converge, et par conséquent la suite au complet converge.
+    \item
+        Si $L>1$, on a
+        \begin{equation}
+            | a_K |<| a_{K+1} |<| a_{K+2} |<\ldots
+        \end{equation}
+        Il est donc impossible que la suite $(a_i)$ converge vers zéro. La série ne peut donc pas converger.
+    \item
+        Par exemple la suite harmonique $a_n=\frac{1}{ n }$ vérifie $L=1$, mais la série ne converge pas. Par contre, la suite $a_n=\frac{ 1 }{ n^2 }$ vérifie aussi le critère avec $L=1$ tandis que la série $\sum_n\frac{1}{ n^2 }$ converge.
+\end{enumerate}
+\end{proof}
+
+
+\begin{proposition}[Critère de la racine\cite{TrenchRealAnalisys}]
+    Soit $\sum_i a_i$ une série, et considérons
+    \begin{equation*}
+      \limsup_{i \rightarrow \infty} \sqrt[i]{\abs{a_i}} = L
+    \end{equation*}
+    avec \( L\in \eR\cup\{ +\infty \}\). Alors
+    \begin{enumerate}
+    \item si $L < 1$, la série converge absolument,
+    \item si $L> 1$, la série diverge,
+    \item si $L = 1$ le critère échoue.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}
+        \item
+            Si $L<1$, il existe un $r\in \mathopen] 0 , 1 \mathclose[$ tel que $| a_n |^{1/n}<r$ pour les grands $n$. Dans ce cas, $| a_n |<r^{n}$, et la série converge absolument parce que la série $\sum_nr^n$ converge du fait que $r<1$.
+        \item
+            Si $L>1$, il existe un $r>1$ tel que $| a_n |^{1/n}>r>1$. Cela fait que $| a_n |$ prend des valeurs plus grandes que $n$ pour une infinité de termes. Le terme général $a_n$ ne peut donc pas être une suite convergente. Par conséquent la suite diverge au sens où elle ne converge pas.
+
+    \end{enumerate}
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Critères de convergence simple}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Les critères de comparaison, d'équivalence, du quotient et de la racine sont des critères de convergence absolue. Pour conclure à une convergence simple qui n'est pas une convergence absolue, le critère d'Abel sera notre outil principal.
+
+\subsubsection{Critère d'Abel}
+
+\begin{proposition}[Critère d'Abel]
+    Soit la série $\sum_i c_iz_i$ avec
+    \begin{enumerate}
+        \item $(c_i)$ est une suite réelle décroissante qui tend vers zéro,
+        \item $(z_i)$ est une suite dans $\eC$ dont la suite des sommes partielles est bornée dans $\eC$, c'est-à-dire qu'il existe un $M>0$ tel que pour tout $n$,
+        \begin{equation}
+            \left| \sum_{i=1}^nz_i \right| \leq M.
+        \end{equation}
+        Alors la série $\sum_ic_iz_i$ est convergente.
+    \end{enumerate}
+\end{proposition}
+Remarquons que ce critère ne donne pas de convergence absolue.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Quelques séries usuelles}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{SUBSECooDTYHooZjXXJf}
+
+\begin{example}[Série harmonique]       \label{EXooDVQZooEZGoiG}
+    La \defe{série harmonique}{série!harmonique} est
+    \begin{equation}
+        \sum_{i=k}^\infty \frac{1}{ k }=+\infty.
+    \end{equation}
+\end{example}
+
+\begin{example}[Série géométrique] \label{ExZMhWtJS}
+    La \defe{série géométrique}{série!géométrique} de raison $q \in \eC$ est
+    \begin{equation}    \label{EqZQTGooIWEFxL}
+        \sum_{i=0}^\infty q^i.
+    \end{equation}
+    Étudions la somme partielle \( S_N=1+q+q^2+\cdots +q^{N}\). Nous avons évidemment $S_N-qS_N=1-q^{N+1}$ et donc
+    \begin{equation}    \label{EqASYTiCK}
+        S_N=\sum_{n=0}^Nq^n=\frac{ 1-q^{N+1} }{ 1-q }.
+    \end{equation}
+    La limite \( \lim_{N\to \infty} S_N\) existe si et seulement si \( | q |\leq 1\) et dans ce cas nous avons
+    \begin{equation}    \label{EqRGkBhrX}
+        \sum_{n=0}^{\infty}q^n=\frac{ 1 }{ 1-q }.
+    \end{equation}
+    La convergence est absolue.
+
+    Si la somme commence en \( n=1\) au lieu de \( n=0\) alors
+    \begin{equation}        \label{EqPZOWooMdSRvY}
+        \sum_{n=1}^{\infty}q^n=\frac{1}{ 1-q }-1=\frac{ q }{ 1-q }.
+    \end{equation}
+\end{example}
+
+Un cas particulier de la formule \eqref{EqASYTiCK} est le calcul de \( \sum_{j=1}^{N}q^{-j}\) bien utile lorsque l'on joue avec des nombres binaires (voir l'exemple~\ref{EXEMooRHENooGwumoA}). Nous avons
+\begin{equation}        \label{EQooFMBAooEJkHWT}
+    \sum_{j=1}^Nq^{-j}=\sum_{j=0}^Nq^{-j}-1=\frac{ 1-q^{-N} }{ q-1 }.
+\end{equation}
+
+\begin{example}[Série de Riemann]       \label{EXooCTYNooCjYQvJ}
+    Pour $\alpha \in \eR$, la \defe{série de Riemann}{série!Riemann}
+    \begin{equation}        \label{EqSerRiem}
+        \sum_{i=1}^\infty \frac1{i^\alpha}
+    \end{equation}
+    converge (absolument, puisque réelle et positive) si et seulement si $\alpha > 1$, et diverge sinon.
+\end{example}
+
+\begin{example}[Série exponentielle] \label{ExIJMHooOEUKfj}
+    La série exponentielle est la série (pour \( t\in \eR\))
+    \begin{equation}
+        \exp(t)=\sum_{k=0}^{\infty}\frac{ t^k }{ k! }.
+    \end{equation}
+    Nous montrons qu'elle converge pour tout \( t\in \eR\). Si \( a_k=t^k/k!\) alors \( \frac{ a_{k+1} }{ a_k }=\frac{ t }{ k }\) dont la limite \( k\to \infty\) est zéro (quel que soit \( t\)). En vertu du critère du quotient~\ref{PropOXKUooQmAaJX} la série exponentielle converge (absolument) pour tout \( t\in \eR\).
+
+    Pour tout savoir de l'exponentielle et de ses variations, voir le thème~\ref{THEMEooKXSGooCsQNoY}.
+\end{example}
+\index{exponentielle!convergence}
+
+\begin{example}[Série arithmético-géométrique\cite{QXuqdoo}]
+    Une \defe{suite arithmético-géométrique}{suite!arithmético-géométrique} est une suite vérifiant pour tout \( n\) la relation
+    \begin{equation}
+        u_{n+1}=au_n+b
+    \end{equation}
+    avec \( a\) et \( b\) non nuls. Si elle possède une limite, cette dernière doit résoudre \( l=al+b\), et donc être donnée par
+    \begin{equation}
+        l=\frac{ b }{ 1-a }.
+    \end{equation}
+
+    Comportement amusant : la limite peut exister pour certains valeurs de \( a_0\) et pas pour d'autres. Mais elle ne dépend pas de \( a_0\) parmi ceux pour lesquelles la limite existe.
+
+    Il n'est pas très compliqué de trouver le terme général de la suite en fonction de \( a\) et de \( b\). Il suffit de considérer la suite \( v_n=u_n-r\), et de remarquer que cette suite est géométrique :
+    \begin{equation}
+        v_{n+1}=av_n.
+    \end{equation}
+    Par conséquent \( v_n=a^nv_0\), ce qui donne pour la suite \( (u_n)\) la formule
+    \begin{equation}
+        u_n=a^n(u_0-r)+r.
+    \end{equation}
+\end{example}
+
+\begin{lemma}[\cite{BIBooTIZHooGeFZri}]     \label{LEMooKDHPooPlFTIT}
+    Nous avons :
+    \begin{equation}
+        \sum_{k=1}^N\frac{1}{ k(k+1) }=\frac{ N }{ N+1 }.
+    \end{equation}
+    et
+    \begin{equation}
+        \sum_{k=1}^{\infty}\frac{1}{ k(k+1) }=1.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Nous posons
     \begin{subequations}
         \begin{align}
-            f\colon U\to V\\
-            g\colon V\to G.
+            f(n)&=\sum_{k=1}^n\frac{1}{ k(k+1) }\\
+            g(n)&=\frac{ n }{ n+1 }
         \end{align}
     \end{subequations}
-    Alors l'application \( g\circ f\colon V\to G\) est de classe \( C^r\) et
-    \begin{equation}\label{EqHFmezmr}
-        d(g\circ f)_x=dg_{f(x)}\circ df_x.
+    et nous montrons par récurrence que \( f(n)=g(n)\). Pour \( n=1\) nous avons \( f(1)=g(1)=\frac{ 1 }{2}\).
+
+    Nous supposons que \( f(n)=g(n)\) et nous prouvons que \( f(n+1)=g(n+1)\). Facile :
+    \begin{subequations}
+        \begin{align}
+            f(n+1)&=f(n)+\frac{1}{ (n+1)(n+2) }\\
+            &=\frac{ n }{ n+1 }+\frac{1}{ (n+1)(n+2) }\\
+            &=\frac{ n(n+2)+1 }{ (n+1)(n+2) }\\
+            &=\frac{ n^2+2n+1 }{ (n+1)(n+2) }\\
+            &=\frac{ (n+1)^2 }{ (n+1)(n+2) }\\
+            &=\frac{ n+1 }{ n+2 }\\
+            &=g(n+1).
+        \end{align}
+    \end{subequations}
+    En ce qui concerne la seconde formule, par définition\footnote{Définition d'une série, \ref{DefGFHAaOL}.}
+    \begin{equation}
+        \sum_{k=1}^{\infty}\frac{1}{ k(k+1) }=\lim_{n\to \infty} \sum_{k=1}^n\frac{1}{ k(k+1) }=\lim_{n\to \infty}\frac{ n }{ n+1 } =1.
+    \end{equation}
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Séries alternées}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{theorem}[Critère des séries alternées\cite{ooXFPIooCLUvzV}]      \label{THOooOHANooHYfkII} 
+    Si \( (a_n)_{n\in \eN}\) est une suite positive décroissante à limite nulle, alors
+    \begin{enumerate}
+        \item
+            Si nous notons \( (S_n)\) la suite des sommes partielles, les sous-suites \( (S_{2n})\) et \( (S_{2n+1})\) sont adjacentes\footnote{Définition \ref{DEFooDMZLooDtNPmu}.}.
+        \item
+            La série \( \sum_n(-1)^na_n\) converge.
+        \item       \label{ITEMooWEPWooXhLMYL}
+            Si nous considérons le reste 
+            \begin{equation}
+                R_n=\sum_{k=n+1}^{\infty}(-1)^ka_k,
+            \end{equation}
+            nous avons
+            \begin{subequations}
+                \begin{align}
+                    \signe(R_n)=(-1)^{n+1}\\
+                    | R_n |\leq a_{n+1}.
+                \end{align}
+            \end{subequations}
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    En termes de notations, nous allons écrire \( (S_n)\) la suite des sommes partielles de \( \sum_{k=0}^{\infty}(-1)^ka_k\). Nous notons \( (S_{2n})\) la suite des termes pairs de cette suite. C'est donc la suite \( n\mapsto S_{2n}\).
+    Nous divisons en plusieurs morceaux.
+    \begin{subproof}
+        \item[\( S_{2n}\) est croissante]
+            Nous avons simplement
+            \begin{equation}
+                S_{2n+2}-S_{2n}=a_{2n+2}-a_{2n+1}\leq 0.
+            \end{equation}
+        \item[\( (S_{2n+1})\) est décroissante]
+            Même calcul.
+        \item[Les suites \( (S_{2n})\) et \( S_{2n+1}\) sont adjacentes] Nous avons simplement
+            \begin{equation}
+                S_{2n+1}-S_{2n}=a_{2n+1}\to 0.
+            \end{equation}
+            Nous concluons par le théorème des suites adjacentes \ref{THOooZJWLooAtGMxD} que les sous-suites des termes pairs et impairs sont convergentes et convergent vers la même limite.
+    \end{subproof}
+    C'est le moment d'utiliser la proposition \ref{PROPooXOOCooGMqJNe} qui convaincra la lectrice que \( (S_n)\) converge vers la même limite, que nous notons \( S\). Le théorème des suites adjacentes nous dit encore que 
+    \begin{equation}
+        S_{2n+1}\leq S\leq S_{2n}
+    \end{equation}
+    et donc que \( R_{2n}=S-S_{2n}\leq 0\). Cela donne la majoration
+    \begin{equation}
+        | R_{2n} |=| S-S_n |=S_{2n}-S\leq S_{2n}-S_{2n+1}=a_{2n+1}.
+    \end{equation}
+    Nous faisons le même genre de majorations pour \( R_{2n+1}\).
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Moyenne de Cesaro}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+    Si \( (a_n)_{n\in \eN} \) est une suite dans \( \eR\) ou \( \eC\), alors sa \defe{moyenne de Cesaro}{moyenne!de Cesaro}\index{Cesaro!moyenne} est la limite (si elle existe) de la suite
+    \begin{equation}
+        c_n=\frac{1}{ n }\sum_{k=1}^na_k.
+    \end{equation}
+    En un mot, c'est la limite des moyennes partielles.
+\end{definition}
+
+\begin{lemma}       \label{LemyGjMqM}
+    Si la suite \( (a_n)\) converge vers la limite \( \ell\) alors la suite admet une moyenne de Cesaro qui vaudra \( \ell\).
+\end{lemma}
+
+\begin{proof}
+    Soit \( \epsilon>0\) et \( N\in \eN\) tel que \( | a_n-\ell |<\epsilon\) pour tout \( n>N\). En remarquant que
+    \begin{equation}
+        \frac{1}{ n }\sum_{k=1}^nk-\ell=\frac{1}{ n }\sum_{k=1}^n(a_k-\ell),
+    \end{equation}
+    nous avons
+    \begin{subequations}
+        \begin{align}
+            | \frac{1}{ n }\sum_{k=1}^na_k-\ell |&\leq| \frac{1}{ n }\sum_{k=1}^N| a_k-\ell | |+\big| \frac{1}{ n }\sum_{k=N+1}^n\underbrace{| a_k-\ell |}_{\leq \epsilon} \big|\\
+            &\leq \epsilon+\frac{ n-N-1 }{ n }\epsilon\\
+            &\leq 2\epsilon.
+        \end{align}
+    \end{subequations}
+    Dans ce calcul nous avons redéfinit \( N\) de telle sorte que le premier terme soit inférieur à \( \epsilon\).
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Écriture décimale d'un nombre}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{normaltext}      \label{NORMALooTZWYooPMgOIm}
+    Soit \( b\geq 2\) un entier qui sera la base dans laquelle nous allons écrire les nombres. Nous considérons l'ensemble \( \eD_b\)\nomenclature[Y]{\( \eD_b\)}{l'ensemble de écritures décimales en base \( b\)} des suites dans \( \{ 0,1,\ldots, b-1 \}\) qui n'ont pas une queue de suite uniquement formée de \( b-1\). Autrement dit une suite \( (c_n)\) est dans \( \eD_b\) lorsque pour tout \( N\), il existe \( k>N\) tel que \( c_k\neq b-1\). Associé à cet ensemble nous considérons la fonction
+    \begin{equation}    \label{EqXXXooOTsCK}
+        \begin{aligned}
+            \varphi_b\colon \eD_b&\to \mathopen[ 0 , 1 [ \\
+                c&\mapsto \sum_{n=1}^{\infty}\frac{ c_n }{ b^n }.
+        \end{aligned}
+    \end{equation}
+\end{normaltext}
+
+\begin{lemma}
+    La fonction \( \varphi_b\) est bien définie au sens où elle converge et prend ses valeurs dans \( \mathopen[ 0 , 1 [\).
+\end{lemma}
+
+\begin{proof}
+    Tout se base sur la somme de la série géométrique \eqref{EqRGkBhrX} sous la forme
+    \begin{equation}    \label{EqWZGooXJgwl}
+        \sum_{k=0}^{\infty}\frac{1}{ b^k }=\frac{ b }{ b-1 }.
+    \end{equation}
+    La somme \eqref{EqXXXooOTsCK} est donc majorée par \( \sum_n\frac{ b-1 }{ b^n }\) qui converge.
+
+    Pour prouver que l'image de \( \varphi_b\) est bien \( \mathopen[ 0 , 1 [\), nous savons qu'au moins un des \( c_n\) (en fait une infinité) est plus petit que \( b-1\), donc nous avons la majoration stricte\footnote{Notez que la somme \eqref{EqXXXooOTsCK} commence à un tandis que la série géométrique \eqref{EqWZGooXJgwl} commence à zéro.}
+        \begin{equation}
+            \varphi_b(c)<\sum_{n=1}^{\infty}\frac{ b-1 }{ b^n }=(b-1)\left( \sum_{n=1}^{\infty}\frac{1}{ b^n }-1 \right)=1
+        \end{equation}
+\end{proof}
+
+Le fait d'introduire l'ensemble \( \eD\) au lieu de l'ensemble de toutes les suites est justifié par la proposition suivante. Elle explique pourquoi un nombre possède au maximum deux écritures décimales distinctes et que ces deux sont obligatoirement de la forme, par exemple en base \( 10\) :
+\begin{equation}
+    0.34599999999\ldots=0.34600000\ldots
+\end{equation}
+mais qu'un nombre commençant par \( 0.347\) ne peut pas être égal. C'est pour cela que dans la définition de \( \eD_b\) nous avons exclu les suites qui terminent par tout des \( b-1\).
+\begin{proposition} \label{PropSAOoofRlQR}
+    Soit la fonction
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \{ 0,\ldots, b-1 \}^{\eN}&\to \mathopen[ 0 , 1 [ \\
+                x&\mapsto \sum_{n=1}^{\infty}\frac{ x_n }{ b^n }.
+        \end{aligned}
+    \end{equation}
+    Si \( \varphi(x)=\varphi(y)\) et si \( n_0\) est le plus petit entier tel que \( x_{n_0}\neq y_{n_0}\) alors soit
+    \begin{equation}
+        x_{n_0}-y_{n_0}=1
+    \end{equation}
+    et \( x_n=0\), \( y_n=b-1\) pour tout \( n>n_0\), soit le contraire : \( y_{n_0}-x_{n_0}=1\) avec \( y_n=0\) et \( x_n=b-1\) pour tout \( n>n_0\).
+\end{proposition}
+
+\begin{proof}
+    Nous nous basons sur la formule (facilement dérivable depuis \eqref{EqWZGooXJgwl}) suivante :
+    \begin{equation}
+        \sum_{k=n_0+1}^{\infty}\frac{1}{ b^k }=\frac{1}{ b^{n_0+1} }\frac{ b }{ b-1 }.
+    \end{equation}
+    Nous avons
+    \begin{equation}
+        0=\varphi(x)-\varphi(y)=\frac{ x_{n_0}-y_{n_0} }{ b^{n_0} }+\sum_{n=n_0+1}^{\infty}\frac{ x_n-y_n }{ b^n }\geq \frac{ x_{n_0}-y_{n_0} }{ b^{n_0} }-\sum_{n=n_0+1}^{\infty}\frac{ b-1 }{ b^n }=\frac{ x_{n_0}-y_{n_0}-1 }{ b^{n_0} }.
+    \end{equation}
+    Le dernier terme étant manifestement positif\footnote{C'est ici qu'intervient la subdivision entre le cas \( x_{n_0}-y_{n_0}=1\) ou le contraire. En effet si «ce dernier terme était manifestement \emph{négatif}», il aurait fallu majorer avec de \( 1-b\) au lieu de \( 1-b\).}, il est nul et nous avons \( x_{n_0}-y_{n_0}=1\).
+
+    Nous avons donc maintenant
+    \begin{equation}    \label{EqHWQoottPnb}
+        0=\varphi(x)-\varphi(y)=\frac{1}{ b^{n_0} }+\sum_{n=n_0+1}^{\infty}\frac{ x_n-y_n }{ b^n }.
+    \end{equation}
+    Nous majorons la dernière somme de la façon suivante, en supposant que \( | x_n-y_n |\neq b-1\) pour un certain \( n>n_0\) :
+    \begin{equation}
+        \left| \sum_{n=n_0+1}^{\infty}\frac{ x_n-y_n }{ b^n } \right| \leq\sum_{n=n_0+1}^{\infty}\frac{ | x_n-y_n | }{ b^n }<\sum_{n=n_0+1}^{\infty}\frac{ b-1 }{ b^n }=\frac{1}{ b^{n_0} }.
+    \end{equation}
+    Étant donné cette inégalité stricte, l'équation \eqref{EqHWQoottPnb} ne peut pas être correcte (valoir zéro). Nous avons donc \( | x_n-b_n |=b-1\) pour tout \( n>n_0\). Donc pour chaque \( n>n_0\) nous avons soit \( x_n=0\) et \( y_n=b-1\), soit \( a_n=b-1\) et \( b_n=0\). Pour conclure il faut encore prouver que le choix doit être le même pour tout \( n\).
+
+    Nous nous mettons dans le cas \( x_{n_0}-y_{n_0}=1\); dans ce cas nous avons bien l'égalité \eqref{EqHWQoottPnb} sans petites nuances de signes. Nous écrivons
+    \begin{equation}
+        \sum_{n=n_0+1}^{\infty}\frac{ x_n-y_n }{ b^n }=(b-1)\sum_{n=n_0+1}^{\infty}\frac{ (-1)^{s_n} }{ b^n }
+    \end{equation}
+    où \( s_n\) est pair ou impair suivant que \( x_n=0\), \( y_n=b-1\) ou le contraire. Si un des \( (-1)^{s_n}\) est pas \( -1\) alors nous avons l'inégalité stricte
+    \begin{equation}
+        (b-1)\sum_{n=n_0+1}^{\infty}\frac{ (-1)^{s_n} }{ b^n }>(b-1)\sum_{n=n_0+1}^{\infty}\frac{-1}{ b^n }=-\frac{1}{ b^{n_0} }.
+    \end{equation}
+    Dans ce cas il est impossible d'avoir \( \varphi(x)-\varphi(y)=0\). Nous en concluons que \( (-1)^{s_n}\) est toujours \( -1\), c'est-à-dire \( x_n-y_n=1-b\), ce qui laisse comme seule possibilité \( x_n=0\) et \( y_n=b-1\).
+\end{proof}
+
+\begin{theorem} \label{ThoRXBootpUpd}
+    L'application \( \varphi_b\colon \eD_b\to \mathopen[ 0 , 1 [\) est bijective.
+\end{theorem}
+
+\begin{proof}
+    En ce qui concerne l'injection, nous savons de la proposition~\ref{PropSAOoofRlQR} que si \( \varphi_b(x)=\varphi_b(y)\) pour \( x,y\in\{ 0,\ldots, b-1 \}^{\eN}\), alors soit \( x\) soit \( y\) a une queue de suite composée uniquement de \( b-1\), ce qui est exclu dans \( \eD_b\). Nous en déduisons que \( \varphi_b\) est bien injective en prenant \( \eD_b\) comme ensemble départ.
+
+    La partie lourde est la surjectivité. Nous prenons \( x\in \mathopen[ 0 , 1 [\) et nous allons construire par récurrence une suite \( a\in \eD_b\) telle que \( \varphi_b(a)=x\). Si il existe \( a_1\in\{ 0,\ldots, b-1 \}\) tel que \( x=a_1/b\) alors nous prenons la suite \( (a_1,0,\ldots, )\) et nous avons évidemment \( \varphi(a)=x\). Sinon il existe \( a_1\in\{ 0,\ldots, b-1 \}\) tel que
+        \begin{equation}
+            \frac{ a_1 }{ b }<x<\frac{ a_1+1 }{ b }
+        \end{equation}
+        parce que les autres possibilités pour \( x\) sont dans l'ensemble \( \mathopen[ 0 , 1 \mathclose[\setminus\{ \frac{ k }{ b } \}_{k=0,\ldots, b-1}\) que nous subdivisons en
+        \begin{equation}
+        \mathopen] 0 , \frac{1}{ b } \mathclose[\cup\mathopen] \frac{1}{ b } , \frac{ 2 }{ b } \mathclose[\cup\ldots\cup\mathopen] \frac{ b-1 }{ b } , 1 \mathclose[.
+        \end{equation}
+        Pour la récurrence nous supposons avoir trouvé \( a_1,\ldots, a_n\) tels que
+        \begin{equation}
+            \sum_{k=1}^n\frac{ a_k }{ b^k }< x<\sum_{k=1}^{n-1}\frac{ a_k }{ b^k }+\frac{ a_n+1 }{ b^n }.
+        \end{equation}
+    Encore une fois s'il existe \( a_{n+1}\in\{ 0,\ldots, b-1 \}\) tel que \( \sum_{k=1}^{n+1}\frac{ a_k }{ b^k }=x\) alors nous prenons ce \( a_{n+1}\) et nous complétons la suite avec des zéros pour avoir \( \varphi(a)=x\). Sinon
+%nous subdivisions l'intervalle \( \mathopen]  \frac{ a_n }{ b^n }, \frac{ a_n }{ b^n }+\frac{ a_n+1 }{ b^n } \mathclose[\) (auquel nous retranchons les \( b\) nombres déjà traités) en
+ %       \begin{equation}
+ %       \mathopen] \frac{ a_n }{ b^n } , \frac{ a_n }{ b^n }+\frac{1}{ b^{n+1} } \mathclose[ \cup \mathopen] \frac{ a_n }{ b^n }+\frac{1}{ b^{n+1} } , \frac{ a_n }{ b^n }+\frac{2}{ b^{n+1} } \mathclose[\cup\ldots\cup\mathopen] \frac{ a_n }{ b^n }+\frac{ b-1 }{ b^{n+1} } , \frac{ a_n }{ b^n }+\frac{ 1 }{ b^n } \mathclose[.
+ %       \end{equation}
+        , pour simplifier les notations nous notons \( x'=x-\sum_{k=1}^{n}\frac{ a_k }{ b^k }\) et nous avons
+        \begin{equation}
+            0<x'<\frac{ a_n+1 }{ b^n }.
+        \end{equation}
+        Le nombre \( x'\) est forcément dans un des intervalles
+        \begin{equation}
+                \mathopen] \frac{ s }{ b^{n+1} } , \frac{ s+1 }{ b^{n+1} } \mathclose[
+        \end{equation}
+        avec \( s\in\{ 0,\ldots, b-1 \}\). Nous prenons le \( s\) correspondant à \( x'\) comme \( a_{n+1}\). Dans ce cas nous avons
+        \begin{equation}
+            \sum_{k=1}^{n+1}\frac{ a_k }{ b^k }< x<\sum_{k=1}^{n+1}\frac{ a_k }{ b^k }+\frac{1}{ b^{n+1} }.
+        \end{equation}
+        Note : les deux inégalités sont strictes. La première parce que s'il y avait égalité, nous nous serions déjà arrêté en complétant avec des zéros. La seconde parce que
+        \begin{equation}
+            \sum_{k=n+2}^{\infty}\frac{ a_k }{ b^k }\leq \sum_{k=n+2}^{\infty}\frac{ b-1 }{ b^k }=\frac{1}{ b^{n+1} }
+        \end{equation}
+        où l'égalité n'est possible que si \( a_k=b-1\) pour tout \( k\geq n+2\). Dans ce cas nous aurions eu
+        \begin{equation}
+            x=\sum_{k=1}^{n}\frac{ a_k }{ b^k }+\frac{ a_{n+1}+1 }{ b^{n+1} }
+        \end{equation}
+        et nous aurions choisi le nombre \( a_{n+1}\) autrement et complété la suite par des zéros à partir de là. Notons que cela prouve au passage que la suite que nous sommes en train de construire est bien dans \( \eD_b\) parce qu'elle ne contiendra pas de queue de suite composée de \( b-1\).
+
+        Ceci termine la construction par récurrence de la suite \( a\in \eD_b\). Par construction nous avons pour tout \( N\geq 1\),
+        \begin{equation}
+            \sum_{k=1}^N\frac{ a_k }{ b^k }\leq x\leq \sum_{k=1}^N\frac{ a_k }{ b^k }+\frac{1}{ b^{N+1} },
+        \end{equation}
+        autrement dit : \( \varphi_b(a_1,\ldots, a_N)\in B(x,\frac{1}{ b^{N+1} })\). Nous avons donc bien convergence
+        \begin{equation}
+            \lim_{N\to \infty} \varphi_b(a_1,\ldots, a_N)=x
+        \end{equation}
+        et l'application \( \varphi_b\) est surjective.
+\end{proof}
+
+L'application \( \varphi_b^{-1}\colon \mathopen[ 0 , 1 [\to \eD_b\) est la \defe{décomposition décimale}{décomposition décimale} en base \( b\) des nombres de \( \mathopen[ 0 , 1 [\).
+
+Tout cela nous permet de montrer entre autres que \( \eR\) n'est pas dénombrable. Vu qu'il y a une bijection entre \( \mathopen[ 0 , 1 [\) et \( \eD_b\), il suffit de prouver que \( \eD_b\) est non dénombrable. De plus il suffit de démontrer que \( \eD_b\) est non dénombrable pour un entier \( b\geq 2\) donné.
+
+\begin{proposition}[\cite{KZIoofzFLV}]  \label{PropNNHooYTVFw}
+    Il n'existe pas de surjection \( \eN\to \eD_b\). Autrement dit \( \eD_b\) est non dénombrable.
+\end{proposition}
+
+\begin{proof}
+    Nous prenons \( b\neq 2\) pour des raisons qui seront claires plus tard. Soit \( f\colon \eN\to \eD_b\). Pour \( i\in \eN\) nous notons
+    \begin{equation}
+        f(n)=(c_i^{(n)})_{i\geq 1},
+    \end{equation}
+    et nous définissons la suite
+    \begin{equation}
+        c_k=\begin{cases}
+            0    &   \text{si } c_k^{(k)}\neq 0\\
+            1    &    \text{si } c_k^{(k)}=0.
+        \end{cases}
+    \end{equation}
+    Cela est une suite dans \( \eD_b\) parce que \( b\neq 2\) et que la suite ne contient que des \( 0\) et des \( 1\). Mais nous n'avons \( f(n)=c\) pour aucun \( n\in \eN\) parce que nous avons \( c_n\neq f(n)_n\).
+
+    Si \( b=2\) alors nous savons que \( \eD_2\sim\mathopen[ 0 , 1 [\sim \eD_3\). Donc \( \eD_2\sim \eD_3\) et \( \eD_2\) ne peut pas plus être mis en bijection avec \( \eN\) que \( \eD_3\).
+\end{proof}
+
+\begin{remark}
+    Le cas de la base \( b=2\) doit être fait à part parce que rien n'empêche d'avoir une queue de \( 1\). Il y a alors toutefois moyen de se débrouiller en construisant la suite \( c\) de façon plus subtile. Si \( b=2\) et \( n\in \eN\) alors \( f(n)\) est une suite de \( 0\) et \( 1\) contenant une infinité de \( 0\) (parce qu'il n'y a pas de queue de suite ne contenant que des \( 1\)). Nous construisons alors \( c\) de la façon suivante : d'abord nous recopions \( f(0)\) jusqu'à son \emph{deuxième} zéro que nous changeons en \( 1\); nommons \( n_0\) le rang de ce deuxième zéro. Ensuite nous recopions les éléments de \( f(1) \) à partir du rang \( n_0+1\) jusqu'au second zéro que nous changeons en \( 1\), etc.
+
+    Le fait de prendre le deuxième zéro nous garantit que la suite \( c\) n'aura pas de queue de suite ne contenant que des \( 1\).
+
+    Notons que cette construction s'adapte à tout \( b\); il suffit de prendre le second terme qui n'est pas \( b-1\) et le remplacer par \( b-1\).
+\end{remark}
+
+\begin{corollary}
+    L'ensemble \( \mathopen[ 0 , 1 [\) n'est pas dénombrable.
+\end{corollary}
+
+\begin{proof}
+    L'ensemble \( \mathopen[ 0 , 1 [\) est en bijection avec \( \eD_b\) que nous venons de prouver n'être pas dénombrable.
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Théorème de Banach-Steinhaus}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{lemma}[\cite{BIBooZUTUooNMvrdQ}]     \label{LEMooPIPLooMppGSO}
+    Soient des espaces vectoriels normés \( X\) et \( Y\) ainsi qu'une application linéaire bornée \( T\colon X\to Y\). Pour tout \( a\in X\) et pour tout \( r>0\) nous avons
+    \begin{equation}
+        \sup_{x\in B(a,r)}\| Tx \|\geq r\| T \|
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    Nous commençons avec \( a=0\). En utilisant la définition \ref{DefNFYUooBZCPTr} de la norme opérateur,
+    \begin{equation}
+        \| T \|=\sup_{x\in X}\frac{ \| Tx \| }{ \| x \| }=\sup_{x\in B(0,r)}\frac{ \| Tx \| }{ \| x \| }\leq \frac{1}{ r }\sup_{x\in B(0,r)}\| Tx \|.
+    \end{equation}
+    Donc
+    \begin{equation}
+        \sup_{x\in B(0,r)}\| Tx \|\geq r\| T \|.
+    \end{equation}
+    
+    Il y a maintenant une astuce. Nous considérons un maximum :
+    \begin{subequations}
+        \begin{align}
+            \max\{ \| T(a+x),\| T(a-x) \| \| \}&\geq \frac{ 1 }{2}\big( \| T(a+x) \|+\| T(a-x) \| \big) \label{SUBEQooPJPMooDkqRHs}\\
+            &\geq \frac{ 1 }{2}\big( \| T(a+x)-T(a+x) \| \big)      \label{SUBEQooEZUUooVlKtfn}\\
+            &=\frac{ 1 }{2}\| T(2x) \|\\
+            &=\| Tx \|.
+        \end{align}
+    \end{subequations}
+    Justifications :
+    \begin{itemize}
+        \item Pour \eqref{SUBEQooPJPMooDkqRHs}, la moyenne est plus petite que le maximum.
+        \item Pour \eqref{SUBEQooEZUUooVlKtfn}, inégalité triangulaire : \( \| \alpha-\beta \|\leq \| \alpha \|+\| \beta \|\).
+    \end{itemize}
+    Si maintenant \( y\in B(a,r)\), nous avons \( y=a+x\) pour un certain \( x\in B(0,r)\), donc
+    \begin{subequations}
+        \begin{align}
+            \sup_{y\in B(a,r)}\| Ty \|&=\sup_{x\in B(0,r)}\| T(a+x) \|\\
+            &=\sup_{x\in B(0,r)}\max\{ \| T(a+x) \|, \| T(a-x) \| \}        \label{SUBEQooACJSooTHCAWs}\\
+            &\geq \sup_{x\in B(0,r)}\| Tx \|\\
+            &\geq r\| T \|.
+        \end{align}
+    \end{subequations}
+    Pour \eqref{SUBEQooACJSooTHCAWs}, l'ensemble sur lequel nous prenons le supremum n'est pas modifié fondamentalement si nous regroupons les éléments deux à deux en prenant le maximum : les éléments exclus sont majorés.
+\end{proof}
+
+\begin{theorem}[Théorème de Banach-Steinhaus\cite{BIBooZUTUooNMvrdQ}]       \label{THOooJHVNooIDDxyT}
+    Soient un espace de Banach\footnote{Définition \ref{DefVKuyYpQ}.} \( X\) et un espace vectoriel normé \( Y\). Soit une famille \( \mF\) d'opérateurs linéaire bornés. Si pour tout \( x\in  X\),
+    \begin{equation}
+        \sup_{T\in\mF}\| Tx \|<\infty,
+    \end{equation}
+    alors 
+    \begin{equation}
+        \sup_{T\in \mF}\| T \|<\infty.
     \end{equation}
 \end{theorem}
 
 \begin{proof}
-    Nous nous fixons \( x\in U\). La fonction \( f\) est différentiable en \( x\in U\) et \( g\) en \( f(x)\), donc nous pouvons écrire
-    \begin{equation}
-        f(x+h)=f(x)+df_x(h)+\alpha(h)
-    \end{equation}
-    et
-    \begin{equation}
-        g\big( f(x)+u \big)=g\big( f(x) \big)+dg_{f(x)}(u)+\beta(u)
-    \end{equation}
-    où la fonction \( \alpha\) a la propriété que
-    \begin{equation}
-        \lim_{h\to 0} \frac{ \| \alpha(h) \| }{ \| h \| }=0;
-    \end{equation}
-    et la même chose pour \( \beta\). La fonction composée en \( x+h\) s'écrit donc
-    \begin{equation}    \label{EqCXcfhfH}
-        (g\circ f)(x+h)=g\big( f(x)+df_x(h)+\alpha(h) \big)=g\big( f(x) \big)+dg_{f(x)}\big( df_x(h)+\alpha(h) \big)+\beta\big( df_x(h)+\alpha(h) \big).
-    \end{equation}
-    Nous montrons que tous les «petits» termes de cette formule peuvent être groupés. D'abord si \( h\) est proche de \( 0\), nous avons
-    \begin{equation}
-        \frac{ \| df_x(h)+\alpha(h) \| }{ \| h \| }\leq\frac{ \| df_x \|\| h \| }{ \| h \| }+\frac{ \| \alpha(h) \| }{ \| h \| }.
-    \end{equation}
-    Si \( h\) est petit, le second terme est arbitrairement petit, donc en prenant n'importe que \( M>\| df_x \|\) nous avons
-    \begin{equation}
-        \frac{ \| df_x(h)+\alpha(h) \| }{ \| h \| }\leq M.
-    \end{equation}
-    Par ailleurs, nous avons
-    \begin{equation}
-        \frac{ \| \beta\big( df_x(h)+\alpha(h) \big) \| }{ \| h \| }=\frac{  \| \beta\big( df_x(h)+\alpha(h) \big) \|  }{ \| df_x(h)+\alpha(h) \| }\frac{  \| df_x(h)+\alpha(h) \|  }{ \| h \| }\leq M\frac{  \| \beta\big( df_x(h)+\alpha(h) \big) \|  }{   \| df_x(h)+\alpha(h) \| }.
-    \end{equation}
-    Vu que la fraction est du type \( \frac{ \beta( f(h)) }{ f(h) }\) avec \( \lim_{h\to 0} f(h)=0\), la fraction tend vers zéro lorsque \( h\to 0\). En posant
-    \begin{equation}
-        \gamma_1(h)=\beta\big( df_x(h)+\alpha(h) \big)
-    \end{equation}
-    nous avons \( \lim_{h\to 0} \gamma_1(h)/\| h \|=0\).
+    Nous supposons que \( \sup_{T\in\mF}\| T \|=\infty\), de telle sorte que nous pouvons choisir une suite \( (T_n)\) dans \( \mF\) telle que \( \| T_n \|\to \infty\). Cette suite peut diverger arbitrairement vite, et nous fixerons exactement cela plus tard.
 
-    L'autre candidat à être un petit terme dans \eqref{EqCXcfhfH} est traité en utilisant le lemme~\ref{LEMooFITMooBBBWGI} :
-    \begin{equation}
-        \| dg_{f(x)}\big( \alpha(h) \big) \|\leq \| dg_{f(x)} \|\| \alpha(h) \|.
-    \end{equation}
-    Donc
-    \begin{equation}
-        \frac{ \| dg_{f(x)}\big( \alpha(h) \big) \| }{ \| h \| }\leq \| dg_{f(x)} \|\frac{ \| \alpha(h) \| }{ \| h \| },
-    \end{equation}
-    ce qui nous permet de poser
-    \begin{equation}
-        \gamma_2(h)=dg_{f(x)}\big( \alpha(h) \big)
-    \end{equation}
-    avec \( \gamma_2\) qui a la même propriété que \( \gamma_1\). Avec tout cela, en posant \( \gamma=\gamma_1+\gamma_2\) nous récrivons
-    \begin{equation}
-        (g\circ f)(x+h)=g\big( f(x) \big)+dg_{f(x)}\big( df_x(h) \big)+\gamma(h)
-    \end{equation}
-    avec \( \lim_{h\to 0} \frac{ \gamma(h) }{ \| h \| }=0\). Tout cela pour dire que
-    \begin{equation}
-        \lim_{h\to 0} \frac{ (g\circ f)(x+h)-(g\circ f)(x)-\big( dg_{f(x)}\circ df_x \big)(h) }{ \| h \| }=0,
-    \end{equation}
-    ce qui signifie que
-    \begin{equation}
-        d(g\circ f)_x=dg_{f(x)}\circ df_x.
-    \end{equation}
-    Nous avons donc montré que si \( f\) et \( g\) sont différentiables, alors \( g\circ f\) est différentiable avec différentielle donnée par \eqref{EqHFmezmr}.
+    Soit par ailleurs une suite \( \alpha_n>0\) d'éléments petits et tels que \( \alpha_n\to 0\). Nous supposons que \( \sum_{n=0}^{\infty}\alpha_n<\infty\).
 
-    Nous passons à la régularité. Nous supposons maintenant que \( f\) et \( g\) sont de classe \( C^r\) et nous considérons l'application
+    Si \( a\in X\), le lemme \ref{LEMooPIPLooMppGSO} dit que
     \begin{equation}
-        \begin{aligned}
-            \varphi\colon L(F,G)\times L(E,F)&\to L(E,G) \\
-            (A,B)&\mapsto A\circ B.
-        \end{aligned}
+        \sup_{x\in B(a,\alpha_n)}\| T_nx \|\geq \| T_n \|\alpha_n.
     \end{equation}
-    Montrons que l'application \( \varphi\) est continue en montrant qu'elle est bornée\footnote{Proposition~\ref{PROPooQZYVooYJVlBd}.}. Pour cela nous écrivons la norme opérateur
+    En posant \( x_0=0\), nous construisons une suite \( (x_n)\) par récurrence en imposant
+    \begin{enumerate}
+        \item
+            \( x_n\in B(x_{n=1}, \alpha_n)\)
+        \item
+            \( \| T_nx_n \|\geq \| T_n \|\alpha_n\).
+    \end{enumerate}
+    En utilisant une série télescopique et l'inégalité triangulaire \( \| x_k-x_{k+1} \|\leq \alpha_n\) à chaque étage,
     \begin{equation}
-        \| \varphi \|=\sup_{\| (A,B) \|=1}\| \varphi(A,B) \|=\sup_{\| (A,B) \|=1}\| A\circ B \|\leq\sup_{\| (A,B) \|=1}\| A \|\| B \|\leq 1.
+        \| x_p-x_q \|\leq \sum_{k=p}^q\alpha_k\leq \sum_{k=p}^{\infty}\alpha_k.
     \end{equation}
-    Justifications : d'une part la norme opérateur est une norme algébrique\footnote{Lemme \ref{LEMooFITMooBBBWGI}.}, et d'autre part la définition \ref{DefFAJgTCE} de la norme sur un espace produit pour la dernière majoration. L'application \( \varphi\) est donc continue et donc \(  C^{\infty}\) par le lemme~\ref{LemLLvgPQW}. Nous considérons également l'application
-    \begin{equation}
-        \begin{aligned}
-        \psi\colon U&\to L(F,G)\times L(E,F) \\
-        x&\mapsto \big( dg_{f(x)},df_x \big).
-        \end{aligned}
-    \end{equation}
-    Vu que \( f\) et \( g\) sont \( C^1\), l'application \( \psi\) est continue. Ces deux applications \( \varphi\) et \( \psi\) sont choisies pour avoir
-    \begin{equation}
-        (\varphi\circ\psi)(x)=\varphi\big( dg_{f(x)},df_x \big)=dg_{f(x)}\circ df_x,
-    \end{equation}
-    c'est à dire \( \varphi\circ\psi=d(g\circ f)\). Les applications \( \varphi\) et \( \psi\) étant continues, l'application \( d(g\circ f)\) est continue, ce qui prouve que \( g\circ f\) est \( C^1\).
+    Mais vu que la somme des \( \alpha_n\) converge, la suite des queues de somme converge vers zéro\footnote{Lemme \ref{LEMooHUZEooSyPipb}\ref{ITEMooQNHMooUPjupB}.} : \( \lim_{p\to \infty}\sum_{k=p}^{\infty}\alpha_n=0\). Cela implique que \( (x_n)\) est une suite de Cauchy\footnote{Proposition \ref{PROPooZZNWooHghltd}.}. Vu que \( X\) est de Banach, la suite \( (x_n)\) a une limite dans \( X\). Soit \( x\) cette limite.
 
-    Si \( f\) et \( g\) sont \( C^r\) alors \( dg\in C^{r-1}\) et \( dg\circ f\in C^{r-1}\) où il ne faut pas se tromper : \( dg\colon F\to L(F,G)\) et \( f\colon U\to F\); la composée est \( dg\circ f\colon x\mapsto dg_{f(x)}\in L(F,G)\).
+    Nous avons \( \beta_n=\| x_n-x \|\to 0\). Il y aurait moyen de calculer \( \beta_n\) en fonction de \( \alpha_n\) (surtout si nous avions donné une forme explicite à \( \alpha_n\)), mais c'est sans importance ici. L'important est que c'est une suite qui tend vers zéro.
 
-    Pour la récurrence nous supposons que \( f,g\in C^{r-1}\) implique \( g\circ f\in C^{r-1}\) pour un certain \( r\geq 2\) (parce que nous venons de prouver cela avec \( r=1\) et \( r=2\)). Soient \( f,g\in C^r\) et montrons que \( g\circ f\in C^r\). Par la proposition~\ref{PropOYtgIua} nous avons
+    Nous avons
     \begin{equation}
-        \psi=dg\circ f\times df\in C^{r-1},
+        x\in B(x_n,\beta_n),
     \end{equation}
-    et donc \( d(g\circ f)=\varphi\circ\psi\in C^{r-1}\), ce qui signifie que \( g\circ f\in C^r\).
+    et donc il existe \( a_n\in B(0,\beta_n)\) tel que \( x=x_n+a_n\). Avec cela, pour chaque \( n\) nous avons :
+    \begin{subequations}
+        \begin{align}
+            \| T_nx \|&=\| T_n(x_n+a_n) \|\\
+            &\geq\| T_nx_n \|-\| T_na_n \|\\
+            &\geq \| T_nx_n \|-\| T_n \|\beta_n     \label{SUBEQooPLVQooChVCLU}\\
+        &\geq \| T_n \|\alpha_n-\| T_n \|\beta_n\\
+        &=\| T_n \|(\alpha_n-\beta_n).
+        \end{align}
+    \end{subequations}
+    Pour \ref{SUBEQooPLVQooChVCLU}, nous avons utilisé \( \| T_na_n \|\leq \| T_n \|\beta_n\). En résumé,
+    \begin{equation}
+        \| T_nx \|\geq \| T_n \|(\alpha_n-\beta_n).
+    \end{equation}
+    Il suffit de choisir \( \| T_n \|\) suffisamment rapidement croissant pour que\footnote{Le point important ici est que \( \alpha_n\) (et donc \( \beta_n\)) est choisi sans référence à \( \| T_n \|\).}
+    \begin{equation}
+       \| T_n \|(\alpha_n-\beta_n)\to \infty,
+    \end{equation}
+    et nous avons \( \| T_nx \|\to \infty\), qui est contraire aux hypothèses.
 \end{proof}
 
-\begin{lemma}       \label{LemooTJSZooWkuSzv}
-    Si \( f\colon U\to V\) est une difféomorphisme\footnote{Définition~\ref{DefAQIQooYqZdya}} alors pour tout \( a\in U\), l'application \( df_a\) est inversible et
-    \begin{equation}
-        (df_a)^{-1}=(df^{-1})_{f(a)}.
-    \end{equation}
-\end{lemma}
+\begin{theorem}[Théorème de Banach-Steinhaus\cite{KXjFWKA,VPvwAaQ}] \label{ThoPFBMHBN}
+    Soit \( E\) un espace de Banach\footnote{Définition~\ref{DefVKuyYpQ}.} et \( F\) un espace vectoriel normé. Nous considérons une partie \( H\subset \aL_c(E,F)\) (espace des fonctions linéaires continues). Alors \( H\) est uniformément borné si et seulement s'il est simplement borné.
+\end{theorem}
+\index{théorème!Banach-Steinhaus}
+\index{application!linéaire!théorème de Banach-Steinhaus}
 
 \begin{proof}
-    Il suffit d'apercevoir qu'en vertu de la règle de différentiation en chaîne~\ref{EqHFmezmr},
+    Si \( H\) est uniformément borné, il est borné; pas besoin de rester longtemps sur ce sens de l'équivalence. Supposons donc que \( H\) soit borné. Pour chaque \( k\in \eN^*\) nous considérons l'ensemble
     \begin{equation}
-        (df_a)(df^{-1})_{f(a)}=f(f\circ f^{-1})_{f(a)}=\id.
+        \Omega_k=\{ x\in E\tq \sup_{f\in H}\| f(x) \|>k \}.
     \end{equation}
+
+    \begin{subproof}
+        \item[Les \( \Omega_k\) sont ouverts]
+
+            Soit \( x_0\in \Omega_k\); nous avons alors une fonction \( f\in H\) telle que \(  \| f(x_0) \|>k \), et par continuité de \( f\) il existe \( \rho>0\) tel que \( \| f(x) \|>k\) pour tout \( x\in B(x_0,\rho)\). Par conséquent \( B(x_0,\rho)\subset \Omega_k\) et \( \Omega_k\) est ouvert par le théorème~\ref{ThoPartieOUvpartouv}.
+
+        \item[Les \( \Omega_k\) ne sont pas tous denses dans \( E\)]
+
+            Nous supposons que les ensembles \( \Omega_k\) soient tous dense dans \( E\). Le théorème de Baire~\ref{ThoBBIljNM} nous indique que \( E\) est un espace de Baire (parce que de Banach) et donc que
+            \begin{equation}
+                \overline{ \bigcap_{k\in \eN}\Omega_k }=E.
+            \end{equation}
+            En particulier l'intersection des \( \Omega_k\) n'est pas vide. Soit \( x_0\in \bigcap_{k\in \eN}\Omega_k\). Nous avons alors
+            \begin{equation}
+                \sup_{f\in H}\| f(x) \|=\infty,
+            \end{equation}
+            ce qui est contraire à l'hypothèse. Donc les ouverts \( \Omega_k\) ne sont pas tous denses dans \(E\).
+
+        \item[La majoration]
+
+            Il existe \( k\geq 0\) tel que \( \Omega_k\) ne soit pas dense dans \( E\), et nous voulons prouver que \( \{ \| f \|\tq f\in H \}\) est un ensemble borné. Soit donc \( k\geq 0\) tel que \( \Omega_k\) ne soit pas dense dans \( E\); il existe un \( x_0\in E\) et \( \rho>0\) tels que
+            \begin{equation}
+                B(x_0,\rho)\cap \Omega_k=\emptyset.
+            \end{equation}
+            Si \( x\in B(x_0,\rho)\) alors \( x\) n'est pas dans \( \Omega_k\) et donc
+            \begin{equation}
+                \sup_{f\in H}\| f(x) \|\leq k.
+            \end{equation}
+            Afin d'évaluer \( \| f \|\) nous devons savoir ce qu'il se passe avec les vecteurs sur une boule autour de \( 0\). Pour tout \( x\in B(0,\rho)\) et pour tout \( f\in H\), la linéarité de \( f\) donne
+            \begin{equation}
+                \| f(x) \|=\| f(x+x_0)-f(x_0) \|\leq \| f(x+x_0)+f(x_0) \|\leq 2k.
+            \end{equation}
+            Par continuité nous avons alors \( \| f(x) \|\leq 2k\) pour tout \( x\in \overline{ B(0,\rho) }\). Si maintenant \( x\in F\) vérifie \( \| x \|=1\) nous avons
+            \begin{equation}
+                \| f(x) \|=\frac{1}{ \rho }\| f(\rho x) \|\leq \frac{ 2k }{ \rho },
+            \end{equation}
+            et donc \( \| f \|\leq \frac{ 2k }{ \rho }\), ce qui montre que \( 2k/\rho\) est un majorant de l'ensemble \( \{ \| f \|\tq f\in H \}\).
+
+    \end{subproof}
+
+\end{proof}
+Une application du théorème de Banach-Steinhaus est l'existence de fonctions continues et périodiques dont la série de Fourier ne converge pas. Ce sera l'objet de la proposition~\ref{PropREkHdol}.
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Convergence forte}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Lorsque nous avons une suite d'opérateurs linéaires, nous pouvons considérer la convergence d'une suite pour la norme opérateur : \( A_k\to A\) lorsque \( \| A_k-A \|\to 0\).
+
+\begin{definition}[\cite{ooAGRZooTyUUVy}]       \label{DEFooNREQooElLvec}
+    Soient un espace vectoriel \( E\) et un espace vectoriel normé \( V\). Nous disons que la suite d'opérateur \( T_k\colon E\to V\) \defe{converge fortement}{convergence forte} vers l'opérateur $T$ si pour tout \( x\in E\) nous avons
+    \begin{equation}
+        \| T_kx-Tx \|\to 0.
+    \end{equation}
+\end{definition}
+
+Cette notion s'appelle \emph{forte} par opposition à la convergence \emph{faible} dont nous ne parlerons pas. Elle est cependant moins forte que la convergence en norme dont nous avons déjà parlé.
+
+\begin{proposition}     \label{PROPooRFBLooUjSirP}
+    Soient des espaces vectoriels normés \( E\) et \( F\) et une suite d'opérateurs \( T_k\colon E\to F\) convergeant vers \( T\)\footnote{Sans précisions, ce sera toujours la convergence en norme.}. Alors cette suite converge également fortement.
+\end{proposition}
+
+\begin{proof}
+    Soit \( x\in E\) que nous supposons non nul. Soit \( \lambda\in \eC\) tel que \( x=\lambda y\) avec \( \| y \|=1\). Nous avons
+    \begin{equation}
+        \| T_kx-Tx \|=| \lambda |\| T_ky-Ty \|\leq | \lambda |\sup_{\| z \|=1}\| T_kz-Tz \|=| \lambda |\| T_k-T \|\to 0.
+    \end{equation}
+    La dernière étape est la convergence en norme \( T_k\to T\).
+\end{proof}
+
+\begin{proposition}
+    Soient \( E\) et \( F\), des espaces vectoriels normés de dimension finie. Soit une suite \( (A_n)\) d'applications linéaires \( E\to F\). Si elle converge fortement vers \( A\), alors elle converge en norme vers \( A\).
+\end{proposition}
+
+\begin{proof}
+    En plusieurs coups.
+    \begin{subproof}
+        \item[Si une sous-suite converge]
+            Commençons par montrer que si \( (B_n)\) est une sous-suite de \( (A_n)\) qui converge vers \( B\), alors \( B=A\). Autrement dit, \( A\) est le seul candidat limite pour \( A_n\).
+
+            Soit \( \| x \|=1\). Nous avons
+            \begin{equation}
+                \| B_nx-Bx \|\leq \| B_n-B \|\| x \|=\| B_n-B \|,
+            \end{equation}
+            mais pour la sous-suite \( (B_n)\) nous avons supposé \( \| B_n-B \|\to 0\). Donc \( \| B_nx-Bx \|\to 0\), ce qui signifie que \( B_nx\to Bx\). Mais par hypothèse, \( B_nx\to Ax\). Par unicité de la limite, \( Bx=Ax\) pour tout \( x\) de norme \( 1\). Pour les autres \( x\), c'est la linéarité qui conclu.
+
+        \item[Utilisation de deux gros résultats]
+        Par l'hypothèse de convergence, pour chaque \( x\) nous avons \( \sup_n\| A_nx \|<\infty\). Le théorème de Banach-Steinhaus \ref{THOooJHVNooIDDxyT} nous indique alors que l'ensemble \( \mF=\{ A_n \}_{n\in \eN}\) est borné. Il existe donc \( M > 0\) tel que \( \| A_n \|< M\) pour tout \( n\).
+
+        Nous utilisons à présent l'hypothèse de dimension finie en disant que l'espace des applications linéaires \( E\to F\) est de dimension finie, de telle sorte que ses boules fermées soient compactes.
+
+        Donc la suite \( (A_n)\) est contenue dans un compact.
+        
+        \item[Les sous-suite convergentes]
+
+            La suite \( (A_n)\) est contenue dans un compact. Toutes ses sous-suites sont dans ce compact et possèdent donc une sous-suite convergente (théorème \ref{ThoBWFTXAZNH}). Toutes ces sous-sous-suites convergent nécessairement vers \( A\) par ce que nous avons dit dans la première étape de la preuve. Le lemme \ref{LEMooSJKMooKSiEGq} nous dit alors que \( A_n\to A\).
+    \end{subproof}
 \end{proof}

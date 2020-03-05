@@ -67,15 +67,7 @@ l'ensemble \( \modE\) devient un anneau\footnote{Définition~\ref{DefHXJUooKoovo
     Nous divisons la preuve en plusieurs parties.
     \begin{subproof}
     \item[Les opérations sont bien définies]
-    Si \( u,v\in \modE\) et \( h,k\in \modE_0\) alors \( h+k\in\modE_0\) et nous avons
-    \begin{equation}
-        \overline{ u+h }+\overline{ v+k }=\overline{ u+v+h+k }=\overline{ u+v }.
-    \end{equation}
-    ainsi que
-    \begin{equation}
-        \overline{ u+h }\cdot \overline{ v+k }=\overline{ (u+h)(v+k) }=\overline{ uv+uk+hv+hk }=\overline{ uv }
-    \end{equation}
-    parce que les suites des Cauchy \( u\) et \( v\) sont bornées, ce qui donne que \( uk\), \( hv\) et \( hk\) sont des éléments de \( \modE_0\) par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdjiii}. Cela prouve que les définitions proposées sont bonnes.
+        La partie \( \modE_0\) est un idéal par la proposition \ref{PROPooNUQVooAAkicK}. Le quotient est donc bien défini et est un anneau par la proposition \ref{PROPooGXMRooTcUGbi}\ref{ITEMooYBEGooTlHgNz}.
 
     \item[Caractérisation des classes]
         Soit \( q\in \eQ\) et une suite \( x\) convergente vers \( q\). Cette suite est de Cauchy comme toute suite convergente. Montrons que
@@ -92,7 +84,7 @@ l'ensemble \( \modE\) devient un anneau\footnote{Définition~\ref{DefHXJUooKoovo
     \item[Corps]
         Nous devons prouver que tout élément non nul est inversible. C'est à dire que si \( x\in\modE\) ne converge pas vers zéro\footnote{\( x\in\modE\) peut soit ne pas converger du tout, soit converger vers autre chose que zéro.} alors il existe \( y\in \modE\) tel que \( xy\in\bar 1\).
 
-        Nous savons par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdjvi} que \( x\) étant une suite de Cauchy dans \( \eQ\), il existe \( n_0\in \eN\) tel que \( \left( \frac{1}{ x_n } \right)_{n\geq n_0}\) est une suite de Cauchy. Nous posons alors
+        Nous savons par la proposition~\ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdjvi} que, \( x\) étant une suite de Cauchy dans \( \eQ\), il existe \( n_0\in \eN\) tel que \( \left( \frac{1}{ x_n } \right)_{n\geq n_0}\) est une suite de Cauchy. Nous posons alors
         \begin{equation}
             y_n=\begin{cases}
                 0    &   \text{si } n\leq n_0\\
@@ -109,6 +101,23 @@ l'ensemble \( \modE\) devient un anneau\footnote{Définition~\ref{DefHXJUooKoovo
         et donc \( xy\in\bar 1\).
     \end{subproof}
 \end{proof}
+
+\begin{normaltext}[Quelques notations entre \( \eQ\) et \( \eR\)]      \label{NORMooWBYNooBQaPPk}
+    Si \( k\mapsto x_k\) est une suite, nous notons \( (x_k)\) avec des parenthèses la suite elle-même. Le \( k\) dans \( (x_k)\) est un indice muet, et dans les cas où il peut y avoir une ambiguïté, nous pouvons noter \( (x_k)_{k\in \eN}\). Cette dernière notation est plus lourde, mais plus exacte.
+    
+    Le mieux est d'écrire simplement \( x\) la suite, mais alors il faut être prudent et ne pas noter \( x\) la limite. Nous éviterons donc d'écrire \( x_k\to x\).
+
+    Si \( (x_k)\) est une suite de Cauchy dans \( \eQ\), nous notons \( \bar x\) l'élément de \( \eR\) qui lui correspond. En fait \( \bar x=(x_k)\) : \( \bar x\) est la suite-elle même, mais pour nous souvenir de l'origine nous allons adopter cette notation.
+
+    D'autre part nous définissons
+    \begin{equation}
+        \begin{aligned}
+            \varphi\colon \eQ&\to \eR \\
+            q&\mapsto \overline{ [k\mapsto q]},
+        \end{aligned}
+    \end{equation}
+    c'est-à-dire que \( \varphi(q)\) est la classe de la suite constante \( x_k=q\).
+\end{normaltext}
 
 \begin{proposition}     \label{PropooEPFCooMtDOfP}
     Soit l'application
@@ -251,17 +260,15 @@ Nous notons aussi \( \modE^{++}=\modE^+\setminus\modE_0\).
     Cela vient des conventions de la remarque \ref{REMooOCXLooKQrDoq} qui sont également celles de Wikipédia\cite{ooSBSSooTlnuKi}.
 \end{normaltext}
 
-\begin{definition}[Ordre dans \( \eR\)]     \label{DefooYALBooHSXZqB}
+\begin{lemmaDef}[Ordre dans \( \eR\)]       \label{LemooRordonne}
     Si \( a,b\in \eR\) nous notons \( a\leq b\) si et seulement si \( b-a\) est positif. Nous notons aussi \( a>b\) si et seulement si \( b-a\in \eR^+\setminus\{ 0 \}\), etc.
-\end{definition}
 
-\begin{lemma}       \label{LemooRordonne}
-    Les premières propriétés de l'ordre.
+    Avec ces définitions,
     \begin{enumerate}
+        \item       \label{ITEMooNHIUooMQHZKZ}
+            l'ensemble \( (\eR,\leq)\) est un corps totalement ordonné (définitions~\ref{DEFooVGYQooUhUZGr} et~\ref{DefKCGBooLRNdJf});
         \item
-            L'ensemble \( (\eR,\leq)\) est un corps totalement ordonné (définitions~\ref{DEFooVGYQooUhUZGr} et~\ref{DefKCGBooLRNdJf}).
-        \item
-            L'application
+            l'application
             \begin{equation}
                 \begin{aligned}
                     \varphi\colon \eQ&\to \eR \\
@@ -270,7 +277,7 @@ Nous notons aussi \( \modE^{++}=\modE^+\setminus\modE_0\).
             \end{equation}
             dont nous avons déjà parlé dans la proposition~\ref{PropooEPFCooMtDOfP} est strictement croissante.
     \end{enumerate}
-\end{lemma}
+\end{lemmaDef}
 
 \begin{proof}
     Nous prouvons la stricte croissance de \( \varphi\). Si \( q< l\) alors \( \varphi(q)-\varphi(l)=\overline{ q-l }\) est la classe de la suite constante \( q-l\) qui est un élément strictement positif de \( \eQ\). Nous avons donc \( \overline{ q-l }\in \eR^+\), et donc \( \varphi(q)<\varphi(l)\).
@@ -408,15 +415,94 @@ Comme \( q \neq q' \), les développements dyadiques sont différents\quext{À v
 \end{proof}
 
 
+%TODO: preuve. A-t-on déjà évoqué |.|? Sans doute...
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooEGYLooCGrDrl}
+    Soient des réels \( a,b,x,y\) tels que
+    \begin{equation}
+        a\leq x\leq b
+    \end{equation}
+    et
+    \begin{equation}
+        a\leq y\leq b,
+    \end{equation}
+    alors \( | x-y |\leq | b-a |\).
+\end{lemma}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Complétude}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{proposition}[\cite{MonCerveau}] \label{PropSLCUooUFgiSR} \label{PROPooFGBOooHiZqbs}
-    Quel que soit le réel \( x\), il existe une suite croissante de rationnels convergente vers \( x\).
 
-    Si de plus \( x > 0 \), alors la suite peut être créée avec des rationnels tous positifs.
+Le théorème \ref{ThoKHTQJXZ} donne une complétion de tout espace métrique en un espace complet. Il serait tentant de l'utiliser ici pour définir \( \eR\) à partir de \( \eQ\). Cette méthode ne fonctionne cependant pas parce que la démonstration de \ref{ThoKHTQJXZ} utilise le fait que \( \eR\) est complet.
+
+\begin{lemma}[\cite{RWWJooJdjxEK}]      \label{LemooRTGFooYVstwS}
+    Toute suite de Cauchy dans \( \eQ\) converge dans \( \eR\) vers le réel qu'elle représente.
+
+    Plus précisément, en suivant les notations de \ref{NORMooWBYNooBQaPPk}, si \( (x_k)\) est une suite de Cauchy dans \( \eQ\), alors la suite \( \varphi(x_k)\) dans \( \eR\)
+    \begin{enumerate}
+        \item
+            est de Cauchy dans \( \eR\),
+        \item
+            converge dans \( \eR\) vers \( \bar x\).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Soit \( (x_n)\) une suite de Cauchy de \( \eQ\), c'est-à-dire que \( x_k\in \eQ\) pour tout \( k\) et qu'elle est de Cauchy. Elle représente un réel \( \bar x\in \eR\), et nous voulons prouver que pour la topologie de \( \eR\) nous avons \( \lim_{n\to \infty} x_n=\bar x\). Dans cette dernière limite, chacun des \( x_n\) est vu dans \( \eR\).
+
+    Si \( \epsilon\in \eQ\) est donné, il existe \( N_{\epsilon}\) tel que si \( p,q\geq N_{\epsilon}\) alors \( | x_p-x_q |< \epsilon\), c'est-à-dire
+    \begin{equation}
+        x_p-\epsilon<x_q<x_p+\epsilon.
+    \end{equation}
+    Soit \( p\geq N_{\epsilon}\) fixé. Pour tout \( q\geq N_{\epsilon}\) nous avons \(  x_p-\epsilon<x_q<x_p+\epsilon \). Par conséquent, la suite \( n\mapsto (x_p-\epsilon)-q_n\) est un élément de \( \modE^-\) et au niveau des classes nous pouvons écrire
+    \begin{equation}
+        \overline{ n\mapsto (x_p-\epsilon)-x_n }\leq 0.
+    \end{equation}
+    Vu que \( x_p-\epsilon\) représente la suite constante nous avons l'inégalité suivante dans \( \eR\) :
+    \begin{equation}
+        x_p-\epsilon-\bar x\leq 0
+    \end{equation}
+    ou encore : \( \bar x\geq x_p-\epsilon\). En faisant de même avec l'autre partie de l'inégalité, \( x_p-\epsilon\leq \bar x\leq x_p+\epsilon\), ce qui implique que
+    \begin{equation}
+        x_p\in B(\bar x,\epsilon)
+    \end{equation}
+    dès que \( p\geq N_{\epsilon}\). Cela signifie que \( x_p\to \bar x\) dans \( \eR\).
+\end{proof}
+
+\begin{proposition}     \label{PROPooZSQYooWRKNGY}
+    Soit une suite convergente \( x_k\stackrel{\eQ}{\longrightarrow}q\). Alors
+    \begin{equation}
+        \varphi(x_k)\stackrel{\eR}{\longrightarrow}\varphi(q)
+    \end{equation}
+    où \( \varphi\) est la fonction qui à un rationnel fait correspondre la classe de la suite constante correspondante\footnote{Voir les notations en \ref{NORMooWBYNooBQaPPk}.}. 
 \end{proposition}
+
+\begin{proof}
+    Le fait d'avoir une convergence \( x_k\to q\) dans \( \eQ\) implique que la suite \( (x_k)\) est de Cauchy, par la proposition \ref{PropFFDJooAapQlP}\ref{ItemRKCIooJguHdji}.
+    
+    Le lemme \ref{LemooRTGFooYVstwS} nous indique que \( \varphi(x_k)\) est une suite dans \( \eR\) qui converge vers \( \bar q\), la classe de la suite \( (x_k)\).
+
+    À prouver : \( \varphi(x)=\bar q\). Autrement dit, nous devons prouver que la classe de la suite constante \( a_k=q\) et la classe de la suite \( x\) sont les mêmes.
+
+    La suite \( (x_k-q)\) est de Cauchy dans \( \eQ\) et converge vers zéro par hypothèse. Donc les suites \(x\) et \( (q)\) sont dans la même classe.
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]     \label{PROPooFGBOooHiZqbs}
+    Deux choses à propos de suites de rationnels convergeant vers un réel.
+    \begin{enumerate}
+        \item       \label{ITEMooMAVYooKFtqlx}
+    Soit un réel \( x\). Il existe une suite de rationnels strictement croissante qui converge vers \( x\).
+\item       \label{ITEMooVOVYooFUbccG}
+    Si de plus \( x>0\), alors la suite (toujours strictement croissante) peut être choisie parmi les rationnels strictement positifs.
+    \end{enumerate}
+\end{proposition}
+Une preuve courte, et une un peu plus longue\dots
+
+\begin{proof}
+    Le lemme \ref{LemooHLHTooTyCZYL} nous sera d'une grande aide. Soit \( x\in \eR\). Il existe \( q_0\in \eQ\) tel que \( x-1<q_0<x\). Ensuite nous construisons la suite par récurrence : \( q_k\) est choisi tel que \( q_{k-1}<q_k<x\). Cela règle le point \ref{ITEMooMAVYooKFtqlx}.
+
+    Pour \ref{ITEMooVOVYooFUbccG}. Il suffit de faire la même chose, en partant de \( 0<q_0<x\).
+\end{proof}
 
 \begin{proof}
     Soient \( x\in \eR\) et \( \delta\in \eR\); vu que \( x-\delta\) et \( x\) sont des réels, le lemme~\ref{LemooHLHTooTyCZYL} donne un élément \( x_{\delta}\in \eQ \) tel que
@@ -441,33 +527,6 @@ Comme \( q \neq q' \), les développements dyadiques sont différents\quext{À v
         x_{k+1}\in B(x,\frac{ \delta_k }{ 2 })\subset B(x,\epsilon).
     \end{equation}
 Tous les \( x_k \), pour \( k > k_0 + 1 \), sont tels que \( |x - x_k| < \epsilon \): la suite des \( x_k \) converge donc vers \( x \).
-\end{proof}
-
-\begin{lemma}[\cite{RWWJooJdjxEK}]      \label{LemooRTGFooYVstwS}
-    Toute suite de Cauchy dans \( \eQ\) converge dans \( \eR\) vers le réel qu'elle représente.
-\end{lemma}
-
-\begin{proof}
-    Soit \( (x_n)\) une suite de Cauchy de \( \eQ\), c'est à dire que \( x_k\in \eQ\) pour tout \( k\) et qu'elle est de Cauchy. Elle représente un réel \( \bar x\in \eR\), et nous voulons prouver que pour la topologie de \( \eR\) nous avons \( \lim_{n\to \infty} x_n=\bar x\). Dans cette dernière limite, chacun des \( x_n\) est vu dans \( \eR\).
-
-
-    Si \( \epsilon\in \eQ\) est donné, il existe \( N_{\epsilon}\) tel que si \( p,q\geq N_{\epsilon}\) alors \( | x_p-x_q |< \epsilon\), c'est à dire
-    \begin{equation}
-        x_p-\epsilon<x_q<x_p+\epsilon.
-    \end{equation}
-    Soit \( p\geq N_{\epsilon}\) fixé. Pour tout \( q\geq N_{\epsilon}\) nous avons \(  x_p-\epsilon<x_q<x_p+\epsilon \). Par conséquent, la suite \( (y_n) \) définie par \( y_n = (x_p-\epsilon)-x_n\) est un élément de \( \modE^-\) et au niveau des classes nous pouvons écrire
-    \begin{equation}
-        \overline{ y_n }\leq 0.
-    \end{equation}
-    Vu que \( x_p-\epsilon\) représente la suite constante, et que \( (x_n) \) est un représentant de \( \bar x \), nous avons l'inégalité suivante dans \( \eR\) :
-    \begin{equation}
-        x_p-\epsilon-\bar x\leq 0
-    \end{equation}
-    ou encore : \( \bar x\geq x_p-\epsilon\). En faisant de même avec l'autre partie de l'inégalité, \( x_p-\epsilon\leq \bar x\leq x_p+\epsilon\), ce qui implique que
-    \begin{equation}
-        x_p\in B(\bar x,\epsilon)
-    \end{equation}
-    dès que \( p\geq N_{\epsilon}\). Cela signifie que \( x_p\to \bar x\) dans \( \eR\).
 \end{proof}
 
 \begin{theorem}[Complétude de \( \eR\), critère de Cauchy\cite{RWWJooJdjxEK}] \label{THOooUFVJooYJlieh}
@@ -601,7 +660,7 @@ Une petite galerie d'exemples de majorants.
 \end{itemize}
 \end{example}
 
-\begin{propositionDef}[\wikipedia{en}{http://en.wikipedia.org/wiki/Least_upper_bound_principle}{Least upper bound principle}.]		\label{DefSupeA}
+\begin{propositionDef}[Least upper bound property\cite{BIBooRRUXooKWzcFo}]		\label{DefSupeA}
     Soit $A$ une partie majorée de $\eR$. Il existe un unique élément \( M\in \eR\) tel que
     \begin{enumerate}
         \item
@@ -748,3 +807,76 @@ Quels que soient les ensembles $A$ et $B$ dans $\eR$, nous avons
 \end{proposition}
 
 %TODO: proof and alike.
+
+
+\begin{proposition}     \label{PROPooHPMWooQJXCAS}
+    Tous les intervalles de \( \eR\) sont d'une des formes listées dans la définition \ref{DEFooAQBUooKLChOW}.
+\end{proposition}
+
+\begin{lemma}       \label{LEMooWCUXooFqTwDK}
+    À propos de bornes d'un intervalle.
+    \begin{enumerate}
+        \item
+	        La borne inférieure d'un intervalle est son infimum, 
+        \item
+            la borme supérieure est le supremum. 
+        \item
+            Si de plus l'intervalle est fermé, l'infimum est un minimum et le supremum est un maximum.
+    \end{enumerate}
+\end{lemma}
+
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Racines}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{SUBSECooMBCNooEqjjTY}
+
+Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eR^+\). Vous notez que c'est fait de façon assez algébrique\footnote{Discutable parce que des limites sont utilisées.}, ou en tout cas, en restant proche des définitions. Des définitions plus technologiques utilisant la continuité de \( x\mapsto x^n\) et qui prouvent que c'est bijectif sur un domaine choisi avec prudence existent, et c'est fait dans la définition \ref{DEFooJWQLooWkOBxQ}. Il est même expliqué dans \cite{BIBooMPXEooQLKhku} que la méthode décrite ici permet de définir \( \sqrt[n]{ x }\) pour tout \( n\) entier, et pas seulement pour \( n=2\).
+
+\begin{proposition}     \label{PROPooUHKFooVKmpte}
+    Soit \( q\in \eQ^+\). Il existe un unique \( r\in \eR\) tel que \( r^2=q\).
+    
+    Plus précisément, en termes des notations de \ref{NORMooWBYNooBQaPPk}, pour tout \( q\in \eQ^+\), il existe un unique \( r\in \eR^2\) tel que \( r^2=\varphi(q)\).
+\end{proposition}
+
+\begin{proof}
+    En deux parties : d'abord l'existence et ensuite l'unicité.
+    \begin{subproof}
+        \item[Existence]
+            Si \( q=0\), c'est \( r=0\). Nous supposons \( q>0\). La suite \( (x_k)\) de la proposition \ref{PROPooSTQXooHlIGVf} a la propriété d'être de Cauchy dans \( \eQ\). Donc il existe un réel \( r\) qui est la classe de cette suite. Nous posons donc
+            \begin{equation}
+                r=\bar x.
+            \end{equation}
+            
+            En ce qui concerne \( r^2\), nous avons, par définition du produit dans \( \eR\),    
+            \begin{equation}        \label{EQooPHLFooAZhebM}
+                r^2=\bar x^2=\overline{ (x_k^2) },
+            \end{equation}
+            c'est la classe de la suite de Cauchy donnée par les \( x_k^2\). Posons \( y_k=x_k\); la relation \eqref{EQooPHLFooAZhebM} s'écrit
+            \begin{equation}
+                r^2=\bar y.
+            \end{equation}
+            
+            La proposition \ref{PROPooSTQXooHlIGVf} nous dit également que \( y\) est une suite de Cauchy et que
+            \begin{equation}
+                y_k\stackrel{\eQ}{\longrightarrow}q
+            \end{equation}
+            La proposition \ref{PROPooZSQYooWRKNGY} donne alors \( \bar y=\bar q\), et finalement
+            \begin{equation}
+                r^2=\bar q=\varphi(q).
+            \end{equation}
+            Ici tout n'est pas encore terminé avec l'existence parce qu'il faut nous assurer que \( r\geq 0\). Ce n'est pas très compliqué : si \( r<0\), alors nous pouvons faire le choix \( -r\) qui convient tout aussi bien : \( (-r)^2=r^2\).
+        \item[Unicité]
+            Supposons \( r_1,r_2\in \eR\) tels que \( r_1^2=r_2^2\). Le lemme \ref{LemooRordonne} dit que \( \eR\) est totalement ordonné; disons pour fixer les idées que \( r1\leq r_2\). Cela signifie, par définition de l'ordre sur \( \eR\), que \( r_2-r_1\geq 0\). En posant \( s=r_2-r_1\) nous avons \( r_2=r_1+s\). Passons au carré; la distribution dans le calcul suivant provient du fait que \( \eR\) est un corps :
+            \begin{equation}
+                r_2^2=(r_1+s)^2=r_1^2+2r_1s+s^2.
+            \end{equation}
+            Vu que \( r_1^2=q=r_2^2\), nous avons \( 2r_1s+s^2=0\) ou encore
+            \begin{equation}
+                s(2r_1+s)=0.
+            \end{equation}
+            Vu que \( \eR\) est un corps, il est un anneau intègre\footnote{Lemme \ref{LemAnnCorpsnonInterdivzer}.} et la règle du produit nul s'applique : soit \( s=0\), soit \( 2r_2+s=0\). Vu que \( r_2>0\) et que \( s\geq 0\), nous avons \( 2r_2+s>0\) et donc \( s=0\). 
+
+            Nous en déduisons que \( r_1=r_2\).
+    \end{subproof}
+\end{proof}

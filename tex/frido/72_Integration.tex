@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2018
+% Copyright (c) 2011-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -30,9 +30,89 @@ $\eR^n$. Ces morceaux sont appelés des ouverts de carte, et
 l'application qui exprime la ressemblance à $\eR^m$ est l'application
 de carte.
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Définition, carte}
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Définition et propriétés}
+
+\begin{definition}
+    Une \defe{variété}{variété} de dimension \( m\) de classe \( C^1\) est une partie \( M\) de \( \eR^n\) (\( n\geq m\)) munie d'un ensemble de paires \( \{ U_{\alpha},\varphi_{\alpha} \}\) où \( U_{\alpha}\) est un ouvert de \( \eR^n\) et \( \varphi_{\alpha}\colon U_{\alpha}\to \eR^n\) est une application vérifiant
+    \begin{enumerate}
+        \item
+            \( \varphi_{\alpha}\) est une bijection entre \( U_{\alpha}\) et \( \varphi_{\alpha}(U_{\alpha})\);
+        \item
+            pour tout \( a\in M\), il existe un \( \alpha\) tel que \( a\in\varphi_{\alpha}(U_{\alpha})\);
+        \item
+            pour tout \( \alpha,\beta\), la partie \( \varphi_{\alpha}^{-1}\big( \varphi_{\alpha}(U_{\alpha})\cap \varphi_{\beta}(U_{\beta}) \big)\) est un ouvert de \( U_{\alpha}\);
+        \item
+            L'application
+            \begin{equation}
+                \varphi_{\beta}^{-1}\circ \varphi_{\alpha}\colon \varphi_{\alpha}^{-1}\big( \varphi_{\alpha}(U_{\alpha})\cap \varphi_{\beta}(U_{\beta}) \big)\to U_{\beta}
+            \end{equation}
+            est un \( C^1\)-difféomorphisme vers son image.
+    \end{enumerate}
+\end{definition}
+
+Notez que cette définition n'utilise pas du tout la structure de \( \eR^n\) dans lequel se trouve \( M\). Seulement la structure différentielle du \( \eR^m\) depuis lequel les cartes partent. En particulier, nous n'avons pas dit si \( \varphi_{\alpha}\colon U_{\alpha}\to M\) était de classe \( C^1\) pour une topologie induite de \( \eR^n\) vers \( M\). Nous pouvons en réalité définir plus généralement une variété en remplaçant «une partie de \( \eR^n\)» par «un ensemble» sans rien y changer.
+
+La difficulté qui apparaît lorsque nous voulons dire que \( M\) est un ensemble quelconque au lieu d'une partie de \( \eR^n\) est pour la mesure.
+
+Nous verrons plus loin comment les cartes \( \varphi_{\alpha}\) peuvent transporter la mesure de \( U_{\alpha}\) (celle de Lebesgue dans \( \eR^m\)) vers une partie de \( \eR^n\) en utilisant le déterminant de \( d\varphi_{\alpha}\). Cela n'est possible que parce que \( \eR^n\) a une structure différentielle qui permet de définir \( d\varphi_{\alpha}\). Si \( M\) est un ensemble quelconque, cette façon de faire n'est plus possible. Dans ce cas, il faut définir des fibrés tangents et cotangents puis en extraire une «forme volume». Le choix de la forme volume n'étant pas canonique, il n'y a pas d'intégrale canonique sur une variété générale comme il y en a une sur une variété «dans \( \eR^n\)».
+
+\begin{definition}      \label{DEFooWABZooGIEDEV}
+    Soit une variété \( M\) de dimension \( m\). Une \defe{carte}{carte} pour \( M\) est un couple \( (U,\varphi)\) où \( U\) est un ouvert de \( \eR^m\) et \( \varphi\colon U\to M\) est une application
+    \begin{enumerate}
+        \item
+            qui est une bijection entre \( U\) et son image,
+        \item
+    pour tout \( \alpha\),
+    \begin{equation}
+        \varphi_{\alpha}^{-1}\circ \varphi\colon \varphi^{-1}\big( \varphi(U)\cap\varphi_{\alpha}(U_{\alpha}) \big)\to \varphi_{\alpha}^{-1}\big( \varphi(U)\cap\varphi_{\alpha}(U_{\alpha}) \big)
+    \end{equation}
+    est un \( C^1\)-difféomorphisme.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}[\cite{MonCerveau}]
+    Si \( (U_1,\varphi_1)\) et \( (U_2,\varphi_2)\) sont des cartes pour la variété \( M\), alors en posant \( S=\varphi_1(U_1)\cap \varphi_2(U_2)\), l'application
+    \begin{equation}
+        \varphi_2^{-1}\circ\varphi_1\colon \varphi_1^{-1}(S)\to \varphi_2^{-1}(S)
+    \end{equation}
+    est un \( C^1\)-difféomorphisme.
+\end{proposition}
+
+\begin{proof}
+    Le fait que \( \varphi_2^{-1}\circ\varphi_1\) soit une bijection est dû au fait que nous ayons choisit les espaces de départ et d'arrivée pour que ce soit une bijection.
+
+    Soit \( a\in \varphi_1(U_1)\cap\varphi_2(U_2)\). Soient \( \alpha\) tel que \( a\in\varphi_{\alpha}(U_{\alpha})\) et un ouvert \( A\) autour de \( \varphi_{\alpha}^{-1}(a)\) tel que \( \varphi_{\alpha}(A)\subset \varphi_1(U_1)\cap \varphi_2(U_2)\). Nous allons montrer que
+    \begin{equation}
+        \varphi_2^{-1}\circ \varphi_1\colon \varphi_1\big( \varphi_{\alpha}(A) \big)\to \varphi_2^{-1}\big( \varphi_{\alpha}(A) \big)
+    \end{equation}
+    est un \( C^1\)-difféomorphisme. Nous avons
+    \begin{equation}
+        \varphi_2\circ\varphi_1=\varphi_2^{-1}\circ\varphi_{\alpha}\circ\varphi_{\alpha}^{-1}\circ\varphi_1,
+    \end{equation}
+    mais vu que \( \varphi_1\) et \( \varphi_2\) sont des cartes, les applications \( \varphi_2^{-1}\circ\varphi_{\alpha}\) et \( \varphi_{\alpha}\circ \varphi_1\) sont de classe \( C^1\) et d'inverses \( C^1\). La composition l'est encore.
+\end{proof}
+
+Nous avons demandé qu'une variété n'admette que des cartes partant d'ouverts de \( \eR^m\). Aurions-nous pu admettre, dans la définition \ref{DEFooWABZooGIEDEV} que la carte parte d'un ouvert de \( \eR^p\) avec \( p\neq m\) ? Non. Voici une résultat qui dit que si une carte part de \( \eR^m\), alors toutes les cartes doivent partir de \( \eR^m\).
+
+\begin{proposition}
+    Soit une variété \( M\) de dimension \( m\) et une carte \( \varphi_{\alpha}\colon U_{\alpha}\to M\). Si \( U\) est un ouvert de \( \eR^p\) et si \( \varphi\colon U\to M\) est telle que \( \varphi_{\alpha}^{-1}\circ \varphi\) soit un difféomorphisme, alors \( p=m\).
+\end{proposition}
+
+\begin{proof}
+    Soit \( A=\varphi_{\alpha}(U_{\alpha})\cap \varphi(U)\). Les parties \( \varphi_{\alpha}^{-1}(A)\) et \( \varphi^{-1}(U)\) sont des ouverts de \( \eR^m\) et de \( \eR^p\) respectivement. Par hypothèse, l'application
+    \begin{equation}
+        \varphi_{\alpha}^{-1}\circ\varphi\colon \varphi^{-1}(A)\to \varphi_{\alpha}^{-1}(A)
+    \end{equation}
+    est un difféomorphisme entre l'ouvert \( \varphi^{-1}(A)\subset \eR^p\) et l'ouvert \( \varphi_{\alpha}^{-1}(A)\subset \eR^m\). La proposition \ref{PROPooNONAooCyAtce} implique que \( m=p\).
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
+\subsection{Ancienne définition}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Cette section est à recycler.
 
 \begin{definition}
   Soit $\emptyset \neq M \subset \eR^n$, $1 \leq m < n$ et $k \geq
@@ -66,7 +146,7 @@ La littérature regorge de théorèmes qui proposent des conditions équivalente
         \item
             $F\in C^1(W,\eR^n)$,
         \item
-            Le rang de $dF(w)\in L(\eR^m,\eR^n)$ est de rang maximum (c'est à dire $m$) en tout point $w\in W$.
+            Le rang de $dF(w)\in L(\eR^m,\eR^n)$ est de rang maximum (c'est-à-dire $m$) en tout point $w\in W$.
     \end{enumerate}
 \end{proposition}
 
@@ -90,7 +170,7 @@ Une autre caractérisation des variétés est donnée par la proposition suivant
     \begin{enumerate}
 
         \item
-            le rang de $dG(a)\in L(\eR^n,\eR^{n-m})$ soit maximum (c'est à dire $n-m$) en tout $a\in M$,
+            le rang de $dG(a)\in L(\eR^n,\eR^{n-m})$ soit maximum (c'est-à-dire $n-m$) en tout $a\in M$,
         \item
             $M\cap\mU=\{ x\in\mU\tq G(x)=0 \}$.
 
@@ -111,46 +191,245 @@ L'\defe{espace tangent}{espace!tangent} de $M$ au point $a$ est l'ensemble décr
     Une variété de dimension $m$ dans $\eR^n$ a un espace tangent de dimension $m$ en chacun de ses points.
 \end{proposition}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Intégration}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Ce qu'est une aire, un volume, etc.}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Grâce à la mesure de Lebesgue (définition~\ref{DEFooSWJNooCSFeTF}), nous avons la définition d'aires dans \( \eR^2\) et de volumes dans \( \eR^3\). Dans tout ce qui suit, nous considérons toujours la tribu de Lebesgue, la mesure de Lebesgue, et l'intégrale de Lebesgue correspondante.
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Résultats préliminaires}
+%---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}      \label{DEFooPZRDooWbbBXy}
-    L'\defe{aire}{aire dans \( \eR^2\)} de la partie mesurable \( S\) de \( \eR^2\) est le nombre
-    \begin{equation}
-        \int_{\eR^2}\mtu_S
-    \end{equation}
-    au sens de l'intégrale pour la mesure de Lebesgue de la fonction caractéristique de la partie \( S\).
-\end{definition}
+Soient une variété \( M\) et une partie \( A\) de \( M\). Si nous avons une fonction \( f\colon A\to \eR\), nous voudrions définir une intégrale de \( f\) sur \( A\) en utilisant les cartes.
 
-\begin{definition}
-    Le \defe{volume}{volume dans \( \eR^3\)} de la partie mesurable \( V\) de \( \eR^3\) est le nombre
-    \begin{equation}
-        \int_{\eR^R}\mtu_V
-    \end{equation}
-    au sens de l'intégrale pour la mesure de Lebesgue de la fonction caractéristique de la partie \( V\).
-\end{definition}
-
-Ceci est bien beau, mais ne permet pas de définir l'aire d'une surface dans \( \eR^3\), ni une longueur dans \( \eR^2\). Nous n'avons pas encore défini ce que nous appelons une surface dans \( \eR^3\), mais selon toute définition raisonnable, si \( S\) en est une, elle sera négligeable au sens de la mesure de Lebesgue dans \( \eR^3\) et nous aurons toujours
+Il y a une petite complication. Supposons que \( A\) soit dans \( \varphi_{\alpha}(U_{\alpha})\cap \varphi_{\beta}(U_{\beta})\). Pour la carte \( \varphi_{\alpha}\) nous aurions tendance à vouloir écrire
+\begin{equation}        \label{EQooUEVHooOXgonw}
+    \int_A f=\int_{\varphi_{\alpha}^{-1}(A)}f\circ \varphi_{\alpha}
+\end{equation}
+pour la mesure de Lebesgue induite de \( \eR^m\) vers son ouvert \( U_{\alpha}\). Pas de problème à ce que \eqref{EQooUEVHooOXgonw} soit bien définie. Le problème est que \( \alpha\) n'est pas à priori spécial par rapport à \( \beta\) et qu'il faudrait également que
+\begin{equation}        \label{EQooEOJIooIGLQHs}
+    \int_A f=\int_{\varphi_{\beta}^{-1}(A)}f\circ \varphi_{\beta}
+\end{equation}
+Mais en utilisant le changement de variable (théorème \ref{THOooUMIWooZUtUSg}\ref{ITEMooAJGDooGHKnvj}) pour le \( C^1\)-difféomorphisme \( \phi=\varphi_{\alpha}^{-1}\circ \varphi_{\beta}\), nous avons
 \begin{equation}
-    \int_{\eR^3}\mtu_S=0.
+    \int_{\varphi_{\alpha}^{-1}(A)}f\circ \varphi_{\alpha}=\int_{\varphi_{\beta}(A)}(f\circ \varphi_{\alpha}\circ\varphi_{\alpha}^{-1}\circ\varphi_{\beta})| J_{\phi} |=\int_{\varphi_{\beta}(A)}(f\circ \varphi_{\beta})| J_{\phi} |.
+\end{equation}
+À moins d'une coïncidence extraordinaire sur les valeurs du jacobien, il n'y aura pas égalité entre \eqref{EQooUEVHooOXgonw} et \eqref{EQooEOJIooIGLQHs}.
+
+Pour faire mieux, il faudra ajouter quelque chose qui compense l'arrivée du jacobien. C'est ce que nous allons faire maintenant.
+
+% TODO : il n'existe pas de C^1-difféomorphismes d'un ouvert de  R^m vers le cercle S^1 dans R^2.
+% ooGNZNooAUdDws
+\begin{propositionDef}[\cite{MonCerveau}]     \label{PROPooOAHWooAfxvyv}
+    Soient des ouverts \( U_1\) et \( U_2\) de \( \eR^m\) ainsi que \( A\subset \eR^n\). Nous supposons que les applications \( \varphi_1\colon U_1\to A\) et \( \varphi_2\colon U_2\to A\) sont des bijections telles que \( \varphi_1^{-1}\circ \varphi_2\colon U_2\to U_1\) soit un \( C^1\)-difféomorphisme. 
+        
+    Soit une fonction mesurable \( f\colon A\to \mathopen[ 0 , +\infty \mathclose]\)\footnote{Si \( f\) est seulement mesurable, allez voir les hypothèses du théorème \ref{THOooUMIWooZUtUSg}\ref{ITEMooAJGDooGHKnvj}.}.
+
+    Alors\footnote{Voir la définition de l'adjoint \ref{DEFooROVNooFlTbSK}.}
+    \begin{equation}
+        \int_{U_1}(f\circ \varphi_1)(x)\sqrt{ \det\big( (d\varphi_1)_x^*(d\varphi_1)_x \big) }dx=
+        \int_{U_2}(f\circ \varphi_2)(y)\sqrt{ \det\big( (d\varphi_2)_y^*(d\varphi_2)_y \big) }dy
+    \end{equation}
+    où les deux intégrales sont au sens de la mesure de Lebesgue sur des ouverts de \( \eR^m\).
+
+    Ce nombre est \defe{l'intégrale}{intégrale sur une carte} de \( f\) sur \( A\), et est noté
+    \begin{equation}
+        \int_Af.
+    \end{equation}
+\end{propositionDef}
+
+\begin{proof}
+    Nous considérons le \( C^1\)-difféomorphisme \( \phi=\varphi_1^{-1}\circ \varphi_2\). Notre but est d'utiliser le théorème de changement de variables \ref{THOooUMIWooZUtUSg}\ref{ITEMooEZUBooGBuDOS}.
+    
+    Vu que \( \varphi_1\) est une bijection, \( (\varphi_1\circ\varphi_1^{-1})(A)=A\) et nous avons
+    \begin{equation}
+        \phi^{-1}\big( \varphi_1^{-1}(A) \big)=\varphi_2^{-1}(A).
+    \end{equation}
+
+    Ensuite, \( f\circ\varphi_1\circ\phi=f\circ\varphi_2\).
+
+    Jusqu'ici, rien de drôle me diriez-vous. Ok. Alors voyons un peu comment se passe le jacobien et ce qui se trouve sous la racine carré.
+
+    L'application \( x\mapsto \det\big( (d\varphi_1)_x^*\circ(d\varphi_1)_x \big)\) doit être composée avec \( \phi\) pour donner
+    \begin{equation}
+        y\mapsto\det\big( (d\varphi_1)_{\phi(y)}^*\circ(d\varphi_1)_{\phi(y)} \big).
+    \end{equation}
+    Attardons-nous un peu sur \( (d\varphi_1)_{\phi(y)}\). Nous savons par la règle de différentiation en chaine \ref{ThoAGXGuEt} que
+    \begin{equation}        \label{EQooCBGAooCneiJv}
+        d(\varphi_1\circ \phi)_y=(d\varphi_1)_{\phi(y)}\circ(d\phi)_y.
+    \end{equation}
+    Le lemme \ref{LemooTJSZooWkuSzv} nous dit que l'application linéaire \( d\phi_y\colon \eR^m\to \eR^m\) est inversible et que \( d\phi_y^{-1}=(d\phi^{-1})_{\phi(y)}\). En composant les deux côtés de \eqref{EQooCBGAooCneiJv} par cela nous trouvons
+    \begin{equation}
+        (d\varphi_1)_{\phi(y)}=d(\varphi_1\circ\phi)_y\circ(d\phi)_y^{-1}=(d\varphi_2)_y\circ(d\phi^{-1})_{\phi(y)}.
+    \end{equation}
+    C'est me moment d'utiliser la proposition \ref{PROPooVPSYooRuoEFi} à propos de la composition des applications adjointes. Ce qui est dans le déterminant est :
+    \begin{equation}
+        \big( (d\varphi_2)_y\circ(d\phi^{-1})_{\phi(y)} \big)^*\circ\big( (d\varphi_2)_y\circ(d\phi^{-1})_{\phi(y)} \big)=
+        \underbrace{(d\phi^{-1})_{\phi(y)}^*}_{\eR^m\to \eR^m}\circ\underbrace{(d\varphi_2)^*_y\circ(d\varphi_2)_y}_{\eR^m\to \eR^m}\circ\underbrace{(d\phi^{-1})_{\phi(y)}}_{\eR^m\to \eR^m}.
+    \end{equation}
+    Nous utilisons à présent un combo entre les propriétés des déterminants et de l'adjoint : les propositions \ref{PropYQNMooZjlYlA}\ref{ITEMooNZNLooODdXeH} et \ref{PROPooSHZMooGwdfBd} font sortir \( | \det\big( (d\phi^{-1})_{\phi(y)} \big) |\) de la racine carré. Ne pas oublier la valeur absolue parce que \( \sqrt{ x^2 }=| x |\) et non \( \sqrt{ x^2 }=x\). Cela pour dire que
+    \begin{equation}
+        \sqrt{ \det\big( (d\varphi_1)_{\phi(y)}^*\circ(d\varphi_1)_{\phi(y)} \big) }=| \det\big( (d\phi^{-1})_{\phi(y)} \big) |\sqrt{ \det\big( (d\varphi_2)_y^*\circ(d\varphi_2)_y \big) }.
+    \end{equation}
+    En ce qui concerne l'intégrale que nous voulons calculer, en mettant les bouts ensemble,
+    \begin{equation}
+        \begin{aligned}[]
+        \int_{\varphi_1^{-1}(A)}&(f\circ\varphi_1)(x)\sqrt{ \det(\cdots) }dx\\
+        &=\int_{\varphi^{-1}_2(A)}(f\circ\varphi_2)(y)| \det\big( (d\phi^{-1})_{\phi(y)} \big) |\sqrt{ \det\big( (d\varphi_2)_y^*\circ(d\varphi_2)_y \big) }| \det(d\phi_y) |dy.
+        \end{aligned}
+    \end{equation}
+    Enfin, les déterminants se suppriment : dans la valeur absolue nous avons :
+    \begin{equation}
+        \det\big( (d\phi^{-1})_{\phi(y)} \big)\det(d\phi_y)=\det\big( (d\phi^{-1})_{\phi(y)}\circ d\phi_y \big)=\det(\id)=1.
+    \end{equation}
+\end{proof}
+
+Si nous voulons que la formule de la proposition \ref{PROPooOAHWooAfxvyv} fournisse une définition raisonnable de \( \int_Af\), il faut que si \( (U,\varphi)\) est une carte,
+\begin{equation}
+    \det\big( d\varphi_x^*\circ d\varphi_x \big)\geq 0
+\end{equation}
+pour tout \( x\), et ne soit nul sur aucun ouvert de \( U\).
+
+\begin{lemma}[\cite{MonCerveau}]
+    Soit une carte \( (U,\varphi)\) d'une variété \( M\) de dimension \( \eR^m\). Soit \( x\in U\). Alors
+    \begin{enumerate}
+        \item
+            L'opérateur \( d\varphi_x^*\circ d\varphi_x\) est autoadjoint semi-défini positif.
+        \item
+            Il existe une base de \( \eR^m\) formée de vecteurs propres de \( d\varphi_x^*\circ d\varphi_x\). Les valeurs propres sont réelles et positives.
+        \item
+            Pour tout \( x\in U\) nous avons
+            \begin{equation}
+                \det(d\varphi_x^*\circ d\varphi_x) > 0.
+            \end{equation}
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Point par point.
+    \begin{enumerate}
+        \item
+            Soit \( x\in U\). Nous notons \( A=d\varphi_x\). Par la proposition \ref{PROPooVPSYooRuoEFi} nous avons \( (AA^*)^*=AA^*\) du fait que \( (A^*)^*=A\). Donc \( A^*A\) est autoadjoint. Sa matrice est donc symétrique par la proposition \ref{DEFooROVNooFlTbSK}\ref{ITEMooXXEUooPtfPKY}.
+            
+            De plus, pour tout \( u\in \eR^m\) nous avons
+            \begin{equation}
+                \langle A^*Au, u\rangle =\langle Au, Au\rangle \geq 0.
+            \end{equation}
+            Cela implique que la matrice de \( A^*A\) est semi-définie positive par le lemme \ref{LemWZFSooYvksjw}\ref{ITEMooMOZYooWcrewZ}. L'opérateur \( A^*A\) est également semi-défini positif par la proposition \ref{PROPooUAAFooEGVDRC}.
+            % todo TODOooDZRTooNjcLac : prouver mieux la proposition citée.
+        \item
+            L'existence de la base de vecteurs propres est le théorème \ref{ThoeTMXla}. Ce théorème dit de plus que les valeurs propres sont réelles. Le fait qu'elles soient positives est le fait déjà prouvé que \( A^*A\) est semi-défini positif.
+        \item
+            Dans la base de vecteurs propres, la matrice est diagonale avec des nombres positifs sur la diagonale. Le déterminant est alors le produit des valeurs propres. Voila pourquoi le déterminant est positif.
+
+            Il nous reste à montrer que ce déterminant ne peut pas être nul. Si \( \det(d\varphi_a^*\circ d\varphi_a)=0\), alors l'application \( d\varphi_a^*\circ d\varphi\) a un noyau (proposition \ref{PropYQNMooZjlYlA}\ref{ITEMooNZNLooODdXeH}), c'est-à-dire un vecteur \( u\) tel que \( d\varphi_a^*d\varphi_a(u)=0\) en particulier,
+            \begin{equation}
+                0=\langle d\varphi_a^*d\varphi_au, u\rangle =\langle d\varphi_au,d\varphi_au, \rangle =\| d\varphi_au \|^2.
+            \end{equation}
+            Donc \( d\varphi_a(u)=0\).
+
+            Mais \( \varphi\colon U\to \varphi(U)\) est bijective, donc l'application \( \varphi^{-1}\colon \varphi(U)\to U\) l'est aussi et vu que \( \varphi\) est une carte, l'application \( \varphi^{-1}\circ\varphi\colon U\to U\) est égale à l'identité. L'identité est une application linéaire dont la différentielle est elle-même, c'est-à-dire que
+            \begin{equation}
+                d(\varphi^{-1}\circ\varphi)_a=(d\varphi^{-1})_{\varphi(a)}\circ d\varphi_a=\id.
+            \end{equation}
+            Si donc \( u\neq 0\), nous devons avoir \( d\varphi_a(u)\neq 0\).
+    \end{enumerate}
+\end{proof}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Quelques expressions pour l'élément de volume}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Ce que nous appelons «élément de volume» (pour des raisons qui apparaîtront plus tard) est le coefficient \( \sqrt{ \det(d\varphi_x^*\circ d\varphi_x) }\), introduit pour le besoin de compenser l'arrivée du jacobien en cas de changement de variables. Mais à quoi ressemble de coefficient pour les variétés de petite dimension ?
+
+C'est ce que nous allons voir maintenant.
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{En dimension un}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Nous supposons une variété de dimension un dans \( \eR^n\). Une carte est donc une application \( \varphi\colon \eR\to \eR^n\) dont nous notons \( \varphi_i\) les composantes. Nous avons, pour \( u\in \eR\),
+\begin{equation}
+    d\varphi_a(u)=\Dsdd{ \varphi(a+tu) }{t}{0}=\frac{ d }{ dt }\begin{pmatrix}
+        \varphi_1(a+tu)    \\ 
+        \vdots    \\ 
+        \varphi_n(a+tu)    
+    \end{pmatrix}=u\begin{pmatrix}
+        \varphi'_1(a)    \\ 
+        \vdots    \\ 
+        \varphi_n'(a)    
+    \end{pmatrix}=u\varphi'(a).
+\end{equation}
+Là dedans, vous vous souviendrez que \( a\in \eR\) et que \( \varphi'(a)\in \eR^n\).
+
+Nous devons savoir ce que vaut \( d\varphi_a^*x\) lorsque \( a\in \eR\) et \( x\in \eR^m\). Pour tout \( u\in \eR\) nous avons
+\begin{equation}
+    \langle d\varphi_ax, u\rangle_{\eR}=\langle x, d\varphi_a(u)\rangle_{\eR^n}=u\langle x, \varphi'(a)\rangle_{\eR^n}=u\varphi'(a)\cdot x=\langle \varphi'(a)\cdot x, u\rangle_{\eR}.
+\end{equation}
+Donc \( d\varphi_a^*(x)=\varphi'(a)\cdot x\).
+
+Question notation, nous avons noté \( \langle a, b\rangle_{\eR}=ab\) et indifféremment \( \langle x, y\rangle_{\eR^n}=x\cdot y\).
+
+L'application \( d\varphi_a^*\circ d\varphi_a\) est une application linéaire bijective entre \( \eR\) et \( \eR\). Sa matrice est donc \( 1\times 1\) et elle se calcule en appliquant l'application au vecteur de base \( 1\) de \( \eR\) :
+\begin{equation}
+    (d\varphi_a^*\circ d\varphi_a)(1)=d\varphi_a^*\big( \varphi'(a) \big)=\varphi'(a)\cdot \varphi'(a)=\| \varphi'(a) \|^2.
+\end{equation}
+Nous avons donc
+\begin{equation}
+    \det\big( d\varphi^*_a\circ d\varphi_a \big)=\| \varphi'(a) \|^2.
 \end{equation}
 
-L'objet de ce chapitre sera de donner un sens aux notions de longueurs dans \( \eR^2\), de surfaces dans \( \eR^3\) et d'y définir des intégrales permettant de définir longueurs et aires.
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{En dimension quelconque}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Quelques aires faciles}
-%---------------------------------------------------------------------------------------------------------------------------
+Soit une carte \( \varphi\colon \eR^m\to \eR^n\) pour une variété de dimension \( m\). Les éléments de matrice de la différentielle d'une application sont donnés par la proposition \ref{PROPooBMROooThgLuU} :
+\begin{equation}
+    (d\varphi_a)_{ij}=\frac{ \partial \varphi_i }{ \partial x_j }(a).
+\end{equation}
+Les éléments de la matrice de \( d\varphi_a^*\) sont ceux de la matrice transposée. En ce qui concerna la composition, c'est le produit des matrices :
+\begin{equation}
+    (d\varphi_a^*\circ d\varphi_a)_{ij}=\sum_k(d\varphi_a^*)_{ik}(d\varphi_a)_{kj}=\sum_k(d\varphi_a)_{ki}(d\varphi_a)_{kj}=\sum_k\frac{ \partial \varphi_k }{ \partial x_i }(a)\frac{ \partial \varphi_k }{ \partial x_j }(a).
+\end{equation}
+Cela pour écrire cette bonne formule :
+\begin{equation}        \label{EQooQRQKooJVJRsy}
+    (d\varphi_a^*\circ d\varphi_a)_{ij}=\frac{ \partial \varphi }{ \partial x_i }(a)\cdot \frac{ \partial \varphi }{ \partial x_j }(a).
+\end{equation}
 
-Nous nous souvenons de la proposition~\ref{PROPooIQMTooFHNjfu} qui donnait une bonne propriété du produit vectoriel dans \( \eR^3\). Nous en donnons une autre.
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{En dimension deux}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-\begin{proposition}
-    Si \( u\) et \( v\) sont des vecteurs de \( \eR^2\) alors le vecteur \( u\times v\) (où nous avons prolongé \( u\) et \( v\) par zéro dans \( \eR^3\)) est de norme égale à l'aire\footnote{Définition~\ref{DEFooPZRDooWbbBXy}.} du parallélogramme construit sur \( u\) et \( v\) dans \( \eR^2\).
-\end{proposition}
+Nous considérons maintenant une carte \( \varphi\colon U\to \eR^3\) avec \( U\subset \eR^2\). En notant \( v_i=\partial_i\varphi(a)\) nous notons la formule \eqref{EQooQRQKooJVJRsy} sous la forme
+\begin{equation}
+    \det\big( d\varphi_a^*\circ d\varphi_a \big)=
+    \det\begin{pmatrix}
+        v_1\cdot v_1    &   v_1\cdot v_2    \\ 
+        v_2\cdot v_1    &   v_2\cdot v_2    
+    \end{pmatrix}=\| v_1 \|^2\| v_2 \|^2-(v_1\cdot v_2)^2.
+\end{equation}
+L'identité de Lagrange de la proposition \ref{PROPooMXAIooJureOD} nous donne alors
+\begin{equation}
+    \sqrt{ \det(d\varphi_a^*\circ d\varphi_a )  }=\| \frac{ \partial \varphi }{ \partial x }\times \frac{ \partial \varphi }{ \partial y } \|.
+\end{equation}
 
-La subtilité quant au prolongement de \( u\) et \( v\) par zéro est due au fait que nous n'avons encore défini d'aires que celles de parties de \( \eR^2\). Officiellement, nous ne savons pas encore ce que serait l'aire du parallélogramme construit sur deux vecteurs de \( \eR^3\). Officieusement, nous nous attendons à ce que ce soit égal à la norme du produit vectoriel.
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{En dimension trois}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Nous considérons maintenant une carte \( \varphi\colon U\to \eR^3\) avec \( U\subset \eR^3\). Nous notons \( u=\frac{ \partial \varphi }{ \partial \partial x }(a)\), \( v=\frac{ \partial \varphi }{ \partial y }(a)\) et \( w=\frac{ \partial \varphi }{ \partial z }(a)\). 
+
+En utilisant l'expression du lemme \ref{LEMooSMWNooCmEZeY} à propos du produit mixte, la formule \ref{EQooQRQKooJVJRsy} donne
+\begin{equation}
+    \det(d\varphi_a^*\circ d\varphi_a)=\det\begin{pmatrix}
+        \| u \|^2    &   u\cdot v    &   u\cdot w    \\
+        v\cdot u    &   \| v \|^2    &   v\cdot w    \\
+        w\cdot u    &   w\cdot v    &   \| w \|^2
+    \end{pmatrix}=\big| (u\times v)\cdot w \big|.
+\end{equation}
+Donc 
+\begin{equation}        \label{EQooYIJSooHtkXfu}
+    \det(d\varphi_a^*\circ d\varphi_a)=\big| (\frac{ \partial \varphi }{ \partial x }(a)\times \frac{ \partial \varphi }{ \partial y }(a))\cdot \frac{ \partial \varphi }{ \partial z }(a) \big|.
+\end{equation}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Intégrale sur une variété}
@@ -168,7 +447,7 @@ Si $v$, $w\in\eR^3$, alors le vecteur $v\times w$ est une vecteur normal au plan
 \end{equation}
 L'aire du parallélogramme construit sur $v$ et $w$ est donnée par la norme du produit vectoriel. Afin de donner une mesure infinitésimale en un point $p\in M$, nous voudrions prendre deux vecteurs tangents à $M$ en $p$, et puis considérer la norme de leur produit vectoriel. Cette idée se heurte à la question du choix des vecteurs tangents à considérer.
 
-Dans $\eR^2$, le choix est évident : nous choisissons $e_x$ et $e_y$, et nous avons $\|e_x\times e_y\|=1$. L'idée est donc de choisir une carte $F\colon W\to F(w)$ autour du point $p=F(w)$, et de choisir les vecteurs tangents qui correspondent à $e_x$ et $e_y$ via la carte, c'est à dire les vecteurs
+Dans $\eR^2$, le choix est évident : nous choisissons $e_x$ et $e_y$, et nous avons $\|e_x\times e_y\|=1$. L'idée est donc de choisir une carte $F\colon W\to F(w)$ autour du point $p=F(w)$, et de choisir les vecteurs tangents qui correspondent à $e_x$ et $e_y$ via la carte, c'est-à-dire les vecteurs
 \begin{equation}
 	\begin{aligned}[]
 		\frac{ \partial F }{ \partial x }(w),&&\text{et}&&\frac{ \partial F }{ \partial y }(w).
@@ -183,7 +462,7 @@ et si la partie $A\subset M$ est entièrement contenue dans $F(W)$, nous défini
 	\mu_2(A)=\int_{F^{-1}(A)}d\sigma_F=\int_{F^{-1}(A)}\| \frac{ \partial F }{ \partial x }(w)\times\frac{ \partial F }{ \partial y }(w) \|dw.
 \end{equation}
 \begin{remark}
-	Afin que cette définition ait un sens, nous devons prouver qu'elle ne dépend pas du choix de la carte $F$. En effet, les vecteurs $\partial_xF$ et $\partial_yF$ dépendent de la carte $F$, donc leur produit vectoriel (et sa norme) dépendent également de la carte $F$ choisie. Il faudrait donc un petit miracle pour que le nombre $\mu_2(A)$ donné par \eqref{EqDefMuDeuxDF} soit indépendant du choix de $F$.  Nous allons bientôt voir comme cas particulier du théorème~\ref{ThoIntIndepF} que c'est en fait le cas. C'est à dire que si $F$ et $\tilde F$ sont deux cartes qui contiennent $A$, alors
+	Afin que cette définition ait un sens, nous devons prouver qu'elle ne dépend pas du choix de la carte $F$. En effet, les vecteurs $\partial_xF$ et $\partial_yF$ dépendent de la carte $F$, donc leur produit vectoriel (et sa norme) dépendent également de la carte $F$ choisie. Il faudrait donc un petit miracle pour que le nombre $\mu_2(A)$ donné par \eqref{EqDefMuDeuxDF} soit indépendant du choix de $F$.  Nous allons bientôt voir comme cas particulier du théorème~\ref{ThoIntIndepF} que c'est en fait le cas. C'est-à-dire que si $F$ et $\tilde F$ sont deux cartes qui contiennent $A$, alors
 	\begin{equation}
 		\int_{F^{-1}(A)}d\sigma_F=\int_{\tilde F^{-1}(A)}d\sigma_{\tilde F}.
 	\end{equation}
@@ -353,9 +632,9 @@ tandis que
 \begin{equation}
 	\frac{ \partial \tilde F }{ \partial x }\times\frac{ \partial \tilde F }{ \partial y }=6e_3.
 \end{equation}
-Les vecteurs normaux à la paramétrisation pointent dans le même sens.
+Les vecteurs normaux à le paramétrage pointent dans le même sens.
 
-Si par contre nous prenons la paramétrisation
+Si par contre nous prenons le paramétrage
 \begin{equation}
 	\begin{aligned}
 		G\colon \mathopen] 0,1 \mathclose[\times\mathopen] 0,1 ,  \mathclose[&\to \eR^2 \\
@@ -431,7 +710,7 @@ Nous allons donner une toute petite introduction aux formes différentielles sur
 \end{lemma}
 
 \begin{proof}
-    Nous effectuons la preuve par récurrence sur le degré de la forme. Soit d'abord une \( 0\)-forme, c'est à dire une fonction \( g\colon \eR^n\to \eR\). Nous avons
+    Nous effectuons la preuve par récurrence sur le degré de la forme. Soit d'abord une \( 0\)-forme, c'est-à-dire une fonction \( g\colon \eR^n\to \eR\). Nous avons
     \begin{equation}
         d(d^*g)X=d(g\circ f)X=(dg\circ df)X=dg\big( df X \big)=(f^*dg)(X).
     \end{equation}
@@ -454,244 +733,8 @@ Nous allons donner une toute petite introduction aux formes différentielles sur
     Justifications : \eqref{gnAnSt} est la formule de Leibnitz. \eqref{xZrfjZ} est parce que le second terme est nul : \( d(f^*dx^p)=f^*(d^2x^p)=0\). Nous avons utilisé l'hypothèse de récurrence et le fait que \( d^2=0\). L'étape \eqref{loWUji} est une utilisation à l'envers de la règle de Leibnitz en tenant compte que \( d^2x^p=0\).
 \end{proof}
 
+
 \begin{lemmaDef}   \label{LemGPmRGZ}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Table de caractères du groupe diédral}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{SecWMzheKf}
-Cette section vient de \cite{KXjFWKA}; nous avons comme but d'établir la table des caractères des représentations complexes du groupe diédral \( D_n\).
-\index{groupe!de permutation}
-\index{groupe!diédral!générateurs (utilisation)}
-\index{représentation!groupe diédral}
-\index{caractère!groupe diédral}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Représentations de dimension un}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous nous occupons des représentations de \( D_n\) sur \( \eC\). Les applications linéaires \( \eC\to \eC\) sont seulement les multiplications par des nombres complexes. Nous cherchons donc \( \psi\colon D_n\to \eC^*\).
-
-Nous savons que \( D_n\) est généré\footnote{Voir proposition~\ref{PropLDIPoZ} et tout ce qui suit.} par \( s\) et \( r\). Vu que \( s^2=1\), nous avons
-\begin{equation}
-    \psi(s)^2=\psi(s^2)=\psi(1)=1,
-\end{equation}
-donc \( \psi(s)\in\{ -1,1 \}\). Nous savons aussi que \( srsr=1\), donc
-\begin{equation}
-    \psi(s)^2\psi(r)^2=1,
-\end{equation}
-ce qui donne \( \psi(r)\in\{ -1,1 \}\).
-
-Nous avons donc quatre représentations de dimension un données par
-\begin{equation*}
-    \begin{array}[]{|c||c|c|}
-        \hline
-        &\psi(r)=1&\psi(r)=-1\\
-        \hline\hline
-        \psi(s)=1&\rho^{++}&\rho^{+-}\\
-        \hline
-        \psi(s)=-1&\rho^{-+}&\rho^{--}\\
-        \hline
-    \end{array}
-\end{equation*}
-Attention au fait que nous devons aussi avoir la relation \( \psi(r)^n=\psi(r^n)=1\). Donc \( \psi(r)\) doit être une racine \( n\)\ieme\ de l'unité. Nous allons donc devoir avoir un compte différent selon la parité de \( n\). Nous en reparlerons à la fin, au moment de faire les comptes. En ce qui concerne les caractères correspondants,
-\begin{equation*}
-    \begin{array}[]{|c||c|c|}
-        \hline
-        &r^k&sr^k\\
-        \hline\hline
-        \chi^{++}&1&1\\
-        \hline
-        \chi^{+-}&(-1)^k&(-1)^k\\
-        \hline
-        \chi^{-+}&1&-1\\
-        \hline
-        \chi^{--}&(-1)^k&(-1)^{k+1}\\
-        \hline
-    \end{array}
-\end{equation*}
-Étant donné qu'ils sont tous différents, ce sont des représentations deux à deux non équivalentes, lemme~\ref{LempUSOlo}.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Représentations de dimension deux}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous cherchons maintenant les représentations \( \rho\colon D_n\to \End(\eC^2)\). Ici nous supposons connue la liste des éléments de \( D_n\) donnée par le corollaire~\ref{CorWYITsWW}. Soit \( \omega= e^{2i\pi/n}\) et \( h\in \eZ\); nous considérons la représentation \( \rho^{(h)}\) de \( D_n\) définie par
-\begin{subequations}
-    \begin{align}
-        \rho^{(h)}(r^k)&=\begin{pmatrix}
-            \omega^{hk}    &   0    \\
-            0    &   \omega^{-hk}
-        \end{pmatrix}\\
-        \rho^{(h)}(st^k)&=\begin{pmatrix}
-            0    &   \omega^{-hk}    \\
-            \omega^{hk}    &   0
-        \end{pmatrix}.
-    \end{align}
-\end{subequations}
-Cela donne bien \( \rho^{(h)}\) sur tous les éléments de \( D_n\) par la proposition~\ref{PropLDIPoZ}. Nous pouvons restreindre le domaine de \( h\) en remarquant d'abord que \( \rho^{(h)}=\rho^{(h+n)}\), et ensuite que les représentations \( \rho^{(h)}\) et \( \rho^{(-h)}\) sont équivalentes. Un opérateur d'entrelacement est donné par \( T=\begin{pmatrix}
-    0    &   1    \\
-    1    &   0
-\end{pmatrix}\), et il est facile de vérifier que \( T\rho^{(h)}(x)=\rho^{-h}(x)T\) avec \( x=r^k\) puis avec \( x=sr^k\).
-
-Donc \( \rho^{(h)}\simeq\rho^{(-h)}\simeq\rho^{(n-h)}\) et nous pouvons restreindre notre étude à \( 0\leq h\leq \frac{ n }{2}\).
-
-Nous allons séparer les cas \( n=0\), \( h=n/2\) et les autres. En effet si nous notons par commodité \( a=\omega^h\), alors un vecteur \( (x,y)\) est vecteur propre de \( \rho^{(h)}(s)\) et de \( \rho^{(h)}(r)\) si et seulement s'il vérifie les systèmes d'équations
-\begin{subequations}        \label{SubEqsGXZoxLq}
-    \begin{numcases}{}
-        ax=\lambda x\\
-        \frac{1}{ a }y=\lambda y
-    \end{numcases}
-\end{subequations}
-et
-\begin{subequations}    \label{SubEqsFYZmzhT}
-    \begin{numcases}{}
-        \frac{1}{ a }y=\mu x\\
-        ax=\mu y
-    \end{numcases}
-\end{subequations}
-avec \( \lambda\) et \( \mu\) des nombres non nuls. Une représentation sera réductible si et seulement si ces deux systèmes acceptent une solution non nulle commune. Il est vite vu que si \( x\neq 0\) et \( y\neq 0\), alors \( a^2=1\), ce qui signifie \( h=0\) ou \( h=n/2\). Sinon, il n'y a pas de solutions, et la représentation associée est irréductible.
-
-\begin{enumerate}
-    \item
-        \( h=0\). Nous avons
-        \begin{equation}
-            \begin{aligned}[]
-                \rho^{(0)}(r^k)&=\begin{pmatrix}
-                    1    &   0    \\
-                    0    &   1
-                \end{pmatrix}& \rho^{(0)}(sr^k)=\begin{pmatrix}
-                    0    &   1    \\
-                    1    &   0
-                \end{pmatrix},
-            \end{aligned}
-        \end{equation}
-        donc le caractère de cette représentation est \( \chi^{(0)}(r^k)=2\) et \( \chi^{(0)}(sr^k)=0\). Donc nous avons
-        \begin{equation}
-            \chi^{(0)}=\chi^{++}+\chi^{-+}.
-        \end{equation}
-        Il y a maintenant (au moins) quatre façons de voir que la représentation \( \rho^{(0)}\) est réductible.
-        \begin{description}
-
-            \item[Première méthode]
-                Trouver un opérateur d'entrelacement. Pour cela nous calculons les matrices :
-        \begin{subequations}
-            \begin{align}
-                S(r)&=(\rho^{++}\oplus \rho^{-+})(r^k)=\begin{pmatrix}
-                    \rho^{++}(r^k)    &   0    \\
-                    0  &   \rho^{-+}(r^k)
-                \end{pmatrix}=\begin{pmatrix}
-                    1    &   0    \\
-                    0    &   1
-                \end{pmatrix}\\
-                S(sr^k)&=(\rho^{++}\oplus \rho^{-+})(sr^k)=\begin{pmatrix}
-                    \rho^{++}(sr^k)    &   0    \\
-                    0  &   \rho^{-+}(sr^k)
-                \end{pmatrix}=\begin{pmatrix}
-                    1    &   0    \\
-                    0    &   -1
-                \end{pmatrix}\\
-            \end{align}
-        \end{subequations}
-        Nous cherchons une matrice \( T\) telle que \( TS(r^k)=\rho^{(0)}(r^k)T\) et \( TS(sr^k)=\rho^{(0)}(sr^k)T\). Étant donné que \( S(r^k)=\mtu=\rho^{(0)}(r^k)\), la première contrainte n'en est pas une. Nous pouvons vérifier qu'avec \( T=\begin{pmatrix}
-            1    &   1    \\
-            1    &   -1
-        \end{pmatrix}\), nous avons bien
-        \begin{equation}
-            T\begin{pmatrix}
-                1    &   0    \\
-                0    &   -1
-            \end{pmatrix}=\begin{pmatrix}
-                0    &   1    \\
-                1    &   0
-            \end{pmatrix}.
-        \end{equation}
-        Donc ce \( T\) entrelace \( \rho^{++}\oplus \rho^{-+}\) avec \( \rho^{(0)}\) qui sont donc deux représentations équivalentes. Donc \( \rho^{(0)}\) est réductible et ça ne nous intéresse pas de la lister.
-            \item[Seconde méthode]
-                Invoquer le théorème \ref{ThoWGkfADd}\ref{ItemZReOWoHi} et dire que les représentations sont équivalentes parce que les caractères sont égaux.
-
-    \item[Troisième méthode]
-        Utiliser le théorème~\ref{ThoWGkfADd}\ref{ItemZReOWoHii} et calculer \( \langle \chi^{(0)}, \chi^{(0)}\rangle \) :
-        \begin{subequations}
-            \begin{align}
-                \langle \chi^{(0)}, \chi^{(0)}\rangle &=\frac{1}{ | D_n | }\sum_{g\in D_n}| \chi^{(0)}(g) |^2\\
-                &=\frac{1}{ 2n }\big(4+0+4(n-1)\big)\\
-                &=2.
-            \end{align}
-        \end{subequations}
-        Ici le \( 4\) est pour le \( 1\), le zéro est pour les termes \( sr^k\) et \( 4(n-1)\) est pour les \( n-1\) termes \( r^k\). Vu que le résultat n'est pas \( 1\), la représentation \( \rho^{(0)}\) n'est pas irréductible.
-
-    \item[Quatrième méthode]
-        Regarder les solutions des systèmes \eqref{SubEqsGXZoxLq} et \eqref{SubEqsFYZmzhT} dont nous avons parlé plus haut.
-
-    \end{description}
-
-    La première méthode a l'avantage d'être simple et ne demander aucune théorie particulière à part les définitions. La seconde méthode est la plus rapide, mais demande un théorème très puissant. La troisième utilise également un théorème assez avancé, mais a l'avantage sur les deux autres méthodes de ne pas avoir besoin de savoir a priori un candidat décomposition de \( \rho^{0)}\); cette méthode est applicable même sans faire la remarque que \( \chi^{(0)}=\chi^{++}+\chi^{-+}\).
-
-    Quoi qu'il en soit, nous ne listons pas \( \chi^{(0)}\) dans notre \href{http://fr.wikipedia.org/wiki/Aide:Unicode}{table de caractères}.
-
-    \item
-        \( h=n/2\). Vu que \( \omega^{n/2}= e^{i\pi}=-1\), nous avons
-        \begin{equation}
-            \begin{aligned}[]
-                \rho^{(n/2)}(r^k)&=\begin{pmatrix}
-                    (-1)^k    &   0    \\
-                    0    &   (-1)^k
-                \end{pmatrix}&
-                \rho^{(n/2)}(sr^k)&=\begin{pmatrix}
-                    0   &   (-1)^k    \\
-                    (-1)^k    &  0
-                \end{pmatrix}&
-            \end{aligned},
-        \end{equation}
-        et donc
-        \begin{subequations}
-            \begin{align}
-                \chi^{(n/2)}(r^k)&=2(-1)^k\\
-                \chi^{(n/2)}(sr^k)&=0.
-            \end{align}
-        \end{subequations}
-        Il est vite vu que \( \chi^{(n/2)}=\chi^{+-}+\chi^{-+}\). Ergo la représentation \( \rho^{(n/2)}\) n'est pas irréductible.
-
-    \item
-        \( 0<h<\frac{ n }{2}\). Dans ce cas nous avons \( \omega^h\neq \omega^{-h}\), et en regardant les systèmes d'équations donnés plus haut, nous voyons que \( \rho^{(h)}(s)\) et \( \rho^{(h)}(r)\) n'ont pas de vecteurs propres communs. Donc ces représentations sont irréductibles.
-
-        Nous devons cependant encore vérifier si elles sont deux à deux non équivalentes. Supposons que pour \( h\neq h'\) nous ayons une matrice \( T\in \GL(2,\eC)\) telle que \( T\rho^{(h)}(r)T^{-1}=\rho^{(h')}(r)\). Cela impliquerait en particulier que les matrices \( \rho^{(h)}(r)\) et \( \rho^{(h')}(r)\) aient même valeurs propres. Nous aurions donc \( \{ \omega^h,\omega^{-h} \}=\{ \omega^{h'},\omega^{-h'} \}\). Mais cela est impossible avec \( 0<h<h'<\frac{ n }{2}\). Donc toutes ces représentations sont distinctes.
-
-\end{enumerate}
-
-Le caractère de la représentation \( \rho^{(h)}\) est \( \chi^{(h)}(r^k)=\omega^{hk}+\omega^{-hk}=2\cos\left( \frac{ 2\pi hk }{ n } \right)\).
-
-Nous ajoutons donc la ligne suivante à notre liste :
-\begin{equation*}
-    \begin{array}[]{|c||c|c|}
-        \hline
-        &r^k&sr^k\\
-        \hline\hline
-        \chi^{(h)}&2\cos\left( \frac{ 2\pi hk }{ n } \right)&0\\
-        \hline
-    \end{array}
-\end{equation*}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Le compte pour \texorpdfstring{$ n$}{n} pair}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous avons \( 4\) représentations de dimension \( 1\) puis \( \frac{ n }{2}-1\) représentations de dimension \( 2\). En tout nous avons
-\begin{equation}
- \frac{ n }{2}+3
-\end{equation}
-représentations irréductibles modulo équivalence. Cela fait le compte en vertu des classes de conjugaisons listées en~\ref{SubsubsecROVmHuM}. Pour rappel, le nombre de représentations non équivalentes est égal au nombre de classes de conjugaison par le corollaire~\ref{CorbdcVNC}. Notons que c'est cela qui justifie le fait que nous ne devons pas chercher d'autres représentations. Nous sommes sûrs de les avoir toutes trouvées.
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Le compte pour \texorpdfstring{$ n$}{n} impair}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous avions fait mention plus haut du fait que si \( \psi\) est une représentation de dimension \( 1\), le nombre \( \psi(r)\) devait être une racine \( n\)\ieme\ de l'unité. Donc en dimension \( 1\) nous avons seulement les représentations \( \rho^{++}\) et \( \rho^{-+}\). Pour celles de dimension \( 2\), nous en avons \( \frac{ n-1 }{2}\). En tout nous avons donc
-\begin{equation}
-    \frac{ n+3 }{2}
-\end{equation}
-représentations irréductibles modulo équivalence. Cela fait le compte en vertu des classes de conjugaisons listées en~\ref{GJIzDEP}.
     Soient une variété \( M\) munie d'un recouvrement par un nombre fini d'ouverts\footnote{Si \( M\) n'est pas compacte, alors il faut utiliser une version un peu plus élaborée du lemme\cite{SpindelGeomDoff}.}\( \{ U_i \}\). Alors il existe une famille de fonctions \( f_i\in  C^{\infty}(M)\) telle que
     \begin{enumerate}
         \item
@@ -739,7 +782,7 @@ Lorsque nous voulons intégrer sur une partie plus grande qu'une carte nous util
 \subsection{Intégrale d'une fonction sur une sous-variété}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous allons nous restreindre au cas d'une sous-variété de \( \eR^n\). C'est à dire que nous considérons l'espace \( \eR^n\) comme espace ambiant et nous allons intégrer sur des parties de \( \eR^n\). Ces parties peuvent être de dimension plus basses que \( n\), et c'est justement ça qui fait la différence entre ce que nous faisons maintenant et la définition~\ref{DEFooOMQLooGiJWZS}.
+Nous allons nous restreindre au cas d'une sous-variété de \( \eR^n\). C'est-à-dire que nous considérons l'espace \( \eR^n\) comme espace ambiant et nous allons intégrer sur des parties de \( \eR^n\). Ces parties peuvent être de dimension plus basses que \( n\), et c'est justement ça qui fait la différence entre ce que nous faisons maintenant et la définition~\ref{DEFooOMQLooGiJWZS}.
 
 L'exemple typique est l'intégrale sur une surface dans \( \eR^3\), ou de volumes.
 
@@ -766,6 +809,47 @@ Il est possible de prouver que dans ce cas, la définition suivante a un sens et
 		\int_Af=\sum_{i=1}^p\int_{A_i}fd\sigma_{F_i}.
 	\end{equation}
 \end{definition}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Longueur, aire, volumes etc.}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Grâce à la mesure de Lebesgue (définition~\ref{DEFooSWJNooCSFeTF}), nous avons la définition d'aires dans \( \eR^2\) et de volumes dans \( \eR^3\). Dans tout ce qui suit, nous considérons toujours la tribu de Lebesgue, la mesure de Lebesgue, et l'intégrale de Lebesgue correspondante.
+
+\begin{definition}      \label{DEFooPZRDooWbbBXy}
+    L'\defe{aire}{aire dans \( \eR^2\)} de la partie mesurable \( S\) de \( \eR^2\) est le nombre
+    \begin{equation}
+        \int_{\eR^2}\mtu_S
+    \end{equation}
+    au sens de l'intégrale pour la mesure de Lebesgue de la fonction caractéristique de la partie \( S\).
+\end{definition}
+
+\begin{definition}
+    Le \defe{volume}{volume dans \( \eR^3\)} de la partie mesurable \( V\) de \( \eR^3\) est le nombre
+    \begin{equation}
+        \int_{\eR^R}\mtu_V
+    \end{equation}
+    au sens de l'intégrale pour la mesure de Lebesgue de la fonction caractéristique de la partie \( V\).
+\end{definition}
+
+Ceci est bien beau, mais ne permet pas de définir l'aire d'une surface dans \( \eR^3\), ni une longueur dans \( \eR^2\). Nous n'avons pas encore défini ce que nous appelons une surface dans \( \eR^3\), mais selon toute définition raisonnable, si \( S\) en est une, elle sera négligeable au sens de la mesure de Lebesgue dans \( \eR^3\) et nous aurons toujours
+\begin{equation}
+    \int_{\eR^3}\mtu_S=0.
+\end{equation}
+
+L'objet de ce chapitre sera de donner un sens aux notions de longueurs dans \( \eR^2\), de surfaces dans \( \eR^3\) et d'y définir des intégrales permettant de définir longueurs et aires.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Quelques aires faciles}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous nous souvenons de la proposition~\ref{PROPooIQMTooFHNjfu} qui donnait une bonne propriété du produit vectoriel dans \( \eR^3\). Nous en donnons une autre.
+
+\begin{proposition}
+    Si \( u\) et \( v\) sont des vecteurs de \( \eR^2\) alors le vecteur \( u\times v\) (où nous avons prolongé \( u\) et \( v\) par zéro dans \( \eR^3\)) est de norme égale à l'aire\footnote{Définition~\ref{DEFooPZRDooWbbBXy}.} du parallélogramme construit sur \( u\) et \( v\) dans \( \eR^2\).
+\end{proposition}
+
+La subtilité quant au prolongement de \( u\) et \( v\) par zéro est due au fait que nous n'avons encore défini d'aires que celles de parties de \( \eR^2\). Officiellement, nous ne savons pas encore ce que serait l'aire du parallélogramme construit sur deux vecteurs de \( \eR^3\). Officieusement, nous nous attendons à ce que ce soit égal à la norme du produit vectoriel.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Autres théorèmes de points fixes}
@@ -797,7 +881,7 @@ En termes de théorème de points fixes nous avons déjà vu le théorème de Pi
 \index{point fixe!Brouwer}
 
 \begin{proof}
-    Supposons que \( f\) ne possède pas de points fixes. Alors pour tout \( x\in B\) nous considérons la ligne droite partant de \( x\) dans la direction de \( f(x)\) (cette droite existe parce que \( x\) et \( f(x)\) sont supposés distincts). Cette ligne intersecte \( \partial B\) en un point que nous appelons \( g(x)\). Prouvons que cette fonction est \( C^k\) dès que \( f\) est \( C^k\) (y compris avec \( k=\infty\)).
+    Supposons que \( f\) ne possède pas de points fixes. Alors pour tout \( x\in B\) nous considérons la demi-droite issue de \( f(x)\) et passant par \( x\) (cette demi-droite existe parce que \( x\) et \( f(x)\) sont supposés distincts). Cette demi-droite intersecte \( \partial B\) en un point que nous appelons \( g(x)\). Prouvons que cette fonction est \( C^k\) dès que \( f\) est \( C^k\) (y compris avec \( k=\infty\)).
 
    Le point \( g(x) \) est la solution du système
     \begin{subequations}
@@ -815,7 +899,7 @@ En termes de théorème de points fixes nous avons déjà vu le théorème de Pi
     \begin{equation}
         \lambda^2\| x-f(x) \|^2+2\lambda\big( x-f(x) \big)\cdot f(x)+\| f(x) \|^2-1=0.
     \end{equation}
-    En tenant compte du fait que \( \| f(x)<1 \|\) (pare que les images de \( f\) sont dans \( \mB\)), nous trouvons que \( P_x(0)\leq 0\) et \( P_x(1)\leq 0\). De même \( \lim_{\lambda\to\infty} P_x(\lambda)=+\infty\). Par conséquent le polynôme de second degré \( P_x\) a exactement deux racines distinctes \( \lambda_1\leq 0\) et \( \lambda_2\geq 1\). La racine que nous cherchons est la seconde. Le discriminant est strictement positif, donc pas besoin d'avoir peur de la racine dans
+    En tenant compte du fait que \( \| f(x) \| <1\) (parce que les images de \( f\) sont dans \( \mB\)), nous trouvons que \( P_x(0)\leq 0\) et \( P_x(1)\leq 0\). De même \( \lim_{\lambda\to\infty} P_x(\lambda)=+\infty\). Par conséquent le polynôme de second degré \( P_x\) a exactement deux racines distinctes \( \lambda_1\leq 0\) et \( \lambda_2\geq 1\). La racine que nous cherchons est la seconde. Le discriminant est strictement positif, donc pas besoin d'avoir peur de la racine dans
     \begin{equation}
         \lambda(x)=\frac{ -\big( x-f(x) \big)\cdot f(x)+\sqrt{   \Delta_x  } }{ \| x-f(x) \|^2 }
     \end{equation}
@@ -834,7 +918,9 @@ En termes de théorème de points fixes nous avons déjà vu le théorème de Pi
     \end{enumerate}
     La suite de la preuve consiste à montrer qu'une telle rétraction sur \( B\) ne peut pas exister\footnote{Notons qu'il n'existe pas non plus de rétractions continues sur \( B\), mais pour le montrer il faut utiliser d'autres méthodes que Stokes, ou alors présenter les choses dans un autre ordre.}.
 
-    Nous considérons une forme de volume \( \omega\) sur \( \partial B\) : l'intégrale de \( \omega\) sur \( \partial B\) est l'aire de \( \partial B\) qui est non nulle. Nous avons alors
+
+    %TODOooYNVUooWFTttD faire une référence à la définition de forme de volume.
+    Nous considérons une forme de volume \( \omega\) sur \( \partial B\) : l'intégrale de \( \omega\) sur \( \partial B\) est l'aire de \( \partial B\) qui est non nulle. Nous avons alors la contradiction suivante : 
     \begin{equation}
         0<\int_{\partial B}\omega
         =\int_{\partial B}g^*\omega
@@ -842,16 +928,17 @@ En termes de théorème de points fixes nous avons déjà vu le théorème de Pi
         =\int_Bg^*(d\omega)
         =0
     \end{equation}
+    %TODOooMRSDooXmtdjS Les points 1 et 4 demandent de citer un théorème.
     Justifications :
     \begin{itemize}
         \item
-            L'intégrale \( \int_{\partial B}\omega\) est l'aire de \( \partial B\) et est donc non nulle.
+            L'intégrale \( \int_{\partial B}\omega\) est l'aire de \( \partial B\) et est donc non nulle.       % citer
         \item
             La fonction \( g\) est l'identité sur \( \partial B\). Nous avons donc \( \omega=g^*\omega\).
         \item
             Le lemme~\ref{LemdwLGFG}.
         \item
-            La forme \( \omega\) est de volume, par conséquent de degré maximum et \( d\omega=0\).
+            La forme \( \omega\) est de volume, par conséquent de degré maximum et \( d\omega=0\).      % citer
     \end{itemize}
 \end{proof}
 
@@ -998,7 +1085,7 @@ Une conséquence du théorème de Brouwer est le théorème de Schauder qui est 
         \item
     Les théorème de Cauchy-Lipschitz et Cauchy-Arzella donnent des existences pour des équations différentielles du type \( y'=f(t,y)\). Et si nous avons une équation du second ordre ? Alors il y a la méthode de la réduction de l'ordre qui permet de transformer une équation différentielle d'ordre élevé en un système d'ordre \( 1\).
 \item
-    Ces théorèmes posent des \emph{conditions initiales} : la valeur de \( y\) est donnée en un point, et la méthode de la réduction de l'ordre permet de donner l'existence de solutions d'un problème d'ordre \( k\) en donnant les valeurs de \( y(0)\), \( y'(0)\), \ldots \( y^{(k-1)}(0)\). C'est à dire de la fonction et de ses dérivées en un point. Rien n'est dit sur l'existence de \emph{conditions aux bords}.
+    Ces théorèmes posent des \emph{conditions initiales} : la valeur de \( y\) est donnée en un point, et la méthode de la réduction de l'ordre permet de donner l'existence de solutions d'un problème d'ordre \( k\) en donnant les valeurs de \( y(0)\), \( y'(0)\), \ldots \( y^{(k-1)}(0)\). C'est-à-dire de la fonction et de ses dérivées en un point. Rien n'est dit sur l'existence de \emph{conditions aux bords}.
     \end{enumerate}
     Ces deux points sont illustrés dans les exemples~\ref{EXooSHMMooHVfsMB} et~\ref{EXooJNOMooYqUwTZ}.
 \end{remark}
@@ -1131,12 +1218,12 @@ Le théorème suivant est une conséquence du théorème de Markov-Katutani.
     Cela est à mettre en rapport avec le lemme~\ref{LemooPJLNooVKrBhN} en gardant en tête que \( \int_{\gamma}1\) n'est pas la mesure de l'image de \( \gamma\) dans \( \eR^2\).
 \end{remark}
 
-\begin{proposition}[Indépendence en la paramétrisation]
+\begin{proposition}[Indépendence en le paramétrage]
     La valeur de l'intégrale de $f$ sur $\gamma$ ne dépend pas du paramétrage (équivalent ou pas) choisi.
 \end{proposition}
 
 \begin{proof}
-    Soit donc un chemin \( \gamma\colon \mathopen[ c , d \mathclose]\to \eR^3\) ainsi que $\varphi\colon \mathopen[ c , d \mathclose]\to \mathopen[ a , b \mathclose]$, une reparamétrisation de classe $C^1$, strictement monotone et le chemin \( \sigma\) définit par $\gamma(s)=\sigma\big( \varphi(s) \big)$ avec $s\in\mathopen[ c , d \mathclose]$. En supposant que $\varphi'(s)\geq 0$, nous avons
+    Soit donc un chemin \( \gamma\colon \mathopen[ c , d \mathclose]\to \eR^3\) ainsi que $\varphi\colon \mathopen[ c , d \mathclose]\to \mathopen[ a , b \mathclose]$, un reparamétrage de classe $C^1$, strictement monotone et le chemin \( \sigma\) définit par $\gamma(s)=\sigma\big( \varphi(s) \big)$ avec $s\in\mathopen[ c , d \mathclose]$. En supposant que $\varphi'(s)\geq 0$, nous avons
     \begin{equation}
         \begin{aligned}[]
             I=\int_{\gamma}f&=\int_c^df\big( \gamma(s) \big)\| \gamma'(s) \|ds\\
@@ -1162,8 +1249,9 @@ Le théorème suivant est une conséquence du théorème de Markov-Katutani.
     \end{equation}
     doit être comprise comme une généralisation de \( \int_a^bf(x)dx\) et non comme l'intégrale sur un chemin. La différence est qu'en retournant les bornes d'une intégrale usuelle sur \( \eR\) on change le signe, alors qu'en retournant un chemin dans \( \eR^2\), on ne change pas. Bref, la définition est que si \( \gamma\colon \mathopen[ a , b \mathclose]\to \eC\) est un chemin, alors
     \begin{equation}
-        \int_{\gamma}f=\int_{\gamma}f(z)dz=\int_a^bf\big( \gamma(t) \big)\gamma'(t)dt.
+        \int_{\gamma}f=\int_{\gamma}f(z)dz=\int_a^bf\big( \gamma(t) \big)\gamma'(t)dt,
     \end{equation}
+    sans valeur absolue autour de \( \gamma'(t)\).
 \end{remark}
 
 \subsection{Intégrer un champ de vecteurs}
@@ -1176,7 +1264,7 @@ Le théorème suivant est une conséquence du théorème de Markov-Katutani.
 \end{definition}
 
 \begin{remark}
-  Cette définition ne dépend pas de la paramétrisation choisie, mais le signe change selon le sens du chemin.
+  Cette définition ne dépend pas de le paramétrage choisie, mais le signe change selon le sens du chemin.
 \end{remark}
 
 
@@ -1221,7 +1309,7 @@ pour écrire de façon plus compacte :
 \end{definition}
 
 \begin{remark}
-  Cette définition ne dépend pas de la paramétrisation choisie, mais le signe change selon le sens du chemin.
+  Cette définition ne dépend pas de le paramétrage choisie, mais le signe change selon le sens du chemin.
 \end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1247,13 +1335,13 @@ Dans les deux cas, le principe est que nous disposons de quelque chose (la fonct
 	\end{equation}
 \end{definition}
 
-Cette définition est une bonne définition parce que si on change la paramétrisation du chemin, on ne change pas la valeur de l'intégrale, c'est la proposition suivante.
+Cette définition est une bonne définition parce que si on change le paramétrage du chemin, on ne change pas la valeur de l'intégrale, c'est la proposition suivante.
 \begin{proposition}
 	Si $\gamma$ et $\beta$ sont des chemins équivalents, alors
 	\begin{equation}
 		\int_{\gamma}\omega=\int_{\beta}\omega,
 	\end{equation}
-	c'est à dire que l'intégrale est invariante sous les reparamétrisation du chemin.
+	c'est-à-dire que l'intégrale est invariante sous les reparamétrages du chemin.
 \end{proposition}
 \begin{proof}
 	Deux chemins sont équivalents quand il existe un difféomorphisme $C^1$ $h\colon [a,b]\to [c,d]$ tel que $\gamma(t)=(\beta\circ h)(t)$. En remplaçant $\gamma$ par $(\beta\circ h)$ dans la définition de $\int_{\gamma}\omega$, nous trouvons
@@ -1283,7 +1371,7 @@ Cette définition est une bonne définition parce que si on change la paramétri
 	\begin{equation}
 		\int_{-\gamma}\omega=-\int_{\gamma}\omega,
 	\end{equation}
-	c'est à dire que si l'on parcours le chemin en sens inverse, alors on change le signe de l'intégrale.
+	c'est-à-dire que si l'on parcours le chemin en sens inverse, alors on change le signe de l'intégrale.
 \end{remark}
 
 L'intégrale d'une forme différentielle sur un chemin est compatible avec l'intégrale déjà connue d'un champ de vecteur sur le chemin parce que si $G$ est un champ de vecteurs,
@@ -1321,7 +1409,7 @@ En effet,
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}
-	Une force $F\colon D\subset\eR^n\to \eR^n$ est \defe{\href{http://fr.wikipedia.org/wiki/Force_conservative}{conservative}}{Conservative} si elle dérive d'un potentiel, c'est à dire s'il existe une fonction $V\in C^1(D,\eR)$ telle que
+	Une force $F\colon D\subset\eR^n\to \eR^n$ est \defe{\href{http://fr.wikipedia.org/wiki/Force_conservative}{conservative}}{Conservative} si elle dérive d'un potentiel, c'est-à-dire s'il existe une fonction $V\in C^1(D,\eR)$ telle que
 	\begin{equation}
 		F(x)=(\nabla V)(x).
 	\end{equation}
@@ -1336,7 +1424,7 @@ En effet,
 \end{lemma}
 
 \begin{proof}
-	Supposons que la force $F$ soit conservative, c'est à dire qu'il existe une fonction $V$ telle que $F=\nabla V$. Dans ce cas, il est facile de prouver que $F^{\flat}$ est exacte et est donnée par $F_x^{\flat}=dV(x)$. En effet,
+	Supposons que la force $F$ soit conservative, c'est-à-dire qu'il existe une fonction $V$ telle que $F=\nabla V$. Dans ce cas, il est facile de prouver que $F^{\flat}$ est exacte et est donnée par $F_x^{\flat}=dV(x)$. En effet,
 	\begin{equation}
 		\begin{aligned}[]
 			F_x^{\flat}(v)	&=\langle F(x), v\rangle \\
@@ -1363,18 +1451,18 @@ En résumé, nous avons deux façons équivalentes d'exprimer que la force $F$ d
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Intégrer un champs de vecteurs sur un bord en \texorpdfstring{$ 2D$}{2D}}
+\subsection{Intégrer un champ de vecteurs sur un bord en \texorpdfstring{$ 2D$}{2D}}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Si $D\subset\eR^2$ est tel que $\partial D$ est une variété de dimension $1$ et tel que $D$ accepte un champ de vecteur normal extérieur unitaire $\nu$. Si nous voulons définir
 \begin{equation}
 	\int_{\partial D}G,
 \end{equation}
-le mieux est de prendre une paramétrisation $\gamma\colon \mathopen[ 0 , 1 \mathclose]\to \eR^2$ et de calculer
+le mieux est de prendre un paramétrage $\gamma\colon \mathopen[ 0 , 1 \mathclose]\to \eR^2$ et de calculer
 \begin{equation}
 	\int_0^1 \langle G_{\gamma(t)}, \frac{ \dot\gamma(t) }{ \| \dot\gamma(t) \| }\rangle dt.
 \end{equation}
-Hélas, cette définition ne fonctionne pas parce que son signe dépend du sens de la paramétrisation $\gamma$. Si la paramétrisation tourne dans l'autre sens, il y a un signe de différence.
+Hélas, cette définition ne fonctionne pas parce que son signe dépend du sens de le paramétrage $\gamma$. Si le paramétrage tourne dans l'autre sens, il y a un signe de différence.
 
 Nous allons définir
 \begin{equation}		\label{EqIntVectbordDeux}
@@ -1392,7 +1480,7 @@ Nous n'allons pas chercher très loin :
 \begin{equation}
 	\int_{\partial D}\omega=\int_{\partial D}\omega^{\sharp},
 \end{equation}
-c'est à dire que l'intégrale de la forme différentielle est celle du champ de vecteur associé. Le membre de droite est définit par \eqref{EqIntVectbordDeux}, avec le choix d'orientation qui va avec.
+c'est-à-dire que l'intégrale de la forme différentielle est celle du champ de vecteur associé. Le membre de droite est définit par \eqref{EqIntVectbordDeux}, avec le choix d'orientation qui va avec.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Intégrer une forme différentielle sur un bord en \texorpdfstring{$ 3D$}{3D}}
@@ -1407,7 +1495,7 @@ où $F^*\omega$ est la forme différentielle définie sur $\partial D$ par $(F^*
 Cette définition est très abstraite, mais nous n'allons, en pratique, jamais l'utiliser, grâce au théorème de Stokes.
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Intégrer d'un champ de vecteurs sur un bord en \texorpdfstring{$ 3D$}{3D}}
+\subsection{Intégrer un champ de vecteurs sur un bord en \texorpdfstring{$ 3D$}{3D}}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Encore une fois, nous n'allons pas chercher bien loin :

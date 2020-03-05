@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2012-2013,2016-2018
+% Copyright (c) 2012-2013,2016-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -57,7 +57,7 @@ Le théorème suivant compète la proposition~\ref{PropDRnYkKP}.
     Soient \( \Omega\) un ouvert de \( \eC\) et \( f_n\colon \Omega\to \eC\) une suite de fonctions telles que pour tout compact \( K\) de \( \Omega\) il existe \( N_K\geq 0\) tel que
     \begin{enumerate}
         \item
-            \( f_n\) n'a pas de pôles dans \( K\) dès que \( n\geq N_K\);
+            \( f_n\) n'a pas de pôle dans \( K\) dès que \( n\geq N_K\);
         \item
             la série \( \sum_{n\geq N_K}f_n\) converge uniformément sur \( K\).
     \end{enumerate}
@@ -199,11 +199,11 @@ Le théorème suivant compète la proposition~\ref{PropDRnYkKP}.
             \begin{equation}
                 g(n,t)=\frac{ (-1)^n }{ n! }t^{n+z-1}
             \end{equation}
-            et en considérant le produit entre la mesure de Lebesgue sur \( \eC\) et la mesure de comptage sur \( \eN\), c'est à dire que nous étudions
+            et en considérant le produit entre la mesure de Lebesgue sur \( \eC\) et la mesure de comptage sur \( \eN\), c'est-à-dire que nous étudions
             \begin{equation}
                 \int_0^1\int_{\eN}g(n,t)dndt.
             \end{equation}
-            Pour permuter il suffit de prouver que \( | g |\) est intégrable pour la mesure produit, c'est à dire que
+            Pour permuter il suffit de prouver que \( | g |\) est intégrable pour la mesure produit, c'est-à-dire que
             \begin{equation}
                 \int_0^1\int_{\eN}\left| \frac{ (-1)^n }{ n! }t^{n+z-1} \right| <\infty.
             \end{equation}
@@ -230,7 +230,7 @@ Le théorème suivant compète la proposition~\ref{PropDRnYkKP}.
             \begin{equation}
                 f_n(z)=\frac{ (-1)^n }{ n!(z+n) }
             \end{equation}
-            et nous allons utiliser la proposition~\ref{PropPUZTQKl}. Si \( n\geq 0\), la fonction \( f_n\) est méromorphe sur \( \eC\) avec un pôle simple en \( z=-n\). Soit \( K\) compact de \( \eC\) et \( N_K\) tel que \( K\subset\overline{ B(0,N_K) }\). Pour \( n\geq N_K+1\), la fonction \( f_n\) n'a pas de pôles dans \( K\) et de plus pour tout \( z\in K\) nous avons
+            et nous allons utiliser la proposition~\ref{PropPUZTQKl}. Si \( n\geq 0\), la fonction \( f_n\) est méromorphe sur \( \eC\) avec un pôle simple en \( z=-n\). Soit \( K\) compact de \( \eC\) et \( N_K\) tel que \( K\subset\overline{ B(0,N_K) }\). Pour \( n\geq N_K+1\), la fonction \( f_n\) n'a pas de pôle dans \( K\) et de plus pour tout \( z\in K\) nous avons
             \begin{equation}
                 | z+n |=| z-(-z) |\geq\big| n-| z | \big|\geq n-| z |\geq n-N_K,
             \end{equation}
@@ -246,7 +246,7 @@ Le théorème suivant compète la proposition~\ref{PropDRnYkKP}.
             \begin{equation}
                 f(z)=\sum_{n=0}^{\infty}f_n(z)
             \end{equation}
-            est une fonction méromorphe dont les pôles sont ceux des \( f_n\), c'est à dire les entiers négatifs (proposition~\ref{PropPUZTQKl}).
+            est une fonction méromorphe dont les pôles sont ceux des \( f_n\), c'est-à-dire les entiers négatifs (proposition~\ref{PropPUZTQKl}).
 
         \item[La seconde partie]
 
@@ -394,13 +394,13 @@ Le théorème suivant compète la proposition~\ref{PropDRnYkKP}.
             f(z)=\alpha\sum_{n=0}^{\infty}{n+j-1\choose n}z^n
             +\sum_{i=1}^p\sum_{j=1}^{k-1}\sum_{n=0}^{\infty}c_{ij}{n+j-1\choose n}\frac{ z^n }{ \omega_i^{n+j} }.
     \end{equation}
-    Mais nous savons que ce \( f\) est la série génératrice de la suite \( (u_n)\) et que nous pouvons donc utiliser la formule \eqref{EqNGhVCpP} pour exprimer les nombres \( u_l\) : \( u_l\) est simplement le coefficient de \( z^l\) divisé par \( l!\). C'est à dire
+    Mais nous savons que ce \( f\) est la série génératrice de la suite \( (u_n)\) et que nous pouvons donc utiliser la formule \eqref{EqNGhVCpP} pour exprimer les nombres \( u_l\) : \( u_l\) est simplement le coefficient de \( z^l\) divisé par \( l!\). C'est-à-dire
     \begin{equation}
         u_l=\alpha{l+k-1\choose l}+\sum_{i=1}^p\sum_{j=1}^{k-1}c_{ij}{l+j-1\choose l}\frac{1}{ \omega_i^{l+j} }.
     \end{equation}
-    Notre boulot est d'examiner le comportement de cela lorsque \( l\to\infty\), c'est à dire regarder quels sont les puissances de \( l\) en présence. Notons que
+    Notre boulot est d'examiner le comportement de cela lorsque \( l\to\infty\), c'est-à-dire regarder quels sont les puissances de \( l\) en présence. Notons que
 
-    En ce qui concerne le premier terme, la puissance dominante dans le coefficient binomial est \( l^{k-1}\). Dans les autres termes\footnote{Attention : les termes \( i=1\) ont \( \omega_1=1\) et il n'est donc pas possible de conclure simplement en disant que \( \omega_i^{l-j}\to 0\) pour \( l\to \infty\); bien que cela soit vrai pour tous les \( i\neq 1\).}, c'est \( l^{j-1}\) qui est de degré moins grand. Donc le comportement de \( u_l\) en terme de \( l\) est
+    En ce qui concerne le premier terme, la puissance dominante dans le coefficient binomial est \( l^{k-1}\). Dans les autres termes\footnote{Attention : les termes \( i=1\) ont \( \omega_1=1\) et il n'est donc pas possible de conclure simplement en disant que \( \omega_i^{l-j}\to 0\) pour \( l\to \infty\); bien que cela soit vrai pour tous les \( i\neq 1\).}, c'est \( l^{j-1}\) qui est de degré moins grand. Donc le comportement de \( u_l\) en termes de \( l\) est
     \begin{equation}
         u_l\sim \alpha\frac{ l^{k-1} }{ (k-1)! }.
     \end{equation}
@@ -437,54 +437,8 @@ Le théorème suivant compète la proposition~\ref{PropDRnYkKP}.
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Définition et propriétés de l'exponentielle}
+\subsection{Propriétés de l'exponentielle}
 %---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}  \label{DefJilXoM}
-    Soit \( z=x+iy\in \eC\). Nous définissons l'\defe{exponentielle}{exponentielle!complexe} de \( z\) par
-    \begin{equation}
-        \begin{aligned}
-            \exp\colon \eC&\to \eC \\
-            z&\mapsto \sum_{n=0}^{\infty}\frac{ z^n }{ n! }.
-        \end{aligned}
-    \end{equation}
-\end{definition}
-Le rayon de convergence de cette somme est infini.
-
-\begin{proposition}[\cite{RomainBoilEnt}]     \label{PropdDjisy}
-    Quelques propriétés de l'exponentielle.
-    \begin{enumerate}
-        \item
-            Le fonction \( \exp\) est continue.
-        \item       \label{ITEMooRLHCooJTuYKV}
-            Nous avons la formule \(  e^{z+w}= e^{z}e^w\) pour tout \( z,w\in \eC\).
-        \item
-            \( (e^z)^{-1}= e^{-z}\)
-        \item
-            \( (\exp(z))^n=\exp(nz)\).
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    L'exponentielle est continue parce qu'elle est la somme d'une série entière de rayon de convergence infini (proposition~\ref{PropUEMoNF}).
-
-    Les séries \( \exp(z)\) et \( \exp(w)\) ayant un rayon de convergence infini nous pouvons utiliser le produit de Cauchy (théorème~\ref{ThokPTXYC}) :
-    \begin{subequations}
-        \begin{align}
-            e^{z} e^{w}&=\sum_{n=0}^{\infty}\left( \sum_{i+j=n}\frac{ z^iw^j }{ i!j! } \right)\\
-            &=\sum_{n=0}^{\infty}\left( \sum_{i=0}^n\frac{ z^iw^{n-i} }{ i!(n-i)! } \right)\\
-            &=\sum_{n=0}^{\infty}\frac{1}{ n! }\sum_{i=0}^{n}{n\choose i}z^iw^{n-i}\\
-            &=\sum_{n=0}^{\infty}\frac{1}{ n! }(z+w)^{n}\\
-            &=\exp(z+w).
-        \end{align}
-    \end{subequations}
-    Nous avons utilisé la formule du binôme (proposition~\ref{PropBinomFExOiL}).
-
-    Les autres propriétés énoncées sont des corollaires :
-    \begin{equation}
-        e^{z} e^{-z}= e^{0}=1.
-    \end{equation}
-\end{proof}
 
 \begin{proposition}
     Soit \( z\in\eC\) fixé. La fonction
@@ -517,11 +471,11 @@ Le rayon de convergence de cette somme est infini.
     \end{equation}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}     \label{THOooNGOIooEECfAv}
     La fonction exponentielle vérifie les propriétés suivantes.
     \begin{enumerate}
         \item
-            \( \exp\) est holomorphe.
+            \( \exp\) est holomorphe\footnote{Définition \ref{DefMMpjJZ}.}.
         \item
             \( (e^z)'=e^z\).
         \item
@@ -712,7 +666,7 @@ Nous le notons \( \arg(z)\)\nomenclature[Y]{\( \arg(z)\)}{La valeur principale d
 \end{definition}
 
 \begin{normaltext}      \label{NORMooOGHNooYriCBH}
-    Il ne faut pas se ruer sur \( \arg(x+iy)=\arctan(y/x)\).Pour rappel, la fonction \( \arctan\) a été définie dans le théorème~\ref{THOooUSVGooOAnCvC}, et elle prend ses valeurs dans \( \mathopen] -\pi/2 , \pi/2 \mathclose[\). La formule \( v(x,y)=\arctan(y/x)\) n'est donc valable que pour \( x>0\). Les valeurs sont :
+    Il ne faut pas se ruer sur \( \arg(x+iy)=\arctan(y/x)\). Pour rappel, la fonction \( \arctan\) a été définie dans le théorème~\ref{THOooUSVGooOAnCvC}, et elle prend ses valeurs dans \( \mathopen] -\pi/2 , \pi/2 \mathclose[\). La formule \( v(x,y)=\arctan(y/x)\) n'est donc valable que pour \( x>0\). Les valeurs sont :
         \begin{equation}        \label{EQooPJVFooSEKTny}
             \arg(x+iy)=\begin{cases}
                  \arctan(y/x)   &   \text{si } x>0\\
@@ -904,7 +858,7 @@ Nous avons jusqu'ici défini une fonction sur \( \eC^*\) qui fait correspondre �
     \item Si non, est-ce qu'il y avait moyen de trouver une définition plus efficace ? (réponse : non)
 \end{itemize}
 
-\begin{lemma}
+\begin{lemma}       \label{LEMooMUOIooCnoWwq}
 La fonction \( \ln\) n'est pas continue sur \( \mathopen] -\infty , 0 \mathclose]\).
 \end{lemma}
 
@@ -963,7 +917,7 @@ Nous n'avons donc pas continuité de la fonction logarithme comme fonction sur \
     \end{equation}
     Les dérivées partielles de \( u\) ne sont pas très compliquées :
     \lstinputlisting{tex/sage/sageSnip011.sage}
-    c'est à dire
+    c'est-à-dire
     \begin{subequations}
         \begin{align}
             \frac{ \partial u }{ \partial x }=\frac{ x }{ x^2+y^2 }\\
@@ -975,14 +929,14 @@ Nous n'avons donc pas continuité de la fonction logarithme comme fonction sur \
 
     Nous avons déjà calculé les dérivées partielles de \( v\) dans~\ref{NORMooMRBEooVtTcIA}, et nous avons vu qu'elles étaient continues sur \( \eR^2\) privé de la demi-droite.
 
-    Vu que les dérivées partielles sont continues, la proposition~\ref{Diff_totale} nous dit que \( F\) est différentiable. La matrice de la différentielle est alors la matrice des dérivées partielles
+    Vu que les dérivées partielles sont continues, le théorème \ref{THOooBEAOooBdvOdr} nous dit que \( F\) est différentiable. La matrice de la différentielle est alors la matrice des dérivées partielles
     \begin{equation}
         \begin{pmatrix}
             \frac{ x }{ x^2+y^2 }    &   \frac{ y }{ x^2+y^2 }    \\
             \frac{ -y }{ x^2+y^2 }    &   \frac{ x }{ x^2+y^2 }
         \end{pmatrix},
     \end{equation}
-    qui a la forme requise \eqref{EQooWZGKooLDEHGr} pour que la proposition~\ref{PropKJUDooJfqgYS} nous assure que \( \ln\) soit \( \eC\)-dérivable, c'est à dire holomorphe.
+    qui a la forme requise \eqref{EQooWZGKooLDEHGr} pour que la proposition~\ref{PropKJUDooJfqgYS} nous assure que \( \ln\) soit \( \eC\)-dérivable, c'est-à-dire holomorphe.
 \end{proof}
 
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1091,7 +1045,7 @@ Les différents résultats vus jusqu'ici montrent qu'il n'existe pas de détermi
 \end{definition}
 
 \begin{remark}      \label{REMooFBLLooDnkmjR}
-    Beaucoup de sources\cite{ooGUROooApafph} ne définissent pas \( \ln_{\alpha^{\pm}}\) sur la droite \( D_{\alpha}\). C'est à dire qu'ils notent \( \ln_{\alpha}\) notre fonction \( \ln_{\alpha^+}\) restreinte à \( \eC^*\setminus D_{\alpha}\). Dans ce cas, les fonctions \( \ln_{\alpha^+}\) et \( \ln_{\alpha^-}\) sont identiques\footnote{Cela n'est pas tout à fait évident; vous devriez y penser.}.
+    Beaucoup de sources\cite{ooGUROooApafph} ne définissent pas \( \ln_{\alpha^{\pm}}\) sur la droite \( D_{\alpha}\). C'est-à-dire qu'ils notent \( \ln_{\alpha}\) notre fonction \( \ln_{\alpha^+}\) restreinte à \( \eC^*\setminus D_{\alpha}\). Dans ce cas, les fonctions \( \ln_{\alpha^+}\) et \( \ln_{\alpha^-}\) sont identiques\footnote{Cela n'est pas tout à fait évident; vous devriez y penser.}.
 
     Cette remarque est importante parce que certains vont vous dire «le logarithme n'est pas définit sur la demi-droite»; de leur point de vue, la fonction que nous avons définie est une prolongation (non continue) à \( U\) du logarithme, qui est continu.
 
@@ -1167,7 +1121,7 @@ Tout le monde sait que le logarithme \( \ln\colon \eR^+\to \eR\) est une primiti
             x&\mapsto \ln(x+z)
         \end{aligned}
     \end{equation}
-    alors nous avons \( \varphi'(x)=\frac{1}{ x+z }\). Ici la dérivation est une dérivation sur \( \eR\) et l'intégrale est une intégrale sur \( \eR\), c'est à dire «composante par composantes». La fonction \(  \varphi\) se décompose en partie réelle et imaginaire qui sont à dériver séparément :
+    alors nous avons \( \varphi'(x)=\frac{1}{ x+z }\). Ici la dérivation est une dérivation sur \( \eR\) et l'intégrale est une intégrale sur \( \eR\), c'est-à-dire «composante par composantes». La fonction \(  \varphi\) se décompose en partie réelle et imaginaire qui sont à dériver séparément :
     \begin{equation}
         \varphi(x)=\ln(| x+z |)+i\arg(x+z).
     \end{equation}
@@ -1264,9 +1218,9 @@ lorsque la somme dépasse les bornes de \( \mathopen] -\pi , \pi \mathclose]\). 
     \begin{equation}
         f(z)=\frac{1}{ 2i\pi }\int_{\partial B}\frac{ f(\xi) }{ \xi-z }.
     \end{equation}
-    Cela implique que la fonction \( f\) est holomorphe par le corollaire~\ref{CorwfHtJu}.
+    Cela implique que la fonction \( f\) est holomorphe par le corolaire~\ref{CorwfHtJu}.
 
-    Nous voudrions maintenant parler des dérivées des \( f_n\) et de \( f\). Pour cela nous voulons permuter l'intégrale et les dérivées, ce qui est fait au corollaire~\ref{CorNxTjEj} :
+    Nous voudrions maintenant parler des dérivées des \( f_n\) et de \( f\). Pour cela nous voulons permuter l'intégrale et les dérivées, ce qui est fait au corolaire~\ref{CorNxTjEj} :
     \begin{equation}
         f_n^{(k)}=\frac{1}{ 2\pi i }\int_{\partial B(z_0,r)}\frac{ f(\omega) }{ (\omega-z)^{k+1} }d\omega.
     \end{equation}
@@ -1292,247 +1246,4 @@ lorsque la somme dépasse les bornes de \( \mathopen] -\pi , \pi \mathclose]\). 
         | f^{(k)}_n(z)-f^{(k)}(z) |\leq \frac{ \epsilon }{ 2\pi }\frac{ 2\pi r' }{ | r-r' |^{k+1} }
     \end{equation}
     pour tout \( z\in B(z_0,r)\). Donc nous avons convergence uniforme \( f_n^{(k)}\to f^{(k)}\) sur cette boule. Par l'argument de compacité donné plus haut, nous avons la convergence uniforme sur tout compact.
-\end{proof}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Théorème de Montel}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{theorem}[Montel\cite{KXjFWKA}]   \label{ThoXLyCzol}
-    Soient \( \Omega\) un ouvert de \( \eC\) et \( \mF\) une famille de fonctions holomorphes sur \( \Omega\), uniformément bornée sur tout compact de \( \Omega\). Alors de toute suite dans \( \mF\) nous pouvons extraire une sous-suite convergeant uniformément sur tout compact de \( \Omega\).
-\end{theorem}
-\index{théorème!Montel}
-\index{compacité!utilisation!théorème de Montel}
-\index{suite!de fonctions!théorème de Montel}
-\index{fonction!holomorphe!théorème de Montel}
-
-\begin{proof}
-
-    \begin{subproof}
-    \item[Un ensemble équicontinu]
-
-        Nous commençons par prendre une suite de compacts dans \( \Omega\) comme dans le lemme~\ref{LemGDeZlOo}, et une suite \( \delta_n\) de réels strictement positifs tels que
-        \begin{equation}
-            B(z,2\delta_n)\subset K_{n+1}
-        \end{equation}
-        pour tout \( z\in K_n\). Soient \( x,y\in K_n\) tels que \( | x-y |<\delta_n\); nous notons \( \partial B(x,2\delta_n)\) le cercle de rayon \( 2\delta_n\) autour de \( x\), parcouru dans le sens positif. La formule de Cauchy~\ref{EqPzUABM} nous donne
-        \begin{equation}
-                f(x)-f(y)=\frac{1}{ 2\pi i }\int_{\partial B}\left( \frac{ f(\xi) }{ \xi-x }-\frac{ f(\xi) }{ \xi-y } \right)d\xi
-                =\frac{ x-y }{ 2\pi i }\int_{\partial B}\frac{ f(\xi) }{ (\xi-x)(\xi-y) }d\xi
-        \end{equation}
-        Nous majorons ça par
-        \begin{equation}
-            \big| f(x)-f(y) \big|\leq\frac{ | x-y | }{ 2\pi }\int_{\partial B}\frac{ | f(\xi) | }{ 2\delta_n^2 }d\xi\leq \frac{ | x-y | }{ \delta_n }M_n.
-        \end{equation}
-        Justifications :
-        \begin{itemize}
-            \item
-                \( | \xi-x |=2\delta_n\) et \( | \xi-y |\geq \delta_n\) parce que \( \xi\) est au mieux sur le rayon passant par \( x\) et \( y\).
-            \item
-                \( | f(\xi) |\leq M_n\) où \( M_n\) est la borne uniforme de \( \mF\) sur le compact \( K_n\).
-            \item
-                Nous avons aussi fini par calculer l'intégrale dans laquelle il ne restait plus rien, ça a donné la circonférence du cercle de rayon \( 2\delta_n\).
-        \end{itemize}
-        Jusqu'à présent nous avons prouvé que l'ensemble
-        \begin{equation}
-            \mF_n=\{ f|_{K_n}\tq f\in\mF \}
-        \end{equation}
-        est équicontinu. Il est aussi équiborné par hypothèse.
-
-    \item[Application du théorème d'Ascoli]
-
-        L'ensemble \( \mF_n\) vérifie les hypothèses du théorème d'Ascoli~\ref{ThoKRbtpah}. Donc l'ensemble \( \mF_n\) est relativement compact dans \( C(K_n,\eC)\) pour la norme uniforme. Autrement dit l'ensemble \( \bar\mF\) est compact et si nous avons une suite de fonctions dans \( \mF_n\), il existe une sous-suite convergeant dans \( \bar\mF_n\), c'est à dire uniformément. Autrement dit il existe une fonction strictement croissante \( \varphi\colon \eN\to \eN\) telle que la suite \( k\mapsto f_{\varphi(k)}\) converge uniformément sur \( K_n\). La limite n'est cependant pas spécialement dans \( \mF_n\).
-
-    \item[L'argument diagonal]
-
-        La suite \( k\mapsto f_{\varphi_1\circ\ldots\varphi_k(k)}\) converge uniformément sur tous les \( K_n\). Si \( K\) est un compact de \( \Omega\), alors les petites propriétés sympas du lemme~\ref{LemGDeZlOo} nous disent que \( K\subset \Int(K_m)\) pour un certain \( m\). Ladite suite convergeant uniformément sur \( K_m\), elle converge uniformément sur \( K\) et nous avons montré la convergence uniforme sur tout compact de \( \Omega\).
-
-    \end{subproof}
-\end{proof}
-
-\begin{corollary}[\cite{KXjFWKA}]
-    Soient \( \Omega\) un ouvert connexe borné de \( \eC\) et \( a\in \Omega\). Soit \( f\) holomorphe sur \( \Omega\) telle que \( f(a)=a\) et \( | f'(a) |<1\).
-
-    Alors de \( (f^n)\) on peut extraire une sous-suite convergeant uniformément sur tout compact de \( \Omega\) vers la fonction constante \( a\).
-\end{corollary}
-\index{prolongement!analytique!utilisation}
-
-\begin{proof}
-    Nous considérons un voisinage de \( a\) inclus dans \( \Omega\); sachant que \( | f(a) |<1\), nous trouvons un voisinage encore plus petit de \( a\) sur lequel \( | f'(z) |<1\).  Soit donc \( r\) tel que \( \overline{ B(a,r) }\subset \Omega\) et tel que \( | f'(z) |<1\) sur \( \overline{ B(a,r) }\). Étant donné que \( f'(z)\) est continue sur le compact \( \overline{ B(a,r) }\), nous en prenons le maximum \( \lambda\) (qui est strictement inférieur à \( 1\)) et nous avons au final
-    \begin{equation}
-        | f'(z) |\leq \lambda< 1
-    \end{equation}
-    pour tout \( z\in \overline{ B(a,r) }\). Le théorème des accroissements finis~\ref{val_medio_2} nous dit que
-    \begin{equation}
-        \big| f(z)-a \big|\leq \lambda| z-a |
-    \end{equation}
-    pour tout \( z\in\overline{ B(a,r) }\). C'est ici que nous utilisons l'hypothèse de convexité de \( \Omega\). Nous montrons alors par récurrence que
-    \begin{equation}    \label{EqIQUzKpg}
-        \big| f^n(z)-a \big|\leq \lambda^n| z-a |\leq \lambda^nr\leq r.
-    \end{equation}
-    L'ensemble \( A=\{ f^n\tq n\geq 1 \}\) est donc uniformément borné sur \( \overline{ B(a,r) }\) par \( a+r\). Autre manière de le dire : pour tout \( z\in\overline{ B(a,r) }\) nous avons
-    \begin{equation}
-        f^n(z)\in\overline{ B(a,r) }.
-    \end{equation}
-    La suite \( (f^n)\) est donc uniformément bornée sur tout compact de \( B(a,r)\). Le théorème de Montel~\ref{ThoXLyCzol} nous indique que l'on peut extraire une sous-suite convergente uniformément sur tout compact. Au vu de \eqref{EqIQUzKpg} cette convergence ne peut avoir lieu que vers une fonction \( g\) qui vaut la constante \( a\) sur \( B(a,r)\).
-
-    D'autre par la fonction \( g\) est holomorphe en tant que limite uniforme de fonctions holomorphes, théorème~\ref{ThoArYtQO}. Or une fonction holomorphe constante sur un ouvert est constante sur tout son domaine d'holomorphie (principe d'extension analytique, théorème~\ref{ThoAVBCewB}).
-\end{proof}
-
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Espaces de Bergman}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Source : \cite{ytMOpe}.
-
-Soit \( \Omega\) un borné dans \( \eC\) et \( D\) le disque unité ouvert de \( \eC\).
-
-\begin{definition}
-    L'\defe{espace de Bergman}{espace!de Bergman}\index{Bergman (espace)} sur \( \Omega\), noté \( A^2(\Omega)\)\nomenclature[Y]{\( A^2(\Omega)\)}{espace de Bergman} est l'espace des fonctions holomorphes sur \( \Omega\) qui sont en même temps dans \( L^2(\Omega)\).
-\end{definition}
-Nous mettons sur \( A^2(\Omega)\) le produit scalaire usuel hérité de \( L^2\) :
-\begin{equation}
-    \langle f, g\rangle =\int_{\Omega}f(z)\overline{ g(z) }dz.
-\end{equation}
-
-\begin{lemma}   \label{LemIZxKfB}
-    Soient un compact \( K\subset \Omega\) et une fonction \( f\in A^2(\Omega)\). Alors
-    \begin{equation}
-        \max_{z\in K}| f(z) |\leq \frac{1}{ \sqrt{\pi} }\frac{1}{ d(K,\partial \Omega) }\| f \|_2.
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Soient \( a\in \Omega\) et \( r>0\) tels que \( B(a,r)\subset\Omega\). Nous considérons aussi \( \rho\leq r\). La formule de Cauchy \eqref{EqPzUABM} nous donne
-    \begin{equation}
-        f(a)=\frac{1}{ 2\pi i }\int_{B(a,\rho)}\frac{ f(\xi) }{ \xi-a }f\xi=\frac{1}{ 2\pi }\int_0^{2\pi}f(a+\rho e^{i\theta})d\theta
-    \end{equation}
-    où nous avons utilisé le chemin \( \gamma(\theta)=a+\rho e^{i\theta}\), \( \gamma'(\theta)=i\rho e^{i\theta}\) et \( \rho=| \xi-a |\). Maintenant une astuce est d'écrire
-    \begin{equation}
-        \frac{ r^2 }{2}f(a)=\int_0^rf(a)\rho d\rho,
-    \end{equation}
-    et d'y substituer la valeur de \( f(a)\) que nous venons de calculer :
-    \begin{subequations}
-        \begin{align}
-            \frac{ r^2 }{2}f(a)&=\int_0^r\frac{1}{ 2\pi }\int_0^{2\pi}f(a+\rho e^{i\theta})d\theta\rho d\rho\\
-            &=\frac{1}{ 2\pi }\int_{B(a,r)}f(z)dz   &   \text{passage aux polaires}\\
-            &=\frac{1}{ 2\pi }\langle 1, f\rangle_B   &   \text{produit scalaire sur } B(a,r)\\
-            &\leq\frac{1}{ 2\pi }\sqrt{\langle 1, 1\rangle_B\langle f, f\rangle_B }
-        \end{align}
-    \end{subequations}
-    Nous avons donc
-    \begin{equation}
-        r^2f(a)\leq \frac{1}{ \pi }\sqrt{\langle 1, 1\rangle_B\langle f, f\rangle_B},
-    \end{equation}
-    et donc
-    \begin{equation}
-        \pi r^2 f(a)\leq \sqrt{\pi r^2}\| f \|_2,
-    \end{equation}
-    parce que \( \langle f, f\rangle_B\leq \| f \|_2^2\). En effet le produit scalaire \( \| . \|_2\) est donné par une intégrale sur \( \Omega\) alors que \( B(a,r)\subset \Omega\) et que la fonction qu'on y intègre est positive (c'est \( | f(z) |^2\)). En simplifiant,
-    \begin{equation}
-        f(a)\leq \frac{1}{ \sqrt{\pi}r }\| f \|_2.
-    \end{equation}
-    Mais \( r\) a été choisi pour avoir \( B(a,r)\subset\Omega\), donc \( r\leq d(a,\partial \Omega)\) et
-    \begin{equation}
-        | f(a) |\leq \frac{1}{ d(a,\partial\Omega)\sqrt{\pi} }\| f \|_2.
-    \end{equation}
-
-    Maintenant si nous prenons \( a\in K\), nous avons encore la minoration \( d(a,\partial K)\leq d(a,\partial \Omega)\) et donc
-    \begin{equation}
-        | f(a) |\leq\frac{1}{ d(a,\partial K)\sqrt{\pi} }\| f \|_2.
-    \end{equation}
-
-\end{proof}
-
-\begin{theorem}
-    Soit \( \Omega\) un ouvert de \( \eC\).
-    \begin{enumerate}
-        \item
-            L'espace \( A^2(\Omega)\) est un espace de Hilbert.
-        \item
-            Si \( D\) est la boule unité dans \( \eC\), une base hilbertienne de \( A^2(D)\) est donnée par les fonctions
-            \begin{equation}
-                e_n(z)=\sqrt{\frac{ n+1 }{ \pi }}z^n
-            \end{equation}
-            pour \( n\geq 0\).
-    \end{enumerate}
-\end{theorem}
-
-\begin{proof}
-    Nous commençons par montrer que \( A^2(\Omega)\) est complet. Pour cela nous considérons une suite de Cauchy \( (f_n)\) dans \( A^2(\Omega)\) et un compact \( K\subset \Omega\). Nous savons par le lemme~\ref{LemIZxKfB} que
-    \begin{equation}
-        \max_{z\in K}\big| f_n(z)-f_m(z) \big|\leq \frac{1}{ \sqrt{\pi}d(K,\partial\Omega) }\| f_n-f_m \|_2.
-    \end{equation}
-    Donc \( f_n\) converge uniformément sur \( K\). Par le théorème de Weierstrass~\ref{ThoArYtQO}, la fonction \( f\) est holomorphe. Il existe donc une fonction holomorphe \( f\) qui est limite uniforme sur tout compact de \( \Omega\) de la suite \( (f_n)\).
-
-    Mais \( L^2(\Omega)\) étant complet, la suite \( (f_n)\) a une limite \( g\in L^2(\Omega)\). Ce que nous voudrions faire est prouver que \( f=g\). Notons que tel quel, ce n'est pas vrai parce que \( f\) est une vraie fonction alors que \( g\) est une classe. Ce que nous enseigne la proposition~\ref{PropWoywYG} est qu'il existe une sous-suite (qu'on note \( (g_n)\)) qui converge vers \( g\) presque partout. Dans cette dernière phrase, \( g_n\) et \( g\) sont de vraies fonctions, des représentants des classes dans \( L^2\).
-
-    Nous déduisons que \( f=g\) presque partout (ici \( f\) et \( g\) sont les fonctions) parce que la sous-suite converge uniformément vers \( f\) en même temps que presque partout vers \( g\). Donc \( f=g\) dans \( L^2(\Omega)\) (ici \( f\) et \( g\) sont les classes). Donc \( f\in L^2(\Omega)\) et l'espace \( A^2(\Omega)\) est de Hilbert.
-
-    Il nous faut encore prouver que \( (e_n)_{n\geq 0}\) est une base orthonormale. En ce qui concerne les produits scalaires,
-    \begin{subequations}
-        \begin{align}
-            \langle e_m, e_n\rangle &=\sqrt{\frac{ (m+1)(n+1) }{ \pi }}\int_Dz^n\overline{ z^m }dz\\
-            &=\sqrt{\frac{ (m+1)(n+1) }{ \pi^2 }}\int_0^1\rho\,d\rho\int_0^{2\pi}d\theta \rho^{m+n} e^{i\theta(n-m)}\\
-            &=\sqrt{\frac{ (m+1)(n+1) }{ \pi^2 }}\frac{1}{ m+n+2 }\underbrace{\int_{0}^{2\pi} e^{i\theta(n-m)}d\theta}_{2\pi \delta_{mn}}\\
-            &=\sqrt{\frac{ (n+1)^2 }{ \pi^2 }}\frac{1}{ 2n+2 }2\pi \delta_{nm}\\
-            &=\delta_{nm}.
-        \end{align}
-    \end{subequations}
-    Donc les fonctions données sont bien orthonormales. Nous devons montrer qu'elles sont denses dans \( A^2(D)\). Soit \( f\in A^2(D)\) et \( c_n(f)=\langle f, e_n\rangle \); nous allons montrer que
-    \begin{equation}
-        \| f \|_2^2=\sum_{n=0}^{\infty}| \langle f, e_n\rangle  |^2,
-    \end{equation}
-    parce que le point~\ref{ItemQGwoIx} du théorème~\ref{ThoyAjoqP} nous indique que ce sera suffisant pour avoir une base hilbertienne.
-
-    Étant donné que \( f\) est holomorphe sur \( D\), le théorème~\ref{ThoUHztQe} nous développe \( f\) en série entière :
-    \begin{equation}    \label{EqObkbPK}
-        f(z)=\sum_{k=0}^{\infty}a_kz^k.
-    \end{equation}
-    En permutant la somme avec le produit scalaire,
-    \begin{equation}
-        c_n(f)=\int_Df(z)\bar e_n(z)=\sqrt{\frac{ n+1 }{ \pi }}\int_Df(z)\bar z^ndz.
-    \end{equation}
-    Afin de profiter de la convergence uniforme de la série \eqref{EqObkbPK} à l'intérieur de \( D\), nous allons exprimer l'intégrale sur \( D\) comme une intégrale sur \( | z |<r\) en faisant tendre \( r\) vers \( 1\) (par le bas). Pour ce faire nous considérons les fonctions
-    \begin{equation}
-        g_k(z)=\begin{cases}
-            f(z)\bar z^n    &   \text{si } | z |<1-1/k\\
-            0    &    \text{sinon.}
-        \end{cases}
-    \end{equation}
-    Ces fonctions sont intégrables sur \( D\) et dominées par \( f(z)\bar z^n\) qui est intégrable sans dépendre de \( k\). Mais nous avons évidemment \( g_k(z)\to f(z)\bar z^n\). Le théorème de la convergence dominée permet alors de permuter l'intégrale et la limite \( k\to \infty\). Cela nous permet d'écrire
-    \begin{equation}
-        c_n(f)=\sqrt{\frac{ n+1 }{ \pi }}\lim_{r\to 1^-}\int_{| z |<r}\bar z^nf(z)dz=\sqrt{\frac{ n+1 }{ \pi }}\lim_{r\to 1^-}\int_{| z |<r}\sum_{k=0}^{\infty}a_kz^k\bar z^n.
-    \end{equation}
-    Par la convergence uniforme de la série entière \emph{à l'intérieur} du disque \( D\) nous pouvons permuter l'intégrale et la somme (proposition~\ref{PropfeFQWr}) :
-    \begin{equation}
-        c_n(f)=\sqrt{\frac{ n+1 }{ \pi }}\lim_{r\to 1^-}\sum_{k=0}^{\infty}a_k\int_{| z |<r}z^k\bar z^ndz.
-    \end{equation}
-    L'intégrale proprement dite est vite calculée et vaut
-    \begin{equation}
-        \int_{| z |<1}\bar z^nz^kdz=\frac{ \pi r^{2n+2} }{ n+1 }\delta_{kn}.
-    \end{equation}
-    Nous pouvons donc continuer le calcul de \( c_n(f)\) en effectuant la somme sur \( k\) qui se réduit à changer \( k\) en \( n\) puis en effectuant la limite :
-    \begin{equation}
-        c_n(f)=\sqrt{\frac{ n+1 }{ \pi }}\lim_{r\to 1^-}\sum_ka_k\frac{ \pi r^{2n+2} }{ n+1 }\delta_{kn}=\sqrt{\frac{ \pi }{ n+1 }}a_n.
-    \end{equation}
-
-    Nous effectuons le même genre de calculs pour évaluer \( \| f \|^2_2\) :
-    \begin{subequations}
-        \begin{align}
-            \| f \|_2^2&=\int_D| f(z) |^2dz\\
-            &=\lim_{r\to 1^-}\int_{| z |<r}f(z)\sum_{k=0}^{\infty}\bar a_k\bar z_kdz\\
-            &=\lim_{r\to 1^-}\sum_{k=0}^{\infty}\bar a_k\int_{| z |<r}f(z)\bar z^kdz&\text{permuter } \sum\text{ et } \int\\
-            &=\lim_{r\to 1^-}\sum_{k=0}^{\infty}\bar a_ka_k\frac{ \pi r^{2k+2} }{ k+1 }&\text{intégrale déjà faite}.
-        \end{align}
-    \end{subequations}
-    Mais nous savons déjà que \( c_n(f)=\sqrt{\pi/(n+1)}\), donc ce qui est dans la somme est \( \pi\bar a_ka_k/(n+1)=| c_k(f) |^2\). Nous avons donc
-    \begin{equation}
-        \| f \|^2_2=\lim_{r\to 1^-}\sum_{k=0}^{\infty}| c_k(f) |^2 r^{2k+2}.
-    \end{equation}
-    La fonction (de \( r\)) constante \( | c_k(f) |^2\) domine \( | c_k(f)r^{2k+2} |\) tout en ayant une somme (sur \( k\)) qui converge; en effet la proposition~\ref{PropHKqVHj} nous indique que \( \sum_j| c_k(f) |^2\leq \| f \|_2^2\). Le théorème de la convergence dominée nous permet d'inverser la limite et la somme pour obtenir le résultat attendu :
-    \begin{equation}
-        \| f \|_2^2=\sum_{k=0}^{\infty}| c_k(f) |^2.
-    \end{equation}
 \end{proof}

@@ -2,9 +2,66 @@
 
 Ce fichier contient les fautes découvertes dans les versions imprimées du Frido. Elles sont en principe corrigées au fur et à mesure dans la [version courante](http://laurent.claessens-donadello.eu/pdf/lefrido.pdf).
 
-## Frido 2017
+## Frido 2019
+
+- Volume 2. Proposition 15.193. La démonstration ne traite pas le cas d'une union dénombrable. Il faut utiliser le théorème de la convergence monotone pour passer à la limite. C'est à dire suivre les lignes de la proposition 15.187.
+- Volume 1. Proposition 3.24. Les epsilon et epsilon' n'ont rien à faire là et rendent l'énoncé faux. Si e=e'=8, ça multiplie par 8 le PGCD.
+- Volume 2. Proposition 13.276. Une fonction est de classe C^k si et seulement si ses dérivées partielles sont de classe C^(k-1) et non C^k.
+- Volume 1. Théorème 12.80 sur les séries alternées. La suite (a_n) doit être à termes positifs et non seulement "réels". Sinon il n'y a au final aucune garantie que la série soit alternée.
+- Volume 1. Lemme 2.7. Tout sous-groupe de G contenant A contient gr(A) et non "est contenu dans".
+- Volume 1. Sous la définition 2.21. La justification du fait que D(G) est non vide est fausse : le fait que G fasse partie des ensembles de l'intersection ne signifie pas que l'intersection est non vide. Par contre l'élément neutre est nécessairement présent. (découverte par Colin Pitrat)
+
+## Frido 2018
 
 Les fautes sont présentées par ordre anti-chronoligique de découvertes.
+
+- Volume 2. Prolongement de fonctions, lemme 14.61. Ce lemme est faux.
+            Un contre-exemple est donné par la fonction caractéristique des rationnels plus grands que sqrt(2). C'est une fonction continue sur Q qui n'est pas prolongeable en une fonction continue sur R.
+            Merci à Provatiscus pour avoir débusqué ce gros lapin.
+        https://github.com/LaurentClaessens/mazhe/issues/124
+        https://fr.wikipedia.org/wiki/Fonction_Cauchy-continue
+
+- Volume 3. Groupe diédral. La proposition 20.113 n'est pas tout à fait exacte, parce que certains éléments du groupe diédral s'écrivent sans conjugaison complexe.
+
+- Volume 3. Groupe diédral. Juste au-dessus de la proposition 20.112, il est dit que la conjugaison complexe n'est pas dans le groupe diédral pour n=3. C'est faux : la conjugaison complexe est dans tous les groupes diédraux (n>=3). C'est le point A_3 qui est faux te qui devrait être (-1/2, -sqrt(3)/2).
+
+- Volume 2. Lemme 13.47. La démonstration du fait qu'une application affine préservant les points d'une base affine est l'identité ne fonctionne pas bien. D'abord ça n'a aucun sens de multiplier un point d'un espace affine par un nombre; ensuite la décomposition en composée de translation et d'application linéaire n'est pas vraie. Toute cette preuve fonctionne seulement dans le cas très particulier de R^n.
+
+- Volume 3. Lemme 20.5. Une isométrie est bijective. La démonstration de ce lemme s'appuie sur le théorème 20.4 pour déduire que l'application est bijective, alors que la bijectivité est une hypothèse de 20.4, et non une conclusion.
+
+- Volume 2. Fonctions convexes. La définition 19.85 est trop évasive concernant les fonctions strictement convexes. Pour une fonction strictement convexe, l'inégalité est stricte lorsque lambda est dans ]0,1[ et x1 != x2.
+
+- Volume 1. Somme infinie. Le corolaire 11.197 me semble faux; il manque sans doute l'hypothèse de sommabilité de f(a_i). Voir la proposition 11.199 qui dit la même chose avec plus d'hypothèses.
+
+- Volume 3. Principe des zéros isolés. La valeur des coefficients d_k est erronée. Il faut d_k = c__{m+k}/c_m.
+
+- Volume 3. Dans le gros théorème 28.73 à propos de dualité « théorème de représentation de Riesz », il y a un cas "p=1". La preuve donnée dans cette partie ne traite que le cas où la mesure est finie et non sigma-finie comme annoncée. Il y a donc un trou dans la preuve.
+
+- Volume 2, ellipsoïde de John-Loewner 19.113. L'énoncé manque de préciser que l'ellipsoïde est centrée en l'origine. Il faut lire :
+  «Il existe un unique ellipsoïde centré en l'origine etc.». Si nous cherchons des ellipsoïdes en acceptant de ne pas centré en l'origine, il y a moyen à priori d'en trouver de plus petites que celle donnée par le théorème tel que prouvé (pour l'unicité par contre c'est moins clair).
+
+- Volume 1, corolaire 5.36. Il n'est pas vrai en général que, pour une application linéaire, il y a équivalence entre "injectif", "surjectif" et "bijectif". Cela n'est vrai que si les espaces de départ et d'arrivée ont la même dimension.
+  La preuve se trompe en mélangeant les dim(E) de l'espace de départ avec les rang(f) qui sont dans l'espace d'arrivée.
+
+- Volume 1, proposition 11.68. Il n'est pas vrai que le groupe O(n) est le groupe des isométries de R^n : parmi les isométries de R^n, il y a aussi
+  les translations, comme prouvé ailleurs.
+  Ce qui est vrai et démontré dans 11.68 est que, parmi les applications *linéaires*, les isométries sont les éléments de O(n).
+
+- Volume 1. Déterminant de la matrice transposée, lemme 5.63. L'utilisation de la proposition 2.49 n'est pas correcte parce que 2.49 permet de faire un «décalage constant» dans la somme alors qu'ici nous introduisons sigma^2 qui n'est pas constant dans la somme.
+    La solution est d'utiliser une proposition similaire pour le produit et d'utiliser, pour chaque élément de la somme, la commutativité du produit; cela revient à ré-indexer le produit par sigma. Ensuite, il faut ré-indexer la somme sur sigma^{-1} au lieu de sigma.
+    Voir https://ljk.imag.fr/membres/Bernard.Ycart/mel/de/de.pdf
+
+- Produit sur L^2. Volume 3, lemme 28.58. Il ne faut pas la racine carrée au-dessus de l'intégrale. C'est la norme de 'f' qui demande de prendre une racine carrée.
+
+- Coefficients de Fourier. Dans les équations (31.34) du volume 4, c'est la grande foire aux coefficients manquants. Le fait est que vous aurez remarqué que la section 28.5.4 (volume 3) n'est pas écrite. Les conventions pour les choses attenantes à Fourier sur [-T,T] ne sont pas fixées.
+
+- Il me semble qu'il y ait quelques incohérences entre limite et continuité. Prenons une fonction définie sur un singleton. Soit a ce point et A={a}, l'ensemble.
+  Pour sa propre topologie, A est un ouvert. La fonction est continue sur A parce que l'image inverse de tout ouvert est ouvert.
+  Mais elle n'est pas continue en chacun de ses points parce que nous n'avons pas définit la notion de limite sur un point qui n'est pas un point d'accumulation. Bien entendu, A ne possède aucun point d'accumulation.
+
+## Frido 2017
+
+Les fautes sont présentées par ordre anti-chronologique de découvertes.
 
 - Volume 1. La définition de forme bilinéaire n'est pas correcte. Elle mélange bilinéarité et symétrie. Être bilinéaire signifie être linéaire en chacune des deux composantes séparément.
 
@@ -25,7 +82,7 @@ Les fautes sont présentées par ordre anti-chronoligique de découvertes.
 
 - Volume 3. Définition 24.63. La définition d'espace réflexif n'est pas correcte; il faut parler de bidual. Du coup l'énoncé du théorème 24.64 (qui est probablement bien vrai quand même) est à prendre avec des précautions.
 
-- Volume 1. Proposition 4.70. Je suis presque certain qu'il faut ajouter l'hypothèse que I est un idéal propre, c'est à dire que l'inclusion de I dans A est stricte.
+- Volume 1. Proposition 4.70. Je suis presque certain qu'il faut ajouter l'hypothèse que I est un idéal propre, c'est-à-dire que l'inclusion de I dans A est stricte.
 
 - Volume 1. L'exemple 4.73 prétend que les anneaux Z/nZ sont principaux. Cela n'est pas vrai en général parce que lorsque `n` n'est pas premier, Z/nZ n'est pas intègre. Il est tout de même vrai que ses idéaux sont principaux.
 

@@ -1,5 +1,5 @@
 % This is part of Agregation : modélisation
-% Copyright (c) 2011-2016,2018
+% Copyright (c) 2011-2016,2018-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -187,7 +187,7 @@ pour chaque \( t\) tel que cette espérance existe.
 \subsection{Loi d'une variable aléatoire}
 %---------------------------------------------------------------------------------------------------------------------------
 
-La \defe{loi}{loi!d'une variable aléatoire} de la variable aléatoire \( X\), notée \( P_X\) est la mesure image de \( P\) par \( X\), c'est à dire
+La \defe{loi}{loi!d'une variable aléatoire} de la variable aléatoire \( X\), notée \( P_X\) est la mesure image de \( P\) par \( X\), c'est-à-dire
 \begin{equation}
     P_X(B)=P(X\in B)
 \end{equation}
@@ -244,7 +244,7 @@ En particulier l'espérance de \( X\) peut être calculée à partir de sa densi
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{theorem}
-    Soit \( \mO\), un ouvert de \( \eR^n\) et \( \mO'\) un ouvert de \( \eR^m\) ainsi qu'un difféomorphisme \( C^1\) \( \varphi\colon \mO\to \mO'\). Soit \( X\colon \Omega\to \eR^n\) une variable aléatoire prenant presque sûrement ses valeurs dans \( \mO\). Si nous supposons que \( X\) a la densité \( f_X\), alors la variable aléatoire \( Y=\varphi(X)\) accepte la densité \( f_Y\colon \mO'\to \eR\) donnée par
+    Soit \( \mO\), un ouvert de \( \eR^n\) et \( \mO'\) un ouvert de \( \eR^m\) ainsi qu'un difféomorphisme \( C^1\) \( \varphi\colon \mO\to \mO'\). Soit \( X\colon \Omega\to \eR^n\) une variable aléatoire prenant presque surement ses valeurs dans \( \mO\). Si nous supposons que \( X\) a la densité \( f_X\), alors la variable aléatoire \( Y=\varphi(X)\) accepte la densité \( f_Y\colon \mO'\to \eR\) donnée par
     \begin{equation}
         f_Y(v)=f_X\big( \varphi^{-1}(v) \big)| J_{\varphi^{-1}}(v) |.
     \end{equation}
@@ -275,7 +275,7 @@ En particulier l'espérance de \( X\) peut être calculée à partir de sa densi
 \section{Convergence}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Soient \( X_i\) des variables aléatoires réelles définies sur le même espace de probabilité \( (\Omega,\tribA,P)\). Nous disons que \( X_i\) converge \defe{presque sûrement}{convergence!presque sûrement} vers la variable aléatoire \( X\) et nous notons
+Soient \( X_i\) des variables aléatoires réelles définies sur le même espace de probabilité \( (\Omega,\tribA,P)\). Nous disons que \( X_i\) converge \defe{presque surement}{convergence!presque surement} vers la variable aléatoire \( X\) et nous notons
 \begin{equation}
     X_n\stackrel{p.s.}{\longrightarrow}X
 \end{equation}
@@ -340,7 +340,7 @@ où la convergence \( X_n(\omega)\to X(\omega)\) est la convergence usuelle dans
 \begin{proposition} \label{PropJFVJDuX}
     Les types de convergence sont reliées par les implications suivantes :
     \begin{equation}
-        \text{presque sûre }\Rightarrow\text{ en probabilité }\Rightarrow\text{ en loi}.
+        \text{presque sure }\Rightarrow\text{ en probabilité }\Rightarrow\text{ en loi}.
     \end{equation}
 \end{proposition}
 La convergence en loi n'implique pas la convergence en probabilité, et par conséquent pas non plus la convergence presque certaine.
@@ -353,7 +353,7 @@ Dans le cas particulier \( d=1\) nous avons quelques critères supplémentaires.
 \end{proposition}
 
 \begin{proposition}
-    Si les \( X_n\) sont des variables aléatoires réelles positives, et si \( X\) est une variable aléatoire positive, alors \( X_n\stackrel{\hL}{\longrightarrow}X\) si les transformées de Laplace des fonctions de répartition convergent ponctuellement, c'est à dire si
+    Si les \( X_n\) sont des variables aléatoires réelles positives, et si \( X\) est une variable aléatoire positive, alors \( X_n\stackrel{\hL}{\longrightarrow}X\) si les transformées de Laplace des fonctions de répartition convergent ponctuellement, c'est-à-dire si
     \begin{equation}
         E\big(  e^{-\alpha X_n} \big)\to E\big(  e^{-\alpha X} \big)
     \end{equation}
@@ -490,7 +490,7 @@ Le lemme de Slutsky sera utilisé en combinaison avec la proposition~\ref{Propcv
 \end{proposition}
 %TODO : une preuve; elle a l'air d'être sur Wikipédia.
 
-Une conséquence de cette proposition couplée au lemme de Slutsky est le résultats suivant, qui est donné sous le nom de \wikipedia{en}{Slutsky's_theorem}{théorème de Slutsky} sur wikipédia.
+Une conséquence de cette proposition couplée au lemme de Slutsky est le résultat suivant, qui est donné sous le nom de \wikipedia{en}{Slutsky's_theorem}{théorème de Slutsky} sur wikipédia.
 \begin{corollary}       \label{CorINgTPH}
     En reprenant les notations du lemme de Slutsky, si
     \begin{subequations}
@@ -526,7 +526,7 @@ Une conséquence de cette proposition couplée au lemme de Slutsky est le résul
             \end{equation}
     \end{enumerate}
 \end{lemma}
-La notation \( P(A_n\,\text{i.s.})\) signifie «infiniment souvent», c'est à dire
+La notation \( P(A_n\,\text{i.s.})\) signifie «infiniment souvent», c'est-à-dire
 \begin{equation}
     P(A_n\,\text{i.s.})=P\big( \bigcap_{N\in\eN}\bigcup_{k\geq N}A_k \big)=P(\limsup A_n)
 \end{equation}
@@ -644,7 +644,7 @@ Une façon de paraphraser le lemme de Borel-Cantelli est que nous avons l'altern
         \item
             indépendantes et identiquement distribuées,
         \item
-            intégrables (c'est à dire dans \( L^1\)),
+            intégrables (c'est-à-dire dans \( L^1\)),
     \end{enumerate}
     alors
     \begin{equation}
@@ -693,7 +693,7 @@ Note : étant donné que les variables aléatoires sont identiquement distribué
 \end{proof}
 
 \begin{proposition}
-    Soient \( X_n\) des variables aléatoires indépendantes et identiquement distribuées avec \( X_n\geq 0\). Nous acceptons \( E(X_1)=\infty\), c'est à dire que nous relaxons la condition \( X_n\in L^1\) par rapport à la loi des grands nombres.
+    Soient \( X_n\) des variables aléatoires indépendantes et identiquement distribuées avec \( X_n\geq 0\). Nous acceptons \( E(X_1)=\infty\), c'est-à-dire que nous relaxons la condition \( X_n\in L^1\) par rapport à la loi des grands nombres.
 
     Alors
     \begin{equation}
@@ -776,7 +776,7 @@ Rien, par exemple, n’est plus difficile que de convaincre le lecteur non spéc
             &=\Phi_{X_1}\left( \frac{ t }{ \sqrt{n} } \right)^n.
         \end{align}
     \end{subequations}
-    Cette quantité est a priori complexe; nous ne pouvons donc pas immédiatement passer au logarithme. Nous pouvons par contre utiliser un développement en puissances de \( t\) en nous servant de la proposition~\ref{PropDerFnCaract} et de l'hypothèse comme quoi \( X_1\in L^2\) :
+    Cette quantité est à priori complexe; nous ne pouvons donc pas immédiatement passer au logarithme. Nous pouvons par contre utiliser un développement en puissances de \( t\) en nous servant de la proposition~\ref{PropDerFnCaract} et de l'hypothèse comme quoi \( X_1\in L^2\) :
     \begin{equation}
         \Phi_{X_1}(t)=\Phi_{X_1}(0)+\Phi_{X_1}'(0)t+\Phi_{X_1}''(0)\frac{ t^2 }{2}+\alpha(t)t^2
     \end{equation}
@@ -932,7 +932,7 @@ où \( X_i\) est le pas effectué à l'instant \( i\). Ce sont des variables de 
 \begin{equation}
     X_i\stackrel{\hL}{=}p\delta_{-1}+(1-p)\delta_1
 \end{equation}
-c'est à dire
+c'est-à-dire
 \begin{subequations}
     \begin{align}
         P(X_i=-1)&=p\\

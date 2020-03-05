@@ -1,37 +1,15 @@
-# Mazhe
+# Giulietta
 (*English*) This is a big course of mathematics declined in two versions. See below for an English presentation of the English part.
 
 (*Français*) Ce dépôt contient les sources d'un livre de mathématique, décliné en deux versions :
 
 * [« Le Frido »](http://laurent.claessens-donadello.eu/pdf/lefrido.pdf) contient des mathématiques du niveau de l'agrégation. Il couvre (à peu près) tout le programme.
-* [« (almost) Everything I know in mathematics »](http://laurent.claessens-donadello.eu/pdf/mazhe.pdf) contains more or less everything I know in mathematics, including my research.
-* Et ce fichier [manuel_du_contributeur.pdf](http://laurent.claessens-donadello.eu/pdf/manuel_du_contributeur.pdf) contient des instruction pour la compilation du Frido, ainsi que des politiques éditoriales à l'attention de qui voudrait contribuer.
+* [« Giulietta »](http://laurent.claessens-donadello.eu/pdf/giulietta.pdf) contains more or less everything I know in mathematics, including my research.
 
 ## Download and compilation
 
-### Download and compilation: the whole book
-
-First you need the package [exocorr](https://github.com/LaurentClaessens/exocorr) to be somewhere in your LaTeX path.
-
-Source are on [GitHub (LaurentClaessens/mazhe/)](https://github.com/LaurentClaessens/mazhe). The main file is : `mazhe.tex` and a basic compilation is:
-```bash
-pdflatex mazhe.tex
-bibtex mazhe
-makeindex mazhe
-```
-to be done more or less three times to get all the cross-references correct.
-More precise information [here](http://laurent.claessens-donadello.eu/pdf/manuel_du_contributeur.pdf).
-
-### Download and compilation : le Frido (in French)
-
-If you want to compile [Le Frido](http://laurent.claessens-donadello.eu/pdf/lefrido.pdf), it is more complicated because the point is to extract the "agrégation" part from the whole source.
-I developed some pre-compilation scripts that make the work, but you'll need to install some dependencies.
-
-It is fully explained here: [manuel_du_contributeur](http://laurent.claessens-donadello.eu/pdf/manuel_du_contributeur.pdf) (in French).
-
-### Download and compilation : the pictures
-
-If you want to recreate the pictures from their sources (the mysterious `phystricks*.py` files), there are [still more dependencies](https://github.com/LaurentClaessens/phystricks). I'll explain them another day.
+(*English*) See the file `COMPILATION_giulietta.md`
+(*Français*) Voir le fichier `COMPILTATION_frido.md`
 
 ## Le Frido (niveau agrégation)
 
@@ -41,7 +19,7 @@ Il couvre à peu près tout [le programme](http://agreg.org/Rapports/rapport2015
 Afin de donner une idée, une [liste (presque à jour) des développements](#annexe--liste-de-choses-que-lon-peut-trouver-dans-le-frido) que vous pourriez y trouver [est en annexe](#annexe--liste-de-choses-que-lon-peut-trouver-dans-le-frido).
 
 
-### Quelque éléments en plus que l'agrégation
+### Quelques éléments en plus que l'agrégation
 
 * Construction complète de la mesure de Lebesgue, y compris les notions de complétion de mesure (le chapitre tribu/théorie de la mesure est assez lourd).
 * La topologie exacte des espaces de distribution, y compris la topologie liée à une famille de semi-normes.
@@ -72,7 +50,7 @@ Ce cours se distingue d'autres cours de mathématique pour l'agrégation de plus
 
 Le Frido se distingue également par certains aspects négatifs.
 
-* Manque de relecture. Vous croyez que les livres commerciaux sont bien relus et sans erreurs ? Eh bien ce n'est pas le cas pour le Frido. Il n'est pas très relu (si vous trouvez des erreurs, contactez moi !), et contient sûrement beaucoup d'erreurs. Un certain nombre sont d'ailleurs très clairement indiquées.
+* Manque de relecture. Vous croyez que les livres commerciaux sont bien relus et sans erreurs ? Eh bien ce n'est pas le cas pour le Frido. Il n'est pas très relu (si vous trouvez des erreurs, contactez-moi !), et contient sûrement beaucoup d'erreurs. Un certain nombre sont d'ailleurs très clairement indiquées.
 
 ### « *Est-ce je peux utiliser le Frido le jour de l'oral d'agreg ?* »
 
@@ -80,15 +58,22 @@ Tel quel : non parce que le règlement demande de n'utiliser que des documents c
 
 Pour utiliser le Frido à l'agrégation, il faudra passer à la caisse et acheter une version papier chez [thebookedition.com](http://www.thebookedition.com/fr/).
 
-* [Volume 1](http://www.thebookedition.com/fr/le-frido-volume-1-p-344540.html) 558 pages, 22.01 euros. Téléchargez le pdf [lefrido-vol1.pdf](http://laurent.claessens-donadello.eu/pdf/lefrido-vol1.pdf)
+* [Volume 1](https://www.thebookedition.com/fr/le-frido-2018-volume-1-p-360829.html) 558  pages, 22.01 euros. Téléchargez le pdf [lefrido-vol1.pdf](https://laurent.claessens-donadello.eu/pdf/Frido2018/book_1_thebookedition.pdf)
+* [Volume 2](https://www.thebookedition.com/fr/le-frido-2018-volume-2-p-360830.html) 501  pages, 20.08  euros. Téléchargez le pdf [lefrido-vol2.pdf](https://laurent.claessens-donadello.eu/pdf/Frido2018/book_2_thebookedition.pdf)
+* [Volume 3](https://www.thebookedition.com/fr/le-frido-2018-volume-3-p-360831.html) 501  pages, 20.08 euros. Téléchargez le pdf [lefrido-vol3.pdf](https://laurent.claessens-donadello.eu/pdf/Frido2018/book_3_thebookedition.pdf)
+* [Volume 4](https://www.thebookedition.com/fr/le-frido-2018-volume-4-p-360832.html) 516  pages, 20.58 euros. Téléchargez le pdf [lefrido-vol4.pdf](https://laurent.claessens-donadello.eu/pdf/Frido2018/book_4_thebookedition.pdf)
 
-* [Volume 2](http://www.thebookedition.com/fr/le-frido-volume-2-p-344541.html) 616 pages, 23.96 euros. Téléchargez le pdf [lefrido-vol2.pdf](http://laurent.claessens-donadello.eu/pdf/lefrido-vol2.pdf)
 
-* [Volume 3](http://www.thebookedition.com/fr/le-frido-volume-3-p-344542.html) 576 pages, 22.61 euros. Téléchargez le pdf [lefrido-vol3.pdf](http://laurent.claessens-donadello.eu/pdf/lefrido-vol3.pdf)
+### « *Est-ce qu'il y a moyen de truander le reglement pour ne pas payer ?* »
 
-## (almost) Everything I know in math
+Oui. Le règlement demande qu'un livre soit commercialisé, mais pas que vous vous le soyez procuré par la voie commerciale. Lu très littéralement, le règlement vous permet de télécharger les PDF et les imprimer vous même. Mais :
 
-The document [(almost) Everything I know in mathematics](http://laurent.claessens-donadello.eu/pdf/mazhe.pdf) contains almost everything I know in mathematics. It includes :
+* c'est lire le règlement avec de la mauvaise foi (perso, je ne tenterais pas)
+* il n'est pas certain que ce soit moins cher de l'imprimer vous même que de l'acheter.
+
+## Giulietta
+
+The document [Giulietta](http://laurent.claessens-donadello.eu/pdf/giulietta.pdf) contains almost everything I know in mathematics. It includes :
 
 * A part (in French) about general mathematics at master level (le Frido)
 * A part (in French) containing the exercises and many corrections of the courses I gave at university.
@@ -142,7 +127,7 @@ Afin de donner une idée, voici une liste des développements que vous pourriez 
 
 * Endomorphismes cycliques et commutant dans le cas diagonalisable.
 * Isométries du cube.
-* Racine carré d'une matrice hermitienne positive.
+* Racine carrée d'une matrice hermitienne positive.
 * Action du groupe modulaire sur le demi-plan de Poincaré.
 * Algorithme des facteurs invariants.
 * Méthode du gradient à pas optimal.
@@ -165,7 +150,7 @@ Afin de donner une idée, voici une liste des développements que vous pourriez 
 * RSA, plus l'exponentielle rapide, plus la recherche de couples de Bézout.
 * Théorème de Sylow.
 * Coloriage de roulette et composition de colliers.
-* Théorème de Burnside sur les sous groupes d'exposant fini de GL(n, C).
+* Théorème de Burnside sur les sous-groupes d'exposant fini de GL(n, C).
 * Théorème d'isomorphisme entre (Z/pZ)^\* et Z/(p-1)Z.
 * Forme alternées de degré maximum.
 * Décomposition de Bruhat.

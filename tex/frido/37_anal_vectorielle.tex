@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2009-2018
+% Copyright (c) 2009-2010
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -46,7 +46,7 @@ Soit $D$ une région du plan et $\sigma$, son contour que nous prenons, par conv
 \newcommand{\CaptionFigVDFMooHMmFZr}{Un contour avec son ortientation.}
 \input{auto/pictures_tex/Fig_VDFMooHMmFZr.pstricks}
 
-Nous notons par $\sigma=\partial D$ le bord de $D$, c'est à dire le contour dont nous venons de parler.
+Nous notons par $\sigma=\partial D$ le bord de $D$, c'est-à-dire le contour dont nous venons de parler.
 
 \begin{theorem}[Théorème de Green]
     Soient $P,Q\colon D\to \eR$ deux fonctions de classe $C^1$. Alors
@@ -135,7 +135,7 @@ Le théorème de Green peut être mis sous une autre forme.
 \end{theorem}
 
 \begin{proof}
-    Analysons le membre de droite. Nous savons que $D$ est une surface dans le plan $\eR^2$. Le vecteur normal à la surface est donc simplement le vecteur (constant) $e_z$. Le produit scalaire $(\nabla\times F)\cdot dS$ est donc $(\nabla\times F)\cdot e_z$ et se réduit à la troisième composante du rotationnel, c'est à dire
+    Analysons le membre de droite. Nous savons que $D$ est une surface dans le plan $\eR^2$. Le vecteur normal à la surface est donc simplement le vecteur (constant) $e_z$. Le produit scalaire $(\nabla\times F)\cdot dS$ est donc $(\nabla\times F)\cdot e_z$ et se réduit à la troisième composante du rotationnel, c'est-à-dire
     \begin{equation}
         \frac{ \partial F_2 }{ \partial x }-\frac{ \partial F_1 }{ \partial y }.
     \end{equation}
@@ -246,7 +246,7 @@ sage: f.integrate(y,x**2,x).integrate(x,0,1)
 \subsection{La convention de sens de parcours}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Soient $D$, un domaine dans le plan et une paramétrisation
+Soient $D$, un domaine dans le plan et un paramétrage
 \begin{equation}
     \begin{aligned}
         \sigma\colon \mathopen[ a , b \mathclose]&\to \eR^2 \\
@@ -256,7 +256,7 @@ Soient $D$, un domaine dans le plan et une paramétrisation
         \end{pmatrix},
     \end{aligned}
 \end{equation}
-une paramétrisation du bord $\partial D$ de $D$. La normale à $\sigma$ est perpendiculaire à la tangente, donc la normale extérieure de norme $1$ vaut
+un paramétrage du bord $\partial D$ de $D$. La normale à $\sigma$ est perpendiculaire à la tangente, donc la normale extérieure de norme $1$ vaut
 \begin{equation}
     \begin{aligned}[]
         n&=\frac{ \big( y'(t),-x'(t) \big) }{ \sqrt{ \big( x'(t)\big)^2+\big( y'(t) \big)^2  } }&\text{ou}&&n&-=\frac{ \big( y'(t),-x'(t) \big) }{ \sqrt{ \big( x'(t)\big)^2+\big( y'(t) \big)^2  } }.
@@ -411,7 +411,7 @@ Le champ de vecteur que nous considérons est $G=\nabla\times F$. Il a un certai
     \end{equation}
     où $S$ est une surface dont $C$ est le bord. Cette intégrale est à calculer avec la formule \eqref{EqResIntFluxPhi}.
 
-    La première chose à faire est de trouver une surface dont le bord est $C$ et en trouver une paramétrisation $\phi$. Le plus simple est de prendre le graphe du plan sur le cercle $x^2+y^2+1$. Une paramétrisation de cette surface est simplement
+    La première chose à faire est de trouver une surface dont le bord est $C$ et en trouver un paramétrage $\phi$. Le plus simple est de prendre le graphe du plan sur le cercle $x^2+y^2+1$. Un paramétrage de cette surface est simplement
     \begin{equation}
         \begin{aligned}
             \phi\colon D&\to \eR^3 \\
@@ -535,7 +535,7 @@ Dans certains cas le théorème de Gauss permet de simplifier le calcul de l'int
     \begin{equation}
         I=\int_{\partial B}(x^2+y+z)dS,
     \end{equation}
-    c'est à dire l'intégrale de la fonction $x^2+y+z$ sur la sphère. Le vecteur normal à la sphère est
+    c'est-à-dire l'intégrale de la fonction $x^2+y+z$ sur la sphère. Le vecteur normal à la sphère est
     \begin{equation}
         n=xe_x+ye_y+ze_z.
     \end{equation}
@@ -584,7 +584,7 @@ Soit donc un système général $q=(q_1,q_2,q_3)$ et
         x_3(q)
     \end{pmatrix}.
 \end{equation}
-Si nous fixons $q_2$ et $q_3$ et que nous laissons varier $q_1$, nous obtenons une courbe\footnote{Dans le cas des sphériques, c'est une demi-droite horizontale d'angle $q_2$ et de hauteur $q_3$.} dont nous pouvons considérer le vecteur vitesse, c'est à dire le vecteur tangent. En chaque point nous avons ainsi trois vecteurs
+Si nous fixons $q_2$ et $q_3$ et que nous laissons varier $q_1$, nous obtenons une courbe\footnote{Dans le cas des sphériques, c'est une demi-droite horizontale d'angle $q_2$ et de hauteur $q_3$.} dont nous pouvons considérer le vecteur vitesse, c'est-à-dire le vecteur tangent. En chaque point nous avons ainsi trois vecteurs
 \begin{equation}
     \frac{ \partial M }{ \partial q_i }(q).
 \end{equation}
@@ -860,7 +860,7 @@ Nous pouvons exprimer le gradient d'une fonction en coordonnées sphériques en 
 \begin{equation}        \label{EqGradientSpherique}
     \nabla\tilde f(\rho,\theta,\varphi)=\frac{ \partial \tilde f }{ \partial \rho }e_{\rho}+\frac{1}{ \rho }\frac{ \partial \tilde f }{ \partial \theta }e_{\theta}+\frac{1}{ \rho\sin(\theta) }\frac{ \partial \tilde f }{ \partial \varphi }r_{\varphi}.
 \end{equation}
-Cette expression peut paraître peu pratique parce que les vecteurs $e_{\rho}$, $e_{\theta}$ et $e_{\varphi}$ eux-mêmes changent en chaque point. Elle est effectivement peu adaptée au dessin, mais elle est très pratique pour des fonctions ayant des symétries.
+Cette expression peut paraitre peu pratique parce que les vecteurs $e_{\rho}$, $e_{\theta}$ et $e_{\varphi}$ eux-mêmes changent en chaque point. Elle est effectivement peu adaptée au dessin, mais elle est très pratique pour des fonctions ayant des symétries.
 
 \begin{example}
     Le potentiel de la gravitation est la fonction
@@ -1122,7 +1122,7 @@ Le rotationnel :
 \begin{equation}    \label{EqtBnoCw}
     \nabla\times(F_re_r+F_{\theta}e_{\theta})=\left( \frac{ \partial (F_{\theta} r) }{ \partial r }-\frac{ \partial F_r }{ \partial \theta } \right)e_z.
 \end{equation}
-Notons que le rotationnel n'existe pas vraiment en deux dimensions. Ici nous avons vu le champ \( F(r,\theta)\) comme un champs dans \( \eR^3\) ne dépendant pas de \( z\) et n'ayant pas de composante \( z\). Le résultat est un rotationnel qui est dirigé selon l'axe \( z\).
+Notons que le rotationnel n'existe pas vraiment en deux dimensions. Ici nous avons vu le champ \( F(r,\theta)\) comme un champ dans \( \eR^3\) ne dépendant pas de \( z\) et n'ayant pas de composante \( z\). Le résultat est un rotationnel qui est dirigé selon l'axe \( z\).
 
 
 %---------------------------------------------------------------------------------------------------------------------------

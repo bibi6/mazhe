@@ -1,178 +1,11 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2015,2017-2018
+% Copyright (c) 2011-2015,2017-2019
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Densité des polynômes}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Théorème de Stone-Weierstrass}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Voir le thème~\ref{THEooPUIIooLDPUuq}.
-
-Note : le lemme~\ref{LemYdYLXb} est utilisé dans la démonstration du théorème~\ref{ThoWmAzSMF}; c'est pour cela que nous l'avons isolé.
-
-\begin{lemma}       \label{LemYdYLXb}
-    Il existe une suite de polynômes sur \( \mathopen[ 0 , 1 \mathclose]\) convergeant uniformément vers la fonction racine carrée.
-\end{lemma}
-
-\begin{proof}
-    Nous donnons cette suite par récurrence :
-    \begin{subequations}
-        \begin{align}
-            P_0(t)&=0\\
-            P_{n+1}(t)&=P_n(t)+\frac{ 1 }{2}\big( t-P_n(t)^2 \big).
-        \end{align}
-    \end{subequations}
-    Nous commençons par montrer que pour tout \( t\in \mathopen[ 0 , 1 \mathclose]\), \( P_n(t)\in\mathopen[ 0 , \sqrt{t} \mathclose]\). Pour \( P_0\), c'est évident. Ensuite nous avons
-    \begin{subequations}
-        \begin{align}
-            P_{n+1}(t)-\sqrt{t}&=P_n(t)-\sqrt{t}+\frac{ 1 }{2}(t-P_n(t)^2)\\
-            &=\big( P_n(t)-\sqrt{t} \big)\left( 1-\frac{ 1 }{2}\frac{ t-P_n(t)^2 }{ P_n(t)-\sqrt{t} } \right)\\
-            &=\big( P_n(t)-\sqrt{t} \big)\left( 1-\frac{ \sqrt{t}+P_n(t) }{2} \right)\\
-            &\leq 0
-        \end{align}
-    \end{subequations}
-    parce que \( \sqrt{t} \leq 1\) et \( P_n(t)\leq 1\) par hypothèse de récurrence.
-
-    Nous savons au passage que \( P_n(t)\) est une suite réelle croissante parce que \( t-P_n(t)^2\geq t-(\sqrt{t})^2=0\). La suite \( P_n(t)\) est donc croissante et majorée par \( \sqrt{t}\); elle converge donc. Les candidats limites sont déterminés par l'équation
-    \begin{equation}
-        \ell=\ell+\frac{ 1 }{2}(t-\ell^2),
-    \end{equation}
-    dont les solutions sont \( \ell=\pm\sqrt{t}\). La suite étant positive, nous avons une convergence ponctuelle de \( P_n\) vers la racine carrée. Cette suite étant une suite croissante de fonctions continues sur un compact, convergeant ponctuellement vers une fonction continue, la convergence est uniforme par le théorème de Dini~\ref{ThoUFPLEZh}.
-\end{proof}
-
-\begin{lemma}           \label{LemUuxcqY}
-    Soit \( K\), un compact de \( \eR\) et \( f_n\) une suite de fonctions sur \( K\) convergeant uniformément vers \( f\). Soit \( g\colon X\to K\) une fonction depuis un espace topologique \( K\). Alors \( f_n\circ g\) converge uniformément vers \( f\circ g\).
-\end{lemma}
-
-\begin{proof}
-    En effet, pour tout \( x\in X\) nous avons
-    \begin{equation}
-        \| (f_n\circ g)-(f\circ g) \|_{\infty}=\sup_{x\in X} \| f_n\big( g(x) \big)-f\big( g(x) \big) \|\leq \| f_n-f \|_{\infty}.
-    \end{equation}
-    Par conséquent, si \( \epsilon\>0\) est donné, il suffit de choisir \( n\) de telle sorte à avoir \( \| f_n-f \|_{\infty}<\epsilon\) et nous avons \( \| (f_n\circ g)-(f\circ g) \|_{\infty}\leq \epsilon\).
-\end{proof}
-
-\begin{definition}
-    Nous disons qu'une algèbre \( A\) de fonctions sur un espace \( X\) \defe{sépare les points}{sépare!les points} de \( X\) si pour tout \( x_1\neq x_2\) il existe \( g\in A\) telle que \( g(x_1)\neq g(x_2)\).
-\end{definition}
-
-Nous pouvons maintenant énoncer et démontrer une forme nettement plus générale du théorème de Stone-Weierstrass.
-\begin{theorem}[Stone-Weierstrass\cite{MGecheleSW}] \label{ThoWmAzSMF}
-    Soient \( X\), un espace compact et Hausdorff et \( A\) une sous algèbre de \( C(X,\eR)\) contenant une fonction constante non nulle. Alors \( A\) est dense dans \( \Big( C(X,\eR),\| . \|_{\infty}\Big)\) si et seulement si \( A\) sépare les points de \(X\).
-
-    Nous pouvons remplacer \( \eR\) par \( \eC\) si de plus l'algèbre \( A\) est auto-adjointe : \( g\in A\) implique \( \bar g\in A\).
-\end{theorem}
-\index{théorème!Stone-Weierstrass}
-
-\begin{proof}
-    Nous allons écrire la démonstration en plusieurs étapes (dont la première est le lemme~\ref{LemYdYLXb}).
-
-    \begin{description}
-        \item[Première étape] Pour tout \( x\neq y\in X\) et pour tout \( \alpha,\beta\in \eR\), il existe une fonction \( f\in A\) telle que \( f(x)=\alpha\) et \( f(y)=\beta\).
-
-            En effet, vu que \( A\) sépare les points nous pouvons considérer une fonction \( g\in A\) telle que \( g(x)\neq g(y)\) et ensuite poser
-            \begin{equation}
-                f(z)=\alpha+\frac{ \alpha-\beta }{ g(y)-g(x) }\big( g(z)-g(x) \big).
-            \end{equation}
-            Les constantes faisant partie de \( A\), cette fonction \( f\) est encore dans \( A\).
-
-        \item[Seconde étape] Pour tout \( n\)-uples de fonctions \( f_1,\ldots, f_n\) dans \( \bar A\), les fonctions \( \min(f_1,\ldots, f_n)\) et \( \max(f_1,\ldots, f_n)\) sont dans \( \bar A\).
-
-            Nous le démontrons pour \( n=2\); le reste allant évidemment par récurrence. Soient \( f,g\in \bar A\). Étant donné que
-            \begin{subequations}
-                \begin{align}
-                    \max(f,g)&=\frac{ f+g }{2}+\frac{ | f-g | }{2}\\
-                    \min(f,g)&=\frac{ f+g }{2}-\frac{ | f-g | }{2},
-                \end{align}
-            \end{subequations}
-            if suffit de montrer que si \( f\in\bar A\) alors \( | f |\in \bar A\). Si \( f\) est nulle, c'est évident; supposons que \( f\neq 0\) et posons \( M=\| f \|_{\infty}\neq 0\). Pour tout \( x\in X\) nous avons
-            \begin{equation}
-                \frac{ f(x)^2 }{ M^2 }\in \mathopen[ 0 , 1 \mathclose].
-            \end{equation}
-            Nous considérons alors la suite
-            \begin{equation}
-                h_n=P_n\circ\frac{ f^2 }{ M^2 }
-            \end{equation}
-            où \( P_n\) est une suite de polynômes convergent uniformément vers la racine carrée (voir lemme~\ref{LemYdYLXb}). Le lemme~\ref{LemUuxcqY} nous assure que \( h_n\) converge uniformément vers \( \frac{ | f | }{ M }\) dans \( C(X,\eR)\). Étant donné que \( \bar A\) est également une algèbre, \( h_n\) est dans \( \bar A\) pour tout \( n\) et la limite s'y trouve également (pour rappel, la fermeture \( \bar A\) est celle de la topologie de la convergence uniforme).
-
-        \item[Troisième étape] Soit \( \epsilon>0\), \( f\in C(X,\eR)\) et \( x\in X\). Il existe une fonction \( g_x\in \bar A\) telle que
-            \begin{subequations}
-                \begin{numcases}{}
-                    g_x(x)=f(x)\\
-                    g_x(y)\leq f(y)+\epsilon
-                \end{numcases}
-            \end{subequations}
-            pour tout \( y\in X\).
-
-            Soit \( z\in X\setminus\{ x \}\) et une fonction \( h_z\) telle que \( h_z(x)=f(x)\) et \( h_z(z)=f(z)\). Une telle fonction existe par une des étapes précédentes. Étant donné que \( f\) et \( h_z\) sont continues, il existe un voisinage ouvert \( V_z\) de \( z\) sur lequel
-            \begin{equation}
-                h_z(y)\leq f(y)+\epsilon
-            \end{equation}
-            pour tout \( y\in V_z\). Nous pouvons sélectionner un nombre fini de points \( z_1,\ldots, z_n\) tels que les ouverts \( V_{z_1},\ldots, V_{z_n}\) recouvrent \( X\) (parce que \( X\) est compact, de tout recouvrement par des ouverts, nous extrayons un sous recouvrement fini.). Nous posons
-            \begin{equation}
-                g_x=\min(h_{z_1},\ldots, h_{z_n})\in \bar A.
-            \end{equation}
-            Si \( y\in X\), nous sélectionnons le \( i\) tel que \( h_{z_i}(y)\leq f(y)+\epsilon\) et nous avons
-            \begin{equation}
-                g_x(y)\leq h_{z_i}(y)\leq f(y)+\epsilon.
-            \end{equation}
-
-        \item[Étape \wikipedia{fr}{Final_Doom}{finale}] Soit \( \epsilon>0\) et \( f\in C(X,\eR)\). Pour chaque \( x\in X\) nous considérons une fonction \( g_x\in \bar A\) telle que
-            \begin{subequations}
-                \begin{numcases}{}
-                    g_x(x)=f(x)\\
-                    g_x(y)\leq f(y)+\epsilon
-                \end{numcases}
-            \end{subequations}
-            pour tout \( y\in X\). Les fonctions \( f\) et \( g_x\) sont continues, donc il existe un voisinage ouvert \( W_x\) de \( x\) sur lequel
-            \begin{equation}
-                g_x(y)\geq f(y)-\epsilon.
-            \end{equation}
-            De ces \( W_x\) nous extrayons un sous recouvrement fini de \( X\) : \( W_{x_1},\ldots, W_{x_m}\) et nous posons
-            \begin{equation}
-                \varphi=\max(g_{x_1},\ldots, g_{x_n})\in \bar A.
-            \end{equation}
-            Si \( y\in X\), il existe un \( i\) tel que
-            \begin{equation}
-                \varphi(y)\geq g_{x_i}(y)\geq f(y)-\epsilon.
-            \end{equation}
-            La première inégalité est le fait que \( \varphi\) est le maximum des \( g_{x_k}\), et la seconde est le choix de \( i\). Donc pour tout \( y\in X\) nous avons
-            \begin{equation}        \label{EqJMxHaF}
-                f(y)-\epsilon\leq \varphi(y)\leq f(y)+\epsilon.
-            \end{equation}
-            La première inégalité est ce que l'on vient de faire. La seconde est le fait que pour tout \( i\) nous ayons \( g_{x_i}(y)\leq f(y)+\epsilon\); le fait que \( \varphi\) soit le maximum sur les \( i\) ne change pas l'inégalité.
-
-            Le fait que les inégalités \eqref{EqJMxHaF} soient vraies pour tout \( y\in X\) signifie que \( \| \varphi-f \|_{\infty}\leq \epsilon\), et donc que \( f\in \bar{\bar A}=\bar A\).
-    \end{description}
-
-    Tout cela prouve que \( C(X,\eR)\subset \bar A\). L'inclusion inverse est le fait que \( C(X,\eR)\) est fermé pour la norme \( \| . \|_{\infty}\), étant donné qu'une limite uniforme de fonctions continues est continue.
-
-\end{proof}
-
-\begin{corollary}[\cite{MonCerveau}]        \label{CORooNIUJooLDrPSv}
-    Soit \( B\), la boule fermée de centre \( 0\) et de rayon \( 1\) dans \( \eR^n\). La partie \( C^{\infty}(B,\eR^n)\) est dense dans \( \big( C(B,B),\| . \|_{\infty} \big)\).
-\end{corollary}
-
-\begin{proof}
-    Soit \( f \in C(B,B)\) et \( \epsilon>0\). La fonction donnant la composante \( i\) est une fonction \( f_i\in C(B,\eR)\) et il existe donc, par le théorème de Stone-Weierstrass~\ref{ThoWmAzSMF}, une fonction \( g_i\in  C^{\infty}(B,\eR)\) telle que \( \| g_i-f_i \|_{\infty}\leq \epsilon\).
-
-    La fonction \( g\) dont les composantes sont les \( g_i\) ainsi construits vérifie \( \| g-f \|_{\infty}\leq n\epsilon\).
-\end{proof}
-
-Attention toutefois que rien n'assure que les fonctions construites par le corollaire~\ref{CORooNIUJooLDrPSv} prennent leurs valeurs dans \( B\).
-
-Le théorème suivant est un des énoncés les plus classiques de Stone-Weierstrass. Il découle évidemment du théorème général~\ref{ThoWmAzSMF} (encore qu'il faut alors bien comprendre qu'il faut traiter la fonction \( x\mapsto \sqrt{x}\) séparément). Il en existe cependant une preuve indépendante.
-%TODO : trouver cette preuve indépendante.
-\begin{theorem}     \label{ThoGddfas}   \index{théorème!Stone-Weierstrass}
-    Soit \( f\), une fonction continue de l'intervalle compact \( \mathopen[ a , b \mathclose]\) à valeurs dans \( \eR\). Alors pour tout \( \epsilon>0\), il existe un polynôme \( P\) tel que \( \| P-f \|_{\infty}<\epsilon\).
-
-    Autrement dit, les polynômes sont denses dans \( C\mathopen[ a , b \mathclose]\) pour la norme uniforme.
-\end{theorem}
 
 \begin{corollary}   \label{CorRSczQD}
     Si \( X\subset \eR\) est compact et de mesure finie\footnote{Dans \( \eR\) cette hypothèse est évidemment superflue par rapport à l'hypothèse de compacité; mais ça suggère des généralisations \ldots}, alors l'ensemble des polynômes est denses dans \( \big( C(X,\eR),\| . \|_2 \big)\).
@@ -186,57 +19,11 @@ Le théorème suivant est un des énoncés les plus classiques de Stone-Weierstr
     où \( \mu(X)\) est la mesure de \( X\) (finie par hypothèse).
 \end{proof}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Primitive et intégrale}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Primitive de fonction continue}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{proposition}[\cite{MQKDooSuEGxk}]    \label{PropQACVooBnHtRJ}
-    Soit un intervalle compact \( K\) de \( \eR\) et une suite \( (f_n)\) de fonctions continues sur \( K\) telles que \( f_n\stackrel{unif}{\longrightarrow}f\). Si chacune des fonctions \( f_n\) a une primitive sur \( K\) alors \( f\) également.
-\end{proposition}
-
-\begin{proof}
-    Soit \( x_0\in K\) et les primitives \( F_n\) choisies\footnote{Les fonctions \( F_n\) étant dérivables sont continues.} pour avoir \( F_n'f_n\) et \( F_n(x_0)=0\). Nous allons voir que \( (F_n)\) est une suite de Cauchy dans \( \big( K,\| . \|_{\infty} \big)\). Soient \( n,m\in \eN\) et \( x\in K\). Nous avons
-    \begin{subequations}
-        \begin{align}
-            \| F_n-F_m \|_{\infty}&\leq \| F_n(x)-F_m(x) \|\\
-            &=\| (F_n-F_m)(x) \|\\
-            &\leq \| F'_n-F'_m \|_{[x,x_0]}\| x-x_0 \|
-        \end{align}
-    \end{subequations}
-    où nous avons utilisé le théorème des accroissements finis~\ref{ThoNAKKght}. Vu que \( x\in K\) et que \( K\) est borné, \( \| x-x_0 \|\) est majoré par \( \diam(K)\) et
-    \begin{subequations}
-        \begin{align}
-            \| F_n-F_m \|_K\leq \| f_n-f_m \|_K\diam(K).
-        \end{align}
-    \end{subequations}
-    Vu que \( (f_n) \) est de Cauchy, si \( n\) et \( m\) sont assez grands, cela tend vers zéro. La suite \( (F_n)\) converge donc vers une certaine fonction \( F\).
-
-    Le théorème~\ref{ThoSerUnifDerr} nous permet de permuter la limite et la dérivée pour conclure que \( F'=f\) et donc que \( f\) a une primitive sur \( K\).
-\end{proof}
-
-\begin{proposition}[\cite{MQKDooSuEGxk}]        \label{PropKKGAooDQYGKg}
-    Soit un intervalle ouvert \( I\) de \( \eR\) et une fonction \( f\colon I\to \eR\) qui admet une primitive sur tout compact de \( I\). Alors \( f\) a une primitive sur \( I\).
-\end{proposition}
-\index{primitive!de fonction continue}
-
-\begin{proof}
-    Nous considérons une suite exhaustive\footnote{Voir le lemme~\ref{LemGDeZlOo}.} de compacts \( K_n\) pour \( I\) et \( x_0\in K_0\). Nous considérons aussi \( F_n\) la primitive de \( f\) sur \( K_n\) telle que \( F_n(x_0)=0\) (possible parce que \( x_0\in K_n\) pour tout \( n\)). Les fonctions \( F_n\) sont des restrictions les unes des autres, et nous pouvons définir
-    \begin{equation}
-        \begin{aligned}
-            F\colon I&\to \eR \\
-            x&\mapsto F_n(x)\text{ si } x\in K_n.
-        \end{aligned}
-    \end{equation}
-    Nous avons évidemment \( F(x_0)=0\) et nous allons prouver que \( F\) est une primitive de \( f\) sur \( I\). Soit \( x\in I\) vu que \( I\) est ouvert, nous pouvons choisir \( n_0\) tel que \( x\in\Int(K_{n_0})\). Les fonctions \( F\) et \( F_{n_0}\) sont égales sur \( K_n\) et donc sur un ouvert autour de \( x\). Par conséquent \( F\) est dérivable en \( x\) et \( F'(x)=F'_{n_0}(x)=f(x)\).
-\end{proof}
-
-\begin{theorem}    \label{ThoEXXyooCLwgQg}
-    Soit \( I\) un intervalle ouvert de \( \eR\). Une fonction continue sur \( I\) admet une primitive\footnote{Définition~\ref{DefXVMVooWhsfuI}.} sur \( I\).
-\end{theorem}
-
-\begin{proof}
-    Sur chaque compact de \( I\), la fonction \( f\) est limite uniforme de polynômes\footnote{Si tu veux te passer de Stone-Weierstrass, tu peux prouver que toute fonction continue sur un compact est limite uniforme de fonctions affines par morceaux, par exemple. Voir \cite{MQKDooSuEGxk}.} (théorème de Stone-Weierstrass~\ref{ThoGddfas}). Donc \( f\) est primitivable sur tout compact de \( I\) (proposition~\ref{PropQACVooBnHtRJ}) et donc sur \( I\) par la proposition~\ref{PropKKGAooDQYGKg}.
-\end{proof}
+Nous avons déjà parlé de primitive de fonction continue en la proposition \ref{ThoEXXyooCLwgQg}.
 
 \begin{proposition} \label{PropHFWNpRb}
     Soit \( I \) un intervalle borné ouvert de \( \eR\). Une fonction \( h\in C^{\infty}_c(I)\) admet une primitive dans \(  C^{\infty}_c(I)\) si et seulement si \( \int_Ih=0\).
@@ -259,7 +46,7 @@ Le théorème suivant est un des énoncés les plus classiques de Stone-Weierstr
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Théorème taubérien de Hardi-Littlewood}
+\subsection{Théorème taubérien de Hardy-Littlewood}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Un théorème \defe{taubérien}{taubérien}\index{théorème!taubérien} est un théorème qui compare les modes de convergence d'une série.
@@ -402,7 +189,7 @@ La proposition suivante dit que si une fonction connaît un saut, alors on peut 
                 1    &    \text{si } 1/2\leq t\leq 1,
             \end{cases}
         \end{equation}
-        c'est à dire \( g=\mtu_{\mathopen[ \frac{ 1 }{2} , 1 \mathclose]}\). Nous montrons que si \( g\in \gamma\), alors le théorème est terminé. Si \( 0\leq x\leq 1\), on a \( 0\leq x^n<1/2\) dès que
+        c'est-à-dire \( g=\mtu_{\mathopen[ \frac{ 1 }{2} , 1 \mathclose]}\). Nous montrons que si \( g\in \gamma\), alors le théorème est terminé. Si \( 0\leq x\leq 1\), on a \( 0\leq x^n<1/2\) dès que
         \begin{equation}
             n>-\frac{ \ln(2) }{ \ln(x) }
         \end{equation}
@@ -557,7 +344,7 @@ Nous prouvons le théorème pour la norme \( \| . \|_2\).
         \Delta_N(m)=\frac{1}{ \sqrt{2m+1} }\prod_{i=1}^N\left| \frac{ \alpha_i-m }{ \alpha_i+m+1 } \right| .
     \end{equation}
 
-    Nous passons maintenant à la preuve proprement dite. Supposons que \( V=\Span\{ \phi_{\alpha_i},i\in \eN \}\) est dense. Si \( m\) est un des \( \alpha_i\), il peut évidemment être approché par les \( \phi_{\alpha_i}\). Mais vue la densité de \( V\), un \( \phi_m\) avec \( m\neq \alpha_i\) (pour tout \( i\)) alors \( \phi_m\) peut également être arbitrairement approché par les \( \phi_{\alpha_i}\), c'est à dire que
+    Nous passons maintenant à la preuve proprement dite. Supposons que \( V=\Span\{ \phi_{\alpha_i},i\in \eN \}\) est dense. Si \( m\) est un des \( \alpha_i\), il peut évidemment être approché par les \( \phi_{\alpha_i}\). Mais vue la densité de \( V\), un \( \phi_m\) avec \( m\neq \alpha_i\) (pour tout \( i\)) alors \( \phi_m\) peut également être arbitrairement approché par les \( \phi_{\alpha_i}\), c'est-à-dire que
     \begin{equation}
         \lim_{N\to \infty} \Delta_N(m)=0.
     \end{equation}
@@ -585,7 +372,7 @@ Nous prouvons le théorème pour la norme \( \| . \|_2\).
     \begin{equation}
         V=\Span\{ \phi_{\alpha_n}\tq n\in \eN \}.
     \end{equation}
-    Il suffit de prouver que \( \phi_m\in \bar V\) pour tout \( m\) parce qu'un corollaire du théorème de Stone-Weierstrass~\ref{CorRSczQD} montre que \( \Span\{ \phi_k\tq k\in \eN \}\) est dense dans \( C\) pour la norme \( \| . \|_2\).
+    Il suffit de prouver que \( \phi_m\in \bar V\) pour tout \( m\) parce qu'un corolaire du théorème de Stone-Weierstrass~\ref{CorRSczQD} montre que \( \Span\{ \phi_k\tq k\in \eN \}\) est dense dans \( C\) pour la norme \( \| . \|_2\).
 
     Si \( \alpha_n\to \infty\), nous avons :
     \begin{equation}
@@ -611,7 +398,7 @@ Nous prouvons le théorème pour la norme \( \| . \|_2\).
     \begin{equation}        \label{EQooPCSZooUDSzwQ}
         \overline{ \Span\{1, \phi_{\alpha_i} \} }=C\big( \mathopen[ 0 , 1 \mathclose] \big) \Leftrightarrow \sum_{i\geq 1}\frac{1}{ \alpha_i }=+\infty.
     \end{equation}
-    Que penser de la présence explicite du \( 1\) (c'est à dire de \( \phi_0\)) ou non dans l'ensemble ?
+    Que penser de la présence explicite du \( 1\) (c'est-à-dire de \( \phi_0\)) ou non dans l'ensemble ?
 
     Première chose : la présence éventuelle de \( \phi_0\) est la raison pour laquelle nous faisons commencer la somme à \( i=2\) et non \( i=1\). Dans le même ordre d'idée, si $\Span\{ \phi_{\alpha_i} \}$  est dense, alors en prenant n'importe quelle queue de suite, ça reste dense.
 
@@ -739,10 +526,10 @@ Nous allons présenter deux théorèmes donnant la continuité de \( F\).
     Soit \( (\Omega,\mu)\) est un espace mesuré, soit \( x_0\in \eR^m\) et \( f\colon U\times \Omega\to \eR\) où \( U\) est ouvert dans \( \eR^m\). Nous supposons que
     \begin{enumerate}
         \item
-            La fonction \( f(x,.)\) est dans \( L^1(\Omega,\mu)\) pour tout \( x \in \eR^m\).
+            Pour chaque \( x\in \eR^m\), la fonction \( \omega\mapsto f(x,\omega)\) est dans \( L^1(\Omega,\mu)\).
         \item
-            La fonction \( f(.,\omega)\) est continue en \( x_0\) pour tout \( \omega\in\Omega\).
-            %TODO : peut-être qu'on peut dire seulement pour presque tout omege dans Omega, voir la proposition~\ref{prop:fdefint}.
+            Pour chaque \( \omega\in \Omega\), la fonction \( x\mapsto f(x,\omega)\) est continue en \( x_0\).
+            %TODO : peut-être qu'on peut dire seulement pour presque tout omega dans Omega, voir la proposition~\ref{prop:fdefint}.
         \item       \label{ItemNAuYNG}
             Il existe une fonction \( G\in L^1(\Omega)\) telle que
             \begin{equation}
@@ -842,14 +629,14 @@ Déduire la continuité sur un ouvert à partir de l'uniforme convergence sur to
 
 Nous traitons à présent de la dérivabilité de la fonction \( F\) définie comme intégrale de \( f\).
 
-\begin{theorem}[Dérivation sous le signe intégral\cite{MesIntProbb}]    \label{ThoMWpRKYp}
+\begin{theorem}[Dérivation sous le signe intégral, formule de Leibnitz\cite{MesIntProbb,BIBooSNRXooSXmdxt}]    \label{ThoMWpRKYp}
     Soit \( (\Omega,\mu)\) un espace mesuré et une fonction \( f\colon \eR\times \Omega\to \eR\) dont nous voulons étudier la dérivabilité en \(a\in \eR\). Nous supposons qu'il existe \( \delta>0\), \( A\) mesurable de mesure nulle dans \( \Omega\) tels que
     \begin{enumerate}
-        \item
-            \( f(x,.)\) soit dans \( L^1(\Omega)\).
-        \item
+        \item   \label{ITEMooAFVMooAeCEco}
+           Pour tout \( x\in \eR\), la fonction \( \omega\mapsto f(x,\omega)\) soit dans \( L^1(\Omega)\).
+       \item       \label{ITEMooXIZXooGPYFyT}
             L'application \( x\mapsto f(x,\omega)\) est dérivable pour tout \( x\in B(a,\delta)\) et pour tout \( \omega\in \complement A\).
-        \item
+        \item   \label{ITEMooDTTIooWkldfB}
             Il existe une fonction \( G\) intégrable sur \( \Omega\) telle que
             \begin{equation}
                 \left| \frac{ \partial f }{ \partial x }(x,\omega) \right| \leq G(\omega)
@@ -872,36 +659,50 @@ Nous traitons à présent de la dérivabilité de la fonction \( F\) définie co
     \begin{equation}
         \lim_{n\to \infty} \frac{ F(a)-F(x_n) }{ a-x_n }
     \end{equation}
-    existe et ne dépend pas de la suite choisie, alors la fonction \( F\) est dérivable en \( a\) et sa dérivée vaut cette limite. Par linéarité de l'intégrale, nous devons étudier la limite
+    existe et ne dépend pas de la suite choisie, alors la fonction \( F\) est dérivable en \( a\) et sa dérivée vaut cette limite. Autrement dit, nous nous mettons en devoir d'étudier la limite
     \begin{equation}    \label{EqLIiralx}
-        \lim_{n\to \infty} \int_{\Omega}\frac{ f(a,\omega)-f(x_n,\omega) }{ a-x_n }d\omega,
+        \lim_{n\to \infty} \int_{\Omega}\frac{ f(a,\omega)-f(x_n,\omega) }{ a-x_n }d\omega.
     \end{equation}
-    montrer qu'elle existe, ne dépend pas de la suite choisie et vaut \( \int_{\Omega}\partial_xf(a,\omega)d\omega\). Nous sommes donc dans un problème d'inversion de limite et de dérivée pour lequel nous allons utiliser le théorème de la convergence dominée de Lebesgue. D'abord nous posons
-    \begin{equation}    \label{EqAFOUbQB}
-        g_n(\omega)=\frac{ f(x_n,\omega)-f(a,\omega) }{ x_n-a }.
-    \end{equation}
-    Cela est une suite de fonctions dans \( L^1(\Omega)\) parce qu'à la fois \( a\) et \( x_n\) sont dans \( B(a,\delta)\). De plus nous avons
-    \begin{equation}
-        \lim_{n\to \infty} g_n(\omega)=\frac{ \partial f }{ \partial x }(a,\omega)
-    \end{equation}
-    parce que nous savons que \( f\) est dérivable en \( a\) pour tout \( \omega\in\complement A\). En ce qui concerne la majoration de \( g_n\), nous utilisons le théorème des accroissements finis (théorème~\ref{ThoAccFinis}) sur le numérateur de \eqref{EqAFOUbQB}. Pour tout \( n\) et pour tout \( \omega\in \complement A\), il existe un \( \theta_{n,\omega}\) dans \( \mathopen] a , x_n \mathclose[\) tel que
-        \begin{equation}
-            f(x_n,\omega)-f(a,\omega)=\frac{ \partial f }{ \partial x }(\theta_{n,\omega},\omega)(x_n-a),
-        \end{equation}
-        donc
-        \begin{equation}
-            | g_n(\omega) |=\left| \frac{ \partial f }{ \partial x }(\theta_{n,\omega},\omega) \right| \leq G(\omega).
-        \end{equation}
-        La dernière inégalité provient des hypothèses. Le théorème de la convergence dominée de Lebesgue (théorème~\ref{ThoConvDomLebVdhsTf}) nous permet alors de calculer la limite \eqref{EqLIiralx} :
-        \begin{equation}
-            \lim_{n\to \infty} \int_{\Omega}g_n(\omega)d\omega=\int_{\Omega}\lim_{n\to \infty} g_n(\omega)d\omega=\int_{\Omega}\frac{ \partial f }{ \partial x }(a,\omega)d\omega.
-        \end{equation}
-        Notons que l'existence de la dernière intégrale fait partie du théorème de la convergence dominée.
+    montrer qu'elle existe, ne dépend pas de la suite choisie et vaut \( \int_{\Omega}\partial_xf(a,\omega)d\omega\). On y va.
 
-        Nous avons donc prouvé que la limite de gauche existait et ne dépendant pas de la suite choisie. Donc \( F\) est dérivable en \( a\) et la dérivée vaut cette limite :
-        \begin{equation}
-            F'(a)=\int_{\Omega}\frac{ \partial f }{ \partial x }(a,\omega)d\mu(\omega).
-        \end{equation}
+    \begin{subproof}
+        \item[La bonne suite de fonctions]
+            D'abord nous posons
+            \begin{equation}    \label{EqAFOUbQB}
+                g_n(\omega)=\frac{ f(x_n,\omega)-f(a,\omega) }{ x_n-a }.
+            \end{equation}
+            Nous montrons à présent que cette suite vérifie les hypothèses du théorème de la convergence dominée \ref{ThoConvDomLebVdhsTf}.
+            \begin{itemize}
+                \item
+                    Chacune des fonctions \( g_n\) est dans \( L^1(\Omega)\) parce que, \( a\) étant fixé, l'élément \( x_n\) est dans \( B(a,\delta)\setminus\{ a \}\); le dénominateur n'a donc aucun rôle. L'hypothèse \ref{ITEMooAFVMooAeCEco} montre que \( \omega\mapsto f(x_n\omega)\) et \( \omega\mapsto f(a,\omega)\) sont dans \( L^1\). La somme est donc dans \( L^1\) (proposition \ref{PROPooFIYEooCpdmwZ}).
+                \item
+                    Par l'hypothèse \ref{ITEMooXIZXooGPYFyT}, pour chaque \( \omega\) nous avons une fonction dérivable. Nous pouvons donc passer à la limite :
+                    \begin{equation}
+                        \lim_{n\to \infty} g_n(x)=\frac{ \partial f }{ \partial x }(a,\omega).
+                    \end{equation}
+
+                \item
+            
+                    En ce qui concerne la majoration de \( g_n\), nous utilisons le théorème des accroissements finis \ref{ThoAccFinis}\ref{ITEMooXRQKooDBFpdQ}. Pour chaque \( \omega\), ce théorèmes peut être utilisé sur la fonction \( x\mapsto f(x,\omega)\) qui est dérivable. Nous avons :
+                    \begin{equation}
+                        \big| \frac{  f(x_n,\omega)-f(a,\omega)   }{ x_n-a  } \big|\leq \sup_{x\in \mathopen[ a , x_n \mathclose]}| \frac{ \partial f }{ \partial x }(x,\omega) |\leq G(\omega). 
+                    \end{equation}
+                    Nous avons utilisé l'hypothèse \ref{ITEMooDTTIooWkldfB}.
+            \end{itemize}
+            Les hypothèses de la convergence dominée sont satisfaites.
+                
+            \item[Convergence dominée]
+                Le théorème de la convergence dominée de Lebesgue (théorème~\ref{ThoConvDomLebVdhsTf}) nous permet alors de calculer la limite \eqref{EqLIiralx} :
+                \begin{equation}
+                    \lim_{n\to \infty} \int_{\Omega}g_n(\omega)d\omega=\int_{\Omega}\lim_{n\to \infty} g_n(\omega)d\omega=\int_{\Omega}\frac{ \partial f }{ \partial x }(a,\omega)d\omega.
+                \end{equation}
+                Notons que l'existence de la dernière intégrale fait partie du théorème de la convergence dominée.
+
+                Nous avons donc prouvé que la limite de gauche existait et ne dépendant pas de la suite choisie. Donc \( F\) est dérivable en \( a\) et la dérivée vaut cette limite :
+                \begin{equation}
+                    F'(a)=\int_{\Omega}\frac{ \partial f }{ \partial x }(a,\omega)d\mu(\omega).
+                \end{equation}
+    \end{subproof}
 \end{proof}
 
 \begin{theorem}
@@ -937,7 +738,7 @@ En ce qui concerne les fonctions dans \( \eR^n\), il y a les  propositions~\ref{
         \item
             Pour presque tout \( \omega\in\Omega\), la fonction \( f(x,\omega)\) est une fonction absolument continue de \( x\).
         \item
-            La fonction \( \frac{ \partial f }{ \partial x }\) est localement intégrable, c'est à dire que pour tout \( \mathopen[ a , b \mathclose]\subset A\),
+            La fonction \( \frac{ \partial f }{ \partial x }\) est localement intégrable, c'est-à-dire que pour tout \( \mathopen[ a , b \mathclose]\subset A\),
             \begin{equation}
                 \int_a^b\int_{\Omega}\left| \frac{ \partial f }{ \partial x }(x,\omega) \right| d\omega\,dx<\infty.
             \end{equation}
@@ -1091,7 +892,7 @@ Une conséquence de la proposition~\ref{PropDerrSSIntegraleDSD} est que si elle 
 \index{permuter!différentielle et intégrale!\( \eR^n\)}
 
 \begin{proof}
-    En vertu de la proposition~\ref{PropDerrSSIntegraleDSD}, toutes les dérivées partielles de \( F\) sont continues. Cela implique que \( F\) est de classe \( C^1\) par la proposition~\ref{PropDerContCun} et que la différentielle s'écrive en terme des dérivées partielles avec la formule usuelle. Nous avons alors
+    En vertu de la proposition~\ref{PropDerrSSIntegraleDSD}, toutes les dérivées partielles de \( F\) sont continues. Cela implique que \( F\) est de classe \( C^1\) par le théorème \ref{THOooBEAOooBdvOdr} et que la différentielle s'écrive en termes des dérivées partielles avec la formule usuelle. Nous avons alors
     \begin{subequations}
         \begin{align}
             (dF)_a(u)&=\sum_k\frac{ \partial F }{ \partial x_k }(a)u_k\\
@@ -1125,7 +926,7 @@ Un autre théorème tourne autour du pot, et me semble inutile.
 \end{theorem}
 
 \begin{proof}
-    Étant donné que les dérivées partielles de \( F\) en \( a\) existent et sont continues, la proposition~\ref{PropDerContCun} dit que \( F\) est différentiable et que
+    Étant donné que les dérivées partielles de \( F\) en \( a\) existent et sont continues, le théorème \ref{THOooBEAOooBdvOdr} dit que \( F\) est différentiable et que
     \begin{equation}
         dF_a(u)=\sum_{k=1}^n\frac{ \partial F }{ \partial x_k }(a)u_k.
     \end{equation}
@@ -1169,7 +970,7 @@ Notons qu'en passant aux composantes, ce théorème fonctionne tout aussi bien p
     \begin{equation}
         \frac{ \partial^{p-1}g_i }{ \partial x_{i_1}\ldots\partial x_{i_{p-1}} }
     \end{equation}
-    sont continues et \( g_i\) est de classe \( C^{p-1}\) par la proposition~\ref{PropDYKooHvrfGw}.
+    sont continues et \( g_i\) est de classe \( C^{p-1}\) par le théorème \ref{THOooPZTAooTASBhZ}.
 
     En repartant de \eqref{EqZLTooVKmGln} nous avons alors bien ce qui était annoncé :
     \begin{equation}
@@ -1198,7 +999,7 @@ Notons qu'en passant aux composantes, ce théorème fonctionne tout aussi bien p
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Deux théorème de point fixe}
+\section{Deux théorèmes de point fixe}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Nous allons voir Picard. Les autres théorème de point fixe que sont Brouwer, Schauder et Markov-Kakutani sont plus bas\footnote{Dans la section \ref{SECooDWMPooWZgzRZ}.} parce qu'ils utilisent de l'intégration. Voir le thème \ref{THEMEooWAYJooUSnmMh} pour les retrouver.
@@ -1243,7 +1044,7 @@ Nous allons voir Picard. Les autres théorème de point fixe que sont Brouwer, S
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}      \label{DEFooRSLCooAsWisu}
-    Une application \( f\colon (X,\| . \|_X)\to (Y,\| . \|_Y)\) entre deux espaces métriques est une \defe{contraction}{contraction} si elle est \( k\)-\defe{Lipschitz}{Lipschitz} pour un certain \( 0\leq k<1\), c'est à dire si pour tout \( x,y\in X\) nous avons
+    Une application \( f\colon (X,\| . \|_X)\to (Y,\| . \|_Y)\) entre deux espaces métriques est une \defe{contraction}{contraction} si elle est \( k\)-\defe{Lipschitz}{Lipschitz} pour un certain \( 0\leq k<1\), c'est-à-dire si pour tout \( x,y\in X\) nous avons
     \begin{equation}
         \| f(x)-f(y) \|_Y\leq k\| x-y \|_{X}.
     \end{equation}
@@ -1262,7 +1063,7 @@ Nous allons voir Picard. Les autres théorème de point fixe que sont Brouwer, S
         \| x_n-x \|\leq \frac{ k^n }{ 1-k }\| x_n-x_{n-1} \|\leq \frac{ k^n }{ 1-k }\| x_1-x_0 \|.
     \end{equation}
 
-    Soit \( r>0\), \( a\in X\) tels que la fonction \( f\) laisse la boule \( K=\overline{ B(a,r) }\) invariante (c'est à dire que \( f\) se restreint à \( f\colon K\to K\)). Nous considérons les suites \( (u_n)\) et \( (v_n)\) définies par
+    Soit \( r>0\), \( a\in X\) tels que la fonction \( f\) laisse la boule \( K=\overline{ B(a,r) }\) invariante (c'est-à-dire que \( f\) se restreint à \( f\colon K\to K\)). Nous considérons les suites \( (u_n)\) et \( (v_n)\) définies par
     \begin{subequations}
         \begin{numcases}{}
             u_0=v_0\in K\\
@@ -1287,7 +1088,7 @@ La première inégalité \eqref{EqKErdim} donne une estimation de l'erreur calcu
     \end{equation}
     ce qui contredit le fait que \( f\) soit une contraction.
 
-    En ce qui concerne l'existence, notons que si la suite des \( x_n\) converge dans \( X\), alors la limite est un point fixe. En effet en prenant la limite des deux côtés de l'équation \( x_{n+1}=f(x_n)\), nous obtenons \( \xi=f(\xi)\), c'est à dire que \( \xi\) est un point fixe de \( f\). Notons que nous avons utilisé ici la continuité de \( f\), laquelle est une conséquence du fait qu'elle soit Lipschitz. Nous allons donc porter nos efforts à prouver que la suite est de Cauchy (et donc convergente parce que \( X\) est complet). Nous commençons par prouver que \( \| x_{n+1}-x_n \|\leq k^n\| x_0-x_1 \|\). En effet pour tout \( n\) nous avons
+    En ce qui concerne l'existence, notons que si la suite des \( x_n\) converge dans \( X\), alors la limite est un point fixe. En effet en prenant la limite des deux côtés de l'équation \( x_{n+1}=f(x_n)\), nous obtenons \( \xi=f(\xi)\), c'est-à-dire que \( \xi\) est un point fixe de \( f\). Notons que nous avons utilisé ici la continuité de \( f\), laquelle est une conséquence du fait qu'elle soit Lipschitz. Nous allons donc porter nos efforts à prouver que la suite est de Cauchy (et donc convergente parce que \( X\) est complet). Nous commençons par prouver que \( \| x_{n+1}-x_n \|\leq k^n\| x_0-x_1 \|\). En effet pour tout \( n\) nous avons
     \begin{equation}
         \| x_{n+1}-x_n \|=\| f(x_n)-f(x_{n-1}) \|\leq k\| x_n-x_{n-1} \|.
     \end{equation}
@@ -1347,7 +1148,7 @@ Au final l'erreur minimale qu'on peut atteindre est de l'ordre de \( \epsilon\).
     \begin{equation}
         f^p\big( f(x) \big)=f\big( f^p(x) \big)=f(x),
     \end{equation}
-    ce qui prouve que \( f(x)\) est un point fixe de \( f^p\). Par unicité nous avons alors \( f(x)=x\), c'est à dire que \( x\) est également un point fixe de \( f\).
+    ce qui prouve que \( f(x)\) est un point fixe de \( f^p\). Par unicité nous avons alors \( f(x)=x\), c'est-à-dire que \( x\) est également un point fixe de \( f\).
 \end{remark}
 
 Si la fonction n'est pas Lipschitz mais presque, nous avons une variante.
@@ -1477,8 +1278,6 @@ Le théorème de Cauchy-Arzella \ref{ThoHNBooUipgPX} sera pour plus tard parce q
         C'est le fait que \( f\) soit bornée dans le cylindre de sécurité qui fait en sorte que cela tende vers zéro lorsque \( s\to s_0\).
     \end{subproof}
 
-
-
     L'équation \eqref{EqPGLwcL} signifie que \( y\) est un point fixe de \( \Phi\). L'espace \( \mF\) étant complet le théorème de point fixe de Picard (théorème~\ref{ThoEPVkCL}) s'applique. Nous allons montrer qu'il existe un \( p\in\eN\) tel que \( \Phi^p\) soit contractante. Par conséquent \( \Phi^p\) aura un unique point fixe qui sera également unique point fixe de \( \Phi\) par la remarque~\ref{remIOHUJm}.
 
 \item[Contractante]
@@ -1513,7 +1312,7 @@ Le théorème de Cauchy-Arzella \ref{ThoHNBooUipgPX} sera pour plus tard parce q
 
 \item[Conclusion]
 
-    L'unique point fixe de \( \Phi\) est alors l'unique solution continue de l'équation différentielle \eqref{XtiXON}. Par ailleurs l'équation elle-même \( y'=f(t,y)\) demande implicitement que \( y\) soit dérivable et donc continue. Nous concluons que l'unique point fixe de \( \Phi\) est l'unique solution de l'équation différentielle donnée. Cette dernière est automatiquement \( C^1\) parce que si \( y\) est continue alors \( u\mapsto f(u,y(u))\) est continue, c'est à dire que \( y'\) est continue.
+    L'unique point fixe de \( \Phi\) est alors l'unique solution continue de l'équation différentielle \eqref{XtiXON}. Par ailleurs l'équation elle-même \( y'=f(t,y)\) demande implicitement que \( y\) soit dérivable et donc continue. Nous concluons que l'unique point fixe de \( \Phi\) est l'unique solution de l'équation différentielle donnée. Cette dernière est automatiquement \( C^1\) parce que si \( y\) est continue alors \( u\mapsto f(u,y(u))\) est continue, c'est-à-dire que \( y'\) est continue.
 
 \item[Unicité]
 
@@ -1522,7 +1321,7 @@ Le théorème de Cauchy-Arzella \ref{ThoHNBooUipgPX} sera pour plus tard parce q
 
     Nous allons maintenant montrer que pour tout \( t\geq t_0\) pour lequel \( x_1\) ou \( x_2\) est défini, \( x_1(t)\) et \( x_2(t)\) sont définis et sont égaux. Le raisonnement sur \( t\leq t_0\) est similaire.
 
-    Supposons que l'ensemble des \( t\geq t_0\) tels que \( x_1=x_2\) soit ouvert à droite, c'est à dire soit de la forme \( \mathopen[ t_0 ,b [\). Dans ce cas, soit \( x_1\) soit \( x_2\) (soit les deux) cesse d'exister en \( b\). En effet si nous avions les fonctions \( x_i\) sur \(\mathopen[ t_0 , b+\epsilon [\) alors l'équation \( x_1=x_2\) définirait un fermé dans \( \mathopen[ t_0 , b+\epsilon [\). Supposons pour fixer les idées que \( x_1\) cesse d'exister : le domaine de \( x_1\) (parmi les \( t\geq 0\)) est \( \mathopen[ t_0 , b [\) et sur ce domaine nous avons \( x_1=x_2\). Dans ce cas \( x_1\) pourrait être prolongé en \( x_2\) au-delà de \( b\). Si \( x_1\) et \( x_2\) s'arrêtent d'exister en même temps en \( b\), alors nous avons bien \( x_1=x_2\).
+    Supposons que l'ensemble des \( t\geq t_0\) tels que \( x_1=x_2\) soit ouvert à droite, c'est-à-dire soit de la forme \( \mathopen[ t_0 ,b [\). Dans ce cas, soit \( x_1\) soit \( x_2\) (soit les deux) cesse d'exister en \( b\). En effet si nous avions les fonctions \( x_i\) sur \(\mathopen[ t_0 , b+\epsilon [\) alors l'équation \( x_1=x_2\) définirait un fermé dans \( \mathopen[ t_0 , b+\epsilon [\). Supposons pour fixer les idées que \( x_1\) cesse d'exister : le domaine de \( x_1\) (parmi les \( t\geq 0\)) est \( \mathopen[ t_0 , b [\) et sur ce domaine nous avons \( x_1=x_2\). Dans ce cas \( x_1\) pourrait être prolongé en \( x_2\) au-delà de \( b\). Si \( x_1\) et \( x_2\) s'arrêtent d'exister en même temps en \( b\), alors nous avons bien \( x_1=x_2\).
 
     Nous devons donc traiter le cas où \( x_1=x_2\) sur \( \mathopen[ t_0 , b \mathclose]\) alors que \( x_1\) et \( x_2\) existent sur \( \mathopen[ t_0 , b+\epsilon [\) pour un certain \( \epsilon\).
 
@@ -1542,6 +1341,9 @@ Le théorème de Cauchy-Arzella \ref{ThoHNBooUipgPX} sera pour plus tard parce q
 Le théorème de Cauchy-Lipschitz donne existence et unicité d'une solution maximale. Cependant cette solution peut ne pas exister partout où les hypothèses sur \( f\) sont remplies. En d'autres termes, il peut arriver que \( f\) soit Lipschitz jusqu'à \( t_1\), mais que la solution maximale ne soit définie que jusqu'en \( t_2<t_1\). Ce cas fait l'objet du théorème d'explosion en temps fini~\ref{CorGDJQooNEIvpp}.
 
 Sous quelques hypothèses nous pouvons nous assurer de l'existence d'une solution unique sur tout \( \eR\).
+
+
+\ifbool{isGiulietta}{Ce théorème de Cauchy-Lipschitz global est utilisé pour faire le lien entre les représentations des algèbres de Lie et celles du groupe, voir la proposition \ref{PROPooXCGMooKlJlwp}.}{}
 
 \begin{theorem}[Cauchy-Lipschitz global\cite{ooJZJPooAygxpk,KXjFWKA}]       \label{THOooZIVRooPSWMxg}
     Soit un intervalle \( I\) de \( \eR\), \( y_0\in \eR^n\), \( t_0\in I\) et une fonction continue \( f\colon I\times \eR^n\to \eR^n\) telle que pour tout compact \( K\) dans \( I\), il existe \( k>0\) tel que
@@ -1726,7 +1528,7 @@ Le théorème suivant donne une version du théorème de Cauchy-Lipschitz lorsqu
             \Phi(y)(t,\lambda)&=y_0+\int_{t_0}^tf\big( s,y(s,\lambda),\lambda \big)ds.
         \end{aligned}
     \end{equation}
-    Il y a plein de vérifications à faire\cite{ooXVPAooTQUIRw}, mais je parie que \( \Phi\) est bien définie, et que une de ses puissances est une contraction de \( (\mF,\| . \|_{\infty})\). L'unique point fixe est une solution de notre problème et est dans \( C^0\), donc \( (t,\lambda)\mapsto y(t,\lambda)=y_{\lambda}(t)\) est de classe \( C^0\), c'est à dire continue.
+    Il y a plein de vérifications à faire\cite{ooXVPAooTQUIRw}, mais je parie que \( \Phi\) est bien définie, et que une de ses puissances est une contraction de \( (\mF,\| . \|_{\infty})\). L'unique point fixe est une solution de notre problème et est dans \( C^0\), donc \( (t,\lambda)\mapsto y(t,\lambda)=y_{\lambda}(t)\) est de classe \( C^0\), c'est-à-dire continue.
 \end{proof}
 
 \begin{normaltext}
