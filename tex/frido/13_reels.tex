@@ -836,7 +836,7 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eR^+\). Vous 
 \begin{proposition}     \label{PROPooUHKFooVKmpte}
     Soit \( q\in \eQ^+\). Il existe un unique \( r\in \eR\) tel que \( r^2=q\).
     
-    Plus précisément, en termes des notations de \ref{NORMooWBYNooBQaPPk}, pour tout \( q\in \eQ^+\), il existe un unique \( r\in \eR^2\) tel que \( r^2=\varphi(q)\).
+    Plus précisément, en termes des notations de \ref{NORMooWBYNooBQaPPk}, pour tout \( q\in \eQ^+\), il existe un unique \( r\in \eR^+\) tel que \( r^2=\varphi(q)\).
 \end{proposition}
 
 \begin{proof}
@@ -852,7 +852,7 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eR^+\). Vous 
             \begin{equation}        \label{EQooPHLFooAZhebM}
                 r^2=\bar x^2=\overline{ (x_k^2) },
             \end{equation}
-            c'est la classe de la suite de Cauchy donnée par les \( x_k^2\). Posons \( y_k=x_k\); la relation \eqref{EQooPHLFooAZhebM} s'écrit
+            c'est la classe de la suite de Cauchy donnée par les \( x_k^2\). Posons \( y_k=x_k^2\); la relation \eqref{EQooPHLFooAZhebM} s'écrit
             \begin{equation}
                 r^2=\bar y.
             \end{equation}
@@ -867,7 +867,7 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eR^+\). Vous 
             \end{equation}
             Ici tout n'est pas encore terminé avec l'existence parce qu'il faut nous assurer que \( r\geq 0\). Ce n'est pas très compliqué : si \( r<0\), alors nous pouvons faire le choix \( -r\) qui convient tout aussi bien : \( (-r)^2=r^2\).
         \item[Unicité]
-            Supposons \( r_1,r_2\in \eR\) tels que \( r_1^2=r_2^2\). Le lemme \ref{LemooRordonne} dit que \( \eR\) est totalement ordonné; disons pour fixer les idées que \( r1\leq r_2\). Cela signifie, par définition de l'ordre sur \( \eR\), que \( r_2-r_1\geq 0\). En posant \( s=r_2-r_1\) nous avons \( r_2=r_1+s\). Passons au carré; la distribution dans le calcul suivant provient du fait que \( \eR\) est un corps :
+            Supposons \( r_1,r_2\in \eR\) tels que \( r_1^2=r_2^2\). Le lemme \ref{LemooRordonne} dit que \( \eR\) est totalement ordonné; disons pour fixer les idées que \( r_1\leq r_2\). Cela signifie, par définition de l'ordre sur \( \eR\), que \( r_2-r_1\geq 0\). En posant \( s=r_2-r_1\) nous avons \( r_2=r_1+s\). Passons au carré; la distribution dans le calcul suivant provient du fait que \( \eR\) est un corps :
             \begin{equation}
                 r_2^2=(r_1+s)^2=r_1^2+2r_1s+s^2.
             \end{equation}
@@ -875,7 +875,7 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eR^+\). Vous 
             \begin{equation}
                 s(2r_1+s)=0.
             \end{equation}
-            Vu que \( \eR\) est un corps, il est un anneau intègre\footnote{Lemme \ref{LemAnnCorpsnonInterdivzer}.} et la règle du produit nul s'applique : soit \( s=0\), soit \( 2r_2+s=0\). Vu que \( r_2>0\) et que \( s\geq 0\), nous avons \( 2r_2+s>0\) et donc \( s=0\). 
+            Vu que \( \eR\) est un corps, il est un anneau intègre\footnote{Lemme \ref{LemAnnCorpsnonInterdivzer}.} et la règle du produit nul s'applique : soit \( s=0\), soit \( 2r_2+s=0\). Vu que \( r_2>0\) et que \( s\geq 0\), nous avons \( 2r_2+s>0\); donc, c'est le premier facteur qui est nul: \( s=0\). 
 
             Nous en déduisons que \( r_1=r_2\).
     \end{subproof}
