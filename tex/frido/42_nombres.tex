@@ -71,7 +71,7 @@ Une petite définition cependant, que l'on utilisera :
             La fonction \( f\) est une \defe{bijection}{bijection} entre \( A\) et \( B\) si elle est injective et surjective, c'est à dire si pour tout \( y\in B\) il existe un unique \( x\in A\) tel que \( f(x)=y\).
     \end{enumerate}
 \end{definition}
-La méthode la plus courante pour démontrer qu'une application \( f\colon X\to Y\) est injective est de considérer \( x,y\in X\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et obtenir une contradiction. La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=g(x)\) implique une équation faisant intervenir \( 1/(x-y)\).
+La méthode la plus courante pour démontrer qu'une application \( f\colon X\to Y\) est injective est de considérer \( x,y\in X\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et obtenir une contradiction. La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=f(y)\) implique une équation faisant intervenir \( 1/(x-y)\).
 
 La surjection et l'injection sont des propriétés bien différentes qu'il convient de prouver séparément. De plus une même «formule» peut définir une application injective, surjective, bijective ou non selon les ensembles sur lesquels nous la considérons.
 
@@ -86,13 +86,14 @@ La surjection et l'injection sont des propriétés bien différentes qu'il convi
             y&\mapsto \text{le } x\in A\text{ tel que } f(x)=y.
         \end{aligned}
     \end{equation}
-\end{definition}
 
-Plus généralement si \( f\colon X\to Y\) est une application quelconque et si \( S\subset Y\) nous notons
-\begin{equation}
-    f^{-1}(S)=\{ x\in X\tq f(x)\in S \},
-\end{equation}
-et dans le cas où \( S\) est réduit à un unique élément \( y\), nous notons \( f^{-1}(y)\) au lieu de \( f^{-1}\big( \{ y \} \big)\). Si de plus \( f^{-1}(S)\) est un singleton \( x\), nous noterons \( f^{-1}(S)=x\) et non \( f^{-1}(S)=\{ x \}\).
+
+  Plus généralement si \( f\colon X\to Y\) est une application quelconque et si \( S\subset Y\), nous notons
+  \begin{equation}
+      f^{-1}(S)=\{ x\in X\tq f(x)\in S \},
+  \end{equation}
+  et dans le cas où \( S\) est réduit à un unique élément \( y\), nous notons \( f^{-1}(y)\) au lieu de \( f^{-1}\big( \{ y \} \big)\). Si de plus \( f^{-1}(S)\) est un singleton \( x\), nous noterons \( f^{-1}(S)=x\) et non \( f^{-1}(S)=\{ x \}\).
+\end{definition}
 
 Les plus acharnés parmi les lecteurs se rendront compte de la différence ontologique fondamentale entre \( x\) et \( \{ x \}\).
 
@@ -241,9 +242,9 @@ C'est l'ensemble des éléments étant soit dans \( A\) soit dans \( B\) mais pa
 \end{lemma}
 
 \begin{proof}
-    D'abord nous avons l'égalité \( X^c\setminus Y^c=Y\setminus X\). Cela se prouve de façon classique en séparant deux cas selon que \( B\) soit inclus dans \( A\) ou non.
+    D'abord nous avons l'égalité \( X^c\setminus Y^c=Y\setminus X\): en effet, s'il existe un élément dans \(Y\setminus X\), il est dans \(Y \) mais pas dans \(X \), donc il est dans \(X^c \) et il n'est pas dans \(Y^c\), donc il est dans \( X^c\setminus Y^c \). S'il n'existe pas de tel élément, alors tous les éléments de \(Y \) sont dans \(X \), donc tout élément de \(X^c \) sont dans \(Y^c \), et il s'ensuit que \( X^c\setminus Y^c \) ne contient aucun élément non plus.
 
-    De là nous avons la première assertion :
+    De cette égalité d'ensembles, nous avons la première assertion :
     \begin{equation}
         A^c\Delta B^c=(A^c\cup B^c)\setminus(A^c\cap B^c)=(A\cap B)^c\setminus(A\cup B)^c=(A\cup B)\setminus (A\cap B)=A\Delta B.
     \end{equation}
@@ -327,7 +328,7 @@ est bien définie et injective. Elle n'est pas surjective tant que \( f\) ne l'e
 
 Toutes les constructions sont faites dans \cite{RWWJooJdjxEK}. Les résultats énoncés ici sont utilisés plus bas et servent de guide à un éventuel contributeur qui voudrait écrire une partie sur la construction de \( \eN\) et \( \eZ\). Nous espérons que des preuves se trouvent dans \cite{RWWJooJdjxEK}. En tout cas, le lecteur est invité à ne pas les prendre pour évidents.
 
-Nous supposons en particulier que \( \eN\) est construit avec sa relation d'ordre. Voici quelque affirmations que nous admettons.
+Nous supposons en particulier que \( \eN\) est construit avec sa relation d'ordre. Voici quelques affirmations que nous admettons.
 
 \begin{lemma}       \label{LEMooYMRJooYIAhBb}
     Quelques affirmations sur l'ordre dans \( \eN\).
@@ -341,7 +342,7 @@ Nous supposons en particulier que \( \eN\) est construit avec sa relation d'ordr
     \end{enumerate}
 \end{lemma}
 
-Je vous conseille fortement de ne pas considérer ces résultats comme évidents avant d'avoir lu quelques articles de Wikipédia sur la construction des naturels en théorie des ensembles.
+Nous vous conseillons fortement de ne pas considérer ces résultats comme évidents avant d'avoir lu quelques articles de Wikipédia sur la construction des naturels en théorie des ensembles.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Suites}
@@ -373,7 +374,7 @@ Je vous conseille fortement de ne pas considérer ces résultats comme évidents
 \section{Quelques résultats de cardinalité}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Je vous conseille fortement de ne pas considérer les résultats qui viennent comme évidents avant d'avoir lu quelques articles de Wikipédia sur la construction des naturels en théorie des ensembles.
+Quitte à se répéter une fois de plus, nous vous conseillons fortement de ne pas considérer les résultats qui viennent comme évidents avant d'avoir lu quelques articles de Wikipédia sur la construction des naturels en théorie des ensembles.
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Équipotence, surpotence, subpotence}
@@ -409,20 +410,20 @@ Les notions d'équipotence, surpotence et de subpotence permettent de comparer l
                     a    &    \text{sinon } 
                 \end{cases}
             \end{equation}
-            où \( a\) est un élément quelconque de \( A\). Cette application est bien définie parce que \( \varphi\) est injective, de telle sorte que \( \varphi^{-1}\) est bien définie. Vu que \( \varphi\) est définie sur tout \( a\), l'application \( f\) est une surjection.
+            où \( a\) est un élément quelconque de \( A\). Cette application est bien définie parce que \( \varphi\) est injective, de telle sorte que \( \varphi^{-1}\) est bien définie\footnote{Au sens où elle ne retourne qu'un seul élément de \(A\), voir la définition~\ref{DEFooTRGYooRxORpY}.}. Vu que \( \varphi\) est définie sur tout \( A\), l'application \( f\) est une surjection.
         \item[L'autre sens]
-            Nous supposons que \( A\) est surpotent à \( B\). Il existe une surjection \( \varphi\colon A\to B\). Pour chaque \( y\in B\), nous considérons un élément \( a_y\in \varphi^{-1}(y)\). Cela existe parce que \( \varphi\) est surjective\quext{Mais ça demande l'axiome du choix et j'avoue être un peu étonné que ce soit indispensable ici.}. Nous posons alors
+            Nous supposons que \( A\) est surpotent à \( B\). Il existe une surjection \( \psi\colon A\to B\). Pour chaque \( y\in B\), nous considérons un élément \( a_y\in \psi^{-1}(y)\). Cela existe parce que \( \psi\) est surjective\footnote{Mais ça demande l'axiome du choix: imaginez que \(\psi^{-1}(y)\) soit "infini"\dots}. Nous posons alors
             \begin{equation}
                 \begin{aligned}
                     f\colon B&\to A \\
                     y&\mapsto a_y. 
                 \end{aligned}
             \end{equation}
-            Cela est injectif parce que \( f(y_1)=f(y_2)\) implique \( a_{y_1}=a_{y_2}\), c'est à dire que l'intersection \( \varphi^{-1}(y_1)\cap\varphi^{-1}(y_2)\) est non vide. Vu que \( \varphi\) est injective, cela implique que $y_1=y_2$.
+            Cela est injectif parce que \( f(y_1)=f(y_2)\) implique \( a_{y_1}=a_{y_2}\), c'est à dire que l'intersection \( \psi^{-1}(y_1)\cap\psi^{-1}(y_2)\) contient au moins un élément \(a\). Alors, \( y_1 = \psi(a) = y_2\).
     \end{subproof}
 \end{proof}
 
-Vu que l'ensemble des ensembles n'existe pas\footnote{Voir le corolaire \ref{CORooZMAOooPfJosM}.}, nous n'allons pas énoncer le fait que ces notions donnent une relation d'ordre sur les ensembles; il faudrait parler de classes et nous ne nous en sortirions pas. Nous allons toutefois énoncer quelque résultats qui vont dans ce sens. Pour en savoir plus, vous pouvez lire les différentes pages de Wikipédia sur les nombres cardinaux.
+Vu que l'ensemble des ensembles n'existe pas\footnote{Voir le corollaire \ref{CORooZMAOooPfJosM}.}, nous n'allons pas énoncer le fait que ces notions donnent une relation d'ordre sur les ensembles; il faudrait parler de classes et nous ne nous en sortirions pas. Nous allons toutefois énoncer quelque résultats qui vont dans ce sens. Pour en savoir plus, vous pouvez lire les différentes pages de Wikipédia sur les nombres cardinaux.
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Un peu d'infinité}
@@ -433,11 +434,11 @@ Vu que l'ensemble des ensembles n'existe pas\footnote{Voir le corolaire \ref{COR
 \end{definition}
 
 \begin{lemma}[\cite{MonCerveau}\quext{Écrivez-moi si vous connaissez une preuve de ceci.}]       \label{LEMooYHGCooAwsVQN}
-    Soit un ensemble \( E\). Si \( I\) et \( J\) sont deux parties de \( E\) telles que \( I\cup J\) soit infini. Alors soit \( I\) soit \( J\) (soit le deux) est infini.
+    Soit un ensemble \( E\). Si \( I\) et \( J\) sont deux parties de \( E\) telles que \( I\cup J\) est infini, alors soit \( I\) soit \( J\) (soit les deux) est infini.
 \end{lemma}
 
 \begin{proposition}     \label{PROPooBYKCooGDkfWy}
-    L'ensemble \( \eN\) est infini\footnote{Définition \ref{DefEOZLooUMCzZR}.}.
+    L'ensemble \( \eN\) est infini
 \end{proposition}
 
 Cette proposition est à peu près prise comme définition d'un ensemble fini dans \cite{ooVAYLooJxVYex} qui donne également une preuve de l'équivalence avec notre définition. Rien de tout cela n'est évident\quext{Surtout que je n'ai pas défini la notation \( \{ 0,\ldots, N \}\).}
@@ -446,7 +447,7 @@ Cette proposition est à peu près prise comme définition d'un ensemble fini da
 
     Dans ce cas, le nombre \( N+1\) est le \defe{cardinal}{cardinal} de \( I\). 
 \end{propositionDef}
-%TODOooNXZPooIMyiem définir la notation {0,..., N}
+%TODO ooNXZPooIMyiem définir la notation {0,..., N}
 \nomenclature{$\eN_0$}{les naturels non nuls : $\eN_0=\eN\setminus\{ 0 \}$}
 
 Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très compliqué et ça ne nous servira pas.
@@ -457,11 +458,11 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 Une chose vraiment amusante avec cette définition que l'on met en rapport avec la définition~\ref{DefEOZLooUMCzZR}, c'est qu'un ensemble fini n'est ni dénombrable ni non dénombrable\footnote{Beaucoup de sources disent qu'un ensemble est dénombrable lorsqu'il est en bijection avec une partie de \( \eN\). Cela laisse la porte ouverte aux ensembles finis. Par exemple Wikipédia\cite{ooLMVKooUiQUtb}.}.
 
 \begin{lemma}       \label{LEMooGRGFooSWDeMA}
-    Si \( A\) est un ensemble finie et si \( \sigma\colon A\to B\) est une application quelconque, alors \( \sigma(A)\) est fini dans \( B\).
+    Si \( A\) est un ensemble fini et si \( \sigma\colon A\to B\) est une application quelconque, alors \( \sigma(A)\) est fini dans \( B\).
 \end{lemma}
 
 \begin{lemma}       \label{LEMooTUIRooEXjfDY}
-    Toute partie d'une ensemble fini est finie.
+    Toute partie d'un ensemble fini est finie.
 \end{lemma}
 
 \begin{lemma}       \label{LEMooSRZWooASgEfy}
@@ -535,7 +536,7 @@ Une chose vraiment amusante avec cette définition que l'on met en rapport avec 
 \end{proof}
 
 \begin{normaltext}
-    La proposition \ref{PROPooOBKMooWEGCvM} pourrait être prouvée plus facilement en acceptant le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl}. Il existe une injection \( A\to \eN\) parce que \( A\) est une partie de \( \eN\). Mais vu que \( A\) est infini, il possède une partie dénombrable. Cela donne une surjection \( A\to \eN\) et donc une injection \( \eN\to A\). Le théorème de Cantor-Schröder-Bernstein conclu.
+    La proposition \ref{PROPooOBKMooWEGCvM} pourrait être prouvée plus facilement en acceptant le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl}. Il existe une injection \( A\to \eN\) parce que \( A\) est une partie de \( \eN\). Mais vu que \( A\) est infini, il possède une partie dénombrable. Cela donne une surjection \( A\to \eN\) et donc une injection \( \eN\to A\). Le théorème de Cantor-Schröder-Bernstein conclut.
 
     Cela dit, une telle preuve demanderait des outils plus complexes.
 \end{normaltext}
@@ -616,7 +617,7 @@ Sachez que cette fonction s'étend aux ordinaux (mais là ce n'est plus pour rig
 \end{corollary}
 
 \begin{proof}
-    Nous considérons la bijection \( f\colon \eN\to \eN\times \eN\) donnée par (l'inverse de celle donnée) par la proposition \ref{PROPooLPKUooAlsYJg}, et nous posons
+    Nous considérons la bijection \( f\colon \eN\to \eN\times \eN\) donnée par (l'inverse de celle donnée par) la proposition \ref{PROPooLPKUooAlsYJg}, et nous posons
     \begin{equation}
         \eN_i=f^{-1}(i,\eN).
     \end{equation}
@@ -691,7 +692,7 @@ Sachez que cette fonction s'étend aux ordinaux (mais là ce n'est plus pour rig
     \end{equation}
     Donc \( \varphi\colon \eN\to A\) est surjective.
 
-    Le lemme \ref{LEMooDLWFooNAJbbq} conclu que \( A\) est fini ou dénombrable.
+    Grâce au lemme \ref{LEMooDLWFooNAJbbq}, on conclut que \( A\) est fini ou dénombrable.
 \end{proof}
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooRXSRooBUWOyb}
