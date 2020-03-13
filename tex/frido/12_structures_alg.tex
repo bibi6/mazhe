@@ -49,10 +49,14 @@
     \end{enumerate}
 \end{proof}
 
-\begin{definition}\def{DEFGroupeAbelien}
+\begin{definition}\label{DEFGroupeAbelien}
     Un groupe \( G\) est \defe{abélien}{abélien!groupe} ou \defe{commutatif}{commutatif!groupe} si pour tous \( g\) et \( h\) dans \( G\), \( gh=hg\).
 \end{definition}
 
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Morphismes de groupes}
+%---------------------------------------------------------------------------------------------------------------------------
 \begin{lemma}       \label{LEMooBIBFooBHxFYC}
     Si \( G\) est un groupe et si \( h\in G\), alors les applications
     \begin{equation}
@@ -68,20 +72,40 @@
             g&\mapsto gh 
         \end{aligned}
     \end{equation}
-    sont des bijections.
+    sont des bijections (mais ne sont pas des morphismes\footnote{La définition suit ce lemme!} quand \(h \neq e \)).
 \end{lemma}
 
 \begin{proof}
+    Ce ne sont, en effet, pas des morphismes, puisque \(e \) n'est pas envoyé sur \(e \), sauf cas bien particulier\dots\ Montrons à présent que ce sont tout de même des bijections.
+
     D'abord si \( L_h(g_1)=L_h(g_2)\), alors \( hg_1=hg_2\) et en multipliant à gauche par \( h^{-1}\) nous avons \( g_1=g_2\); donc \( L_h\) est injective. Ensuite \( L_h\) est surjective parce que si \( g\in G\), alors \( g=L_h(h^{-1} g)\).
 
     Pour l'application \( R_h\), la preuve est une simple adaptation.
 \end{proof}
 
-Il y a plein de choses à dire sur les groupes: ce sera le chapitre~\ref{CHAPGroupes}.
+\begin{definition}
+    Soit \(G,\ H\) deux groupes, et \(f \) une application de \(G \) dans \(H \). Si \(f \) respecte les structures de groupe, alors \(f \) est appelé un \defe{morphisme de groupes}{morphisme!de groupes} (ou un \emph{homomorphisme de groupes}). Respecter les structures de groupe signifie que:
+    \begin{enumerate}
+    \item \( f(e_G) = e_H \): le neutre de \( G \) est envoyé sur le neutre de \( H \);
+    \item pour tous \(g, g' \in G,\ f(gg') = f(g)f(g')\): l'image d'un produit (dans \(G \)) est le produit (dans \( H \)) des images;
+    \item pour tout \(g \in G,\ f(g^{-1}) = \left(f(g)\right)^{-1}\): l'image de l'inverse d'un élément est l'inverse de l'image de cet élément.
+\end{definition}
+
+\begin{definition}\label{DEFGroupesTypesdeMorphismes}
+Un morphisme injectif s'appelle un \emph{monomorphisme}.
+
+Un morphisme surjectif s'appelle un \emph{épimorphisme}.
+
+Un morphisme bijectif s'appelle un \emph{isomorphisme}.
+
+Les morphismes d'un groupe dans lui-même sont appelés des \emph{endomorphismes}. Quand ils sont bijectifs, on dit que ce sont des \emph{automorphismes}.
+\end{definition}
+
+Il y a plein d'autres choses à dire sur les groupes. On y reviendra entre autres au chapitre~\ref{CHAPGroupes}.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Anneaux}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{definition}[Anneau\cite{Tauvel}]     \label{DefHXJUooKoovob}
     Un \defe{anneau}{anneau}\footnote{Nous faisons le choix qu'un anneau admet toujours un neutre pour la multiplication. Certains ouvrages parlent dans ce cas d'anneau unitaire.} est un triplet \( (A,+,\cdot)\) avec les conditions

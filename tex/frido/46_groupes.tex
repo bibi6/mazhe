@@ -18,7 +18,7 @@ Soit \( G\) un groupe, et \( H\) un sous-ensemble de \( G \).
 \item
 Le \defe{centre}{centre!d'un groupe} d'un groupe \( G\) est l'ensemble des éléments de \( G\) qui commutent avec tous les autres:
 \begin{equation}
-    Z_G=\{ z\in G\tq gz=zg\;\forall g\in G \}.
+    Z_G=\{ g\in G\tq gh=hg\;\forall g\in G \}.
 \end{equation}
 
 \item
@@ -30,7 +30,7 @@ C'est l'ensemble des éléments de \( G\) qui commutent avec \( g\).
 
 \item    Le \defe{centralisateur}{centralisateur} de \( H\subset G\) est
     \begin{equation}
-        Z_G(H)=\{ g\in G\tq hg=gh\,\forall h\in H\};
+        Z_G(H)=\{ g\in G\tq gh=hg\,\forall h\in H\};
     \end{equation}
     il contient donc tous les éléments de \( G\) qui commutent avec ceux de \( H\).
 \end{enumerate}
@@ -62,7 +62,7 @@ Les définitions précédentes ont un certain lien entre elles; en effet:
 \end{remark}
 
 \begin{definition}      \label{DEFooUXXTooCCLmQe}
-    Un sous-groupe \( H\) de \( G\) est un sous-groupe \defe{caractéristique}{sous-groupe!caractéristique}\index{caractéristique!sous-groupe} si \( \alpha(H)=H\) pour tout \( \alpha\in \Aut(G)\).
+    Un sous-groupe \( H\) de \( G\) est un sous-groupe \defe{caractéristique}{sous-groupe!caractéristique}\index{caractéristique!sous-groupe} s'il est stable pour tous les automorphismes\footnote{Définition \ref{DEFGroupesTypesdeMorphismes}.} de \(G \); en d'autres termes, un sous-groupe caractéristique \(H \) de \(G \) vérifie \( \alpha(H)=H\) pour tout \( \alpha\in \Aut(G)\).
 \end{definition}
 
 \begin{definition}[Groupe simple]   \label{DefGroupeSimple}
@@ -147,7 +147,7 @@ Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe
     Un élément \( a\in G\) est un \defe{générateur}{générateur} de \( G\) si tous les éléments de \( G\) s'écrivent sous la forme \( a^n\) pour un certain \( n\in\eZ\). Un groupe fini et monogène est dit \defe{cyclique}{groupe cyclique}.
 \end{definition}
 
-\begin{definition}
+\begin{example}
     Soit le groupe \( \big( \eZ/10\eZ,+ \big)\). L'élément \( [2]_{10}\) n'est pas générateur parce que ses puissances\footnote{Attention aux notations; en général on écrit la loi de groupe de façon multiplicative et on parle des puissances d'un élément, mais ici on écrit la loi de groupe additivement, donc les «puissances» sont en réalité les multiples.} sont
     \begin{equation}
         \gr([2]_{10})=\{ [2]_{10},[4]_{10},[6]_{10},[8]_{10},[0]_{10} \}.
@@ -156,7 +156,7 @@ Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe
     \begin{equation}
         [3]_{10}, [6]_{10}, [9]_{10}, [2]_{10}, [5]_{10}, [8]_{10},[1]_{10},[4]_{10},[7]_{10},[0]_{10}.
     \end{equation}
-\end{definition}
+\end{example}
 
 Un exemple presque identique, mais un peu masqué sera l'exemple \ref{EXooOXAAooZMdDfP}.
 
@@ -205,7 +205,7 @@ Un exemple presque identique, mais un peu masqué sera l'exemple \ref{EXooOXAAoo
     s'il existe; dans le cas contraire, nous disons que l'ordre de \( g\) est infini.
     \end{enumerate}
 \end{definition}
-Nous verrons que le corolaire~\ref{CorpZItFX} au théorème de Lagrange dira que l'ordre d'un élément divise l'ordre du groupe.
+Nous verrons que le corollaire~\ref{CorpZItFX} au théorème de Lagrange dira que l'ordre d'un élément divise l'ordre du groupe.
 
 \begin{lemma}[\cite{PDFpersoWanadoo}]\label{LemHUkMxp}
     Si \( H\) et \( K\) sont normaux dans le groupe \( G\) et si \( H\cap K=\{ e \}\) alors \( HK\simeq H\times K\).
