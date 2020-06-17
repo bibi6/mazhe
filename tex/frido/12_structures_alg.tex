@@ -53,6 +53,28 @@
     Un groupe \( G\) est \defe{abélien}{abélien!groupe} ou \defe{commutatif}{commutatif!groupe} si pour tous \( g\) et \( h\) dans \( G\), \( gh=hg\).
 \end{definition}
 
+%-----------------------------------
+\subsection{Puissances dans un groupe}
+%---------------------------------------
+
+Voici une première définition de la fonction puissance. Il y en aura d'autres, de plus en plus générales. Voir le thème \ref{THEMEooBSBLooWcaQnR}.
+\begin{definition}\label{DEFooGVSFooFVLtNo}
+    Si \( G\) est un groupe (multiplicatif), si \( a\in G\) et si \( n\in \eN\), nous définissons \( a^n\) par récurrence :
+    \begin{enumerate}
+        \item
+            \( a^0=1\) (le neutre),
+        \item       \label{ITEMooOUIPooGjAgQb}
+            \( a^{k+1}=a\cdot a^{k}\).
+    \end{enumerate}
+\end{definition}
+
+Le lemme suivant dit que le point \ref{ITEMooOUIPooGjAgQb} de la définition \ref{DEFooGVSFooFVLtNo} aurait pu être écrit \( a^k\cdot a\) au lieu de \( a\cdot a^k\).
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooWPARooYLZlzr}
+    Si \( A\) est un anneau, si \( a\in A\) et si \( n\in \eN\), alors
+    \begin{equation}
+        a^n=a\cdot a^{n-1}=a^{n-1}\cdot a.
+    \end{equation}
+\end{lemma}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Morphismes de groupes}
@@ -89,6 +111,7 @@
     \item \( f(e_G) = e_H \): le neutre de \( G \) est envoyé sur le neutre de \( H \);
     \item pour tous \(g, g' \in G,\ f(gg') = f(g)f(g')\): l'image d'un produit (dans \(G \)) est le produit (dans \( H \)) des images;
     \item pour tout \(g \in G,\ f(g^{-1}) = \left(f(g)\right)^{-1}\): l'image de l'inverse d'un élément est l'inverse de l'image de cet élément.
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}\label{DEFGroupesTypesdeMorphismes}
@@ -107,6 +130,9 @@ Il y a plein d'autres choses à dire sur les groupes. On y reviendra entre autre
 \section{Anneaux}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+\subsection{Définitions et les bases}
+%--------------------------------------
+
 \begin{definition}[Anneau\cite{Tauvel}]     \label{DefHXJUooKoovob}
     Un \defe{anneau}{anneau}\footnote{Nous faisons le choix qu'un anneau admet toujours un neutre pour la multiplication. Certains ouvrages parlent dans ce cas d'anneau unitaire.} est un triplet \( (A,+,\cdot)\) avec les conditions
     \begin{enumerate}
@@ -119,16 +145,19 @@ Il y a plein d'autres choses à dire sur les groupes. On y reviendra entre autre
     \end{enumerate}
 \end{definition}
 
-\begin{definition}[Morphisme d'anneaux\cite{ooZRUJooXyxPqQ}]      \label{DEFooSPHPooCwjzuz}
-    Si \( (A,+,\cdot)\) et \( (B,+,\cdot)\) sont des anneaux, un \defe{morphisme d'anneaux}{morphisme!d'anneaux} est une application \( f\colon A\to B\) telle que
-    \begin{enumerate}
-        \item \( f(a+b)=f(a)+f(b)\)
-        \item
-            \( f(a\cdot b)=f(a)\cdot f(b)\)
-        \item
-            \( f(1)=1\).
-    \end{enumerate}
-    Étant bien entendu que les significations de \( 1\), $+$ et \( \cdot\) sont différentes à gauche et à droite.
+\begin{definition}
+    Le \defe{centralisateur}{centralisateur} de \( x\in A\) dans \( A\) est l'ensemble
+    \begin{equation}
+        \{ y\in A\tq xy=yx \},
+    \end{equation}
+    le \defe{centre}{centre!d'un anneau} de \( A\) est
+    \begin{equation}
+        \{ y\in A\tq xy=yx,\forall x\in A \}.
+    \end{equation}
+\end{definition}
+
+\begin{definition}
+    Nous disons que \( A\) est un \defe{anneau commutatif}{anneau commutatif} si pour tout \( a,b\in A\) nous avons \( ab=ba\).
 \end{definition}
 
 \begin{lemma}       \label{LEMooVUSMooWisQpD}
@@ -150,6 +179,7 @@ Il y a plein d'autres choses à dire sur les groupes. On y reviendra entre autre
     Supposons par contraposée que dans un anneau $A$, \( 1 = 0 \). Alors, pour tout \( a \in A \), on a \( a = 1a = 0a = (1 - 1)a = a - a=0 \), d'où l'on déduit \( -a = 0  \) et par suite, \( a = 0. \)
 \end{proof}
 
+\begin{normaltext}
 Soit \( X\) un ensemble et un anneau $(A, +, \times)$. Nous considérons \( \Fun(X,A)\)\nomenclature[A]{\( \Fun(X,Y)\)}{les applications de \( X\) vers \( Y\)} l'ensemble des applications \( X\to A\). Cet ensemble devient un anneau avec les définitions
 \begin{subequations}
     \begin{align}
@@ -158,24 +188,40 @@ Soit \( X\) un ensemble et un anneau $(A, +, \times)$. Nous considérons \( \Fun
     \end{align}
 \end{subequations}
 Cela est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \( \Fun(X,A)\).
+\end{normaltext}
 
-\begin{definition}
-    Le \defe{centralisateur}{centralisateur} de \( x\in A\) dans \( A\) est l'ensemble
-    \begin{equation}
-        \{ y\in A\tq xy=yx \},
-    \end{equation}
-    le \defe{centre}{centre!d'un anneau} de \( A\) est
-    \begin{equation}
-        \{ y\in A\tq xy=yx,\forall x\in A \}.
-    \end{equation}
+
+\subsection{Morphismes d'anneaux, sous-anneaux, idéaux}
+%------------------------------------------------------
+
+\begin{definition}[Morphisme d'anneaux\cite{ooZRUJooXyxPqQ}]      \label{DEFooSPHPooCwjzuz}
+    Si \( (A,+,\cdot)\) et \( (B,+,\cdot)\) sont des anneaux, un \defe{morphisme d'anneaux}{morphisme!d'anneaux} est une application \( f\colon A\to B\) telle que
+    \begin{enumerate}
+        \item \( f(a+b)=f(a)+f(b)\)
+        \item
+            \( f(a\cdot b)=f(a)\cdot f(b)\)
+        \item
+            \( f(1)=1\).
+    \end{enumerate}
+    Étant bien entendu que les significations de \( 1\), $+$ et \( \cdot\) sont différentes à gauche et à droite.
 \end{definition}
 
-\begin{definition}
-    Nous disons que \( A\) est un \defe{anneau commutatif}{anneau commutatif} si pour tout \( a,b\in A\) nous avons \( a+b=b+a\).
-\end{definition}
+Remarquons que si \( f\) est un morphisme, nous avons \( f(0)=0\) et \( f(x)^{-1}=f(x^{-1})\).
 
 \begin{definition}
     Un \defe{isomorphisme d'anneaux}{isomorphisme!d'anneaux} est un morphisme bijectif.
+\end{definition}
+
+\begin{definition}  \label{DefAJVTPxb}
+    Un sous-ensemble \( B\subset A\) d'un anneau est un \defe{sous anneau}{sous anneau} si
+    \begin{enumerate}
+        \item
+            \( 1\in B\)
+        \item
+            \( B\) est un sous-groupe pour l'addition
+        \item
+            \( B\) est stable pour la multiplication.
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}[Idéal dans un anneau]  \label{DefooQULAooREUIU}
@@ -189,6 +235,18 @@ Cela est la \defe{structure canonique}{structure d'anneau canonique} d'anneau su
 
     Lorsqu'un ensemble est idéal à gauche et à droite, nous disons que c'est un \defe{idéal bilatère}{idéal!bilatère}. Lorsque nous parlons d'idéal sans précisions, nous parlons d'idéal bilatère.
 \end{definition}
+
+\begin{remark}
+    Un idéal n'est pas toujours un anneau parce que l'identité pourrait manquer. Un idéal qui contient l'identité est l'anneau complet.
+\end{remark}
+
+\begin{definition}[Idéal engendré par un élément]  \label{DefSKTooOTauAR}
+    Si \( p\) est un élément d'un anneau \( A\) alors nous notons \( (p)\)\nomenclature[A]{\( (p)\)}{idéal engendré par \( p\)}\index{engendré!idéal dans un anneau} l'idéal dans \( A\) \defe{engendré}{engendré} par \( p\), c'est-à-dire \( pA\).
+\end{definition}
+
+\begin{example}
+    L'ensemble \( 2\eZ\) est un idéal de \( \eZ\). On peut aussi le noter \( (2) \).
+\end{example}
 
 \begin{propositionDef}      \label{PROPooGXMRooTcUGbi}
     Soit \( A\), un anneau, \( I\) un idéal bilatère\footnote{Définition~\ref{DefooQULAooREUIU}.} de \( A\). Nous considérons la relation d'équivalence \( x\sim y\) si et seulement si \( x-y\in I\). Sur le quotient\footnote{Définition \ref{DEFooRHPSooHKBZXl}.}
@@ -261,6 +319,57 @@ Cela est la \defe{structure canonique}{structure d'anneau canonique} d'anneau su
     \end{subproof}
 \end{proof}
 
+\begin{proposition}[Premier théorème d'isomorphisme pour les anneaux]
+    Soient \( A\) et \( B\) des anneaux et un homomorphisme \( f\colon A\to B\). Nous considérons l'injection canonique \( j\colon f(A)\to B\) et la surjection canonique \( \phi\colon A\to A/\ker f\). Alors il existe un unique isomorphisme
+    \begin{equation}
+        \tilde f \colon A/\ker f\to f(A)
+    \end{equation}
+    tel que \( f=j\circ\tilde f\circ\phi\).
+
+    \begin{equation}
+        \xymatrix{%
+        A \ar[r]^{f}\ar[d]_{\phi}        &   B\ar[d]^{j}\\
+           A/\ker f \ar[r]_{\tilde f}   &   f(A)\subset B
+           }
+    \end{equation}
+\end{proposition}
+\index{théorème!isomorphisme!premier!pour les anneaux}
+
+\begin{proposition}     \label{PropIJJIdsousphi}
+    Soient \( I\) un idéal de \( A\) et la projection canonique
+    \begin{equation}
+        \phi\colon A\to A/I.
+    \end{equation}
+    Elle est une bijection entre les idéaux de \( A\) contenant \( I\) et les idéaux de \( A/I\).
+
+    Dit de façon imagée :
+    \begin{equation}        \label{EqKbrizu}
+        \{ \text{idéaux de } A\text{ contenant } I\}\simeq\{ \text{idéaux de } A/I \}.
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Si \( I\subset J\) et si \( J \) est un idéal de \( A\), alors \( \phi(J)\) est un idéal dans \( A/I\). En effet un élément de \( \phi(J)\) est de la forme \( \phi(j)\) et un élément de \( A/I\) est de la forme \( \phi(i)\). Leur produit vaut
+    \begin{equation}
+        \phi(i)\phi(j)=\phi(ij)\in\phi(J).
+    \end{equation}
+
+    Soit maintenant \( K\) un idéal dans \( A/I\) et soit \( J=\phi^{-1}(K)\). Étant donné qu'un idéal doit contenir \( 0\) (parce qu'un idéal est un groupe pour l'addition), \( [0]\in K\) et par conséquent \( I\subset\phi^{-1}(K)\).
+\end{proof}
+% TODO : il faudrait dire à peu près ici qu'une des utilités de Z_2 est le groupe modulaire PSL(2,Z)=SL(2,Z)/Z_2
+
+
+
+\subsection{Diviseurs dans un anneau}
+%------------------------------------
+
+\begin{definition}[Diviseurs dans un anneau]\label{DiviseursAnneau}
+	Soient \( a, b \in A \). On dit que $a$ divise $b$, ou que $a$ est un \defe{diviseur (à gauche)}{diviseur!dans un anneau} de $b$ s'il existe \( c \in A \) tel que \( ac = b \). On dit que c'est un diviseur de $b$ à droite si \( ca = b \) pour un certain \( c \in A \).
+	
+	Quand $a$ divise $b$, on note \( a\divides b\).
+	
+	 Si \( S\) est une partie de \( A\), nous notons \( a\divides S\) pour exprimer que \( a\divides x\) pour tout \( x\in S\); de la même façon, \( S\divides b\) signifie que \( x\divides b\) pour tout \( x\in S\).
+\end{definition}
 
 \begin{definition}\label{DefrYwbct}
     Soient \( A\) un anneau commutatif et \( S\subset A\). Nous disons que \( \delta\in A\) est un \defe{PGCD}{pgcd!dans un anneau intègre} de \( S\) si
@@ -273,9 +382,9 @@ Cela est la \defe{structure canonique}{structure d'anneau canonique} d'anneau su
     Nous disons que \( \mu\in A\) est un \defe{PPCM}{ppcm!dans un anneau intègre} de \( S\) si
     \begin{enumerate}
         \item
-            \( S\divides \mu\),
+            tous les éléments de \( S\) divisent \( \mu\),
         \item
-            si \( S\divides m\), alors \( \mu\divides m\).
+            si tous les éléments de \( S\) divisent un élément \( m \in A\) , alors \( \mu \) divise aussi \( m\).
     \end{enumerate}
 \end{definition}
 
@@ -287,35 +396,14 @@ Cela est la \defe{structure canonique}{structure d'anneau canonique} d'anneau su
     Pour l'unicité dans \( \eZ\), voir \ref{LEMooBJVJooFyuFeN}.
 \end{remark}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Les entiers}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+La définition de pgcd et ppcm dans un anneau commutatif est la définition \ref{DefrYwbct}. Dans la plus grande tradition, elle a été introduite sans motivations, et utilisée par-ci par-là. Nous revenons maintenant dessus.
 
-\begin{lemma}       \label{LEMooMYEIooNFwNVI}
-    Toute partie bornée de \( \eZ\) possède un plus grand élément.
-\end{lemma}
-
-\begin{proposition}     \label{PROPooYJBMooZrzkNX}
-    Soit \( a,b\in \eZ\) tels que \( a\) divise \( b\). Alors \( a\leq b\).
-\end{proposition}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Quelques autres résultats}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous supposons ici connaitre, et avoir démontré les rudiments du calcul dans \( \eN\) et \( \eZ\), en particulier les produits remarquables.
-
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Anneau intègre}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}[Diviseurs dans un anneau]\label{DiviseursAnneau}
-	Soient \( a, b \in A \). On dit que $a$ divise $b$, ou que $a$ est un \defe{diviseur (à gauche)}{diviseur!dans un anneau} de $b$ s'il existe \( c \in A \) tel que \( ac = b \). On dit que c'est un diviseur de $b$ à droite si \( ca = b \) pour un certain \( c \in A \).
-\end{definition}
-Un cas particulier est le cas des diviseurs de zéro. L'absence de tels diviseurs dans un anneau est une propriété intéressante: on dit dans ce cas que l'anneau est intègre. Nous étudions ces anneaux plus en détail en section~\ref{SECAnneauxIntegres}.
-
+\begin{definition}
 Un élément \( a\in A\) est \defe{régulier à droite}{régulier à droite} si \( ba=0\) implique \( b=0\). Il est régulier à gauche si \( ab=0\) implique \( b=0\).
+\end{definition}
+
+\subsection{Nilpotents, unipotents, inversibles}
+%----------------------------------------------
 
 \begin{definition}[Éléments nilpotents, unipotents et inversibles]
 	On dit que \( a \in A \) est \defe{nilpotent}{nilpotent} s'il existe \( n \in \eN \) tel que \( a^n = 0 \). Il est dit \defe{unipotent}{unipotent} si \( a-1\) est nilpotent, c'est-à-dire si \( (a-1)^n =0\) pour un certain \( n \in \eN \).
@@ -325,12 +413,51 @@ Un élément \( a\in A\) est \defe{régulier à droite}{régulier à droite} si 
 
 L'ensemble \( U(A)\)\nomenclature[A]{\( U(A)\)}{ensemble des inversibles} des éléments inversibles de \( A\) est un groupe pour la multiplication. Nous notons \( A^*=A\setminus\{ 0 \}\).
 
+\begin{lemma}
+    Si \( a\) et \( b\) commutent, nous avons, pour tout \( r \in \eN \) et \( r > 0\), la formule
+    \begin{equation}        \label{Eqarpurmkbk}
+        a^{r+1}-b^{r+1}=(a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+  Démontrons cela par récurrence. Le cas \( r = 0 \) est évident. Pour
+  un \( r \) donné, si \eqref{Eqarpurmkbk} est vraie, alors
+  \begin{align*}
+    a^{r+2}-b^{r+2}&= a^{r+1}a - a^{r+1}b +a^{r+1}b - b^{r+1}b\\
+    &= a^{r+1}(a - b) + (a^{r+1} - b^{r+1})b\\
+    &= a^{r+1}(a - b) + (a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right)b\\
+    &= (a - b) \left(a^{r+1} + \left(\sum_{k=0}^ra^{r-k}b^k\right)b\right)\\
+    &= (a - b) \left(a^{r+1} + \sum_{k=0}^ra^{r-k}b^{k + 1}\right)\\
+    &= (a - b) \left(a^{r+1} + \sum_{k'=1}^{r+1}a^{(r+1)-k'}b^{k'}\right)\\
+    &= (a - b) \left(\sum_{k'=0}^{r+1}a^{(r+1)-k'}b^{k'}\right).
+  \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Si \( a\) est un élément nilpotent de l'anneau \( A\), alors \( 1-a\) est inversible. Si \( a\) est nilpotent non nul, alors il est diviseur de zéro.
+\end{proposition}
+
+\begin{proof}
+    Soit \( n\) le minimum tel que \( a^n=0\). En vertu de la formule \eqref{Eqarpurmkbk} nous avons
+    \begin{equation}
+        1=1-a^n=(1-a)(1+a+\cdots+a^{n-1})=(1+a+\cdots+a^{n-1})(1-a).
+    \end{equation}
+    La somme \( 1+a+\cdots+a^{n-1}\) est donc un inverse de \( (1-a)\).
+\end{proof}
+
+
+\subsection{Diviseurs de zéro et intégrité}
+%--------------------------------------------
+
 Conformément à la définition \ref{DiviseursAnneau} de diviseur, nous posons la définition suivante pour les diviseurs de zéro.
 \begin{definition}[\cite{ooTNKJooSCSCZQ}]
     Un élément \( a\neq 0\) est un \defe{diviseur de zéro à gauche}{diviseur!de zéro} s'il existe \( x\neq 0\) tel que $xa=0$. L'élément \( a\) est un diviseur de zéro \defe{à droite}{diviseur!de zéro à droite} s'il existe \( b\) tel que \( ab=0\).
 
     Nous disons que \( a\) est un \defe{diviseur de zéro}{diviseur de zéro} si il est un diviseur de zéro à gauche ou à droite.
 \end{definition}
+
+L'absence de tels diviseurs dans un anneau est une propriété intéressante: on dit dans ce cas que l'anneau est intègre. Nous étudions ces anneaux plus en détail en section~\ref{SECAnneauxIntegres}. D'ores et déjà, soulignons des propriétés équivalentes.
 
 \begin{propositionDef}[\cite{MonCerveau}]           \label{DEFooTAOPooWDPYmd}
     Soit $A$ un anneau non réduit à \( \{ 0 \}\). Les assertions suivantes sont équivalentes:
@@ -351,16 +478,45 @@ Conformément à la définition \ref{DiviseursAnneau} de diviseur, nous posons l
     \begin{subproof}
         \item[\ref{ITEMooMXMKooXMYpkN} implique \ref{ITEMooLAJCooFwxXrV}]
 
-            Si \( ab=0\) avec \( a,b\neq 0\) alors \( a\) est un diviseur de zéro. Vu que nous supposons que \( A\) n'a pas de diviseurs de zéros, soit \( a\) soi \( b\) est nul.
+            Si \( ab=0\) avec \( a,b\neq 0\) alors \( a\) est un diviseur de zéro. Vu que nous supposons que \( A\) n'a pas de diviseurs de zéro, soit \( a\) soit \( b\) est nul.
         \item[\ref{ITEMooLAJCooFwxXrV} implique \ref{ITEMooQNTFooSRrVPK}]
 
-            Si \( ab=ac\), alors \( a(b-c)=0\) et l'hypothèse dit que soit \( a=0\), soit \( b-c=0\). Donc si \( a\neq 0\), alors \( b-c=0\).
+            Si \( ab=ac\), alors \( a(b-c)=0\) et l'hypothèse dit que soit \( a=0\), soit \( b-c=0\). Donc si \( a\neq 0\), alors \( b-c=0\), et donc \( b = c \).
         \item[\ref{ITEMooQNTFooSRrVPK} implique \ref{ITEMooMXMKooXMYpkN}]
             Si \( A=\{ 0 \}\), le point \ref{ITEMooQNTFooSRrVPK} n'est pas applicable.
 
             Si \( a\neq 0\) et \( xa=0\), alors nous avons aussi \( xa=0\times a\). Par propriété de simplification, \( x=0\). Donc \( a\) n'est pas un diviseur de zéro à gauche. Nous prouvons de la même façon qu'il n'y a pas de diviseurs de zéro à droite.
     \end{subproof}
 \end{proof}
+
+Voici une autre vision de la divisibilité dans les anneaux intègres.
+\begin{proposition}\label{PropDiviseurIdeaux}
+    Dans un anneau intègre\footnote{Définition \ref{DEFooTAOPooWDPYmd}.} $A$, on a l'équivalence suivante concernant deux éléments \( a, b \in A \):
+\begin{equation}
+    a\divides b\Leftrightarrow (b)\subset (a).
+\end{equation}
+\end{proposition}
+
+Dans les anneaux intègres; la divisibilité devient en réalité une relation d'ordre dont nous pouvons chercher un maximum et un minimum.
+
+\begin{lemma}[\cite{ooLIOMooBuCPUS}]
+    Les éléments inversibles d'un anneau sont diviseurs de tous les éléments.
+\end{lemma}
+
+\begin{proof}
+    Soit \( k\) inversible d'inverse \( k'\) : \( kk'=1\); soit aussi \( a\in A\). Alors \( a=k(k'a)\), ce qui montre que \( k\) divise \( a\).
+\end{proof}
+
+\begin{lemma}[\cite{ooLIOMooBuCPUS}]
+    Dans un anneau, \( 1\) est un pgcd de \( a\) et \( b\) si et seulement si les seuls diviseurs communs sont les inversibles.
+\end{lemma}
+
+\begin{proof}
+    Supposons pour commencer que \( 1\) est un pgcd de \( a\) et \( b\). Un diviseur commun de \( a\) et \( b\) doit donc diviser \( 1\). Or un diviseur de \( 1\) est forcément inversible.
+
+    Dans l'autre sens, les diviseurs communs de \( a\) et \( b\) sont tous inversibles et donc diviseurs de \( 1\). Donc \( 1\) est un pgcd de \( a\) et \( b\).
+\end{proof}
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Somme à valeurs dans un groupe abélien}
@@ -485,36 +641,13 @@ Dans le même ordre d'idée, pour le produit.
     \end{equation}
 \end{proposition}
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Fonction puissance}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Voici une première définition de la fonction puissance. Il y en aura d'autres, de plus en plus générales. Voir le thème \ref{THEMEooBSBLooWcaQnR}.
-\begin{definition}\label{DEFooGVSFooFVLtNo}
-    Si \( A\) est un anneau, si \( a\in A\) et si \( n\in \eN\), nous définissons \( a^n\) par récurrence :
-    \begin{enumerate}
-        \item
-            \( a^0=1\) (l'unité pour la multiplication dans \( A\)),
-        \item       \label{ITEMooOUIPooGjAgQb}
-            \( a^{k+1}=a\cdot a^{k}\).
-    \end{enumerate}
-\end{definition}
-
-Le lemme suivant dit que le point \ref{ITEMooOUIPooGjAgQb} de la définition \ref{DEFooGVSFooFVLtNo} aurait pu être écrit \( a^k\cdot a\) au lieu de \( a\cdot a^k\).
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooWPARooYLZlzr}
-    Si \( A\) est un anneau, si \( a\in A\) et si \( n\in \eN\), alors
-    \begin{equation}
-        a^n=a\cdot a^{n-1}=a^{n-1}\cdot a.
-    \end{equation}
-\end{lemma}
-
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Corps}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Définitions, morphismes}
+\subsection{Définitions, et lien avec les anneaux}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[\cite{ooLKFGooTUrnhx}]  \label{DefTMNooKXHUd}
@@ -550,6 +683,29 @@ La proposition suivante donne une caractérisation d'un corps, en disant un tout
     Soit un produit nul \( ab=0\). Si \( a\neq 0\), alors il est inversible et nous multiplions \( ab=0\) par \( a^{-1}\). Nous trouvons \( b=0\) parce que \( 0a^{-1}=0\).
 \end{proof}
 Conséquence : dans un corps nous avons toujours la règle du produit nul, et l'élément nul n'est jamais inversible.
+
+\begin{proposition}[\cite{MonCerveau}]     \label{AnnCorpsIdeal}\label{PROPooUOCVooZGAVVk}
+    Si \( A\) est un anneau, nous avons les équivalences
+    \begin{enumerate}
+        \item       \label{ITEMooLAAVooXhTcMe}
+            \( A\) est un corps\footnote{Définition \ref{DefTMNooKXHUd}.}.
+        \item       \label{ITEMooDGZIooRopYGx}
+            \( A\) est non nul et ses seuls\footnote{Je vous laisse vous poser de grandes questions sur le fait que le vide est un idéal ou non.} seuls idéaux à gauche sont \( \{ 0 \}\) et \( A\).
+        \item       \label{ITEMooLPWHooDJpTbR}
+            \( A\) est non nul et ses seuls idéaux à droite sont \( \{ 0 \}\) et \( A\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Nous allons montrer que le point \ref{ITEMooLAAVooXhTcMe} est équivalent aux deux autres.
+    \begin{subproof}
+        \item[\ref{ITEMooLPWHooDJpTbR} implique \ref{ITEMooDGZIooRopYGx}]
+            Si \( I\) est un idéal à gauche différent de \( \{ 0 \}\), alors il contient un certain \( a\neq 0\). Vu que \( A\) est un corps, il contient un inverse \( a^{-1}\), et comme \( I\) est un idéal, \( a^{-1} I\subset I\). En particulier \( a^{-1}a\in I\). Donc \( 1\in I\) et \( I=A\).
+        \item[\ref{ITEMooDGZIooRopYGx} implique \ref{ITEMooLAAVooXhTcMe}]
+
+            Supposons que les seuls idéaux de \( A\) soient \( \{ 0 \}\) et \( A\). Soit \( a\in A\). Si \( a\) est non nul, alors \( aA=A\), en particulier, \( 1\in aA\), c'est-à-dire qu'il existe \( b\in A\) tel que \( ab=1\). L'élément \( a\) est donc inversible.
+    \end{subproof}
+\end{proof}
 
 \begin{definition}[Morphisme de corps]
     Un corps étant un anneau sans plus de structure, un \defe{morphisme de corps}{morphisme!de corps}\index{isomorphisme!de corps} n'est qu'un morphisme des anneaux.
