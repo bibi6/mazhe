@@ -1,0 +1,846 @@
+% This is part of Mes notes de mathématique
+% Copyright (c) 2011-2020
+%   Laurent Claessens
+% See the file fdl-1.3.txt for copying conditions.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Le groupe et anneau des entiers}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Certes \( (\eZ,+)\) est un groupe mais en ajoutant la multiplication, \( (\eZ,+,\times)\) devient un anneau\footnote{Définition~\ref{DefHXJUooKoovob}.} 
+
+Quelques résultats préliminaires\dots
+
+
+\begin{lemma}       \label{LEMooMYEIooNFwNVI}
+    Toute partie bornée de \( \eZ\) possède un plus grand élément.
+\end{lemma}
+
+\begin{proposition}     \label{PROPooYJBMooZrzkNX}
+    Soit \( a,b\in \eZ\) deux entiers positifs tels que \( a\) divise \( b\). Alors \( a\leq b\).
+\end{proposition}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Division euclidienne}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{theorem}[Division euclidienne\cite{ooRBKHooQJqglH}]     \label{ThoDivisEuclide}
+    Soient \( a\in\eZ\) et \( b\in\eN^*\). Il existe un unique couple \( (q,r)\in\eZ\times\eN\), avec \( 0\leq r<b\), tel que
+    \begin{equation}
+        a=bq+r.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Remarquons que \( r = a - bq \), et donc, une fois l'existence et l'unicité de $q$ établie, celle de $r$ suivra.
+
+    \begin{subproof}
+        \item[Unicité]
+            Nous supposons avoir \( (q,r)\in \eZ\times \eN\) tels que
+            \begin{subequations}
+                \begin{numcases}{}
+                    0\leq r<b\\
+                    a=qb+r.
+                \end{numcases}
+            \end{subequations}
+            Ce système implique que
+            \begin{equation}
+                0\leq a-qb<b.
+            \end{equation}
+            En ajoutant \( qb\) dans les trois membres de cette inégalité,
+            \begin{equation}
+                qb\leq a<(q+1)b.
+            \end{equation}
+            Cela implique que
+            \begin{equation}
+                q=\max\{ k\in \eZ\tq kb\leq a \}.
+            \end{equation}
+            Donc \( q\) est unique et la relation \( a=bq+r\) implique que \( r\) est également unique.
+    \begin{equation*}
+        E = \{ q \in \eZ  | bq \leq a \}.
+    \end{equation*}
+    C'est un sous-ensemble d'entiers non-vide (il contient \( -|a| \) ) et admet \( |a| \) comme majorant; il admet donc un maximum $q$ par le lemme \ref{LEMooMYEIooNFwNVI}. Ce maximum vérifie
+     \begin{equation}
+         bq\leq a<b(q+1).
+     \end{equation}
+     Cela donne \( 0\leq a-bq<b\) et le résultat en posant \( r=a-qb\).
+    \end{subproof}
+\end{proof}
+
+\begin{definition}
+    L'opération \( (a,b)\mapsto(q,r)\) donnée par le théorème~\ref{ThoDivisEuclide} est la \defe{division euclidienne}{division!euclidienne}. Le nombre \( q\) est le \defe{quotient}{quotient} et \( r\) est le \defe{reste}{reste} de la division de \( a\) par \( b\).
+\end{definition}
+
+% TODO : À propos de restes, il n'est peut-être pas mal de parler d'algorithme de calcul de la date de pâques.
+% L'algorithme de Gauss, Meeus utilise des arrondis.
+% http://fr.wikipedia.org/wiki/Calcul_de_la_date_de_Pâques
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Sous-groupes de \texorpdfstring{$(\eZ,+)$}{(Z,+)}}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition} \label{PropSsgpZestnZ}
+    Une partie \( H\) du groupe \( (\eZ,+)\) est un sous-groupe si et seulement s'il existe \( n\in\eN\) tel que \( H=n\eZ\).
+\end{proposition}
+
+\begin{proof}
+    Soit \( H\neq\{ 0 \}\) un sous-groupe de \( \eZ\). L'ensemble \( H\cap\eN^*\) contient un élément minimum que nous notons \( n\). Nous avons certainement \( n\eZ\subset H\) parce que \( H\) est un groupe (donc \( n+n\) et \( -n\) sont dans \( H\) dès que \( n\) est dans \( H\)). Nous devons prouver que \( H\subset n\eZ\).
+
+    Si \( x\in H\), par le théorème de division euclidienne~\ref{ThoDivisEuclide}, il existe \( q\in\eZ\) et \( r\in\eN \), uniques, tels que \( x=nq+r\) et \(0 \leq r < n \). Nous savons déjà que \( nq\in H\), donc \( r = x - nq \in H \). Le nombre \( r\) est donc un élément de \( H\) strictement plus petit que \( n\). Mais nous avions décidé que \( n\) serait le plus petit élément de \( H\cap\eN^*\). Par conséquent \( r=0\) et \( x=nq\in n\eZ\).
+\end{proof}
+
+
+Notons que si un sous-groupe \( H\) de \( \eZ\) est donné, alors le nombre \( n\) tel que \( H=n\eZ\) est unique. En effet si \( n\eZ=m\eZ\) nous avons que \( n\) divise \( m\) (parce que \( m\in m\eZ\subset n\eZ\)) et que \( m\) divise \( n\) parce que \( n\in m\eZ\). Par conséquent \( n=m\).
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{PGCD, PPCM et Bézout}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Vu que \( \eZ\) est un anneau intègre, nous avons la définition \ref{DefrYwbct} de pgcd et de ppcm.
+\begin{proposition}[PPCM et PGCD]       \label{PROPooAVRGooUfhjwF}
+    Soient \( p,q\in\eZ^*\). 
+    \begin{enumerate}
+        \item
+            Le pgcd de \( p\) et \( q\) est le plus grand diviseur commun de \( p\) et \( q\). 
+        \item
+            Le ppcm de \( p\) et \( q\) est leur plus petit multiple commun.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Démontrons le premier point. Notons \( \delta\) le pgcd de \( p\) et \( q\). Si \( d\) est un diviseur commun de \( p\) et \( q\), alors \( d\) divise \( \delta\). Dans \( \eZ\), \( d\divides \delta\) implique \( d\leq\delta\) (proposition \ref{PROPooYJBMooZrzkNX}).
+\end{proof}
+
+\begin{lemma}
+    Soient \( p,q\in\eZ^*\). Les entiers \( \ppcm(p,q)\) et \( \pgcd(p,q)\) fournissent les isomorphismes de groupes suivants :
+\begin{subequations}
+    \begin{align}
+        p\eZ\cap q\eZ&=\ppcm(p,q)\eZ\\
+        p\eZ + q\eZ&=\pgcd(p,q)\eZ.
+    \end{align}
+\end{subequations}
+\end{lemma}
+
+\begin{definition}  \label{DefZHRXooNeWIcB}
+    Si \( \pgcd(p,q)=1\), nous disons que \( p\) et \( q\) sont \defe{premiers entre eux}{nombre!premier!deux nombres entre eux}. Si nous avons un ensemble d'entiers \( a_i\), nous disons qu'ils sont premiers \defe{dans leur ensemble}{nombre!premier!dans leur ensemble} si \( 1\) est le PGCD de tous les \( a_i\) ensemble.
+\end{definition}
+
+Les nombres \( 2\), \( 4\) et \( 7\) ne sont pas premiers deux à deux (à cause de \( 2\) et \( 4\)), mais ils sont premiers dans leur ensemble parce qu'il n'y a pas de diviseurs communs à tout le monde.
+
+\begin{definition}
+    Un \defe{nombre premier}{nombre!premier} est un naturel acceptant exactement deux diviseurs distincts.
+\end{definition}
+Avec cette définition, \( 0\) n'est pas premier, \( 1\) n'est pas premier et \( 2\) est premier.
+
+\begin{theorem}[Théorème de Bézout\footnote{Il y a une super application ici : \url{https://perso.univ-rennes1.fr/matthieu.romagny/agreg/dvt/mauvais_prix.pdf}.}\cite{LSAmvR}, thème~\ref{THEMEooNRZHooYuuHyt}] \label{ThoBuNjam}
+    Deux entiers non nuls \( a,b\in\eZ^*\) sont premiers entre eux si et seulement s'il existe \( u,v\in\eZ\) tels que
+    \begin{equation}
+        au+bv=1
+    \end{equation}
+\end{theorem}
+\index{Bézout!nombres entiers}
+
+\begin{proof}
+    Soit \( d=\pgcd(a,b)\) et des nombres \( u,v\) tels que \( au+bv=1\). Le PGCD \( d\) divise à la fois \( a\) et \( b\), et donc divise \( au+bv\). Nous en déduisons que \( d\) divise \( 1\) et est par conséquent égal à \( 1\).
+
+    Nous supposons maintenant que \( \pgcd(a,b)=1\) et nous considérons l'ensemble
+    \begin{equation}
+        E=\{ au+bv\tq u,v\in \eZ \}\cap \eN^*.
+    \end{equation}
+    C'est-à-dire l'ensemble des nombres strictement positifs pouvant s'écrire sous la forme \( au+bv\). Cet ensemble est non vide parce qu'il contient par exemple soit \( a\) soit \( -a\). Soit \( m\) le plus petit élément de \( E\) et écrivons
+    \begin{equation}    \label{EqMBsfrP}
+        m=au_1+bv_1.
+    \end{equation}
+    Par le théorème de division euclidienne\footnote{Théorème~\ref{ThoDivisEuclide}.} (avec \( a\) et \( m\)), il existe des entiers uniques $q$ et $r$ tels que
+    \begin{equation}
+        a=mq+r
+    \end{equation}
+    avec \( 0\leq r<m\). En remplaçant \( m\) par sa valeur \eqref{EqMBsfrP}, \( a=(au_1+bv_1)q+r\) et
+    \begin{equation}
+        r=a(1-u_1q)-bv_1q,
+    \end{equation}
+    c'est-à-dire que \( r\in \eZ a+\eZ b\) en même temps que \( 0\leq r<m\). Si \( r\) était strictement positif, il serait dans \( E\). Mais cela est impossible par minimalité de \( m\). Donc \( r=0\) et \( a\) est divisible par \( m\).
+
+    De la même façon nous prouvons que \( b\) est divisible par \( m\). Vu que \( m\) divise à la fois \( a\) et \( b\) nous avons \( m=1\).
+\end{proof}
+
+\begin{corollary}       \label{CorgEMtLj}
+    Soient \( p\) et \( q\) deux entiers premiers entre eux. Alors
+    \begin{equation}
+        p\eZ+q\eZ=\eZ;
+    \end{equation}
+    en particulier, pour tout \( x \in \eZ \), il existe \( u_x, v_x \) entiers tels que \(u_x p + v_x q = x \).
+\end{corollary}
+
+Notons que l'application \( p\eZ+q\eZ\) vers \( \eZ\) n'est évidemment pas injective: les $u_x$ et $v_x$ ne sont pas uniques à $x$ fixé.
+
+\begin{proof}
+    Soit \( x\in \eZ\). Le théorème de Bézout nous donne \( k\) et \( l\) tels que \( kp+lq=1\). Du coup, \( (xk)p+(xl)q=x\).
+\end{proof}
+
+La proposition suivante établit que si \( x\) est assez grand, alors il peut même être écrit comme une combinaison de \( p\) et \( q\) à coefficients positifs. Elle sera utilisée pour démontrer que les états apériodiques d'une chaine de Markov peuvent être atteints à tout moment (assez grand), voir la définition~\ref{DefCxvOaT} et ce qui suit.
+
+\begin{proposition}     \label{PropLAbRSE}
+    Soient \( a\) et \( b\) deux éléments de \( \eN\) premiers entre eux. Il existe \( N>0\) tel que tout \( x>N\) appartient à \( a\eN+b\eN\).
+\end{proposition}
+
+\begin{proof}
+    Soient \( a\) et \( b\), premiers entre eux, et \( x\in \eN\). Disons tout de suite, pour éviter les cas triviaux et pénibles, que \( x\), \( a\) et \( b\) sont strictement positifs.
+
+    \begin{subproof}
+    \item[Une décomposition pour \( x\)]
+
+    On applique le théorème~\ref{ThoDivisEuclide} de division euclidienne à $x$ et \( a + b \): il existe des entiers \( p_x, r_x \), uniques, tels que
+    \begin{subequations}
+        \begin{numcases}{}
+       x = (p_x-1)(a+b) + r_x\\
+       0 \leq r_x < a+b.
+        \end{numcases}
+    \end{subequations}
+    En d'autres termes, \( p_x(a+b)\) est le premier multiple de \( a+b\) supérieur ou égal à $x$. De plus, $p_x$ est strictement positif car $x$ l'est. Il existe alors des entiers $u$ et $v$ tels que
+    \begin{equation}    \label{EQooXYSZooJqxPui}
+        ua + vb = p_x(a+b) - x
+    \end{equation}
+    par le corolaire~\ref{CorgEMtLj}. Ainsi, $x$ peut s'écrire
+    \begin{equation}
+        x = (p_x - u) a + (p_x - v) b.
+    \end{equation}
+
+\item[Des maximums]
+
+    Il s'agit maintenant de savoir si nous pouvons être assuré d'avoir \( p_x > u\) et \( p_x > v\) dès que \( x\) est assez grand. Pour cela, grâce au corolaire~\ref{CorgEMtLj}, nous considérons les nombres \( u_i\) et \( v_i\) définis par
+    \begin{equation}
+        u_ia+v_ib=i
+    \end{equation}
+    pour \( i=1,\ldots, a+b\). Nous posons \( u^*=\max\{ u_i \}\), \( v^*=\max\{ v_i   \}\), et \( p^*=\max\{ u^*,v^* \}\).  Nous posons alors \( N = p^*(a+b)\), et considérons \( x>N \).
+
+\item[Nouvelle décomposition pour \( x\)]
+
+    Nous voulons écrire
+    \begin{equation}        \label{EQooIKNWooBKItYz}
+        x= (p_x - u_k) a + (p_x - v_k) b
+    \end{equation}
+    pour un certain \( k\). Cela demande \( u_ka+v_kb=ua+vb=p_x(a+b)-x\) par l'équation \eqref{EQooXYSZooJqxPui}. Vu que \( p_x(a+b)-x>0\), les nombres \( u_k\) et \( v_k\) existent : il suffit de prendre \( k=p_x(a+b)-x\).
+
+\item[Conclusion]
+
+    Avec tous ces choix, nous avons d'abord \( x>p^*(a+b)\) et donc
+    \begin{equation}
+        x=(p_x-1)(a+b)+r_x>p^*(a+b),
+    \end{equation}
+    ce qui donne
+    \begin{equation}
+        (p_x-1)(a+b)>p^*(a+b)-r_x>(p-1)(a+b).
+    \end{equation}
+    ou encore \( p_x>p^*\). Nous avons finalement
+    \begin{equation}
+       p_x \geq p^* \geq u^* \geq u_k
+    \end{equation}
+    et
+    \begin{equation}
+       p_x \geq p^* \geq v^* \geq v_k.
+    \end{equation}
+    De ce fait, la décomposition \eqref{EQooIKNWooBKItYz} est celle que nous voulions.
+    \end{subproof}
+\end{proof}
+
+
+%\begin{proof}
+    %Soit \( x\in \eN\) et \( k_1,l_1\in \eN\) les plus petits entiers tels que \( k_1p\geq x/2\) et \( l_1q\geq x/2\). Nous avons alors
+    %\begin{equation}
+        %x\leq k_1p+l_1q<x+(p+q).
+    %\end{equation}
+    %Nous posons \( \delta=k_1p+l_1q-x\).
+   %
+    %Soient des entiers \( a_i,b_i\) tels que \( a_ip+b_iq=i\). Nous notons
+    %\begin{subequations}
+        %\begin{align}
+            %A=\max\{ a_i\tq i=1,\ldots, k+p \}\\
+            %B=\max\{ b_i\tq i=1,\ldots, k+p \}
+        %\end{align}
+    %\end{subequations}
+    %Notons que \( A\) et \( B\) sont donnés uniquement en termes de \( p\) et \( q\). Ils ne sont en aucun cas dépendants de \( x\).
+   %
+    %Nous avons
+    %\begin{equation}
+        %x=k_1p+lq-\delta=(k_1-a_{\delta})p+(l_1+b_{\delta})q
+    %\end{equation}
+    %avec \( k_1-a_{\delta}\geq k_1-A\) et \( l_1-b_{\delta}\geq l_1-B\). Si \( x\) est suffisamment grand pour avoir \( k_1>A\) et \( l_1>B\), alors la décomposition souhaitée est trouvée.
+%
+    %Une borne pour \( x\) est donnée par
+    %\begin{equation}    \label{EqjQpURG}
+        %x>\max\{ 2pA,2qB \}.
+    %\end{equation}
+%\end{proof}
+
+\begin{normaltext}
+    Une méthode pour obtenir les entiers naturels $u$ et $v$ qui permettent la décomposition \(x = au + bv \) est d'abord de choisir $u_0$ et $v_0$ tels que \( au_0 \) et \( bv_0 \) soient les plus proches possibles de $x/2$, puis de décomposer le nombre (relativement petit) \( x - au_0 - bv_0 \) en \( au_1 + bv_1 \). Deux nombres $u$ et $v$ qui fonctionnent sont alors $u = u_0 + u_1$ et $v = v_0 + v_1$.
+\end{normaltext}
+
+\begin{example}
+    Écrivons \( 1000=u\cdot 7+v\cdot 5\) avec \( u,v\in \eN\). D'abord \( 72\cdot 7=504\) et \( 100\cdot 5=500\). Nous avons donc
+    \begin{equation}
+        1004=72\cdot 7+100\cdot 5.
+    \end{equation}
+    Ensuite \( 4=25-21=-3\cdot 7+5\cdot 5\). Au final,
+    \begin{equation}
+        1000=75\cdot 7+95\cdot 5.
+    \end{equation}
+\end{example}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Calcul effectif du PGCD et de Bézout}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{subSecIpmnhO}
+
+Soient \( a\) et \( b\), deux entiers que nous allons prendre positifs. Nous allons voir maintenant l'algorithme de \defe{Euclide étendu}{Euclide!algorithme étendu} qui est capable, pour \( a\) et \( b\) donnés, de calculer le PGCD de $a$ et $b$, et un couple de Bézout \( (u,v)\) tel que \( ua+vb=\pgcd(a,b)\). Ce calcul est indispensable si on veut implémenter RSA (\ref{SecEVaFYi}).
+
+Cela se base sur le lemme suivant.
+
+\begin{lemma}       \label{LemiVqita}
+    Soient \( a,b\in \eN\) et des nombres \( q\) et \( r\) tels que \( a=qb+r\). Alors \( \pgcd(a,b)=\pgcd(r,b)\).
+\end{lemma}
+
+\begin{proof}
+    Il suffit de voir que les diviseurs communs de \( a\) et \( b\) sont diviseurs de \( r\) et que les diviseurs communs de \( r\) et \( b\) divisent \( a\).
+
+    Si \( s\) divise \( a\) et \( b\), alors dans l'équation
+    \begin{equation*}
+        \frac{ a }{ s }=\frac{ qb }{ s }+\frac{ r }{ s }
+    \end{equation*}
+    les termes \( a/s\) et \( qb/s\) sont entiers, donc \( r/s\) est aussi entier, et \( s\) divise \( r\).
+
+    Inversement, si \( s\) divise \( r\) et \( b\), alors il divise \( qb+r\) et donc \( a\).
+\end{proof}
+\begin{remark}
+    Ce lemme est surtout intéressant lorsque \( a=qb+r\) est la division euclidienne de \( a\) par \( b\): en effet, dans ce cas \( r < b \), et le calcul du PGCD de deux nombres ($a$ et $b$) est ramené à un calcul de PGCD de deux nombres plus petits ($b$ et $r$).
+
+    L'algorithme pour calculer \( \pgcd(a,b)\) consiste à écrire des divisions euclidiennes successives de la manière suivante:
+    \begin{subequations}
+        \begin{align}
+            a &= q_2 b   + r_2 && r_2<b\\
+            b &= q_3 r_2 + r_3 && r_3<r_2\\
+            &\vdots
+        \end{align}
+    \end{subequations}
+    en remarquant que \( \pgcd(a,b)=\pgcd(b,r_2)=\pgcd(r_2,r_3) \). Étant donné que les inégalités \( r_2<b\) et \( r_3<r_2\) sont strictes, en continuant ainsi nous finissons sur zéro, c'est-à-dire qu'il existera un $n$ pour lequel \( r_{n+1} = 0 \); et donc
+\begin{equation*}
+    r_{n-1}=q_{n+1}r_n,
+\end{equation*}
+et à ce moment nous avons \( \pgcd(a,b)=\pgcd(r_{n-1},r_n)=r_n\).
+\end{remark}
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Algorithme d'Euclide pour le PGCD}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\label{SUBSECooAEBLooFGJRkg}
+\index{pgcd!calcul effectif}
+
+Écrivons l'algorithme\cite{BezoutCos} en détail (parce que Bézout, ça va être la même chose en cinq fois plus compliqué). On pose
+\begin{subequations}
+    \begin{align}
+        r_0=a\\
+        r_1=b
+    \end{align}
+\end{subequations}
+(ce qui explique que nous n'ayons pas utilisé $r_0$ et $r_1$ précédemment). Ensuite on écrit la division euclidienne \( a=q_2b+r_2\), c'est-à-dire \( r_0=q_2r_1+r_2\). Cela donne \( r_2\) et \( q_2\) en termes de \( r_0\) et \( r_1\) :
+\begin{equation}
+    r_2=r_0-q_2r_1.
+\end{equation}
+Ensuite, sachant \( r_2\) nous pouvons continuer :
+\begin{equation}
+    r_1=q_3r_2+r_3
+\end{equation}
+donne \( q_3\) et \( r_3=r_1-q_3r_2\). On continue avec \( r_2=q_4r_3+r_4\). Tout cela pour poser la suite
+\begin{equation}
+    \begin{aligned}[]
+        r_0&=a\\
+        r_1&=b\\
+        r_k&=q_{k+2}r_{k+1}+r_{k+2}
+    \end{aligned}
+\end{equation}
+où la troisième définit \( r_{k+2}\) et \( q_{k+2}\) en fonction de \( r_k\) et \( r_{k+1}\), à l'aide du théorème de la division euclidienne. La suite \( (r_k)\) ainsi construite est strictement décroissante et à chaque étape le lemme~\ref{LemiVqita} et le principe de l'algorithme d'Euclide nous donnent
+\begin{subequations}
+    \begin{numcases}{}
+        \pgcd(r_k,r_{k+1})=\pgcd(r_{k+1},r_{k+2})=\pgcd(a,b)\\
+        0\leq r_{k+1}<r_k.
+    \end{numcases}
+\end{subequations}
+La suite étant strictement décroissante, nous prenons \( r_n\), le dernier non nul : \( r_{n+1}=0\). Dans ce cas la dernière équation sera
+\begin{equation}
+    r_{n-1}=q_nr_n
+\end{equation}
+avec \( \pgcd(a, b)=\pgcd(r_n,r_{n-1})=r_n\).
+
+\begin{example}
+    Calculons le PGCD de \( 18\) et \( 231\). Pour cela nous écrivons les divisions euclidiennes en chaine :
+    \begin{subequations}
+        \begin{align}
+            231&=18\cdot 12+15\\
+            18&=1\cdot 15 + 3\\
+            15&=5\cdot 5+0.
+        \end{align}
+    \end{subequations}
+    Donc le PGCD est \( 3\) (le dernier reste non nul).
+\end{example}
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Algorithme étendu: calcul effectif des coefficients de Bézout}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\label{SUBSECooRHSQooEuBWbd}
+\index{Bézout!calcul effectif}
+
+La difficulté est de construire la suite qui donne des coefficients de Bézout. Elle va être construite à l'envers. Nous supposons déjà connaitre la liste complète des \( r_k\) jusqu'à \( r_n=\pgcd(a,b)\), ainsi que la liste complète des divisions euclidiennes
+\begin{equation}
+    r_k=q_{k+2}r_{k+1}+r_{k+2}.
+\end{equation}
+
+Nous voulons trouver les couples \( (u_k,v_k)\) de telle façon à avoir à chaque étape
+\begin{equation}
+    r_n=u_kr_k+v_kr_{k-1}.
+\end{equation}
+Notons que c'est à chaque fois \( r_n\) que nous construisons. La première équation de type Bézout à résoudre est
+\begin{equation}
+    r_n=u_nr_n+v_nr_{n-1},
+\end{equation}
+sachant que \( r_{n-1}=q_nr_n\). On pose \( v_n=0\) et \( u_n=1\) et c'est bon. Pour la récurrence, supposons les coefficients $u_k$ et $v_k$ connus, et déterminons les coefficients \( u_{k-1} \) et \( v_{k-1} \). Pour ce faire, nous égalons les deux expressions pour \( r_n\) :
+\begin{equation}
+    r_n=u_kr_k+v_kr_{k-1}=u_{k-1}r_{k-1}+v_{k-1}r_{k-2};
+\end{equation}
+dans laquelle nous substituons \( r_{k-2}=q_k-r_{k-1}+r_k\):
+\begin{align}
+    u_kr_k+v_kr_{k-1}&=u_{k-1}r_{k-1}+v_{k-1}(q_k r_{k-1}+r_k)\\
+    &= (u_{k-1} + q_k v_{k-1}) r_{k-1} +v_{k-1} r_k
+\end{align}
+et nous égalons les coefficients de \( r_k\) et \( r_{k-1}\) pour obtenir
+\begin{subequations}
+    \begin{numcases}{}
+        v_{k-1}=u_k\\
+        u_{k-1}=v_k-v_{k-1}q_k.
+    \end{numcases}
+\end{subequations}
+Dès que \( u_k\) et \( v_k\) ainsi que \( q_k\) sont connus, on peut calculer \( u_{k-1}\) et \( v_{k-1}\).
+
+La dernière équation, celle avec \( k=1\), est
+\begin{equation}
+    r_n=u_1r_1+v_1r_0,
+\end{equation}
+c'est-à-dire
+\begin{equation}        \label{EqNDMLooDvaiAc}
+    \pgcd(a,b)=u_1b+v_1a.
+\end{equation}
+Nous avons ainsi trouvé des coefficients de Bézout pour $a$ et $b$.
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Générateurs}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]   \label{PROPooEWREooUOSMsE}
+    Soit \( n\geq 2\). 
+    \begin{enumerate}
+        \item
+            L'anneau \( \eZ/n\eZ\) contient \( n\) éléments
+        \item
+            Nous avons \( \eZ/n\eZ=\{ [k]_n \}_{k=0,\ldots, n-1}\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooSKSYooZoDhIP}
+    Soient \( n\geq 2\), $a$ premier avec \( n\), \( b\in \eN\), et \( m_1,\ldots, m_n\in \eN\). Alors
+    \begin{enumerate}
+        \item
+            Nous avons $\eZ/n\eZ=\{ [am_i+b]_n \}_{i=1,\ldots, }$,
+        \item
+            Nous avons \( \eZ/n\eZ=\{ [b+k]_n \}_{k=0,\ldots, n-1}\)
+        \item
+            Nous avons \( \eZ/n\eZ=\{ [ka]_{k=0,\ldots, n-1} \}\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooMTWGooEMbvDi}
+    Soit \( n\geq 2\) et \( m\in \eZ\). Nous avons équivalence entre
+    \begin{enumerate}
+        \item
+            \( \pgcd(n,m)=1\),
+        \item
+            \( [m]_n\) engendre le groupe \( (\eZ/n\eZ,+)\)
+        \item
+            \( [m]_n\) est inversible dans \( \big( (\eZ/n\eZ)^*,\cdot \big)\).
+    \end{enumerate}
+\end{proposition}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Générateurs pour le groupe multiplicatif}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Cette section est presque certainement à déplacer. 
+
+\begin{proposition}[\cite{BIBooYOLUooOAUbYH}]       \label{PROPooKSCRooPyInSv}
+    Le groupe \( \big( (\eZ/n\eZ)^*, \cdot\big)\) est cyclique.
+\end{proposition}
+
+La proposition suivante est un pas important dans l'algorithme de Shor permettant aux ordinateurs quantiques de factoriser rapidement des grands nombres.
+
+\begin{proposition}[\cite{BIBooBBRQooJxksHX}]       \label{PROPooZCKXooOtocKE}
+    Soient \( A,B\in \eN\) tels que \( \pgcd(A,B)=1\). Alors il existe \( p,m\in \eN\) tels que \( A^p=mB+1\).
+\end{proposition}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Décomposition en facteurs premiers}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{lemma}[Lemme de Gauss]    \label{LemPRuUrsD}
+    Soient \( a,b,c\in \eZ\) tels que \( a\) divise \( bc\). Si \( a\) est premier avec \( c\), alors \( a\) divise \( b\).
+\end{lemma}
+\index{lemme!de Gauss!pour des entiers}
+
+\begin{proof}
+    Vu que \( a\) est premier avec \( c\), nous avons \( \pgcd(a,c)=1\) et le théorème de Bézout~\ref{ThoBuNjam} nous donne donc \( s,t\in \eZ\) tels que \( sa+tc=1\). En multipliant par \( b\), nous avons $sab+tbc=b$. Mais les deux termes du membre de gauche sont multiples de \( a\) parce que \( a\) divise \( bc\). Par conséquent \( b\) est somme de deux multiples de \( a\) et donc est multiple de \( a\).
+\end{proof}
+
+\begin{lemma}[Lemme d'Euclide\cite{BTDWooZCyXfb}]       \label{LemAXINooOeuMJZ}
+    Si un nombre premier $p$ divise le produit de deux nombres entiers $b$ et $c$, alors $p$ divise $b$ ou $c$.
+\end{lemma}
+\index{Euclide!lemme}
+
+\begin{proof}
+    Vu que \( p\) est premier, s'il ne divise pas \( a\) c'est que \( \pgcd(a,p)=1\). Dans ce cas le lemme de Gauss~\ref{LemPRuUrsD} implique que \( p\) divise \( b\).
+\end{proof}
+\index{lemme!d'Euclide}
+
+Le théorème fondamental de l'arithmétique permet de décomposer des nombres en facteurs premiers.
+
+\begin{theorem}[\cite{RATEooJuqgom}]        \label{ThoAJFJooAveRvY}
+    Tout entier strictement positif peut être écrit comme un produit de nombres premiers d'une unique façon, à l'ordre près des facteurs.
+
+    En d'autres termes, pour tout entier \( n>1\), il existe une suite finie unique $(p_1, k_1)$,\ldots $(p_r, k_r)$ telle que :
+    \begin{enumerate}
+        \item
+    les \( p_i\) sont des nombres premiers tels que, si $i < j$, alors $p_i < p_j$ ;
+    \item
+    les \( k_i\) sont des entiers naturels non nuls ;
+    \item
+        \( n=\prod_{i=1}^rp_i^{k_i}\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Soit \( n\) un entier positif. Nous prouvons l'existence d'une décomposition en facteurs premiers par récurrence. Le nombre \( n=1\) est le produit d'une famille finie de nombres premiers : la famille vide.
+
+    Supposons que tout entier strictement inférieur à un certain entier \( n>1\) est produit de nombres premiers. Deux possibilités apparaissent pour $n$ : il est premier ou non. Si $n$ est premier, et donc produit d'un unique entier premier, à savoir lui-même, le résultat est vrai. Si \( n\) n'est pas premier, il se décompose sous la forme $kl$ avec $k$ et $l$ strictement inférieurs à $n$. Dans ce cas, l'hypothèse de récurrence implique que les entiers $k$ et $l$ peuvent s'écrire comme produits de nombres premiers. Leur produit aussi, ce qui fournit une décomposition de $n$ en produit de nombres premiers.  Par application du principe de récurrence, tous les entiers naturels peuvent s'écrire comme produit de nombres premiers.
+
+    Nous prouvons maintenant l'unicité. Prenons deux produits de nombres premiers qui sont égaux. Prenons n'importe quel nombre premier $p$ du premier produit. Il divise le premier produit, et, de là, aussi le second. Par le lemme d'Euclide~\ref{LemAXINooOeuMJZ}, $p$ doit alors diviser au moins un facteur dans le second produit. Mais les facteurs sont tous des nombres premiers eux-mêmes, donc $p$ doit être égal à un des facteurs du second produit. Nous pouvons donc simplifier par $p$ les deux produits. En continuant de cette manière, nous voyons que les facteurs premiers des deux produits coïncident précisément.
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooDTQQooYoJABt}
+    Nous notons \( \mP\) l'ensemble des nombres premiers dans \( \eN\). Soient des suites finies \( (a_p)_{p\in \mP}\) et \( (b_p)_{p\in \mP}\). Nous posons
+    \begin{equation}
+        \begin{aligned}[]
+            a&=\prod_{ p\mP}p^{a_p}&\text{ et }&&b=\prod_{ p\in \mP}p^{b_p}.
+        \end{aligned}
+    \end{equation}
+    Alors \( a\divides b\) si et seulement si \( a_p\leq b_p\) pour tout \( p\).
+\end{lemma}
+
+\begin{proof}
+    Dire que \( a\divides b\) signifie qu'il existe \( s\in \eN\) tel que \( as=b\); le théorème \ref{ThoAJFJooAveRvY} nous permet de décomposer \( s\) en \( s=\prod_{p\in\mP}p^{s_p}\). Vu que le produit dans \( \eN\) est commutatif et associatif,
+    \begin{equation}
+        b=as=\prod_{p\in\mP}p^{s_p+a_p}.
+    \end{equation}
+    Par unicité de la décomposition de \( b\) (toujours le théorème \ref{ThoAJFJooAveRvY}), nous en déduisons que \( b_p=s_p+a_p\geq a_p\).
+
+    Dans l'autre sens, l'hypothèse \( a_p\leq b_p\) implique l'existence de \( s_p\geq 0\) tels que \( b+p=a_p+s_p\). En posant \( s=\prod_{p\in\mP}p^{s_p}\), nous avons
+    \begin{equation}
+        as=\prod_{p\in\mP}p^{s_p+a_p}=\prod_{p\in \mP}p^{b_p}=b.
+    \end{equation}
+    Donc \( a\divides b\).
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]       \label{LEMooBJVJooFyuFeN}
+    Dans \( \eN\), le pgcd\footnote{Le pgcd et ppcm sont définis dans \ref{DefrYwbct}.} et le ppcm sont uniques.
+\end{lemma}
+
+\begin{proof}
+    Supposons que \( \delta_1\) et \( \delta_2\) soient des pgcd de la partie \( S\). Vu que \( \delta_1\divides S\), nous avons \( \delta_1\divides \delta_2\) parce que \( \delta_2\) est un pgcd. Le même raisonnement, inversant \( \delta_1\) et \( \delta_2\) montre que \( \delta_2\divides \delta_1\). Si \( (a_p)\) sont les éléments de la décomposition de \( \delta_1\) et \( (b_p)\) ceux de \( \delta_2\), alors le lemme \ref{LEMooDTQQooYoJABt} nous indique que \( a_p\leq b_p\) et \( b_p\leq a_p\), ce qui implique que \( a_p=b_p\).
+
+    Le ppcm se fait de même.
+\end{proof}
+
+\begin{proposition}     \label{PROPooNQBOooHWqTvs}
+    Soient \( a,b\in \eZ\setminus\{ 0 \}\) décomposés en \( a=\prod_{p\in\mP}p^{a_p}\) et \( b=\prod_{p\in\mP}p^{b_p}\). En posant 
+    \begin{subequations}
+        \begin{align}
+            m_p=\min\{ a_p,b_p \}\\
+            M_p=\max\{ a_p,b_p \},
+        \end{align}
+    \end{subequations}
+    nous avons
+    \begin{subequations}
+        \begin{align}
+            \pgcd(a,b)&=\prod_{p\in\mP}p^{m_p}\\
+            \ppcm(a,b)&=\prod_{p\in\mP}p^{M_p}.
+        \end{align}
+    \end{subequations}
+\end{proposition}
+
+\begin{proof}
+    Nous notons $\delta=\prod_{p\in\mP}p^{m_p}$ et $\mu=\prod_{p\in\mP}p^{M_p}$. 
+    
+    Nous commençons par montrer que \( \delta\) est le pgcd de \( a\) et \( b\). Vu que \( \delta_p=\min\{ a_p,b_p \}\), nous avons \( \delta_p\leq a_p\) et \( \delta_p\leq b_p\). Le lemme \ref{LEMooDTQQooYoJABt} nous dit alors que \( \delta\divides a\) et \( \delta\divides b\). De même, si \(s\divides a\) et \( s\divides b\), nous avons \( s_p\leq a_p\) et \( s_p\leq b_p\), ce qui montre que \( s_p\leq m_p\) et donc que \( s\divides \delta\).
+
+    Le fait que \( \mu\) soit le ppcm de \( a\) et \( b\) se montre de même.
+\end{proof}
+
+\begin{corollary}[\cite{MonCerveau}]  \label{CORooQIMHooUzLUJY}
+    Un élément \( m\in \eZ^*\) vérifie \( m\leq p^n\) et \( \pgcd(m,p^n)\neq 1\) si et seulement si \( m=qp\) pour un certain \( q\leq p^{n-1}\).
+\end{corollary}
+
+\begin{probleme}
+   Il faut vérifier si le corolaire~\ref{CORooQIMHooUzLUJY} est correct.
+   Et puis rédiger des démonstrations de tout ce petit monde.
+\end{probleme}
+
+\begin{lemma}   \label{LemheKdsa}
+    Un entier \( n\geq 1\) se décompose de façon unique en produit de la forme \( n=qm^2\) où \( q\) est un entier sans facteurs carrés et \( m\), un entier.
+\end{lemma}
+
+\begin{proof}
+    Pour \( n=1\), c'est évident. Nous supposons \( n\geq 2\).
+
+    En ce qui concerne l'existence, nous décomposons \( n\) en facteurs premiers\footnote{Théorème~\ref{ThoAJFJooAveRvY}.} et nous séparons les puissances paires des puissances impaires :
+    \begin{subequations}
+        \begin{align}
+            n&=\prod_{i=1}^rp_p^{2\alpha_i}\prod_{j=1}^sq_{j}^{2\beta_j+1}\\
+            &=\underbrace{\left( \prod_{i=1}^rp_i^{2\alpha_i}\prod_{j=1}^sq^{2\beta_j} \right)}_{m^2}\underbrace{\prod_{j=1}^sq_j}_{q}.
+        \end{align}
+    \end{subequations}
+
+    Nous passons à l'unicité. Supposons que \( n=q_1m_1^2=q_2m_2^2\) avec \( q_1\) et \( q_2\) sans facteurs carrés (dans leur décomposition en facteurs premiers). Soit \( d=\pgcd(m_1,m_2)\) et \( k_1\), \( k_2\) définis par \( m_1=dk_1\), \( m_2=dk_2\). Par construction, \( \pgcd(k_1,k_2)=1\). Étant donné que
+    \begin{equation}        \label{EqWPOtto}
+        n=q_1d^2k_1^2=q_2d^2k_2^2,
+    \end{equation}
+    nous avons \( q_1k_1^2=q_2k_2^2\) et donc \( k_1^2\) divise \( q_2k_2^2\). Mais \( k_1\) et \( k_2\) n'ont pas de facteurs premiers en commun, donc \( k_1^2\) divise \( q_2\), ce qui n'est possible que si \( k_1=1\) (parce que \( k_1^2\) n'a que des facteurs premiers alors que \( q_2\) n'en a pas). Dans ce cas, \( d=m_1\) et \( m_1\) divise \( m_2\). Si \( m_2=lm_1\) alors l'équation \eqref{EqWPOtto} se réduit à  \( n=q_1m_1^2=q_2l^2m_1^2\) et donc
+    \begin{equation}
+        q_1=q_2l^2,
+    \end{equation}
+    ce qui signifie \( l=1\) et donc \( m_1=m_2\).
+\end{proof}
+
+
+\begin{proposition}     \label{PROPooRZDDooLJabov}
+    Les entiers \( p\) et \( q\) sont premiers entre eux si et seulement si \( p^2\) et \( q^2\) sont premiers entre eux.
+\end{proposition}
+
+\begin{proof}
+    Si \( p^2\) et \( q^2\) sont premiers entre eux, par le théorème de Bézout~\ref{ThoBuNjam} il existe \( a,b\in \eZ\) tels que
+    \begin{equation}
+        ap^2+bq^2=1
+    \end{equation}
+    Dans ce cas, \( (ap)p+(bq)q=1\), ce qui montre (par encore Bézout, mais l'autre sens) que \( p\) et \( q\) sont premiers entre eux.
+
+    Réciproquement, supposons que \( p\) et \( q\) ne sont pas premiers entre eux. Alors \( \pgcd(p,q)=k\neq 1\). L'entier \( k\) divise \( p\) et donc \( p^2\); et l'entier \( k\) divise \( q\) et donc \( q^2\). Au final, \( k\) divise \( p^2\) et \( q^2\), ce qui montre que \( p^2\) et \( q^2\) ne sont pas premiers entre eux.
+\end{proof}
+
+Une des conséquences de ce résultat sera le fait que \( \sqrt{n}\) est irrationnelle dès que \( n\) n'est pas un carré parfait, théorème~\ref{THOooYXJIooWcbnbm}.
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Équation diophantienne linéaire à deux inconnues}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{subsecZVKNooXNjPSf}
+
+\index{équation!diophantienne}
+
+
+Soient \( a\), \( b\) et \( c\) des entiers naturels donnés. Nous considérons l'équation
+\begin{equation}        \label{EqTOVSooJbxlIq}
+    ax+by=c
+\end{equation}
+à résoudre\cite{PAYUooYVuNAB} pour \( (x,y)\in \eN^2\).
+
+Si \( a\) ou \( b\) est nul, c'est facile; nous supposons donc que \( a\) et \( b\) sont tout deux non nuls. Nous commençons par simplifier l'équation en cherchant les diviseurs communs. Soit \( d=\pgcd(a,b)\) et notons \( a=da'\), \( b=db'\). Nous avons déjà l'équation
+\begin{equation}
+    d(a'x+b'y)=c,
+\end{equation}
+et donc si \( c\) n'est pas un multiple de \( d\), il n'y a pas de solutions\footnote{Exemple : \( 8x+2y=9\). Le membre de gauche est certainement un nombre pair et il n'y a donc pas de solutions.}. Si par contre \( c\) est un multiple de \( d\) alors nous écrivons \( c=c'd\) et l'équation devient
+\begin{equation}
+    a'x+b'y=c'
+\end{equation}
+C'est maintenant que nous utilisons le théorème de Bézout~\ref{ThoBuNjam} : vu que \( a'\) et \( b'\) sont premiers entre eux, nous avons la relation  \( a'u+b'v=1\) pour certains\footnote{Nous avons décrit un algorithme pour les trouver en démontrant l'équation~\ref{EqNDMLooDvaiAc}.} nombres entiers \( u\) et \( v\). Nous récrivons notre équation sous la forme \( a'x+b'y=c'(a'u+b'v)\) et rassemblons les termes :
+\begin{equation}
+    a'(x-c'u)=b'(c'v-y).
+\end{equation}
+C'est-à-dire que si \( (x,y)\) est une solution, alors \( a'\) divise \( b'(c'v-y)\). Mais comme \( a'\) et \( b'\) sont premiers entre eux, le nombre \( a'\) doit forcément\footnote{C'est Gauss~\ref{LemPRuUrsD} qui le dit, et vous savez que lorsque Gauss dit, c'est \emph{forcément} vrai.} diviser \( c'v-y\). Disons \( c'v-y=ka'\). Alors \( a'(x-c'u)=b'ka'\) et donc
+\begin{equation}
+    x=b'k+c'u.
+\end{equation}
+Nous trouvons alors une expression pour \( y\) en injectant cela dans  \( a'x+b'y=c'\) et en utilisant Bézout : \( a'c'u=(1-b'v)c'\). Au final nous avons prouvé que toutes les solutions sont de la forme
+\begin{subequations}            \label{EqYCQVooZzHuRq}
+    \begin{numcases}{}
+        x=b'k+c'u\\
+        y=vc'-a'k
+    \end{numcases}
+\end{subequations}
+avec \( k\in\eZ\). Si nous voulons réellement seulement des solutions dans \( \eN\) et non dans \( \eZ\), il faut seulement un peu restreindre les valeurs de \( k\). Il en reste un nombre fini parce que l'équation pour \( x\) borne \( k\) vers le bas tandis que celle pour \( y\) borne \( k\) vers le haut.
+
+Par ailleurs, il est très vite vérifié que tous les couples \( (x,y)\) de la forme \eqref{EqYCQVooZzHuRq} sont solutions.
+
+\begin{example}
+    Résoudre l'équation \( 2x+6y=52\).
+
+    Nous pouvons factoriser \( 2\) dans le membre de gauche et simplifier alors toute l'équation par \( 2\) :
+    \begin{equation}
+        x+3y=26.
+    \end{equation}
+    Nous cherchons une relation de Bézout pour \( u+3v=1\). Ce n'est heureusement pas très compliqué : \( u=-5\), \( v=2\). Nous pouvons alors écrire
+    \begin{equation}
+        x+3y=26\times (-5+3\times 2),
+    \end{equation}
+    et donc \( x+5\times 26=3(y-26\times 6)\), et en posant \( k=y-26\times 6\) nous avons
+    \begin{equation}
+        x=3k-130.
+    \end{equation}
+    En injectant nous trouvons l'équation \( 3k-130+3y=26\) et donc
+    \begin{equation}
+        y=52-k.
+    \end{equation}
+\end{example}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Quotients}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous écrivons \( a=b\mod p\) essentiellement s'il existe \( k\in \eZ\) tel que \( b+kp=a\). Plus généralement nous notons \( [a]_p=\{ a+kp|k\in \eZ \}\)\nomenclature[R]{\( [a]_p\)}{ensemble des \( a+kp\)} et l'écriture «\( a=n\mod p\)» peut tout autant signifier \( a=[b]_p\) que \( a\in [b]_p\). La différence entre les deux est subtile mais peut de temps en temps valoir son pesant d'or.
+
+\begin{proposition}
+    Soit \( n\in\eN\). Le groupe \( (\eZ/n\eZ, +)\) est monogène. Si \( n\neq 0\), il est cyclique d'ordre \( n\).
+\end{proposition}
+
+\begin{proof}
+    Nous considérons la surjection canonique \( \mu\colon \eZ\to \eZ/n\eZ\). Si \( a\in\eZ\), alors \( \mu(a)=a\mu(1)\). Par conséquent \( \eZ/n\eZ=\gr\bigl( \mu(1) \bigr)\) parce que tout groupe contenant \( \mu(1)\) contient tous les multiples de \( \mu(1)\), et par conséquent contient \( \mu(\eZ)=\eZ/n\eZ\).
+
+    Soit \( x\in\eZ/n\eZ\) et considérons \( x_0\), le plus petit naturel représentant \( x\). Nous notons \( x=[x_0]\). Le théorème de la division euclidienne~\ref{ThoDivisEuclide} donne l'existence de \( q\) et \( r\) avec \( 0\leq r<n\) et \( q\geq 0\) tels que
+    \begin{equation}
+        x_0=nq+r.
+    \end{equation}
+    Nous avons \( [x_0]=[r]=\mu(r)\) parce que \( x_0-r\) est un multiple de \( n\). Nous avons donc \( [x_0]\in\mu(\eN_{n-1})\). Par conséquent
+    \begin{equation}
+        \eZ/n\eZ=\mu(\eZ)=\mu(\eN_{n-1}).
+    \end{equation}
+    La restriction \( \mu\colon \eN_{n-1}\to \eZ/n\eZ\) est donc surjective. Montrons qu'elle est également injective. Si \( \mu(x_0)=\mu(x_1)\), alors \( x_1=x_0+kn\). Si nous supposons que \( x_1>x_0\), alors \( k>0\) et si \( x_0\in\eN_{n-1}\), alors \( x_1>n-1\).
+
+    L'ordre de \( \eZ/n\eZ\) est donc le même que le cardinal de \( \eN_{n-1}\), c'est-à-dire \( n\). Le groupe \( \eZ/n\eZ\) est donc fini, d'ordre \( n\) et monogène parce que \( \eZ/n\eZ=\gr(\mu(1))\). Il est donc cyclique.
+\end{proof}
+
+\begin{lemma}[\cite{KXjFWKA}]
+    Soit \( q\in \eN\) avec \( q\geq 2\). Soient \( n,d\in \eN\) tels que \( q^d-1\divides q^n-1\). Alors \( d\divides n\).
+\end{lemma}
+
+\begin{proof}
+    Par le théorème de division euclidienne~\ref{ThoDivisEuclide}, il existe \( a,b\in \eZ\) tels que \( n=ad+b\) avec \( 0\leq b<d\). En remarquant que \( q^d\in[1]_{q^d-1}\) nous avons
+    \begin{equation}
+        q^n=(q^d)^aq^b\in[1]_{q^d-1}q^b=[q^b]_{q^d-1}.
+    \end{equation}
+    Pour cela nous avons utilisé d'abord le fait que si \( a\in [z]_k\), alors \( a^n\in[z^n]_k\) et ensuite le fait que \( [1]_kx=[x]_k\). D'autre part l'hypothèse \( q^d-1\divides q^n-1\) implique
+    \begin{equation}
+        q^n\in[1]_{q^d-1}.
+    \end{equation}
+    Par conséquent le nombre \( q^n\) est à la fois dans \( [q^b]_{q^d-1}\) et dans \( [1]_{q^d-1}\). Cela implique que
+    \begin{equation}
+        [1]_{q^d-1}=[q^b]_{q^d-1},
+    \end{equation}
+    ou encore que \( q^b\in[1]_{q^d-1}\) ou encore que \( q^d-1\divides q^b-1\).
+
+    Étant donné que \( b<d\) et que \( q\geq 2\), nous avons que \( q^b-1<q^d-1\); donc pour que \( q^d-1\) divise \( q^b-1\), il faut que \( q^b-1\) soit zéro, c'est-à-dire \( b=0\).
+
+    Mais dire \( b=0\) revient à dire que \( d\divides n\), ce qu'il fallait démontrer.
+\end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Formule du binôme de Newton}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{proposition}[\cite{ooPTQCooIWykWP}]     \label{PropBinomFExOiL}
+Soit \( A \) un anneau commutatif. Pour tous \(x\ , y\in A\) et \( n\in\eN \), nous avons
+\begin{equation}        \label{EqNewtonB}
+    (x+y)^n=\sum_{k=0}^n{n\choose k}x^{n-k}y^k
+\end{equation}
+où
+\begin{equation}
+    {n\choose k}=\frac{ n! }{ k!(n-k)! }
+\end{equation}
+sont les \defe{coefficients binomiaux}{coefficients binomiaux}.
+\end{proposition}
+
+\begin{proof}
+    La preuve se fait par récurrence. La vérification pour $n=0$ et $n=1$ se fait aisément pour peu que l'on se rappelle que \( x^0=1\) et que \( 0!=1\), ce qui donne entre autres \( {0\choose 0}=1\).
+
+    Supposons que la formule \eqref{EqNewtonB} soit vraie pour $n\geq1$, et prouvons la pour $n+1$. Nous avons
+\begin{equation}        \label{EqBinTrav}
+    \begin{aligned}[]
+        (x+y)^{n+1} &=(x+y)\cdot  \sum_{k=0}^n{n\choose k}x^{n-k}y^k\\
+                &= \sum_{k=0}^n{n\choose k}x^{n-k+1}y^k+\sum_{k=0}^n{n\choose k}x^{n-k}y^{k+1}\\
+                &=x^{n+1}+ \sum_{k=1}^n{n\choose k}x^{n-k+1}y^k+\sum_{k=0}^{n-1}{n\choose k}x^{n-k}y^{k+1}+y^{n+1}.
+    \end{aligned}
+\end{equation}
+La seconde grande somme peut être transformée en posant $i=k+1$ :
+\begin{equation}
+    \sum_{k=0}^{n-1}{n\choose k}x^{n-k}y^{k+1}  =\sum_{i=1}^n{n\choose i-1}x^{n-(i-1)}y^{i-1+1},
+\end{equation}
+dans lequel nous pouvons immédiatement renommer $i$ par $k$. En remplaçant dans la dernière expression de \eqref{EqBinTrav}, nous trouvons
+\begin{equation}
+    (x+y)^{n+1}=x^{n+1}+y^{n+1}+\sum_{k=1}^n\left[ {n\choose k}+{n\choose k-1} \right]x^{n-k+1}y^k.
+\end{equation}
+La thèse découle maintenant de la formule
+\begin{equation}
+    {n\choose k}+{n\choose k-1}={n+1\choose k}
+\end{equation}
+qui est vraie parce que
+\begin{equation}
+    \frac{ n! }{ k!(n-k)! }+\frac{ n! }{ (k-1)(n-k+1)! }=\frac{ n!(n-k+1)+n!k }{ k!(n-k+1)! }=\frac{ n!(n+1) }{  k!(n-k+1)!  },
+\end{equation}
+par simple mise au même dénominateur.
+\end{proof}
+
+\begin{remark}
+La formule du binôme de Newton donne naissance au morphisme de Frobenius, grâce aux propositions \ref{Propqrrdem} et \ref{PropFrobHAMkTY}. Un
+\end{remark}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Résultats supplémentaires sur l'anneau des entiers}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{corollary}       \label{CORooLINXooBlUKPG}
+    Les quotients de \( \eZ\) sont \( \eZ/n\eZ\).
+\end{corollary}
+
+\begin{proof}
+    Tous les idéaux de \( \eZ\) sont de la forme \( n\eZ\). En effet en vertu de la proposition~\ref{PropSsgpZestnZ}, les seuls sous-groupes de \( \eZ\) (en tant que groupe additif) sont les \( n\eZ\). Tous les idéaux sont donc de cette forme. De plus les \( n\eZ\) sont effectivement tous des idéaux : si \( a\in n\eZ\) et si \( k\in \eZ\) alors \( ak\in n\eZ\). Cela est donc un idéal.
+\end{proof}
+
+\begin{proposition}     \label{PropZpintssiprempUzn}
+    Soient \( n\geq 2\) un entier et \( \phi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\phi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
+    \begin{equation}
+        U(\eZ/n\eZ)=\phi(P_n)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
+    \end{equation}
+    où \( P_n\) est l'ensemble $P_n=\{ x\in\{ 0,\ldots,n-1 \}\tq\pgcd(x,n)=1 \}$.
+
+    De plus,
+    \begin{equation}
+        \Card\big( U(\eZ/n\eZ) \big)=\varphi(n).
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Soit \( 0\leq x\leq n\) tel que \( \pgcd(x,n)=1\). Il existe donc\footnote{Théorème de Bézout~\ref{ThoBuNjam}} \( u,v\in\eZ\) tels que \( ux+vn=1\). En passant aux classes,
+    \begin{equation}
+        \tilde u\tilde x=\tilde 1,
+    \end{equation}
+    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \phi(P_n)\subset U(\eZ/n\eZ)\).
+
+    Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
+\end{proof}
+
+

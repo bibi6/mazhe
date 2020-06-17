@@ -7,10 +7,136 @@
 
 Pour rappel, la notion de groupe est définie en \ref{DEFooBMUZooLAfbeM}.
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Groupes}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Somme à valeurs dans un groupe abélien}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Somme à valeurs dans un anneau}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}      \label{DEFooNEVNooJlmJOC}
+    Si \( f\colon \{ 0,\ldots, N \}\to A\) est une application vers un anneau \( A\), alors nous définissons la notation \( \sum_{i=0}^Nf(i)\) par récurrence de la façon suivante :
+    \begin{enumerate}
+        \item
+            \( \sum_{i=0}^0f(i)=f(0)\),
+        \item
+            \( \sum_{i=0}^{k}f(i)=\sum_{i=0}^{k-1}f(i)+f(k)\).
+    \end{enumerate}
+\end{definition}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Somme à valeurs dans un groupe abélien}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Si \( S\) est un ensemble fini, nous savons de la proposition \ref{PROPooJLGKooDCcnWi} qu'il existe un unique \( N\in \eN\) pour lequel il existe une bijection \( \varphi\colon \{ 0,\ldots, N \}\to S\). Cette bijection n'est à priori pas unique.
+
+\begin{lemmaDef}[\cite{MonCerveau}]       \label{DEFooLNEXooYMQjRo}
+    Soient un groupe abélien \( (G,+)\) ainsi qu'un ensemble fini \( I\) contenant \( n\) éléments. Soit une application \( f\colon I\to G \). Si \( \sigma_1,\sigma_2\colon \{1,\ldots, n \}\to I\) sont deux bijections, alors\footnote{Pour rappel, le symbole \( \sum_{i=1}^n\) est défini par \ref{DEFooNEVNooJlmJOC}.}
+    \begin{equation}
+        \sum_{i=1}^nf\big( \sigma_1(i) \big)=\sum_{i=1}^nf\big( \sigma_2(i) \big).
+    \end{equation}
+    La valeur commune est notée
+    \begin{equation}
+        \sum_{i\in I}f(i)
+    \end{equation}
+\end{lemmaDef}
+
+La définition \ref{DEFooLNEXooYMQjRo} donne lieu à un certain nombre de remarques.
+\begin{enumerate}
+    \item
+        Elle donne la somme sur un ensemble fini. Un problème avec les ensembles infinis (outre la convergence) est l'ordre de sommation. Si vous voulez sommer sur \( \eZ\), dans quel ordre le faire ?
+    \item
+        Pour aller plus loin, et sommer sur des ensembles infinis, il faut regarder la définition \ref{DefHYgkkA}. 
+\end{enumerate}
+
+\begin{proposition}     \label{PROPooJBQVooNqWErk}
+    Soient un groupe abélien \( (G,+)\), un ensemble fini \( I\) est un ensemble fini, une application \( f\colon I\to G\) et une bijection \( \sigma\colon I\to I\). Alors
+    \begin{equation}
+        \sum_{i\in I}f(i)=\sum_{i\in I}f\big( \sigma(i) \big).
+    \end{equation}
+\end{proposition}
+
+Si nous avons une application \( L\colon S\to S\), nous notons
+\begin{equation}
+    \sum_{s\in S}f\big( L(s) \big)=\sum_{s\in S}(f\circ L)(s).
+\end{equation}
+Cette façon d'écrire donne une interprétation pour la notation \( \sum_{g\in G}f(hg)\) qui arrive dans la proposition \ref{PROPooWJQQooFINSEc}. Il s'agit de considérer l'application \( L_h\) du lemme \ref{LEMooBIBFooBHxFYC}, de considérer\footnote{Le fait que \( L_h\) soit une bijection n'a pas d'importance ici.}
+\begin{equation}        \label{EQooQQBEooFDOBVG}
+    \sum_{g\in G}f(hg)=\sum_{g\in G}(f\circ L_h)(g)
+\end{equation}
+et de faire tourner la définition \ref{DEFooLNEXooYMQjRo}. La même chose tient pour définir \( \sum_{g\in G}(gh)\) à l'aide de \( R_h\).
+
+\begin{proposition}[\cite{MonCerveau}]     \label{PROPooWJQQooFINSEc}
+    Soient un groupe fini \( G\) et une fonction \( f\colon G\to A\) où \( A\) est un anneau commutatif. Alors
+    \begin{equation}
+        \sum_{g\in G}f(g)=\sum_{g\in G}f(gh)=\sum_{g\in G}f(hg)
+    \end{equation}
+    pour tout \( h\in G\).
+\end{proposition}
+
+\begin{proof}
+    Nous avons une bijection \( \varphi\colon \{ 0,\ldots,  N \}\to G\) garantie par la proposition \ref{PROPooJLGKooDCcnWi}. La définition est que
+    \begin{equation}
+        \sum_{g\in G}f(g)=\sum_{i=0}^Nf\big( \varphi(i) \big).
+    \end{equation}
+    Par ailleurs, le lemme \ref{LEMooBIBFooBHxFYC} donne une bijection \( L_h\colon G\to G\) et permet de considérer la composée
+    \begin{equation}
+        \begin{aligned}
+            \varphi'\colon \{ 0,\ldots,  N \}&\to G \\
+            \varphi'=L_h\circ \varphi.
+        \end{aligned}
+    \end{equation}
+    La proposition \ref{DEFooLNEXooYMQjRo} nous permet d'utiliser la bijection \( \varphi'\) au lieu de \( \varphi\) pour exprimer la somme \( \sum_{g\in G}\). Ensuite un jeu de notation utilisant \eqref{EQooQQBEooFDOBVG} donne
+    \begin{equation}
+        \begin{aligned}[]
+            &\sum_{g\in G}f(g)=\sum_{i=0}^Nf\big( \varphi(i) \big)=\sum_{i=0}^Nf\big( \varphi'(i) \big)=\sum_{i=0}^N(f\circ L_h\circ \varphi)(i)\\
+            &\quad=\sum_{i=0}^N(f\circ L_h)\big( \varphi(i) \big)=\sum_{g\in G}(f\circ L_h)(g)=\sum_{g\in G}f(hg).
+        \end{aligned}
+    \end{equation}
+    En ce qui concerne \( \sum_{g\in G}f(gh)\), c'est la même chose, en utilisant \( R_h\) au lieu de \( L_h\).
+\end{proof}
+
+Tout cela nous permet de faire une somme sympathique et bien connue.
+\begin{lemma}
+    Soit \( n\in \eN\). Nous avons
+    \begin{equation}
+        \sum_{k=0}^nk=\frac{ n(n+1) }{ 2 }.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    La preuve est pratiquement immédiate par récurrence. Nous allons donner une preuve plus «constructive», qui formalise l'idée classique d'écrire la somme à l'endroit et à l'envers.
+
+
+    Nous notons \( S\) la somme \( \sum_{k=0}^nk\). Le lemme \ref{DEFooLNEXooYMQjRo} dit que si \( \sigma_i\colon \{ 0,\ldots, n \}\to \{ 0,\ldots, n \}\) sont deux bijections, alors \( \sum_{k=0}^nf\big( \sigma_1(k) \big)=\sum_{k=0}^nf\big( \sigma_2(k) \big)\). Nous sommes intéressé au cas \( f(i)=i\).
+
+    En prenant \( \sigma_1(k)=k\) et \( \sigma_2(k)=n-k\), nous avons
+    \begin{equation}
+        S=\sum_{k=0}^nk=\sum_{k=0}^n(n-k).
+    \end{equation}
+    Donc
+    \begin{equation}
+        2S=\sum_{k=0}^n\big( k+(n-k) \big)=\sum_{k=0}^nn=n\sum_{k=0}^n1=n(n+1).
+    \end{equation}
+    En divisant par deux, nous obtenons le résultat annoncé.
+\end{proof}
+
+Dans le même ordre d'idée, pour le produit.
+\begin{proposition}     \label{PROPooQMUDooQQVRIe}
+    Si \( E\) est un ensemble fini et si \( G\) est un groupe abélien, alors pour toute fonction \( f\colon E\to G\) et pour toute permutation \( \sigma\) de \( E\),
+    \begin{equation}
+        \prod_{i\in E}f(i)=\prod_{i\in E}f\big( \sigma(i) \big)
+    \end{equation}
+\end{proposition}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Du vocabulaire dans les groupes}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%---------------------------------------------------------
+\subsection{Centre, centralisateur, normalisateur}
+%---------------------------------------------------------
 
 \begin{definition}[\cite{Kropholler}]\label{defGroupeCentre}
 Soit \( G\) un groupe, et \( H\) un sous-ensemble de \( G \).
@@ -36,12 +162,6 @@ C'est l'ensemble des éléments de \( G\) qui commutent avec \( g\).
 \end{enumerate}
 \end{definition}
 
-\begin{definition}\label{DEFooNIIMooFkZgvX}
-    Un sous-groupe \( N\) de \( G\) est \defe{normal}{normal!sous-groupe} ou \defe{distingué}{distingué!sous-groupe} si pour tout \( g\in G\) et pour tout \( n\in N\), \( gng^{-1}\in N\). Autrement dit lorsque \( gNg^{-1}\subset N\).
-
-    Lorsque \( N\) est normal dans \( G\) il est parfois noté \( N\normal G\)\nomenclature[]{\(N \normal G\)}{Le sous-groupe \( N\) est normal dans \( G\)}.
-\end{definition}
-
 \begin{definition}\label{DEFGroupeNormalisateur}
         Si \( H\) est un sous-groupe, son \defe{normalisateur}{normalisateur} est
     \begin{equation}
@@ -61,159 +181,9 @@ Les définitions précédentes ont un certain lien entre elles; en effet:
   \end{enumerate}
 \end{remark}
 
-\begin{definition}      \label{DEFooUXXTooCCLmQe}
-    Un sous-groupe \( H\) de \( G\) est un sous-groupe \defe{caractéristique}{sous-groupe!caractéristique}\index{caractéristique!sous-groupe} s'il est stable pour tous les automorphismes\footnote{Définition \ref{DEFGroupesTypesdeMorphismes}.} de \(G \); en d'autres termes, un sous-groupe caractéristique \(H \) de \(G \) vérifie \( \alpha(H)=H\) pour tout \( \alpha\in \Aut(G)\).
-\end{definition}
-
-\begin{definition}[Groupe simple]   \label{DefGroupeSimple}
-    Un groupe est dit \defe{simple}{simple!groupe} si il est non trivial et si les seuls sous-groupes normaux qu'il admet sont lui-même et le sous-groupe réduit à l'identité.
-\end{definition}
-
-\begin{definition}[Sous-groupe engendré]        \label{DefooRDRXooEhVxxu}
-    Soit \( A\) une partie du groupe \( G\). Le sous-groupe \defe{engendré}{sous-groupe!engendré}\index{engendré!sous-groupe} par \( A\) est l'intersection de tous les sous-groupes de \( G\) contenant \( A\). Nous notons ce groupe \( \gr(A)\)\nomenclature[R]{\( \gr\)}{groupe engendré}.
-
-    Lorsque \( A \) est fini (disons \( A = \{a_1, \dots, a_n\} \)), on note aussi le sous-groupe engendré \( \langle a_1, \dots, a_n \rangle \).
-
-    En particulier, \( \gr(\emptyset)=\{ e \}\)\footnote{Vu que l'ensemble vide est une partie de tous les ensemble, la définition \( \gr(\emptyset)=\{ e \}\) est ambigüe : c'est l'identité de quel groupe ? C'est le contexte qui dira.}.
-\end{definition}
-
-Un sous-groupe engendré n'est jamais vide parce qu'il contient toujours au moins le neutre (parce que c'est un sous-groupe). Si \( G\) est un groupe, le sous-groupe \( \gr(\emptyset)\) lui-même contient \( e\)\footnote{Demandez-vous si il est possible que \( \gr(\emptyset)\) contienne d'autres éléments que \( e\).}.
-
-\begin{lemma}
-    Si \( G\) est un groupe et \( A\) une partie de \( G\), alors \( \gr(A)\) est un sous-groupe de \( G\).
-\end{lemma}
-
-Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe de \( G\) contenant \( A\). Plus formellement, nous avons le résultat suivant.
-\begin{lemma}
-    Tout sous-groupe de \( G\) contenant \( A\) contient \( \gr(A)\).
-\end{lemma}
-
-\begin{proof}
-    Si \( H\) est un sous-groupe de \( G\) contenant \( A\), alors \( \gr(A)\) est l'intersection de \( H\) avec tous les autres sous-groupes de \( G\) contenant \( A\). Il contient donc \( \gr(A)\).
-\end{proof}
-
-\begin{lemma}[\cite{BIBooERNQooTXQPvD}]   \label{LemFUIZooBZTCiy}
-    Si \( A\) est une partie du groupe \( G\), alors le sous-groupe \( \gr(A)\) engendré\footnote{Définition~\ref{DefooRDRXooEhVxxu}.} par \( A\) est l'ensemble de tous les produits finis d'éléments de \( A\) et de \( A^{-1}\) (l'identité est le produit à zéro éléments).
-
-    C'est-à-dire que tout élément de \( \gr(A)\) peut être écrit sous la forme\footnote{Les \( a_i\) négatifs correspondent aux inverses. Notons que si \( g\in A\), il n'y a pas de garanties que \( g^{-1}\) soit également dans \( A\).}
-    \begin{equation}
-        \prod_{i=1}^ng_i^{a_i}
-    \end{equation}
-    où \( a_i\in \eZ\) et \( g\colon \eN\to A\) n'est pas spécialement injective : il peut arriver que \( g_i=g_j\).
-\end{lemma}
-
-\begin{proof}
-    Vu qu'un produit vide est égal à l'identité, le lemme est vrai (un peu trivialement) dans le cas où \( A=\emptyset\). À partir de maintenant nous supposons que \( A\) est non vide.
-
-    Nous nommons \( \gr(A)\) le groupe engendré par \( A\) et par \( H\) l'ensemble
-    \begin{equation}
-        H=\{ g_1\ldots g_n\tq g_i\in A\cup A^{-1} \}.
-    \end{equation}
-    Nous commençons par prouver que \( H\) est un groupe.
-    \begin{itemize}
-        \item Vu que \( A\) est non vide, nous considérons \( a\in A\). Dans ce cas, \( e=aa^{-1}\in H\). Donc \( e\in H\).
-        \item L'inverse de \( g_1\ldots g_n\) est \( g_n^{-1}\ldots g_1^{-1}\) qui est également dans \( H\).
-        \item Le produit de \( g_1\ldots g_n\) par \( h_1\ldots h_n\) est également dans \( H\)\footnote{Et c'est ici qu'on se rend compte que la décomposition n'est probablement que rarement unique.}.
-    \end{itemize}
-    Vu que \( H\) est un groupe contenant \( A\), nous avons \( \gr(A)\subset H\) parce que \( \gr(A)\) est une intersection dont un des éléments est \( H\).
-
-    Par ailleurs tout groupe contenant \( A\) doit contenir les inverses et les produits finis, donc \( H\subset \gr(A)\).
-
-    Au final, \( H=\gr(A)\), ce qu'il fallait.
-\end{proof}
-
-\begin{lemma}       \label{LEMooCFTVooKvmyKN}
-    Soit un groupe \( G\) et un sous-groupe \( H=\gr(h_1,\ldots, h_n)\). Si \( \alpha\in G\), alors
-    \begin{equation}
-        \alpha H\alpha^{-1}=\gr(\alpha h_1\alpha^{-1},\ldots, \alpha h_n\alpha^{-1}).
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-    Il s'agit d'une conséquence du lemme \ref{LemFUIZooBZTCiy}. Un élément de \( \gr(\alpha h_1\alpha^{-1},\ldots, \alpha h_n\alpha^{-1})\) est un produit d'éléments de \( G\) de la forme \( \alpha h_i\alpha^{-1}\) ou \( (\alpha h_j\alpha^{-1})^{-1}=\alpha h_j^{-1}\alpha^{-1}\). Or nous avons
-    \begin{equation}
-        \alpha h_i\alpha^{-1}\alpha h_j\alpha^{-1}=\alpha h_ih_j\alpha^{-1}\in \alpha H\alpha^{-1}.
-    \end{equation}
-    Donc 
-    \begin{equation}
-        \gr(\alpha h_1\alpha^{-1},\ldots, \alpha h_n\alpha^{-1})\subset \alpha H\alpha^{-1}.
-    \end{equation}
-    L'inclusion dans l'autre sens est du même tonneau.
-\end{proof}
-
-\begin{definition}[Partie génératrice, groupe monogène]  \label{DEFooWMFVooLDqVxR}
-    Soit \( G\), un groupe et \( A\) une partie de \( G\). Si \( \gr(A)=G\), alors nous disons que \( A\) est une \defe{partie génératrice}{partie génératrice} le groupe \( G\).
-
-    Un groupe est \defe{monogène}{monogène} s'il a une partie génératrice réduite à un seul élément.
-\end{definition}
-
-\begin{definition}[Groupe cyclique]     \label{DefHFJWooFxkzCF}
-    Un élément \( a\in G\) est un \defe{générateur}{générateur} de \( G\) si tous les éléments de \( G\) s'écrivent sous la forme \( a^n\) pour un certain \( n\in\eZ\). Un groupe fini et monogène est dit \defe{cyclique}{groupe cyclique}.
-\end{definition}
-
-\begin{example}
-    Soit le groupe \( \big( \eZ/10\eZ,+ \big)\). L'élément \( [2]_{10}\) n'est pas générateur parce que ses puissances\footnote{Attention aux notations; en général on écrit la loi de groupe de façon multiplicative et on parle des puissances d'un élément, mais ici on écrit la loi de groupe additivement, donc les «puissances» sont en réalité les multiples.} sont
-    \begin{equation}
-        \gr([2]_{10})=\{ [2]_{10},[4]_{10},[6]_{10},[8]_{10},[0]_{10} \}.
-    \end{equation}
-    Par contré l'élément \( [3]_{10}\) est générateur : ses puissances sont dans l'ordre
-    \begin{equation}
-        [3]_{10}, [6]_{10}, [9]_{10}, [2]_{10}, [5]_{10}, [8]_{10},[1]_{10},[4]_{10},[7]_{10},[0]_{10}.
-    \end{equation}
-\end{example}
-
-Un exemple presque identique, mais un peu masqué sera l'exemple \ref{EXooOXAAooZMdDfP}.
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Sous-groupe normal}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{proposition}\label{propGroupeNormal}
-    Soit \( N\) un sous-groupe de \( G\). Les propriétés suivantes sont équivalentes :
-    \begin{enumerate}
-        \item
-            \( gNg^{-1}\subseteq N\) pour tout \( g\in G\),
-        \item
-            \( gNg^{-1}= N\) pour tout \( g\in G\),
-        \item
-            \( gN=Ng\) pour tout \( g\in G\),
-        \item
-            \( N\) est une union de classes de conjugaison de \( G\),
-        \item
-            \( N\) est normal\footnote{Définition \ref{DEFooNIIMooFkZgvX}.}.
-    \end{enumerate}
-\end{proposition}
-
-\begin{definition}
-    Soit \( g\in G\) et \( n\in \eZ\). Nous définissons \( g^n\) par
-    \begin{enumerate}
-        \item
-            \( g^0=e\) et \( g^n=gg^{n-1}\) si \( n\) est positif.
-        \item
-            si \( n<0\), nous posons \( g^n=(g^{-1})^{-n}\).
-    \end{enumerate}
-\end{definition}
-
-\begin{definition}[Ordre d'un groupe et d'un élément]       \label{DEFooKWBCooMlmpCP}
-    Ce sont deux choses différentes.
-    \begin{enumerate}
-        \item
-
-    Si \( G\) est un groupe, l'\defe{ordre}{ordre!d'un groupe} est la cardinalité de \( G\) et est noté \( | G |\).
-\item
-
-    L'\defe{ordre}{ordre!élément} d'un élément \( g\) de \( G\) est le naturel
-    \begin{equation}
-        \min\{ n\in\eN\tq g^n=e \},
-    \end{equation}
-    s'il existe; dans le cas contraire, nous disons que l'ordre de \( g\) est infini.
-    \end{enumerate}
-\end{definition}
-Nous verrons que le corollaire~\ref{CorpZItFX} au théorème de Lagrange dira que l'ordre d'un élément divise l'ordre du groupe.
-
-\begin{lemma}[\cite{PDFpersoWanadoo}]\label{LemHUkMxp}
-    Si \( H\) et \( K\) sont normaux dans le groupe \( G\) et si \( H\cap K=\{ e \}\) alors \( HK\simeq H\times K\).
-\end{lemma}
+%---------------------------------------------------------
+\subsection{Exposant}
+%---------------------------------------------------------
 
 \begin{definition}  \label{DefvtSAyb}
     L'\defe{exposant}{exposant!d'un groupe} du groupe \( G\) est le plus petit entier non nul \( n\) tel que \( g^n=e\) pour tout \( g\in G\). S'il n'existe pas, nous disons que l'exposant du groupe est infini.
@@ -227,59 +197,91 @@ Nous verrons que le corollaire~\ref{CorpZItFX} au théorème de Lagrange dira qu
 
 Le théorème de Burnside~\ref{ThooJLTit} nous donnera un bon paquet d'exemples de groupes d'exposant fini dans \( \GL(n,\eC)\).
 
-\begin{proposition} \label{PropSRMJooIDPBoW}
-    Soit un groupe \( G\). Nous considérons un sous-groupe normal \( H\) de \( G\) ainsi qu'un homomorphisme \( \psi\colon G\to H\). Alors
-    \begin{enumerate}
-        \item
-            \( \psi(H)\) est normal dans \( \psi(G)\)
-        \item
-            Si \( G/H\) est abélien alors \( \psi(G)/\psi(H)\) est abélien.
-    \end{enumerate}
-\end{proposition}
 
-\begin{proof}
-    Soient \( h\in H\) et \( g\in G\). Alors \( \psi(g)\psi(h)\psi(g)^{-1}=\psi(ghg^{-1})\in\psi(H)\). Donc \( \psi(H)\) est normal dans \( \psi(G)\).
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Ordre d'un élément dans un groupe fini}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    Pour la seconde partie nous notons \( [\ldots]\) les classes par rapport à \( \psi(H)\) et \( \overline{ \vphantom{g}\ldots }\) celles par rapport à \( H\). Nous avons
-    \begin{subequations}
-        \begin{align}
-            [\psi(g_1)][\psi(g_2)]&=\big[ \psi(g_1)\psi(g_2) \big]\\
-            &=\big[ \psi(g_1g_2) \big]\\
-            &=\{ \psi(g_1g_2)\psi(h)\tq h\in H \}\\
-            &=\{ \psi(g_1g_2h)\tq h\in H \}\\
-            &=\psi\Big(  \{ g_1g_2h\tq h\in H \}  \Big) \\
-            &=\psi\big( \overline{ g_1g_2 } \big)\\
-            &=\psi(\overline{ g_2g_1 })\\
-            &=\text{refaire à l'envers}\\
-            &=[\psi(g_2)][\psi(g_1)].
-        \end{align}
-    \end{subequations}
-    Par conséquent \( \psi(G)/\psi(H)\) est abélien.
-\end{proof}
+Il y a des informations en plus dans la partie sur les groupes monogènes, \ref{SECooXIHPooWVSjhT}.
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Classes de conjugaison}
-%---------------------------------------------------------------------------------------------------------------------------
+\begin{theorem}[Théorème de Cauchy\cite{ooTZHGooEPFstf}]    \label{THOooSUWKooICbzqM}
+    Soit un groupe fini d'ordre \( n\). Pour tout diviseur premier \( p\) de \( n\), le groupe \( G\) possède au moins un élément d'ordre \( p\).
+\end{theorem}
+\index{théorème!Cauchy!groupe}
 
-\begin{definition}
-    Soit un groupe \( G\) et un élément \( g\in G\). La \defe{classe de conjugaison}{classe!de conjugaison} de \( g\) est la partie
-    \begin{equation}
-        C_g=\{ kgk^{-1}\tq k\in G \}.
-    \end{equation}
-\end{definition}
-
-\begin{lemma}       \label{LEMooQYBJooYwMwGM}
-    Un groupe est abélien si et seulement si ses classes de conjugaison sont des singletons.
+Le lemme suivant indique que sous hypothèse de commutativité, l'ordre d'un élément est une notion multiplicative.
+\begin{lemma}[\cite{rqrNyg}]    \label{LemyETtdy}
+    Soit \( G\) un groupe et \( a,b\in G\) tels que \( ab=ba\) d'ordres respectivement \( r\) et \( s\), deux nombres premiers entre eux. Alors l'élément \( ab\) est d'ordre \( rs\).
 \end{lemma}
 
 \begin{proof}
-    Supposons que \( G\) soit abélien. Alors
+    Étant donné que \( (ab)^{rs}=a^{rs}b^{rs}=1\), l'ordre de \( ab\) divise \( rs\). Et vu que \( r\) et \( s\) sont premiers entre eux, l'ordre de \( ab\) s'écrit sous la forme \( r_1s_1\) avec \( r_1\divides r\) et \( s_1\divides s\). Nous avons
     \begin{equation}
-        C_g=\{ kgk^{-1}\tq k\in G \}=\{ g \}.
+        a^{r_1s_1}b^{r_1s_1}=(ab)^{r_1s_1}=1,
     \end{equation}
-    Donc les classes de conjugaison sont des singletons.
+    que nous élevons à la puissance \( r_2\) où \( r_2\) est définit en posant \(r=r_1r_2\) :
+    \begin{equation}
+        a^{rs_1}b^{rs_1}=1.
+    \end{equation}
+    Et comme \( a^{rs_1}=1\), nous concluons que \( b^{rs_1}=1\). Donc \( s\divides rs_1\). Par le lemme de Gauss \ref{LemPRuUrsD}, nous avons en fait \( s\divides s_1\). Vu qu'on a aussi \( s_1\divides s\), nous avons \( s=s_1\).
 
-    Dans l'autre sens, si les classes sont des singletons, on a \( kgk^{-1}=g\) pour tous \( k,g\in G\). Cela signifie immédiatement que \( G\) est abélien.
+    Le même type d'argument donne \( r=r_1\), et finalement l'ordre de \( ab\) est \( r_1s_1=rs\).
+\end{proof}
+
+\begin{lemma}[\cite{Combes}]    \label{LemSkIOOG}
+    Un sous-groupe d'indice \( 2\) est un sous-groupe normal.
+\end{lemma}
+
+\begin{proof}
+    Si $H$ est un tel sous-groupe d'un groupe $G$, alors $G$ possède exactement deux classes à gauche par rapport à \( H\) (théorème de Lagrange~\ref{ThoLagrange}) et se partitionne donc en deux parties : \( G=H\cup xH\) avec \( x \notin H \). De même pour les classes à droite : \( G=H\cup Hx\). Puisque la classe à droite \( Hx \) n'est pas $H$, on a \( xH = Hx \), et $H$ est normal dans $G$ par la proposition~\ref{propGroupeNormal}.
+\end{proof}
+
+\begin{lemma}[\cite{NielsBMorph}]\label{PropubeiGX}
+    Soit \( H\), un sous-groupe normal d'indice \( m\) de \( G\). Alors pour tout \( a\in G\) nous avons \( a^m\in H\).
+\end{lemma}
+
+\begin{proof}
+    Par définition de l'indice, le groupe \( G/H\) est d'ordre \( m\). Donc si \( [a]\in G/H\), nous avons \( [a]^m=[e]\), ce qui signifie \( [a^m]=[e]\), ou encore \( a^m\in H\).
+\end{proof}
+
+\begin{proposition}[\cite{NielsBMorph}]     \label{PROPooVWVIooQzuAlA}
+    Soit un groupe fini \( G\) et \( H\), un sous-groupe normal d'ordre \( n\) et d'indice \( m\) avec \( m\) et \( n\) premiers entre eux. Alors \( H\) est l'unique sous-groupe de \( G\) à être d'ordre \( n\).
+\end{proposition}
+
+\begin{proof}
+    Soit \( H'\) un sous-groupe d'ordre \( n\). Si \( h\in H'\) alors \( h^n=1\) et \( h^m\in H\) par le lemme \ref{PropubeiGX}. Étant donné que \( m\) et \( n\) sont premiers entre eux, par le théorème de Bézout~\ref{ThoBuNjam}, il existe \( a,b\in \eZ\) tels que
+    \begin{equation}
+        am+bn=1.
+    \end{equation}
+    Du coup \( h=h^1=(h^m)^a(h^n)^b\). En tenant compte du fait que \( h^n=1\) et \( h^m\in H\), nous avons \( h\in H\). Ce que nous venons de prouver est que \( H'\subset H\) et donc que \( H=H'\) parce que \( | H' |=| H |=| G |/m\).
+\end{proof}
+
+\begin{normaltext}
+    Notons que cette proposition ne dit pas qu'il existe un sous-groupe d'ordre \( n\) et d'indice \( m\). Il dit juste que s'il y en a un et s'il est normal, alors il n'y en a pas d'autres.
+\end{normaltext}
+
+\begin{lemma}       \label{LemqAUBYn}
+    L'ensemble des ordres\footnote{Définition \ref{DEFooKWBCooMlmpCP}.} d'un groupe commutatif est stable par PPCM\footnote{Définition \ref{DefrYwbct}.}.
+
+    Autrement dit, si \( x\in G\) est d'ordre \( r\) et si \( y\in G\) est d'ordre \( s\), alors il existe un élément d'ordre \( \ppcm(r,s)\).
+\end{lemma}
+
+\begin{proof}
+    Soit \( m=\ppcm(r,s)\). Afin d'écrire \( m\) sous une forme pratique, nous considérons les décompositions en facteurs premiers de \( r\) et \( s\) :
+    \begin{subequations}
+        \begin{align}
+            r&=\prod_{i=1}^kp_i^{\alpha_i}\\
+            s&=\prod_{i=1}^kp_i^{\beta_i}
+        \end{align}
+    \end{subequations}
+    où \( \{ p_i \}_{i=1\ldots k}\) est l'ensemble des nombres premiers arrivant dans les décompositions de \( r\) et de \( s\). Si nous posons
+    \begin{subequations}
+        \begin{align}
+            r'&=\prod_{\substack{i=1\\\alpha_1>\beta_i}}^kp_i^{\alpha_i}\\
+            s'&=\prod_{\substack{i=1\\\alpha_i\leq \beta_i}}^kp_i^{\beta_i},
+        \end{align}
+    \end{subequations}
+    alors \( \ppcm(r,s)=r's'\) et \( r'\) et \( s'\) sont premiers entre eux. L'élément \( x^{r/r'}\) est d'ordre \( r'\) et l'élément \( y^{s/s'}\) est d'ordre \( s'\). Maintenant nous utilisons le fait que \( G\) soit commutatif et le lemme~\ref{LemyETtdy} pour conclure que l'ordre de \( x^{r/r'}y^{s/s'}\) est \( r's'=m\).
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -335,261 +337,7 @@ Le groupe quotient \( G/D(G)\) est appelé l'\defe{abélianisé}{abélianisé} d
 
 Si \( f\colon G\to A\) est un homomorphisme entre le groupe \( G\) et un groupe abélien \( A\), alors \( f\big( D(G) \big)=\{ 0 \}\). Du coup \( f\) passe au quotient de \( G\) par \( D(G)\), et il existe une unique application \( \bar f\colon G/D(G)\to A\) telle que \( f=\bar f\circ \pi\) où \( \pi\colon G\to G/D(G)\) est la projection canonique.
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Théorèmes d'isomorphismes}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{definition}      \label{DEFooWBIYooGNRYOp}
-    Soient un groupe \( G\), un ensemble $X$ et une application \( f\colon X\to G\). Le \defe{noyau}{noyau!application vers un groupe} de \( f\) est la partie
-    \begin{equation}
-        \ker(f)=\{ x\in X\tq f(x)=e \}
-    \end{equation}
-    où \( e\) est l'unité de \( G\).
-\end{definition}
-
-Si \( G\) est un groupe et si \( N\) est un sous-groupe normal, alors l'ensemble \( G/N\) a une structure de groupe et la projection canonique \( \pi\colon G\to G/N\) est un homomorphisme surjectif de noyau~\( N\).
-
-\begin{theorem}[Premier théorème d'isomorphisme]        \label{ThoPremierthoisomo}
-    Soit \( \theta\colon G\to H\) un homomorphisme de groupe. Alors
-    \begin{enumerate}
-        \item
-            \( \Kernel\theta\) est normal dans \( G\),
-        \item
-            \( \Image \theta\) est un sous-groupe de \( H\)
-        \item   \label{ItemWLCLdk}
-            nous avons un isomorphisme naturel
-            \begin{equation}
-                G/\Kernel\theta\simeq \Image\theta
-            \end{equation}
-    \end{enumerate}
-\end{theorem}
-\index{théorème!isomorphisme!premier!pour les groupes}
-
-\begin{proof}
-    Point par point.
-    \begin{enumerate}
-        \item
-            Le fait que  \( \Kernel\theta\) soit un sous-groupe de \( G\) est clair; montrons qu'il est normal. Si \( g \in G \) et \( u \in \Kernel\theta\), alors \(\theta (g^{-1} u g) = \theta(g^{-1})\theta(u)\theta(g) = \bigl(\theta(g)\bigr)^{-1}\theta(g) = 1_H \), et donc \( g^{-1} u g \in \Kernel\theta\).
-        \item
-            Il suffit de remarquer que si \( h = \theta(g) \) et \( h' = \theta(g') \), alors \( h^{-1} h' = \theta(g^{-1} g') \).
-        \item
-            Si \( [g]\) représente la classe de \( g\) dans \( G/\Kernel\theta\), l'isomorphisme est donné par \( \varphi[g]=\theta(g)\).
-    \end{enumerate}
-\end{proof}
-
-\ifbool{isGiulietta}{
-Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=\SU(2)/\eZ_2$, voir la proposition \ref{PROPooDKPTooBnLflt}.
-}{}
-\begin{theorem}[Deuxième théorème d'isomorphisme]
-    Soient \( H\) et \( N\) deux sous-groupes de \( G\) et supposons que \( N\) soit normal. Alors
-    \begin{enumerate}
-        \item
-            \( NH=HN\) est un sous-groupe.
-        \item
-            Le groupe \( N\) est normal dans \( NH\).
-        \item
-            Le groupe \( N\cap H\) est normal dans \( H\).
-
-        \item\label{ItemjRPajc}
-            Nous avons l'isomorphisme
-            \begin{equation}
-                \frac{ HN }{ N }\simeq\frac{ H }{ H\cap N }.
-            \end{equation}
-        \item   \label{ItembgDQEN}
-            L'isomorphisme du point~\ref{ItemjRPajc} est encore valable si \( N\) n'est pas normal mais si seulement \( H\) normalise \( N\), c'est-à-dire si \( hNh^{-1}\in N\) pour tout \( h\in H\).
-    \end{enumerate}
-\end{theorem}
-\index{théorème!isomorphisme!second}
-%TODO : trouver une démonstration du dernier point.
-
-\begin{proof}
-    Point par point.
-    \begin{enumerate}
-        \item
-            Il est clair que \( 1_G \in NH \). Soient $nh$ et $n'h'$ deux éléments de \( NH \); alors en tenant compte du fait que \( N\) est normal,
-            \begin{equation}
-                nhn'h'=n\underbrace{hn'h^{-1}}_{\in N}hh'\in NH.
-            \end{equation}
-            Cela prouve que \( NH\) est un groupe.
-
-            De la même façon, nous prouvons que \( HN\) est un groupe par
-            \begin{equation}
-                hnh'n'=hh'\underbrace{h'^{-1}nh'}_{\in N}n'\in HN
-            \end{equation}
-
-            Nous devons encore prouver que \( HN=NH\). Pour cela, \( nh \in HN \), car \( nh = hh^{-1}nh \), les trois derniers facteurs formant un  élément de \( N \) par normalité; de même \( hn \in NH \), montrant que \( NH = HN \). Enfin, comme \( (nh)^{-1} = h^{-1} n^{-1}) \), les inverses de \( NH \) sont dans \( HN = NH \).
-        \item
-            \( N\) est normal dans \( G \), a fortiori dans l'un de ses sous-groupes.
-        \item
-            Il suffit de voir que, si \( h \in H \) et \( n \in N \cap H \), alors \( hnh^{-1} \in N \cap H \). Or, \( hnh^{-1} \in H \) puisque \( H\) est un sous-groupe; et \( hnh^{-1} \in N \) car \( N \) est un sous-groupe normal de \( G \).
-        \item
-            Il faut d'abord remarquer que \( H\) et \( N\) étant des groupes et le produit \( NH\) étant un groupe, nous avons \( NH=HN\). Soit le morphisme injectif
-            \begin{equation}
-                \begin{aligned}
-                    j\colon H&\to HN \\
-                    h&\mapsto h
-                \end{aligned}
-            \end{equation}
-            et la surjection canonique
-            \begin{equation}
-                \sigma\colon HN\to HN/N
-            \end{equation}
-            Nous considérons ensuite l'application composée
-            \begin{equation}
-                \begin{aligned}
-                    f\colon H&\to HN/N \\
-                    h&\mapsto hN.
-                \end{aligned}
-            \end{equation}
-
-            \begin{subproof}
-                \item[\( f\) est surjective]
-
-                    L'application \( f\) est surjective parce que l'élément \( hnN\in HN/N\) est l'image de \( h\), étant donné que \( hnN=hN\).
-
-                \item[\( \Kernel(f)=H\cap N\)]
-
-            Si \( a\in H\cap N\), nous avons \( f(a) =aN = N\), et donc \( H\cap N\subset \Kernel f\). D'autre part, si \( h\in H\) vérifie \( h\in\Kernel f\), alors \( f(h)=hN=N\), ce qui est uniquement possible si \( h\in N\).
-
-            \end{subproof}
-            Le premier théorème d'isomorphisme implique alors que \( H/\Kernel f\simeq \Image f\), c'est-à-dire
-            \begin{equation}
-                H/N\cap H\simeq HN/N.
-            \end{equation}
-    \end{enumerate}
-\end{proof}
-
-\begin{theorem}[Troisième théorème d'isomorphisme]  \label{ThoezgBep}
-    Soient \( N\) et \( M\) deux sous-groupes normaux de \( G\) avec \( M\subset N\). Alors \( N/M\) est normal dans \( G/M\) et
-    \begin{equation}
-        (G/M)/(N/M)\simeq G/N.
-    \end{equation}
-\end{theorem}
-\index{théorème!isomorphisme!troisième}
-
-\begin{proof}
-    Afin de montrer que \( N/M\) est normal dans \( G/M\), nous considérons \( g\in G\), \( nM\in N/M\) et nous calculons
-    \begin{equation}
-        gnMg^{-1}=gng^{-1}\underbrace{gMg^{-1}}_{=M}=\underbrace{gng^{-1}}_{\in N}M\in N/M.
-    \end{equation}
-
-    Pour prouver l'isomorphisme nous considérons le morphisme
-    \begin{equation}
-        \begin{aligned}
-            \varphi\colon G/M&\to G/N \\
-            gM&\mapsto gN.
-        \end{aligned}
-    \end{equation}
-    C'est surjectif et le noyau est \( N/M\) parce que \( \varphi(gM)=N\) uniquement si \( g\in N\). Nous pouvons appliquer le premier théorème d'isomorphisme à \( \varphi\) en écrivant
-    \begin{equation}
-        (G/M)/\Kernel \varphi\simeq\Image \varphi,
-    \end{equation}
-    c'est-à-dire
-    \begin{equation}
-        (G/M)/(N/M)\simeq G/N.
-    \end{equation}
-\end{proof}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Indice d'un sous-groupe et ordre des éléments}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{lemma}       \label{LEMooFNVRooRCkjLc}
-    Lorsque \( H\) est normal dans \( G\), alors la définition
-    \begin{equation}        \label{EQooEUESooSeUWHK}
-        [a]\cdot[b]=[ab]
-    \end{equation}
-    définit une loi de groupe sur l'ensemble \( G/H\).
-\end{lemma}
-
-\begin{proof}
-    Le neutre est \( [e]\) et l'associativité ne pose pas plus de problèmes que l'existence d'un inverse. Le point à vérifier est que la formule \eqref{EQooEUESooSeUWHK} est une bonne définition : \( [ah]\cdot [bh']=[ab]\) pour tout \( h,h'\in H\). Nous avons :
-    \begin{equation}
-        [ah]\cdot [ah']=[ahah']=[ahb].
-    \end{equation}
-    Pour montrer que cela est \( [ab]\), l'astuce est d'introduire \( bb^{-1}\) à côté du \( a\) :
-    \begin{equation}
-        [ahb]=[abb^{-1}hb]=[ab]
-    \end{equation}
-    parce que \( b^{-1} hb\in H\) du fait que \( H\) soit normal dans \( G\).
-\end{proof}
-
-\begin{example}[\cite{ooTVPEooGOLEom}]      \label{EXooFNIKooHxePSs}
-    Il ne faudrait pas croire que le groupe quotient \( G/H\) est forcément un sous-groupe de \( G\). Par exemple le quotient \( \eZ/2\eZ\) est l'ensemble \( \{ 0,1 \}\) muni de l'addition. En particulier \( 1+1=0\), ce qui est évidemment faux dans \( \eZ\). Le groupe \( (\eZ,+)\) ne possède aucun élément d'ordre \( 2\).
-
-    Il n'en est pas moins vrai que l'application
-    \begin{equation}
-        \begin{aligned}
-            f\colon G&\to G/H \\
-            g&\mapsto [g]
-        \end{aligned}
-    \end{equation}
-    est un morphisme de groupes.
-\end{example}
-
-\begin{definition}      \label{DEFooMPIAooIeZNaR}
-    Si \( H\) est un sous-groupe d'un groupe fini l'\defe{indice}{indice} de \( H\) dans \( G\) est le nombre \( | G |/| H |\), souvent noté \( | G:H |\).
-\end{definition}
-
-Le théorème de Lagrange dira en particulier que l'indice est toujours un nombre entier. C'est à ne pas confondre avec le degré d'une extension de corps (définition~\ref{DefUYiyieu}).
-
-
-\begin{theorem}[Théorème de Lagrange]    \label{ThoLagrange}
-    Soit \( H\) un sous-groupe du groupe fini \( G\).  Alors
-    \begin{enumerate}
-        \item   \label{ITEMooDPKSooNpOusd}
-    L'ordre de \( H\) divise l'ordre de \( G\).
-\item
-    Les trois nombres suivants sont égaux :
-    \begin{itemize}
-        \item
-            le nombre de classes de \( H\) à gauche,
-        \item
-            le nombre de classes de \( H\) à droite,
-        \item
-            l'indice de \( H\) dans \( G\).
-    \end{itemize}
-    \end{enumerate}
-    En particulier si \( H\) est distingué dans \( G\) nous avons
-    \begin{equation}
-        | G/H |=\frac{ | G | }{ | H | }.
-    \end{equation}
-\end{theorem}
-\index{théorème!Lagrange}
-\index{Lagrange!théorème}
-
-\begin{proof}
-    Nous commençons par montrer que les classes de \( H\) ont toutes le même nombre d'éléments que \( H\). En effet pour chaque \( g\in G\) nous avons la bijection
-    \begin{equation}
-        \begin{aligned}
-            \varphi\colon H&\to gH \\
-            h&\mapsto gh.
-        \end{aligned}
-    \end{equation}
-    L'injectivité de \( \varphi\) est le fait que \( gh=gh'\) implique \( h=h'\). La surjectivité est par définition de la classe.
-
-    Les classes à gauche formant une partition de \( G\), le cardinal de \( G\) est le produit de la taille des classes par le nombre de classes :
-    \begin{equation}
-        | G |=| H |\cdot\text{nombre de classes}.
-    \end{equation}
-    En particulier nous voyons que \( | H |\) divise \( | G |\).
-
-    La dernière formule exprime simplement que \( G/H\) est par définition le nombre de classes de \( H\) à gauche (ou à droite) dans \( G\).
-\end{proof}
-
-\begin{corollary}       \label{CorpZItFX}
-    L'ordre d'un élément d'un groupe fini divise l'ordre du groupe. En particulier dans un groupe d'ordre \( n\) tous les éléments vérifient \( q^n=e\).
-\end{corollary}
-
-\begin{proof}
-    Soit \( G\) un groupe fini et considérons, à \( g \in G \) fixé, le sous-groupe
-    \begin{equation}
-        H=\{ g^k\tq k\in\eN \}.
-    \end{equation}
-    Par le théorème de Lagrange~\ref{ThoLagrange}, l'ordre de \( H\) divise \( | G |\), mais l'ordre de \( H\) est le plus petit \( k\) tel que \( g^k=e\), c'est-à-dire l'ordre de \( g\).
-\end{proof}
-
-D'autres résultats à propos d'ordres et d'indices de groupes finis dans la proposition \ref{PROPooVWVIooQzuAlA} et le lemme \ref{LemqAUBYn}. En particulier le théorème de Cauchy \ref{THOooSUWKooICbzqM} qui dit si \( p\) divise l'ordre du groupe \( G\), alors \( G\) contient au moins un élément d'ordre \( p\).
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Suite de composition}
