@@ -136,6 +136,19 @@ Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe
     Si \( H\) est un sous-groupe de \( G\) contenant \( A\), alors \( \gr(A)\) est l'intersection de \( H\) avec tous les autres sous-groupes de \( G\) contenant \( A\). Il contient donc \( \gr(A)\).
 \end{proof}
 
+Avant d'aborder une caractérisation explicite d'un sous groupe engendré, voici un peu de notations.
+\begin{definition}      \label{DEFooNEVNooJlmJOC}
+    Si \( f\colon \{ 0,\ldots, N \}\to G\) est une application vers un groupe additif \( G\), alors nous définissons la notation \( \sum_{i=0}^Nf(i)\) par récurrence de la façon suivante :
+    \begin{enumerate}
+        \item
+            \( \sum_{i=0}^0f(i)=f(0)\),
+        \item
+            \( \sum_{i=0}^{k}f(i)=\sum_{i=0}^{k-1}f(i)+f(k)\).
+    \end{enumerate}
+    Dans le cas d'un groupe multplicatif, on utilise la notation \( \prod_{i=0}^N f(i)\) par récurrence également:  \( \prod_{i=0}^0 f(i) = f(0)\), et  \( \prod_{i=0}^{k}f(i)=\prod_{i=0}^{k-1}f(i)\cdot f(k)\).
+\end{definition}
+
+
 \begin{lemma}[\cite{BIBooERNQooTXQPvD}]   \label{LemFUIZooBZTCiy}
     Si \( A\) est une partie du groupe \( G\), alors le sous-groupe \( \gr(A)\) engendré\footnote{Définition~\ref{DefooRDRXooEhVxxu}.} par \( A\) est l'ensemble de tous les produits finis d'éléments de \( A\) et de \( A^{-1}\) (l'identité est le produit à zéro éléments).
 
@@ -143,7 +156,7 @@ Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe
     \begin{equation}\label{EQ_produitGenerateursGroupe}
         \prod_{i=1}^ng_i^{a_i}
     \end{equation}
-    où \( a_i\in \eZ\) et \( g\colon \eN\to A\) n'est pas spécialement injective : il peut arriver que \( g_i=g_j\).
+    où \( a_i\in \eZ\) et \( g\colon\{ 1,\ldots, n \}\to A\) n'est pas spécialement injective : il peut arriver que \( g_i=g_j\).
 \end{lemma}
 L'écriture \eqref{EQ_produitGenerateursGroupe} a un sens grâce à la définition \ref{DEFooGVSFooFVLtNo}; les \( a_i\) négatifs correspondant aux inverses. Notons que si \( g\in A\), il n'y a pas de garanties que \( g^{-1}\) soit également dans \( A\).
 

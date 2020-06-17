@@ -129,7 +129,7 @@ Le fait d'imposer que \( S \) n'a pas de diviseurs de zéro permet de s'assurer 
 \end{proposition}
 
 \begin{definition}[\cite{ooGSDHooLgtHCb}]       \label{DEFooGJYXooOiJQvP}
-    Soit un anneau commutatif et intègre\footnote{Définition~\ref{DEFooTAOPooWDPYmd}.} Le \defe{corps des fractions}{corps!des fractions} de \( A\) est le localisé de \( A \) en \( A \setminus \{ 0 \} \); en d'autres termes, c'est le quotient
+    Soit \( A \) un anneau commutatif et intègre\footnote{Définition~\ref{DEFooTAOPooWDPYmd}.} Le \defe{corps des fractions}{corps!des fractions} de \( A\) est le localisé de \( A \) en \( A \setminus \{ 0 \} \); en d'autres termes, c'est le quotient
     \begin{equation}
         \Frac(A)=\big( A\times A\setminus\{ 0 \} \big)/\sim,
     \end{equation}
@@ -142,7 +142,7 @@ Le fait que \( A\) soit intègre est important pour être certain que \( bd\neq 
 La proposition suivante dit que \( \Frac(A)\) est le plus petit corps contenant \( A\).
 
 \begin{proposition}[\cite{MonCerveau}]      \label{PROPooGSHDooJOnDsp}
-    Si \( \eL\) est un corps contenant \( A\) en tant que sous-anneau\footnote{Bien entendu, nous pouvons trouver plein de corps contenant \( A\) en tant que sous-ensemble sans pour autant étendre \( A\) en tant qu'anneau; il suffit d'y mettre une loi de composition farfelue.}, alors il existe un morphisme de corps injectif \( \epsilon\colon \Frac(A)\to \eL\).
+    Soit \( A \) un anneau commutatif et intègre. Si \( \eL\) est un corps contenant \( A\) en tant que sous-anneau\footnote{Bien entendu, nous pouvons trouver plein de corps contenant \( A\) en tant que sous-ensemble sans pour autant étendre \( A\) en tant qu'anneau; il suffit d'y mettre une loi de composition farfelue.}, alors il existe un morphisme de corps injectif \( \epsilon\colon \Frac(A)\to \eL\).
 \end{proposition}
 
 \begin{proof}
@@ -159,19 +159,19 @@ La proposition suivante dit que \( \Frac(A)\) est le plus petit corps contenant 
 
     Le fait que \( \epsilon\) soit un morphisme est une vérification de routine, par exemple ceci pour la somme :
     \begin{equation}
-        \epsilon\big( a/b+c/d \big)=\epsilon\big( (ad+cb)/bd)\big)=(ad+cb)(bd^{-1})=ab^{-1}+cd^{-1},
+        \epsilon\big( a/b+c/d \big)=\epsilon\big( (ad+cb)/bd)\big)=(ad+cb)(bd)^{-1}=add^{-1}b^{-1}+cbd^{-1}b^{-1} = ab^{-1}+cd^{-1},
     \end{equation}
-    tandis que
+    (la dernière égalité a lieu par commutativité de \(A \)) tandis que
     \begin{equation}
         \epsilon(a,b)+\epsilon(c,d)=ab^{-1}+cd^{-1},
     \end{equation}
-    qui est égal (il faut aussi vérifier pour le produit).
+    qui est égal. On laisse le lecteur vérifier que ça marche aussi pour le produit.
 
     Enfin \( \epsilon\) est injective parce que si \( \epsilon(a/b)=\epsilon(c/d)\), alors \( ab^{-1}=cd^{-1}\), d'où il est facilement vu que \( ad=cb\), c'est-à-dire \( a/b=c/d\).
 \end{proof}
 
 \begin{definition}[Évaluation d'une fraction rationnelle]       \label{DEFooLBIWooCPCaSY}
-    Soit un corps \( \eK\) contenant l'anneau \( A\). Si \( R=P/Q\in \Frac(A)[X] \) et si \( \alpha\in \eK\) nous définissons
+    Soit un corps \( \eK\) contenant l'anneau commutatif et intègre \( A\). Si \( R=P/Q\in \Frac(A)[X] \) et si \( \alpha\in \eK\) nous définissons
     \begin{equation}
         R(\alpha)=(P/Q)(\alpha)=P(\alpha)Q^{-1}(\alpha).
     \end{equation}
@@ -180,35 +180,32 @@ La proposition suivante dit que \( \Frac(A)\) est le plus petit corps contenant 
 
 Notons que si \( A\) est un anneau qui n'est pas un corps, le corps \( \Frac(A)\) existe, mais si \( R\in\Frac(A)[X]\), il n'a pas de sens de vouloir calculer \( R(\alpha)\) pour \( \alpha\in A\) "général", parce qu'on a besoin d'inverses.
 
-\begin{theoremDef}     \label{ThogbhWgo}
-    Soit \( \eA\) un anneau commutatif intègre.
-
-    \begin{enumerate}
-        \item
-    Il existe un corps commutatif \( \eK\) et un morphisme d'anneaux injectif \( \epsilon\colon \eA\to \eK\) tels que pour tout \( \lambda\in\eK\), il existe \( (a,b)\in \eA\times \eA^*\) tels que
+\begin{theorem}     \label{ThogbhWgo}
+    Soit \( A\) un anneau commutatif intègre, et \( \eK\) un corps commutatif. Soit un morphisme d'anneaux \( \phi\colon A\to \eK\) tels que pour tout \( \lambda\in\eK\), il existe \( (a,b)\in A\times A^*\) tels que
     \begin{equation}
-        \lambda=\epsilon(a)\big( \epsilon(b) \big)^{-1}
+        \lambda=\phi(a)\big( \phi(b) \big)^{-1}.
     \end{equation}
-\item
-    Si \( (\eK',\epsilon')\) est un autre couple qui vérifie la propriété, les corps \( \eK\) et \( \eK'\) sont isomorphes.
-    \end{enumerate}
+    Alors \( \eK\) est isomorphe à \( \Frac(A) \).
+\end{theorem}
+%TODO: preuve. Dans les grandes lignes:
+% - K contient \phi(A), qui doit être un sous-anneau de K.
+% - Par la prop précédente, on a un \epsilon: Frac(\phi(A)) \to K, injectif.
+% - Sans doute qu'on prolonge \phi telle que \phi: \Frac(A) \to \Frac(\phi(A)), et que la composée \epsilon \circ \phi est la bijection.
 
-    Le corps \( \eK\) associé à l'anneau \( \eA\) est le \defe{corps des fractions}{corps!des fractions}\index{fractions (corps)} de \( \eA\), et sera noté \( \Frac(\eA)\).\nomenclature[A]{\( \Frac(\eA)\)}{Le corps des fractions de l'anneau \( \eA\)}
-\end{theoremDef}
 
 \begin{lemma}[Simplification de fraction]
-    L'application \( \eA\times \eA^*\to \eK\) donnée par \( (a,b)\mapsto \epsilon(a)\big( \epsilon(b) \big)^{-1}\) envoie \( (xa,xb)\) sur le même que \( (a,b)\).
+    L'application \( \eA\times \eA^*\to \eK\) donnée par \( (a,b)\mapsto \phi(a)\big( \phi(b) \big)^{-1}\) envoie \( (xa,xb)\) sur le même que \( (a,b)\).
 \end{lemma}
 
 La proposition suivante montre encore que le corps des fractions est le plus petit corps que l'on puisse imaginer à partir d'un anneau.
 \begin{proposition}
-    Soit un anneau \( A\). Tout corps contenant un sous-anneau isomorphe à \( A\) contient un sous-corps isomorphe à \( \Frac(A)\).
+    Soit un anneau commutatif et intègre \( A\). Tout corps contenant un sous-anneau isomorphe à \( A\) contient un sous-corps isomorphe à \( \Frac(A)\).
 \end{proposition}
 
 \begin{proof}
     Soit un corps \( \eK\) contenant un sous-anneau \( A'\) isomorphe à \( A\). Nous considérons la partie suivante de \( \eK\) :
     \begin{equation}
-        S=\{ ab^{-1}\tq a,b\in A \}.
+        S=\{ ab^{-1}\tq a,b\in A' \}.
     \end{equation}
     Ensuite nous montrons que
     \begin{equation}
@@ -527,7 +524,7 @@ Donc \( (y_n) \) est de Cauchy.
 
 Une construction très explicite est faite dans \cite{RWWJooJdjxEK}. Ici nous allons prendre plus court :
 \begin{definition}
-    Le corps des fractions de \( \eZ\) (définition~\ref{DEFooGJYXooOiJQvP}) est noté \( \eQ\) et ses éléments sont les \defe{rationnels}{rationnels}.
+    Le corps des fractions de \( \eZ\) (définition~\ref{DEFooGJYXooOiJQvP}) est noté \( \eQ\) et ses éléments sont les \defe{rationnels}{rationnels}. Un nombre \defe{irrationnel}{irrationnel} est un nombre qui n'est pas dans \( \eQ \).
 \end{definition}
 
 Les résultats énoncés ici sont utilisés plus bas et servent de guide à un éventuel contributeur qui voudrait écrire une partie dédiée à \( \eQ\) et ses propriétés de base\quext{Par exemple, définir une relation d'ordre sur \( \eQ\) et expliciter l'inclusion de \( \eZ\) dans \( \eQ\).}. Nous espérons que des preuves se trouvent dans \cite{RWWJooJdjxEK}. En tout cas, le lecteur est invité à ne rien prendre comme évident.
@@ -640,7 +637,7 @@ Nous allons voir qu'il n'existe pas de nombres rationnels \( x\) tels que \( x^2
     Inversement, si \( x\) est impair alors il existe un entier \( a\) tel que \( x=2a+1\) et alors \( x^2=4a^2+4a+1=2(2a^2+2a)+1\) est impair.
 \end{proof}
 
-Le théorème~\ref{THOooYXJIooWcbnbm} nous dira que tous les \( \sqrt{n}\) sont irrationnels dès que \( n\) n'est pas un carré parfait. Voici déjà le résultat pour \( n=2\). Le fait que \( \sqrt{ 2 }\) existe dans \( \eR\) sera la proposition \ref{PROPooUHKFooVKmpte}.
+Le théorème~\ref{THOooYXJIooWcbnbm} nous a affirmé que tous les \( \sqrt{n}\) sont irrationnels dès que \( n\) n'est pas un carré parfait. Pour \( n=2\),  nous allons en donner une preuve plus explicite. Le fait que \( \sqrt{ 2 }\) existe dans \( \eR\) sera la proposition \ref{PROPooUHKFooVKmpte}.
 \begin{proposition}[Irrationalité de \( \sqrt{2}\)]     \label{PropooRJMSooPrdeJb}
     Il n'existe pas de fractions d'entiers dont le carré soit égal à \( 2\).
 \end{proposition}
@@ -668,7 +665,7 @@ Le théorème~\ref{THOooYXJIooWcbnbm} nous dira que tous les \( \sqrt{n}\) sont 
 \end{proof}
 
 \begin{lemma}[Série géométrique, voir aussi l'exemple~\ref{ExZMhWtJS}]      \label{LEMooOTVUooImvusn}
-    Si \( q\in \eQ\) et \( p\in \eN\) nous avons
+    Si \( q\in \eQ\) est différent de \( 1 \) et \( p\in \eN\), nous avons
     \begin{equation}
         \sum_{k=0}^pq^k=\frac{ 1-q^{p+1} }{ 1-q }.
     \end{equation}
