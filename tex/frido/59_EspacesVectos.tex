@@ -27,6 +27,19 @@ Plus à propos de formes bilinéaires dans le thème \ref{THEMEooOAJKooEvcCVn}.
 \end{equation}
 \end{proposition}
 
+\begin{proof}
+    Il suffit de substituer dans le membre de droite \( q(x)=b(x,y)\) et d'utiliser la bilinéarité :
+    \begin{subequations}
+        \begin{align}
+            q(x)+q(y)-q(x-y)&=b(x,x)+b(y,y)-b(x-y,x-y)\\
+            &=b(x,x)+b(y,y)-b(x)+b(x,y)+b(y,x)-b(y,y)\\
+            &=2b(x,y)
+        \end{align}
+    \end{subequations}
+    où nous avons utilisé le fait que \( b\) est symétrique : \( b(x,y)=b(y,x)\).
+- \end{proof}
+- 
+
 \begin{lemma}       \label{LEMooLKNTooSfLSHt}
     Si \( q\) est une forme quadratique, il existe une unique forme bilinéaire \( b\) telle que \( q(x)=b(x,x)\).
 \end{lemma}
@@ -39,36 +52,151 @@ Notons la division par \( 2\) qui est le pourquoi de la demande de la caractéri
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Matrice associée à une forme bilinéaire}
 %---------------------------------------------------------------------------------------------------------------------------
+ 
+\begin{definition}      \label{DEFooAOGPooXWXUcN}
+    Soit une forme bilinéaire \( b\colon E\times E\to \eK\) et une base quelconque \( \{ f_{\alpha} \}\) de \( E\). Nous définissons les nombres
+    \begin{equation}    \label{EQooCUGFooRlKUtu}
+        B_{\alpha\beta}=b(f_{\alpha},f_{\beta}),
+    \end{equation}
+    qui forment une matrice symétrique dans \( \eM(n,\eK)\). Cette matrice est la \defe{matrice associée}{matrice d'une forme bilinéaire} à la forme bilinéaire \( b\).
 
-Soit une forme bilinéaire \( b\colon E\times E\to \eK\) et une base \( \{ f_{\alpha} \}\) de \( E\), pas spécialement orthonormée. Nous définissons les nombres
-\begin{equation}    \label{EQooCUGFooRlKUtu}
-    B_{\alpha\beta}=b(f_{\alpha},f_{\beta}),
+    La matrice d'une forme quadratique est celle associée à sa forme bilinéaire associée.
+\end{definition}
+
+Alors nous avons aussi, si \( x=\sum_{\alpha}x_{\alpha}f_{\alpha}\) et \( y=\sum_{\beta}y_{\beta}f_{\beta}\) :
+  \begin{equation}        \label{EQooQFMWooVKVLMx}
+    b(x,y)=\sum_{\alpha\beta}x_{\alpha}y_{\beta}b(f_{\alpha},f_{\beta})=\sum_{\alpha\beta}B_{\alpha\beta}x_{\alpha}y_{\beta}.
+  \end{equation}
+  La matrice \( B\) est la matrice de \( b\) dans la base \( \{ f_{\alpha} \}\) de \( V\).
+  
+Nous pouvons aussi écrire cela avec un produit scalaire. En utilisant la convention \eqref{EQooAXRJooUwHbjB} et les choses autour (voir aussi \ref{SECooBTTTooZZABWA}),
+\begin{equation}
+    b(x,y)=\sum_{\alpha}x_{\alpha}\sum_{\beta}B_{\alpha\beta}y_{\beta}=\sum_{\alpha}x_{\alpha}(By)_{\alpha}=x\cdot By.
 \end{equation}
-qui forment une matrice symétrique dans \( \eM(n,\eK)\). Alors nous avons aussi, si \( y=\sum_{\alpha}y_{\alpha}f_{\alpha}\) et \( y'=\sum_{\beta}y'_{\beta}f_{\beta}\) :
-\begin{equation}        \label{EQooQFMWooVKVLMx}
-    b(y,y')=\sum_{\alpha\beta}q(f_{\alpha},f_{\beta})=\sum_{\alpha\beta}B_{\alpha\beta}y_{\alpha}y'_{\beta}.
-\end{equation}
-La matrice \( B\) est la matrice de \( b\) dans la base \( \{ f_{\alpha} \}\) de \( V\).
+où le point est le produit scalaire usuel (composante par composante).
 
-Notons que la matrice associée à une forme bilinéaire (ou quadratique associée) est uniquement valable pour une base donnée. Si nous changeons de base, la matrice change. Cependant lorsque nous travaillons sur \( \eR^n\), la base canonique est tellement canonique que nous allons nous permettre de parler de «la» matrice associée à une forme bilinéaire.
+\begin{normaltext}
+    De nombreux auteurs préfèrent écrire des choses comme \( x^tBy\) ou \( xB^ty\) ou \( xBy^t\) et se poser de longues questions sur qui est un «vecteur colonne» et qui est un «vecteur ligne», et si la matrice \( B\) soit être transposée ou non. Toutes ces notations servent(?) à cacher un bête produit scalaire.
+\end{normaltext}
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Diagonalisation}
+\begin{normaltext}
+    Notons que la matrice associée à une forme bilinéaire (ou quadratique associée) est uniquement valable pour une base donnée. Si nous changeons de base, la matrice change. Cependant lorsque nous travaillons sur \( \eR^n\), la base canonique est tellement canonique que nous allons nous permettre de parler de «la» matrice associée à une forme bilinéaire.
+\end{normaltext}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Changement de base : matrice d'une forme bilinéaire}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{proposition}
-    Soit une forme bilinéaire symétrique \( b\) sur un espace vectoriel \( E\) de dimension finie. Il existe une matrice orthogonale \( Q\) telle que 
-    \begin{enumerate}
+\begin{proposition}[Voir la section \ref{SECooBTTTooZZABWA}]     \label{PROPooLBIOooUpzxXA}
+    
+    Soit une forme bilinéaire\footnote{Définition~\ref{DEFooEEQGooNiPjHz}} \( b\colon V\times V\to \eK\) dont la matrice\footnote{Définition~\ref{EQooCUGFooRlKUtu}.} dans la base \( \{ e_i \}\) est \( A\) et celle dans la base \( \{ f_{\alpha} \}\) est \( B\). Nous supposons que les bases sont liées par \( f_{\alpha}=\sum_{i}Q_{i\alpha}e_i\). Alors
+\begin{equation}        \label{EQooZUVTooKjqnJj}
+    B=Q^tAQ.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+    Soit \( x,x'\in V\) de coordonnées \( (x_i)\) et \( (x'_i)\) dans la base \( \{ e_i \}\) et \( (y_{\alpha})\), \( (y'_{\alpha})\) dans la base \( \{ f_{\alpha} \}\). Par définition de la matrice associée à une forme bilinéaire,
+    \begin{equation}
+        b(x,x')=\sum_{ij}A_{ij}x_ix'_j=\sum_{\alpha\beta}B_{\alpha\beta}y_{\alpha}y'_{\beta}.
+    \end{equation}
+    En remplaçant les \( x_i\) et \( x'_i\) par leurs valeurs en fonction de \( y_{\alpha}\) et \( y'_{\beta}\) données par la proposition \ref{PROPooNYYOooHqHryX}, nous trouvons
+    \begin{subequations}
+        \begin{align}
+            b(x,x')&=\sum_{ij\alpha\beta}A_{ij}Q_{i\alpha}y_{\alpha}Q_{j\beta}y'_{\beta}\\
+            &=\sum_{\alpha\beta}(Q^tAQ)_{\alpha\beta}y_{\alpha}y'_{\beta}
+        \end{align}
+    \end{subequations}
+    où \( Q^t\) désigne la transposée de la matrice \( Q\) :  \( Q^t_{ij}=Q_{ji}\). Vu que les nombres \( y_{\alpha}\) et \( y'_{\beta}\) sont arbitraires nous déduisons\footnote{Lemme~\ref{LEMooLXAHooPRyHaF}.} que \( B=Q^tAQ\).
+\end{proof}
+
+\begin{remark}      \label{REMooNEJLooSqgeih}
+    Notons que cette «loi de transformation» n'est pas la même que celle pour une application linéaire\footnote{Proposition \ref{PROPooNZBEooWyCXTw}.}. Ici nous avons \( Q^t\) alors que pour les applications linéaires nous avions \( Q^{-1}\).
+
+    Pour cette raison, tant que nous travaillons avec des bases orthonormées, c'est-à-dire tant que \( Q\) est orthogonale\footnote{Définition~\ref{DefMatriceOrthogonale}.}, nous pouvons confondre une application linéaire avec une application bilinéaire en passant par la matrice. Mais cette identification n'est pas du tout canonique : elle repose sur le fait que les bases soient orthonormées.
+
+    Il en découle que la réduction des endomorphismes et la réduction des formes bilinéaires ne sont pas tout à fait les mêmes théories. Par exemple la pseudo-diagonalisation simultanée (corolaire~\ref{CorNHKnLVA}) est un résultat de réduction de forme bilinéaire et non d'endomorphismes.
+\end{remark}
+
+\begin{proposition}     \label{PROPooCIEUooODqfwm}
+    Soit une forme quadratique \( q\colon E\to \eK\) et sa matrice\footnote{Matrice associée à une forme quadratique, définition \ref{DEFooAOGPooXWXUcN}.} \( (q_{ij})\in \eM(n,\eK)\). Nous avons
+    \begin{equation}        \label{EQooQROVooBfshbZ}
+        q(x)=\sum_{i=1}^n\sum_{j=1}^nq_{ij}x_ix_j=\sum_{i=1}^nq_{ii}x_i^2+2\sum_{1\leq i <j\leq n}q_{ij}x_ix_j.
+    \end{equation}
+\end{proposition}
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Réduction de Gauss}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{theorem}[Réduction de Gauss\cite{BIBooNUUEooJUjLpy,BIBooUULNooUtlrar}]     \label{THOooOMMFooKxqICS}
+    Soit une forme quadratique non nulle \( q\) sur l'espace vectoriel \( E\) sur le corps \( \eK\). Il existe des formes linéaires linéairement indépendantes \(\{ l_i \}_{i=1,\ldots, n}\) et des coefficients \( \alpha_i\in \eK\) tels que 
+        \begin{equation}
+            q(x)=\sum_{i=1}^n\alpha_il_i(x)^2.
+        \end{equation}
+\end{theorem}
+
+\begin{proof}
+    Notre point de départ est la formule \eqref{EQooQROVooBfshbZ} pour la forme quadratique. Nous allons faire la preuve par récurrence sur la dimension de l'espace. Si \( n=1\), alors nous avons seulement
+    \begin{equation}
+        q(x)=\alpha x^2
+    \end{equation}
+    et donc le théorème est fait avec \( l(x)=x\).
+
+    Nous supposons que le théorème est prouvé pour tout espace de dimension \( n\). Une forme quadratique pour un espace de dimension \( n+1\) s'écrit
+    \begin{equation}
+        q(x)=\sum_{i=1}^{n+1}q_{ii}x_i^2+2\sum_{1\leq i < j\leq n+1}q_{ij}x_ix_j.
+    \end{equation}
+    Vu que \( q\) est non nulle, un des \( q_{ij}\) est non nul. Nous allons diviser en plusieurs cas.
+    \begin{itemize}
         \item
-            \( D=Q^tbQ\) est diagonale
+            \( q_{11}\neq 0\)
         \item
-            \( D(x,y)=b(Qx,Qy)\) pour tout \( x,y\in E\).
-    \end{enumerate}
-    Dans cet énoncé, nous mélangeons sans vergogne les formes et les matrices, en supposant qu'une base soit fixée\footnote{Autrement dit, si vous avez en tête d'utiliser cette proposition pour \( \eR^n\) c'est bon; mais sinon vous devez choisir une base et considérer toutes les matrices dans cette base.}. Par exemple
+            \( q_{kk}\neq 0\) avec \( k\neq 1\)
+        \item
+            \( q_{12}\neq 0\)
+        \item
+            \( q_{kl}\neq 0\) avec \( (k,l)\neq (1,2)\).
+    \end{itemize}
+    Ces cas ne sont pas exclusifs, mais ils couvrent toutes les possibilités.
+\end{proof}
+
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Orthogonalité}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{BIBooUULNooUtlrar}]
+    Soit un espace vectoriel \( (E,\eK)\) et une forme quadratique \( q\). Une base de \( E\) est \( q\)-orthogonale si et seulement si la matrice de \( q\) dans cette base est diagonale.
+\end{proposition}
+
+
+\begin{theorem}[\cite{BIBooUULNooUtlrar}]       \label{THOooIDMPooIMwkqB}
+    Toute forme quadratique sur un espace vectoriel de dimension finie admet une base formée de vecteurs \( 2\) à \( 2\) orthogonaux (pour la forme considérée).
+\end{theorem}
+  
+  %--------------------------------------------------------------------------------------------------------------------------- 
+  \subsection{Diagonalisation}
+  %---------------------------------------------------------------------------------------------------------------------------
+  
+Le théorème \ref{THOooIDMPooIMwkqB} a déjà donné une base orthogonale pour toute forme quadratique sur un espace vectoriel \( (E,\eK)\) de dimension finie. Dans le cas de \( \eR^n\), nous pouvons en donner une preuve basée sur le théorème spectral, c'est la proposition \ref{PROPooUKRUooGRIDHt}.
+
+\begin{proposition}     \label{PROPooUKRUooGRIDHt}
+    Soit une forme bilinéaire symétrique \( b\) sur un \( \eR^n\). Il existe une matrice orthogonale \( Q\) telle que 
+      \begin{enumerate}
+          \item
+              \( D=Q^tbQ\) est diagonale
+          \item
+              \( D(x,y)=b(Qx,Qy)\) pour tout \( x,y\in E\).
+      \end{enumerate}
+    Il existe une base \( (f_i)_{i=1,\ldots, n}\) qui est \( b\)-orthogonale.
+\end{proposition}
+
+      Dans cet énoncé, nous mélangeons sans vergogne les formes et les matrices, en supposant qu'une base soit fixée\footnote{Autrement dit, si vous avez en tête d'utiliser cette proposition pour \( \eR^n\) c'est bon; mais sinon vous devez choisir une base et considérer toutes les matrices dans cette base.}. Par exemple
     \begin{equation}
         D(x,y)=\sum_{ij}D_{ij}x_iy_j.
     \end{equation}
-\end{proposition}
+
 
 \begin{proof}
     Pour la matrice diagonale, c'est le théorème spectral \ref{ThoeTMXla}\ref{ITEMooMWWRooXxGONW} qui joue parce que la matrice d'une forme bilinéaire symétrique est symétrique (c'est vu de la définition \eqref{EQooCUGFooRlKUtu}).
@@ -83,6 +211,12 @@ Notons que la matrice associée à une forme bilinéaire (ou quadratique associ�
         \end{align}
     \end{subequations}
     Nous avons utilisé le produit matrice fois vecteur donné par \eqref{EQooQFVTooMFfzol}.
+    
+         En ce qui concerne l'existence d'une base \( b\)-orthogonale, vu que \( D\) est diagonale, nous avons, pour \( i\neq j\) que \( D(e_i,e_j)=0\). Donc en posant \( f_i=Qe_i\), nous trouvons
+     \begin{equation}
+         0=D(e_i,e_j)=b(Qe_i,Qe_j)=b(f_i,f_j).
+     \end{equation}
+     La base \( (Qe_i)_{i=1,\ldots, n}\) est donc \( b\)-orthogonale.
 \end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 

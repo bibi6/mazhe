@@ -7,21 +7,44 @@ Attention aux conventions. Dans le Frido, un corps peut être réduit à \( \{ 0
 
 En cas de doutes, nous suivons les conventions de Wikipédia.
 
+<<<<<<< HEAD
+=======
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Inversibles et nilpotents}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Le concept d'anneau est la définition \ref{DefHXJUooKoovob}.
+
+\begin{lemma}
+    Si \( a\) et \( b\) commutent, nous avons, pour tout \( r \in \eN \) et \( r > 0\), la formule
+    \begin{equation}        \label{Eqarpurmkbk}
+        a^{r+1}-b^{r+1}=(a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+  Démontrons cela par récurrence. Le cas \( r = 0 \) est évident. Pour
+  un \( r \) donné, si \eqref{Eqarpurmkbk} est vraie, alors
+  \begin{align*}
+    a^{r+2}-b^{r+2}&= a^{r+1}a - a^{r+1}b +a^{r+1}b - b^{r+1}b\\
+    &= a^{r+1}(a - b) + (a^{r+1} - b^{r+1})b\\
+    &= a^{r+1}(a - b) + (a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right)b\\
+    &= (a - b) \left(a^{r+1} + \left(\sum_{k=0}^ra^{r-k}b^k\right)b\right)\\
+    &= (a - b) \left(a^{r+1} + \sum_{k=0}^ra^{r-k}b^{k + 1}\right)\\
+    &= (a - b) \left(a^{r+1} + \sum_{k'=1}^{r+1}a^{(r+1)-k'}b^{k'}\right)\\
+    &= (a - b) \left(\sum_{k'=0}^{r+1}a^{(r+1)-k'}b^{k'}\right).
+  \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Si \( a\) est un élément nilpotent de l'anneau \( A\), alors \( 1-a\) est inversible. Si \( a\) est nilpotent non nul, alors il est diviseur de zéro.
+\end{proposition}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Le groupe et anneau des entiers}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Nous n'allons pas nous priver de cette belle structure qu'est \( \eZ\) juste parce que le titre du chapitre est «anneaux».
-
-\begin{lemma}       \label{LEMooMYEIooNFwNVI}
-    Toute partie bornée de \( \eZ\) possède un plus grand élément.
-\end{lemma}
-
-\begin{proposition}     \label{PROPooYJBMooZrzkNX}
-    Soit \( a,b\in \eZ\) tels que \( a\) divise \( b\). Alors \( a\leq b\).
-\end{proposition}
-
+Certes \( (\eZ,+)\) est un groupe mais en ajoutant la multiplication, \( (\eZ,+,\times)\) devient un anneau\footnote{Définition~\ref{DefHXJUooKoovob}.} 
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Division euclidienne}
@@ -39,23 +62,26 @@ Nous n'allons pas nous priver de cette belle structure qu'est \( \eZ\) juste par
 
     \begin{subproof}
         \item[Unicité]
-            Nous supposons avoir \( (q,r)\in \eZ\times \eN\) tel que \( 0\leq r<b\) et \( a=bq+r\). Alors forcément \( r=a-qb\) et $0\leq a-qb<b$, ou encore
+            Nous supposons avoir \( (q,r)\in \eZ\times \eN\) tels que
+            \begin{subequations}
+                \begin{numcases}{}
+                    0\leq r<b\\
+                    a=qb+r.
+                \end{numcases}
+            \end{subequations}
+            Ce système implique que
             \begin{equation}
-                qb\leq a<(1+q)b.
+                0\leq a-qb<b.
             \end{equation}
-            Ces deux inéquations fixent \( q\in \eZ\). En effet nous démontrons maintenant que seul \( k=0\) permet à \( q+k\) de vérifier ces deux inéquations (parmi les \( k\in \eZ\)). Si \( q\geq 1\) alors
+            En ajoutant \( qb\) dans les trois membres de cette inégalité,
             \begin{equation}
-                (q+k)b=(q+1)b+(k-1)b>a.
+                qb\leq a<(q+1)b.
             \end{equation}
-            Et si \( k\leq -1\) alors
+            Cela implique que
             \begin{equation}
-                (q+k+1)b\leq qb\leq a.
+                q=\max\{ k\in \eZ\tq kb\leq a \}.
             \end{equation}
-            D'où l'unicité de \( q\) et par conséquent celle de \( r\).
-
-        \item[Existence]
-
-            Nous considérons l'ensemble
+            Donc \( q\) est unique et la relation \( a=bq+r\) implique que \( r\) est également unique.
     \begin{equation*}
         E = \{ q \in \eZ  | bq \leq a \}.
     \end{equation*}

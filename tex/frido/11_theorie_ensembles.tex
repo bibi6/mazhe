@@ -126,7 +126,7 @@ L'\defe{axiome du choix}{axiome!du choix} que nous acceptons peut s'énoncer com
     Les notions de \defe{maximum}{maximum} et de \defe{majorant}{majorant} sont définies de façon analogue.
 \end{definition}
 
-Lorsqu'une partie possède un minimum, ce dernier est nommé le «plus petit élément» de la partie. Attention : il n'en existe pas toujours. D'innombrables exemples pourront être vus lorsque nous aurons construits \( \eQ\) et \( \eR\). Typiquement les intervalles du type \( \mathopen] a , b \mathclose[\).
+Lorsqu'une partie possède un minimum, ce dernier est nommé le «plus petit élément» de la partie. Attention : il n'en existe pas toujours. D'innombrables exemples pourront être vus lorsque nous aurons construit \( \eQ\) et \( \eR\). Typiquement les intervalles du type \( \mathopen] a , b \mathclose[\).
 
 \begin{definition}   \label{DEFooLJEAooBLGsiS}
     Un ensemble ordonné est \defe{bien ordonné}{bon!ordre}\index{ordre!bon ordre} si toute partie non vide possède un plus petit élément : si \( A\) est une partie de \( E\), alors \( \exists x\in A,\forall y\in A, x\leq y\).
@@ -242,8 +242,19 @@ C'est l'ensemble des éléments étant soit dans \( A\) soit dans \( B\) mais pa
 \end{lemma}
 
 \begin{proof}
-    D'abord nous avons l'égalité \( X^c\setminus Y^c=Y\setminus X\): en effet, s'il existe un élément dans \(Y\setminus X\), il est dans \(Y \) mais pas dans \(X \), donc il est dans \(X^c \) et il n'est pas dans \(Y^c\), donc il est dans \( X^c\setminus Y^c \). S'il n'existe pas de tel élément, alors tous les éléments de \(Y \) sont dans \(X \), donc tout élément de \(X^c \) sont dans \(Y^c \), et il s'ensuit que \( X^c\setminus Y^c \) ne contient aucun élément non plus.
-
+    D'abord nous avons l'égalité \( X^c\setminus Y^c=Y\setminus X\). Cela se prouve en étudiant selon que \( Y\) soit inclus dans \( X\) ou non. S'il existe un élément dans \(Y\setminus X\), alors:
+    \begin{itemize}
+     \item il est dans \(Y \) mais pas dans \(X \),
+     \item donc il est dans \(X^c \) et il n'est pas dans \(Y^c\),
+     \item donc il est dans \( X^c\setminus Y^c \).
+    \end{itemize}
+    S'il n'existe pas de tel élément, alors:
+    \begin{itemize}
+    \item tous les éléments de \(Y \) sont dans \(X \),
+    \item donc tout élément de \(X^c \) est dans \(Y^c \),
+    \item et il s'ensuit que \( X^c\setminus Y^c \) ne contient aucun élément non plus.
+    \end{itemize}
+   
     De cette égalité d'ensembles, nous avons la première assertion :
     \begin{equation}
         A^c\Delta B^c=(A^c\cup B^c)\setminus(A^c\cap B^c)=(A\cap B)^c\setminus(A\cup B)^c=(A\cup B)\setminus (A\cap B)=A\Delta B.
@@ -330,7 +341,7 @@ Toutes les constructions sont faites dans \cite{RWWJooJdjxEK}. Les résultats é
 
 Nous supposons en particulier que \( \eN\) est construit avec sa relation d'ordre. Voici quelques affirmations que nous admettons.
 
-\begin{lemma}       \label{LEMooYMRJooYIAhBb}
+\begin{lemma}       \label{LEMooYMRJooYIAhBb} \label{LEMooFHEOooSHPGgU}
     Quelques affirmations sur l'ordre dans \( \eN\).
     \begin{enumerate}
         \item
@@ -363,11 +374,6 @@ Nous vous conseillons fortement de ne pas considérer ces résultats comme évid
 
     Tout cela pour dire qu'il faut être souple avec les notations.
 \end{normaltext}
-
-
-\begin{lemma}       \label{LEMooFHEOooSHPGgU}
-    Toute partie non vide de \( \eN\) possède un unique minimum.
-\end{lemma}
 
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
@@ -434,7 +440,13 @@ Vu que l'ensemble des ensembles n'existe pas\footnote{Voir le corollaire \ref{CO
 \end{definition}
 
 \begin{lemma}[\cite{MonCerveau}\quext{Écrivez-moi si vous connaissez une preuve de ceci.}]       \label{LEMooYHGCooAwsVQN}
-    Soit un ensemble \( E\). Si \( I\) et \( J\) sont deux parties de \( E\) telles que \( I\cup J\) est infini, alors soit \( I\) soit \( J\) (soit les deux) est infini.
+    Infinis et ses parties.
+    \begin{enumerate}
+        \item
+            Si \( I\) et \( J\) sont deux ensembles finis, alors \( I\cup J\) est fini.
+        \item
+            Si \( I\) ou \( J\) est infini, alors \( I \cup J\) est infini.
+    \end{enumerate}
 \end{lemma}
 
 \begin{proposition}     \label{PROPooBYKCooGDkfWy}
@@ -722,7 +734,7 @@ Les ensembles dénombrables sont les plus petits ensembles infinis possibles, co
 \begin{proof}
     Soient un ensemble infini \( E_0\) et une partie propre \( E_1\) en bijection avec \( E_0\). Nous notons \( \varphi\colon E_0\to E_1\) une bijection.
 
-    Soit \( x_0\in E_0\setminus E_1\) (axiome du choix et tout ça). Nous définissons
+    Soit \( x_0\in E_0\setminus E_1\) \footnote{Axiome du choix et tout ça.}. Nous définissons
     \begin{equation}
         \begin{aligned}
             \psi\colon \eN&\to \{\varphi^k(x_0)\} \\
@@ -1182,7 +1194,7 @@ Maintenant que nous pouvons mettre dans \( A\) deux copies disjointes de \( A\),
 \end{proof}
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooDHWSooFqhano}
-    Sois un ensemble \( A\) muni de deux sous-ensembles \( B\) et \( B'\) équipotents et disjoints. Alors \( A\setminus B\) est équipotent à \( A\setminus B'\).
+    Soit un ensemble \( A\) muni de deux sous-ensembles \( B\) et \( B'\) équipotents et disjoints. Alors \( A\setminus B\) est équipotent à \( A\setminus B'\).
 \end{lemma}
 
 \begin{proof}

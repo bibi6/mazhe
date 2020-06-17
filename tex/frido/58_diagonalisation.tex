@@ -62,7 +62,7 @@ Une propriété importante est son invariance cyclique.
     \end{equation}
     où nous avons simplement renommé les indices \( i\leftrightarrow k\).
 
-    En particulier, la trace est un invariant de similitude parce que \( \tr(ABA^{-1})=\tr(A^{-1} AB)=\tr(B)\).
+    En particulier, la trace est un invariant de similitude parce que \( \tr(ABA^{-1})=\tr(A^{-1} AB)=\tr(B)\)  par l'invariance cyclique démontrée en \ref{LEMooUXDRooWZbMVN}\ref{ITEMooXDYQooAlnArd}.
 \end{proof}
 La trace étant un invariant de similitude, nous pouvons donc définir la \defe{trace}{trace!endomorphisme} comme étant la trace de sa matrice dans une base quelconque. Si la matrice est diagonalisable, alors la trace est la somme des valeurs propres.
 
@@ -268,7 +268,7 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{
 \end{definition}
 
 \begin{lemma}
-    Une matrice triangulaire supérieure avec des \( 1\) sur la diagonale n'est diagonalisable que si elle est diagonale (c'est à dire si elle est la matrice unité).
+    Une matrice triangulaire supérieure avec des \( 1\) sur la diagonale n'est diagonalisable que si elle est diagonale (c'est-à-dire si elle est la matrice unité).
 \end{lemma}
 
 \begin{proof}
@@ -312,7 +312,7 @@ La trace étant un invariant de similitude, nous pouvons donc définir la \defe{
     \begin{subproof}
     \item[\ref{ItemThoDigLEQEXRi} implique~\ref{ItemThoDigLEQEXRii}] Étant donné que \( P(u)=0\), il est dans l'idéal des polynômes annulateurs de \( u\), et le polynôme minimal \( \mu_u\) le divise parce que l'idéal des polynômes annulateurs est généré par \( \mu_u\) par le théorème~\ref{ThoCCHkoU}.
 
-    \item[\ref{ItemThoDigLEQEXRii} implique~\ref{ItemThoDigLEQEXRiv}] Étant donné que le polynôme minimal est scindé à racines simples, il s'écrit sous forme de produits de monômes tous distincts, c'est à dire
+    \item[\ref{ItemThoDigLEQEXRii} implique~\ref{ItemThoDigLEQEXRiv}] Étant donné que le polynôme minimal est scindé à racines simples, il s'écrit sous forme de produits de monômes tous distincts, c'est-à-dire
     \begin{equation}
         \mu_u(X)=(X-\lambda_1)\ldots(X-\lambda_r)
     \end{equation}
@@ -499,7 +499,7 @@ Ce qui est vrai, c'est que le polynôme caractéristique a des racines, et que c
 \begin{remark}
     La méthode des pivots de Gauss\footnote{Le lemme~\ref{LemZMxxnfM}.} certes permet de trigonaliser n'importe quoi, mais elle ne correspond pas à un changement de base. Autrement dit, les pivots de Gauss ne sont pas de similitudes.
 
-    C'est là qu'il faut bien avoir en tête la différence entre \emph{équivalence} et \emph{similarité} (définition~\ref{DefBLELooTvlHoB}). Lorsqu'on parle de changement de base, de matrice trigonalisable ou diagonalisable, nous parlons de similarité et non d'équivalence.
+    C'est là qu'il faut bien avoir en tête la différence entre \emph{équivalence} et \emph{similarité} \footnote{Définition \ref{DefBLELooTvlHoB}.}. Lorsqu'on parle de changement de base, de matrice trigonalisable ou diagonalisable, nous parlons de similarité et non d'équivalence.
 \end{remark}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -510,7 +510,7 @@ La proposition~\ref{PropKNVFooQflQsJ} dit déjà que tous les endomorphismes son
 
 Une démonstration alternative passant par le polynôme caractéristique sera présentée dans la remarque~\ref{RemXFZTooXkGzQg} utilisant la proposition~\ref{PropKNVFooQflQsJ}.
 \begin{lemma}[Lemme de Schur complexe, trigonisation\cite{NormHKNPKRqV}]  \label{LemSchurComplHAftTq}
-    Si \( A\in\eM(n,\eC)\), il existe une matrice unitaire \( U\) telle que \( UAU^{-1}\) soit triangulaire supérieure.
+    Si \( A\in\eM(n,\eC)\), il existe une matrice unitaire \( U\) telle que \( UAU^{-1}\) soit triangulaire supérieure.\footnote{«triangulaire supérieure» ne signifie pas «strictement triangulaire supérieure». Ici, il est possible que la diagonale soit non nulle; non seulement possible, mais même très probable en pratique.}.
 \end{lemma}
 \index{lemme!Schur complexe}
 %TODO : Le lemme de Schur est souvent énoncé en disant que si p est une représentation irréductible, alors les seuls endomorphismes de V commutant avec tous les p(g) sont les multiples de l'idenditié. Quel est le lien avec ceci ?
@@ -659,7 +659,7 @@ i
         \item
             le spectre est réel,
         \item
-            deux vecteurs propres à des valeurs propres distinctes sont orthogonales\footnote{Pour la forme \eqref{EqFormSesqQrjyPH}.}.
+            deux vecteurs propres pour des valeurs propres distinctes sont orthogonales\footnote{Pour la forme \eqref{EqFormSesqQrjyPH}.}.
     \end{enumerate}
 \end{lemma}
 \index{spectre!matrice hermitienne}
@@ -831,7 +831,7 @@ Tant que nous en sommes à parler de spectre de matrices hermitiennes\ldots Soit
     \begin{enumerate}
         \item       \label{ITEMooJWHLooSfhNSW}
             a un spectre contenu dans \( \eR\)
-        \item
+        \item       \label{ITEMooMWWRooXxGONW}
             est diagonalisable par une matrice orthogonale.
     \end{enumerate}
     Si \( M\) est une matrice symétrique réelle alors \( \eR^n\) possède une base orthonormée de vecteurs propres de \( M\).
@@ -918,7 +918,7 @@ Afin d'éviter l'une ou l'autre confusion, nous disons souvent \emph{strictement
 \begin{proposition}     \label{PropcnJyXZ}
     Soit $M$, une matrice symétrique. Nous avons
     \begin{enumerate}
-        \item
+        \item       \label{ITEMooTJVQooYmRkas}
             $\det M>0$ et $\tr(M)>0$ implique $M$ définie positive\footnote{Défintion~\ref{DefAWAooCMPuVM}.},
         \item
         $\det M>0$ et $\tr(M)<0$ implique $M$ définie négative,
@@ -966,7 +966,7 @@ Lorsqu'un énoncé parle d'une matrice symétrique, le premier réflexe est de l
 
 \item[\ref{ITEMooRRMFooHSOHxZ}]
 
-        Soit une matrice orthogonale \( T\) diagonalisant \( M\), c'est à dire telle que \( T^tMT=D\) avec \( D\) diagonale. Nous allons vérifier que
+        Soit une matrice orthogonale \( T\) diagonalisant \( M\), c'est-à-dire telle que \( T^tMT=D\) avec \( D\) diagonale. Nous allons vérifier que
         \begin{equation}
             \langle Tx, Mtx\rangle \geq \lambda\| Tx \|^2
         \end{equation}

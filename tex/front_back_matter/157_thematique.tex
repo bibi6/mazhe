@@ -1402,6 +1402,8 @@ Un trio de résultats d'enfer est :
     Une forme bilinéaire est non-dégénérée si et seulement si sa matrice associée est inversible, c'est la proposition \ref{PROPooQHHPooSqpgcb}.
 \item
     Une isométrie d'une forme bilinéaire est linéaire ou affine par le théorème \ref{ThoDsFErq}.
+\item
+    Toute forme quadratique admet des bases orthogonales, théorème \ref{THOooIDMPooIMwkqB} pour le cas général; proposition \ref{PROPooUKRUooGRIDHt} pour le cas de \( \eR^n\), en se basant sur le théorème spectral.
 \end{enumerate}
 
 \InternalLinks{arithmétique modulo, théorème de Bézout} \label{THEMEooNRZHooYuuHyt}
@@ -1557,7 +1559,7 @@ Nous listons ici un peu tous les termes qui arrivent en algèbre.
         \end{enumerate}
 
 
-\InternalLinks{diagonalisation}
+\InternalLinks{réduction, diagonalisation}
     Des résultats qui parlent diagonalisation
     \begin{enumerate}
         \item
@@ -1589,7 +1591,11 @@ Nous listons ici un peu tous les termes qui arrivent en algèbre.
                 Théorème spectral, matrice normales, théorème~\ref{ThogammwA}.
             \end{enumerate}
         Pour les résultats de décomposition dont une partie est diagonale, voir le thème~\ref{DECooWTAIooNkZAFg} sur les décompositions.
-
+        Réduction de quadriques : 
+        \begin{enumerate}
+            \item
+                Réduction de Gauss, théorème \ref{THOooOMMFooKxqICS}.
+        \end{enumerate}
 
 
 \InternalLinks{endomorphismes cycliques}
@@ -2076,11 +2082,66 @@ Il y en a pour tous les gouts.
 
 \immediate\closeout\themetoc
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection*{Conventions et notations}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Conventions sur les matrices et changement de bases}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooBTTTooZZABWA}
+
+Le lien entre matrice et application linéaire est donné par la définition \ref{DEFooJVOAooUgGKme} et la proposition \ref{PROPooGXDBooHfKRrv}, l'application d'une matrice à un vecteur est \eqref{EQooQFVTooMFfzol} et pour les composantes, c'est l'équation \eqref{EQooAXRJooUwHbjB} :
+\begin{subequations}
+    \begin{align}
+    T_{\alpha i}&=T(e_i)_{\alpha}\\
+    T(e_i)&=\sum_{\alpha}T_{\alpha i}f_{\alpha}\\
+    T(x)&=\sum_{i\alpha}T_{\alpha i}x_if_{\alpha}\\
+    T(x)_{\alpha}&=\sum_{i}T_{\alpha i}x_i.
+    \end{align}
+\end{subequations}
+
+
+Lorsque nous avons une base orthonormée nous avons aussi les propositions \ref{PROPooZKWXooWmEzoA} et \ref{PROPooZKWXooWmEzoA} qui donnent des formules avec produit scalaire :
+\begin{enumerate}
+    \item
+    $T_{\alpha i}=e_{\alpha}\cdot T(e_i)$
+    \item
+    $x\cdot Ay=\sum_{kl}A_{kl}x_ky_l$.
+\end{enumerate}
+où le point est le produit scalaire usuel de \( \eR^n\).
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Le changement de base}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Il y a quelques conventions et notations par-ci par-là. En voici une liste.
-\begin{itemize}
-    \item Matrice, application linéaires et changement de bases, c'est la section \ref{SECooBTTTooZZABWA}.
-\end{itemize}
+Soit un espace vectoriel \( V\) muni de deux bases \( (e_i)_{i=1,\ldots, n}\) et \( (f_{\alpha})_{\alpha=1,\ldots, n}\). Le lemme \ref{LEMooIHZGooOZoYZd} donne le lien entre les vecteurs de base :
+\begin{enumerate}
+    \item
+        $f_{\alpha}=\sum_iQ_{i\alpha}e_i$
+    \item
+        $e_i=\sum_{\alpha}Q^{-1}_{\alpha i}f_{\alpha}$
+\end{enumerate}
+La proposition \ref{PROPooNYYOooHqHryX} donne un certain nombre de formules pour les coordonnées des vecteur :
+\begin{enumerate}
+    \item   
+        \( y_{\alpha}=\sum_iQ^{-1}_{\alpha i}x_i\)
+    \item  
+        $x_i=\sum_{\alpha}Q_{i\alpha}y_{\alpha}$.
+    \item
+    $x_i=(Qy)_i$ 
+    \item
+    $x=Qy$
+\end{enumerate}
+
+La transformation de la matrice d'une application linéaire lors d'un changement de base est la proposition \ref{PROPooNZBEooWyCXTw}. Soit une application linéaire \( T\colon V\to V\) de matrices \( A\) et \( B\) dans les bases \( \{ e_i \}\) et \( \{ f_{\alpha} \}\). Si les bases sont liées par $f_{\alpha}=\sum_iQ_{i\alpha}e_i$, alors les matrices \( A\) et \( B\) sont liées par
+    \begin{equation}
+        B=Q^{-1}AQ.
+    \end{equation}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Changement de base : matrice d'une forme bilinéaire}
+%---------------------------------------------------------------------------------------------------------------------------
+
+La proposition \ref{PROPooLBIOooUpzxXA} fait le changement de matrice d'una forme bilinéaire lors d'un changement de base. Si la matrice de \( q\) dans la base \( \{ e_i \}\) est \( A\) et celle dans la base \( \{ f_{\alpha} \}\) est \( B\), alors
+\begin{equation}
+    B=Q^tAQ.
+\end{equation}
+Pour comparaison avec la loi de transformation des matrices des applications liénaires, voir la remarque \ref{REMooNEJLooSqgeih}.
+

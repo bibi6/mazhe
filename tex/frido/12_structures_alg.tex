@@ -70,11 +70,18 @@ Voici une première définition de la fonction puissance. Il y en aura d'autres,
 
 Le lemme suivant dit que le point \ref{ITEMooOUIPooGjAgQb} de la définition \ref{DEFooGVSFooFVLtNo} aurait pu être écrit \( a^k\cdot a\) au lieu de \( a\cdot a^k\).
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooWPARooYLZlzr}
-    Si \( A\) est un anneau, si \( a\in A\) et si \( n\in \eN\), alors
+    Si \( G\) est un groupe, si \( a\in G \) et si \( n\in \eN\) est non-nul, alors
     \begin{equation}
         a^n=a\cdot a^{n-1}=a^{n-1}\cdot a.
     \end{equation}
 \end{lemma}
+\begin{proof}
+Pour \( n = 1 \), c'est trivial; pour \( n = 2 \), c'est facile. Pour des \( n \) plus grands, par récurrence, on suppose que \( a^{n-1} = a^{n-2}\cdot a \), et il vient 
+\begin{align}
+ a^n = a\cdot a^{n-1} &= a\cdot  a^{n-2}\cdot a  &\text{par hypothèse}\\
+ & = a^{n-1}\cdot a &\text{par définition}.
+ \end{align}
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Morphismes de groupes}
@@ -396,7 +403,6 @@ Remarquons que si \( f\) est un morphisme, nous avons \( f(0)=0\) et \( f(x)^{-1
     Pour l'unicité dans \( \eZ\), voir \ref{LEMooBJVJooFyuFeN}.
 \end{remark}
 
-La définition de pgcd et ppcm dans un anneau commutatif est la définition \ref{DefrYwbct}. Dans la plus grande tradition, elle a été introduite sans motivations, et utilisée par-ci par-là. Nous revenons maintenant dessus.
 
 \begin{definition}
 Un élément \( a\in A\) est \defe{régulier à droite}{régulier à droite} si \( ba=0\) implique \( b=0\). Il est régulier à gauche si \( ab=0\) implique \( b=0\).
@@ -651,7 +657,7 @@ Dans le même ordre d'idée, pour le produit.
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[\cite{ooLKFGooTUrnhx}]  \label{DefTMNooKXHUd}
-    Un \defe{corps}{corps} est un anneau\footnote{Définition \ref{DefHXJUooKoovob}.} dans lequel tout élément non nul est inversible.
+    Un \defe{corps}{corps} est un anneau\footnote{Définition \ref{DefHXJUooKoovob}.} dans lequel tout élément non nul est inversible pour l'opération \( \times\) \footnote{Pour l'opération \( +\), tous les éléments sont déjà inversibles parce que \( (A,+)\) est un groupe.}.
 \end{definition}
 
 \begin{remark}      \label{REMooYRNUooYgBBKF}
@@ -809,15 +815,15 @@ La proposition suivante dit que \( \Frac(A)\) est le plus petit corps contenant 
     Enfin \( \epsilon\) est injective parce que si \( \epsilon(a/b)=\epsilon(c/d)\), alors \( ab^{-1}=cd^{-1}\), d'où il est facilement vu que \( ad=cb\), c'est-à-dire \( a/b=c/d\).
 \end{proof}
 
-Notons que si \( A\) est un anneau qui n'est pas un corps, le corps \( \Frac(A)\) existe, mais si \( R\in\Frac(A)\), il n'a pas de sens de vouloir calculer \( R(\alpha)\) pour \( \alpha\in A\).
-
 \begin{definition}[Évaluation d'une fraction rationnelle]       \label{DEFooLBIWooCPCaSY}
-    Soit un corps \( \eK\) contenant l'anneau \( A\). Si \( R=P/Q\in \Frac(A)\) et si \( \alpha\in \eK\) nous définissons
+    Soit un corps \( \eK\) contenant l'anneau \( A\). Si \( R=P/Q\in \Frac(A)[X] \) et si \( \alpha\in \eK\) nous définissons
     \begin{equation}
         R(\alpha)=(P/Q)(\alpha)=P(\alpha)Q^{-1}(\alpha).
     \end{equation}
     Dans cette formule, les polynômes, l'inverse et le produit sont calculés dans \( \eK\) et non dans \( A\).
 \end{definition}
+
+Notons que si \( A\) est un anneau qui n'est pas un corps, le corps \( \Frac(A)\) existe, mais si \( R\in\Frac(A)[X]\), il n'a pas de sens de vouloir calculer \( R(\alpha)\) pour \( \alpha\in A\) "général", parce qu'on a besoin d'inverses.
 
 \begin{theoremDef}     \label{ThogbhWgo}
     Soit \( \eA\) un anneau commutatif intègre.
