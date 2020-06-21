@@ -358,12 +358,14 @@ La proposition suivante établit que si \( x\) est assez grand, alors il peut m�
 \subsection{Bézout, Euler et les groupes quotients}
 %---------------------------------------------------------------------------------------------------------------------------
 
+La proposition suivante est un pas important dans l'algorithme de Shor permettant aux ordinateurs quantiques de factoriser rapidement des grands nombres.
+
 \begin{proposition}[\cite{BIBooBBRQooJxksHX}]       \label{PROPooZCKXooOtocKE}
     Soient \( A,B\in \eN\) tels que \( \pgcd(A,B)=1\). Alors il existe \( p,m\in \eN\) tels que \( A^p=mB+1\).
 \end{proposition}
 
 \begin{definition}      \label{DEFooWYIGooRVBTil}
-    On note \( \Delta_n \) l'ensemble \( \Delta_n = \{ k \in \eN \tq k < n \text{ et } \pgcd(k,d)=1\} \).La fonction \( \varphi\) donnée par
+    On note \( \Delta_n \) l'ensemble \( \Delta_n = \{ k \in \eN \tq k < n \text{ et } \pgcd(k,n)=1\} \).La fonction \( \varphi\) donnée par
 \begin{equation}    \label{EqEulerGqPsvi}
     \varphi(n)=\Card( \Delta_n )
 \end{equation}
@@ -381,9 +383,6 @@ est l'\defe{indicatrice d'Euler}{indicatrice d'Euler}\index{Euler!indicatrice}.
     \end{equation}
     Cela signifie entre autres que\footnote{Corolaire~\ref{CorgEMtLj}} \( x\eZ+n\eZ=\eZ\), et aussi que \( \pgcd(x,n)=1\) par le théorème de Bézout~\ref{ThoBuNjam}, et donc que \( x\in \Delta_n\).
 \end{proof}
-
-La proposition suivante est un pas important dans l'algorithme de Shor permettant aux ordinateurs quantiques de factoriser rapidement des grands nombres.
-
 
 \begin{proposition}     \label{PropZpintssiprempUzn}
     Soient \( n\geq 2\) un entier et \( \pi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\pi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
@@ -403,7 +402,7 @@ La proposition suivante est un pas important dans l'algorithme de Shor permettan
     \begin{equation}
         \tilde u\tilde x=\tilde 1,
     \end{equation}
-    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \phi(P_n)\subset U(\eZ/n\eZ)\).
+    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \pi(\Delta_n)\subset U(\eZ/n\eZ)\).
 
     Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
 \end{proof}
