@@ -128,7 +128,7 @@ Un sous-groupe engendré n'est jamais vide parce qu'il contient toujours au moin
 \end{proof}
 
 Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe de \( G\) contenant \( A\). Plus formellement, nous avons le résultat suivant.
-\begin{lemma}
+\begin{lemma}     \label{LEM_contenancedussgrengendre}
     Tout sous-groupe de \( G\) contenant \( A\) contient \( \gr(A)\).
 \end{lemma}
 
@@ -165,25 +165,19 @@ L'écriture \eqref{EQ_produitGenerateursGroupe} a un sens grâce à la définiti
 
     Nous nommons \( \gr(A)\) le groupe engendré par \( A\) et par \( H\) l'ensemble
     \begin{equation}
-        H=\{ g_1\ldots g_n\tq g_i\in A\cup A^{-1} \}.
+        H=\{ g_1\ldots g_n\tq n \in \eN;  g_i\in A \text{ ou } g_i^{-1} \in A \forall 1 \leq i \leq n\},
     \end{equation}
+    constitué des produits d'éléments de \( A \) ou de leurs inverses\footnote{On peut très bien avoir dans un produit des éléments de $A$ et des inverses.}.
+    
     Nous commençons par prouver que \( H\) est un groupe.
     \begin{itemize}
         \item Vu que \( A\) est non vide, nous considérons \( a\in A\). Dans ce cas, \( e=aa^{-1}\in H\). Donc \( e\in H\).
         \item L'inverse de \( g_1\ldots g_n\) est \( g_n^{-1}\ldots g_1^{-1}\) qui est également dans \( H\).
         \item Le produit de \( g_1\ldots g_n\) par \( h_1\ldots h_n\) est également dans \( H\)\footnote{Et c'est ici qu'on se rend compte que la décomposition n'est probablement que rarement unique.}.
     \end{itemize}
-    Vu que \( H\) est un groupe contenant \( A\), nous avons \( \gr(A)\subset H\) parce que \( \gr(A)\) est une intersection dont un des éléments est \( H\).
-
-    Par ailleurs tout groupe contenant \( A\) doit contenir les inverses et les produits finis, donc \( H\subset \gr(A)\).
-
-    Au final, \( H=\gr(A)\), ce qu'il fallait.
+    
+    Voyons à présent que \( H \) n'est autre que le groupe engendré par \( A \); procédons par double inclusion. D'abord, tout groupe contenant \( A\) doit contenir les inverses des éléments de \( A \) et les produits finis d'éléments de \( A \); donc \( H\subset \gr(A)\). Ensuite, \( H\) est un groupe contenant \( A\), donc le lemme \ref{LEM_contenancedussgrengendre} dit que \( \gr(A)\subset H\). Au final, \( H=\gr(A)\), ce qu'il fallait.
 \end{proof}
-
-
-\begin{definition}      \label{DEFooUXXTooCCLmQe}
-    Un sous-groupe \( H\) de \( G\) est un sous-groupe \defe{caractéristique}{sous-groupe!caractéristique}\index{caractéristique!sous-groupe} s'il est stable pour tous les automorphismes\footnote{Définition \ref{DEFGroupesTypesdeMorphismes}.} de \(G \); en d'autres termes, un sous-groupe caractéristique \(H \) de \(G \) vérifie \( \alpha(H)=H\) pour tout \( \alpha\in \Aut(G)\).
-\end{definition}
 
 \begin{lemma}       \label{LEMooCFTVooKvmyKN}
     Soit un groupe \( G\) et un sous-groupe \( H=\gr(h_1,\ldots, h_n)\). Si \( \alpha\in G\), alors
@@ -204,14 +198,14 @@ L'écriture \eqref{EQ_produitGenerateursGroupe} a un sens grâce à la définiti
     L'inclusion dans l'autre sens est du même tonneau.
 \end{proof}
 
-\begin{definition}[Partie génératrice, groupe monogène]  \label{DEFooWMFVooLDqVxR}
+\begin{definition}[Partie génératrice, groupe monogène, générateur, groupe cyclique]  \label{DEFooWMFVooLDqVxR}  \label{DefHFJWooFxkzCF}
     Soit \( G\), un groupe et \( A\) une partie de \( G\). Si \( \gr(A)=G\), alors nous disons que \( A\) est une \defe{partie génératrice}{partie génératrice} du groupe \( G\).
 
     Un groupe est \defe{monogène}{monogène} s'il a une partie génératrice réduite à un seul élément.
-\end{definition}
-
-\begin{definition}[Groupe cyclique]     \label{DefHFJWooFxkzCF}
-    Un élément \( a\in G\) est un \defe{générateur}{générateur} de \( G\) si tous les éléments de \( G\) s'écrivent sous la forme \( a^n\) pour un certain \( n\in\eZ\). Un groupe fini et monogène est dit \defe{cyclique}{groupe cyclique}.
+    
+    Un tel élément \( a\in G\) est un \defe{générateur}{générateur} de \( G\); tous les éléments de \( G\) s'écrivent alors sous la forme \( a^n\) pour un certain \( n\in\eZ\).
+    
+    Un groupe fini et monogène est dit \defe{cyclique}{groupe cyclique}.
 \end{definition}
 
 \begin{example}
@@ -226,6 +220,17 @@ L'écriture \eqref{EQ_produitGenerateursGroupe} a un sens grâce à la définiti
 \end{example}
 
 Un exemple presque identique, mais un peu masqué sera l'exemple \ref{EXooOXAAooZMdDfP}.
+
+\begin{proposition}[\cite{PDFpersoWanadoo}]
+  \begin{enumerate}
+  \item
+    Un groupe monogène est abélien.
+  \item
+    Un groupe monogène qui n'est pas fini, est isomorphe à \( \eZ \), le groupe additif des entiers.
+  \item
+    Un groupe cyclique est isomorphe au groupe additif \( \eZ / n\eZ \) avec \( n \) le nombre d'éléments du groupe.
+  \end{enumerate}
+\end{proposition}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Morphismes de groupes}
@@ -265,6 +270,24 @@ Un exemple presque identique, mais un peu masqué sera l'exemple \ref{EXooOXAAoo
     \end{enumerate}
 \end{definition}
 
+
+\begin{definition}      \label{DEFooWBIYooGNRYOp}
+    Soient un groupe \( G\), un ensemble $X$ et une application \( f\colon X\to G\). Le \defe{noyau}{noyau!application vers un groupe} de \( f\) est la partie
+    \begin{equation}
+        \ker(f)=\{ x\in X\tq f(x)=e \}
+    \end{equation}
+    où \( e\) est l'unité de \( G\).
+    
+    L'\defe{image}{image!d'un morphisme} de \(f \) est l'ensemble 
+    \begin{equation}
+        \Image(f)=f(X) = \{ \f(x) \tq x\in X \}.
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+  Quand \( f \) est un morphisme de groupes, son noyau et son image sont des sous-groupes de leurs groupes respectifs. Nous le prouverons dans le cadre du premier théorème d'isomorphisme \ref{ThoPremierthoisomo}.
+\end{remark}
+
 \begin{definition}\label{DEFGroupesTypesdeMorphismes}
 Un morphisme injectif s'appelle un \emph{monomorphisme}.
 
@@ -272,99 +295,21 @@ Un morphisme surjectif s'appelle un \emph{épimorphisme}.
 
 Un morphisme bijectif s'appelle un \emph{isomorphisme}.
 
-Les morphismes d'un groupe dans lui-même sont appelés des \emph{endomorphismes}. Quand ils sont bijectifs, on dit que ce sont des \emph{automorphismes}.
+Les morphismes d'un groupe dans lui-même sont appelés des \emph{endomorphismes}; l'ensemble des endomorphismes d'un groupe est noté \( \End(G) \).
+
+Quand ils sont bijectifs, on dit que ce sont des \emph{automorphismes}.  L'ensemble des automorphismes d'un groupe est noté \( \Aut(G) \).
 \end{definition}
 
-%--------------------------------------
-\subsection{Sous-groupe normal}
-%--------------------------------------
+\begin{lemma}
+Un morphisme est injectif si et seulement si son noyau est réduit au neutre.
 
-\begin{definition}\label{DEFooNIIMooFkZgvX}
-    Un sous-groupe \( N\) de \( G\) est \defe{normal}{normal!sous-groupe} ou \defe{distingué}{distingué!sous-groupe} si pour tout \( g\in G\) et pour tout \( n\in N\), \( gng^{-1}\in N\). Autrement dit lorsque \( gNg^{-1}\subset N\).
-
-    Lorsque \( N\) est normal dans \( G\) il est parfois noté \( N\normal G\)\nomenclature[]{\(N \normal G\)}{Le sous-groupe \( N\) est normal dans \( G\)}.
-\end{definition}
-
-\begin{proposition}\label{propGroupeNormal}
-    Soit \( N\) un sous-groupe de \( G\). Les propriétés suivantes sont équivalentes :
-    \begin{enumerate}
-        \item
-            \( gNg^{-1}\subseteq N\) pour tout \( g\in G\),
-        \item
-            \( gNg^{-1}= N\) pour tout \( g\in G\),
-        \item
-            \( gN=Ng\) pour tout \( g\in G\),
-        \item
-            \( N\) est une union de classes de conjugaison de \( G\),
-        \item
-            \( N\) est normal\footnote{Définition \ref{DEFooNIIMooFkZgvX}.}.
-    \end{enumerate}
-\end{proposition}
-
-\begin{definition}
-    Soit \( g\in G\) et \( n\in \eZ\). Nous définissons \( g^n\) par
-    \begin{enumerate}
-        \item
-            \( g^0=e\) et \( g^n=gg^{n-1}\) si \( n\) est positif.
-        \item
-            si \( n<0\), nous posons \( g^n=(g^{-1})^{-n}\).
-    \end{enumerate}
-\end{definition}
-
-\begin{definition}[Groupe simple]   \label{DefGroupeSimple}
-    Un groupe est dit \defe{simple}{simple!groupe} si il est non trivial et si les seuls sous-groupes normaux qu'il admet sont lui-même et le sous-groupe réduit à l'identité.
-\end{definition}
-
-\begin{definition}[Ordre d'un groupe et d'un élément]       \label{DEFooKWBCooMlmpCP}
-    Ce sont deux choses différentes.
-    \begin{enumerate}
-        \item
-
-    Si \( G\) est un groupe, l'\defe{ordre}{ordre!d'un groupe} est la cardinalité de \( G\) et est noté \( | G |\).
-\item
-
-    L'\defe{ordre}{ordre!élément} d'un élément \( g\) de \( G\) est le naturel
-    \begin{equation}
-        \min\{ n\in\eN\tq g^n=e \},
-    \end{equation}
-    s'il existe; dans le cas contraire, nous disons que l'ordre de \( g\) est infini.
-    \end{enumerate}
-\end{definition}
-Nous verrons que le corollaire~\ref{CorpZItFX} au théorème de Lagrange dira que l'ordre d'un élément divise l'ordre du groupe.
-
-\begin{lemma}[\cite{PDFpersoWanadoo}]\label{LemHUkMxp}
-    Si \( H\) et \( K\) sont normaux dans le groupe \( G\) et si \( H\cap K=\{ e \}\) alors \( HK\simeq H\times K\).
+Un morphisme est surjectif si et seulement si son image est le groupe d'arrivée.
 \end{lemma}
 
-\begin{proposition} \label{PropSRMJooIDPBoW}
-    Soit un groupe \( G\). Nous considérons un sous-groupe normal \( H\) de \( G\) ainsi qu'un homomorphisme \( \psi\colon G\to H\). Alors
-    \begin{enumerate}
-        \item
-            \( \psi(H)\) est normal dans \( \psi(G)\)
-        \item
-            Si \( G/H\) est abélien alors \( \psi(G)/\psi(H)\) est abélien.
-    \end{enumerate}
-\end{proposition}
+\begin{definition}      \label{DEFooUXXTooCCLmQe}
+    Un sous-groupe \( H\) de \( G\) est un sous-groupe \defe{caractéristique}{sous-groupe!caractéristique}\index{caractéristique!sous-groupe} s'il est stable pour tous les automorphismes\footnote{Définition \ref{DEFGroupesTypesdeMorphismes}.} de \(G \); en d'autres termes, un sous-groupe caractéristique \(H \) de \(G \) vérifie \( \alpha(H)=H\) pour tout \( \alpha\in \Aut(G)\).
+\end{definition}
 
-\begin{proof}
-    Soient \( h\in H\) et \( g\in G\). Alors \( \psi(g)\psi(h)\psi(g)^{-1}=\psi(ghg^{-1})\in\psi(H)\). Donc \( \psi(H)\) est normal dans \( \psi(G)\).
-
-    Pour la seconde partie nous notons \( [\ldots]\) les classes par rapport à \( \psi(H)\) et \( \overline{ \vphantom{g}\ldots }\) celles par rapport à \( H\). Nous avons
-    \begin{subequations}
-        \begin{align}
-            [\psi(g_1)][\psi(g_2)]&=\big[ \psi(g_1)\psi(g_2) \big]\\
-            &=\big[ \psi(g_1g_2) \big]\\
-            &=\{ \psi(g_1g_2)\psi(h)\tq h\in H \}\\
-            &=\{ \psi(g_1g_2h)\tq h\in H \}\\
-            &=\psi\Big(  \{ g_1g_2h\tq h\in H \}  \Big) \\
-            &=\psi\big( \overline{ g_1g_2 } \big)\\
-            &=\psi(\overline{ g_2g_1 })\\
-            &=\text{refaire à l'envers}\\
-            &=[\psi(g_2)][\psi(g_1)].
-        \end{align}
-    \end{subequations}
-    Par conséquent \( \psi(G)/\psi(H)\) est abélien.
-\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Classes de conjugaison}
@@ -391,19 +336,127 @@ Nous verrons que le corollaire~\ref{CorpZItFX} au théorème de Lagrange dira qu
     Dans l'autre sens, si les classes sont des singletons, on a \( kgk^{-1}=g\) pour tous \( k,g\in G\). Cela signifie immédiatement que \( G\) est abélien.
 \end{proof}
 
+
+%--------------------------------------
+\subsection{Sous-groupe normal, groupes quotients}
+%--------------------------------------
+
+\begin{definition}\label{DEFooNIIMooFkZgvX}
+    Un sous-groupe \( N\) de \( G\) est \defe{normal}{normal!sous-groupe} ou \defe{distingué}{distingué!sous-groupe} (dans \( G \) si pour tout \( g\in G\) et pour tout \( n\in N\), \( gng^{-1}\in N\). Autrement dit lorsque \( gNg^{-1}\subset N\).
+
+    Lorsque \( N\) est normal dans \( G\) il est parfois noté \( N\normal G\)\nomenclature[]{\(N \normal G\)}{Le sous-groupe \( N\) est normal dans \( G\)}.
+\end{definition}
+
+\begin{example}
+  Les noyaux de morphismes de groupes sont des sous-groupes normaux. Nous le prouverons dans quelques instants, avec le théorème du premier isomorphisme \ref{ThoPremierthoisomo}.
+\end{example}
+
+\begin{proposition}\label{propGroupeNormal}
+    Soit \( N\) un sous-groupe de \( G\). Les propriétés suivantes sont équivalentes :
+    \begin{enumerate}
+        \item
+            \( gNg^{-1}= N\) pour tout \( g\in G\),
+        \item
+            \( gN=Ng\) pour tout \( g\in G\),
+        \item
+            pour tout \( h \in N \), la classe de conjugaison \( C_h \) est dans \( N \),
+        \item
+            \( N\) est une union de classes de conjugaison de \( G\),
+        \item
+            \( N\) est normal\footnote{Définition \ref{DEFooNIIMooFkZgvX}.}.
+        \item
+            \( N \) est normal dans tout sous-groupe qui le contient.
+    \end{enumerate}
+\end{proposition}
+
+\begin{lemma}       \label{LEMooFNVRooRCkjLc}
+    Lorsque \( N\) est normal dans \( G\), alors la définition
+    \begin{equation}        \label{EQooEUESooSeUWHK}
+        [a]\cdot[b]=[ab]
+    \end{equation}
+    définit une loi de groupe sur l'ensemble \( G/N\).
+\end{lemma}
+
+\begin{proof}
+    Le neutre est \( [e]\) et l'associativité ne pose pas plus de problèmes que l'existence d'un inverse. Le point à vérifier est que la formule \eqref{EQooEUESooSeUWHK} est une bonne définition : \( [ah]\cdot [bh']=[ab]\) pour tout \( h,h'\in N\). Nous avons :
+    \begin{equation}
+        [ah]\cdot [ah']=[ahah']=[ahb].
+    \end{equation}
+    Pour montrer que cela est \( [ab]\), l'astuce est d'introduire \( bb^{-1}\) à côté du \( a\) :
+    \begin{equation}
+        [ahb]=[abb^{-1}hb]=[ab]
+    \end{equation}
+    parce que \( b^{-1} hb\in N\) du fait que \( N\) soit normal dans \( G\).
+\end{proof}
+
+\begin{example}[\cite{ooTVPEooGOLEom}]      \label{EXooFNIKooHxePSs}
+    Il ne faudrait pas croire que le groupe quotient \( G/N\) est forcément un sous-groupe de \( G\): déjà, ils s'agit d'objets différents. Il ne faudrait pas croire non plus que \( G/N\) soit isomorphe à un sous-groupe de \( G \). Par exemple, le quotient \( \eZ/2\eZ\) est isomorphe à l'ensemble \( \{ 0,1 \}\), muni de l'addition telle que \( 1+1=0\); cette égalité est évidemment fausse dans \( \eZ\).
+
+    En revanche, il est bien vrai que l'application
+    \begin{equation}
+        \begin{aligned}
+            \pi \colon G&\to G/N \\
+            g&\mapsto [g]
+        \end{aligned}
+    \end{equation}
+    est un morphisme de groupes; on l'appelle projection canonique.
+\end{example}
+
+\begin{proposition}[Caractérisation des sous-groupes d'un groupe quotient -- \cite{ooTVPEooGOLEom}]
+Soit \( G \) un groupe, \( N \) un sous-groupe normal de \( G \), et  \( \pi\colon G\to G/N\) la projection cannique (de l'exemple précédent).
+  \begin{enumerate}
+  \item
+    \( \pi \)  est un homomorphisme surjectif de noyau~\( N\).
+  \item
+      Les sous-groupes de \( G \) contenant \( N \) sont en bijection, par  \( \pi \), avec les sous-groupes de \( G/N \).
+  \item
+      Les sous-groupes normaux de \( G \) contenant \( H \) sont en bijection, par  \( \pi \), avec les sous-groupes normaux de \( G/H \).
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{definition}[Groupe simple]   \label{DefGroupeSimple}
+    Un groupe est dit \defe{simple}{simple!groupe} si il est non trivial et si les seuls sous-groupes normaux qu'il admet sont lui-même et le sous-groupe réduit à l'identité.
+\end{definition}
+
+\begin{lemma}[\cite{PDFpersoWanadoo}]\label{LemHUkMxp}
+    Si \( H\) et \( K\) sont normaux dans le groupe \( G\) et si \( H\cap K=\{ e \}\) alors \( HK\simeq H\times K\).
+\end{lemma}
+
+\begin{proposition} \label{PropSRMJooIDPBoW}
+    Soit deux groupes \( G\) et \( H \) . Nous considérons un sous-groupe normal \( N\) de \( G\) ainsi qu'un homomorphisme \( \psi\colon G\to H\). Alors
+    \begin{enumerate}
+        \item
+            \( \psi(N)\) est normal dans \( \psi(G)\)
+        \item
+            Si \( G/N\) est abélien alors \( \psi(G)/\psi(N)\) est abélien.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Soient \( k\in N\) et \( g\in G\). Alors \( \psi(g)\psi(k)\psi(g)^{-1}=\psi(gkg^{-1})\in\psi(N)\). Donc \( \psi(N)\) est normal dans \( \psi(G)\).
+
+    Pour la seconde partie nous notons \( [\ldots]\) les classes par rapport à \( H\) et \( \overline{ \vphantom{g}\ldots }\) celles par rapport à \( G\). Nous avons, pour tous \( g_1\ , g_2 \in G\):
+    \begin{subequations}
+        \begin{align}
+            [\psi(g_1)][\psi(g_2)]&=\big[ \psi(g_1)\psi(g_2) \big]\\
+            &=\big[ \psi(g_1g_2) \big]\\
+            &=\{ \psi(g_1g_2)\psi(k)\tq k\in N \}\\
+            &=\{ \psi(g_1g_2k)\tq k\in N \}\\
+            &=\psi\Big(  \{ g_1g_2k\tq k\in N \}  \Big) \\
+            &=\psi\big( \overline{ g_1g_2 } \big)\\
+            &=\psi(\overline{ g_2g_1 })\\
+            &=\text{refaire à l'envers}\\
+            &=[\psi(g_2)][\psi(g_1)].
+        \end{align}
+    \end{subequations}
+    Par conséquent \( \psi(G)/\psi(N)\) est abélien.
+\end{proof}
+
+
 %-----------------------------------------------
 \subsection{Théorèmes d'isomorphismes}
 %-----------------------------------------------
-
-\begin{definition}      \label{DEFooWBIYooGNRYOp}
-    Soient un groupe \( G\), un ensemble $X$ et une application \( f\colon X\to G\). Le \defe{noyau}{noyau!application vers un groupe} de \( f\) est la partie
-    \begin{equation}
-        \ker(f)=\{ x\in X\tq f(x)=e \}
-    \end{equation}
-    où \( e\) est l'unité de \( G\).
-\end{definition}
-
-Si \( G\) est un groupe et si \( N\) est un sous-groupe normal, alors l'ensemble \( G/N\) a une structure de groupe et la projection canonique \( \pi\colon G\to G/N\) est un homomorphisme surjectif de noyau~\( N\).
 
 \begin{theorem}[Premier théorème d'isomorphisme]        \label{ThoPremierthoisomo}
     Soit \( \theta\colon G\to H\) un homomorphisme de groupe. Alors
@@ -452,11 +505,10 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
                 \frac{ HN }{ N }\simeq\frac{ H }{ H\cap N }.
             \end{equation}
         \item   \label{ItembgDQEN}
-            L'isomorphisme du point~\ref{ItemjRPajc} est encore valable si \( N\) n'est pas normal mais si seulement \( H\) normalise \( N\), c'est-à-dire si \( hNh^{-1}\in N\) pour tout \( h\in H\).
+            Tout les points précédents (et en particulier l'isomorphisme du point~\ref{ItemjRPajc}) sont encore valables si \( N\) n'est pas normal mais si seulement \( H\) normalise \( N\), c'est-à-dire si \( hNh^{-1}\in N\) pour tout \( h\in H\).
     \end{enumerate}
 \end{theorem}
 \index{théorème!isomorphisme!second}
-%TODO : trouver une démonstration du dernier point.
 
 \begin{proof}
     Point par point.
@@ -473,11 +525,11 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
                 hnh'n'=hh'\underbrace{h'^{-1}nh'}_{\in N}n'\in HN
             \end{equation}
 
-            Nous devons encore prouver que \( HN=NH\). Pour cela, \( nh \in HN \), car \( nh = hh^{-1}nh \), les trois derniers facteurs formant un  élément de \( N \) par normalité; de même \( hn \in NH \), montrant que \( NH = HN \). Enfin, comme \( (nh)^{-1} = h^{-1} n^{-1}) \), les inverses de \( NH \) sont dans \( HN = NH \).
+            Nous devons encore prouver que \( HN=NH\). Pour cela, \( nh \in HN \), car \( nh = hh^{-1}nh \), les trois derniers facteurs formant un  élément de \( N \) par normalité; de même \( hn \in NH \), montrant que \( NH = HN \). Enfin, comme \( (nh)^{-1} = h^{-1} n^{-1} \), les inverses de \( NH \) sont dans \( HN = NH \).
         \item
-            \( N\) est normal dans \( G \), a fortiori dans l'un de ses sous-groupes.
+            \( N\) est normal dans \( G \), a fortiori dans l'un de ses sous-groupes. Plus en détail (cela sert pour le point \ref{ItembgDQEN}): si \( k \in N \) et \( nh \in NH \), alors on a \( (nh)^{-1}knh = h^{-1} (n^{-1}kn) h \in N \) car \(n^{-1}kn\) est dans \( N \) et c'est un sous-groupe normal.
         \item
-            Il suffit de voir que, si \( h \in H \) et \( n \in N \cap H \), alors \( hnh^{-1} \in N \cap H \). Or, \( hnh^{-1} \in H \) puisque \( H\) est un sous-groupe; et \( hnh^{-1} \in N \) car \( N \) est un sous-groupe normal de \( G \).
+            Il suffit de voir que, si \( h \in H \) et \( n \in N \cap H \), alors \( hnh^{-1} \in N \cap H \). Or, \( hnh^{-1} \in H \) puisque \( H\) est un sous-groupe; et \( hnh^{-1} \in N \) car \( N \) est un sous-groupe normal.
         \item
             Il faut d'abord remarquer que \( H\) et \( N\) étant des groupes et le produit \( NH\) étant un groupe, nous avons \( NH=HN\). Soit le morphisme injectif
             \begin{equation}
@@ -512,6 +564,8 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
             \begin{equation}
                 H/N\cap H\simeq HN/N.
             \end{equation}
+       \item
+          Les preuves précédentes fonctionnent aussi sous l'hypothèse \( N \normal H \) plutôt que \( N \normal G \).
     \end{enumerate}
 \end{proof}
 
@@ -528,7 +582,6 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
     \begin{equation}
         gnMg^{-1}=gng^{-1}\underbrace{gMg^{-1}}_{=M}=\underbrace{gng^{-1}}_{\in N}M\in N/M.
     \end{equation}
-
     Pour prouver l'isomorphisme nous considérons le morphisme
     \begin{equation}
         \begin{aligned}
@@ -549,39 +602,25 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
 %--------------------------------------------------------------
 \subsection{Indice d'un sous-groupe et ordre des éléments}
 %--------------------------------------------------------------
+\begin{definition}[Ordre d'un groupe et d'un élément]       \label{DEFooKWBCooMlmpCP}
+    Ce sont deux choses différentes.
+    \begin{enumerate}
+        \item
 
-\begin{lemma}       \label{LEMooFNVRooRCkjLc}
-    Lorsque \( H\) est normal dans \( G\), alors la définition
-    \begin{equation}        \label{EQooEUESooSeUWHK}
-        [a]\cdot[b]=[ab]
-    \end{equation}
-    définit une loi de groupe sur l'ensemble \( G/H\).
-\end{lemma}
+    Si \( G\) est un groupe, l'\defe{ordre}{ordre!d'un groupe} est la cardinalité de \( G\) et est noté \( | G |\).
+\item
 
-\begin{proof}
-    Le neutre est \( [e]\) et l'associativité ne pose pas plus de problèmes que l'existence d'un inverse. Le point à vérifier est que la formule \eqref{EQooEUESooSeUWHK} est une bonne définition : \( [ah]\cdot [bh']=[ab]\) pour tout \( h,h'\in H\). Nous avons :
+    L'\defe{ordre}{ordre!élément} d'un élément \( g\) de \( G\) est le naturel
     \begin{equation}
-        [ah]\cdot [ah']=[ahah']=[ahb].
+        \min\{ n\in\eN\tq g^n=e \},
     \end{equation}
-    Pour montrer que cela est \( [ab]\), l'astuce est d'introduire \( bb^{-1}\) à côté du \( a\) :
-    \begin{equation}
-        [ahb]=[abb^{-1}hb]=[ab]
-    \end{equation}
-    parce que \( b^{-1} hb\in H\) du fait que \( H\) soit normal dans \( G\).
-\end{proof}
+    s'il existe; dans le cas contraire, nous disons que l'ordre de \( g\) est infini.
+    \end{enumerate}
+\end{definition}
 
-\begin{example}[\cite{ooTVPEooGOLEom}]      \label{EXooFNIKooHxePSs}
-    Il ne faudrait pas croire que le groupe quotient \( G/H\) est forcément un sous-groupe de \( G\). Par exemple le quotient \( \eZ/2\eZ\) est l'ensemble \( \{ 0,1 \}\) muni de l'addition. En particulier \( 1+1=0\), ce qui est évidemment faux dans \( \eZ\). Le groupe \( (\eZ,+)\) ne possède aucun élément d'ordre \( 2\).
+Nous verrons que le corollaire~\ref{CorpZItFX} au théorème de Lagrange dira que l'ordre d'un élément divise l'ordre du groupe.
 
-    Il n'en est pas moins vrai que l'application
-    \begin{equation}
-        \begin{aligned}
-            f\colon G&\to G/H \\
-            g&\mapsto [g]
-        \end{aligned}
-    \end{equation}
-    est un morphisme de groupes.
-\end{example}
+
 
 \begin{definition}      \label{DEFooMPIAooIeZNaR}
     Si \( H\) est un sous-groupe d'un groupe fini l'\defe{indice}{indice} de \( H\) dans \( G\) est le nombre \( | G |/| H |\), souvent noté \( | G:H |\).
@@ -594,7 +633,7 @@ Le théorème de Lagrange dira en particulier que l'indice est toujours un nombr
     Soit \( H\) un sous-groupe du groupe fini \( G\).  Alors
     \begin{enumerate}
         \item   \label{ITEMooDPKSooNpOusd}
-    L'ordre de \( H\) divise l'ordre de \( G\).
+    l'ordre de \( H\) divise l'ordre de \( G\).
 \item
     Les trois nombres suivants sont égaux :
     \begin{itemize}
@@ -714,6 +753,76 @@ Soit \( X\) un ensemble et un anneau $(A, +, \times)$. Nous considérons \( \Fun
 Cela est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \( \Fun(X,A)\).
 \end{normaltext}
 
+%------------------------------------------------------------------------------
+\subsection{Formule du binôme de Newton et autres identités remarquables}
+%------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{ooPTQCooIWykWP}]     \label{PropBinomFExOiL}
+Soit \( A \) un anneau. Pour tous \(x\ , y\in A\) tels que \(xy = yx \) et pour tout \( n\in\eN \), nous avons
+\begin{equation}        \label{EqNewtonB}
+    (x+y)^n=\sum_{k=0}^n{n\choose k}x^{n-k}y^k
+\end{equation}
+où
+\begin{equation}
+    {n\choose k}=\frac{ n! }{ k!(n-k)! }
+\end{equation}
+sont les \defe{coefficients binomiaux}{coefficients binomiaux}.
+\end{proposition}
+
+\begin{proof}
+    La preuve se fait par récurrence. La vérification pour $n=0$ et $n=1$ se fait aisément pour peu que l'on se rappelle que \( x^0=1\) et que \( 0!=1\), ce qui donne entre autres \( {0\choose 0}=1\).
+
+    Supposons que la formule \eqref{EqNewtonB} soit vraie pour $n\geq1$, et prouvons-la pour $n+1$. Nous avons\footnote{Et c'est là que la commutativité entre $x$ et $y$ est importante; sinon, on ne pourrait pas expédier les $y$ en fin de produits\dots}
+\begin{equation}        \label{EqBinTrav}
+    \begin{aligned}[]
+        (x+y)^{n+1} &=(x+y)\cdot  \sum_{k=0}^n{n\choose k}x^{n-k}y^k\\
+                &= \sum_{k=0}^n{n\choose k}x^{n-k+1}y^k+\sum_{k=0}^n{n\choose k}x^{n-k}y^{k+1}\\
+                &=x^{n+1}+ \sum_{k=1}^n{n\choose k}x^{n-k+1}y^k+\sum_{k=0}^{n-1}{n\choose k}x^{n-k}y^{k+1}+y^{n+1}.
+    \end{aligned}
+\end{equation}
+La seconde grande somme peut être transformée en posant $i=k+1$ :
+\begin{equation}
+    \sum_{k=0}^{n-1}{n\choose k}x^{n-k}y^{k+1}  =\sum_{i=1}^n{n\choose i-1}x^{n-(i-1)}y^{i-1+1},
+\end{equation}
+dans lequel nous pouvons immédiatement renommer $i$ par $k$. En remplaçant dans la dernière expression de \eqref{EqBinTrav}, nous trouvons
+\begin{equation}
+    (x+y)^{n+1}=x^{n+1}+y^{n+1}+\sum_{k=1}^n\left[ {n\choose k}+{n\choose k-1} \right]x^{n-k+1}y^k.
+\end{equation}
+La thèse découle maintenant de la formule
+\begin{equation}
+    {n\choose k}+{n\choose k-1}={n+1\choose k}
+\end{equation}
+qui est vraie parce que
+\begin{equation}
+    \frac{ n! }{ k!(n-k)! }+\frac{ n! }{ (k-1)(n-k+1)! }=\frac{ n!(n-k+1)+n!k }{ k!(n-k+1)! }=\frac{ n!(n+1) }{  k!(n-k+1)!  },
+\end{equation}
+par simple mise au même dénominateur.
+\end{proof}
+
+\begin{remark}
+La formule du binôme de Newton donne naissance au morphisme de Frobenius, grâce aux propositions \ref{Propqrrdem} et \ref{PropFrobHAMkTY}.
+\end{remark}
+
+\begin{lemma}
+    Si \( a\) et \( b\) commutent, nous avons, pour tout \( r \in \eN \) et \( r > 0\), la formule
+    \begin{equation}        \label{Eqarpurmkbk}
+        a^{r+1}-b^{r+1}=(a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right).
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+  Démontrons cela par récurrence. Le cas \( r = 0 \) est évident. Pour
+  un \( r \) donné, si \eqref{Eqarpurmkbk} est vraie, alors
+  \begin{align*}
+    a^{r+2}-b^{r+2}&= a^{r+1}a - a^{r+1}b +a^{r+1}b - b^{r+1}b\\
+    &= a^{r+1}(a - b) + (a^{r+1} - b^{r+1})b\\
+    &= a^{r+1}(a - b) + (a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right)b\\
+    &= (a - b) \left(a^{r+1} + \left(\sum_{k=0}^ra^{r-k}b^k\right)b\right)\\
+    &= (a - b) \left(a^{r+1} + \sum_{k=0}^ra^{r-k}b^{k + 1}\right)\\
+    &= (a - b) \left(a^{r+1} + \sum_{k'=1}^{r+1}a^{(r+1)-k'}b^{k'}\right)\\
+    &= (a - b) \left(\sum_{k'=0}^{r+1}a^{(r+1)-k'}b^{k'}\right).
+  \end{align*}
+\end{proof}
 
 \subsection{Morphismes d'anneaux, sous-anneaux, idéaux}
 %------------------------------------------------------
@@ -737,7 +846,7 @@ Remarquons que si \( f\) est un morphisme, nous avons \( f(0)=0\) et \( f(x)^{-1
 \end{definition}
 
 \begin{definition}  \label{DefAJVTPxb}
-    Un sous-ensemble \( B\subset A\) d'un anneau est un \defe{sous anneau}{sous anneau} si
+    Un sous-ensemble \( B\subset A\) d'un anneau est un \defe{sous-anneau}{sous-anneau} si
     \begin{enumerate}
         \item
             \( 1\in B\)
@@ -749,19 +858,22 @@ Remarquons que si \( f\) est un morphisme, nous avons \( f(0)=0\) et \( f(x)^{-1
 \end{definition}
 
 \begin{definition}[Idéal dans un anneau]  \label{DefooQULAooREUIU}
-    Un sous-ensemble \( I\subset A\) est un \defe{idéal à gauche}{idéal!dans un anneau} à gauche si
+    Un sous-ensemble \( I\subset A\) est un \defe{idéal à gauche}{idéal!à gauche} si
     \begin{enumerate}
         \item
             \( I\) est un sous-groupe pour l'addition,
-        \item
+        \item  \label{ITEM_defidealgauche}
             pour tout \( a\in A\), \( aI\subset I\).
     \end{enumerate}
+    Il s'agit d'un \defe{idéal à droite}{idéal!à droite} si le point \ref{ITEM_defidealgauche} est remplacé par : pour tout \( a\in A\), \( Ia\subset I\).
 
-    Lorsqu'un ensemble est idéal à gauche et à droite, nous disons que c'est un \defe{idéal bilatère}{idéal!bilatère}. Lorsque nous parlons d'idéal sans précisions, nous parlons d'idéal bilatère.
+    Lorsqu'un ensemble est idéal à gauche et à droite, nous disons que c'est un \defe{idéal bilatère}{idéal!dans un anneau}. Lorsque nous parlons d'idéal sans précisions, nous parlons d'idéal bilatère.
 \end{definition}
 
 \begin{remark}
     Un idéal n'est pas toujours un anneau parce que l'identité pourrait manquer. Un idéal qui contient l'identité est l'anneau complet.
+    
+    Les idéaux pour les anneaux jouent un rôle similaire aux sous-groupes normaux pour les groupes, comme on va l'étudier.
 \end{remark}
 
 \begin{definition}[Idéal engendré par un élément]  \label{DefSKTooOTauAR}
@@ -936,26 +1048,6 @@ Un élément \( a\in A\) est \defe{régulier à droite}{régulier à droite} si 
 
 L'ensemble \( U(A)\)\nomenclature[A]{\( U(A)\)}{ensemble des inversibles} des éléments inversibles de \( A\) est un groupe pour la multiplication. Nous notons \( A^*=A\setminus\{ 0 \}\).
 
-\begin{lemma}
-    Si \( a\) et \( b\) commutent, nous avons, pour tout \( r \in \eN \) et \( r > 0\), la formule
-    \begin{equation}        \label{Eqarpurmkbk}
-        a^{r+1}-b^{r+1}=(a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right).
-    \end{equation}
-\end{lemma}
-
-\begin{proof}
-  Démontrons cela par récurrence. Le cas \( r = 0 \) est évident. Pour
-  un \( r \) donné, si \eqref{Eqarpurmkbk} est vraie, alors
-  \begin{align*}
-    a^{r+2}-b^{r+2}&= a^{r+1}a - a^{r+1}b +a^{r+1}b - b^{r+1}b\\
-    &= a^{r+1}(a - b) + (a^{r+1} - b^{r+1})b\\
-    &= a^{r+1}(a - b) + (a-b)\left(\sum_{k=0}^ra^{r-k}b^k\right)b\\
-    &= (a - b) \left(a^{r+1} + \left(\sum_{k=0}^ra^{r-k}b^k\right)b\right)\\
-    &= (a - b) \left(a^{r+1} + \sum_{k=0}^ra^{r-k}b^{k + 1}\right)\\
-    &= (a - b) \left(a^{r+1} + \sum_{k'=1}^{r+1}a^{(r+1)-k'}b^{k'}\right)\\
-    &= (a - b) \left(\sum_{k'=0}^{r+1}a^{(r+1)-k'}b^{k'}\right).
-  \end{align*}
-\end{proof}
 
 \begin{proposition}
     Si \( a\) est un élément nilpotent de l'anneau \( A\), alors \( 1-a\) est inversible. Si \( a\) est nilpotent non nul, alors il est diviseur de zéro.

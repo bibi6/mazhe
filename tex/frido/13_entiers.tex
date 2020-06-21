@@ -713,6 +713,37 @@ Par ailleurs, il est très vite vérifié que tous les couples \( (x,y)\) de la 
 
 Nous écrivons \( a=b\mod p\) essentiellement s'il existe \( k\in \eZ\) tel que \( b+kp=a\). Plus généralement nous notons \( [a]_p=\{ a+kp|k\in \eZ \}\)\nomenclature[R]{\( [a]_p\)}{ensemble des \( a+kp\)} et l'écriture «\( a=n\mod p\)» peut tout autant signifier \( a=[b]_p\) que \( a\in [b]_p\). La différence entre les deux est subtile mais peut de temps en temps valoir son pesant d'or.
 
+\begin{corollary}       \label{CORooLINXooBlUKPG}
+    Les quotients de \( \eZ\) sont \( \eZ/n\eZ\).
+\end{corollary}
+
+\begin{proof}
+    Tous les idéaux de \( \eZ\) sont de la forme \( n\eZ\). En effet en vertu de la proposition~\ref{PropSsgpZestnZ}, les seuls sous-groupes de \( \eZ\) (en tant que groupe additif) sont les \( n\eZ\). Tous les idéaux sont donc de cette forme. De plus les \( n\eZ\) sont effectivement tous des idéaux : si \( a\in n\eZ\) et si \( k\in \eZ\) alors \( ak\in n\eZ\). Cela est donc un idéal.
+\end{proof}
+
+\begin{proposition}     \label{PropZpintssiprempUzn}
+    Soient \( n\geq 2\) un entier et \( \phi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\phi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
+    \begin{equation}
+        U(\eZ/n\eZ)=\phi(P_n)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
+    \end{equation}
+    où \( P_n\) est l'ensemble $P_n=\{ x\in\{ 0,\ldots,n-1 \}\tq\pgcd(x,n)=1 \}$.
+
+    De plus,
+    \begin{equation}
+        \Card\big( U(\eZ/n\eZ) \big)=\varphi(n).
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Soit \( 0\leq x\leq n\) tel que \( \pgcd(x,n)=1\). Il existe donc\footnote{Théorème de Bézout~\ref{ThoBuNjam}} \( u,v\in\eZ\) tels que \( ux+vn=1\). En passant aux classes,
+    \begin{equation}
+        \tilde u\tilde x=\tilde 1,
+    \end{equation}
+    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \phi(P_n)\subset U(\eZ/n\eZ)\).
+
+    Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
+\end{proof}
+
 \begin{proposition}
     Soit \( n\in\eN\). Le groupe \( (\eZ/n\eZ, +)\) est monogène. Si \( n\neq 0\), il est cyclique d'ordre \( n\).
 \end{proposition}
@@ -756,91 +787,3 @@ Nous écrivons \( a=b\mod p\) essentiellement s'il existe \( k\in \eZ\) tel que 
 
     Mais dire \( b=0\) revient à dire que \( d\divides n\), ce qu'il fallait démontrer.
 \end{proof}
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Formule du binôme de Newton}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{proposition}[\cite{ooPTQCooIWykWP}]     \label{PropBinomFExOiL}
-Soit \( A \) un anneau commutatif. Pour tous \(x\ , y\in A\) et \( n\in\eN \), nous avons
-\begin{equation}        \label{EqNewtonB}
-    (x+y)^n=\sum_{k=0}^n{n\choose k}x^{n-k}y^k
-\end{equation}
-où
-\begin{equation}
-    {n\choose k}=\frac{ n! }{ k!(n-k)! }
-\end{equation}
-sont les \defe{coefficients binomiaux}{coefficients binomiaux}.
-\end{proposition}
-
-\begin{proof}
-    La preuve se fait par récurrence. La vérification pour $n=0$ et $n=1$ se fait aisément pour peu que l'on se rappelle que \( x^0=1\) et que \( 0!=1\), ce qui donne entre autres \( {0\choose 0}=1\).
-
-    Supposons que la formule \eqref{EqNewtonB} soit vraie pour $n\geq1$, et prouvons la pour $n+1$. Nous avons
-\begin{equation}        \label{EqBinTrav}
-    \begin{aligned}[]
-        (x+y)^{n+1} &=(x+y)\cdot  \sum_{k=0}^n{n\choose k}x^{n-k}y^k\\
-                &= \sum_{k=0}^n{n\choose k}x^{n-k+1}y^k+\sum_{k=0}^n{n\choose k}x^{n-k}y^{k+1}\\
-                &=x^{n+1}+ \sum_{k=1}^n{n\choose k}x^{n-k+1}y^k+\sum_{k=0}^{n-1}{n\choose k}x^{n-k}y^{k+1}+y^{n+1}.
-    \end{aligned}
-\end{equation}
-La seconde grande somme peut être transformée en posant $i=k+1$ :
-\begin{equation}
-    \sum_{k=0}^{n-1}{n\choose k}x^{n-k}y^{k+1}  =\sum_{i=1}^n{n\choose i-1}x^{n-(i-1)}y^{i-1+1},
-\end{equation}
-dans lequel nous pouvons immédiatement renommer $i$ par $k$. En remplaçant dans la dernière expression de \eqref{EqBinTrav}, nous trouvons
-\begin{equation}
-    (x+y)^{n+1}=x^{n+1}+y^{n+1}+\sum_{k=1}^n\left[ {n\choose k}+{n\choose k-1} \right]x^{n-k+1}y^k.
-\end{equation}
-La thèse découle maintenant de la formule
-\begin{equation}
-    {n\choose k}+{n\choose k-1}={n+1\choose k}
-\end{equation}
-qui est vraie parce que
-\begin{equation}
-    \frac{ n! }{ k!(n-k)! }+\frac{ n! }{ (k-1)(n-k+1)! }=\frac{ n!(n-k+1)+n!k }{ k!(n-k+1)! }=\frac{ n!(n+1) }{  k!(n-k+1)!  },
-\end{equation}
-par simple mise au même dénominateur.
-\end{proof}
-
-\begin{remark}
-La formule du binôme de Newton donne naissance au morphisme de Frobenius, grâce aux propositions \ref{Propqrrdem} et \ref{PropFrobHAMkTY}. Un
-\end{remark}
-
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Résultats supplémentaires sur l'anneau des entiers}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{corollary}       \label{CORooLINXooBlUKPG}
-    Les quotients de \( \eZ\) sont \( \eZ/n\eZ\).
-\end{corollary}
-
-\begin{proof}
-    Tous les idéaux de \( \eZ\) sont de la forme \( n\eZ\). En effet en vertu de la proposition~\ref{PropSsgpZestnZ}, les seuls sous-groupes de \( \eZ\) (en tant que groupe additif) sont les \( n\eZ\). Tous les idéaux sont donc de cette forme. De plus les \( n\eZ\) sont effectivement tous des idéaux : si \( a\in n\eZ\) et si \( k\in \eZ\) alors \( ak\in n\eZ\). Cela est donc un idéal.
-\end{proof}
-
-\begin{proposition}     \label{PropZpintssiprempUzn}
-    Soient \( n\geq 2\) un entier et \( \phi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\phi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
-    \begin{equation}
-        U(\eZ/n\eZ)=\phi(P_n)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
-    \end{equation}
-    où \( P_n\) est l'ensemble $P_n=\{ x\in\{ 0,\ldots,n-1 \}\tq\pgcd(x,n)=1 \}$.
-
-    De plus,
-    \begin{equation}
-        \Card\big( U(\eZ/n\eZ) \big)=\varphi(n).
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Soit \( 0\leq x\leq n\) tel que \( \pgcd(x,n)=1\). Il existe donc\footnote{Théorème de Bézout~\ref{ThoBuNjam}} \( u,v\in\eZ\) tels que \( ux+vn=1\). En passant aux classes,
-    \begin{equation}
-        \tilde u\tilde x=\tilde 1,
-    \end{equation}
-    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \phi(P_n)\subset U(\eZ/n\eZ)\).
-
-    Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
-\end{proof}
-
-
