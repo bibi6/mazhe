@@ -75,8 +75,10 @@ Quelques résultats préliminaires\dots
 % L'algorithme de Gauss, Meeus utilise des arrondis.
 % http://fr.wikipedia.org/wiki/Calcul_de_la_date_de_Pâques
 
+
+
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Sous-groupes de \texorpdfstring{$(\eZ,+)$}{(Z,+)}}
+\subsection{Sous-groupes et groupes quotients de \texorpdfstring{$(\eZ,+)$}{(Z,+)}}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{proposition} \label{PropSsgpZestnZ}
@@ -92,6 +94,67 @@ Quelques résultats préliminaires\dots
 
 Notons que si un sous-groupe \( H\) de \( \eZ\) est donné, alors le nombre \( n\) tel que \( H=n\eZ\) est unique. En effet si \( n\eZ=m\eZ\) nous avons que \( n\) divise \( m\) (parce que \( m\in m\eZ\subset n\eZ\)) et que \( m\) divise \( n\) parce que \( n\in m\eZ\). Par conséquent \( n=m\).
 
+
+\begin{corollary}       \label{CORooLINXooBlUKPG}
+    Les quotients de \( \eZ\) sont \( \eZ/n\eZ\).
+\end{corollary}
+
+\begin{proof}
+    Tous les idéaux de \( \eZ\) sont de la forme \( n\eZ\). En effet en vertu de la proposition~\ref{PropSsgpZestnZ}, les seuls sous-groupes de \( \eZ\) (en tant que groupe additif) sont les \( n\eZ\). Tous les idéaux sont donc de cette forme. De plus les \( n\eZ\) sont effectivement tous des idéaux : si \( a\in n\eZ\) et si \( k\in \eZ\) alors \( ak\in n\eZ\). Cela est donc un idéal.
+\end{proof}
+
+
+Nous écrivons \( a=b\mod n\) essentiellement s'il existe \( k\in \eZ\) tel que \( b+kn=a\). Plus généralement nous notons \( [a]_n=\{ a+kn | k\in \eZ \}\)\nomenclature[R]{\( [a]_n\)}{ensemble des \( a+kn\)} et l'écriture «\( a=b\mod n\)» peut tout autant signifier \( a=[b]_n\) que \( a\in [b]_n\). La différence entre les deux est subtile mais peut de temps en temps valoir son pesant d'or.
+
+
+\begin{corollary}[\cite{BIBooFOGTooQgFAbQ}]   \label{PROPooEWREooUOSMsE}
+    Soit \( n\geq 2\). Alors l'anneau \( \eZ/n\eZ\) contient \( n\) éléments; en fait, \( \eZ/n\eZ=\{ [k]_n \}_{k=0,\ldots, n-1}\).
+\end{corollary}
+
+\begin{proposition}
+    Soit \( n\in\eN\). Le groupe \( (\eZ/n\eZ, +)\) est monogène\footnote{Définition~\ref{DEFooWMFVooLDqVxR}.} . Si \( n\neq 0\), il est cyclique  d'ordre \footnote{Définitions~\ref{DEFooWMFVooLDqVxR} et~\ref{DEFooKWBCooMlmpCP}.} \( n\).
+\end{proposition}
+
+\begin{proof}
+    Nous considérons la surjection canonique \( \pi\colon \eZ\to \eZ/n\eZ\). Si \( a\in\eZ\), alors \( \pi(a)=a\pi(1)\). Par conséquent \( \eZ/n\eZ=\gr\bigl( \pi(1) \bigr)\) parce que tout groupe contenant \( \pi(1)\) contient tous les multiples de \( \pi(1)\), et par conséquent contient \( \pi(\eZ)=\eZ/n\eZ\).
+
+    Soit \( x\in\eZ/n\eZ\) et considérons \( x_0\), le plus petit naturel représentant \( x\), si bien que \( x=[x_0]_n\). Le théorème de la division euclidienne~\ref{ThoDivisEuclide} donne l'existence de \( q\) et \( r\) avec \( 0\leq r<n\) et \( q\geq 0\) tels que
+    \begin{equation}
+        x_0=nq+r.
+    \end{equation}
+    Nous avons \( [x_0]_n=[r]_n=\pi(r)\) parce que \( x_0-r\) est un multiple de \( n\). Nous avons donc \( [x_0]_n\in\pi(\eN_{n-1})\). Par conséquent
+    \begin{equation}
+        \eZ/n\eZ=\pi(\eZ)=\pi(\eN_{n-1}).
+    \end{equation}
+    La restriction \( \pi\colon \eN_{n-1}\to \eZ/n\eZ\) est donc surjective. Montrons qu'elle est également injective. Si \( \pi(x_0)=\pi(x_1)\), alors \( \pi(x_0 - x_1) =\pi(0)\), et il s'ensuit \( x_1- x_0 = kn\) pour un certain entier \(k \). Si, par l'absurde, \( k \) n'était pas nul, alors on aurait deux entiers distants d'au moins \( n \) dans un ensemble comprenant \( n \) entiers consécutifs: l'un des deux ne se trouve donc pas dans \( \eN_{n-1} \), contradiction.
+
+    L'ordre de \( \eZ/n\eZ\) est donc le même que le cardinal de \( \eN_{n-1}\), c'est-à-dire \( n\). Le groupe \( \eZ/n\eZ\) est donc fini, d'ordre \( n\) et monogène parce que \( \eZ/n\eZ=\gr(\pi(1))\). Il est donc cyclique.
+\end{proof}
+
+
+\begin{lemma}[\cite{KXjFWKA}]
+    Soit \( a\in \eN\) avec \( a\geq 2\). Soient \( n,d\in \eN\) tels que \( a^d-1\divides a^n-1\). Alors \( d\divides n\).
+\end{lemma}
+
+\begin{proof}
+    Par le théorème de division euclidienne~\ref{ThoDivisEuclide}, il existe \( q,r\in \eZ\) tels que \( n = qd+r\) avec \( 0\leq r<d\). En remarquant que \( a^d\in[1]_{a^d-1}\) nous avons
+    \begin{equation}
+        a^n=(a^d)^qa^b\in[1]_{a^d-1}a^r=[a^r]_{a^d-1}.
+    \end{equation}
+    Pour cela nous avons utilisé d'abord le fait que si \( b\in [z]_k\), alors \( b^n\in[z^n]_k\) et ensuite le fait que \( [1]_kx=[x]_k\). D'autre part l'hypothèse \( a^d-1\divides a^n-1\) implique
+    \begin{equation}
+        a^n\in[1]_{a^d-1}.
+    \end{equation}
+    Par conséquent le nombre \( a^n\) est à la fois dans \( [a^r]_{a^d-1}\) et dans \( [1]_{a^d-1}\). Cela implique que
+    \begin{equation}
+        [1]_{a^d-1}=[a^r]_{a^d-1},
+    \end{equation}
+    ou encore que \( a^r\in[1]_{a^d-1}\) ou encore que \( a^d-1\divides a^r-1\).
+
+    Étant donné que \( r<d\) et que \( a\geq 2\), nous avons que \( a^r-1<a^d-1\); donc pour que \( a^d-1\) divise \( a^r-1\), il faut que \( a^r-1\) soit zéro, c'est-à-dire \( r=0\).
+
+    Mais dire \( r=0\) revient à dire que \( d\divides n\), ce qu'il fallait démontrer.
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{PGCD, PPCM et Bézout}
@@ -179,6 +242,8 @@ Notons que l'application \( p\eZ+q\eZ\) vers \( \eZ\) n'est évidemment pas inje
     Soit \( x\in \eZ\). Le théorème de Bézout nous donne \( k\) et \( l\) tels que \( kp+lq=1\). Du coup, \( (xk)p+(xl)q=x\).
 \end{proof}
 
+
+
 La proposition suivante établit que si \( x\) est assez grand, alors il peut même être écrit comme une combinaison de \( p\) et \( q\) à coefficients positifs. Elle sera utilisée pour démontrer que les états apériodiques d'une chaine de Markov peuvent être atteints à tout moment (assez grand), voir la définition~\ref{DefCxvOaT} et ce qui suit.
 
 \begin{proposition}     \label{PropLAbRSE}
@@ -245,7 +310,6 @@ La proposition suivante établit que si \( x\) est assez grand, alors il peut m�
     \end{subproof}
 \end{proof}
 
-
 %\begin{proof}
     %Soit \( x\in \eN\) et \( k_1,l_1\in \eN\) les plus petits entiers tels que \( k_1p\geq x/2\) et \( l_1q\geq x/2\). Nous avons alors
     %\begin{equation}
@@ -288,6 +352,152 @@ La proposition suivante établit que si \( x\) est assez grand, alors il peut m�
         1000=75\cdot 7+95\cdot 5.
     \end{equation}
 \end{example}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Bézout, Euler et les groupes quotients}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{BIBooBBRQooJxksHX}]       \label{PROPooZCKXooOtocKE}
+    Soient \( A,B\in \eN\) tels que \( \pgcd(A,B)=1\). Alors il existe \( p,m\in \eN\) tels que \( A^p=mB+1\).
+\end{proposition}
+
+\begin{definition}      \label{DEFooWYIGooRVBTil}
+    On note \( \Delta_n \) l'ensemble \( \Delta_n = \{ k \in \eN \tq k < n \text{ et } \pgcd(k,d)=1\} \).La fonction \( \varphi\) donnée par
+\begin{equation}    \label{EqEulerGqPsvi}
+    \varphi(n)=\Card( \Delta_n )
+\end{equation}
+est l'\defe{indicatrice d'Euler}{indicatrice d'Euler}\index{Euler!indicatrice}.
+\end{definition}
+
+\begin{proposition}     \label{PropZnmuphiGensn}
+    Soit \( n\in\eN^*\) et le groupe (additif) \( \eZ/n\eZ\). L'élément \( [x]_n\) est un générateur de \( \eZ/n\eZ\) si et seulement si \( x\in \Delta_n\). En particulier \( \eZ/n\eZ\) est un groupe contenant \( \varphi(n)\) générateurs.
+\end{proposition}
+
+\begin{proof}
+    Nous avons \( \gr\big( [1]_n \big)=\eZ/n\eZ\). L'élément \( [x]_n\) sera générateur si et seulement s'il génère \( [1]_n \), c'est-à-dire s'il existe \( u\) tel que \( u[x]_n=[1]_n\). Cette dernière égalité étant une égalité de classes dans \( \eZ/n\eZ\), elle sera vraie si et seulement s'il existe \( v\) tel que
+    \begin{equation}
+        ux+vn=1.
+    \end{equation}
+    Cela signifie entre autres que\footnote{Corolaire~\ref{CorgEMtLj}} \( x\eZ+n\eZ=\eZ\), et aussi que \( \pgcd(x,n)=1\) par le théorème de Bézout~\ref{ThoBuNjam}, et donc que \( x\in \Delta_n\).
+\end{proof}
+
+La proposition suivante est un pas important dans l'algorithme de Shor permettant aux ordinateurs quantiques de factoriser rapidement des grands nombres.
+
+
+\begin{proposition}     \label{PropZpintssiprempUzn}
+    Soient \( n\geq 2\) un entier et \( \pi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\pi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
+    \begin{equation}
+        U(\eZ/n\eZ)=\pi(\Delta_n)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
+    \end{equation}
+    où \( \Delta_n\) est l'ensemble $\Delta_n=\{ x\in\{ 0,\ldots,n-1 \}\tq\pgcd(x,n)=1 \}$.
+
+    De plus,
+    \begin{equation}
+        \Card\big( U(\eZ/n\eZ) \big)=\varphi(n).
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Soit \( 0\leq x\leq n\) tel que \( \pgcd(x,n)=1\). Il existe donc\footnote{Théorème de Bézout~\ref{ThoBuNjam}} \( u,v\in\eZ\) tels que \( ux+vn=1\). En passant aux classes,
+    \begin{equation}
+        \tilde u\tilde x=\tilde 1,
+    \end{equation}
+    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \phi(P_n)\subset U(\eZ/n\eZ)\).
+
+    Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
+\end{proof}
+
+En résumé, on vient avec les deux propositions précédentes de prouver ceci:
+
+\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooMTWGooEMbvDi}
+    Soit \( n\geq 2\) et \( m\in \eZ\). Nous avons équivalence entre
+    \begin{enumerate}
+        \item
+            \( \pgcd(n,m)=1\),
+        \item
+            \( [m]_n\) engendre le groupe \( (\eZ/n\eZ,+)\)
+        \item
+            \( [m]_n\) est inversible dans \( \big( (\eZ/n\eZ)^*,\cdot \big)\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooSKSYooZoDhIP}
+    Soient \( n\geq 2\), $a$ premier avec \( n\), \( b\in \eN\), et \( m_1,\ldots, m_n\in \eN\). Alors\quext{Je crois qu'il faut rajouter une hypothèse sur les $m_i$}
+    \begin{enumerate}
+        \item
+            Nous avons $\eZ/n\eZ=\{ [am_i+b]_n \}_{i=1,\ldots, n}$,
+        \item
+            Nous avons \( \eZ/n\eZ=\{ [b+k]_n \}_{k=0,\ldots, n-1}\)
+        \item
+            Nous avons \( \eZ/n\eZ=\{ [ka]_{k=0,\ldots, n-1} \}\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[\cite{BIBooYOLUooOAUbYH}]       \label{PROPooKSCRooPyInSv}
+    Le groupe \( \big( (\eZ/n\eZ)^*, \cdot\big)\) est cyclique.\quext{Si $n$ premier, OK: c'est un Bézout caché. Sinon, $\eZ/6\eZ$ semble être un contre-exemple.}
+\end{proposition}
+
+
+Voici quelques résultats sur la fonction indicatrice d'Euler.
+\begin{proposition}
+Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\), et \( \varphi(p^n)=p^n-p^{n-1}\). Plus généralement, on a l'égalité
+\begin{equation}        \label{EqTPHqgJ}
+       n=\sum_{d\divides n}\varphi(d).
+\end{equation}
+%TODO: preuve sans utiliser les racines complexes de l'unité.
+\end{proposition}
+
+\begin{proof}
+    La première égalité est évidente. Pour la seconde, notons que les éléments de \( \{ 1,\ldots,p^n \}\) qui ont un \( \pgcd\) différent de \( 1\) avec \( p^n\) sont des nombres qui s'écrivent sous la forme \( qp\) avec \( q\leq p^{n-1}\)\footnote{Corolaire~\ref{CORooQIMHooUzLUJY}.}. Il y a évidemment \( p^{n-1}\) tels nombres.
+
+    Par conséquent le cardinal de \( \Delta_{p^n}\) est \( \varphi(p^{n})=p^n-p^{n-1}\).
+\end{proof}
+
+\begin{lemma}[Lemme chinois pour deux quotients de \( \eZ \)]  \label{LEM_chinoisZ2}
+  Si \( p \) et \( q \) sont premiers entre eux, alors on a un isomorphisme de groupes:
+   \begin{equation}\label{EQ_chinoisZ2}
+        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
+   \end{equation}
+\end{lemma}
+Une preuve générique de ce lemme est donnée avec le théorème~\ref{ThoLnTMBy}; nous allons le démontrer explicitement maintenant pour donner une autre propriété de la fonction indicatrice d'Euler.
+
+\begin{proof}
+  On considère l'application
+  \begin{align*}
+  f: \eZ &\to \eZ/p\eZ \times \eZ/q\eZ\\
+  k &\mapsto [k]_p, [k]_q.
+  \end{align*}
+  Nous allons prouver que \( f \) est un morphisme de groupes surjectif de noyau \( pq\eZ \); l'isomorphisme viendra alors avec le premier théorème d'isomorphisme~\ref{ThoPremierthoisomo}.
+  
+  Le fait que c'est un morphisme de groupes est clair. Pour le noyau, le couple \([0]_p, [0]_q\) est atteint par les entiers qui sont à la fois multiples de \( p \) et de \( q \) et par eux seuls. Comme \( p \) et \( q \) sont premiers entre eux, ces entiers sont précisément les multiples de \( pq \), donc \( \ker f = pq\eZ \)
+  
+  Prouvons à présent que \(f\) est surjective. Pour cela, nous choisissons un élément dans le produit de groupes que l'on note \( ([a]_p, [b]_q) \), et nous devons trouver un entier \( k \) dont l'image par  \( f \) est cet élément. Cela revient à trouver \( k \) tel que  \( [k]_p =  [a]_p \) et \([k]_q = [b]_q\). Dit autrement: existe-t-il \(c \) et \( d \) tels que
+  \begin{equation}
+  a + cp = k \quad\text{ et }\quad b + dq = k ?
+  \end{equation}
+  Pour cela, il faut que \(a + cp = b + dq \), ou encore que \( a - b = - cp + dq \). La bonne nouvelle vient avec le corollaire~\ref{CorgEMtLj}: comme \( p\) et \( q\) sont premiers entre eux, avec \( x = a-b \), il existe \( u_x, v_x \) entiers tels que \(u_x p + v_x q = a - b \). Alors, on prend \( k = b + v_x q \) et on a \([k]_q = [b]_q\), mais aussi \( [k]_p =  [b + v_x q]_p = [a + u_x q]_p = [a]_p \).
+  
+  Un coup de premier théorème d'isomprphisme: \( \eZ / \ker f \sim \Image f \), et on a l'isomorphisme de groupes~\eqref{EQ_chinoisZ2}.
+\end{proof}
+
+
+\begin{corollary}       \label{CorlvTmsf}
+    L'indicatrice d'Euler est multiplicative : si \( p\) est premier avec \( q\), alors \( \varphi(pq)=\varphi(p)\varphi(q)\). De plus si \( p\) et \( q\) sont premiers entre eux,
+    \begin{equation}
+        \varphi(pq)=(p-1)(q-1).
+    \end{equation}
+\end{corollary}
+
+\begin{proof}
+    Nous savons que si \( p\) et \( q\) sont premiers entre eux, alors le lemme~\ref{LEM_chinoisZ2} nous donne l'isomorphisme de groupe
+    \begin{equation}
+        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
+    \end{equation}
+    Un élément \( (x,y)\) est générateur du produit si et seulement si \( x\) est générateur de \( \eZ/p\eZ\) et \( y\) est générateur de \( \eZ/q\eZ\). Par la proposition~\ref{PropZnmuphiGensn}, il y a \( \varphi(p)\varphi(q)\) tels éléments. Par ailleurs le nombre de générateurs de \( \eZ/pq\eZ\) est \( \varphi(pq)\), d'où l'égalité.
+
+    Si \( p\) est premier, nous avons \( \varphi(p)=p-1\) parce que tous les entiers de \( \{ 1,\ldots, p-1 \}\) sont premiers avec \( p\).
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Calcul effectif du PGCD et de Bézout}
@@ -432,59 +642,6 @@ c'est-à-dire
 \end{equation}
 Nous avons ainsi trouvé des coefficients de Bézout pour $a$ et $b$.
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Générateurs}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]   \label{PROPooEWREooUOSMsE}
-    Soit \( n\geq 2\). 
-    \begin{enumerate}
-        \item
-            L'anneau \( \eZ/n\eZ\) contient \( n\) éléments
-        \item
-            Nous avons \( \eZ/n\eZ=\{ [k]_n \}_{k=0,\ldots, n-1}\).
-    \end{enumerate}
-\end{proposition}
-
-\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooSKSYooZoDhIP}
-    Soient \( n\geq 2\), $a$ premier avec \( n\), \( b\in \eN\), et \( m_1,\ldots, m_n\in \eN\). Alors
-    \begin{enumerate}
-        \item
-            Nous avons $\eZ/n\eZ=\{ [am_i+b]_n \}_{i=1,\ldots, }$,
-        \item
-            Nous avons \( \eZ/n\eZ=\{ [b+k]_n \}_{k=0,\ldots, n-1}\)
-        \item
-            Nous avons \( \eZ/n\eZ=\{ [ka]_{k=0,\ldots, n-1} \}\).
-    \end{enumerate}
-\end{proposition}
-
-\begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooMTWGooEMbvDi}
-    Soit \( n\geq 2\) et \( m\in \eZ\). Nous avons équivalence entre
-    \begin{enumerate}
-        \item
-            \( \pgcd(n,m)=1\),
-        \item
-            \( [m]_n\) engendre le groupe \( (\eZ/n\eZ,+)\)
-        \item
-            \( [m]_n\) est inversible dans \( \big( (\eZ/n\eZ)^*,\cdot \big)\).
-    \end{enumerate}
-\end{proposition}
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Générateurs pour le groupe multiplicatif}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Cette section est presque certainement à déplacer. 
-
-\begin{proposition}[\cite{BIBooYOLUooOAUbYH}]       \label{PROPooKSCRooPyInSv}
-    Le groupe \( \big( (\eZ/n\eZ)^*, \cdot\big)\) est cyclique.
-\end{proposition}
-
-La proposition suivante est un pas important dans l'algorithme de Shor permettant aux ordinateurs quantiques de factoriser rapidement des grands nombres.
-
-\begin{proposition}[\cite{BIBooBBRQooJxksHX}]       \label{PROPooZCKXooOtocKE}
-    Soient \( A,B\in \eN\) tels que \( \pgcd(A,B)=1\). Alors il existe \( p,m\in \eN\) tels que \( A^p=mB+1\).
-\end{proposition}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Décomposition en facteurs premiers}
@@ -550,7 +707,7 @@ Le théorème fondamental de l'arithmétique permet de décomposer des nombres e
     \end{equation}
     Par unicité de la décomposition de \( b\) (toujours le théorème \ref{ThoAJFJooAveRvY}), nous en déduisons que \( b_p=s_p+a_p\geq a_p\).
 
-    Dans l'autre sens, l'hypothèse \( a_p\leq b_p\) implique l'existence de \( s_p\geq 0\) tels que \( b+p=a_p+s_p\). En posant \( s=\prod_{p\in\mP}p^{s_p}\), nous avons
+    Dans l'autre sens, l'hypothèse \( a_p\leq b_p\) implique l'existence de \( s_p\geq 0\) tels que \( b_p=a_p+s_p\). En posant \( s=\prod_{p\in\mP}p^{s_p}\), nous avons
     \begin{equation}
         as=\prod_{p\in\mP}p^{s_p+a_p}=\prod_{p\in \mP}p^{b_p}=b.
     \end{equation}
@@ -596,10 +753,11 @@ Le théorème fondamental de l'arithmétique permet de décomposer des nombres e
     Un élément \( m\in \eZ^*\) vérifie \( m\leq p^n\) et \( \pgcd(m,p^n)\neq 1\) si et seulement si \( m=qp\) pour un certain \( q\leq p^{n-1}\).
 \end{corollary}
 
-\begin{probleme}
-   Il faut vérifier si le corolaire~\ref{CORooQIMHooUzLUJY} est correct.
-   Et puis rédiger des démonstrations de tout ce petit monde.
-\end{probleme}
+\begin{proof}
+Pour le sens inverse: on a \( m = qp \leq p^{n-1}p \leq p^n \) et le facteur \( p \) est commun aux décompositions en facteurs premiers de \( m \) et de \( p^n \), donc le pgcd est certainement au moins égal à \( p \).
+
+Pour le sens direct, on écrit \( m = q_0 p^k \) pour un certain \( q_0 \in \eZ \) et \( k \in \eN^* \) le plus grand possible. Comme\( \pgcd(m,p^n)\neq 1\), il est nécessairement un multiple (même une puissance!) de \( p \); donc \( k \geq 1 \). On prend alors \( q = q_0 p^{k-1} \), et l'on a bien ˇ\( m = qp \) d'une part, et comme \( m\leq p^n\), on a \( q\leq p^{n-1}\) d'autre part.
+\end{proof}
 
 \begin{lemma}   \label{LemheKdsa}
     Un entier \( n\geq 1\) se décompose de façon unique en produit de la forme \( n=qm^2\) où \( q\) est un entier sans facteurs carrés et \( m\), un entier.
@@ -706,154 +864,3 @@ Par ailleurs, il est très vite vérifié que tous les couples \( (x,y)\) de la 
         y=52-k.
     \end{equation}
 \end{example}
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Fonction indicatrice d'Euler (première partie)}
-%---------------------------------------------------------------------------------------------------------------------------
-
-
-Nous introduisons ici la fonction indicatrice d'Euler et quelques-unes de ses propriétés basiques. Pour les propriétés plus avancées, voir~\ref{subSecKGDFooAbETjs}.
-
-\begin{definition}      \label{DEFooWYIGooRVBTil}
-On note \( \Delta_n \) l'ensemble \( \Delta_n = \{ k \in \eN \tq k < n \text{ et } \pgcd(k,d)=1\} \).
-La fonction \( \varphi\) donnée par
-\begin{equation}    \label{EqEulerGqPsvi}
-    \varphi(n)=\Card( \Delta_n )
-\end{equation}
-est l'\defe{indicatrice d'Euler}{indicatrice d'Euler}\index{Euler!indicatrice}.
-\end{definition}
-
-\begin{proposition}
-Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\), et \( \varphi(p^n)=p^n-p^{n-1}\). Plus généralement, on a l'égalité
-\begin{equation}        \label{EqTPHqgJ}
-       n=\sum_{d\divides n}\varphi(d).
-\end{equation}
-%TODO: preuve sans utiliser les racines complexes de l'unité.
-\end{proposition}
-
-\begin{proof}
-    La première égalité est évidente. Pour la seconde, notons que les éléments de \( \{ 1,\ldots,p^n \}\) qui ont un \( \pgcd\) différent de \( 1\) avec \( p^n\) sont des nombres qui s'écrivent sous la forme \( qp\) avec \( q\leq p^{n-1}\)\footnote{Corolaire~\ref{CORooQIMHooUzLUJY}.}. Il y a évidemment \( p^{n-1}\) tels nombres.
-
-    Par conséquent le cardinal de \( \Delta_{p^n}\) est \( \varphi(p^{n})=p^n-p^{n-1}\).
-\end{proof}
-
-
-\begin{proposition}     \label{PropZnmuphiGensn}
-    Soit \( n\in\eN^*\) et le groupe (additif) \( \eZ/n\eZ\). L'élément \( [x]_n\) est un générateur de \( \eZ/n\eZ\) si et seulement si \( x\in \Delta_n\). En particulier \( \eZ/n\eZ\) est un groupe contenant \( \varphi(n)\) générateurs.
-\end{proposition}
-
-\begin{proof}
-    Nous avons \( \gr\big( [1]_n \big)=\eZ/n\eZ\). L'élément \( [x]_n\) sera générateur si et seulement s'il génère \( [1]_n \), c'est-à-dire s'il existe \( u\) tel que \( u[x]_n=[1]_n\). Cette dernière égalité étant une égalité de classes dans \( \eZ/n\eZ\), elle sera vraie si et seulement s'il existe \( v\) tel que
-    \begin{equation}
-        ux+vn=1.
-    \end{equation}
-    Cela signifie entre autres que\footnote{Corolaire~\ref{CorgEMtLj}} \( x\eZ+n\eZ=\eZ\), et aussi que \( \pgcd(x,n)=1\) par le théorème de Bézout~\ref{ThoBuNjam}, et donc que \( x\in P_n\).
-\end{proof}
-
-\begin{corollary}\label{CORooMBLSooMHKmAq}
-    Un groupe monogène d'ordre \( n\) possède \( \varphi(n)\) générateurs où \( \varphi\) est la fonction indicatrice d'Euler définie en~\ref{DEFooWYIGooRVBTil}.
-\end{corollary}
-
-\begin{proof}
-    Le théorème~\ref{THOooDOMZooOEYHAe} nous dit qu'un groupe monogène d'ordre \( n\) est isomorphe à \( \eZ/n\eZ\). La proposition~\ref{PropZnmuphiGensn} nous indique que \( \eZ/n\eZ\) possède \( \varphi(n)\) générateurs.
-\end{proof}
-
-
-
-\begin{corollary}       \label{CorlvTmsf}
-    L'indicatrice d'Euler est multiplicative : si \( p\) est premier avec \( q\), alors \( \varphi(pq)=\varphi(p)\varphi(q)\). De plus si \( p\) et \( q\) sont premiers entre eux,
-    \begin{equation}
-        \varphi(pq)=(p-1)(q-1).
-    \end{equation}
-\end{corollary}
-
-\begin{proof}
-    Nous savons que si \( p\) et \( q\) sont premiers entre eux, alors le théorème~\ref{ThoLnTMBy} nous donne l'isomorphisme de groupe
-    \begin{equation}
-        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
-    \end{equation}
-    Un élément \( (x,y)\) est générateur du produit si et seulement si \( x\) est générateur de \( \eZ/p\eZ\) et \( y\) est générateur de \( \eZ/q\eZ\). Par la proposition~\ref{PropZnmuphiGensn}, il y a \( \varphi(p)\varphi(q)\) tels éléments. Par ailleurs le nombre de générateurs de \( \eZ/pq\eZ\) est \( \varphi(pq)\), d'où l'égalité.
-
-    Si \( p\) est premier, nous avons \( \varphi(p)=p-1\) parce que tous les entiers de \( \{ 1,\ldots, p-1 \}\) sont premiers avec \( p\).
-\end{proof}
-
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Quotients}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous écrivons \( a=b\mod p\) essentiellement s'il existe \( k\in \eZ\) tel que \( b+kp=a\). Plus généralement nous notons \( [a]_p=\{ a+kp|k\in \eZ \}\)\nomenclature[R]{\( [a]_p\)}{ensemble des \( a+kp\)} et l'écriture «\( a=n\mod p\)» peut tout autant signifier \( a=[b]_p\) que \( a\in [b]_p\). La différence entre les deux est subtile mais peut de temps en temps valoir son pesant d'or.
-
-\begin{corollary}       \label{CORooLINXooBlUKPG}
-    Les quotients de \( \eZ\) sont \( \eZ/n\eZ\).
-\end{corollary}
-
-\begin{proof}
-    Tous les idéaux de \( \eZ\) sont de la forme \( n\eZ\). En effet en vertu de la proposition~\ref{PropSsgpZestnZ}, les seuls sous-groupes de \( \eZ\) (en tant que groupe additif) sont les \( n\eZ\). Tous les idéaux sont donc de cette forme. De plus les \( n\eZ\) sont effectivement tous des idéaux : si \( a\in n\eZ\) et si \( k\in \eZ\) alors \( ak\in n\eZ\). Cela est donc un idéal.
-\end{proof}
-
-\begin{proposition}     \label{PropZpintssiprempUzn}
-    Soient \( n\geq 2\) un entier et \( \phi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\phi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
-    \begin{equation}
-        U(\eZ/n\eZ)=\phi(P_n)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
-    \end{equation}
-    où \( P_n\) est l'ensemble $P_n=\{ x\in\{ 0,\ldots,n-1 \}\tq\pgcd(x,n)=1 \}$.
-
-    De plus,
-    \begin{equation}
-        \Card\big( U(\eZ/n\eZ) \big)=\varphi(n).
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Soit \( 0\leq x\leq n\) tel que \( \pgcd(x,n)=1\). Il existe donc\footnote{Théorème de Bézout~\ref{ThoBuNjam}} \( u,v\in\eZ\) tels que \( ux+vn=1\). En passant aux classes,
-    \begin{equation}
-        \tilde u\tilde x=\tilde 1,
-    \end{equation}
-    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \phi(P_n)\subset U(\eZ/n\eZ)\).
-
-    Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
-\end{proof}
-
-\begin{proposition}
-    Soit \( n\in\eN\). Le groupe \( (\eZ/n\eZ, +)\) est monogène. Si \( n\neq 0\), il est cyclique d'ordre \( n\).
-\end{proposition}
-
-\begin{proof}
-    Nous considérons la surjection canonique \( \mu\colon \eZ\to \eZ/n\eZ\). Si \( a\in\eZ\), alors \( \mu(a)=a\mu(1)\). Par conséquent \( \eZ/n\eZ=\gr\bigl( \mu(1) \bigr)\) parce que tout groupe contenant \( \mu(1)\) contient tous les multiples de \( \mu(1)\), et par conséquent contient \( \mu(\eZ)=\eZ/n\eZ\).
-
-    Soit \( x\in\eZ/n\eZ\) et considérons \( x_0\), le plus petit naturel représentant \( x\). Nous notons \( x=[x_0]\). Le théorème de la division euclidienne~\ref{ThoDivisEuclide} donne l'existence de \( q\) et \( r\) avec \( 0\leq r<n\) et \( q\geq 0\) tels que
-    \begin{equation}
-        x_0=nq+r.
-    \end{equation}
-    Nous avons \( [x_0]=[r]=\mu(r)\) parce que \( x_0-r\) est un multiple de \( n\). Nous avons donc \( [x_0]\in\mu(\eN_{n-1})\). Par conséquent
-    \begin{equation}
-        \eZ/n\eZ=\mu(\eZ)=\mu(\eN_{n-1}).
-    \end{equation}
-    La restriction \( \mu\colon \eN_{n-1}\to \eZ/n\eZ\) est donc surjective. Montrons qu'elle est également injective. Si \( \mu(x_0)=\mu(x_1)\), alors \( x_1=x_0+kn\). Si nous supposons que \( x_1>x_0\), alors \( k>0\) et si \( x_0\in\eN_{n-1}\), alors \( x_1>n-1\).
-
-    L'ordre de \( \eZ/n\eZ\) est donc le même que le cardinal de \( \eN_{n-1}\), c'est-à-dire \( n\). Le groupe \( \eZ/n\eZ\) est donc fini, d'ordre \( n\) et monogène parce que \( \eZ/n\eZ=\gr(\mu(1))\). Il est donc cyclique.
-\end{proof}
-
-\begin{lemma}[\cite{KXjFWKA}]
-    Soit \( q\in \eN\) avec \( q\geq 2\). Soient \( n,d\in \eN\) tels que \( q^d-1\divides q^n-1\). Alors \( d\divides n\).
-\end{lemma}
-
-\begin{proof}
-    Par le théorème de division euclidienne~\ref{ThoDivisEuclide}, il existe \( a,b\in \eZ\) tels que \( n=ad+b\) avec \( 0\leq b<d\). En remarquant que \( q^d\in[1]_{q^d-1}\) nous avons
-    \begin{equation}
-        q^n=(q^d)^aq^b\in[1]_{q^d-1}q^b=[q^b]_{q^d-1}.
-    \end{equation}
-    Pour cela nous avons utilisé d'abord le fait que si \( a\in [z]_k\), alors \( a^n\in[z^n]_k\) et ensuite le fait que \( [1]_kx=[x]_k\). D'autre part l'hypothèse \( q^d-1\divides q^n-1\) implique
-    \begin{equation}
-        q^n\in[1]_{q^d-1}.
-    \end{equation}
-    Par conséquent le nombre \( q^n\) est à la fois dans \( [q^b]_{q^d-1}\) et dans \( [1]_{q^d-1}\). Cela implique que
-    \begin{equation}
-        [1]_{q^d-1}=[q^b]_{q^d-1},
-    \end{equation}
-    ou encore que \( q^b\in[1]_{q^d-1}\) ou encore que \( q^d-1\divides q^b-1\).
-
-    Étant donné que \( b<d\) et que \( q\geq 2\), nous avons que \( q^b-1<q^d-1\); donc pour que \( q^d-1\) divise \( q^b-1\), il faut que \( q^b-1\) soit zéro, c'est-à-dire \( b=0\).
-
-    Mais dire \( b=0\) revient à dire que \( d\divides n\), ce qu'il fallait démontrer.
-\end{proof}

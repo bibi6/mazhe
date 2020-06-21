@@ -256,6 +256,15 @@ Le lemme suivant donne une démonstration alternative, avec une construction plu
 
 \end{proof}
 
+
+\begin{corollary}\label{CORooMBLSooMHKmAq}
+    Un groupe monogène d'ordre \( n\) possède \( \varphi(n)\) générateurs où \( \varphi\) est la fonction indicatrice d'Euler définie en~\ref{DEFooWYIGooRVBTil}.
+\end{corollary}
+
+\begin{proof}
+    Le théorème~\ref{THOooDOMZooOEYHAe} nous dit qu'un groupe monogène d'ordre \( n\) est isomorphe à \( \eZ/n\eZ\). La proposition~\ref{PropZnmuphiGensn} nous indique que \( \eZ/n\eZ\) possède \( \varphi(n)\) générateurs.
+\end{proof}
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Automorphismes du groupe \texorpdfstring{$ \eZ/n\eZ$}{Z/nZ}}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -315,43 +324,3 @@ Ce dernier résultat s'étend aux groupes cycliques.
         \Aut(G)=(\eZ/n\eZ)^*.
     \end{equation}
 \end{proposition}
-
-\begin{corollary}       \label{CorwgmoTK}
-    Si \( p\) divise \( q-1\) alors \( \Aut(\eF_q)\) possède un unique sous-groupe d'ordre \( p\).
-\end{corollary}
-
-\begin{proof}
-    Si \( a\) est un générateur de \( \eF_q^*\) alors le groupe
-    \begin{equation}    \label{EqAdGiil}
-        \gr\left( a^{\frac{ q-1 }{ p }} \right)
-    \end{equation}
-    est un sous-groupe d'ordre \( p\). En ce qui concerne l'unicité, soit \( S\) un sous-groupe d'ordre \( p\). Il est donc d'indice \( (q-1)/p\) dans \( \eF_q^*\) et le lemme~\ref{PropubeiGX} nous enseigne que le groupe donné en \eqref{EqAdGiil} est contenu dans \( S\). Il est donc égal à \( S\) parce qu'il a l'ordre de \( S\). Le fait que \( S\) soit normal est dû au fait que \( \eF_q^*\) est abélien.
-\end{proof}
-
-
-
-
-
-\begin{theorem}[Théorème de Burnside\cite{FabricegPSFinis}] \label{ThoImkljy}
-    Le centre d'un \( p\)-groupe non trivial est non trivial.
-\end{theorem}
-
-\begin{proof}
-    Soit \( G\) un $p$-groupe non trivial. Nous considérons l'action adjointe \( G\) sur lui-même. Les points fixes de cette action sont les éléments du centre :
-    \begin{equation}
-        \mZ_G=\{ z\in G\tq \sigma_x(z)=z\forall x\in G \}=\Fix_G(G).
-    \end{equation}
-    Nous utilisons l'équation aux classes \eqref{PropUyLPdp} pour dire que \( | G |=| \mZ_G |\mod p\). Mais \( | \mZ_G |\) n'est pas vide parce qu'il contient l'identité. Donc \( | \mZ_G |\) est au moins d'ordre \( p\).
-\end{proof}
-
-\begin{proposition} \label{PropssttFK}
-    Si \( p\) est un nombre premier, tout groupe d'ordre \( p\) ou \( p^2\) est abélien.
-\end{proposition}
-Rappel : un groupe d'ordre \( p\) ou \( p^2\) est automatiquement un $p$-groupe.
-
-\begin{proof}
-    Si \( | G |=p\), alors le théorème de Cauchy~\ref{ThoCauchyGpFini} nous donne l'existence d'un élément d'ordre \( p\). Cet élément est alors automatiquement générateur, \( G\) est cyclique et donc abélien.
-
-    Si par contre \( G\) est d'ordre \( p^2\), alors les choses se compliquent (un peu). D'après le théorème de Burnside~\ref{ThoImkljy}, le centre \( \mZ\) n'est pas trivial; il est alors d'ordre \( p\) ou \( p^2\). Supposons qu'il soit d'ordre \( p\) et prenons \( x\in G\setminus\mZ\). Alors le stabilisateur de \( x\) pour l'action adjointe contient au moins \( \mZ\) et \( x\), c'est-à-dire que \( |\Fix_G(x)|\geq p+1\). Étant donné que \( \Fix_G(x)\) est un sous-groupe, son ordre est automatiquement \( 1\), \( p\) ou \( p^2\). En l'occurrence, il doit être \( p^2\) (parce que plus grand que \( p\)), et donc \( x\) doit être central, ce qui est une contradiction.
-\end{proof}
-
