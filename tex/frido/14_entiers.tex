@@ -437,6 +437,24 @@ En résumé, on vient avec les deux propositions précédentes de prouver ceci:
     Le groupe \( \big( (\eZ/n\eZ)^*, \cdot\big)\) est cyclique.\quext{Si $n$ premier, OK: c'est un Bézout caché. Sinon, $\eZ/6\eZ$ semble être un contre-exemple.}
 \end{proposition}
 
+\begin{corollary}   \label{CorZnInternprem}
+    L'anneau \( \eZ/n\eZ\) est intègre si et seulement si \( n\) est premier.
+\end{corollary}
+
+\begin{proof}
+    Supposons que \( n\) soit premier. La proposition \ref{PropZpintssiprempUzn} donne les inversibles de \( \eZ/n\eZ\) par
+    \begin{equation}
+        U(\eZ/n\eZ)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
+    \end{equation}
+    Mais comme \( n\) est premier, \( \pgcd(x,n)=1\) pour tout \( x\), et donc tous les éléments de \( \eZ/n\eZ\) sont inversibles. Donc \( \eZ/n\eZ\) est intègre.
+
+    Si \( n\) n'est pas premier, alors \( n=pq\) avec \( 1<p\leq q<n\). Alors
+    \begin{equation}
+        [p]_n[q]_n=[pq]_n=[0]_n.
+    \end{equation}
+    Donc lorsque \( n\) n'est pas premier,  l'anneau \( \eZ/n\eZ\) possède des diviseurs de zéro et n'est alors pas intègre.
+\end{proof}
+
 
 Voici quelques résultats sur la fonction indicatrice d'Euler.
 \begin{proposition}
