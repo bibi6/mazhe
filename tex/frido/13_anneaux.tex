@@ -352,8 +352,9 @@ Remarquons que si \( f\) est un morphisme, nous avons \( f(0)=0\) et \( f(x)^{-1
 Un élément \( a\in A\) est \defe{régulier à droite}{régulier à droite} si \( ba=0\) implique \( b=0\). Il est régulier à gauche si \( ab=0\) implique \( b=0\).
 \end{definition}
 
+%----------------------------------------------------------------------------------
 \subsection{Nilpotents, unipotents, inversibles}
-%----------------------------------------------
+%----------------------------------------------------------------------------------
 
 \begin{definition}[Éléments nilpotents, unipotents et inversibles]
 	On dit que \( a \in A \) est \defe{nilpotent}{nilpotent} s'il existe \( n \in \eN \) tel que \( a^n = 0 \). Il est dit \defe{unipotent}{unipotent} si \( a-1\) est nilpotent, c'est-à-dire si \( (a-1)^n =0\) pour un certain \( n \in \eN \).
@@ -455,3 +456,178 @@ Dans les anneaux intègres; la divisibilité devient en réalité une relation d
 
     Dans l'autre sens, les diviseurs communs de \( a\) et \( b\) sont tous inversibles et donc diviseurs de \( 1\). Donc \( 1\) est un pgcd de \( a\) et \( b\).
 \end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Un minuscule morceau de polynômes}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+  Pour la suite, on aura besoin d'un peu de polynômes; le plus gros de la théorie des anneaux de polynômes (et notamment une construction plus formelle) sera vu en section~\ref{SEC_annPolynomes}. Nous avertissons néanmoins le lecteur sur la notation standard \( A[X]\) employée, en le renvoyant en section~\ref{SUBSECooLEKVooFBPSJz}.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Définition et degré}
+%---------------------------------------------------------------------------------------------------------------------------
+
+  Pour les besoins futurs, considérons un anneau \( A \) et un élément qui n'a rien à voir avec \( A \); baptisons-le \( X \). Le but est alors de créer un nouvel anneau qui contient à la fois \( A \) et \( X \):
+
+\begin{propositionDef}   \label{DefAnneauPolyAX}
+  Soit un anneau \( A \), et un élément \( X \notin A \). L'ensemble \( A[X] \) est l'anneau engendré par \( A \) et \( X \) (où l'on convient que \( X \) commute avec tout élement de \(A \) pour la multiplication). Il est constitué des sommes finies de la forme \( \sum_{i = 0}^n a_i X^i \) où \( n \in \eN \), et pour tout \( i = 0, 1, \dots, n \), on a \( a_i \in A \).
+  
+  Les opérations sur \( A[X] \) sont définies comme suit, étant entendu qu'un élément \(a_i\) ou \(b_j\) a priori pas défini vaut 0:
+  \begin{description}
+    \item[la somme:] \( \sum_{i = 0}^n a_i X^i + \sum_{j = 0}^{n'} b_j X^j =  \sum_{i = 0}^{\max{n, n'}} (a_i + b_i) X^i \); et le neutre de \( A \) est le même dans \( A[X] \);
+    \item[le produit:] pour deux éléments \( A = \sum_{i = 0}^n a_i X^i \) et \(B = \sum_{j = 0}^{n'} b_j X^j \), on définit \( c_k = \sum_{l = 0}^k a_k b_{l-k} \), et alors \( A \cdot B = \sum \sum_{k = 0}^{m+n} c_k X^k \); le neutre multiplicatif de \( A \) est le même dans \( A[X] \).
+  \end{description}
+\end{propositionDef}
+\nomenclature[A]{\( A[X]\)}{tous les polynômes de degré fini à coefficients dans \( A\)}
+
+Il est essentiel de remarquer que la somme et le produit ne sont pas choisis: ils sont imposés par la structure voulue.
+
+\begin{proof}
+  L'anneau \( A[X] \) contient \( X \) et donc tous les \( X^n \) pour \( n \in \eN \). Il contient aussi tous les éléments de la forme \( a_n X^n \) avec \( a_n \in A \), et aussi des sommes (finies) de tels éléments. Réciproquement, un élément de \( A[X] \) est une somme de produits d'éléments de \( A \) et \( X \)\footnote{Imaginez un instant que l'on ne convienne pas que \( X \) commute avec les éléments de \( A \)\dots essayez alors d'écrire un produit de tels éléments!}, donc une somme d'éléments de la forme \( a_n X^n \).
+  
+  La somme confère à \( A[X] \) une structure de groupe abélien (c'est du "composante par composante"), le produit est bien défini, reste à voir la distributivité.\quext{Distributivité que je n'ai pas le courage de faire en écrivant ces lignes, mais bon, croyez-moi, ça marche.}
+\end{proof}
+
+\begin{definition}
+Les éléments de la forme \( a X^k\) avec \( a \in A\) et \( k\in\eN\) sont appelés \defe{monômes}{monôme}.
+
+Quand la somme est constituée de deux termes (\( a X^k + b X^l\)), on parle de \emph{binôme}, et quand il y en a trois, de \emph{trinôme}.
+\end{definition}
+
+\begin{definition}  \label{DefDegrePoly}
+    Soit \( P \in A[X] \), \( P \neq 0 \). On appelle \defe{degré}{degré!d'un polynôme} de $P$ le plus grand nombre naturel $n$ pour lequel le coefficient correspondant est non-nul. Ce naturel est noté \( \deg(P) \).
+    
+    Par convention, on pose \( \deg(0)=-\infty\).
+\end{definition}
+
+\begin{lemma}    \label{LEM_degresEtOpPolynomes}
+  Pour \( P \) et \( Q \) dans \( A[X]\), on a:
+  \begin{enumerate}
+  \item
+    \( \deg(P+Q) \leq \max\{\deg(P), \deg(Q)\}\),
+  \item
+    \( \deg(PQ)\leq\deg(P)+\deg(Q)\), avec l'égalité si et seulement si \( A \) est intègre.  
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Les inégalités sont claires de par la définition de la somme et du produit: on ne dépasse pas le maximum des degrés quand on additionne, on ne dépasse pas la somme des degrés quand on multiplie.
+  
+  Il reste à justifier que
+  \begin{equation}
+      \deg(PQ)=\deg(P)+\deg(Q)
+  \end{equation}
+  pour tous polynômes \( P \) et \( Q \) si et seulement si \( A \) est intègre. S'il ne l'est pas, soient \( \alpha,\beta\in A\) non nuls tels que \( \alpha\beta=0\). Le produit des polynômes \(\alpha X\) et \(\beta\) est \( (\alpha X)(\beta)=0\); le degré du produit n'est alors pas la somme des degrés. S'il l'est, alors le coefficient dominant de \( PQ \) est celui obtenu par le produit des coefficients dominants de \( P \) et \( Q \), un produit nécessairement non nul; ce coefficient dominant correspond à la somme des degrés de \( P \) et \( Q \).
+\end{proof}
+
+
+\begin{definition}
+  La \defe{valuation}{valuation!d'un polynôme} du polynôme \( P=\sum_n a_nX^n\), notée \( \val(P)\), est
+\begin{equation}
+    \val(P)=\min\{ n\tq a_n\neq 0 \}.
+\end{equation}
+  Nous avons \( \val(P)\leq \deg(P)\), et \( \val(P)=\deg(P)\) si et seulement si \( P\) est un monôme. Si \( P=0\), nous convenons que \( \val(0)=\infty\).
+\end{definition}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Polynômes sur un anneau intègre}
+%---------------------------------------------------------------------------------------------------------------------------
+
+
+\begin{theorem}     \label{ThoBUEDrJ}
+    L'anneau \( A\) est intègre si et seulement si \( A[X]\) est intègre.
+\end{theorem}
+
+\begin{proof}
+    Soient \( P\) et \( Q\) des éléments non nuls de \( A[X]\). Vu que l'anneau \( A\) est intègre, nous avons\footnote{Lemme~\ref{LEM_degresEtOpPolynomes}.}
+    \begin{equation}
+        \deg(PQ)=\deg(P)+\deg(Q),
+    \end{equation}
+    donc le produit \( PQ \) n'est pas nul, et l'anneau \( A[X]\) est donc intègre.
+
+    Si \( A[X]\) est intègre, \( A\) est intègre parce qu'il peut être vu comme sous-anneau.
+\end{proof}
+
+\begin{corollary}
+    Si \( A\) est intègre, les inversibles de \( A[X]\) sont les éléments de \( U(A)\).
+\end{corollary}
+
+\begin{proof}
+    Pour que \( Q\) soit inversible, il faut un \( P\) tel que \( PQ=1\). Mais l'anneau \( A\) étant intègre, les degrés s'additionnent. Par conséquent \( P \) et \( Q \) doivent être de degré zéro, ce qui n'arrive que lorsque \( P,Q\in A\). Enfin pour qu'ils soient inversibles, ils doivent être dans \( U(A)\).
+    
+    Réciproquement, les éléments de \( U(A)\) sont bien inversibles car leur inverse est dans \( A \subset A[X] \).
+\end{proof}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Division euclidienne}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Le théorème suivant établit la \defe{division euclidienne}{division!euclidienne} dans \( A[X]\) du polynôme \( P\) par un polynôme \( D\).
+\begin{theorem}     \label{ThodivEuclPsFexf}
+    Soit \( D\neq 0\) dans \( A[X]\) de coefficient dominant inversible dans \( A\). Pour tout \( P\in A[X]\), il existe \( Q,R\in A[X]\) tels que
+    \begin{equation}
+        P=QD+R
+    \end{equation}
+    avec \( \deg(R)<\deg(D)\).
+
+    Les polynômes \( Q\) et \( R\) sont déterminés de façon univoque par cette condition.
+\end{theorem}
+
+\begin{proof}
+Quand \(\deg(P) < \deg(D) \), alors \( Q = 0 \) et \( R = P \).
+
+On procède ensuite par récurrence sur le degré de \( P \). Soit \( n \in \eN\), avec \( n \geq \deg(D) \), et supposons que la division euclidienne de tout polynôme de degré \( n-1  \) par \( D \) est faisable. Posons \( P = pX^n + P' \), avec \( \deg(P') \leq n - 1 \). Le coefficient dominant de \( D \) (qu'on appelle \( d \))  est inversible, donc on trouve \( d' \) tel que \( d'd = 1 \). On pose alors \( Q_0 = pd'X^{n-\deg(D)} \), puis \(R_0 = P - Q_0D \). Le coefficient dominant de \( Q_0D \) est \( pd'd = p \) et annule celui de \( P \), si bien que \(\deg(R_0) < n \), ou encore \(\deg(R_0) \leq n - 1 \). L'hypothèse de récurrence nous informe que la division euclidienne par \( D \) fonctionne pour \( R_0 \): il existe \( Q' \) et \( R \) tels que \( R_0 = Q'D + R \), avec \( \deg(R)<\deg(D)\). Alors,
+\begin{equation}
+P = Q_0D + R_0 = Q_0D + Q'D + R = (Q_0 + Q') D + R:
+\end{equation}
+le quotient \( Q \) est \(Q_0 + Q'\) et le reste est \(R \).
+\end{proof}
+
+\begin{definition}\label{DefMPZooMmMymG}
+    Le polynôme \( Q\) est le \defe{quotient}{quotient} et \( R\) est le \defe{reste}{reste} de la division euclidienne de \( P\) par \( D\). Si le reste de la division de \( P\) par $D$ est nul on dit que \( D\) \defe{divise}{diviseur!polynôme} \( P\) et on note \( D\divides P\)\nomenclature[A]{\( D\divides P\)}{\( D\) divise \( P\)}. Autrement dit \( D\) divise \( P\) s'il existe \( Q\) tel que \( P=QD\).\footnote{Ceci se rapproche tout naturellement des notions de divisibilité dans un anneau général, que l'on a défini avec~\ref{DiviseursAnneau}.}
+\end{definition}
+
+\begin{normaltext}
+    Le théorème~\ref{ThodivEuclPsFexf} nous incite à utiliser le degré comme stathme euclidien\footnote{Si vous ne savez pas ce qu'est un stathme euclidien, oubliez ça. Si vous voulez savoir ce que c'est, allez voir la définition~\ref{DefAXitWRL}.} sur \( A[X]\) dès que \( A\) est un anneau intègre. Or cela ne fonctionne en général pas parce que très peu de polynômes ont a priori un coefficient dominant inversible.
+\end{normaltext}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Racines des polynômes}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+  Soient \( A \) un anneau et \( P \in A[X] \). On appelle
+  \defe{racine}{racine!d'un polynôme} un élément \( \alpha \in A \)
+  tel que \( P(\alpha) = 0 \); c'est-à-dire que, en remplaçant toutes
+  les occurrences de $X$ par $\alpha$ dans l'expression de $P$, on
+  obtient $0$.
+\end{definition}
+
+\begin{proposition} \label{PropHSQooASRbeA}
+    Soient \( A\) un anneau et \( P\) un polynôme non nul dans \( A[X]\). Si \( \alpha\in A\) est une racine de \( P\) alors \( X-\alpha\) divise~\footnote{Définition~{DiviseursAnneau}} \( P\), et réciproquement.
+\end{proposition}
+
+\begin{proof}
+  Nous notons le polynôme \( \mu=X-\alpha\) par analogie avec le polynôme minimal dont il sera question dans la très semblable proposition~\ref{PropXULooPCusvE}. Le sens réciproque est clair: si $\mu$ divise $P$, alors il existe $Q$ tel que $P = \mu Q$, et comme $\mu(\alpha) = 0$, on a $\alpha$ racine de $P$.
+
+  Pour le sens direct, remarquons que si $\alpha$ est racine de $P$, alors $P$ est de degré au moins égal à \( 1\), et nous pouvons donc effectuer la division euclidienne\footnote{Théorème~\ref{ThodivEuclPsFexf}.} de \( P\) par \( \mu\) : il existe des polynômes \( Q\) et \( R\) tels que
+    \begin{equation} \label{PropHSQooASRbeA1}
+        P=Q\mu+R
+    \end{equation}
+    avec \( \deg(R)<\deg(\mu)\). Donc \( R\) est une constante,
+    élément de $A$: appelons-le $a$. En évaluant
+    \eqref{PropHSQooASRbeA1} en \( \alpha\), il vient
+    \begin{equation}
+        0 = P(\alpha)=Q(\alpha)\mu(\alpha)+a,
+    \end{equation}
+    et nous en déduisons que \( a=0\), ce qui montre que \( P=Q\mu\) et que \( \mu\) divise \( P\).
+\end{proof}
+
+\begin{proposition}     \label{PROPooQCZSooVokxXQ}
+    Soient un anneau\quext{intègre? Je pense qu'il y a des surprises sans intégrité\dots} \( A\), un polynôme \( P\in A[X]\) de degré \( n\), ainsi qu'une racine \( \alpha\in A\) de \( P\). Alors il existe un polynôme \( Q\in A[X]\) de degré \( n-1\) tel que \( P=(X-\alpha)Q\).
+\end{proposition}
+
+
+

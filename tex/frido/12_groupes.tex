@@ -99,7 +99,7 @@ Pour \( n = 1 \), c'est trivial; pour \( n = 2 \), c'est facile. Pour des \( n \
 
 Un truc sympa, coup-de-poing, pour déterminer si on a affaire à un sous-groupe:
 
-\begin{proposition}
+\begin{proposition}    \label{PROP_criteressgroupe}
 Une partie non-vide \( H\) du groupe \( G\) est un sous-groupe de \( G \) si et seulement si, pour tous \(x\ ,y \in H\), on a \( xy^{-1} \in H\).
 \end{proposition}
 
@@ -124,7 +124,7 @@ Un sous-groupe engendré n'est jamais vide parce qu'il contient toujours au moin
     Si \( G\) est un groupe et \( A\) une partie de \( G\), alors \( \gr(A)\) est un sous-groupe de \( G\).
 \end{lemma}
 \begin{proof}
-   Par la définition de \( \gr(A)\) (\ref{DefooRDRXooEhVxxu}), c'est une intersection de sous-groupes, donc un sous-groupe par la proposition \ref{PROP_interssgroupes}.
+   Par la définition \ref{DefooRDRXooEhVxxu} de \( \gr(A)\), c'est une intersection de sous-groupes, donc un sous-groupe par la proposition \ref{PROP_interssgroupes}.
 \end{proof}
 
 Le sous-groupe engendré par \( A \) est le plus petit (pour l'inclusion) groupe de \( G\) contenant \( A\). Plus formellement, nous avons le résultat suivant.
@@ -505,7 +505,7 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
                 \frac{ HN }{ N }\simeq\frac{ H }{ H\cap N }.
             \end{equation}
         \item   \label{ItembgDQEN}
-            Tout les points précédents (et en particulier l'isomorphisme du point~\ref{ItemjRPajc}) sont encore valables si \( N\) n'est pas normal mais si seulement \( H\) normalise \( N\), c'est-à-dire si \( hNh^{-1}\in N\) pour tout \( h\in H\).
+            Tout les points précédents (et en particulier l'isomorphisme du point~\ref{ItemjRPajc}) sont encore valables si \( N\) n'est pas normal mais si seulement \( H\) normalise \( N\), c'est-à-dire si \( hNh^{-1}\subset N\) pour tout \( h\in H\).
     \end{enumerate}
 \end{theorem}
 \index{théorème!isomorphisme!second}
@@ -527,7 +527,7 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
 
             Nous devons encore prouver que \( HN=NH\). Pour cela, \( nh \in HN \), car \( nh = hh^{-1}nh \), les trois derniers facteurs formant un  élément de \( N \) par normalité; de même \( hn \in NH \), montrant que \( NH = HN \). Enfin, comme \( (nh)^{-1} = h^{-1} n^{-1} \), les inverses de \( NH \) sont dans \( HN = NH \).
         \item
-            \( N\) est normal dans \( G \), a fortiori dans l'un de ses sous-groupes. Plus en détail (cela sert pour le point \ref{ItembgDQEN}): si \( k \in N \) et \( nh \in NH \), alors on a \( (nh)^{-1}knh = h^{-1} (n^{-1}kn) h \in N \) car \(n^{-1}kn\) est dans \( N \) et c'est un sous-groupe normal.
+            \( N\) est normal dans \( G \), a fortiori dans l'un de ses sous-groupes. Plus en détail (cela sert pour le point \ref{ItembgDQEN}): si \( k \in N \) et \( nh \in NH \), alors on a \( (nh)^{-1}knh = h^{-1} (n^{-1}kn) h \in N \) car \(n^{-1}kn\) est dans \( N \) et  \( hNh^{-1}\subset N\) (c'est un sous-groupe normal).
         \item
             Il suffit de voir que, si \( h \in H \) et \( n \in N \cap H \), alors \( hnh^{-1} \in N \cap H \). Or, \( hnh^{-1} \in H \) puisque \( H\) est un sous-groupe; et \( hnh^{-1} \in N \) car \( N \) est un sous-groupe normal.
         \item
@@ -565,7 +565,7 @@ Ce premier théorème d'isomorphismes permet entre autres de prouver que $SO(3)=
                 H/N\cap H\simeq HN/N.
             \end{equation}
        \item
-          Les preuves précédentes fonctionnent aussi sous l'hypothèse \( N \normal H \) plutôt que \( N \normal G \).
+          Les preuves précédentes fonctionnent aussi sous l'hypothèse \( N \normal H \) plutôt que \( N \normal G \): en effet, à chaque fois que l'on a invoqué la normalité, on avait en réalité besoin de justifier \( h^{-1}nh \in N \) pour tout \( n \in N \) et tout \( h \in H \).
     \end{enumerate}
 \end{proof}
 

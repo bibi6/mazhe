@@ -32,8 +32,7 @@ Quelques résultats préliminaires\dots
 \end{theorem}
 
 \begin{proof}
-    Remarquons que \( r = a - bq \), et donc, une fois l'existence et l'unicité de $q$ établie, celle de $r$ suivra.
-
+    On prouve d'abord l'unicité, puis l'existence.
     \begin{subproof}
         \item[Unicité]
             Nous supposons avoir \( (q,r)\in \eZ\times \eN\) tels que
@@ -55,7 +54,9 @@ Quelques résultats préliminaires\dots
             \begin{equation}
                 q=\max\{ k\in \eZ\tq kb\leq a \}.
             \end{equation}
-            Donc \( q\) est unique et la relation \( a=bq+r\) implique que \( r\) est également unique.
+            Donc \( q\) est unique et la relation \( a=bq+r\) implique que \( r = a-qb\) est également unique.
+            \item[Existence]
+    On considère maintenant l'ensemble
     \begin{equation*}
         E = \{ q \in \eZ  | bq \leq a \}.
     \end{equation*}
@@ -371,6 +372,7 @@ La proposition suivante est un pas important dans l'algorithme de Shor permettan
 \end{equation}
 est l'\defe{indicatrice d'Euler}{indicatrice d'Euler}\index{Euler!indicatrice}.
 \end{definition}
+La fonction indicatrice d'Euler a quelques propriétés intéressantes, que nous développerons un peu en section~\ref{SEC_propIndicatriceEuler}. Remarquons néanmoins que si \( p\) est premier, nous avons \( \varphi(p)=p-1\) parce que tous les entiers de \( \{ 1,\ldots, p-1 \}\) sont premiers avec \( p\).
 
 \begin{proposition}     \label{PropZnmuphiGensn}
     Soit \( n\in\eN^*\) et le groupe (additif) \( \eZ/n\eZ\). L'élément \( [x]_n\) est un générateur de \( \eZ/n\eZ\) si et seulement si \( x\in \Delta_n\). En particulier \( \eZ/n\eZ\) est un groupe contenant \( \varphi(n)\) générateurs.
@@ -385,9 +387,9 @@ est l'\defe{indicatrice d'Euler}{indicatrice d'Euler}\index{Euler!indicatrice}.
 \end{proof}
 
 \begin{proposition}     \label{PropZpintssiprempUzn}
-    Soient \( n\geq 2\) un entier et \( \pi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Nous noterons \( \tilde a=\pi(a)\). Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
+    Soient \( n\geq 2\) un entier et \( \pi\colon \eZ\to \eZ/n\eZ\) la surjection canonique. Alors l'ensemble des inversibles de \( \eZ/n\eZ\) est donné par
     \begin{equation}
-        U(\eZ/n\eZ)=\pi(\Delta_n)=\{ \tilde x\tq 0\leq x\leq n\tq\pgcd(x,n)=1 \}.
+        U(\eZ/n\eZ)=\pi(\Delta_n)=\{ [x]_n \tq 0\leq x < n\text{ et }\pgcd(x,n)=1 \}.
     \end{equation}
     où \( \Delta_n\) est l'ensemble $\Delta_n=\{ x\in\{ 0,\ldots,n-1 \}\tq\pgcd(x,n)=1 \}$.
 
@@ -400,11 +402,11 @@ est l'\defe{indicatrice d'Euler}{indicatrice d'Euler}\index{Euler!indicatrice}.
 \begin{proof}
     Soit \( 0\leq x\leq n\) tel que \( \pgcd(x,n)=1\). Il existe donc\footnote{Théorème de Bézout~\ref{ThoBuNjam}} \( u,v\in\eZ\) tels que \( ux+vn=1\). En passant aux classes,
     \begin{equation}
-        \tilde u\tilde x=\tilde 1,
+        [u][x] \tilde [1],
     \end{equation}
-    donc \( \tilde u\) est l'inverse de \( \tilde x\). Cela prouve que \( \pi(\Delta_n)\subset U(\eZ/n\eZ)\).
+    donc \( [u] \) est l'inverse de \( [x]\). Cela prouve que \( \pi(\Delta_n)\subset U(\eZ/n\eZ)\).
 
-    Nous prouvons maintenant l'inclusion inverse. Soient \( \tilde x\) et \( \tilde y\) inverses l'un de l'autre : $\tilde x\tilde y=\tilde 1$. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
+    Nous prouvons maintenant l'inclusion inverse. Soient \( [x] \) et \( [y] \) inverses l'un de l'autre : \( [x][y]=[1] \). Or, \([x][y] = [xy]\), donc \( xy \) et \( 1 \) définissent la même classe. Il existe donc \( q\in\eZ\) tel que \( xy-qn=1\), ce qui prouve\footnote{À nouveau avec le Théorème de Bézout.} que \( \pgcd(x,n)=1\).
 \end{proof}
 
 En résumé, on vient avec les deux propositions précédentes de prouver ceci:
@@ -419,26 +421,51 @@ En résumé, on vient avec les deux propositions précédentes de prouver ceci:
         \item
             \( [m]_n\) est inversible dans \( \big( (\eZ/n\eZ)^*,\cdot \big)\).
     \end{enumerate}
+    De plus, pour \( n \) fixé, il y a exactement \( \varphi(n) \) nombres \( m \) qui vérifient la propriété.
 \end{proposition}
 
 \begin{proposition}[\cite{BIBooFOGTooQgFAbQ}]       \label{PROPooSKSYooZoDhIP}
-    Soient \( n\geq 2\), $a$ premier avec \( n\), \( b\in \eN\), et \( m_1,\ldots, m_n\in \eN\). Alors\quext{Je crois qu'il faut rajouter une hypothèse sur les $m_i$}
+    Soit \( n\geq 2\). Le groupe \( \eZ/n\eZ \) est exactement décrit par les ensembles suivants:
     \begin{enumerate}
         \item
-            Nous avons $\eZ/n\eZ=\{ [am_i+b]_n \}_{i=1,\ldots, n}$,
+            \( \eZ/n\eZ=\{ [b+k]_n \tq k=0,\ldots, n-1\}\).
         \item
-            Nous avons \( \eZ/n\eZ=\{ [b+k]_n \}_{k=0,\ldots, n-1}\)
+            Pour \( a \) premier avec \( n\), \( \eZ/n\eZ=\{ [ka]_n \tq k=0,\ldots, n-1\} \}\).       
         \item
-            Nous avons \( \eZ/n\eZ=\{ [ka]_{k=0,\ldots, n-1} \}\).
+            Pour \( a \) premier avec \( n\), \( b\in \eN\), et \( m_1,\ldots, m_n\in \eN\), si \( \eZ/n\eZ=\{ [m_k]_n \tq k=1,\ldots, n\} \), alors \( \eZ/n\eZ=\{ [am_k+b]_n \tq k=1,\ldots, n\} \)
     \end{enumerate}
 \end{proposition}
 
+\begin{proof}
+  Nous explicitons les fonctions de \( \eZ/n\eZ=\{ [k]_n \tq k=0,\ldots, n-1\}\) avec les autres ensembles, et prouvons ensuite que ce sont des bijections.
+  \begin{enumerate}
+    \item
+      \( [k]_n \mapsto [b+k]_n \)
+    \item
+      \( [k]_n \mapsto [ak]_n \)
+    \item
+      \( [m_k]_n \mapsto [am_k+b]_n \)
+  \end{enumerate}
+  La première est clairement une surjection: la classe \( [x]_n \) est atteinte, pour tout \( x \), par \( [x - b]_n \).
+  
+  Pour la deuxième, comme \( a \) premier avec \( n\), \( [a]_n\) est inversible dans \( \big( (\eZ/n\eZ)^*,\cdot \big)\) \footnote{Proposition~\ref{PROPooMTWGooEMbvDi}}; soit \( [z]_n \) tel que \( [a]_n[z]_n = [1]_n \). La classe  \( [x]_n \) est alors atteinte, pour tout \( x \), par \( [ux]_n \).
+  
+  La dernière application n'est que la composée des précédentes. Finalement, toutes trois sont des surjections sur des ensembles contenant le même nombre d'éléments: ce sont donc des bijections.\quext{C'est évident a priori, mais il faudrait l'écrire dans le chapitre 1.}
+\end{proof}
+
+Petite remarque: dans~\cite{BIBooFOGTooQgFAbQ}, la proposition précédente est démontrée à coup de divisibilité et de lemme de Gauss~\ref{LemPRuUrsD}.
+
 \begin{proposition}[\cite{BIBooYOLUooOAUbYH}]       \label{PROPooKSCRooPyInSv}
-    Le groupe \( \big( (\eZ/n\eZ)^*, \cdot\big)\) est cyclique.\quext{Si $n$ premier, OK: c'est un Bézout caché. Sinon, $\eZ/6\eZ$ semble être un contre-exemple.}
+    Le groupe \( \big( (\eZ/p\eZ)^*, \cdot\big)\) est cyclique si \( p \) est premier.
 \end{proposition}
 
+\begin{probleme}
+
+\end{probleme}
+
+
 \begin{corollary}   \label{CorZnInternprem}
-    L'anneau \( \eZ/n\eZ\) est intègre si et seulement si \( n\) est premier.
+    L'anneau \( \eZ/p\eZ\) est intègre si et seulement si \( p\) est premier.
 \end{corollary}
 
 \begin{proof}
@@ -455,66 +482,6 @@ En résumé, on vient avec les deux propositions précédentes de prouver ceci:
     Donc lorsque \( n\) n'est pas premier,  l'anneau \( \eZ/n\eZ\) possède des diviseurs de zéro et n'est alors pas intègre.
 \end{proof}
 
-
-Voici quelques résultats sur la fonction indicatrice d'Euler.
-\begin{proposition}
-Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\), et \( \varphi(p^n)=p^n-p^{n-1}\). Plus généralement, on a l'égalité
-\begin{equation}        \label{EqTPHqgJ}
-       n=\sum_{d\divides n}\varphi(d).
-\end{equation}
-%TODO: preuve sans utiliser les racines complexes de l'unité.
-\end{proposition}
-
-\begin{proof}
-    La première égalité est évidente. Pour la seconde, notons que les éléments de \( \{ 1,\ldots,p^n \}\) qui ont un \( \pgcd\) différent de \( 1\) avec \( p^n\) sont des nombres qui s'écrivent sous la forme \( qp\) avec \( q\leq p^{n-1}\)\footnote{Corolaire~\ref{CORooQIMHooUzLUJY}.}. Il y a évidemment \( p^{n-1}\) tels nombres.
-
-    Par conséquent le cardinal de \( \Delta_{p^n}\) est \( \varphi(p^{n})=p^n-p^{n-1}\).
-\end{proof}
-
-\begin{lemma}[Lemme chinois pour deux quotients de \( \eZ \)]  \label{LEM_chinoisZ2}
-  Si \( p \) et \( q \) sont premiers entre eux, alors on a un isomorphisme de groupes:
-   \begin{equation}\label{EQ_chinoisZ2}
-        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
-   \end{equation}
-\end{lemma}
-Une preuve générique de ce lemme est donnée avec le théorème~\ref{ThoLnTMBy}; nous allons le démontrer explicitement maintenant pour donner une autre propriété de la fonction indicatrice d'Euler.
-
-\begin{proof}
-  On considère l'application
-  \begin{align*}
-  f: \eZ &\to \eZ/p\eZ \times \eZ/q\eZ\\
-  k &\mapsto [k]_p, [k]_q.
-  \end{align*}
-  Nous allons prouver que \( f \) est un morphisme de groupes surjectif de noyau \( pq\eZ \); l'isomorphisme viendra alors avec le premier théorème d'isomorphisme~\ref{ThoPremierthoisomo}.
-  
-  Le fait que c'est un morphisme de groupes est clair. Pour le noyau, le couple \([0]_p, [0]_q\) est atteint par les entiers qui sont à la fois multiples de \( p \) et de \( q \) et par eux seuls. Comme \( p \) et \( q \) sont premiers entre eux, ces entiers sont précisément les multiples de \( pq \), donc \( \ker f = pq\eZ \)
-  
-  Prouvons à présent que \(f\) est surjective. Pour cela, nous choisissons un élément dans le produit de groupes que l'on note \( ([a]_p, [b]_q) \), et nous devons trouver un entier \( k \) dont l'image par  \( f \) est cet élément. Cela revient à trouver \( k \) tel que  \( [k]_p =  [a]_p \) et \([k]_q = [b]_q\). Dit autrement: existe-t-il \(c \) et \( d \) tels que
-  \begin{equation}
-  a + cp = k \quad\text{ et }\quad b + dq = k ?
-  \end{equation}
-  Pour cela, il faut que \(a + cp = b + dq \), ou encore que \( a - b = - cp + dq \). La bonne nouvelle vient avec le corollaire~\ref{CorgEMtLj}: comme \( p\) et \( q\) sont premiers entre eux, avec \( x = a-b \), il existe \( u_x, v_x \) entiers tels que \(u_x p + v_x q = a - b \). Alors, on prend \( k = b + v_x q \) et on a \([k]_q = [b]_q\), mais aussi \( [k]_p =  [b + v_x q]_p = [a + u_x q]_p = [a]_p \).
-  
-  Un coup de premier théorème d'isomprphisme: \( \eZ / \ker f \sim \Image f \), et on a l'isomorphisme de groupes~\eqref{EQ_chinoisZ2}.
-\end{proof}
-
-
-\begin{corollary}       \label{CorlvTmsf}
-    L'indicatrice d'Euler est multiplicative : si \( p\) est premier avec \( q\), alors \( \varphi(pq)=\varphi(p)\varphi(q)\). De plus si \( p\) et \( q\) sont premiers entre eux,
-    \begin{equation}
-        \varphi(pq)=(p-1)(q-1).
-    \end{equation}
-\end{corollary}
-
-\begin{proof}
-    Nous savons que si \( p\) et \( q\) sont premiers entre eux, alors le lemme~\ref{LEM_chinoisZ2} nous donne l'isomorphisme de groupe
-    \begin{equation}
-        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
-    \end{equation}
-    Un élément \( (x,y)\) est générateur du produit si et seulement si \( x\) est générateur de \( \eZ/p\eZ\) et \( y\) est générateur de \( \eZ/q\eZ\). Par la proposition~\ref{PropZnmuphiGensn}, il y a \( \varphi(p)\varphi(q)\) tels éléments. Par ailleurs le nombre de générateurs de \( \eZ/pq\eZ\) est \( \varphi(pq)\), d'où l'égalité.
-
-    Si \( p\) est premier, nous avons \( \varphi(p)=p-1\) parce que tous les entiers de \( \{ 1,\ldots, p-1 \}\) sont premiers avec \( p\).
-\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Calcul effectif du PGCD et de Bézout}
@@ -819,6 +786,68 @@ Pour le sens direct, on écrit \( m = q_0 p^k \) pour un certain \( q_0 \in \eZ 
 
 Une des conséquences de ce résultat sera le fait que \( \sqrt{n}\) est irrationnelle dès que \( n\) n'est pas un carré parfait, théorème~\ref{THOooYXJIooWcbnbm}.
 
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Facteurs premiers et indicatrice d'Euler}
+%---------------------------------------------------------------------------------------------------------------------------
+\label{SEC_propIndicatriceEuler}
+
+Voici quelques résultats sur la fonction indicatrice d'Euler.
+\begin{proposition}
+Si \( p\) est un nombre premier, alors \( \varphi(p)=p-1\), et \( \varphi(p^n)=p^n-p^{n-1}\).  Plus généralement, on a l'égalité
+\begin{equation}        \label{EqTPHqgJ}
+       n=\sum_{d\divides n}\varphi(d).
+\end{equation}
+%TODO: preuve sans utiliser les racines complexes de l'unité.
+\end{proposition}
+
+\begin{proof}
+    La première égalité est évidente: tous les entiers positifs inférieurs à \( p \) sont premiers avec \( p \). Pour la seconde, notons que les éléments de \( \{ 1,\ldots,p^n \}\) qui ont un \( \pgcd\) différent de \( 1\) avec \( p^n\) sont tous les nombres qui s'écrivent sous la forme \( qp\) avec \( q\leq p^{n-1}\)\footnote{Corolaire~\ref{CORooQIMHooUzLUJY}.}. Il y a évidemment \( p^{n-1}\) tels nombres.
+
+    Par conséquent le cardinal de \( \Delta_{p^n}\) est \( \varphi(p^{n})=p^n-p^{n-1}\).
+\end{proof}
+
+\begin{lemma}[Lemme chinois pour deux quotients de \( \eZ \)]  \label{LEM_chinoisZ2}
+  Si \( p \) et \( q \) sont premiers entre eux, alors on a un isomorphisme de groupes:
+   \begin{equation}\label{EQ_chinoisZ2}
+        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
+   \end{equation}
+\end{lemma}
+Une preuve générique de ce lemme est donnée avec le théorème~\ref{ThoLnTMBy}; nous allons le démontrer explicitement maintenant pour donner une autre propriété de la fonction indicatrice d'Euler.
+
+\begin{proof}
+  On considère l'application
+  \begin{align*}
+  f: \eZ &\to \eZ/p\eZ \times \eZ/q\eZ\\
+  k &\mapsto [k]_p, [k]_q.
+  \end{align*}
+  Nous allons prouver que \( f \) est un morphisme de groupes surjectif de noyau \( pq\eZ \); l'isomorphisme viendra alors avec le premier théorème d'isomorphisme~\ref{ThoPremierthoisomo}.
+  
+  Le fait que c'est un morphisme de groupes est clair. Pour le noyau, le couple \([0]_p, [0]_q\) est atteint par les entiers qui sont à la fois multiples de \( p \) et de \( q \) et par eux seuls. Comme \( p \) et \( q \) sont premiers entre eux, ces entiers sont précisément les multiples de \( pq \), donc \( \ker f = pq\eZ \)
+  
+  Prouvons à présent que \(f\) est surjective. Pour cela, nous choisissons un élément dans le produit de groupes que l'on note \( ([a]_p, [b]_q) \), et nous devons trouver un entier \( k \) dont l'image par  \( f \) est cet élément. Cela revient à trouver \( k \) tel que  \( [k]_p =  [a]_p \) et \([k]_q = [b]_q\). Dit autrement: existe-t-il \(c \) et \( d \) tels que
+  \begin{equation}
+  a + cp = k \quad\text{ et }\quad b + dq = k ?
+  \end{equation}
+  Pour cela, il faut que \(a + cp = b + dq \), ou encore que \( a - b = - cp + dq \). La bonne nouvelle vient avec le corollaire~\ref{CorgEMtLj}: comme \( p\) et \( q\) sont premiers entre eux, avec \( x = a-b \), il existe \( u_x, v_x \) entiers tels que \(u_x p + v_x q = a - b \). Alors, on prend \( k = b + v_x q \) et on a \([k]_q = [b]_q\), mais aussi \( [k]_p =  [b + v_x q]_p = [a + u_x q]_p = [a]_p \).
+  
+  Un coup de premier théorème d'isomprphisme: \( \eZ / \ker f \sim \Image f \), et on a l'isomorphisme de groupes~\eqref{EQ_chinoisZ2}.
+\end{proof}
+
+
+\begin{corollary}       \label{CorlvTmsf}
+    L'indicatrice d'Euler est multiplicative : si \( p\) est premier avec \( q\), alors \( \varphi(pq)=\varphi(p)\varphi(q)\). De plus si \( p\) et \( q\) sont deux nombres premiers,
+    \begin{equation}
+        \varphi(pq)=(p-1)(q-1).
+    \end{equation}
+\end{corollary}
+
+\begin{proof}
+    Nous savons que si \( p\) et \( q\) sont premiers entre eux, alors le lemme~\ref{LEM_chinoisZ2} nous donne l'isomorphisme de groupe
+    \begin{equation}
+        (\eZ/pq\eZ,+)\simeq(\eZ/p\eZ,+)\times(\eZ/q\eZ,+).
+    \end{equation}
+    Un élément \( (x,y)\) est générateur du produit si et seulement si \( x\) est générateur de \( \eZ/p\eZ\) et \( y\) est générateur de \( \eZ/q\eZ\). Par la proposition~\ref{PropZnmuphiGensn}, il y a \( \varphi(p)\varphi(q)\) tels éléments. Par ailleurs le nombre de générateurs de \( \eZ/pq\eZ\) est \( \varphi(pq)\), d'où l'égalité.
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Équation diophantienne linéaire à deux inconnues}

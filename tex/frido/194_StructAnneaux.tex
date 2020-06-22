@@ -265,12 +265,13 @@ Un module simple est a fortiori indécomposable. L'inverse n'est pas vrai comme 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Polynômes}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SEC_annPolynomes}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Polynômes d'une variable}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Et voila la définition que tout le monde attendait; la définition des anneaux de polynômes. Pour ne pas taper trop fort du premier coup, nous commençons par les polynômes d'une seule variable.
+Et voilà la définition que tout le monde attendait; la définition des anneaux de polynômes. Pour ne pas taper trop fort du premier coup, nous commençons par les polynômes d'une seule variable.
 
 Nous allons définir et étudier ici l'anneau des polynômes sur un anneau \( A\), c'est-à-dire ce qui sera noté \( A[X]\). Pour \( \eK(X)\) lorsque \( \eK\) est un corps, voir~\ref{DEFooQPZIooQYiNVh}.
 
@@ -279,7 +280,7 @@ L'ensemble des polynômes sur \( A\) sera simplement \( A^{(\eN)}\). Vu que \( \
     L'ensemble des \defe{polynômes}{polynômes} en une indéterminée sur l'anneau \( A\) est l'anneau \( A^{(\eN)}\) que nous avons défini en \ref{DEFooBMEPooFsCHgb}.
 \end{definition}
 
-Notez que nous n'avons pas encore donné la notation \( A[X]\); nous verrons plus tard comment elle arrive. 
+Nous ne voyons pas encore bien le lien avec la notation \( A[X]\); nous le verrons plus tard. 
 
 Vu que \( A^{(\eN)}\) est engendré par les \( e_i\), tout polynôme sur \( A\) s'écrit \( P=\sum_{i=1}^na_ie_i\).
 
@@ -342,10 +343,6 @@ Vu que \( A^{(\eN)}\) est engendré par les \( e_i\), tout polynôme sur \( A\) 
     \end{subproof}
 \end{proof}
 
-\begin{definition}  \label{DefDegrePoly}
-    Soit \( P \in \polyP\), \( P \neq 0 \). On appelle \defe{degré}{degré!d'un polynôme} de $P$ le plus grand nombre naturel $n$ pour lequel le coefficient correspondant est non-nul. Ce naturel est noté \( \deg(P) \).
-\end{definition}
-
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{La notation \texorpdfstring{$ A[X]$}{A[X]}}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -357,7 +354,7 @@ Le polynôme donné par la suite \( (a_n)_{n\in \eN}\) est souvent notée
 \begin{equation}
     \sum_ka_kX^k.
 \end{equation}
-Par exemple avec \( a=(4,2,8)\) nous avons \( a=8X^2+2X+4\). Nous utiliserons souvent cette notation, qui est très pratique parce qu'elle s'adapte bien aux règles de multiplication et d'addition, en particulier la distributivité.
+Par exemple avec \( a=(4,2,8,0, \dots)\) nous avons \( a=8X^2+2X+4\). Nous utiliserons souvent cette notation, qui est très pratique parce qu'elle s'adapte bien aux règles de multiplication et d'addition, en particulier la distributivité.
 
 Il y a (au moins) deux façons de comprendre ce que signifie réellement «\( X\)» dans cette notation.
 
@@ -372,13 +369,19 @@ La première est de dire qu'il n'a pas de significations, et que \( X^2\) est un
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \label{SUBSUBSECooPNBYooWXEHrg}
 
-La seconde façon de voir le «\( X\)» est de nous rappeler que \( A^{(\eN)}\) a une base en tant de que module : les \( e_k\) dont nous avons parlé plus haut. Nous posons \( X=e_1\), et nous prenons la convention \( X^0=1\). Alors nous avons \( e_k=X^k\) et nous notons \( A[X]\)\nomenclature[A]{\( A[X]\)}{tous les polynômes de degré fini à coefficients dans \( A\)} l'anneau \(A^{(\eN)}\) exprimé avec \( X\).
+La seconde façon de voir le «\( X\)» est de nous rappeler que \( A^{(\eN)}\) a une base en tant que module (les \( e_k\) dont nous avons parlé plus haut), et que nous l'avons muni d'une structure multiplicative. Nous posons \( X=e_1\), et nous prenons la convention \( X^0=1\). Il s'ensuit alors ceci:
 
-Dans les deux cas, il n'est pas vraiment légitime d'écrire des égalités comme « \( P(X)=X^2+2X-3\) », et encore moins de dire «Le polynôme \( P\), \emph{évalué} en \( X\) vaut \( X^2+2X-3\)»  : il est plus correct d'écrire « \( P=X^2+2X-3\) ».
+\begin{propositionDef}
+  L'anneau \(A^{(\eN)}\), muni de l'addition "composante par composante" (comme \( A \)-module) et du produit défini à l'aide de~\eqref{EQooTNCSooKklisb}, est l'anneau de polynômes \( A[X]\).
+\end{propositionDef}
 
-Le lemme suivant montre que ces notations tombent vraiment à point. La véritable difficulté de l'énoncé est de comprendre qu'il n'est pas trivial.
+Cela n'est pas si évident, car il faut bien s'assurer que "\( e_k=X^k\)".
 
-Nous avons vu dans la définition \ref{DEFooNXKUooLrGeuh} que si \( B\) est un anneau qui étant \( A\), et si \(P\in A[X] \), alors nous avons une définition de \( P(b)\) pour tout \( b\in B\). Nous appliquons cela à \( B=A[X]\), qui est un anneau qui étend \( A\). Autrement dit, si \( P\) et \( Q\) sont des polynômes, ça a un sens d'écrire \( P(Q)\) et le résultat sera un élément de \( A[X]\). 
+Dans les deux cas, il n'est a priori pas légitime d'écrire des égalités comme « \( P(X)=X^2+2X-3\) », et encore moins de dire «Le polynôme \( P\), \emph{évalué} en \( X\) vaut \( X^2+2X-3\)»  : il est plus correct d'écrire « \( P=X^2+2X-3\) ».
+
+Néanmoins, le lemme suivant montre que ces notations tombent vraiment à point. La véritable difficulté de l'énoncé est de comprendre qu'il n'est pas trivial.
+
+Nous avons vu dans la définition~\ref{DEFooNXKUooLrGeuh} que si \( B\) est un anneau qui étend \( A\), et si \(P\in A[X] \), alors nous avons une définition de \( P(b)\) pour tout \( b\in B\). Nous appliquons cela à \( B=A[X]\), qui est un anneau qui étend \( A\). Autrement dit, si \( P\) et \( Q\) sont des polynômes, ça a un sens d'écrire \( P(Q)\) et le résultat sera un élément de \( A[X]\). 
 
 Dans le cas particulier \( Q=X\), nous avons une chouette formule.
 \begin{lemma}       \label{LEMooGKWQooVOyeDX}
@@ -517,12 +520,10 @@ Avec cela nous pouvons énoncer et démontrer le lemme qui donne l'action de \( 
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Monômes}
+\subsection{Des sous-modules de polynômes}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{normaltext}
-Les éléments de la forme \( \lambda X^k\) avec \( \lambda\in A\) et \( k\in\eN\) sont des \defe{monômes}{monôme}.
-
 Nous allons aussi considérer\nomenclature[A]{\( A_n[X]\)}{les polynômes à coefficients dans \( A\) et de degré inférieur à \( n\)}
 \begin{equation}
     A_n[X]=\{ P\in A[X]\tq \deg(P)\leq n \}.
@@ -547,7 +548,7 @@ Cette somme est toujours finie.
     L'ensemble \( A[X]\) est une algèbre et donc un espace vectoriel. Il possède un unique élément nul qui est celui dont tous les coefficients sont nuls; cela est immédiat par la construction en tant que suites presque nulles.
 \end{normaltext}
 
-Il n'y a à priori pas équivalence entre le fait d'être un polynôme nul et le fait de s'évaluer à zéro sur tous les éléments de \( A\). Cela sera discuté dans le théorème~\ref{ThoLXTooNaUAKR} et l'exemple~\ref{exVQBooBMPLkD}.
+Il n'y a a priori pas équivalence entre le fait d'être un polynôme nul et le fait de s'évaluer à zéro sur tous les éléments de \( A\). Cela sera discuté dans le théorème~\ref{ThoLXTooNaUAKR} et l'exemple~\ref{exVQBooBMPLkD}.
 
 \begin{definition}      \label{DEFooRFBFooKCXQsv}
     Soient un anneau \( A\) et un anneau \( B\) qui contient \( A\) (comme sous-anneau). Pour \( \alpha\in B\) nous définissons \( A[\alpha]_B\) comme étant l'intersection de tous les sous-anneaux de \( B\) contenant \( A\).
@@ -569,67 +570,6 @@ Comme dit plus haut, nous nous permettons d'écrire \( A[\alpha]\) sans précise
     \end{equation}
     Par ailleurs, \( \{ P(\alpha)\tq P\in A[X] \}\) est un sous-anneau de \( B\) contenant \( A\) et \( \alpha\). Donc \( A[\alpha]\) y est inclus.
 \end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Polynômes sur un anneau intègre}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{theorem}     \label{ThoBUEDrJ}
-    L'anneau \( A\) est intègre si et seulement si \( A[X]\) est intègre.
-\end{theorem}
-
-\begin{proof}
-    Soient \( P\) et \( Q\) des éléments non nuls de \( A[X]\). Vu que l'anneau \( A\) est intègre, nous avons
-    \begin{equation}
-        \deg(PQ)=\deg(P)+\deg(Q)
-    \end{equation}
-    et le produit ne peut pas être nul. L'anneau \( A[X]\) est donc intègre.
-
-    Si \( A[X]\) est intègre, \( A\) est intègre parce qu'il peut être vu comme sous anneau.
-\end{proof}
-
-\begin{normaltext}
-    Si \( A\) n'est pas intègre, soient \( \alpha,\beta\in A\) non nuls tels que \( \alpha\beta=0\). Le produit des polynômes \( X\mapsto \alpha X\) et \( X\mapsto \beta\) est \( (\alpha X)(\beta)=0\); le degré du produit n'est pas la somme des degrés.
-
-    Les personnes qui ont tout compris jusqu'ici remarqueront que la notation «\( X\mapsto P(X)\)» n'est pas correcte parce que du point de vue que nous adoptons ici, un polynôme n'est pas une application.
-\end{normaltext}
-
-\begin{corollary}
-    Si \( A\) est intègre, les inversibles de \( A[X]\) sont les éléments de \( U(A)\).
-\end{corollary}
-
-\begin{proof}
-    Pour que \( Q\) soit inversible, il faut un \( P\) tel que \( PQ=1\). Mais l'anneau \( A\) étant intègre, les degrés s'additionnent. Par conséquent ils doivent être de degrés zéro et il faut que \( P,Q\in A\). Enfin pour qu'ils soient inversibles, ils doivent être dans \( U(A)\).
-\end{proof}
-
-La \defe{valuation}{valuation!d'un polynôme} du polynôme \( P=\sum_n a_nX^n\), notée \( \val(P)\), est
-\begin{equation}
-    \val(P)=\min\{ n\tq a_n\neq 0 \}.
-\end{equation}
-Nous avons \( \val(P)\leq \deg(P)\) et \( \val(P)=\deg(P)\) si et seulement si \( P\) est un monôme. Si \( P=0\), nous convenons que \( \val(0)=\infty\) et \( \deg(0)=-\infty\).
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Division euclidienne}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Le théorème suivant établit la \defe{division euclidienne}{division!euclidienne} dans \( A[X]\) du polynôme \( P\) par un polynôme \( D\).
-\begin{theorem}     \label{ThodivEuclPsFexf}
-    Soit \( D\neq 0\) dans \( A[X]\) de coefficient dominant inversible dans \( A\). Pour tout \( P\in A[X]\), il existe \( Q,R\in A[X]\) tels que
-    \begin{equation}
-        P=QD+R
-    \end{equation}
-    avec \( \deg(R)<\deg(D)\).
-
-    Les polynômes \( Q\) et \( R\) sont déterminés de façon univoque par cette condition.
-\end{theorem}
-
-\begin{definition}\label{DefMPZooMmMymG}
-    Le polynôme \( Q\) est le \defe{quotient}{quotient} et \( R\) est le \defe{reste}{reste} de la division euclidienne de \( P\) par \( D\). Si le reste de la division de \( P\) par $D$ est nul on dit que \( D\) \defe{divise}{diviseur!polynôme} \( P\) et on note \( D\divides P\)\nomenclature[A]{\( D\divides P\)}{\( D\) divise \( P\)}. Autrement dit \( D\) divise \( P\) s'il existe \( Q\) tel que \( P=QD\).\footnote{Ceci se rapproche tout naturellement des notions de divisibilité dans un anneau intègre général, vues en sous-section~\ref{DivisibiliteAnneauxIntegres}.}
-\end{definition}
-
-\begin{normaltext}
-    Le théorème~\ref{ThodivEuclPsFexf} nous incite à utiliser le degré comme stathme euclidien sur \( A[X]\) dès que \( A\) est un anneau intègre. Or cela ne fonctionne en général pas parce que très peu de polynômes ont à priori un coefficient dominant inversible.
-\end{normaltext}
 
 \begin{lemma}[Thème~\ref{THEMEooZYKFooQXhiPD}]       \label{LEMooIDSKooQfkeKp}
     Si \( \eK\) est un corps\footnote{Définition~\ref{DefTMNooKXHUd}.}, alors l'anneau \( \eK[X]\) est euclidien et principal.
@@ -706,38 +646,6 @@ La notion de polynôme primitif au sens du pgcd est particulière aux polynômes
 
 Lorsque nous utiliserons la notion de polynôme primitif au sens du \( \pgcd\), nous le mentionnerons explicitement. C'est pas exemple le cas pour le corolaire~\ref{CORooZCSOooHQVAOV}.
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Racines des polynômes}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}
-  Soient \( A \) un anneau et \( P \in A[X] \). On appelle
-  \defe{racine}{racine!d'un polynôme} un élément \( \alpha \in A \)
-  tel que \( P(\alpha) = 0 \); c'est-à-dire que, en remplaçant toutes
-  les occurrences de $X$ par $\alpha$ dans l'expression de $P$, on
-  obtient $0$.
-\end{definition}
-
-\begin{proposition} \label{PropHSQooASRbeA}
-    Soient \( A\) un anneau et \( P\) un polynôme non nul dans \( A[X]\). Si \( \alpha\in A\) est une racine de \( P\) alors \( X-\alpha\) divise \( P\), et réciproquement.
-\end{proposition}
-
-\begin{proof}
-  Nous notons le polynôme \( \mu=X-\alpha\) par analogie avec le polynôme minimal dont il sera question dans la très semblable proposition~\ref{PropXULooPCusvE}. Le sens réciproque est clair: si $\mu$ divise $P$, alors $\alpha$ est racine de $P$.
-
-  Pour le sens direct, remarquons que si $\alpha$ est racine de $P$, alors $P$ est de degré au moins égal à \( 1\), et nous pouvons donc effectuer la division euclidienne\footnote{Théorème~\ref{ThodivEuclPsFexf}.} de \( P\) par \( \mu\) : il existe des polynômes \( Q\) et \( R\) tels que
-    \begin{equation} \label{PropHSQooASRbeA1}
-        P=Q\mu+R
-    \end{equation}
-    avec \( \deg(R)<\deg(\mu)\). Donc \( R\) est une constante,
-    élément de $A$: appelons-le $a$. En évaluant
-    \eqref{PropHSQooASRbeA1} en \( \alpha\), il vient
-    \begin{equation}
-        0 = P(\alpha)=Q(\alpha)\mu(\alpha)+a,
-    \end{equation}
-    et nous en déduisons que \( a=0\), ce qui montre que \( P=Q\mu\) et que \( \mu\) divise \( P\).
-\end{proof}
-
 \begin{definition}[Racine simple et multiple d'un polynôme]
   Soit \( A\) un anneau ainsi qu'un polynôme \( P\in A[X]\) et \( \alpha\in A\) racine de $P$. La \defe{multiplicité}{multiplicité!racine d'un polynôme} de \( \alpha\) par rapport à \( P\) est l'entier \( h\) tel que \( P\) est divisible par \( (X-\alpha)^h\) mais pas divisible par \( (X-\alpha)^{h+1}\).  Nous noterons \( \theta_{\alpha}(P)\)\nomenclature[A]{\( \theta_{\alpha}(P)\)}{la multiplicité de \( \alpha\) par rapport à \( P\)} la multiplicité de \( \alpha\) par rapport à \( P\).
 \end{definition}
@@ -746,18 +654,13 @@ Lorsque nous utiliserons la notion de polynôme primitif au sens du \( \pgcd\), 
     Pour une définition générale d'une racine simple de l'équation \( f(x)=0\), voir la définition~\ref{DEFooXSOQooAnWqKM}. La proposition~\ref{PropHSQooASRbeA} nous indique que toute racine est de multiplicité au moins \( 1\).
 \end{normaltext}
 
-\begin{proposition}     \label{PROPooQCZSooVokxXQ}
-    Soient un anneau \( A\), un polynôme \( P\in \eA[X]\) de degré \( n\), ainsi qu'une racine \( \alpha\in A\) de \( P\). Alors il existe un polynôme \( Q\in \eA[X]\) de degré \( n-1\) tel que \( P=(X-\alpha)Q\).
-\end{proposition}
-
-
 \begin{proposition} \label{PropahQQpA}
   L'élément \( \alpha\in A\) est une racine de multiplicité \( h\) du
   polynôme \( P\) si et seulement s'il existe \( Q\in A[X]\) tel que
   \( P=(X-\alpha)^hQ\) avec \( Q(\alpha)\neq 0\).
 \end{proposition}
 
-\begin{lemma}       \label{LemIeLhpc}
+\begin{lemma}[Multiplicités et opérations]       \label{LemIeLhpc}
     Soient \( P\) et \( Q\) des polynômes non nuls de \( A[X]\) et \( \alpha\in A\). Alors
     \begin{enumerate}
         \item
@@ -766,7 +669,7 @@ Lorsque nous utiliserons la notion de polynôme primitif au sens du \( \pgcd\), 
             lieu si \( \theta_{\alpha}(P)\neq \theta_{\alpha}(Q)\);
         \item     \label{ItemIeLhpciv}
             \( \theta_{\alpha}(PQ)\geq
-            \theta_{\alpha(P)}+\theta_{\alpha}(Q)\), et l'égalité a
+            \theta_{\alpha}(P)+\theta_{\alpha}(Q)\), et l'égalité a
             lieu si \( A \) est intègre.
     \end{enumerate}
 \end{lemma}
