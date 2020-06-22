@@ -34,7 +34,7 @@ Un idéal \( I\) dans un anneau \( A \) est dit \defe{idéal maximal}{idéal!max
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Quotients d'anneaux de polynômes par un idéal}
 %---------------------------------------------------------------------------------------------------------------------------
-  On a commencé gentiment à parler de polynômes en section~\ref{SEC_minusPolynomes}. Leurs anneaux, et surtout les quotients, fournissent des exemples non triviaux des notions que nous allons aborder dans ce chapitre.
+  On a commencé gentiment à parler de polynômes en section~\ref{SEC_minusPolynomes}. Leurs anneaux, et surtout les quotients, fournissent des exemples non triviaux des notions que nous allons aborder dans ce chapitre. Il y en aura aussi dans le chapitre~\ref{CpapMatricesPolyn}.
 
 \begin{definition}[Extension d'anneau par quotient]\label{DEF_ExtensionAnneau}
   Soit \( A \) un anneau, et \( P \in A[X] \) \footnote{Pour rappel de \(A[X] \), c'est en définition~\ref{DefAnneauPolyAX}.}. Si l'on peut déterminer toutes les racines \( \alpha_1, \dots, \alpha_n \) de \( P \) dans un corps contenant \( A \), alors l'anneau \( A[X] / (P) \) est aussi noté \(A[\alpha_1,\dots \alpha_n]\).
@@ -780,6 +780,10 @@ Montrer que tout anneau principal est noethérien est le premier pas pour montre
 \subsection{Anneau euclidien}
 %---------------------------------------------------------------------------------------------------------------------------
 
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Définition et lien avec les autres}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 \begin{definition}[\wikipedia{fr}{Anneau_euclidien}{Wikipédia}] \label{DefAXitWRL}
     Soit \( A\) un anneau intègre. Un \defe{stathme euclidien}{stathme euclidien} sur \( A\) est une application \( \alpha\colon A\setminus\{ 0 \}\to \eN\) tel que
     \begin{enumerate}
@@ -892,6 +896,10 @@ Nous venons de voir que \( \eZ\) est principal; le lemme suivant nous dit que $\
 
 Nous verrons dans le lemme~\ref{LEMooIDSKooQfkeKp} que si $\eK$ est un corps, alors \( \eK[X]\) est principal.
 
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Un exemple pas trivial}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 \begin{example} \label{ExeDufyZI}
     Prouvons que \( \eZ[i\sqrt{2}]\) est un anneau euclidien. Pour cela nous démontrons que
     \begin{equation}    \label{EqOZUIooZGmHWl}
@@ -956,10 +964,11 @@ Le lemme suivant fait en pratique partie de l'exemple~\ref{ExmuQisZU}, mais nous
     Notons que nous avons utilisé de façon capitale le fait que \( \eZ[i\sqrt{2}]\) était factoriel.
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Équations diophantiennes}
-%---------------------------------------------------------------------------------------------------------------------------
-%TODO : il y a une équation diophantienne qui semple pas mal ici : http://fr.wikipedia.org/wiki/Entier_quadratique#x2_.2B_5.y2_.3D_p
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Équations diophantiennes}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+%TODO : il y a une équation diophantienne qui semble pas mal ici : http://fr.wikipedia.org/wiki/Entier_quadratique#x2_.2B_5.y2_.3D_p
 
 \begin{example} \label{ExZPVFooPpdKJc}
     L'équation diophantienne
@@ -1025,9 +1034,9 @@ sage: (z**3).expand()
     Les deux solutions de l'équation \( x^2+2=y^3\) sont alors \( (5,3)\) et \( (-5,3)\).
 \end{example}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Triplets pythagoriciens et équation de Fermat pour \texorpdfstring{$ n=4$}{n=4}}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Triplets pythagoriciens et équation de Fermat pour \texorpdfstring{$ n=4$}{n=4}}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 \begin{definition}
     Les solutions entières (positives) de l'équation \( x^2+y^2=z^2\) sont appelés \defe{triplets pythagoriciens}{triplet!pythagoricien}.
@@ -1184,7 +1193,7 @@ Remarquons que cela est équivalent à montrer que les trois nombres sont premie
 \end{proof}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{Anneau \texorpdfstring{$ \eZ/6\eZ$}{Z/6Z}}
+\section{L'anneau \texorpdfstring{$ \eZ/6\eZ$}{Z/6Z}}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \label{SECooSWGKooEeOZTO}
 
