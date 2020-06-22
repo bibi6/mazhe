@@ -7,7 +7,7 @@
 \section{Matrices}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Les matrices et les applications linéaires sont deux choses différentes. Une application linéaire\footnote{Définition \ref{DEFooULVAooXJuRmr}.} est une application d'un espace vectoriel vers un autre, et une matrice est un simple tableau de nombres sur lesquels nous définissons des opérations, de telle sorte à fournir une structure d'espace vectoriel. Le lien entre ces opérations et les opérations correspondantes sur les applications linéaires sera fait plus tard.
+%Les matrices et les applications linéaires sont deux choses différentes. Une application linéaire\footnote{Définition \ref{DEFooULVAooXJuRmr}.} est une application d'un espace vectoriel vers un autre, et une matrice est un simple tableau de nombres sur lesquels nous définissons des opérations, de telle sorte à fournir une structure d'espace vectoriel. Le lien entre ces opérations et les opérations correspondantes sur les applications linéaires sera fait plus tard.
 
 %TODO: fixer les notations d'ensembles M( n x m, K) et matrice identité dans l'index des notations.
 
@@ -16,13 +16,9 @@ Les matrices et les applications linéaires sont deux choses différentes. Une a
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}
-    Soit un anneau \( \eA\) ainsi que des entiers \( m\), \( n\) strictement positifs. L'ensemble \( \eM(n\times n,\eA)\) est l'ensemble des applications
-    \begin{equation}
-        \{ 1,\ldots, n \}\times \{ 1,\ldots, m \}\to \eA,
-    \end{equation}
-    et est appelé ensemble des \defe{matrices}{matrice} \(n\times m\) sur \( \eA \).
+    Soit un anneau \( A\) ainsi que des entiers \( m\), \( n\) strictement positifs. Notons \( I = \{ 1,\ldots, n \}\times \{ 1,\ldots, m \} \). L'ensemble \( \eM(m\times n, A)\) est alors le \( A \)-module produit \( A^I \) et est appelé ensemble des \defe{matrices}{matrice} \(n\times m\) sur \( \eA \).
 \end{definition}
-Si \( A\) est une matrice, nous notons \( A_{ij}\) au lieu de \( A(i,j)\) l'image de \( (i,j)\) par l'application \( A\).
+Si \( M\) est une matrice, nous notons \( M_{ij}\) au lieu de \( M_{(i,j)}\) l'élément correspondant à \( (i,j)\).
 
 
 \begin{definition}
@@ -31,7 +27,7 @@ Quelques ensembles de matrices particuliers.
   \item Si \( n=m\), alors:
   \begin{itemize}
     \item nous disons que la matrice est \defe{carrée}{carrée!matrice},
-    \item nous notons \( \eM(n,\eA)\) pour \( \eM(n\times n,\eA)\),
+    \item nous notons \( \eM(n,A)\) pour \( \eM(n\times n,A)\),
     \item \( n \) est appelée \defe{ordre}{ordre!d'une matrice carrée} de la matrice.
   \end{itemize}
   \item Si \( n = 1 \), alors la matrice est appelée \defe{matrice-ligne}{matrice-ligne}.
@@ -40,34 +36,25 @@ Quelques ensembles de matrices particuliers.
 \end{definition}
 
 \begin{normaltext}
-    On note les isomorphismes naturels \( \eM(1\times m,\eA) \simeq \eA^m\) et \( \eM(n\times 1,\eA) \simeq \eA^n\).
+    On note les isomorphismes naturels \( \eM(1\times m,A) \simeq A^m\) et \( \eM(n\times 1,A) \simeq A^n\).
 \end{normaltext}
-
-\begin{lemmaDef}
-    L'ensemble \( \eM(n\times m, \eA)\) muni des opérations
-    \begin{description}
-        \item[Somme] \( (A+B)_{ij}=A_{ij}+B_{ij}\),
-        \item[Produit par un scalaire] \( (\lambda A)_{ij}=\lambda A_{ij}\),
-    \end{description}
-    pour tout \( A,B\in \eM(n\times m,\eA ) \) et \( \lambda\in \eA \) est un \( \eA\)-module (définition \ref{DEFooHXITooBFvzrR}).
-\end{lemmaDef}
 
 \begin{lemmaDef}
     Avec la multiplication
     \begin{equation}
         \begin{aligned}
-             \eM(n\times p,\eA)\times \eM(p\times m,\eA)&\to \eM(n\times m,\eA) \\
-             (A,B)&\mapsto (AB)_{ij}=\sum_{k=1}^pA_{ik}B_{kj},
+             \eM(n\times p,\eK)\times \eM(p\times m,\eK)&\to \eM(n\times m,\eK) \\
+             (A,B)&\mapsto C = AB \tq C_{ij} = (AB)_{ij}=\sum_{k=1}^pA_{ik}B_{kj},
         \end{aligned}
     \end{equation}
     l'espace \( \eM(n,\eK)\) est une \( \eK\)-algèbre\footnote{Définition \ref{DefAEbnJqI}.}.
 \end{lemmaDef}
 
 \begin{definition}
-    Pour un élément \( A\in \eM(n\times m, \eA)\) nous définissons encore
+    Pour un élément \( M\in \eM(n\times m, A)\) nous définissons encore
     \begin{description}
-        \item[La transposée] \( A^t_{ij}=A_{ji}\),
-        \item[La trace] \( \tr(A)=\sum_iA_{ii}\).
+        \item[La transposée] \( M^t \tq M^t_{ij}=M_{ji}\),
+        \item[La trace] \( \tr(M)=\sum_i M_{ii}\).
     \end{description}
 \end{definition}
 
@@ -88,14 +75,14 @@ Quelques ensembles de matrices particuliers.
     Quelques remarques à propos de structures supplémentaires.
 \begin{enumerate}
     \item Nous utiliserons (presque) tout le temps des matrices à coefficients dans un corps. Il est clair que, si \( \eK \) est un corps (commutatif), alors \( \eM(n\times m,\eK) \) a une structure d'espace vectoriel sur \( \eK \).
-    \item Par ailleurs, sur les matrices carrées d'ordre \( n \) fixé, le produit de deux matrices est bien défini. Ainsi, \( \eM(n,\eA)\) se voit conférer une structure d'anneau, dont le neutre pour la multiplication est la matrice carrée \( \mtu_n\) (notée aussi \( \mtu\) lorsqu'il n'y a pas d'ambiguïté sur la taille), donnée par
+    \item Par ailleurs, sur les matrices carrées d'ordre \( n \) fixé, le produit de deux matrices est bien défini. Ainsi, \( \eM(n, A)\) se voit conférer une structure d'anneau, dont le neutre pour la multiplication est la matrice carrée \( \mtu_n\) (notée aussi \( \mtu\) lorsqu'il n'y a pas d'ambiguïté sur la taille), donnée par
 \begin{equation}
     \mtu_{ij}=\begin{cases}
         1    &   \text{si } i=j\\
         0    &    \text{sinon.}
     \end{cases}
 \end{equation}
-Il est vite vu que si \( A\) est une matrice carrée d'ordre \( n \), alors \( A\mtu=\mtu A=A\).
+Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M\mtu=\mtu M=M\).
 \end{enumerate}
 \end{remark}
 
@@ -140,209 +127,6 @@ Il est vite vu que si \( A\) est une matrice carrée d'ordre \( n \), alors \( A
     Après avoir effectué toutes les sommes nous nous retrouvons avec \( A_{kl}=B_{kl}\), ce qui signifie \( A=B\).
 \end{proof}
 
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Application linéaire associée}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Soient deux espaces vectoriels de dimension finie \( E,F\) sur le corps \( \eK\). Nous considérons les bases\footnote{C'est le théorème~\ref{ThonmnWKs} qui nous permet de considérer des bases. Et ce théorème ne fonctionne que parce que nous avons supposé une dimension finie.} \( \{ e_i \}\) pour \( E\) et \( \{ f_{\alpha} \}\) pour \( F\). 
-
-\begin{definition}      \label{DEFooJVOAooUgGKme}
-    Nous considérons l'application
-    \begin{equation}        \label{EQooVZQWooMyFFeO}
-        \begin{aligned}
-            \psi\colon \eM(n\times m, \eK)&\to \aL(E,F) \\
-            A&\mapsto f_A 
-        \end{aligned}
-    \end{equation}
-    où \( f_A\) est définie par
-    \begin{equation}        \label{EQooBVGHooJhFbMs}
-        f_A(x)=\sum_{i\alpha}A_{\alpha i}x_if_{\alpha}
-    \end{equation}
-    si \( x_i\) sont les coordonnées de \( x\in E\) dans la base \( \{ e_i \}\).
-\end{definition}
-
-
-
-\begin{normaltext}
-    Nous allons prouver un certain nombre de résultats montrant que cette application a toutes les propriétés imaginables permettant d'identifier les matrices aux applications linéaires : elle est un isomorphisme pour toutes les structure que vous pouvez raisonnablement imaginer.
-
-    À cette application \( \psi\) il manque cependant une propriété importante : elle n'est pas canonique. Elle dépend des bases choisies. Autrement dit : nous avons à priori autant d'applications \( \psi\) différentes qu'il y a de choix de bases sur \( E\) et \( F\)\quext{Bonne question. Est-ce qu'il y a moyen de construire deux choix de bases donnant la même application \( \psi\) ? Écrivez-moi si vous savez la réponse.}. %TODOooFKSRooBtOZYc
-
-    Nous allons prouver maintenant quelques résultats montrant que les matrices et les applications linéaires, dans le cas des espaces vectoriels \( \eK^n\) sont deux présentations de la même chose.
-\end{normaltext}
-
-\begin{normaltext}
-    Lorsque \( A\in \eM(n,\eK)\) est une matrice et \( x\in \eK^n\) un vecteur, nous notons \( Ax\) l'élément de \( \eK^n\) donné par
-    \begin{equation}        \label{EQooQFVTooMFfzol}
-        (Ax)_i=\sum_jA_{ij}x_j.
-    \end{equation}
-    Autrement dit, \( Ax=f_A(x)\).
-
-    Cette convention et de nombreuses autres à propos de matrice sera rappelée dans \ref{SECooBTTTooZZABWA}.
-\end{normaltext}
-
-\begin{propositionDef}      \label{PROPooGXDBooHfKRrv}
-    Soient deux espaces vectoriels de dimension finie \( E,F\) sur le corps \( \eK\). Nous considérons les bases \( \{ e_i \}\) pour \( E\) et \( \{ f_{\alpha} \}\) pour \( F\). 
-
-    Nous considérons l'application
-    \begin{equation}
-        \begin{aligned}
-            \psi\colon \eM(n\times m, \eK)&\to \aL(E,F) \\
-            A&\mapsto f_A 
-        \end{aligned}
-    \end{equation}
-    où \( f_A\) est définie par
-    \begin{equation}        \label{EQooZKEKooNYjvhP}
-        f_A(x)=\sum_{i\alpha}A_{\alpha i}x_if_{\alpha}
-    \end{equation}
-    si \( x_i\) sont les coordonnées de \( x\in E\) dans la base \( \{ e_i \}\).
-
-    Alors
-    \begin{enumerate}
-        \item       \label{ITEMooKZYYooZPTkpq}
-            Nous avons
-            \begin{equation}
-                f_A(e_i)_{\alpha}=A_{\alpha i}.
-            \end{equation}
-        \item       \label{ITEMooANXFooGIuxUR}
-            Nous avons
-            \begin{equation}                \label{EQooOKOJooYgteNP}
-                f_A(e_i)=\sum_{\alpha}A_{\alpha i}f_{\alpha}.
-            \end{equation}
-        \item       \label{ITEMooXLLLooKfigfB}
-            Nous avons
-            \begin{equation}        \label{EQooAXRJooUwHbjB}
-                \big( f_A(x) \big)_{\alpha}=\sum_{i}A_{\alpha i}x_i.
-            \end{equation}
-        \item       \label{ITEMooHSMLooRJZref}
-            L'application \( \psi\) est une bijection.
-    \end{enumerate}
-    Si \( f\) est une application linéaire, alors la matrice \( \psi^{-1}(f)\) est la \defe{matrice associée}{matrice d'une application linéaire} à \( f\) dans les bases choisies.
-\end{propositionDef}
-
-Remarque : les bases ne sont supposées être canoniques en aucun sens du terme. Les dimensions de \( E\) et \( F\) ne sont pas non plus supposées identiques.
-
-\begin{proof}
-    En nous rappelant que \( (e_j)_i=\delta_{ij}\) nous avons
-    \begin{equation}        \label{EQooWGZHooIBoygB}
-        f_A(e_j)=\sum_{i\alpha}A_{\alpha i}(e_j)_if_{\alpha}=\sum_{\alpha}A_{\alpha j}f_{\alpha},
-    \end{equation}
-    donc \( f_A(e_i)_{\alpha}=A_{\alpha i}\). Cela prouve la formule du point \ref{ITEMooKZYYooZPTkpq}.
-
-    Le point \ref{ITEMooANXFooGIuxUR} est une simple somme sur \( \alpha\) de \ref{ITEMooKZYYooZPTkpq}.
-
-    La formule \eqref{ITEMooXLLLooKfigfB} est simplement la composante \( f_{\alpha}\) de la définition \ref{EQooZKEKooNYjvhP}.
-
-    Prouvons que \( \psi\) est injective. Si \( f_A=f_B\), nous avons en particulier \( f_A(e_i)_{\alpha}=f_B(e_i)_{\alpha}\) et donc \( A_{\alpha i}=B_{\alpha i}\).
-
-    Prouvons que \( \psi\) est surjective. Pour cela nous considérons \( f\in \aL(E,F)\) et nous posons \( A_{\alpha i}=f(e_i)_{\alpha}\). Nous avons alors \( f=f_A\) parce que
-    \begin{equation}
-        f_A(x)=\sum_{i\alpha}A_{\alpha i}x_if_{\alpha}=\sum_{i\alpha}f(e_i)_{\alpha}x_if_{\alpha}=\sum_{\alpha}f(\sum_ix_ie_i)_{\alpha}f_{\alpha}=\sum_{\alpha}f(x)_{\alpha}f_{\alpha}=f(x).
-    \end{equation}
-\end{proof}
-
-La proposition suivante montre que le produit matriciel correspond à la composition d'applications linéaires, pourvu que l'on travaille avec les bases canoniques sur \( \eK^n\).
-\begin{proposition}[\cite{MonCerveau}]      \label{PROPooIYVQooOiuRhX}
-    Soit un corps commutatif \( \eK\). Nous considérons des espaces vectoriels \( E\) et \( F\) munis de bases \( \{ e_i \}_{i=1,\ldots, n}\) et \( \{ f_{\alpha}\}_{\alpha\in 1,\ldots, m} \).
-
-    L'application déjà définie\footnote{Notez la position du \( n\) et du \( m\). Sachez noter les bornes des sommes écrites dans la démonstration.}
-    \begin{equation}
-        \psi\colon \eM(m\times n,\eK)\to \aL(E,F)
-    \end{equation}
-    est un isomorphisme d'espaces vectoriels.
-\end{proposition}
-
-\begin{proof}
-    Le fait que \( \psi\) soit une bijection est la proposition \ref{PROPooGXDBooHfKRrv}. Nous devons montrer que c'est linéaire. 
-
-    Pour \( \lambda\in \eK\) nous avons le calcul
-    \begin{equation}
-        \psi(\lambda A)(e_k)=f_{\lambda A}(e_k)=\sum_{\alpha i}(\lambda A)_{\alpha i}\underbrace{(e_k)_i}_{=\delta_{ki}}f_{\alpha}=\lambda\sum_{\alpha}A_{\alpha k}f_{\alpha}=\lambda f_A(e_j).
-    \end{equation}
-    Donc \( \psi(\lambda A)=\lambda\psi(A)\).
-
-    Si \( A,B\in \eM(n,\eK)\) nous avons de la même façon \( f_{A+B}=f_A+f_B\).
-\end{proof}
-
-\begin{proposition}     \label{PROPooCSJNooEqcmFm}
-    Soient des espaces vectoriels \( E\), \( F\) et \( G\) de dimensions \( n\), \( m\) et \( p\) munis de bases\footnote{Avec trois, nous renonçons à utiliser des alphabets différents pour numéroter les éléments des bases.} \( \{ e_i \}\), \( \{ f_i \}\) et \( \{ g_i \}\). Nous considérons les deux applications
-    \begin{equation}
-        \psi\colon \eM(m\times n,\eK)\to \aL(E,F)
-    \end{equation}
-    et
-    \begin{equation}
-        \psi\colon \eM(p\times m,\eK)\to \aL(F,G).
-    \end{equation}
-    Nous avons 
-    \begin{equation}
-        f_A\circ f_B=f_{AB}
-    \end{equation}
-    pour toutes matrices \( A\in \eM(p\times m,\eK)\) et \( B\in \eM(m\times n,\eK)\).
-\end{proposition}
-
-\begin{proof}
-    Nous considérons les applications linéaires associées à \( A\) et \( B\) : \( f_A\colon F\to G\) et \( f_B\colon E\to F\) et la composée \( f_A\circ f_B\colon E\to G\). Et puis c'est le calcul :
-    \begin{subequations}
-        \begin{align}
-            (f_A\circ f_B)(e_k)&=f_A\big( \sum_{ij}B_{ij}(e_k)_jf_i \big)\\
-            &=\sum_i B_{ik}f_A(f_i)\\
-            &=\sum_iB_{ik}\sum_{rs}A_{rs}(f_i)_sg_r\\
-            &=\sum_{ir}B_{ik}A_{ri}g_r\\
-            &=\sum_r(AB)_{rk}g_r\\
-            &=f_{AB}(e_k).
-        \end{align}
-    \end{subequations}
-    Donc \( f_A\circ f_B=f_{AB}\) comme il se doit.
-\end{proof}
-    
-Nous pouvons particulariser au cas où \( E=F=G\).
-\begin{proposition}     \label{PROPooFMBFooEVCLKA}
-    Si \( E\) est un espace vectoriel muni d'une base \( \{ e_i \}\), alors l'application
-    \begin{equation}
-        \psi\colon \eM(n,\eK)\to \End(E)
-    \end{equation}
-    est un isomorphisme d'algèbre\footnote{Définition \ref{DefAEbnJqI}.} et d'anneaux\footnote{Définition \ref{DEFooSPHPooCwjzuz}}.
-\end{proposition}
-
-\begin{proof}
-    Le fait que \( \psi\) soit un isomorphisme d'algèbre est juste la combinaison entre les propositions \ref{PROPooIYVQooOiuRhX} et \ref{PROPooCSJNooEqcmFm}.
-
-    En ce qui concerne l'isomorphisme d'anneaux, il faut en plus identifier les neutres. Le neutre pour la composition d'applications linéaires est l'application identité et le neutre pour la multiplication de matrices est la matrice identité. Nous devons donc montrer que \( \psi(\delta)=\id\). Juste un calcul :
-    \begin{equation}
-        f_{\delta}(x)=\sum_{ij}\delta_{ij}x_je_i=\sum_ix_ie_i=x.
-    \end{equation}
-    Donc oui, \( f_{\delta}\) est l'identité.
-\end{proof}
-
-Voila. Soyez bien conscient que l'application \( \psi\) dont nous avons beaucoup parlé est surtout intéressante dans le cas des espaces de la forme \( \eK^n\). Dans ce cas, nous avons une identification canonique entre \( \eM(n,\eK)\) et \( \End(\eK^n)\) qui est un isomorphisme d'anneaux et d'algèbres.
-
-Nous verrons que ce \( \psi\) respecte encore les inverses\footnote{Proposition \ref{PROPooNPMCooPmaCwu}.} et les déterminants\footnote{Proposition \ref{PROPooFKDXooKMSolt}.}.
-
-\begin{normaltext}
-    Il convient de ne pas confondre matrice et application linéaire (bien que nous le ferons sans vergogne). Une matrice est un bête tableau de nombres, tandis qu'une application linéaire est une application entre deux espaces vectoriels vérifiant certaines propriétés.
-
-    Cependant si les espaces vectoriels \( E\) et \( F\) sont munis de bases, alors il y a une application
-    \begin{equation}
-        \psi\colon \eM(m\times n,\eK)\to \aL(E,F)
-    \end{equation}
-    qui a toutes les propriétés imaginables\footnote{Et elle en aura encore plus lorsque nous aurons vus les déterminants.}.
-
-    Cette application dépend des bases choisies. Il n'y a donc pas de trucs comme «la matrice de telle application linéaire» ou comme «voici une matrice, nous considérons l'application linéaire associée». 
-
-    Cependant, sur des espaces comme \( \eR^n\) ou plus généralement sur \( \eK^n\), nous avons une base canonique et toute personne raisonnable utilise toujours la base canonique (sauf mention du contraire). Dans ces cas il est sans danger de dire «la matrice associée à telle application linéaire» sans préciser les bases.
-
-    Mais si un jour vous utilisez une base autre que la base canonique sur \( \eR^n\), précisez-le et plutôt deux fois qu'une\footnote{Au passage, non, les coordonnées polaires ne sont pas une base de \( \eR^2\). C'est un système de coordonnées, et ce n'est pas la même chose.}.
-\end{normaltext}
-
-\begin{normaltext}
-    Tant que nous sommes à parler de matrice et d'applications linéaires, les plus acharnés anti-abus de language\footnote{Dont l'auteur de ces lignes fait partie.} remarqueront qu'il n'est pas vrai que «étant donné une base, une application linéaire a une matrice».
-
-    En effet, une base est une partie libre et génératrice (définition \ref{DEFooNGDSooEDAwTh}). Or une partie d'un ensemble n'est pas muni d'un ordre. Toutes les permutations de colonnes de la matrice sont encore possible d'après l'ordre que l'on met sur les vecteurs de la base.
-
-    Encore une fois, la base canonique n'a pas de problèmes parce que les \( \{ e_i \}\) de \( \eR^n\) viennent avec un ordre indiscutable. Plus généralement, très souvent, lorsqu'on construit une base, la construction suggère un ordre.
-\end{normaltext}
-
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Déterminant}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -352,13 +136,13 @@ Nous verrons que ce \( \psi\) respecte encore les inverses\footnote{Proposition 
     \begin{equation}
         \det(A)=\sum_{\sigma\in S_n}(-1)^{\sigma}\prod_{i=1}^nA_{i\sigma(i)}
     \end{equation}
-    où la somme est effectuée sur tous les éléments du groupe symétrique\footnote{Pour le groupe symétrique, c'est la définition \ref{DEFooJNPIooMuzIXd}, le fait que ce soit un groupe fini est le lemme \ref{LEMooSGWKooKFIDyT}, et pour la somme sur un groupe fini c'est la définition \ref{DEFooLNEXooYMQjRo}..} \( S_n\) et où \( (-1)^{\sigma}\) représente la parité de la permutation \( \sigma\).
+    où la somme est effectuée sur tous les éléments du groupe symétrique\footnote{Pour le groupe symétrique, c'est la définition \ref{DEFooJNPIooMuzIXd}, le fait que ce soit un groupe fini est le lemme \ref{LEMooSGWKooKFIDyT}, et pour la somme sur un groupe fini c'est la définition \ref{DEFooLNEXooYMQjRo}.} \( S_n\) et où \( (-1)^{\sigma}\) représente la parité de la permutation \( \sigma\).
 \end{definition}
 En se souvenant que \( | S_n |=n!\), nous sommes frappés de stupeur devant le fait que le nombre de termes dans la somme croît de façon factorielle (c'est plus qu'exponentiel, pour info) en la taille de la matrice. Cette formule est donc sans espoir pour une matrice plus grande que \( 3\times 3\) ou à la rigueur \( 4\times 4\) à la main. À l'ordinateur, il est possible de monter plus haut, mais pas tellement.
 
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \subsection{Déterminant en petite dimension}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 En dimension deux, le déterminant de la matrice
     $\begin{pmatrix}
@@ -981,6 +765,10 @@ pour toute matrice \( A\).
     Il s'agit d'une paraphrase de la proposition \ref{PROPooECIIooVMCIwz} et de la définition \ref{PROPooMLWRooRWfZXE}.
 \end{proof}
 
+\begin{probleme}
+  On peut trouver des inverses sans passer par les applications linéaires: le faire, parce que les appli lin, on les voit plus tard.
+\end{probleme}
+
 \begin{lemma}       \label{LEMooZDNVooArIXzC}
     Si une matrice \( A\) n'est pas inversible, alors le produit \( AB\) n'est inversible pour aucune matrice \( B\).
 \end{lemma}
@@ -988,31 +776,11 @@ pour toute matrice \( A\).
 \begin{proof}
     Supposons que \( AB\) soit inversible. Alors
     \begin{equation}
-        AB(AB^{-1})=\delta,
+        AB(AB)^{-1}=\delta,
     \end{equation}
-    ce qui dirait que \( B(AB^{-1})\) serait un inverse de \( A\).
+    ce qui dirait que \( B(AB)^{-1}\) serait un inverse de \( A\).
 \end{proof}
 
-\begin{proposition}     \label{PROPooNPMCooPmaCwu}
-    Une matrice est inversible si et seulement si son application linéaire associée est inversible. Dans ce cas, nous avons
-    \begin{equation}
-        f_A^{-1}=f_{A^{-1}}.
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Dans le sens direct, si \( A\) est inversible nous avons \( AA^{-1}=\delta\). Donc
-    \begin{equation}        \label{EQooQQOSooBKVqXh}
-        f_A\circ f_{A^{-1}}=f_{AA^{-1}}=f_{\delta}=\id
-    \end{equation}
-    où nous avons utilisé la proposition \ref{PROPooCSJNooEqcmFm} pour la composition et la proposition \ref{PROPooFMBFooEVCLKA} pour l'identité. L'égalité \eqref{EQooQQOSooBKVqXh} indique que \( f_A\) est inversible et que son inverse est \( f_{A^{-1}}\).
-
-    Dans l'autre sens, l'application \( f_A^{-1}\) existe. Soit \( B\in \eM(n,\eK)\) sa matrice. Alors nous avons
-    \begin{equation}
-        f_{\delta}=\id=f_A\circ f_B=f_{AB}.
-    \end{equation}
-    Le fait que l'application \(\psi\colon A\to f_A\) soit une bijection\footnote{Proposition \ref{PROPooGXDBooHfKRrv}\ref{ITEMooHSMLooRJZref}.} implique que \( AB=\delta\), c'est-à-dire que \( A\) est inversible et que \( B=A^{-1}\).
-\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Inversibilité et déterminant}
@@ -1084,11 +852,11 @@ pour toute matrice \( A\).
 Certains ensembles de matrices ont une importance particulière, que nous développerons plus tard.
 
 \begin{definition}[Groupe linéaire de matrices]
-On note \( \GL(n,\eA) \) l'ensemble des matrices carrées d'ordre \( n \) à coefficients dans \( \eA \), qui sont inversibles. En d'autres termes, \( \GL(n,\eA) = U (\eM (n,\eA) ) \).
+On note \( \GL(n,A) \) l'ensemble des matrices carrées d'ordre \( n \) à coefficients dans \( A \), qui sont inversibles. En d'autres termes, \( \GL(n,A) = U (\eM (n,A) ) \).
 \end{definition}
 
 \begin{definition}[Groupe orthogonal de matrices]\label{DefMatriceOrthogonale}
-    On dit qu'une matrice \( A \) est \defe{orthogonale}{matrice!orthogonale} si son inverse est sa transposée, c'est-à-dire si \( A^{-1} = A^t \). On note \( \gO(n,\eA) \) l'ensemble des matrices carrées d'ordre \( n \) à coefficients dans \( \eA \), qui sont orthogonales.
+    On dit qu'une matrice \( M \) est \defe{orthogonale}{matrice!orthogonale} si son inverse est sa transposée, c'est-à-dire si \( M^{-1} = M^t \). On note \( \gO(n, A) \) l'ensemble des matrices carrées d'ordre \( n \) à coefficients dans \( A \), qui sont orthogonales.
 \end{definition}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -1134,7 +902,7 @@ On note \( \GL(n,\eA) \) l'ensemble des matrices carrées d'ordre \( n \) à coe
 \end{proof}
 
 \begin{proposition}     \label{PROPooWVJFooTmqoec}
-    Soient des matrices \( A,B\in \eM(n,\eK)\) telles que \( \det(A)=0\) et \( \det(B)\neq0\). Alors
+    Soient des matrices \( A,B\in \eM(n,\eK)\) telles que \( \det(A)=0\) et \( \det(B)\neq 0\). Alors
     \begin{equation}
         \det(AB)=\det(BA)=\det(A)\det(B).
     \end{equation}
@@ -1166,7 +934,7 @@ On note \( \GL(n,\eA) \) l'ensemble des matrices carrées d'ordre \( n \) à coe
 Faisons maintenant le cas général des manipulations de lignes et colonnes.
 
 \begin{proposition}     \label{PROPooSLLGooSZjQrv}
-    Soit une matrice carré \( A\in \eM(n,\eK)\). La matrice \( B\) obtenue par la substitution simultanée
+    Soit une matrice carrée \( A\in \eM(n,\eK)\). La matrice \( B\) obtenue par la substitution simultanée
     \begin{equation}
         C_j\to \sum_ka_{kj}C_k
     \end{equation}
@@ -1273,70 +1041,6 @@ Dans la suite nous désignerons souvent par le mot «mineur» la sous-matrice ca
 
 \begin{proposition}      \label{DEFooVVBYooJbliTi}
     Le rang d'une matrice est la taille de son plus grand mineur non nul.
-\end{proposition}
-
-Lorsque \( A\) est une matrice, nous notons \( f_A\) l'application linéaire associée à la matrice \( A\) par l'application \eqref{EQooVZQWooMyFFeO}.
-\begin{lemma} \label{LEMVecsaRgFixe}
-    Soit \( \eK \) un corps commutatif\footnote{Comme toujours.}. Si \( A \) est une matrice carrée d'ordre \( n \) et de rang \( r \) à coefficients dans \( \eK \), alors il existe des vecteurs \( (x_i)_{i=1,\dots,n} \) formant une base de \( \eK^n \) tels que 
-    \begin{equation}
-        f_A(x_i)\neq 0
-    \end{equation}
-    pour \( x\leq r\) et
-    \begin{equation}
-        f_A(x_i) = 0
-    \end{equation}
-    pour \( i > r \).
-\end{lemma}
-
-\begin{proof}
-    Soit \( V\) le sous-espace de \( \eK^n\) engendré par les colonnes de \( A\). Nous considérons la base canonique \( \{ e_i \}\) de \( \eK^n\), ainsi que \( v_i\) le vecteur créé par la \( i\)\ieme colonne de \( A\). Nous avons
-    \begin{equation}
-        v_i=f_A(e_i).
-    \end{equation}
-    Les vecteurs \( v_i\) engendrent \( V\), donc nous pouvons en extraire une base par le théorème \ref{ThoMGQZooIgrXjy}\ref{ITEMooTZUDooFEgymQ}. Soit donc \( \{ v_j \}_{i\in J}\) une base de \( V\) avec \( J\subset\{ 1,\ldots, n \}\).
-
-    La base de \( \eK^n\) que nous cherchons commence par les vecteurs \( \{ e_j \}_{j\in J}\). Ces vecteurs vérifient \( f_A(e_j)=v_j\neq 0\) parce que des vecteurs d'une base ne sont jamais nuls.
-
-    % Note : toute la ligne suivante fait des références qui peuvent être vers le futur parce que ce sont des choses qui ne sont 
-    %        pas utilisées dans la démonstration.
-    Pour la suite de la base, nous pourrions penser au théorème de la base incomplète\footnote{Théorème \ref{ThonmnWKs}\ref{ITEMooFVJXooGzzpOu}.}, mais les vecteurs ainsi complétant la base ne sont pas garantis de s'annuler par \( f_A\). Voir l'exemple \ref{EXooRKVQooZOGDEf}.
-
-    L'idée est d'utiliser le noyau de \( f_A\) qui est un sous-espace vectoriel par la proposition \ref{PROPooRLLPooKYzsJp}. Soit une base\footnote{Cette base contient \( n-r\) éléments, mais ce n'est pas très important pour la suite.} \(  \{ z_k \}  \) de \( \ker(f)\). Les vecteurs \( \{ e_j \}_{j\in J}\) forment une base de \( \Image(f_A)\). Vu que les \( z_i\) forment une base de \( \ker(f_A)\), le théorème du rang \ref{ThoGkkffA} dit alors que \( \{ e_j \}_{j\in J}\cup \{ z_k \}\) est une base de \( \eK^n\).
-
-    Il y a \( r\) éléments dans \( J\) parce que l'espace engendré par les colonnes de \( A\) est de dimension \( r\) par hypothèse. Donc il y a \( n-r\) éléments dans les \( z_k\) pour que le tout ait le bon nombre d'éléments.
-\end{proof}
-
-\begin{example}     \label{EXooRKVQooZOGDEf}
-    Soit la matrice 
-    \begin{equation}
-        A=\begin{pmatrix}
-            1    &   1    \\ 
-            2    &   2    
-        \end{pmatrix}.
-    \end{equation}
-    Elle est de rang \( 1\). En suivant l'idée de la démonstration, nous commençons la base de \( \eR^2\) par le vecteur \( e_1\) qui vérifie
-    \begin{equation}
-        f_A(e_1)=\begin{pmatrix}
-            1    \\ 
-            2    
-        \end{pmatrix}.
-    \end{equation}
-    L'utilisation du théorème de la base incomplète ne permet pas de trouver un second vecteur de base \( v\) tel que \( f_A(v)=0\). En effet ce théorème donne juste l'existence d'une completion de la base, mais pas de propriétés particulières de la base obtenue. Elle pourrait donner \( v=e_2\) comme second vecteur de base. Mais alors
-    \begin{equation}
-        f_A(v)=f_A(e_2)=\begin{pmatrix}
-            1    \\ 
-            2    
-        \end{pmatrix}\neq 0.
-    \end{equation}
-
-    Au contraire, le noyau de \( f_A\) est donné par le sous-espace engendré par \( \begin{pmatrix}
-        1    \\ 
-        -1    
-    \end{pmatrix}\). Une base convenable est donc \( \{ e_1, e_1-e_2 \}\).
-\end{example}
-
-\begin{proposition}     \label{PROPooEGNBooIffJXc}
-    Le rang d'une application linéaire est égal au rang de sa matrice dans n'importe quelle base.
 \end{proposition}
 
 %---------------------------------------------------------------------------------------------------------------------------
