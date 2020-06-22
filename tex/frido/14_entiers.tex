@@ -455,14 +455,6 @@ En résumé, on vient avec les deux propositions précédentes de prouver ceci:
 
 Petite remarque: dans~\cite{BIBooFOGTooQgFAbQ}, la proposition précédente est démontrée à coup de divisibilité et de lemme de Gauss~\ref{LemPRuUrsD}.
 
-\begin{proposition}[\cite{BIBooYOLUooOAUbYH}]       \label{PROPooKSCRooPyInSv}
-    Le groupe \( \big( (\eZ/p\eZ)^*, \cdot\big)\) est cyclique si \( p \) est premier.
-\end{proposition}
-
-\begin{probleme}
-
-\end{probleme}
-
 
 \begin{corollary}   \label{CorZnInternprem}
     L'anneau \( \eZ/p\eZ\) est intègre si et seulement si \( p\) est premier.
@@ -482,6 +474,15 @@ Petite remarque: dans~\cite{BIBooFOGTooQgFAbQ}, la proposition précédente est 
     Donc lorsque \( n\) n'est pas premier,  l'anneau \( \eZ/n\eZ\) possède des diviseurs de zéro et n'est alors pas intègre.
 \end{proof}
 
+\begin{proposition}[\cite{BIBooYOLUooOAUbYH}]       \label{PROPooKSCRooPyInSv}
+    Le groupe \( \big( (\eZ/p\eZ)^*, \cdot\big)\) est cyclique si \( p \) est premier.
+\end{proposition}
+
+Keith Conrad, dans \cite{BIBooYOLUooOAUbYH}, a synthétisé \emph{sept} preuves de ce résultat! Contentons-nous d'une seule\dots
+
+\begin{proof}
+  Il suffit de démontrer qu'il y a un élément d'ordre \( p - 1 \) dans \( (\eZ/p\eZ)^* \) (qui contient \( p-1 \) éléments). On note \( n \) l'ordre maximal parmi les éléments de \( (\eZ/p\eZ)^* \); alors, par le corollaire du théorème de Lagrange~\ref{CorpZItFX}, \(n \) divise \( p - 1 \), donc plus simplement \( n \leq p - 1 \). Par ailleurs, tout élément \( x \) de \( (\eZ/p\eZ)^* \) satisfait \( x^n = 1 \), donc est une racine du polynôme \( X^n - 1 \) dans l'anneau \( \eZ/p\eZ \), intègre par le corollaire~\ref{CorZnInternprem}. Or, le théorème~\ref{THM_racinesPoly} nous indique que ce polynôme n'a que \( n \) racines au maximum: on en déduit \( p - 1 \leq n \). Conclusion: l'ordre maximal d'un élément est \( n = p - 1 \) dans \( (\eZ/p\eZ)^* \), c'est donc un groupe cyclique.
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Calcul effectif du PGCD et de Bézout}

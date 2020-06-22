@@ -470,12 +470,12 @@ Dans les anneaux intègres; la divisibilité devient en réalité une relation d
   Pour les besoins futurs, considérons un anneau \( A \) et un élément qui n'a rien à voir avec \( A \); baptisons-le \( X \). Le but est alors de créer un nouvel anneau qui contient à la fois \( A \) et \( X \):
 
 \begin{propositionDef}   \label{DefAnneauPolyAX}
-  Soit un anneau \( A \), et un élément \( X \notin A \). L'ensemble \( A[X] \) est l'anneau engendré par \( A \) et \( X \) (où l'on convient que \( X \) commute avec tout élement de \(A \) pour la multiplication). Il est constitué des sommes finies de la forme \( \sum_{i = 0}^n a_i X^i \) où \( n \in \eN \), et pour tout \( i = 0, 1, \dots, n \), on a \( a_i \in A \).
+  Soit un anneau \( A \), et un élément \( X \notin A \). L'ensemble \( A[X] \) est l'anneau engendré par \( A \) et \( X \) (où l'on convient que \( X \) commute avec tout élement de \(A \) pour l'addition et la multiplication). Il est constitué des sommes finies de la forme \( \sum_{i = 0}^n a_i X^i \) où \( n \in \eN \), et pour tout \( i = 0, 1, \dots, n \), on a \( a_i \in A \).
   
   Les opérations sur \( A[X] \) sont définies comme suit, étant entendu qu'un élément \(a_i\) ou \(b_j\) a priori pas défini vaut 0:
   \begin{description}
     \item[la somme:] \( \sum_{i = 0}^n a_i X^i + \sum_{j = 0}^{n'} b_j X^j =  \sum_{i = 0}^{\max{n, n'}} (a_i + b_i) X^i \); et le neutre de \( A \) est le même dans \( A[X] \);
-    \item[le produit:] pour deux éléments \( A = \sum_{i = 0}^n a_i X^i \) et \(B = \sum_{j = 0}^{n'} b_j X^j \), on définit \( c_k = \sum_{l = 0}^k a_k b_{l-k} \), et alors \( A \cdot B = \sum \sum_{k = 0}^{m+n} c_k X^k \); le neutre multiplicatif de \( A \) est le même dans \( A[X] \).
+    \item[le produit:] pour deux éléments \( A = \sum_{i = 0}^n a_i X^i \) et \(B = \sum_{j = 0}^{n'} b_j X^j \), on définit \( c_k = \sum_{l = 0}^k a_k b_{l-k} \), et alors \( A \cdot B = \sum_{k = 0}^{m+n} c_k X^k \); le neutre multiplicatif de \( A \) est le même dans \( A[X] \).
   \end{description}
 \end{propositionDef}
 \nomenclature[A]{\( A[X]\)}{tous les polynômes de degré fini à coefficients dans \( A\)}
@@ -626,8 +626,15 @@ le quotient \( Q \) est \(Q_0 + Q'\) et le reste est \(R \).
 \end{proof}
 
 \begin{proposition}     \label{PROPooQCZSooVokxXQ}
-    Soient un anneau\quext{intègre? Je pense qu'il y a des surprises sans intégrité\dots} \( A\), un polynôme \( P\in A[X]\) de degré \( n\), ainsi qu'une racine \( \alpha\in A\) de \( P\). Alors il existe un polynôme \( Q\in A[X]\) de degré \( n-1\) tel que \( P=(X-\alpha)Q\).
+    Soient un anneau intègre\quext{Initialement écrite sans 'intègre', je crois qu'on a des surprises sans ça. Si quelqu'un a un exemple, on est preneur.} \( A\), un polynôme \( P\in A[X]\) de degré \( n\), ainsi qu'une racine \( \alpha\in A\) de \( P\). Alors il existe un polynôme \( Q\in A[X]\) de degré \( n-1\) tel que \( P=(X-\alpha)Q\).
 \end{proposition}
 
+\begin{theorem}[Nombre de racines dans un polynôme -- \cite{MonCerveau, BIBooYOLUooOAUbYH}]   \label{THM_racinesPoly}
+  Soit \( A \) un anneau intègre. Tout polynôme \( P \) de \( A[X] \) admet au maximum \( \deg(P) \) racines.
+\end{theorem}
 
-
+\begin{proof}
+  Par récurrence sur le degré de \(P \). En degré 1, on a \( P = aX + b \) avec \( a, b \in A \). S'il y a racine, c'est nécessairement\footnote{Et c'est précisément là qu'on a besoin de l'intégrité, pour simplifier par \( a \) dans l'égalité \( aX = - aa^{-1}b \): voir proposition~\ref{DEFooTAOPooWDPYmd}.} \( - a^{-1} b \), et donc il n'y a bien qu'une racine au maximum.
+  
+  Pour \( n \in \eN \) un degré donné, on suppose que les polynômes de degré au plus \(n-1\) vérifient notre résultat. Soit \( P \) un polynôme de degré \( n \); s'il n'a pas de racine, on a fini: \( 0 \leq n \). Sinon, on a \( \alpha \in A \) qui en est une; grâce à la proposition~\ref{PROPooQCZSooVokxXQ}, \( P = (X - \alpha) Q \) avec \( \deg(Q) = n-1 \) et donc \(Q \) n'a qu'un maximum de \( n-1 \) racines. En rajoutant \( \alpha \), on obtient que \( P \) n'a que \(n \) racines au maximum.
+\end{proof}
