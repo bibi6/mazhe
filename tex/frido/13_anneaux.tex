@@ -460,6 +460,7 @@ Dans les anneaux intègres; la divisibilité devient en réalité une relation d
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Un minuscule morceau de polynômes}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\label{SEC_minusPolynomes}
 
   Pour la suite, on aura besoin d'un peu de polynômes; le plus gros de la théorie des anneaux de polynômes (et notamment une construction plus formelle) sera vu en section~\ref{SEC_annPolynomes}. Nous avertissons néanmoins le lecteur sur la notation standard \( A[X]\) employée, en le renvoyant en section~\ref{SUBSECooLEKVooFBPSJz}.
 
@@ -495,7 +496,7 @@ Quand la somme est constituée de deux termes (\( a X^k + b X^l\)), on parle de 
 \end{definition}
 
 \begin{definition}  \label{DefDegrePoly}
-    Soit \( P \in A[X] \), \( P \neq 0 \). On appelle \defe{degré}{degré!d'un polynôme} de $P$ le plus grand nombre naturel $n$ pour lequel le coefficient correspondant est non-nul. Ce naturel est noté \( \deg(P) \).
+    Soit \( P \in A[X] \), \( P \neq 0 \). On appelle \defe{degré}{degré!d'un polynôme} de $P$ le plus grand nombre naturel $n$ pour lequel le coefficient correspondant (appelé alors \defe{coefficient dominant}{coefficient!dominant (polynôme)} est non-nul. Ce naturel est noté \( \deg(P) \).
     
     Par convention, on pose \( \deg(0)=-\infty\).
 \end{definition}
@@ -520,6 +521,9 @@ Quand la somme est constituée de deux termes (\( a X^k + b X^l\)), on parle de 
   pour tous polynômes \( P \) et \( Q \) si et seulement si \( A \) est intègre. S'il ne l'est pas, soient \( \alpha,\beta\in A\) non nuls tels que \( \alpha\beta=0\). Le produit des polynômes \(\alpha X\) et \(\beta\) est \( (\alpha X)(\beta)=0\); le degré du produit n'est alors pas la somme des degrés. S'il l'est, alors le coefficient dominant de \( PQ \) est celui obtenu par le produit des coefficients dominants de \( P \) et \( Q \), un produit nécessairement non nul; ce coefficient dominant correspond à la somme des degrés de \( P \) et \( Q \).
 \end{proof}
 
+\begin{definition}    \label{DEF_polynUnitaire}
+  On dit qu'un polynôme est \defe{unitaire}{polynôme!unitaire} si son coefficient dominant est 1.
+\end{definition}
 
 \begin{definition}
   La \defe{valuation}{valuation!d'un polynôme} du polynôme \( P=\sum_n a_nX^n\), notée \( \val(P)\), est

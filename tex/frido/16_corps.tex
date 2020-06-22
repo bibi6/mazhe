@@ -68,6 +68,46 @@ Une belle conséquence de cela est donnée par la proposition~\ref{DEFooTAOPooWD
     \end{subproof}
 \end{proof}
 
+Le fait d'être intègre pour un anneau n'assure pas le fait d'être un corps. Nous avons cependant ce résultat pour les anneaux finis.
+
+\begin{proposition}     \label{PropanfinintimpCorp}
+    Un anneau fini intègre est un corps.
+\end{proposition}
+
+\begin{proof}
+    Soit \( A\) un tel anneau. Soit \( a\neq 0\). Les applications
+    \begin{subequations}
+        \begin{align}
+            l_a\colon x\to ax\\
+            r_a\colon x\to xa
+        \end{align}
+    \end{subequations}
+    sont injectives. En tant que applications injectives entre ensembles finis, elles sont surjectives. Il existe donc \( b\) et \( c\) tels que \( 1=ba=ac\). Il se fait que \( b\) et \( c\) sont égaux parce que
+    \footnote{Il faut être un peu souple avec les notations communément employées dans les ouvrages mathématiques, et que nous reprenons telles quelles. Dans l'équation qui suit, \( b(ac)\) est le produit de \( b\) par l'élément \( ac\), et non quelque chose comme le produit de \( b\) avec l'idéal \( (ac)\) par exemple.}
+    \begin{equation}
+        b=b(ac)=(ba)c=c.
+    \end{equation}
+    Par conséquent \( b\) est un inverse de \( a\).
+\end{proof}
+
+
+
+\begin{proposition}     \label{PropzhFgNJ}
+    Soit \( n\in\eN^*\). Les conditions suivantes sont équivalentes :
+    \begin{enumerate}
+        \item
+            \( n\) est premier.
+        \item
+            \( \eZ/n\eZ\) est un anneau intègre.
+        \item
+            \( \eZ/n\eZ\) est un corps.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    L'équivalence entre les deux premiers points est le contenu du corolaire~\ref{CorZnInternprem}. Le fait que \( \eZ/n\eZ\) soit un corps lorsque \( \eZ/n\eZ\) est intègre est la proposition~\ref{PropanfinintimpCorp}. Le fait que \( \eZ/n\eZ\) soit intègre lorsque \( \eZ/n\eZ\) est un corps est une propriété générale des corps : ce sont en particulier des anneaux intègres (lemme~\ref{LemAnnCorpsnonInterdivzer}).
+\end{proof}
+
 \begin{definition}[Morphisme de corps]
     Un corps étant un anneau sans plus de structure, un \defe{morphisme de corps}{morphisme!de corps}\index{isomorphisme!de corps} n'est qu'un morphisme des anneaux.
 \end{definition}

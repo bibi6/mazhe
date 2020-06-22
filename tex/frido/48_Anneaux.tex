@@ -13,6 +13,10 @@ En cas de doutes, nous suivons les conventions de Wikipédia.
 
 La définition d'un idéal dans un anneau est la définition~\ref{DefooQULAooREUIU}.
 
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Idéal maximal}
+%---------------------------------------------------------------------------------------------------------------------------
+
 \begin{definition}\label{DEFIdealMax}
 Un idéal \( I\) dans un anneau \( A \) est dit \defe{idéal maximal}{idéal!maximal}\index{idéal!maximal} ou idéal maximum si tout idéal \( J \) vérifiant \( I \subset J \subset A \) est soit \( I \), soit \( A \).
 \end{definition}
@@ -24,8 +28,25 @@ Un idéal \( I\) dans un anneau \( A \) est dit \defe{idéal maximal}{idéal!max
 \begin{proof}
     Soit un idéal maximum \( I\subset A\). Alors les idéaux contenant \( I\) sont \( A\) et \( I\). L'application \( \phi\) de la proposition~\ref{PropIJJIdsousphi} est une bijection, donc l'ensemble des idéaux de \( A/I\) ne contient que deux éléments. Les seuls idéaux de \( A/I\) sont donc \( \{ 0 \}\) et \( A/I\); donc \( A/I\) est un corps par la proposition~\ref{PROPooUOCVooZGAVVk}.
 
-    Dans l'autre sens, c'est la même chose : si \( A/I\) est un corps, il possède exactement deux idéaux, donc \( A\) ne contient que deux idéaux contenant $I$. Donc \( I\) est un idéal maximum.
+    Dans l'autre sens, c'est la même chose : si \( A/I\) est un corps, il possède exactement deux idéaux (l'idéal \( \{ 0 \}\) et l'anneau entier), donc \( A\) ne contient que deux idéaux contenant \( I \). Donc \( I\) est un idéal maximum.
 \end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Quotients d'anneaux de polynômes par un idéal}
+%---------------------------------------------------------------------------------------------------------------------------
+  On a commencé gentiment à parler de polynômes en section~\ref{SEC_minusPolynomes}. Leurs anneaux, et surtout les quotients, fournissent des exemples non triviaux des notions que nous allons aborder dans ce chapitre.
+
+\begin{definition}[Extension d'anneau par quotient]\label{DEF_ExtensionAnneau}
+  Soit \( A \) un anneau, et \( P \in A[X] \) \footnote{Pour rappel de \(A[X] \), c'est en définition~\ref{DefAnneauPolyAX}.}. Si l'on peut déterminer toutes les racines \( \alpha_1, \dots, \alpha_n \) de \( P \) dans un corps contenant \( A \), alors l'anneau \( A[X] / (P) \) est aussi noté \(A[\alpha_1,\dots \alpha_n]\).
+\end{definition}
+
+\begin{example}  \label{EX_ConstructionEntiersGauss}
+  On considère, dans l'anneau \( \eZ[X] \), le polynôme \( P = X^2 + 1 \). Il est connu que dans le corps des complexes \( \eC \) contenant \( \eZ \), il y a deux racines notées \( i \) et \(-i \), opposées l'une de l'autre. Ainsi, l'anneau quotient \( \eZ[X]/(X^2 + 1) \) peut se récrire \( \eZ[i, -i] \), même encore plus simplement \( \eZ[i] \). Cet anneau, sous-anneau de \( \eC \), est appelé \defe{anneau des entiers de Gauss}{entiers de Gauss}.
+\end{example}
+
+\begin{example}  \label{EX_ConstructionZisqrtn}
+  Dans le même esprit, toujours dans l'anneau \( \eZ[X] \), on prend le polynôme \( P = X^2 + n \) (avec \( n \in \eN \), \( n \geq 2\). Dans \( \eC \), les racines sont \( i\sqrt n \) et \(-i \sqrt n\), opposées l'une de l'autre. Ainsi, l'anneau quotient \( \eZ[X]/(X^2 + n) \) est l'anneau \( \eZ[i \sqrt n] \).
+\end{example}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Caractéristique}
@@ -139,9 +160,7 @@ Nous le nommons le \defe{morphisme de Frobenius}{morphisme!Frobenius}\index{Frob
 
 La définition d'un anneau intègre est la définition~\ref{DEFooTAOPooWDPYmd}.
 
-Nous verrons au théorème~\ref{ThoBUEDrJ} que l'anneau \( A\) est intègre si et seulement si \( A[X]\) est intègre.
-
-
+Nous rappelons (théorème~\ref{ThoBUEDrJ}) que l'anneau \( A\) est intègre si et seulement si \( A[X]\) est intègre.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Caractéristique d'un anneau intègre}
@@ -185,11 +204,11 @@ Nous verrons au théorème~\ref{ThoBUEDrJ} que l'anneau \( A\) est intègre si e
 \end{lemma}
 
 \begin{proof}
-    Les hypothèses à propos de la divisibilité nous indiquent que \( a=xb\) et \( b=ya\) pour certains \( x,y\in A\). Du coup,
+    Les hypothèses à propos de la divisibilité nous indiquent que \( a=ub\) et \( b=va\) pour certains \( u,v\in A\). Du coup,
     \begin{equation}
-        b(1-yx)=0.
+        b(1-vu)=0.
     \end{equation}
-    Étant donné que \( \eA\) est intègre, cela montre que \( b=0\) ou \( 1-yx=0\). Si \( b=0\) nous avons immédiatement \( a=0\) et le lemme est prouvé. Si au contraire \( yx=1\), c'est que \( y\) et \( x\) sont inversibles et inverses l'un de l'autre.
+    Étant donné que \( A\) est intègre, cela montre que \( b=0\) ou \( 1-vu=0\). Si \( b=0\) nous avons immédiatement \( a=0\) et le lemme est prouvé en prenant \( u = 1 \). Si au contraire \( vu=1\), c'est que \( v\) et \( u\) sont inversibles et inverses l'un de l'autre.
 \end{proof}
 
 \begin{definition}\label{DefrXUixs}
@@ -199,7 +218,7 @@ Nous verrons au théorème~\ref{ThoBUEDrJ} que l'anneau \( A\) est intègre si e
 \end{definition}
 
 \begin{example}
-    Dans \( \eZ[i]\), les inversibles sont \( \pm 1\) et \( \pm i\). Donc les éléments associés à \( z\) sont \( z\), \( -z\), \( iz\) et \( -iz\).
+    Dans \( \eZ[i]\)\footnote{Si vous ne savez pas ce que c'est, c'est que vous n'avez pas lu le chapitre depuis le début: c'est bien, mais quand même, allez voir l'exemple~\ref{EX_ConstructionEntiersGauss}\dots}, les inversibles sont \( \pm 1\) et \( \pm i\). Donc les éléments associés à \( z\) sont \( z\), \( -z\), \( iz\) et \( -iz\).
 
     Notons au passage que la notion de divisibilité dans \( \eZ[i]\) n'est pas immédiatement intuitive. En effet bien que \( 7\) ne soit pas divisible par \( 2\) (ni dans \( \eZ\) ni dans \( \eZ[i]\)), le nombre \( 7+6i\) est divisible par \( 2+i\) dans \( \eZ[i]\). En effet :
     \begin{equation}
@@ -210,7 +229,7 @@ Nous verrons au théorème~\ref{ThoBUEDrJ} que l'anneau \( A\) est intègre si e
 \begin{probleme}
     Est-ce que quelqu'un connaît un anneau contenant \( \eZ\) dans lequel \( 7\) est divisible en \( 2\) ?
 
-    Peut-être \( \eZ\) étendu par tous les \( 1/2^n\) ?
+    Peut-être \( \eZ\) étendu par tous les \( 1/2^n\) ? En tout cas, on a besoin de "7/2".
 \end{probleme}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -228,7 +247,7 @@ Pour le théorème de Bézout et autres opérations avec des modulo, voir le th�
 \begin{proof}
     Soient \( \delta\) un PGCD de \( S\) et \( u\) un inversible dans \( A\). Si \( x\in S\) nous avons \( \delta\divides x\) et donc \( x=a\delta\). Par conséquent \( x=au^{-1}u\delta\) et donc \( u\delta\) divise \( x\). De la même manière, si \( d\) divise \( x\) pour tout \( x\in S\), alors \( d\) divise \( \delta\) et donc \( \delta=ad\) et \( u\delta=aud\), ce qui signifie que \( d\) divise \( u\delta\).
 
-    Dans l'autre sens nous devons prouver que si \( \delta'\) est un autre PGCD de \( S\), alors il existe un inversible \( u\in \eA\) tel que \( \delta'=u\delta\). Vu que \( \delta'\) divise \( x\) pour tout \( x\in S\), nous avons \( \delta'\divides \delta\), et symétriquement nous trouvons \( \delta\divides\delta'\). Par conséquent (lemme~\ref{LemRmVTRq}), il existe un inversible \( u\) tel que \( \delta=u\delta'\).
+    Dans l'autre sens nous devons prouver que si \( \delta'\) est un autre PGCD de \( S\), alors il existe un inversible \( u\in A\) tel que \( \delta'=u\delta\). Vu que \( \delta'\) divise \( x\) pour tout \( x\in S\), nous avons \( \delta'\divides \delta\), et symétriquement nous trouvons \( \delta\divides\delta'\). Par conséquent (lemme~\ref{LemRmVTRq}), il existe un inversible \( u\) tel que \( \delta=u\delta'\).
 
     Le même type de raisonnement tient pour le PPCM.
 \end{proof}
@@ -236,56 +255,12 @@ Pour le théorème de Bézout et autres opérations avec des modulo, voir le th�
 Si \( \delta\) est un PGCD de \( S\), nous dirons \emph{par abus de langage} que \( \delta\) est \emph{le} PGCD de \( S\), gardant en tête qu'en réalité toute sa classe d'association est PGCD. Nous noterons aussi, toujours par abus que \( \delta=\pgcd(S)\).
 
 \begin{remark}
-    La classe d'association d'un élément n'est pas toujours très grande. Les inversibles dans \( \eZ\) étant seulement \( \pm 1\), nous pouvons obtenir l'unicité du PGCD et du PPCM en imposant qu'ils soient positifs.
+    La classe d'association d'un élément n'est pas toujours très grande. Les inversibles dans \( \eZ\) étant seulement \( \pm 1\), nous pouvons obtenir l'unicité du PGCD et du PPCM en imposant qu'ils soient positifs: c'est ce que nous avons observé avec le lemme \ref{LEMooBJVJooFyuFeN}.
 
-    Pour les polynômes, nous obtenons l'unicité en demandant que le PGCD soit unitaire.
+    Pour les polynômes, nous obtenons l'unicité en demandant que le PGCD soit unitaire\footnote{Définition~\ref{DEF_polynUnitaire}.}.
 
     Dans les cas pratiques, il y a donc en réalité peu d'ambiguïté à parler du PGCD ou du PPCM d'un ensemble.
 \end{remark}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Anneaux intègres et corps}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Le fait d'être intègre pour un anneau n'assure pas le fait d'être un corps. Nous avons cependant ce résultat pour les anneaux finis.
-
-\begin{proposition}     \label{PropanfinintimpCorp}
-    Un anneau fini intègre est un corps.
-\end{proposition}
-
-\begin{proof}
-    Soit \( A\) un tel anneau. Soit \( a\neq 0\). Les applications
-    \begin{subequations}
-        \begin{align}
-            l_a\colon x\to ax\\
-            r_a\colon x\to xa
-        \end{align}
-    \end{subequations}
-    sont injectives. En tant que applications injectives entre ensembles finis, elles sont surjectives. Il existe donc \( b\) et \( c\) tels que \( 1=ba=ac\). Il se fait que \( b\) et \( c\) sont égaux parce que
-    \footnote{Il faut être un peu souple avec les notations communément employées dans les ouvrages mathématiques, et que nous reprenons telles quelles. Dans l'équation qui suit, \( b(ac)\) est le produit de \( b\) par l'élément \( ac\), et non quelque chose comme le produit de \( b\) avec l'idéal \( (ac)\) par exemple.}
-    \begin{equation}
-        b=b(ac)=(ba)c=c.
-    \end{equation}
-    Par conséquent \( b\) est un inverse de \( a\).
-\end{proof}
-
-
-
-\begin{proposition}     \label{PropzhFgNJ}
-    Soit \( n\in\eN^*\). Les conditions suivantes sont équivalentes :
-    \begin{enumerate}
-        \item
-            \( n\) est premier.
-        \item
-            \( \eZ/n\eZ\) est un anneau intègre.
-        \item
-            \( \eZ/n\eZ\) est un corps.
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    L'équivalence entre les deux premiers points est le contenu du corolaire~\ref{CorZnInternprem}. Le fait que \( \eZ/n\eZ\) soit un corps lorsque \( \eZ/n\eZ\) est intègre est la proposition~\ref{PropanfinintimpCorp}. Le fait que \( \eZ/n\eZ\) soit intègre lorsque \( \eZ/n\eZ\) est un corps est une propriété générale des corps : ce sont en particulier des anneaux intègres (lemme~\ref{LemAnnCorpsnonInterdivzer}).
-\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Élément irréductible}
@@ -308,8 +283,12 @@ Le fait d'être intègre pour un anneau n'assure pas le fait d'être un corps. N
 \end{example}
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Anneau factoriel}
+\section{Des anneaux particuliers}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Anneau factoriel}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[Anneau factoriel]        \label{DEFooVCATooPJGWKq}
     Un anneau commutatif \( A\) est \defe{factoriel}{factoriel!anneau}\index{anneau!factoriel} s'il vérifie les propriétés suivantes.
@@ -364,27 +343,12 @@ Un anneau factoriel a une relation de préordre partiel\index{ordre!sur un annea
 
 Nous allons voir dans l'exemple~\ref{ExeDufyZI} que \( \eZ[i\sqrt{2}]\) est factoriel parce qu'il sera euclidien.
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Anneau principal et idéal premier}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{definition}      \label{DEFooMZRKooBPLAWH}
-    Un idéal \( I\) dans \( A\) est \defe{principal à gauche}{idéal!principal!à gauche} s'il existe \( a\in I\) tel que \( I= A a\). Il est \defe{principal à droite}{idéal!principal!à droite} s'il existe \( a\in I\) tel que \( I=a A\). Nous disons qu'il est \defe{principal}{principal!idéal} s'il est principal à gauche et à droite.
-\end{definition}
-
-\begin{definition}          \label{DEFooGWOZooXzUlhK}
-    Un anneau est \defe{principal}{principal!anneau} si
-    \begin{enumerate}
-        \item
-            il est commutatif et intègre
-        \item
-            tous ses idéaux sont principaux.
-    \end{enumerate}
-\end{definition}
-
-Souvent pour prouver qu'un anneau est principal, nous prouvons qu'il est euclidien (définition~\ref{DefAXitWRL}) et nous utilisons la proposition~\ref{Propkllxnv} qui dit qu'un anneau euclidien est principal.
-
-Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'est pas factoriel, théorème~\ref{THOooANCAooBChmwp}.
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Anneau principal et idéal premier}
+%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Idéal premier}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 \begin{definition}      \label{DEFooAQSZooVhvQWv}
     Nous disons qu'un idéal \( I\) dans \( A\) est \defe{premier}{premier!idéal} si \( I\) est strictement inclus dans \( A\) et si pour tout \( a,b\in A\) tels que \( ab\in I\) nous avons \( a\in I\) ou \( b\in I\).
@@ -408,8 +372,8 @@ Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'
     \end{subproof}
 \end{proof}
 
-\begin{proposition}[\cite{ooWEUDooQybvIx}]      \label{PROPooRUQKooIfbnQX}
-    Soit un anneau commutatif\footnote{Tous les anneaux du Frido sont commutatifs} et un idéal \( I\) dans \( A\).
+\begin{proposition}[\cite{ooWEUDooQybvIx, ooOYKZooOJBDHS}]      \label{PROPooRUQKooIfbnQX}   \label{PROPooHABIooBZZQMj}
+    Soit un anneau commutatif et un idéal \( I\) dans \( A\).
     \begin{enumerate}
         \item       \label{ITEMooUGBTooOGrnWl}
             \( I\) est un idéal premier si et seulement si \( A/I\) est un anneau intègre.
@@ -422,15 +386,17 @@ Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'
 
 
 \begin{proof}
-    En plein d'étapes.
+    Il n'y a que \ref{ITEMooUGBTooOGrnWl} et \ref{ITEMooTFFQooOUajFw} à vraiment prouver, parce que \ref{ITEMooGLXSooUjINqR} est la proposition \ref{PROPooSHHWooCyZPPw}. Nous allons néanmoins en donner une autre preuve, plus constructive.
     \begin{subproof}
-        \item[\( I\) premier implique \( A/I\) intègre]
+        \item[ \ref{ITEMooUGBTooOGrnWl} -- \( I\) premier implique \( A/I\) intègre]
             Évacuons le cas trivial pour être sûr. Si \( I=\{ 0 \}\) alors \( A\) est intègre par le lemme \ref{LEMooYRPBooYxXXsi}. Donc \( A/I=A/\{ 0 \}=A\) est intègre également.
 
             Soient \( a,b\in A\) tels que \( [a][b]=[0]\). Donc \( [ab]=[0]\), c'est-à-dire \( ab\in I\). Vu que \( I\) est un idéal premier nous avons \( a\in I\) ou \( b\in I\), c'est-à-dire \( [a]=0\) ou \( [b]=0\); nous en déduisons que \( A/I\) est un anneau intègre.
-        \item[\( A/I\) intègre implique \( I\) premier]
+
+        \item[ \ref{ITEMooUGBTooOGrnWl} -- \( A/I\) intègre implique \( I\) premier]
             Soit \( ab\in I\). Alors \( [ab]=0\), ce qui signifie que \( [a][b]=0\) donc que \( [a]=0\) ou que \( [b]=0\) parce que \( A/I\) est intègre. Mais la condition \( [a]=0\) signifie \( a\in I\), et \( [b]=0\) signifie \( b\in I\). Nous avons donc prouvé que soit \( a\) soit \( b\) est dans \( I\), c'est-à-dire que \( I\) est premier.
-        \item[Si \( I\) est un idéal maximum]
+
+        \item[\ref{ITEMooGLXSooUjINqR} -- \( I\) maximum implique \( A/I\) corps]
 
             Nous devons montrer que tout élément non nul de \( A/I\) est inversible. Un élément non nul de \( A/I\) est \( [x]\) avec \( x\in A\setminus I\). 
             
@@ -440,7 +406,7 @@ Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'
 
             Donc \( J=A\). En particulier, \( 1\in J\), c'est-à-dire qu'il existe \( a\in A\) et \( i\in I\) tels que \( ax+i=1\). En passant aux classes, \( [ax]=1\), c'est-à-dire \( [a][x]=1\) qui signifie que \( [a]\) est un inverse de \( [x]\) dans \( A/I\).
 
-        \item[Si \( A/I\) est un corps]
+        \item[\ref{ITEMooGLXSooUjINqR} -- \( A/I\) est corps implique \( I\) maximum]
 
             Si \( x\in A\setminus I\), il faut prouver que tout idéal contenant \( I\) et \( x\) est \( A\).
 
@@ -450,7 +416,7 @@ Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'
             \end{equation}
             C'est-à-dire que \( 1\in Ax+I\) et donc \( Ax+I=A\).
     \end{subproof}
-    Enfin nous prouvons que tout idéal maximal propre est premier. 
+    Il reste à prouver \ref{ITEMooTFFQooOUajFw}: tout idéal maximal propre est premier. 
 
     Si \( I\) est maximal, \( A/I\) est un corps par le point \ref{ITEMooGLXSooUjINqR}, et vu que \( I\) est propre, le corps \( A/I\) n'est pas réduit à \( \{ 0 \}\). Donc le lemme \ref{LemAnnCorpsnonInterdivzer} dit que \( A/I\) est un anneau intègre. Le point \ref{ITEMooUGBTooOGrnWl} dit alors que \( I\) est un idéal premier.
 \end{proof}
@@ -459,17 +425,26 @@ Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'
     Vu qu'un corps peut être réduit à \( \{0\}\), dans \ref{ITEMooGLXSooUjINqR}, l'idéal peut être \( A\). Mais pas dans \ref{ITEMooTFFQooOUajFw}, parce qu'un idéal premier est propre, ça fait partie de la définition \ref{DEFooAQSZooVhvQWv}.
 \end{remark}
 
-\begin{proposition}[\cite{ooOYKZooOJBDHS}]     \label{PROPooHABIooBZZQMj}
-    Si \( A\) est un anneau commutatif intègre, alors un idéal \( I\) dans \( A\) est premier si et seulement si \( A/I\) est intègre.
-\end{proposition}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Idéal principal, anneau principal}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\begin{definition}      \label{DEFooMZRKooBPLAWH}
+    Un idéal \( I\) dans \( A\) est \defe{principal à gauche}{idéal!principal!à gauche} s'il existe \( a\in I\) tel que \( I= A a\). Il est \defe{principal à droite}{idéal!principal!à droite} s'il existe \( a\in I\) tel que \( I=a A\). Nous disons qu'il est \defe{principal}{principal!idéal} s'il est principal à gauche et à droite.
+\end{definition}
 
-\begin{proof}
-    Supposons que \( I\) soit un idéal premier. Si \( \bar a,\bar b\in A/I\)  sont tels que \( \bar a\bar b=0\), alors \( \overline{ ab }=0\), ce qui signifie que \( ab\in I\). Mais alors, vu que \( I\) est premier, soit \( a\) soit \( b\) est dans \( I\). Cela signifie que soit \( \bar a\) soit \( \bar b\) est nul dans \( A/I\). Cela prouve que \( A/I\) est un anneau intègre.
+\begin{definition}          \label{DEFooGWOZooXzUlhK}
+    Un anneau est \defe{principal}{principal!anneau} si
+    \begin{enumerate}
+        \item
+            il est commutatif et intègre
+        \item
+            tous ses idéaux sont principaux.
+    \end{enumerate}
+\end{definition}
 
-    Dans l'autre sens, nous supposons que \( A/I\) est intègre. Cela implique immédiatement que \( I\neq A\) parce que \( A/A\) n'est pas un anneau intègre (tout le monde est évidemment diviseur de zéro).
+Souvent pour prouver qu'un anneau est principal, nous prouvons qu'il est euclidien (définition~\ref{DefAXitWRL}) et nous utilisons la proposition~\ref{Propkllxnv} qui dit qu'un anneau euclidien est principal.
 
-    Soient donc \( a,b\in A\) tels que \( ab\in I\). Alors \( \bar a\bar b= \overline{ ab }=0\) dans \( A/I\), mais comme \( A/I\) est intègre, cela implique que soit \( \bar a\) soit \( \bar b\) est nul. Autrement dit, soit \( a\) soit \( b\) est dans \( I\).
-\end{proof}
+Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'est pas factoriel, théorème~\ref{THOooANCAooBChmwp}.
 
 \begin{proposition}[Thème~\ref{THEMEooZYKFooQXhiPD}, \cite{MonCerveau}] \label{PropomqcGe}
     Soit \( A\) un anneau principal\footnote{Définition \ref{DEFooGWOZooXzUlhK}.} qui n'est pas un corps. Pour un idéal propre \( I\) de \( A\), les conditions suivantes sont équivalentes :
@@ -488,9 +463,8 @@ Une manière de prouver qu'un anneau n'est pas principal est de prouver qu'il n'
     \begin{subproof}
         \item[\ref{ITEMooNOVFooEHtcwE} implique~\ref{ITEMooMQWVooNocVEU}]
 
-            Par hypothèse, \( I\) est un idéal propre, de plus il n'est pas égal à \( \{ 0 \}\), parce que lorsque \( A\) et \( \{ 0 \} \) sont les seuls idéaux, nous avons un corps (proposition~\ref{PROPooUOCVooZGAVVk}). Étant donné que \( I\) est un idéal maximal, le quotient \( A/I\) est un corps par la proposition~\ref{PROPooSHHWooCyZPPw}.
+            Par hypothèse, \( I\) est un idéal propre, de plus il n'est pas égal à \( \{ 0 \}\), parce que lorsque \( A\) et \( \{ 0 \} \) sont les seuls idéaux, nous avons un corps (proposition~\ref{PROPooUOCVooZGAVVk}). Étant donné que \( I\) est un idéal maximal, le quotient \( A/I\) est un corps par la proposition~\ref{PROPooSHHWooCyZPPw}. Le quotient est donc, comme tout corps, un anneau intègre (exemple~\ref{EXooMXNTooZaRPPi}), et la proposition~\ref{PROPooRUQKooIfbnQX} dit qu'alors, l'idéal \(I \) est premier.
 
-            Soient maintenant, pour entrer dans le vif du sujet, des éléments \( a,b\in A\) tels que \( ab\in I\). Dans le corps \( A/I\) nous avons \( \overline{ ab }=0\), et par définition du produit dans le quotient, \( \bar a\bar b=0\). Par intégrité de l'anneau \( A/I\) (un corps est un anneau intègre, exemple~\ref{EXooMXNTooZaRPPi}) nous avons soit \( \bar a=0\), soit \( \bar b=0\), soit les deux en même temps. Dans tous les cas, soit \( a\) soit \( b\) est dans \( I\).
 
         \item[\ref{ITEMooMQWVooNocVEU} implique~\ref{ITEMooJBXGooEISNuW}]
 
@@ -579,16 +553,15 @@ Nous disons que deux éléments d'un anneau principal sont \defe{premiers entre 
 \end{theorem}
 % TODO : trouver une preuve. Je parie que recopier la même que celle dans Z fonctionne très bien.
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Bézout}
-%---------------------------------------------------------------------------------------------------------------------------
-
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Bézout}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \begin{theorem}[\cite{XPXxPl}]
     Toute partie \( S\) d'un anneau principal admet un PGCD et un PPCM. De plus
     \begin{equation}
         \begin{aligned}[]
-            \delta=\pgcd(S)\Leftrightarrow (\delta)=\sum_{s\in S}(s)
-            \mu=\ppcm(S)\Leftrightarrow (\mu)=\bigcap_{s\in S}(s)
+            \delta=\pgcd(S)&\Leftrightarrow (\delta)=\sum_{s\in S}(s)\\
+            \mu=\ppcm(S)&\Leftrightarrow (\mu)=\bigcap_{s\in S}(s)
         \end{aligned}
     \end{equation}
 \end{theorem}
@@ -648,44 +621,38 @@ Le lemme de Gauss est une application immédiate de Bézout. Il y aura aussi un 
 \end{proof}
 Un cas usuel d'utilisation est le cas de \( A=\eN^*\).
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Élément premier}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Élément premier}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 \begin{definition}[\cite{ooWBLYooLYwALS}]       \label{DEFooZCRQooWXRalw}
     Soit un anneau commutatif \( A\). Un élément \( p\in A\) est \defe{premier}{élément premier} si il est
     \begin{enumerate}
         \item
-            non nul,
-        \item
-            non inversible,
+            non nul et non inversible, et
         \item       \label{ITEMooPMTTooCVHPIm}
-            si \( p\) divise un produit \( ab\), alors il divise soit \( a\) soit \( b\) (ou le deux).
+            tel que, s'il divise un produit \( ab\), alors il divise soit \( a\) soit \( b\) (ou les deux).
     \end{enumerate}
 \end{definition}
 
 \begin{proposition}[\cite{ooTGPAooQTbamu}]     \label{PROPooWMNPooZdvOBt}
-    Dans un anneau intègre\footnote{Si pas intègre, voir l'exemple \ref{EXooEIUEooCZCPMC}.} tout élément premier est irréductible\footnote{Toutes les définitions dans le thème \ref{THEMEooVIQIooOcFAQS}.}.
+    Dans un anneau intègre\footnote{Si pas intègre, voir l'exemple \ref{EXooEIUEooCZCPMC}.} tout élément premier est irréductible\footnote{Toutes les définitions dans le thème \ref{THEMEooVIQIooOcFAQS}. Ici, penser à la définition~\ref{DeirredBDhQfA}}.
 \end{proposition}
     
 \begin{proof}
-    Soit \( p\), un élément premier dans un anneau intègre \( A\).
-    \begin{subproof}
-        \item[\( p\) n'est pas inversible]
-            Cela fait partie de la définition d'un élément premier.
-        \item[\( p\) n'est pas un produit d'inversibles]
-            Soient \( a,b\in A\) tels que \( p=ab\). Par le point \ref{ITEMooPMTTooCVHPIm} de la définition \ref{DEFooZCRQooWXRalw}, \( p\) divise soit \( a\) soit \( b\). Supposons que \( p\) divise \( a\). Alors il existe \( x\in A\) tel que \( a=px\). En remettant dans \( p=ab\) nous avons :
+    Soit \( p\), un élément premier dans un anneau intègre \( A\). Alors  \( p\) n'est pas inversible, cela fait partie de la définition d'un élément premier. Vérifions par l'absurde qu'il n'est pas un produit d'inversibles.
+    
+    Soient \( a,b\in A\) tels que \( p=ab\). Par le point \ref{ITEMooPMTTooCVHPIm} de la définition \ref{DEFooZCRQooWXRalw}, \( p\) divise soit \( a\) soit \( b\). Supposons que \( p\) divise \( a\). Alors il existe \( x\in A\) tel que \( a=px\). En remettant dans \( p=ab\) nous avons :
             \begin{equation}        \label{EQooPYBGooLFHMJZ}
                 p=pxb.
             \end{equation}
-            Mais l'anneau est intègre et permet donc des simplifications par tout élément non nul. La relation \ref{EQooPYBGooLFHMJZ} donne donc 
+            Mais l'anneau est intègre et permet donc des simplifications par tout élément non nul\footnote{Proposition~\ref{DEFooTAOPooWDPYmd}}. La relation \ref{EQooPYBGooLFHMJZ} donne donc 
             \begin{equation}
                 1=xb,
             \end{equation}
             ce qui signifie que \( b\) est inversible.
 
             Un travail similaire montre que \( a\) est inversible si \( p\) divise \( b\).
-    \end{subproof}
 \end{proof}
 
 \begin{example}
@@ -700,7 +667,7 @@ Sur un anneau non intègre, la notion d'élément premier n'est pas aussi intér
         \item[\( (1,0)\) est premier]
             L'élément \( (1,0)\) est non nul; ça c'est pas cher. Pour qu'il soit inversible, il faudrait \( (1,0)(x,y)=(1,1)\). Entre autres, \( 0\times y=1\), ce qui est impossible. Donc il n'est pas inversible.
 
-            Supposons que \( (1,0)\) divise le produit \( (a,b)(c,d)=(ac,b)\). Alors il existe \( (x,y)\) tel que \( (1,0)(x,y)=(ac,bd)\). Cela signifie que \( x=ac\) et \( 0\times y=bd\). En particulier, soit \( b=0\) soit \( d=0\). Si \( b=0\), nous avons \( (a,b)=(a,0)\) et effectivement, \( (1,0)\) le divise.
+            Supposons que \( (1,0)\) divise le produit \( (a,b)(c,d)=(ac,bd)\). Alors il existe \( (x,y)\) tel que \( (1,0)(x,y)=(ac,bd)\). Cela signifie que \( x=ac\) et \( 0\times y=bd\). En particulier, soit \( b=0\) soit \( d=0\). Si \( b=0\), nous avons \( (a,b)=(a,0)\) et effectivement, \( (1,0)\) le divise.
         \item[\( (1,0)\) n'est pas irréductible]
             Nous avons \( (1,0)=(1,0)(1,0)\). Donc l'élément \( (1,0)\) est le produit de deux éléments non inversibles.
     \end{subproof}
@@ -733,7 +700,7 @@ Sur un anneau non intègre, la notion d'élément premier n'est pas aussi intér
             \begin{itemize}
                 \item La condition \( p\neq 0\) est dans les hypothèses de la proposition.
                 \item Si \( p\) était inversible, nous aurions \( (p)=A\) et donc pas que \( (p)\) est un idéal premier.
-                \item Soient \( a,b\in A\) tels que \( p\divides ab\). En particulier, \( (ab)\in (p)\). Mais comme \( (p)\) est un idéal premier, cela implique soit \( a\in (p)\) soit \( b\in (p)\). Donc soit \( p\) divise \( a\) soit \( p\) divise \( b\).
+                \item Soient \( a,b\in A\) tels que \( p\divides ab\). En particulier, \( ab \in (p)\). Mais comme \( (p)\) est un idéal premier, cela implique soit \( a\in (p)\) soit \( b\in (p)\). Donc soit \( p\) divise \( a\) soit \( p\) divise \( b\).
             \end{itemize}
         \item[\ref{ITEMooKQRMooBNPDMX} implique \ref{ITEMooZYYJooCWiBhL}]
             Un anneau principal est intègre; c'est dans la définition \ref{DEFooGWOZooXzUlhK}. Dans un anneau intègre, tout élément premier est irréductible, c'est la proposition \ref{PROPooWMNPooZdvOBt}.
@@ -809,130 +776,9 @@ Montrer que tout anneau principal est noethérien est le premier pas pour montre
     Le fait que \( \eZ[i\sqrt{ 5 }]\) ne soit pas factoriel implique qu'il ne soit pas principal, théorème~\ref{THOooANCAooBChmwp}.
 \end{example}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{Anneau \texorpdfstring{$ \eZ/6\eZ$}{Z/6Z}}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\label{SECooSWGKooEeOZTO}
-
-Nous allons donner quelques propriétés de cet anneau, et en particulier voir que dans cet anneau non intègre, la notion d'élément irréductible n'est pas très intéressante.
-
-Voici pour commencer un calcul la table de multiplication de \( A=\eZ/6\eZ\). Pour les multiples de (par exemple) \( [4]_6\) nous écrivons
-\begin{equation}
-    1\times [4]_6=[4_6]
-\end{equation}
-et ensuite
-\begin{equation}
-    2\times [4]_6=[8]_6=[2]_6,
-\end{equation}
-puis
-\begin{equation}
-    3\times [4]_6=[2+4]_6=[6]_6=[0]_6,
-\end{equation}
-et caetera. Le résultat est :
-\begin{equation}
-\begin{array}{c|c|c|c|c|c|c}
-    \times & [0]_6 & [1]_6  & [2]_6  & [3]_6 & [4]_6 & [5]_6  \\
-\hline\hline
-[0]_6 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
-\hline
-[1]_6  & 0 & 1 & 2 & 3 & 4 & 5 \\ 
-\hline
-[2]_6 & 0 & 2 & 4 & 0 & 2 & 4 \\ 
-\hline
-[3]_6 & 0 & 3 & 0 & 3 & 0 & 3 \\ 
-\hline
-[4]_6 & 0 & 4 & 2 & 0 & 4 & 2 \\ 
-\hline
-[5]_6 & 0 & 5 & 4 & 3 & 2 & 1 \\ 
-\hline
-\end{array}
-\end{equation}
-Pour ne pas alourdir, nous n'avons pas écrit \( [x]_6\) partout au lieu de \( x\).
-
-\begin{normaltext}[Inversibles]
-    Les éléments inversibles de \( \eZ/6\eZ\) sont ceux qui ont un \( [1]_6\) dans leur table de multiplication. Ce sont donc
-    \begin{equation}
-        U(\eZ/6\eZ)=\big\{ [1]_6,[5]_6 \big\}.
-    \end{equation}
-\end{normaltext}
-
-\begin{normaltext}[Diviseurs de zéro]
-    Les diviseurs de zéro sont ceux qui ont un \( [0]_6\) dans leur table de multiplication, c'est-à-dire
-    \begin{equation}
-        \big\{ [2]_6,[3]_6,[4]_6 \big\}.
-    \end{equation}
-\end{normaltext}
-
-\begin{normaltext}[Irréductibles]
-    Les irréductibles sont ceux qui ne sont ni inversibles ni produit de deux éléments non inversibles. Les non inversibles sont :
-    \begin{equation}
-        \big\{ [0]_6,[2]_6,[3]_6,[4]_6 \}.
-    \end{equation}
-    Ils sont candidats à être irréductibles. Les produits de ces éléments (on oublie les crochets) sont :
-    \begin{subequations}
-        \begin{align}
-            2\times 2&=4\\
-            2\times 3&=0\\
-            2\times 4&=2\\
-            3\times 3&=3\\
-            3\times 4&=0\\
-            4\times 4&=4.
-        \end{align}
-    \end{subequations}
-    Donc \( [0]_6\), \( [2]_6\), \( [3]_6\) et \( [4]_6\) ne sont plus candidats à être irréductible. Bref, il ne reste aucun candidats.
-
-    L'anneau \( \eZ/6\eZ\) n'a aucun élément irréductible.
-\end{normaltext}
-
-\begin{normaltext}[Éléments premiers]       \label{NORMooAXOKooAQMXoB}
-    Les éléments non nuls et non inversibles sont \( 2\), \( 3\) et \( 4\).
-    \begin{subproof}
-    \item[Pour \( 2\)]
-        L'élément \( [2]_6\) divise \( 2\), \( 4\) et \( 0\).
-        \begin{itemize}
-            \item Les \( (a,b)\) tels que \( ab=2\) sont : $(1,2)$, \( (2,4)\) et \( (5,4)\). L'élément \( 2\) divise donc toujours \( a\) ou \( b\).
-            \item Les \( (a,b)\) tels que \( ab=4\) sont : $(1,4)$, \( (2,5)\) et \( (4,4)\). L'élément \( 2\) divise donc toujours \( a\) ou \( b\).
-            \item Les \( (a,b)\) tels que \( ab=0\) sont : \( (0,x)\),  $(3,2)$ et \( (4,3)\). L'élément \( 2\) divise donc toujours \( a\) ou \( b\). En particulier, \( [2]_6\) divise \( [0]_6\); c'est important.
-        \end{itemize}
-        Donc \( [2]_6\) est un élément premier.
-    \item[Pour \( 3\)]
-        L'élément \( [3]_6\) divise \( 3\) et \( 0\).
-        \begin{itemize}
-            \item Les \( (a,b)\) tels que \( ab=3\) sont : $(1,3)$ et \( (3,5)\). L'élément \( 3\) divise donc toujours \( a\) ou \( b\).
-            \item Les \( (a,b)\) tels que \( ab=0\) sont : \( (0,x)\),  $(3,2)$ et \( (4,3)\). L'élément \( 3\) divise donc toujours \( a\) ou \( b\).
-        \end{itemize}
-        Donc \( [3]_6\) est un élément premier.
-        L'élément \( [4]_6\) divise \( 4\), \( 2\) et \( 0\).
-        \begin{itemize}
-            \item Les \( (a,b)\) tels que \( ab=4\) sont : $(1,4)$, \( (2,5)\) et \( (4,4)\). L'élément \( 4\) divise donc toujours \( a\) ou \( b\).
-            \item Les \( (a,b)\) tels que \( ab=2\) sont : $(1,2)$, \( (2,4)\) et \( (5,4)\). L'élément \( 4\) divise donc toujours \( a\) ou \( b\).
-            \item Les \( (a,b)\) tels que \( ab=0\) sont : \( (0,x)\),  $(3,2)$ et \( (4,3)\). L'élément \( 4\) divise donc toujours \( a\) ou \( b\).
-        \end{itemize}
-        Donc \( [4]_6\) est un élément premier.
-    \end{subproof}
-    Au final, les éléments premiers dans \( \eZ/6\eZ\) sont 
-    \begin{equation}
-        \big\{ [2]_6, [3]_6, [4]_6  \big\}.
-    \end{equation}
-\end{normaltext}
-
-Vous noterez que \( \eZ/6\eZ\) a des éléments premiers non irréductibles. Cela est un contre-exemple à la proposition \ref{PROPooZICGooNmblhl} dans le cas d'un anneau non-intègre.
-
-
-\begin{lemma}[\cite{MonCerveau}]    \label{LEMooZSELooGOFEIz}
-    L'anneau \( \eZ/6\eZ\) est noetherien, mais ni intègre ni principal\footnote{Toutes les définitions dans le thème \ref{THEMEooVIQIooOcFAQS}.}.
-\end{lemma}
-
-\begin{proof}
-    Vu que c'est un anneau fini, toute suite croissante de quoi que ce soit devient stationnaire; donc \( \eZ/6\eZ\) est noetherien.
-
-    Vu que \( \eZ/6\eZ\) a des diviseurs de zéro, il n'est pas intègre. Et vu qu'il n'est pas intègre, il n'est pas factoriel non plus.
-\end{proof}
-
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Anneau euclidien}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Anneau euclidien}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[\wikipedia{fr}{Anneau_euclidien}{Wikipédia}] \label{DefAXitWRL}
     Soit \( A\) un anneau intègre. Un \defe{stathme euclidien}{stathme euclidien} sur \( A\) est une application \( \alpha\colon A\setminus\{ 0 \}\to \eN\) tel que
@@ -1337,4 +1183,122 @@ Remarquons que cela est équivalent à montrer que les trois nombres sont premie
     et a fortiori \( \gamma<z\).
 \end{proof}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Anneau \texorpdfstring{$ \eZ/6\eZ$}{Z/6Z}}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooSWGKooEeOZTO}
 
+Nous allons donner quelques propriétés de cet anneau, et en particulier voir que dans cet anneau non intègre, la notion d'élément irréductible n'est pas très intéressante.
+
+Voici pour commencer un calcul la table de multiplication de \( A=\eZ/6\eZ\). Pour les multiples de (par exemple) \( [4]_6\) nous écrivons
+\begin{equation}
+    1\times [4]_6=[4_6]
+\end{equation}
+et ensuite
+\begin{equation}
+    2\times [4]_6=[8]_6=[2]_6,
+\end{equation}
+puis
+\begin{equation}
+    3\times [4]_6=[2+4]_6=[6]_6=[0]_6,
+\end{equation}
+et caetera. Le résultat est :
+\begin{equation}
+\begin{array}{c|c|c|c|c|c|c}
+    \times & [0]_6 & [1]_6  & [2]_6  & [3]_6 & [4]_6 & [5]_6  \\
+\hline\hline
+[0]_6 & 0 & 0 & 0 & 0 & 0 & 0 \\ 
+\hline
+[1]_6  & 0 & 1 & 2 & 3 & 4 & 5 \\ 
+\hline
+[2]_6 & 0 & 2 & 4 & 0 & 2 & 4 \\ 
+\hline
+[3]_6 & 0 & 3 & 0 & 3 & 0 & 3 \\ 
+\hline
+[4]_6 & 0 & 4 & 2 & 0 & 4 & 2 \\ 
+\hline
+[5]_6 & 0 & 5 & 4 & 3 & 2 & 1 \\ 
+\hline
+\end{array}
+\end{equation}
+Pour ne pas alourdir, nous n'avons pas écrit \( [x]_6\) partout au lieu de \( x\).
+
+\begin{normaltext}[Inversibles]
+    Les éléments inversibles de \( \eZ/6\eZ\) sont ceux qui ont un \( [1]_6\) dans leur table de multiplication. Ce sont donc
+    \begin{equation}
+        U(\eZ/6\eZ)=\big\{ [1]_6,[5]_6 \big\}.
+    \end{equation}
+\end{normaltext}
+
+\begin{normaltext}[Diviseurs de zéro]
+    Les diviseurs de zéro sont ceux qui ont un \( [0]_6\) dans leur table de multiplication, c'est-à-dire
+    \begin{equation}
+        \big\{ [2]_6,[3]_6,[4]_6 \big\}.
+    \end{equation}
+\end{normaltext}
+
+\begin{normaltext}[Irréductibles]
+    Les irréductibles sont ceux qui ne sont ni inversibles ni produit de deux éléments non inversibles. Les non inversibles sont :
+    \begin{equation}
+        \big\{ [0]_6,[2]_6,[3]_6,[4]_6 \}.
+    \end{equation}
+    Ils sont candidats à être irréductibles. Les produits de ces éléments (on oublie les crochets) sont :
+    \begin{subequations}
+        \begin{align}
+            2\times 2&=4\\
+            2\times 3&=0\\
+            2\times 4&=2\\
+            3\times 3&=3\\
+            3\times 4&=0\\
+            4\times 4&=4.
+        \end{align}
+    \end{subequations}
+    Donc \( [0]_6\), \( [2]_6\), \( [3]_6\) et \( [4]_6\) ne sont plus candidats à être irréductible. Bref, il ne reste aucun candidats.
+
+    L'anneau \( \eZ/6\eZ\) n'a aucun élément irréductible.
+\end{normaltext}
+
+\begin{normaltext}[Éléments premiers]       \label{NORMooAXOKooAQMXoB}
+    Les éléments non nuls et non inversibles sont \( 2\), \( 3\) et \( 4\).
+    \begin{subproof}
+    \item[Pour \( 2\)]
+        L'élément \( [2]_6\) divise \( 2\), \( 4\) et \( 0\).
+        \begin{itemize}
+            \item Les \( (a,b)\) tels que \( ab=2\) sont : $(1,2)$, \( (2,4)\) et \( (5,4)\). L'élément \( 2\) divise donc toujours \( a\) ou \( b\).
+            \item Les \( (a,b)\) tels que \( ab=4\) sont : $(1,4)$, \( (2,5)\) et \( (4,4)\). L'élément \( 2\) divise donc toujours \( a\) ou \( b\).
+            \item Les \( (a,b)\) tels que \( ab=0\) sont : \( (0,x)\),  $(3,2)$ et \( (4,3)\). L'élément \( 2\) divise donc toujours \( a\) ou \( b\). En particulier, \( [2]_6\) divise \( [0]_6\); c'est important.
+        \end{itemize}
+        Donc \( [2]_6\) est un élément premier.
+    \item[Pour \( 3\)]
+        L'élément \( [3]_6\) divise \( 3\) et \( 0\).
+        \begin{itemize}
+            \item Les \( (a,b)\) tels que \( ab=3\) sont : $(1,3)$ et \( (3,5)\). L'élément \( 3\) divise donc toujours \( a\) ou \( b\).
+            \item Les \( (a,b)\) tels que \( ab=0\) sont : \( (0,x)\),  $(3,2)$ et \( (4,3)\). L'élément \( 3\) divise donc toujours \( a\) ou \( b\).
+        \end{itemize}
+        Donc \( [3]_6\) est un élément premier.
+        L'élément \( [4]_6\) divise \( 4\), \( 2\) et \( 0\).
+        \begin{itemize}
+            \item Les \( (a,b)\) tels que \( ab=4\) sont : $(1,4)$, \( (2,5)\) et \( (4,4)\). L'élément \( 4\) divise donc toujours \( a\) ou \( b\).
+            \item Les \( (a,b)\) tels que \( ab=2\) sont : $(1,2)$, \( (2,4)\) et \( (5,4)\). L'élément \( 4\) divise donc toujours \( a\) ou \( b\).
+            \item Les \( (a,b)\) tels que \( ab=0\) sont : \( (0,x)\),  $(3,2)$ et \( (4,3)\). L'élément \( 4\) divise donc toujours \( a\) ou \( b\).
+        \end{itemize}
+        Donc \( [4]_6\) est un élément premier.
+    \end{subproof}
+    Au final, les éléments premiers dans \( \eZ/6\eZ\) sont 
+    \begin{equation}
+        \big\{ [2]_6, [3]_6, [4]_6  \big\}.
+    \end{equation}
+\end{normaltext}
+
+Vous noterez que \( \eZ/6\eZ\) a des éléments premiers non irréductibles. Cela est un contre-exemple à la proposition \ref{PROPooZICGooNmblhl} dans le cas d'un anneau non-intègre.
+
+
+\begin{lemma}[\cite{MonCerveau}]    \label{LEMooZSELooGOFEIz}
+    L'anneau \( \eZ/6\eZ\) est noetherien, mais ni intègre ni principal\footnote{Toutes les définitions dans le thème \ref{THEMEooVIQIooOcFAQS}.}.
+\end{lemma}
+
+\begin{proof}
+    Vu que c'est un anneau fini, toute suite croissante de quoi que ce soit devient stationnaire; donc \( \eZ/6\eZ\) est noetherien.
+
+    Vu que \( \eZ/6\eZ\) a des diviseurs de zéro, il n'est pas intègre. Et vu qu'il n'est pas intègre, il n'est pas factoriel non plus.
+\end{proof}
