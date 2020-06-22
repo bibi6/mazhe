@@ -3,9 +3,15 @@
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
+On y va peut-être un peu fort en définissant encore une nouvelle structure, mais elle nous permettra de faire plein de choses ensuite.
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Module sur un anneau}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%--------------------------------------------------------------------------------------------------------------------------- 
+\subsection{Définitions et morphismes}
+%---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}[module sur un anneau\cite{ooJGVOooSjQBVh}]       \label{DEFooHXITooBFvzrR}
     Soit un anneau \( A\). Un \defe{module à gauche}{module!à gauche} sur \( A\) est la donnée d'un triple \( (M,+,\cdot)\) où
@@ -71,6 +77,19 @@
     où \( T\) est fini dans \( S\) et \( a_t\in A\).
 \end{definition}
 
+\begin{definition}
+  Soit \( M \) et \( N \) deux modules sur un même anneau \( A \). Un \defe{morphisme}{morphisme!de modules} (ou homomorphisme) de modules est une application de \( M \) dans \( N \) qui respecte la structure de modules. En d'autres termes, une application \( f : M \to N \) est un morphisme de modules si:
+  \begin{enumerate}
+    \item
+      \( f \) est un morphisme de groupes additifs entre \( M \) et \( N \);
+    \item
+      pour tout \( a \in A\), et tout \(m  \in M\), on a \( f(am) = a f(m) \).
+  \end{enumerate}
+  L'ensemble des morphismes de modules sur \( A \) entre \(M \) et \( N \) est noté \( \Hom_A(M, N)\)
+\end{definition}
+
+
+
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Module produit}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -95,9 +114,9 @@
 \begin{lemma}
     Pour chaque \( i\in I\) nous considérons l'élément \( e_i\in A^I\) donné par
     \begin{equation}
-        e_i=(\delta_{ij})_{j\in I}.
+        e_i=(\delta_{ij})_{j\in I}, \qquad\text{où } \delta_ij = 1 \text{si } i = j \text{ et } 0 \text{ sinon.}
     \end{equation}
-    La famille \( \{ e_i \}_{i\in I}\) est libre\footnote{Définition \ref{DEFooRUKVooLnXxdS}.} dans \( A^I\).
+    Alors la famille \( \{ e_i \}_{i\in I}\) est libre\footnote{Définition \ref{DEFooRUKVooLnXxdS}.} dans \( A^I\).
 \end{lemma}
 
 \begin{proof}
@@ -116,8 +135,10 @@
     Nous notons \( A^{(I)}\) le sous-module de \( A^I\) engendré\footnote{Définition \ref{DEFooWBOBooJNyyBF}.} par les \( e_i\).
 \end{definition}
 
+
+
 \begin{theorem}[Propriété universelle de \( A^{(I)}\)\cite{BIBooSTWWooItiMUp}]      \label{THOooPDZCooJnHbOd}
-    Soient un anneau \( A\) ainsi qu'un \( A\)-module \( P\). Pour \( \phi\in\Hom_A(A^{(I)}, P)\), nous considérons
+    Soient un anneau \( A\) ainsi qu'un \( A\)-module \( P\). Si \( \phi \) est un homomorphisme de \( A \)-modules de \(A^{(I)}\) vers \(P\), nous considérons
     \begin{equation}
         \begin{aligned}
             \phi|_I\colon I&\to P \\
@@ -271,16 +292,14 @@ Un module simple est a fortiori indécomposable. L'inverse n'est pas vrai comme 
 \subsection{Polynômes d'une variable}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Et voilà la définition que tout le monde attendait; la définition des anneaux de polynômes. Pour ne pas taper trop fort du premier coup, nous commençons par les polynômes d'une seule variable.
+Nous allons définir et étudier ici l'anneau des polynômes sur un anneau \( A\), c'est-à-dire ce qui sera noté \( A[X]\). Certes, on l'a déjà construit d'une certaine façon précédemment, mais la définition qui suit est plus formelle. Pour \( \eK(X)\) lorsque \( \eK\) est un corps, voir~\ref{DEFooQPZIooQYiNVh}.
 
-Nous allons définir et étudier ici l'anneau des polynômes sur un anneau \( A\), c'est-à-dire ce qui sera noté \( A[X]\). Pour \( \eK(X)\) lorsque \( \eK\) est un corps, voir~\ref{DEFooQPZIooQYiNVh}.
-
-L'ensemble des polynômes sur \( A\) sera simplement \( A^{(\eN)}\). Vu que \( \eN\) est un ensemble bien particulier possédant plein de structure, nous allons pouvoir mettre sur \( A^{(\eN)}\) une structure non seulement de \( A\)-module (ça c'est déjà fait), mais en plus d'anneau ainsi qu'une évaluation.
+L'ensemble des polynômes sur \( A\) sera simplement \( A^{(\eN)}\), sur lequel nous allons mettre une structure. Il a déjà une structure de \( A\)-module, nous allols lui ajouter celle d'anneau ainsi qu'une évaluation.
 \begin{definition}      \label{DEFooFYZRooMikwEL}
     L'ensemble des \defe{polynômes}{polynômes} en une indéterminée sur l'anneau \( A\) est l'anneau \( A^{(\eN)}\) que nous avons défini en \ref{DEFooBMEPooFsCHgb}.
 \end{definition}
 
-Nous ne voyons pas encore bien le lien avec la notation \( A[X]\); nous le verrons plus tard. 
+Nous ne voyons pas encore bien le lien avec la notation \( A[X]\), et pour cause: on n'a pas encore le produit.
 
 Vu que \( A^{(\eN)}\) est engendré par les \( e_i\), tout polynôme sur \( A\) s'écrit \( P=\sum_{i=1}^na_ie_i\).
 
@@ -302,7 +321,7 @@ Vu que \( A^{(\eN)}\) est engendré par les \( e_i\), tout polynôme sur \( A\) 
         \begin{equation}    \label{EQooCIBUooAgpxjL}
             (\sum_{i=0}^na_ie_i)(\sum_{j=0}^mb_je_j)=\sum_{k=0}^{\infty}\Big( \sum_{\substack{  (i,j)\in \eN^2 \\i+j=k}}a_ib_j \Big)e_k.
         \end{equation}
-        Notons qu'à droite, la somme sur \( k\) est une somme finie.
+        Notons qu'à droite, la somme sur \( k\) est une somme finie (car \(k \) n'ira pas au-delà de \( m + n \) pour des termes non nuls).
     \end{description}
 \end{definition}
 
@@ -348,15 +367,13 @@ Vu que \( A^{(\eN)}\) est engendré par les \( e_i\), tout polynôme sur \( A\) 
 %---------------------------------------------------------------------------------------------------------------------------
 \label{SUBSECooLEKVooFBPSJz}
 
-Si \( A\) est un anneau, nous avons déjà défini les polynômes en une indéterminée sur \( A\) comme étant le module \( A^{(\eN)}\) qui est devenu un anneau par la proposition \ref{PROPooGDQCooHziCPH}.
+Si \( A\) est un anneau, nous avons déjà défini les polynômes en une indéterminée sur \( A\) comme étant le module \( A^{(\eN)}\) qui est devenu un anneau par la proposition \ref{PROPooGDQCooHziCPH}. Mais quel lien avec le de la définition~\ref{DefAnneauPolyAX}?
 
-Le polynôme donné par la suite \( (a_n)_{n\in \eN}\) est souvent notée
+Simplement, on envoie le polynôme donné par la suite \( (a_n)_{n\in \eN}\) sur 
 \begin{equation}
     \sum_ka_kX^k.
 \end{equation}
-Par exemple avec \( a=(4,2,8,0, \dots)\) nous avons \( a=8X^2+2X+4\). Nous utiliserons souvent cette notation, qui est très pratique parce qu'elle s'adapte bien aux règles de multiplication et d'addition, en particulier la distributivité.
-
-Il y a (au moins) deux façons de comprendre ce que signifie réellement «\( X\)» dans cette notation.
+Par exemple avec \( a=(4,2,8,0, \dots)\) nous avons \( a=8X^2+2X+4\). Il y a alors (au moins) deux façons de comprendre ce que signifie réellement «\( X\)» dans cette écriture.
 
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \subsubsection{Première façon (qui botte en touche)}
@@ -372,10 +389,23 @@ La première est de dire qu'il n'a pas de significations, et que \( X^2\) est un
 La seconde façon de voir le «\( X\)» est de nous rappeler que \( A^{(\eN)}\) a une base en tant que module (les \( e_k\) dont nous avons parlé plus haut), et que nous l'avons muni d'une structure multiplicative. Nous posons \( X=e_1\), et nous prenons la convention \( X^0=1\). Il s'ensuit alors ceci:
 
 \begin{propositionDef}
-  L'anneau \(A^{(\eN)}\), muni de l'addition "composante par composante" (comme \( A \)-module) et du produit défini à l'aide de~\eqref{EQooTNCSooKklisb}, est l'anneau de polynômes \( A[X]\).
+  L'anneau \(A^{(\eN)}\), muni de l'addition "composante par composante" (comme \( A \)-module) et du produit défini à l'aide de~\eqref{EQooTNCSooKklisb}, est (isomorphe à) l'anneau de polynômes \( A[X]\).
 \end{propositionDef}
 
 Cela n'est pas si évident, car il faut bien s'assurer que "\( e_k=X^k\)".
+
+\begin{proof}
+  L'application, on l'a: elle envoie  \( (a_n)_{n\in \eN}\) sur 
+\begin{equation}
+    \sum_ka_kX^k.
+\end{equation}
+Elle respecte bien la somme. Reste à voir pour le produit. Mais l'élément d'indice \(n \) se calcule avec \eqref{EQooTNCSooKklisb}, qui se trouve être la même expression (au nom de lettres près) que les \( c_k \) dans la définition \ref{DefAnneauPolyAX}: le produit est bien respecté aussi.
+\end{proof}
+
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Comment bien écrire un polynôme?}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Dans les deux cas, il n'est a priori pas légitime d'écrire des égalités comme « \( P(X)=X^2+2X-3\) », et encore moins de dire «Le polynôme \( P\), \emph{évalué} en \( X\) vaut \( X^2+2X-3\)»  : il est plus correct d'écrire « \( P=X^2+2X-3\) ».
 
@@ -405,6 +435,8 @@ Mais il faut bien comprendre que si \( P\) est le polynôme \( (-3,2,1,0,\ldots)
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Polynômes de plusieurs variables}
 %---------------------------------------------------------------------------------------------------------------------------
+
+Le gros avantage d'utiliser les modules pour définir les polynômes est ici: les polynômes de plusieurs variables se définissent facilement.
 
 \begin{definition}      \label{DEFooZNHOooCruuwI}
     L'ensemble des \defe{polynôme de \( n\) variables}{polynôme de plusieurs variables} sur l'anneau \( A\) est \( A^{(\eN^n)}\), c'est-à-dire l'ensemble des suites indexées par \( \eN^n\) et dont seulement une quantité finie de coefficients sont non nuls.
@@ -555,6 +587,8 @@ Il n'y a a priori pas équivalence entre le fait d'être un polynôme nul et le 
 \end{definition}
 Comme dit plus haut, nous nous permettons d'écrire \( A[\alpha]\) sans préciser \( B\) lorsque ce dernier sera clair dans le contexte.
 
+Avec la définition \ref{DEF_ExtensionAnneau}, cela donne peut-être l'impression de définir deux fois la même chose. Il n'en est rien grâce à la proposition suivante\quext{Et aux histoires de corps de décomposition, tout ça, tout ça. Faudrait quand même expliciter l'isomorphisme.}.
+
 \begin{proposition}     \label{PROPooPMNSooOkHOxJ}
     Soient un anneau \( A\) et un anneau \( B\) qui contient \( A\) (comme sous-anneau). Pour tout \( \alpha\in B\) nous avons
     \begin{equation}
@@ -570,16 +604,6 @@ Comme dit plus haut, nous nous permettons d'écrire \( A[\alpha]\) sans précise
     \end{equation}
     Par ailleurs, \( \{ P(\alpha)\tq P\in A[X] \}\) est un sous-anneau de \( B\) contenant \( A\) et \( \alpha\). Donc \( A[\alpha]\) y est inclus.
 \end{proof}
-
-\begin{lemma}[Thème~\ref{THEMEooZYKFooQXhiPD}]       \label{LEMooIDSKooQfkeKp}
-    Si \( \eK\) est un corps\footnote{Définition~\ref{DefTMNooKXHUd}.}, alors l'anneau \( \eK[X]\) est euclidien et principal.
-\end{lemma}
-
-\begin{proof}
-    Vu que \( \eK\) est un corps, tous les éléments sont inversibles et le degré donne un stathme par le théorème~\ref{ThodivEuclPsFexf}. L'anneau \( \eK[X]\) est donc euclidien et par conséquent principal (proposition~\ref{Propkllxnv}).
-\end{proof}
-
-Dans le théorème~\ref{ThoCCHkoU} nous donnerons une preuve directe du fait que \( \eK[X]\) est principal en montrant que tous ses idéaux sont principaux. Nous y démontrerons donc un peu moins pour un peu plus cher, mais avec le plaisir de ne pas devoir passer par un stathme.
 
 \begin{definition}[\cite{ooSXFEooEehobn}]  \label{DefDSFooZVbNAX}
     Soit un anneau \( A\). Deux polynômes \( P\) et \( Q\) dans \( A[X]\) sont dits \defe{étrangers}{etranger@étrangers!polynômes} entre eux si \( 1\) est un pgcd\footnote{Définition~\ref{DefrYwbct}.} de \( P\) et \( Q\). Un ensemble de polynômes \( (P_i)_{i\in I}\) est étranger \defe{dans leur ensemble}{étranger!dans leur ensemble} si \( 1\) est un \( \pgcd\) des \( P_i\).
@@ -745,16 +769,17 @@ Dans le théorème suivant, la partie importante en pratique est la seconde part
             Si \( n\) est impair, alors \( 1+X\) divise \( 1+X^n\).
         \item\label{ItemLTBooAcyMtNii}
             Pour tout \( n\) nous avons \( X^n-1=(X-1)(1+X+\cdots +X^{n-1})\).
-        \item
+        \item \label{ItemLTBooAcyMtNiii}
             \( X^n-a^n=(X-a)\sum_{i=0}^{n-1}a^iX^{n-1-i}\).
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-  Nous démontrons uniquement le point~\ref{ItemLTBooAcyMtNii}, puisque
-  les autres ont été vus en début de chapitre\footnote{Voir l'égalité
-    \eqref{Eqarpurmkbk}.}. Le cas \( n=1\) est évident. Procédons
-  alors par récurrence en considérant un nombre entier impair \( n\) :
+  Nous démontrons uniquement le point~\ref{ItemLTBooAcyMtN}, puisque
+  le point~\ref{ItemLTBooAcyMtNiii} a été démontré dans le cadre des anneaux quelconques\footnote{Voir l'égalité
+    \eqref{Eqarpurmkbk}, avec "\( a = X,\ b = a\)"}, et le point~\ref{ItemLTBooAcyMtNii} est le point~\ref{ItemLTBooAcyMtNiii} avec \(a = 1\).
+    
+  Le cas \( n=1\) est évident. Procédons alors par récurrence en considérant un nombre entier impair \( n\), et supposant que \( 1 + X^n = (1+X)P \) :
     \begin{subequations}
         \begin{align}
             1+X^{n+2}&=1+X^n+X^{n+2}-X^n\\
