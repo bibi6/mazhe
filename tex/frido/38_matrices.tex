@@ -139,6 +139,80 @@ Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M
     Après avoir effectué toutes les sommes nous nous retrouvons avec \( A_{kl}=B_{kl}\), ce qui signifie \( A=B\).
 \end{proof}
 
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Transvections}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qui vaut \( 1\). Autrement dit
+\begin{equation}
+    (E_{ij})_{kl}=\delta_{ik}\delta_{jl}.
+\end{equation}
+\begin{definition}
+    Une \defe{matrice de transvection}{transvection (matrice)}\index{matrice!de transvection} est une matrice de la forme
+    \begin{equation}
+        T_{ij}(\lambda)=\id+\lambda E_{ij}
+    \end{equation}
+    avec \( i\neq j\).
+
+    Une \defe{matrice de dilatation}{matrice!de dilatation}\index{dilatation (matrice)} est une matrice de la forme
+    \begin{equation}
+        D_i(\lambda)=\id+(\lambda-1)E_{ii}.
+    \end{equation}
+    Ici le \( (\lambda-1)\) sert à avoir \( \lambda\) et non \( 1+\lambda\). C'est donc une matrice qui dilate d'un facteur \( \lambda\) la direction \( i\) tout en laissant le reste inchangé.
+
+    Si \( \sigma\) est une permutation (un élément du groupe symétrique \( S_n\)) alors la \defe{matrice de permutation}{matrice!de permutation}\index{permutation!matrice} associée est la matrice d'entrées
+    \begin{equation}
+        (P_{\sigma})_{ij}=\delta_{i\sigma(j)}.
+    \end{equation}
+\end{definition}
+
+\begin{lemma}   \label{LemyrAXQs}
+    La matrice \( T_{ij}(\lambda)A=(\mtu+\lambda E_{ij})A\) est la matrice \( A\) à qui on a effectué la substitution
+    \begin{equation}
+        L_i\to L_i+\lambda L_j.
+    \end{equation}
+    La matrice \( AT_{ij}(\lambda)\) est la substitution
+    \begin{equation}
+        C_j\to C_j+\lambda C_i.
+    \end{equation}
+
+    La matrice \( AP_{\sigma}\) est la matrice \( A\) dans laquelle nous avons permuté les colonnes avec \( \sigma\).
+
+    La matrice \( P_{\sigma}A\) est la matrice \( A\) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\).
+\end{lemma}
+
+\begin{proof}
+    Calculons la composante \( kl\) de la matrice \( E_{ij}A\) :
+    \begin{subequations}
+        \begin{align}
+            (E_{ij}A)_{kl}&=\sum_m(E_{ij})_{km}A_{ml}\\
+            &=\sum_m\delta_{ik}\delta_{jm}A_{ml}\\
+            &=\delta_{ik}A_{jl}.
+        \end{align}
+    \end{subequations}
+    C'est donc la matrice pleine de zéros, sauf la ligne \( i\) qui est donnée par la ligne \( j\) de \( A\). Donc effectivement la matrice
+    \begin{equation}
+        A+\lambda E_{ij}A
+    \end{equation}
+    est la matrice \( A\) à laquelle on a substitué la ligne \( i\) par la ligne \( i\) plus \( \lambda\) fois la ligne \( j\).
+
+    En ce qui concerne l'autre assertion sur les transvections, le calcul est le même et nous obtenons
+    \begin{equation}
+        (AE_{ij})=A_{ki}\delta_{jl}.
+    \end{equation}
+
+    Pour les matrices de permutation, nous avons
+    \begin{equation}
+        (AP_{\sigma})_{kl}=A_{k\sigma(l)}
+    \end{equation}
+    et
+    \begin{equation}
+        (P_{\sigma}A)_{kl}=\sum_m\delta_{k\sigma(m)}A_{ml}=\sum_m\delta_{\sigma^{-1}(k)m}A_{ml}=A_{\sigma^{-1}(k)l}.
+    \end{equation}
+\end{proof}
+
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Déterminant}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -200,6 +274,26 @@ Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus comp
         a_{31}    &   a_{32}
     \end{vmatrix}.
 \end{equation}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Mineur, rang}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Pour la définition du rang d'une matrice, nous en donnons une qui est clairement inspirée de l'application linéaire associée.
+\begin{definition}[\cite{ooKBOMooSkKHvu}]       \label{DEFooCSGXooFRzLRj}
+    Le \defe{rang}{rang d'une matrice} d'une matrice de \( \eM(n,\eK)\) est la dimension de la partie de \( \eK^n\) engendrée par ses colonnes.
+\end{definition}
+
+Il est possible d'exprimer le rang d'une matrice de façon plus «intrinsèque» via le concept de mineur.
+\begin{definition}[\cite{ooLFZTooJWJUed}]
+    Les mineurs d'une matrice sont les déterminants de ses sous-matrices carrées.
+\end{definition}
+Dans la suite nous désignerons souvent par le mot «mineur» la sous-matrice carrée elle-même au lieu de son déterminant.
+
+\begin{proposition}      \label{DEFooVVBYooJbliTi}
+    Le rang d'une matrice est la taille de son plus grand mineur non nul.
+\end{proposition}
+
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Manipulations de lignes et de colonnes}
@@ -956,98 +1050,6 @@ Faisons maintenant le cas général des manipulations de lignes et colonnes.
     \end{equation}
     Donc \( B=Aa\). La proposition \ref{PROPooHQNPooIfPEDH} nous dit alors que \( \det(B)=\det(a)\det(A)\).
 \end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Transvections}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qui vaut \( 1\). Autrement dit
-\begin{equation}
-    (E_{ij})_{kl}=\delta_{ik}\delta_{jl}.
-\end{equation}
-\begin{definition}
-    Une \defe{matrice de transvection}{transvection (matrice)}\index{matrice!de transvection} est une matrice de la forme
-    \begin{equation}
-        T_{ij}(\lambda)=\id+\lambda E_{ij}
-    \end{equation}
-    avec \( i\neq j\).
-
-    Une \defe{matrice de dilatation}{matrice!de dilatation}\index{dilatation (matrice)} est une matrice de la forme
-    \begin{equation}
-        D_i(\lambda)=\id+(\lambda-1)E_{ii}.
-    \end{equation}
-    Ici le \( (\lambda-1)\) sert à avoir \( \lambda\) et non \( 1+\lambda\). C'est donc une matrice qui dilate d'un facteur \( \lambda\) la direction \( i\) tout en laissant le reste inchangé.
-
-    Si \( \sigma\) est une permutation (un élément du groupe symétrique \( S_n\)) alors la \defe{matrice de permutation}{matrice!de permutation}\index{permutation!matrice} associée est la matrice d'entrées
-    \begin{equation}
-        (P_{\sigma})_{ij}=\delta_{i\sigma(j)}.
-    \end{equation}
-\end{definition}
-
-\begin{lemma}   \label{LemyrAXQs}
-    La matrice \( T_{ij}(\lambda)A=(\mtu+\lambda E_{ij})A\) est la matrice \( A\) à qui on a effectué la substitution
-    \begin{equation}
-        L_i\to L_i+\lambda L_j.
-    \end{equation}
-    La matrice \( AT_{ij}(\lambda)\) est la substitution
-    \begin{equation}
-        C_j\to C_j+\lambda C_i.
-    \end{equation}
-
-    La matrice \( AP_{\sigma}\) est la matrice \( A\) dans laquelle nous avons permuté les colonnes avec \( \sigma\).
-
-    La matrice \( P_{\sigma}A\) est la matrice \( A\) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\).
-\end{lemma}
-
-\begin{proof}
-    Calculons la composante \( kl\) de la matrice \( E_{ij}A\) :
-    \begin{subequations}
-        \begin{align}
-            (E_{ij}A)_{kl}&=\sum_m(E_{ij})_{km}A_{ml}\\
-            &=\sum_m\delta_{ik}\delta_{jm}A_{ml}\\
-            &=\delta_{ik}A_{jl}.
-        \end{align}
-    \end{subequations}
-    C'est donc la matrice pleine de zéros, sauf la ligne \( i\) qui est donnée par la ligne \( j\) de \( A\). Donc effectivement la matrice
-    \begin{equation}
-        A+\lambda E_{ij}A
-    \end{equation}
-    est la matrice \( A\) à laquelle on a substitué la ligne \( i\) par la ligne \( i\) plus \( \lambda\) fois la ligne \( j\).
-
-    En ce qui concerne l'autre assertion sur les transvections, le calcul est le même et nous obtenons
-    \begin{equation}
-        (AE_{ij})=A_{ki}\delta_{jl}.
-    \end{equation}
-
-    Pour les matrices de permutation, nous avons
-    \begin{equation}
-        (AP_{\sigma})_{kl}=A_{k\sigma(l)}
-    \end{equation}
-    et
-    \begin{equation}
-        (P_{\sigma}A)_{kl}=\sum_m\delta_{k\sigma(m)}A_{ml}=\sum_m\delta_{\sigma^{-1}(k)m}A_{ml}=A_{\sigma^{-1}(k)l}.
-    \end{equation}
-\end{proof}
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Mineur, rang}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Pour la définition du rang d'une matrice, nous en donnons une qui est clairement inspirée de l'application linéaire associée.
-\begin{definition}[\cite{ooKBOMooSkKHvu}]       \label{DEFooCSGXooFRzLRj}
-    Le \defe{rang}{rang d'une matrice} d'une matrice de \( \eM(n,\eK)\) est la dimension de la partie de \( \eK^n\) engendrée par ses colonnes.
-\end{definition}
-
-Il est possible d'exprimer le rang d'une matrice de façon plus «intrinsèque» via le concept de mineur.
-\begin{definition}[\cite{ooLFZTooJWJUed}]
-    Les mineurs d'une matrice sont les déterminants de ses sous-matrices carrées.
-\end{definition}
-Dans la suite nous désignerons souvent par le mot «mineur» la sous-matrice carrée elle-même au lieu de son déterminant.
-
-\begin{proposition}      \label{DEFooVVBYooJbliTi}
-    Le rang d'une matrice est la taille de son plus grand mineur non nul.
-\end{proposition}
-
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Matrices équivalentes et semblables}
 %---------------------------------------------------------------------------------------------------------------------------
