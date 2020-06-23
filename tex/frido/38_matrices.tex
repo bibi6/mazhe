@@ -35,9 +35,15 @@ Quelques ensembles de matrices particuliers.
   \end{enumerate}
 \end{definition}
 
-\begin{normaltext}    \label{isoNatMatricesPuissances}
-    On note les isomorphismes naturels \( \eM(1\times m,A) \simeq A^m\) et \( \eM(n\times 1,A) \simeq A^n\).
-\end{normaltext}
+\begin{remark}    \label{isoNatMatricesPuissances}
+    Quelques remarques à propos de structures supplémentaires.
+\begin{enumerate}
+    \item
+        Nous utiliserons (presque) tout le temps des matrices à coefficients dans un corps. Il est clair que, si \( \eK \) est un corps (commutatif), alors \( \eM(n\times m,\eK) \) a une structure d'espace vectoriel sur \( \eK \).
+     \item
+         On note les isomorphismes naturels \( \eM(1\times m,A) \simeq A^m\) et \( \eM(n\times 1,A) \simeq A^n\).       
+\end{enumerate}
+\end{remark}
 
 \begin{lemmaDef}
     Avec la multiplication
@@ -50,14 +56,14 @@ Quelques ensembles de matrices particuliers.
     l'espace \( \eM(n,\eK)\) est une \( \eK\)-algèbre\footnote{Définition \ref{DefAEbnJqI}.}.
 \end{lemmaDef}
 
-\begin{remark}
+\begin{remark}  \label{REM_produitMatrices}
     Quelques remarques là-dessus.
     \begin{enumerate}
         \item
             La motivation de cette définition pour le produit apparaîtra plus loin, mais le Frido n'étant pas un livre d'introduction, j'imagine que le lecteur a déjà une idée.
         \item
             Il n'empêche que, si \( A \) est une matrice-ligne, alors \( AB \) le sera aussi; et de manière similaire, si \( B \) est une matrice-colonne, alors \( AB \) aussi.
-        \item
+        \item   \label{REM_produitMatricesiii}
             Allons un peu plus loin, en utilisant les isomorphismes naturels de \ref{isoNatMatricesPuissances}: il y a des matrices-lignes particulières \( A_{(r)} \) telles que \( (A_{(r)})_{1j} = \delta_{rj} \) (vaut \( 1 \) si \( r = j \) et \( 0 \) ailleurs); lorsqu'elles multiplient une matrice \( B \), il vient\footnote{On a laissé un indice \( i \) là, mais on aurait pu le remplacer\dots\ par quoi, en fait?}
             \begin{equation}
             (A_{(r)}B)_{ij} = \sum_{k=1}^p(A_{(r)})_{ik}B_{kj} = \sum_{k=1}^p \delta_{rk} B_{kj} = B_{rj};
@@ -68,9 +74,17 @@ Quelques ensembles de matrices particuliers.
             (AB_{(s)})_{ij} = \sum_{k=1}^pA_{ik}(B_{(s)})_{kj} = \sum_{k=1}^p A_{ik} \delta_{ks} = A_{is};
             \end{equation}
             en d'autres termes, multplier \( A \) par \( B_{(s)} \) revient à prendre la \( s \)\ieme{} colonne de \( A \).
+        \item
+            Par ailleurs, sur les matrices carrées d'ordre \( n \) fixé, le produit de deux matrices est bien défini. Ainsi, \( \eM(n, A)\) se voit conférer une structure d'anneau, dont le neutre pour la multiplication est la matrice carrée \( \mtu_n\) (notée aussi \( \mtu\) lorsqu'il n'y a pas d'ambiguïté sur la taille), donnée par
+\begin{equation}
+    \mtu_{ij}=\delta_{ij} = \begin{cases}
+        1    &   \text{si } i=j\\
+        0    &    \text{sinon.}
+    \end{cases}
+\end{equation}
+Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M\mtu=\mtu M=M\).
     \end{enumerate}
 \end{remark}
-
 
 \begin{definition}
     Pour un élément \( M\in \eM(n\times m, A)\) nous définissons encore
@@ -82,21 +96,6 @@ Quelques ensembles de matrices particuliers.
 
     Nous verrons plus loin en \ref{SUBSECooGPXVooEYwIiJ} que la définition de transposée d'une application linéaire n'est pas tout à fait évidente; elle sera la définition \ref{DefooZLPAooKTITdd}. Ici nous avons bien défini la transposée d'une matrice, pas d'une application linéaire.
 
-
-\begin{remark}
-    Quelques remarques à propos de structures supplémentaires.
-\begin{enumerate}
-    \item Nous utiliserons (presque) tout le temps des matrices à coefficients dans un corps. Il est clair que, si \( \eK \) est un corps (commutatif), alors \( \eM(n\times m,\eK) \) a une structure d'espace vectoriel sur \( \eK \).
-    \item Par ailleurs, sur les matrices carrées d'ordre \( n \) fixé, le produit de deux matrices est bien défini. Ainsi, \( \eM(n, A)\) se voit conférer une structure d'anneau, dont le neutre pour la multiplication est la matrice carrée \( \mtu_n\) (notée aussi \( \mtu\) lorsqu'il n'y a pas d'ambiguïté sur la taille), donnée par
-\begin{equation}
-    \mtu_{ij}=\begin{cases}
-        1    &   \text{si } i=j\\
-        0    &    \text{sinon.}
-    \end{cases}
-\end{equation}
-Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M\mtu=\mtu M=M\).
-\end{enumerate}
-\end{remark}
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooUXDRooWZbMVN} \label{LEMooRSJTooQEoOtN}
     Si \( A\), \( B\) et \( C\) sont des matrices nous avons
@@ -124,92 +123,187 @@ Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M
 \end{normaltext}
 
 \begin{lemma}       \label{LEMooLXAHooPRyHaF}
-    Soient des matrices \( A,B\in \eM(n,\eK)\). Si pour tout \( x,y\in \eK^n\) nous avons
+    Soient des matrices \( M, N\in \eM(n \times m,A)\). Si pour tout \( x \in A^n\) et tout \( y \in A^m\) nous avons
     \begin{equation}
-        \sum_{ij}A_{ij}x_iy_j=\sum_{ij}B_{ij}x_iy_j
+        \sum_{ij}M_{ij}x_iy_j=\sum_{ij}N_{ij}x_iy_j
     \end{equation}
-    alors \( A=B\).
+    alors \( M=N\).
 \end{lemma}
 
 \begin{proof}
-    Il suffit de choisir \( x_i=\delta_{ik}\) et \( y_j=\delta_{jl}\), et d'effectuer les sommes; par exemple
-    \begin{equation}
-        \sum_{ij}A_{ij}\delta_{ik}y_j=\sum_jA_{kj}y_j.
-    \end{equation}
-    Après avoir effectué toutes les sommes nous nous retrouvons avec \( A_{kl}=B_{kl}\), ce qui signifie \( A=B\).
+    Il suffit de calculer, pour des matrices \( X \in \in \eM(1 \times n,A) \) et \( Y \in \eM(m \times 1,A) \) bien choisies, les produits \( XAY \) et \( XBY \), qui sont supposés égaux.\footnote{Cela, c'est grâce à l'isomorphisme naturel de la remarque~\ref{isoNatMatricesPuissances}.}
+    
+    Ici, "bien choisies" signifie en réalité les matrices particulières de la remarque~\ref{REM_produitMatrices}~\ref{REM_produitMatricesiii}. En effet, soit \( r \in \{1,\dots\, n\} \) et \(s \in \{1,\dots\ , m\} \). Avec les mêmes notations que là-bas, on prend \( X = X_{(r)} \) et \( Y = Y_{(s)} \). Pour toute matrice \( M \), la matrice \( XM \) est la \(r\)\ieme{} ligne de \( M \); puis, \( XMY = (XM) Y \) est la \(s\)\ieme{} colonne de \( XM \), donc la la \(s\)\ieme{} colonne,  \(r\)\ieme{} ligne de \( M \), donc en réalité \( M_{rs} \).
+    
+    Il s'ensuit que, pour tout \( r \in \{1,\dots\, n\} \) et tout \(s \in \{1,\dots\ , m\} \), \( A_{rs} = B_{rs} \); donc  \( A = B \).
 \end{proof}
 
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Transvections}
+\subsection{Transvections, dilatations, permutations}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qui vaut \( 1\). Autrement dit
+Dans n'importe quel espace de matrices, nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qui vaut \( 1\). Autrement dit
 \begin{equation}
     (E_{ij})_{kl}=\delta_{ik}\delta_{jl}.
 \end{equation}
+
+\begin{lemma}   \label{LEM_multiplicationMatriceEij}
+  Si \( M \) est une matrice, alors:
+  \begin{enumerate}
+      \item
+          \( E_{ij}M \) est une matrice partout nulle, à l'exception de sa \( i \)\ieme{} ligne, qui contient la \( j \)\ieme{} ligne de \( M \);
+      \item
+          \( ME_{ij} \) est une matrice partout nulle, à l'exception de sa \( j \)\ieme{} colonne, qui contient la \( i \)\ieme{} colonne de \( M \).
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Calculons la composante \( kl\) de la matrice \( E_{ij}M\) :
+    \begin{subequations}
+        \begin{align}
+            (E_{ij}M)_{kl}&=\sum_m(E_{ij})_{km}M_{ml}\\
+            &=\sum_m\delta_{ik}\delta_{jm}M_{ml}\\
+            &=\delta_{ik}M_{jl}\\
+            &=
+            \begin{cases}
+            M_{jl} &\text{si } i=k\\
+            0 & \text{sinon}.
+            \end{cases}
+        \end{align}
+    \end{subequations}
+    C'est donc la matrice pleine de zéros, sauf la ligne \( i\) qui est donnée par la ligne \( j\) de \( M\).
+
+    De la même manière,
+    \begin{subequations}
+        \begin{align}
+            (ME_{ij})_{kl}&=\sum_mM_{km}(E_{ij})_{ml}\\
+            &=\sum_mM_{km}\delta_{im}\delta_{jl}\\
+            &=M_{ki}\delta_{jl}\\
+            &=
+            \begin{cases}
+            M_{ki} &\text{si } j=l\\
+            0 & \text{sinon},
+            \end{cases}
+        \end{align}
+    \end{subequations}
+    donc seule la \( j\) \ieme{} colonne de \(ME_{ij}\) contient (éventuellement) des éléments non-nuls, et c'est précisément la \( i \)\ieme{} colonne de \( M \)
+\end{proof}
+
 \begin{definition}
     Une \defe{matrice de transvection}{transvection (matrice)}\index{matrice!de transvection} est une matrice de la forme
     \begin{equation}
-        T_{ij}(\lambda)=\id+\lambda E_{ij}
+        T_{ij}(\lambda)=\mtu+\lambda E_{ij}
     \end{equation}
     avec \( i\neq j\).
 
     Une \defe{matrice de dilatation}{matrice!de dilatation}\index{dilatation (matrice)} est une matrice de la forme
     \begin{equation}
-        D_i(\lambda)=\id+(\lambda-1)E_{ii}.
+        D_i(\lambda)=\mtu+(\lambda-1)E_{ii}.
     \end{equation}
     Ici le \( (\lambda-1)\) sert à avoir \( \lambda\) et non \( 1+\lambda\). C'est donc une matrice qui dilate d'un facteur \( \lambda\) la direction \( i\) tout en laissant le reste inchangé.
 
-    Si \( \sigma\) est une permutation (un élément du groupe symétrique \( S_n\)) alors la \defe{matrice de permutation}{matrice!de permutation}\index{permutation!matrice} associée est la matrice d'entrées
+    Si \( \sigma\) est une permutation\footnote{C'est un élément du groupe symétrique \( S_n\), voir définition~\ref{DEFooJNPIooMuzIXd}.} alors la \defe{matrice de permutation}{matrice!de permutation}\index{permutation!matrice} associée est la matrice d'entrées
     \begin{equation}
-        (P_{\sigma})_{ij}=\delta_{i\sigma(j)}.
+        (P_{\sigma})_{ij}=\delta_{i\sigma(j)};
     \end{equation}
+    en particulier, pour \( \sigma = (k,l) \), on notera simplement \( P_{kl} \) pour \( P_{\sigma} \).
 \end{definition}
 
 \begin{lemma}   \label{LemyrAXQs}
-    La matrice \( T_{ij}(\lambda)A=(\mtu+\lambda E_{ij})A\) est la matrice \( A\) à qui on a effectué la substitution
+\begin{enumerate}
+  \item
+    La matrice \( T_{ij}(\lambda)A=(\mtu+\lambda E_{ij})A\) est la matrice \( A\) à qui on a ajouté, à la \( i \)\ieme{} ligne, \( \lambda \) fois la \( j \) \ieme{} ligne; en d'autres termes, c'est \(A \) à qui on a fait la substitution
     \begin{equation}
-        L_i\to L_i+\lambda L_j.
+        L_i\leftarrow L_i+\lambda L_j.
     \end{equation}
-    La matrice \( AT_{ij}(\lambda)\) est la substitution
+    
+  \item
+    La matrice \( AT_{ij}(\lambda)\)  est la matrice \( A\) à qui on a ajouté, à la \( j \)\ieme{} colonne, \( \lambda \) fois la \( i \) \ieme{} colonne; en d'autres termes, c'est \(A \) à qui on a fait la substitution
     \begin{equation}
-        C_j\to C_j+\lambda C_i.
+        C_j\leftarrow C_j+\lambda C_i.
     \end{equation}
 
-    La matrice \( AP_{\sigma}\) est la matrice \( A\) dans laquelle nous avons permuté les colonnes avec \( \sigma\).
+  \item
+    La matrice \( D_{i}(\lambda)A\) est la matrice \( A\) où la \( i\)\ieme{} ligne a été multipliée par \( \lambda \); en d'autres termes, c'est \( A \) à qui on a fait la substitution
+    \begin{equation}
+        L_i\leftarrow \lambda L_i.
+    \end{equation}
 
-    La matrice \( P_{\sigma}A\) est la matrice \( A\) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\).
+  \item
+    La matrice \( AD_{i}(\lambda)\) est la matrice \( A\) où la \( i\)\ieme{} colonne a été multipliée par \( \lambda \); en d'autres termes, c'est \( A \) à qui on a fait la substitution
+    \begin{equation}
+        C_i\leftarrow \lambda C_i.
+    \end{equation}
+    
+  \item
+    La matrice \( P_{\sigma}A\) est la matrice \( A\) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\). En particulier, quand \( \sigma = (i,j) \), \( P_{\sigma}A =  P_{ij}A\) est la matrice \( A \) où les lignes \( i \) et \( j \) ont été inversées, autrement dit, c'est \( A \) qui a subi
+     \begin{equation}
+        L_i\leftrightarrow L_j.
+    \end{equation} 
+           
+  \item
+    La matrice \( AP_{\sigma}\) est la matrice \( A\) dans laquelle nous avons permuté les colonnes avec \( \sigma\). En particulier, quand \( \sigma = (i,j) \), \(AP_{\sigma} = AP_{ij}\) est la matrice \( A \) où les colonnes \( i \) et \( j \) ont été inversées, autrement dit, c'est \( A \) qui a subi
+     \begin{equation}
+        C_i\leftrightarrow C_j.
+    \end{equation} 
+ \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    Calculons la composante \( kl\) de la matrice \( E_{ij}A\) :
-    \begin{subequations}
-        \begin{align}
-            (E_{ij}A)_{kl}&=\sum_m(E_{ij})_{km}A_{ml}\\
-            &=\sum_m\delta_{ik}\delta_{jm}A_{ml}\\
-            &=\delta_{ik}A_{jl}.
-        \end{align}
-    \end{subequations}
-    C'est donc la matrice pleine de zéros, sauf la ligne \( i\) qui est donnée par la ligne \( j\) de \( A\). Donc effectivement la matrice
+\begin{subproof}
+  \item[Pour les transvections]
+    Par distributivité de la multplication de l'addition, on a
     \begin{equation}
-        A+\lambda E_{ij}A
+        T_{ij}(\lambda)A = \mtu A+\lambda E_{ij}A = A+\lambda E_{ij}A;
     \end{equation}
-    est la matrice \( A\) à laquelle on a substitué la ligne \( i\) par la ligne \( i\) plus \( \lambda\) fois la ligne \( j\).
+    on utilise alors le lemme~\ref{LEM_multiplicationMatriceEij} qui implique que:
+    \begin{itemize}
+    \item
+      les lignes autres que \( i \) ne changent pas;
+    \item
+      à la ligne \(i \), on ajoute \( \lambda\) fois la ligne \( j\).
+    \end{itemize}
 
-    En ce qui concerne l'autre assertion sur les transvections, le calcul est le même et nous obtenons
+    En ce qui concerne l'autre assertion sur les transvections, le calcul est similaire:
     \begin{equation}
-        (AE_{ij})=A_{ki}\delta_{jl}.
+        AT_{ij}(\lambda) = A+\lambda A E_{ij};
     \end{equation}
-
-    Pour les matrices de permutation, nous avons
+    le lemme~\ref{LEM_multiplicationMatriceEij} implique que les colonnes autres que la \( j\)\ieme{} ne changent pas, tandis que la \( j\)\ieme{} prend en plus \( \lambda\) fois la colonne \( i\).
+  
+  \item[Pour les dilatations]
+    Le travail est similaire à celui des transvections. D'une part, on a
     \begin{equation}
-        (AP_{\sigma})_{kl}=A_{k\sigma(l)}
+        D_i(\lambda)A=\mtu A+(\lambda-1)E_{ii} A =  A+(\lambda-1)E_{ii} A,
     \end{equation}
-    et
+    et le lemme~\ref{LEM_multiplicationMatriceEij} implique que les lignes autres que la \( i\)\ieme{} ne changent pas, tandis que la \( i \)\ieme{} prend en plus \( \lambda - 1\) fois la même ligne \( i\); or, \( 1 + (\lambda - 1) = \lambda\), si bien que, en réalité, la \( i \)\ieme{} ligne est multipliée par \( \lambda \).
+    
+    D'autre part, 
     \begin{equation}
-        (P_{\sigma}A)_{kl}=\sum_m\delta_{k\sigma(m)}A_{ml}=\sum_m\delta_{\sigma^{-1}(k)m}A_{ml}=A_{\sigma^{-1}(k)l}.
+        AD_i(\lambda)= A+(\lambda-1)A E_{ii},
     \end{equation}
+    et toujours avec le lemme~\ref{LEM_multiplicationMatriceEij}, les colonnes autres que la \( i\)\ieme{} ne changent pas, tandis que la \( i \)\ieme{} est multipliée par \( \lambda \) (pour la même raison que ci-dessus).
+    
+  \item[Pour les permutations] Nous avons
+    \begin{equation}
+        (P_{\sigma}A)_{kl}=\sum_m\delta_{k\sigma(m)}A_{ml}=\sum_m\delta_{\sigma^{-1}(k)m}A_{ml}=A_{\sigma^{-1}(k)l}
+    \end{equation}
+    (remarquons que \(k = \sigma(m) \) si et seulement si \(\sigma^{-1}(k)  = m\) ). Il s'ensuit que la ligne \( k \) de \(P_{\sigma}A \) est la ligne  \(\sigma^{-1}(k) \) de \(A \).
+    
+    De manière similaire, mais plus simple,
+    \begin{equation}
+        (AP_{\sigma})_{kl}=  \sum_m A_{km} \delta_{m\sigma(l)} = A_{k\sigma(l)},
+    \end{equation}
+    donc la colonne \( l \) de \(AP_{\sigma}\) est la colonne \( \sigma(l) \) de \( A \).
+    
+    Dans le cas d'une transposition\footnote{Définition~\ref{DEFooXNAFooGTbTTJ}}, disons \( \sigma = (i,j) \), on a:
+    \begin{itemize}
+    \item
+      pour \( P_{\sigma}A \), des lignes inchangées sauf les lignes \( i \) et \(j \) qui sont inversées;
+    \item
+      pour \( AP_{\sigma} \), des colonnes inchangées sauf les lignes \( i \) et \(j \) qui sont inversées.
+    \end{itemize}
+\end{subproof}      
 \end{proof}
 
 
@@ -220,9 +314,9 @@ Nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qu
 \begin{definition}      \label{DEFooYCKRooTrajdP}
     Si \( A\in\eM(n,\eK)\) nous définissons le \defe{déterminant}{déterminant!matrice} de \( A\) par la formule
     \begin{equation}
-        \det(A)=\sum_{\sigma\in S_n}(-1)^{\sigma}\prod_{i=1}^nA_{i\sigma(i)}
+        \det(A)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nA_{i\sigma(i)}
     \end{equation}
-    où la somme est effectuée sur tous les éléments du groupe symétrique\footnote{Pour le groupe symétrique, c'est la définition \ref{DEFooJNPIooMuzIXd}, le fait que ce soit un groupe fini est le lemme \ref{LEMooSGWKooKFIDyT}, et pour la somme sur un groupe fini c'est la définition \ref{DEFooLNEXooYMQjRo}.} \( S_n\) et où \( (-1)^{\sigma}\) représente la parité de la permutation \( \sigma\).
+    où la somme est effectuée sur tous les éléments du groupe symétrique\footnote{Pour le groupe symétrique, c'est la définition \ref{DEFooJNPIooMuzIXd}, le fait que ce soit un groupe fini est le lemme \ref{LEMooSGWKooKFIDyT}, et pour la somme sur un groupe fini c'est la définition \ref{DEFooLNEXooYMQjRo}.} \( S_n\) et où \(\epsilon(\sigma)\) représente la signature\footnote{Définition~\ref{DEFooWPYSooPWuwWO}.} de la permutation \( \sigma\).
 \end{definition}
 En se souvenant que \( | S_n |=n!\), nous sommes frappés de stupeur devant le fait que le nombre de termes dans la somme croît de façon factorielle (c'est plus qu'exponentiel, pour info) en la taille de la matrice. Cette formule est donc sans espoir pour une matrice plus grande que \( 3\times 3\) ou à la rigueur \( 4\times 4\) à la main. À l'ordinateur, il est possible de monter plus haut, mais pas tellement.
 
