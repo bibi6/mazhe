@@ -16,7 +16,7 @@
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}
-    Soit un anneau \( A\) ainsi que des entiers \( m\), \( n\) strictement positifs. Notons \( I = \{ 1,\ldots, n \}\times \{ 1,\ldots, m \} \). L'ensemble \( \eM(m\times n, A)\) est alors le \( A \)-module produit \( A^I \) et est appelé ensemble des \defe{matrices}{matrice} \(n\times m\) sur \( \eA \).
+    Soit un anneau \( A\) ainsi que des entiers \( m\), \( n\) strictement positifs. Notons \( I = \{ 1,\ldots, n \}\times \{ 1,\ldots, m \} \). L'ensemble \( \eM(m\times n, A)\) est alors le \( A \)-module produit \( A^I \) et est appelé ensemble des \defe{matrices}{matrice} \(n\times m\) sur \( A \).
 \end{definition}
 Si \( M\) est une matrice, nous notons \( M_{ij}\) au lieu de \( M_{(i,j)}\) l'élément correspondant à \( (i,j)\).
 
@@ -35,7 +35,7 @@ Quelques ensembles de matrices particuliers.
   \end{enumerate}
 \end{definition}
 
-\begin{normaltext}
+\begin{normaltext}    \label{isoNatMatricesPuissances}
     On note les isomorphismes naturels \( \eM(1\times m,A) \simeq A^m\) et \( \eM(n\times 1,A) \simeq A^n\).
 \end{normaltext}
 
@@ -50,26 +50,38 @@ Quelques ensembles de matrices particuliers.
     l'espace \( \eM(n,\eK)\) est une \( \eK\)-algèbre\footnote{Définition \ref{DefAEbnJqI}.}.
 \end{lemmaDef}
 
-\begin{definition}
-    Pour un élément \( M\in \eM(n\times m, A)\) nous définissons encore
-    \begin{description}
-        \item[La transposée] \( M^t \tq M^t_{ij}=M_{ji}\),
-        \item[La trace] \( \tr(M)=\sum_i M_{ii}\).
-    \end{description}
-\end{definition}
-
-
 \begin{remark}
-    Quelques remarques directes sur les définitions.
+    Quelques remarques là-dessus.
     \begin{enumerate}
         \item
             La motivation de cette définition pour le produit apparaîtra plus loin, mais le Frido n'étant pas un livre d'introduction, j'imagine que le lecteur a déjà une idée.
         \item
-            Nous verrons plus loin en \ref{SUBSECooGPXVooEYwIiJ} que la définition de transposée d'une application linéaire n'est pas tout à fait évidente; elle sera la définition \ref{DefooZLPAooKTITdd}.
-
-            Ici nous avons bien défini la transposée d'une matrice, pas d'une application linéaire.
+            Il n'empêche que, si \( A \) est une matrice-ligne, alors \( AB \) le sera aussi; et de manière similaire, si \( B \) est une matrice-colonne, alors \( AB \) aussi.
+        \item
+            Allons un peu plus loin, en utilisant les isomorphismes naturels de \ref{isoNatMatricesPuissances}: il y a des matrices-lignes particulières \( A_{(r)} \) telles que \( (A_{(r)})_{1j} = \delta_{rj} \) (vaut \( 1 \) si \( r = j \) et \( 0 \) ailleurs); lorsqu'elles multiplient une matrice \( B \), il vient\footnote{On a laissé un indice \( i \) là, mais on aurait pu le remplacer\dots\ par quoi, en fait?}
+            \begin{equation}
+            (A_{(r)}B)_{ij} = \sum_{k=1}^p(A_{(r)})_{ik}B_{kj} = \sum_{k=1}^p \delta_{rk} B_{kj} = B_{rj};
+            \end{equation}
+            en d'autres termes, multplier \( A_{(r)} \) par \( B \) revient à prendre la \( r \)\ieme{} ligne de \( B \).
+            
+            De la même façon, les matrices-colonnes particulières \( B_{(s)} \) telles que \( (B_{(s)})_{i1} = \delta_{is} \) donnent, pour une matrice \( A \): \begin{equation}
+            (AB_{(s)})_{ij} = \sum_{k=1}^pA_{ik}(B_{(s)})_{kj} = \sum_{k=1}^p A_{ik} \delta_{ks} = A_{is};
+            \end{equation}
+            en d'autres termes, multplier \( A \) par \( B_{(s)} \) revient à prendre la \( s \)\ieme{} colonne de \( A \).
     \end{enumerate}
 \end{remark}
+
+
+\begin{definition}
+    Pour un élément \( M\in \eM(n\times m, A)\) nous définissons encore
+    \begin{description}
+        \item[La transposée] \( M^t \tq M^t_{ij}=M_{ji}\) (et donc, \( M^t\in \eM(m\times n, A)\)\footnote{Avez-vous remarqué l'inversion de \( n \) et \( m \)? Sans doute que oui, mais c'est toujours bien de le préciser.}
+        \item[La trace] \( \tr(M)=\sum_i M_{ii}\). \quext{La trace pour des matrices pas carrées, pourquoi pas\dots}
+    \end{description}
+\end{definition}
+
+    Nous verrons plus loin en \ref{SUBSECooGPXVooEYwIiJ} que la définition de transposée d'une application linéaire n'est pas tout à fait évidente; elle sera la définition \ref{DefooZLPAooKTITdd}. Ici nous avons bien défini la transposée d'une matrice, pas d'une application linéaire.
+
 
 \begin{remark}
     Quelques remarques à propos de structures supplémentaires.
@@ -701,23 +713,23 @@ pour toute matrice \( A\).
 \begin{propositionDef}      \label{PROPooMLWRooRWfZXE}
     Soit une matrice \( A\in \eM(n,\eK)\). Si les matrices \( B_1\) et \( B_2\) de \( \eM(n,\eK)\) vérifient
     \begin{equation}
-        AB_1=B_1A=\delta
+        AB_1=B_1A=\mtu
     \end{equation}
     et
     \begin{equation}
-        AB_2=B_2A=\delta,
+        AB_2=B_2A=\mtu,
     \end{equation}
-    alors \( B_1=B_2\). Dans ce cas, nous disons que \( A\) est inversible et nous notons \( A^{-1}\) l'unique matrice telle que \( AA^{-1}=A^{-1}A=\delta\).
+    alors \( B_1=B_2\). Dans ce cas, nous disons que \( A\) est inversible et nous notons \( A^{-1}\) l'unique matrice telle que \( AA^{-1}=A^{-1}A=\mtu\).
 \end{propositionDef}
 
 \begin{proof}
     La preuve est réalisée dans le cas général par le lemme \ref{LEMooECDMooCkWxXf}. Mais si vous en voulez une preuve avec les notations d'ici, en voici une.
 
-    Nous avons $AB_1=AB_2$. En multipliant à gauche par \( B_1\), nous trouvons \( B_1AB_1=B_1AB_2\). En remplaçant \( B_1A\) par \( \delta\) des deux côtés, il reste \( B_1=B_2\).
+    Nous avons $AB_1=AB_2$. En multipliant à gauche par \( B_1\), nous trouvons \( B_1AB_1=B_1AB_2\). En remplaçant \( B_1A\) par \( \mtu\) des deux côtés, il reste \( B_1=B_2\).
 \end{proof}
 
 \begin{lemma}[\cite{ooKBOMooSkKHvu}]        \label{LEMooGZCTooQigDvC}
-    Si \( A\in \eM(n,\eK)\), alors il existe au plus une matrice \( B\in \eM(n,\eK)\) telle que \( AB=\delta\).
+    Si \( A\in \eM(n,\eK)\), alors il existe au plus une matrice \( B\in \eM(n,\eK)\) telle que \( AB=\mtu\).
 \end{lemma}
 
 \begin{proof}
@@ -725,21 +737,21 @@ pour toute matrice \( A\).
 
     Pour cela nous considérons les applications linéaires \( f_A, f_B, f_C\in \End(\eK^)\) associées par la proposition \ref{PROPooGXDBooHfKRrv}. Vu que \( AB=\delta\), par la proposition \ref{PROPooCSJNooEqcmFm}, nous avons \( f_A\circ f_B = f_{AB}=\id\). La proposition \ref{PROPooADESooATJSrH} nous dit alors que \( f_A\) et \( f_B\) sont bijectives. 
 
-    En particulier, vu que \( \{e_i\}\) est une base, son image par \( f_B\) est une base par la proposition \ref{PROPooZFKZooBGLSex}. La proposition \ref{PROPooHLUYooNsDgbn} dit alors que \( \{f_B(e_i)\}\) est une base. Nous décomposons \( f_B(e_k)-f_C(e_k)\) dans cette base :
+    En particulier, vu que \( \{e_i\}\) est une base, son image par \( f_B\) est une base par la proposition \ref{PROPooZFKZooBGLSex}. La proposition \ref{PROPooHLUYooNsDgbn} dit alors que \( \{f_B(e_i)\}\) est une base. Soit \( k \) fixé. Nous décomposons \( f_B(e_k)-f_C(e_k)\) dans cette base :
     \begin{equation}
-        f_B(e_k)-f_C(e_k)=\sum_j\alpha_jf_B(e_j)
+        f_B(e_k)-f_C(e_k)=\sum_j\alpha^{(k)}_jf_B(e_j).
     \end{equation}
-    où les \( \alpha_j\) dépendent à priori de \( k\). Vu que \( f_A\circ(f_B-f_C)=0\), nous avons 
+    Vu que \( f_A\circ(f_B-f_C)=0\), nous avons 
     \begin{equation}
-        0=f_A\big( f_B(e_k)-f_C(e_k) \big)=\sum_j(f_A\circ f_B)(e_j)=\sum_j\alpha_je_j.
+        0=f_A\big( f_B(e_k)-f_C(e_k) \big)=\sum_j(f_A\circ f_B)(e_j)=\sum_j\alpha^{(k)}_je_j.
     \end{equation}
-    Donc les \( \alpha_j\) sont tous nuls.
+    Donc les \( \alpha^{(k)}_j\) sont tous nuls, pour tout \( j \), et quel que soit le \( k \) de dépaet
 
     Nous en déduisons que \( f_B(e_k)=f_C(e_k)\), et donc \( f_B=f_C\). Cela implique que \( B=C\) par la proposition \ref{PROPooGXDBooHfKRrv}\ref{ITEMooHSMLooRJZref}.
 \end{proof}
 
 \begin{proposition}[\cite{ooKBOMooSkKHvu}]      \label{PROPooECIIooVMCIwz}
-    Si \( A,B\in \eM(n,\eK)\) vérifient \( AB=\delta\), alors \( BA=\delta\).
+    Si \( A,B\in \eM(n,\eK)\) vérifient \( AB=\mtu\), alors \( BA=\mtu\).
 \end{proposition}
 
 \begin{proof}
@@ -751,7 +763,7 @@ pour toute matrice \( A\).
 \end{proof}
 
 \begin{corollary}       \label{CORooBQLXooTeVfgb}
-    Soit \( A\in \eM(n,\eK)\). Si il existe \( B\in \eM(n,\eK)\) tel que \( AB=\delta\), alors \( A\) est inversible et son inverse est \( B\).
+    Soit \( A\in \eM(n,\eK)\). Si il existe \( B\in \eM(n,\eK)\) tel que \( AB=\mtu\), alors \( A\) est inversible et son inverse est \( B\).
 \end{corollary}
 
 \begin{proof}
@@ -769,7 +781,7 @@ pour toute matrice \( A\).
 \begin{proof}
     Supposons que \( AB\) soit inversible. Alors
     \begin{equation}
-        AB(AB)^{-1}=\delta,
+        AB(AB)^{-1}=\mtu,
     \end{equation}
     ce qui dirait que \( B(AB)^{-1}\) serait un inverse de \( A\).
 \end{proof}
