@@ -6,9 +6,9 @@
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Anneaux}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+%------------------------------------------------------------------------------
 \subsection{Définitions et les bases}
-%--------------------------------------
+%------------------------------------------------------------------------------
 
 \begin{definition}[Anneau\cite{Tauvel}]     \label{DefHXJUooKoovob}
     Un \defe{anneau}{anneau}\footnote{Nous faisons le choix qu'un anneau admet toujours un neutre pour la multiplication. Certains ouvrages parlent dans ce cas d'anneau unitaire.} est un triplet \( (A,+,\cdot)\) avec les conditions
@@ -359,11 +359,20 @@ Un élément \( a\in A\) est \defe{régulier à droite}{régulier à droite} si 
 \begin{definition}[Éléments nilpotents, unipotents et inversibles]
 	On dit que \( a \in A \) est \defe{nilpotent}{nilpotent} s'il existe \( n \in \eN \) tel que \( a^n = 0 \). Il est dit \defe{unipotent}{unipotent} si \( a-1\) est nilpotent, c'est-à-dire si \( (a-1)^n =0\) pour un certain \( n \in \eN \).
 
-	Un élément \( a \in A \) est dit \defe{inversible}{élément!inversible!dans un anneau} s'il existe \( b \in A \) tel que \( ab = 1 \).
+	Un élément \( a \in A \) est dit \emph{inversible à droite} s'il existe \( b \in A \) tel que \( ab = 1 \), et \emph{inversible à gauche} s'il existe \( c \in A \) tel que \( ca = 1 \). Il est dit \defe{inversible}{élément!inversible!dans un anneau} (tout court) s'il est à la fois inversible à droite et à gauche.
 \end{definition}
+
+\begin{lemma}   \label{LEM_memeInverseaGetaD}
+  Un élément qui est inversible (à droite et à gauche) admet le même inverse à droite et à gauche.
+\end{lemma}
+
+\begin{proof}
+  En reprenant les mêmes notations que dans la définition précédente, on considère le produit \( cab \). Comme \( ca = 1 \), on a \( cab = b\). Mais comme \( ab = 1 \) on a aussi \( cab = c \). Conclusion: \( b = c \).
+\end{proof}
 
 L'ensemble \( U(A)\)\nomenclature[A]{\( U(A)\)}{ensemble des inversibles} des éléments inversibles de \( A\) est un groupe pour la multiplication. Nous notons \( A^*=A\setminus\{ 0 \}\).
 
+Remarquons que l'unicité de l'inverse a lieu "à gauche et à droite", mais on n'a pas, en général, unicité de l'inverse à gauche, ou unicité de l'inverse à droite: on peut trouver des exemples assez tordus pour ça.
 
 \begin{proposition}
     Si \( a\) est un élément nilpotent de l'anneau \( A\), alors \( 1-a\) est inversible. Si \( a\) est nilpotent non nul, alors il est diviseur de zéro.
@@ -375,6 +384,24 @@ L'ensemble \( U(A)\)\nomenclature[A]{\( U(A)\)}{ensemble des inversibles} des é
         1=1-a^n=(1-a)(1+a+\cdots+a^{n-1})=(1+a+\cdots+a^{n-1})(1-a).
     \end{equation}
     La somme \( 1+a+\cdots+a^{n-1}\) est donc un inverse de \( (1-a)\).
+\end{proof}
+
+\begin{proposition}   \label{PROP_inversibiliteEtProduits}
+    Si \( a \) n'est pas inversible à gauche, alors aucun élément de la forme \( ba \) n'est inversible à gauche, et réciproquement
+    
+    De même, \( a \) n'est pas inversible à droite si et seulement si aucun élément de la forme \( ab \) n'est inversible à droite.
+    
+    Enfin, \( a \) n'est pas inversible si et seulement si:
+    \begin{itemize}
+    \item aucun élément \( ba \) n'est inversible à gauche, ou
+    \item aucun élément \( ab \) n'est inversible à droite.
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  Assez simplement: si \( c \) est un inverse à gauche de \( ba \), alors \( cb \) est un inverse à gauche de \( a \). Réciproquement, si aucun élément \( ba \) n'est inversible, alors \( 1a \) en particulier ne l'est pas.
+  
+  On fait la même preuve pour l'inversion à droite. Pour la dernière, ce n'est que de la logique: \( a \) non-inversible signifie qu'il ne l'est pas à gauche, ou qu'il ne l'est pas à droite.
 \end{proof}
 
 %----------------------------------------------------------------------------------

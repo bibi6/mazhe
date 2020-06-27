@@ -1339,6 +1339,88 @@ Lorsque \( A\) est une matrice, nous notons \( f_A\) l'application linéaire ass
     \end{pmatrix}\). Une base convenable est donc \( \{ e_1, e_1-e_2 \}\).
 \end{example}
 
+
+Pour la définition du rang d'une matrice, nous en donnons une qui est clairement inspirée de l'application linéaire associée.
+\begin{proposition}[\cite{ooKBOMooSkKHvu}]       \label{DEFooCSGXooFRzLRj}
+    Le \defe{rang}{rang d'une matrice} d'une matrice de \( \eM(n,\eK)\) est la dimension de la partie de \( \eK^n\) engendrée par ses colonnes.
+\end{proposition}
+
 \begin{proposition}     \label{PROPooEGNBooIffJXc}
     Le rang d'une application linéaire est égal au rang de sa matrice dans n'importe quelle base.
 \end{proposition}
+
+---------------------------------------------------------------------------------------------------------------------------
+\subsection{Matrices équivalentes et semblables}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}  \label{DefBLELooTvlHoB}
+    Deux relations d'équivalence entre les matrices.
+    \begin{enumerate}
+        \item   \label{ItemPFXCooOUbSCt}
+    Deux matrices \( A\) et \( B\) sont \defe{équivalentes}{matrice!équivalence} dans \( \eM(n,\eK)\) s'il existe \( P,Q\in\GL(n,\eK)\) telles que \( A=PBQ^{-1}\).
+\item
+    Deux matrices sont \defe{semblables}{matrices!similitude} s'il existe une matrice \( P\in \GL(n,\eK)\) telle que \( A=PBP^{-1}\).
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}   \label{LemZMxxnfM}
+    Une matrice de rang\footnote{Définition~\ref{DEFooVVBYooJbliTi}.} \( r\) dans \( \eM(n,\eK)\) est équivalente à la matrice par blocs
+    \begin{equation}
+        J_r=\begin{pmatrix}
+            \mtu_r    &   0    \\
+            0    &   0
+        \end{pmatrix}.
+    \end{equation}
+\end{lemma}
+\index{rang!classe d'équivalence}
+
+\begin{proof}
+    Nous devons prouver que pour toute matrice \( A\in\eM(n,\eK)\) de rang \( r\), il existe \( P,Q\in\GL(n,\eK)\) telles que \(QAP=J_r\). Soit \( \{ e_i \}\) la base canonique de \( \eK^n\), puis \( \{ f_i \}\) une base telle que \( Af_i=0\) dès que \( i>r\), qui existe par le lemme~\ref{LEMVecsaRgFixe}.
+
+    Nous considérons la matrice inversible \( P\) telle que \( Pe_i=f_i\); ses colonnes sont donc précisément les \( f_i \), si bien que
+    \begin{equation}
+        APe_i=Af_i=\begin{cases}
+            0    &   \text{si } i>r\\
+            \neq 0    &    \text{sinon}.
+        \end{cases}
+    \end{equation}
+    La matrice \( AP\) se présente donc sous la forme
+    \begin{equation}
+        AP=\begin{pmatrix}
+            M    &   0    \\
+            *    &   0
+        \end{pmatrix}
+    \end{equation}
+    où \( M\) est une matrice \( r\times r\). Nous considérons maintenant une base \( \{ g_i \}_{i=1,\ldots, n}\) dont les \( r\) premiers éléments sont les \( r\) premières colonnes de \( AP\) et une matrice inversible \( Q\) telle que \( Qg_i=e_i\). Alors
+    \begin{equation}
+        QAPe_i=\begin{cases}
+            e_i    &   \text{si } i<r\\
+            0    &    \text{sinon}.
+        \end{cases}.
+    \end{equation}
+    Cela signifie que \( QAP\) est la matrice \( J_r\).
+\end{proof}
+
+\begin{corollary}[Équivalence et rang]      \label{CorGOUYooErfOIe}
+    Deux matrices sont équivalentes\footnote{Définition~\ref{DefBLELooTvlHoB}\ref{ItemPFXCooOUbSCt}.} si et seulement si elles sont de même rang.
+\end{corollary}
+
+\begin{proof}
+    D'abord il y a des implicites dans l'énoncé. Vu que nous voulons soit par hypothèse soit par conclusion que les matrices \( A\) et \( B\) soient équivalentes, nous supposons qu'elles ont même dimension. Soient donc \( A\) et \( B\) deux matrices carrées d'ordre \( n \).
+
+    Par le lemme~\ref{LemZMxxnfM}, deux matrices de même rang \( r\) sont équivalentes à \( J_r\). Elles sont donc équivalentes entre elles.
+
+    Inversement, supposons que \( A\) et \( B\) soient deux matrices équivalentes : \( A=PBQ^{-1}\) avec \( P\) et \( Q\) inversibles. Alors
+    \begin{subequations}
+        \begin{align}
+            \Image(PBQ^{-1})&=\{ PBQ^{-1}v\tq v\in \eK^n \}\\
+            &=PB\underbrace{\{ Q^{-1}v\tq v\in \eK^n \}}_{=\eK^n}\\
+            &=P\big( B(\eK^n) \big).
+        \end{align}
+    \end{subequations}
+    L'ensemble \( B(\eK^n)\) est un sous-espace vectoriel de \( \eK^n\). Vu que le rang de \( P\) est maximum, la dimension de \( P\big( B(\eK^n) \big)\) est la même que celle de \( B(\eK^n)\). Par conséquent
+    \begin{equation}
+        \dim\Big( \Image(PBQ^{-1}) \Big)=\dim\big( B(\eK^n) \big)=\rang(B).
+    \end{equation}
+    Le membre de gauche de cela n'est autre que \( \rang(A)=\dim\big( \Image(PBQ^{-1}) \big)\).
+\end{proof}

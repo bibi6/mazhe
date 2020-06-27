@@ -78,6 +78,24 @@
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
+\subsection{Déterminant d'une matrice}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{propositionDef}      \label{DEFooYCKRooTrajdP}
+    Si \( A\in\eM(n,\eK)\) nous définissons le \defe{déterminant}{déterminant!matrice} de \( A\) par la formule
+    \begin{equation}\label{EQDEF_detPermutations}
+        \det(A)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nA_{i\sigma(i)}
+    \end{equation}
+    où la somme est effectuée sur tous les éléments du groupe symétrique\footnote{Pour le groupe symétrique, c'est la définition \ref{DEFooJNPIooMuzIXd}, le fait que ce soit un groupe fini est le lemme \ref{LEMooSGWKooKFIDyT}, et pour la somme sur un groupe fini c'est la définition \ref{DEFooLNEXooYMQjRo}.} \( S_n\) et où \(\epsilon(\sigma)\) représente la signature\footnote{Définition~\ref{DEFooWPYSooPWuwWO}.} de la permutation \( \sigma\).
+\end{propositionDef}
+
+\begin{proof}
+Ce qu'il faut prouver, c'est que la définition par l'équation~\eqref{EQDEF_detPermutations} donne bien la même chose que la définition de la sous-section~\ref{SUBSUBSEC_calculDeterminantMat}.\quext{Et ça marche, mais faut le faire.}
+\end{proof}
+
+En se souvenant que \( | S_n |=n!\), nous sommes frappés de stupeur devant le fait que le nombre de termes dans la somme croît de façon factorielle (c'est plus qu'exponentiel, pour info) en la taille de la matrice. Cette formule est donc sans espoir pour une matrice plus grande que \( 3\times 3\) ou à la rigueur \( 4\times 4\) à la main. À l'ordinateur, il est possible de monter plus haut, mais pas tellement.
+
+%---------------------------------------------------------------------------------------------------------------------------
 \subsection{Déterminant d'une famille de vecteurs}
 %---------------------------------------------------------------------------------------------------------------------------
 

@@ -9,16 +9,16 @@
 
 %Les matrices et les applications linéaires sont deux choses différentes. Une application linéaire\footnote{Définition \ref{DEFooULVAooXJuRmr}.} est une application d'un espace vectoriel vers un autre, et une matrice est un simple tableau de nombres sur lesquels nous définissons des opérations, de telle sorte à fournir une structure d'espace vectoriel. Le lien entre ces opérations et les opérations correspondantes sur les applications linéaires sera fait plus tard.
 
-%TODO: fixer les notations d'ensembles M( n x m, K) et matrice identité dans l'index des notations.
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Définitions}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{definition}
-    Soit un anneau \( A\) ainsi que des entiers \( m\), \( n\) strictement positifs. Notons \( I = \{ 1,\ldots, n \}\times \{ 1,\ldots, m \} \). L'ensemble \( \eM(m\times n, A)\) est alors le \( A \)-module produit \( A^I \) et est appelé ensemble des \defe{matrices}{matrice} \(n\times m\) sur \( A \).
+    Soit un anneau \( A\) ainsi que des entiers \( m\), \( n\) strictement positifs. Notons \( I = \{ 1,\ldots, n \}\times \{ 1,\ldots, m \} \). L'ensemble \( \eM(n\times m, A)\) est alors le \( A \)-module produit \( A^I \) et est appelé ensemble des \defe{matrices}{matrice} \(n\times m\) sur \( A \).
 \end{definition}
 Si \( M\) est une matrice, nous notons \( M_{ij}\) au lieu de \( M_{(i,j)}\) l'élément correspondant à \( (i,j)\).
+\nomenclature[M]{\( \eM(n \times m , A \)}{l'ensemble des matrices à \( n \) lignes et \( m \) colonnes, à coefficients dans \( A\)}
 
 
 \begin{definition}
@@ -34,6 +34,7 @@ Quelques ensembles de matrices particuliers.
     \item Si \( m = 1 \), alors la matrice est appelée \defe{matrice-colonne}{matrice-colonne}.
   \end{enumerate}
 \end{definition}
+\nomenclature[M]{\( \eM(n \times m , A \)}{l'ensemble des matrices carrées d'ordre \( n \) lignes à coefficients dans \( A\) -- donc, c'est \( \eM(n \times n , A \)}
 
 \begin{remark}    \label{isoNatMatricesPuissances}
     Quelques remarques à propos de structures supplémentaires.
@@ -45,16 +46,15 @@ Quelques ensembles de matrices particuliers.
 \end{enumerate}
 \end{remark}
 
-\begin{lemmaDef}
-    Avec la multiplication
+\begin{definition}  \label{DEF_produitMatrices}
+    On définit l'opération de multiplication
     \begin{equation}
         \begin{aligned}
-             \eM(n\times p,\eK)\times \eM(p\times m,\eK)&\to \eM(n\times m,\eK) \\
-             (A,B)&\mapsto C = AB \tq C_{ij} = (AB)_{ij}=\sum_{k=1}^pA_{ik}B_{kj},
+             \eM(n\times p,A)\times \eM(p\times m,A)&\to \eM(n\times m,A) \\
+             (A,B)&\mapsto C = AB \tq C_{ij} = (AB)_{ij}=\sum_{k=1}^pA_{ik}B_{kj}.
         \end{aligned}
-    \end{equation}
-    l'espace \( \eM(n,\eK)\) est une \( \eK\)-algèbre\footnote{Définition \ref{DefAEbnJqI}.}.
-\end{lemmaDef}
+    \end{equation}.
+\end{definition}
 
 \begin{remark}  \label{REM_produitMatrices}
     Quelques remarques là-dessus.
@@ -75,14 +75,7 @@ Quelques ensembles de matrices particuliers.
             \end{equation}
             en d'autres termes, multplier \( A \) par \( B_{(s)} \) revient à prendre la \( s \)\ieme{} colonne de \( A \).
         \item
-            Par ailleurs, sur les matrices carrées d'ordre \( n \) fixé, le produit de deux matrices est bien défini. Ainsi, \( \eM(n, A)\) se voit conférer une structure d'anneau, dont le neutre pour la multiplication est la matrice carrée \( \mtu_n\) (notée aussi \( \mtu\) lorsqu'il n'y a pas d'ambiguïté sur la taille), donnée par
-\begin{equation}
-    \mtu_{ij}=\delta_{ij} = \begin{cases}
-        1    &   \text{si } i=j\\
-        0    &    \text{sinon.}
-    \end{cases}
-\end{equation}
-Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M\mtu=\mtu M=M\).
+            Par ailleurs, sur les matrices carrées d'ordre \( n \) fixé, le produit de deux matrices est bien défini. Nous en discuterons en détail plus tard
     \end{enumerate}
 \end{remark}
 
@@ -93,6 +86,8 @@ Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M
         \item[La trace] \( \tr(M)=\sum_i M_{ii}\). \quext{La trace pour des matrices pas carrées, pourquoi pas\dots}
     \end{description}
 \end{definition}
+\nomenclature[M]{\( M^t \)}{transposée de la matrice \( M \)}
+\nomenclature[M]{\( \tr(M) \)}{trace de la matrice \( M \)}
 
     Nous verrons plus loin en \ref{SUBSECooGPXVooEYwIiJ} que la définition de transposée d'une application linéaire n'est pas tout à fait évidente; elle sera la définition \ref{DefooZLPAooKTITdd}. Ici nous avons bien défini la transposée d'une matrice, pas d'une application linéaire.
 
@@ -131,25 +126,154 @@ Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M
 \end{lemma}
 
 \begin{proof}
-    Il suffit de calculer, pour des matrices \( X \in \in \eM(1 \times n,A) \) et \( Y \in \eM(m \times 1,A) \) bien choisies, les produits \( XAY \) et \( XBY \), qui sont supposés égaux.\footnote{Cela, c'est grâce à l'isomorphisme naturel de la remarque~\ref{isoNatMatricesPuissances}.}
+    Il suffit de calculer, pour des matrices \( X \in \eM(1 \times n,A) \) et \( Y \in \eM(m \times 1,A) \) bien choisies, les produits \( XAY \) et \( XBY \), qui sont supposés égaux.\footnote{Cela, c'est grâce à l'isomorphisme naturel de la remarque~\ref{isoNatMatricesPuissances}.}
     
-    Ici, "bien choisies" signifie en réalité les matrices particulières de la remarque~\ref{REM_produitMatrices}~\ref{REM_produitMatricesiii}. En effet, soit \( r \in \{1,\dots\, n\} \) et \(s \in \{1,\dots\ , m\} \). Avec les mêmes notations que là-bas, on prend \( X = X_{(r)} \) et \( Y = Y_{(s)} \). Pour toute matrice \( M \), la matrice \( XM \) est la \(r\)\ieme{} ligne de \( M \); puis, \( XMY = (XM) Y \) est la \(s\)\ieme{} colonne de \( XM \), donc la la \(s\)\ieme{} colonne,  \(r\)\ieme{} ligne de \( M \), donc en réalité \( M_{rs} \).
+    Ici, "bien choisies" signifie en réalité les matrices particulières de la remarque~\ref{REM_produitMatrices}~\ref{REM_produitMatricesiii}. En effet, soit \( r \in \{1,\dots\, n\} \) et \(s \in \{1,\dots\ , m\} \). Avec les mêmes notations que là-bas, on prend \( X = A_{(r)} \) et \( Y = B_{(s)} \). Pour toute matrice \( M \), la matrice \( XM \) est la \(r\)\ieme{} ligne de \( M \); puis, \( XMY = (XM) Y \) est la \(s\)\ieme{} colonne de \( XM \), donc la la \(s\)\ieme{} colonne,  \(r\)\ieme{} ligne de \( M \), donc en réalité \( M_{rs} \).
     
-    Il s'ensuit que, pour tout \( r \in \{1,\dots\, n\} \) et tout \(s \in \{1,\dots\ , m\} \), \( A_{rs} = B_{rs} \); donc  \( A = B \).
+    Il s'ensuit que, pour tout \( r \in \{1,\dots\, n\} \) et tout \(s \in \{1,\dots\ , m\} \), \( M_{rs} = N_{rs} \); donc  \( M = N \).
+\end{proof}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Multiplication de matrices carrées, matrices inversibles}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{remark}
+  Trois remarques coup sur coup.
+  \begin{enumerate}
+  \item
+    Pour des matrices carrées (disons d'ordre \( n \), c'est-à-dire dans \( \eM(n,A)\), l'opération de multiplication définie en~\ref{DEF_produitMatrices} fonctionne quelles que soient les matrices. Ainsi, \( \eM(n, A)\) se voit conférer une structure d'anneau, dont le neutre pour la multiplication est la matrice carrée \( \mtu_n\) (notée aussi \( \mtu\) lorsqu'il n'y a pas d'ambiguïté sur la taille), donnée par
+\begin{equation}
+    \mtu_{ij}=\delta_{ij} = \begin{cases}
+        1    &   \text{si } i=j\\
+        0    &    \text{sinon.}
+    \end{cases}
+\end{equation}
+Il est vite vu que si \( M\) est une matrice carrée d'ordre \( n \), alors \( M\mtu=\mtu M=M\).
+\nomenclature[M]{\( \mtu_n \)}{la matrice identité dans \( \eM(n , A \)}
+
+  \item
+    Quand les entrées sont dans un corps commutatif \( \eK \), l'espace \( \eM(n,\eK)\) est une \( \eK\)-algèbre\footnote{Définition \ref{DefAEbnJqI}.}
+  \item
+    Attention tout de même: même si \( A \) a une stucture sympa (soyons fous, disons que \( A \) est un corps commutatif!), \( \eM(n,A)\) ne l'est pas vraiment: en particulier, ce n'est pas un anneau commutatif. Étudiez par exemple dans \( \eM(2, \eQ \), le produit des matrices
+    \begin{equation}
+    \begin{pmatrix}
+         1   &   3   \\
+         0   &   1
+     \end{pmatrix}\quad\text{ et }
+     \begin{pmatrix}
+         1   &   0    \\
+         1   &   1
+     \end{pmatrix} \dots
+     \end{equation}
+   \end{enumerate}
+\end{remark}
+
+\begin{propositionDef}      \label{PROPooMLWRooRWfZXE}
+    Soit une matrice \( A\in \eM(n,\eK)\). Si les matrices \( B_1\) et \( B_2\) de \( \eM(n,\eK)\) vérifient
+    \begin{equation}
+        AB_1=B_1A=\mtu
+    \end{equation}
+    et
+    \begin{equation}
+        AB_2=B_2A=\mtu,
+    \end{equation}
+    alors \( B_1=B_2\). Dans ce cas, nous disons que \( A\) est inversible et nous notons \( A^{-1}\) l'unique matrice telle que \( AA^{-1}=A^{-1}A=\mtu\).
+\end{propositionDef}
+
+\begin{proof}
+    La preuve est réalisée dans le cas général par le lemme \ref{LEMooECDMooCkWxXf}. Mais si vous en voulez une preuve avec les notations d'ici, en voici une.
+
+    Nous avons $AB_1=AB_2$. En multipliant à gauche par \( B_1\), nous trouvons \( B_1AB_1=B_1AB_2\). En remplaçant \( B_1A\) par \( \mtu\) des deux côtés, il reste \( B_1=B_2\).
+\end{proof}
+
+\begin{lemma}
+  Soit une matrice \( A\in \eM(n,\eK)\). S'il existe \( B \) telle que \( AB = \mtu \) et \( C \) telle que \( CA = \mtu \), alors \( A \) est inversible d'inverse \( B = C \).
+\end{lemma}
+C'est le lemme \ref{LEM_memeInverseaGetaD}, réécrit en math et en matrices.
+
+\begin{corollary}\label{PROPooECIIooVMCIwz}
+  Soit une matrice \( A\in \eM(n,\eK)\). S'il existe \( B \) telle que \( AB = \mtu \), alors \( CA \neq \mtu \) pour \( C \neq B \).
+  
+  Mieux: \( BA = \mtu \), en effet.
+\end{corollary}
+\begin{proof}
+  Si \( BA = D \neq \mtu \), alors, en multipliant à droite par \( B \), il vient \( BAB = DB \neq B \); mais \( AB = \mtu \), donc \( B(AB) = B \): contradiction. 
 \end{proof}
 
 
+\begin{probleme}
+  Le $DB \neq B$ n'est pas certain; peut-on trouver un argument plus fort pour cela, sans passer par les espaces vectoriels?
+\end{probleme}
+
+Conséquences:
+\begin{lemma}[\cite{ooKBOMooSkKHvu}]        \label{LEMooGZCTooQigDvC}
+    Si \( A\in \eM(n,\eK)\), alors il existe au plus une matrice \( B\in \eM(n,\eK)\) telle que \( AB=\mtu\).
+\end{lemma}
+%
+%\begin{proof}
+%    Soient des matrices \( B,C\in \eM(n,\eK)\) telles que \( AB=AC=\delta\). Nous allons montrer que \( B=C\).
+%
+%    Pour cela nous considérons les applications linéaires \( f_A, f_B, f_C\in \End(\eK^)\) associées par la proposition \ref{PROPooGXDBooHfKRrv}. Vu que \( AB=\delta\), par la proposition \ref{PROPooCSJNooEqcmFm}, nous avons \( f_A\circ f_B = f_{AB}=\id\). La proposition \ref{PROPooADESooATJSrH} nous dit alors que \( f_A\) et \( f_B\) sont bijectives. 
+%
+%    En particulier, vu que \( \{e_i\}\) est une base, son image par \( f_B\) est une base par la proposition \ref{PROPooZFKZooBGLSex}. La proposition \ref{PROPooHLUYooNsDgbn} dit alors que \( \{f_B(e_i)\}\) est une base. Soit \( k \) fixé. Nous décomposons \( f_B(e_k)-f_C(e_k)\) dans cette base :
+%    \begin{equation}
+%        f_B(e_k)-f_C(e_k)=\sum_j\alpha^{(k)}_jf_B(e_j).
+%    \end{equation}
+%    Vu que \( f_A\circ(f_B-f_C)=0\), nous avons 
+%    \begin{equation}
+%        0=f_A\big( f_B(e_k)-f_C(e_k) \big)=\sum_j(f_A\circ f_B)(e_j)=\sum_j\alpha^{(k)}_je_j.
+%    \end{equation}
+%    Donc les \( \alpha^{(k)}_j\) sont tous nuls, pour tout \( j \), et quel que soit le \( k \) de départ.
+%
+%    Nous en déduisons que \( f_B(e_k)=f_C(e_k)\), et donc \( f_B=f_C\). Cela implique que \( B=C\) par la proposition \ref{PROPooGXDBooHfKRrv}\ref{ITEMooHSMLooRJZref}.
+%\end{proof}
+
+%\begin{proposition}[\cite{ooKBOMooSkKHvu}]      \label{PROPooECIIooVMCIwz}
+%    Si \( A,B\in \eM(n,\eK)\) vérifient \( AB=\mtu\), alors \( BA=\mtu\).
+%\end{proposition}
+%
+%\begin{proof}
+%    L'astuce est de poser \( C=BA-\delta+B\) et de montrer que \( C=B\). Pour cela, un rapide calcul commence par montrer que
+%    \begin{equation}
+%        AC=ABA-A+AB=AB=\delta.
+%    \end{equation}
+%    Donc \( C\) est également un inverse à droite de \( A\). Le lemme \ref{LEMooGZCTooQigDvC} donne alors \( C=B\).
+%\end{proof}
+
+\begin{corollary}       \label{CORooBQLXooTeVfgb}
+    Soit \( A\in \eM(n,\eK)\). Si il existe \( B\in \eM(n,\eK)\) tel que \( AB=\mtu\), alors \( A\) est inversible et son inverse est \( B\).
+\end{corollary}
+
+\begin{proof}
+    Il s'agit d'une paraphrase de la proposition \ref{PROPooECIIooVMCIwz} et de la définition \ref{PROPooMLWRooRWfZXE}.
+\end{proof}
+
+Le lemme qui suit est le même que la proposition~\ref{PROP_inversibiliteEtProduits}, en un peu plus puissant\footnote{C'est plus puissant grâce à la proposition \ref{PROPooECIIooVMCIwz}, qu'on n'a pas nécessairement dans un anneau quelconque.}
+
+\begin{lemma}       \label{LEMooZDNVooArIXzC}
+    Si une matrice \( A\) n'est pas inversible, alors les produits \( AB\) et \( BA \) ne sont inversibles pour aucune matrice \( B\).
+\end{lemma}
+
+\begin{proof}
+    Supposons que \( AB\) soit inversible. Alors
+    \begin{equation}
+        AB(AB)^{-1}=\mtu,
+    \end{equation}
+    ce qui dirait que \( B(AB)^{-1}\) serait un inverse de \( A\).
+    
+    De la même manière, si \( BA \) était inversible, alors \( (BA)^{-1}B \) serait un inverse pour \( A \).
+\end{proof}
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Transvections, dilatations, permutations}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Dans n'importe quel espace de matrices, nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qui vaut \( 1\). Autrement dit
+Dans n'importe quel espace de matrices \( \eM(n \times m, A \), nous nommons \( E_{ij}\) la matrice remplie de zéros sauf à la case \( ij\) qui vaut \( 1\). Autrement dit
 \begin{equation}
     (E_{ij})_{kl}=\delta_{ik}\delta_{jl}.
 \end{equation}
 
 \begin{lemma}   \label{LEM_multiplicationMatriceEij}
-  Si \( M \) est une matrice, alors:
+  Si \( M \) est une matrice\footnote{\dots dans un bon espace pour que la multiplication ait du sens.}, alors:
   \begin{enumerate}
       \item
           \( E_{ij}M \) est une matrice partout nulle, à l'exception de sa \( i \)\ieme{} ligne, qui contient la \( j \)\ieme{} ligne de \( M \);
@@ -190,7 +314,7 @@ Dans n'importe quel espace de matrices, nous nommons \( E_{ij}\) la matrice remp
     donc seule la \( j\) \ieme{} colonne de \(ME_{ij}\) contient (éventuellement) des éléments non-nuls, et c'est précisément la \( i \)\ieme{} colonne de \( M \)
 \end{proof}
 
-\begin{definition}
+\begin{definition}    \label{DEF_transvectionDilatationPermutation}
     Une \defe{matrice de transvection}{transvection (matrice)}\index{matrice!de transvection} est une matrice de la forme
     \begin{equation}
         T_{ij}(\lambda)=\mtu+\lambda E_{ij}
@@ -210,39 +334,63 @@ Dans n'importe quel espace de matrices, nous nommons \( E_{ij}\) la matrice remp
     en particulier, pour \( \sigma = (k,l) \), on notera simplement \( P_{kl} \) pour \( P_{\sigma} \).
 \end{definition}
 
+\begin{lemma}   \label{LEM_transpoMatricesTransfo}
+À propos de transposées des matrices ci-dessus, on a
+\begin{itemize}
+  \item
+    \( (E_{ij})^t = E_{ji} \);
+  \item
+    \( (T_{ij}(\lambda))^t = T_{ji}(\lambda) \);
+  \item
+    \( (D_{i}(\lambda))^t = D_{i}(\lambda) \);
+  \item
+    \( (P_{\sigma})^t = P_{\sigma^{-1}} \).
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+  \( (E_{ij})^t \) n'a qu'un élément non nul, en \( i \)\ieme{} colonne, \( j \)\ieme{} ligne: c'est donc bien \( E_{ji} \). La transposée passe les sommes et les multiplications par \( \lambda \), donc c'est OK pour les transvections et les dilatations. Pour les permutations, on a
+    \begin{equation}
+        (P_{\sigma})^t_{ij}=\delta_{j\sigma(i)} = \delta_{\sigma^{-1}(j)i} = (P_{\sigma^{-1}})_{ij}.
+    \end{equation}
+\end{proof}
+
+Si vous avez été attentifs, ou bien si vous êtes très rigoureux, vous avez vu qu'on n'a pas parlé de l'espace de matrices choisi pour définir les matrices en \ref{DEF_transvectionDilatationPermutation}, ni pour déterminer leurs transposées au lemme~\ref{LEM_transpoMatricesTransfo}. Ce n'est pas un problème, on peut le choisir générique.
+
+En revanche, il faut être un peu plus spépieux pour le lemme qui arrive. Mais tout se passe bien si toutes les matrices sont carrées de même ordre.\footnote{Le lemme reste vrai avec des matrices \( A \) pas carrées, mais les matrices de transformation doivent l'être, avec la bonne taille. On vous laisse compléter ça, si vous en avez envie ou besoin.}
 \begin{lemma}   \label{LemyrAXQs}
 \begin{enumerate}
-  \item
+  \item \label{LemyrAXQsooi}
     La matrice \( T_{ij}(\lambda)A=(\mtu+\lambda E_{ij})A\) est la matrice \( A\) à qui on a ajouté, à la \( i \)\ieme{} ligne, \( \lambda \) fois la \( j \) \ieme{} ligne; en d'autres termes, c'est \(A \) à qui on a fait la substitution
     \begin{equation}
         L_i\leftarrow L_i+\lambda L_j.
     \end{equation}
     
-  \item
+  \item  \label{LemyrAXQsooii}
     La matrice \( AT_{ij}(\lambda)\)  est la matrice \( A\) à qui on a ajouté, à la \( j \)\ieme{} colonne, \( \lambda \) fois la \( i \) \ieme{} colonne; en d'autres termes, c'est \(A \) à qui on a fait la substitution
     \begin{equation}
         C_j\leftarrow C_j+\lambda C_i.
     \end{equation}
 
-  \item
+  \item  \label{LemyrAXQsooiii}
     La matrice \( D_{i}(\lambda)A\) est la matrice \( A\) où la \( i\)\ieme{} ligne a été multipliée par \( \lambda \); en d'autres termes, c'est \( A \) à qui on a fait la substitution
     \begin{equation}
         L_i\leftarrow \lambda L_i.
     \end{equation}
 
-  \item
+  \item  \label{LemyrAXQsooiv}
     La matrice \( AD_{i}(\lambda)\) est la matrice \( A\) où la \( i\)\ieme{} colonne a été multipliée par \( \lambda \); en d'autres termes, c'est \( A \) à qui on a fait la substitution
     \begin{equation}
         C_i\leftarrow \lambda C_i.
     \end{equation}
     
-  \item
+  \item  \label{LemyrAXQsoov}
     La matrice \( P_{\sigma}A\) est la matrice \( A\) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\). En particulier, quand \( \sigma = (i,j) \), \( P_{\sigma}A =  P_{ij}A\) est la matrice \( A \) où les lignes \( i \) et \( j \) ont été inversées, autrement dit, c'est \( A \) qui a subi
      \begin{equation}
         L_i\leftrightarrow L_j.
     \end{equation} 
            
-  \item
+  \item  \label{LemyrAXQsoovi}
     La matrice \( AP_{\sigma}\) est la matrice \( A\) dans laquelle nous avons permuté les colonnes avec \( \sigma\). En particulier, quand \( \sigma = (i,j) \), \(AP_{\sigma} = AP_{ij}\) est la matrice \( A \) où les colonnes \( i \) et \( j \) ont été inversées, autrement dit, c'est \( A \) qui a subi
      \begin{equation}
         C_i\leftrightarrow C_j.
@@ -251,6 +399,7 @@ Dans n'importe quel espace de matrices, nous nommons \( E_{ij}\) la matrice remp
 \end{lemma}
 
 \begin{proof}
+On découpe selon le type de matrice.
 \begin{subproof}
   \item[Pour les transvections]
     Par distributivité de la multplication de l'addition, on a
@@ -307,21 +456,41 @@ Dans n'importe quel espace de matrices, nous nommons \( E_{ij}\) la matrice remp
 \end{proof}
 
 
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooWMQWooGWFlmC}
+    Soit une matrice \( A\) carrée d'ordre \( n \). Nous considérons la matrice \( B = GA \) (où \( G \) désigne une matrice de type \( T_{ij}(\lambda),\ D_{i}(\lambda)\) ou \( P_{\sigma} \) ), et \( C = A^t G^t \).
+    
+    Alors \( C^t=B\).
+\end{lemma}
+  Ici, "carrée d'ordre n" est indispensable -- vous voyez sans doute pourquoi.
+  
+\begin{proof}
+  Il suffit de vérifier que le boulot fait par \( G \) sur les lignes de \( A \) correspond au boulot de \( G^t \) sur les colonnes de \( A^t \). Découpons suivant le type de matrices.
+  \begin{subproof}
+  \item[Transvections]
+    On considère \( G = T_{ij}(\lambda)\): le lemme~\ref{LemyrAXQs} dit que \( B \) est \( A \) avec la substitution \( L_i \leftarrow L_i + \lambda L_j \).
+    
+    De l'autre côté, \( G^t = T_{ji}(\lambda)\) (lemme~\ref{LEM_transpoMatricesTransfo}),  et le lemme~\ref{LemyrAXQs} dit que \( C \) est \( A^t \) avec la substitution \( C_i \leftarrow C_i + \lambda C_j \).
+    
+    Donc \( C^t \) est la matrice \( (A^t)^t = A \) avec la substitution sur les lignes:  \( L_i \leftarrow L_i + \lambda L_j \) -- c'est-à-dire \( B \).
+  
+  \item[Dilatations]
+    Pour \( G = D_{i}(\lambda)\), le lemme~\ref{LemyrAXQs} dit que \( B \) est \( A \) avec la substitution \( L_i \leftarrow \lambda L_i \).
+    
+    De l'autre côté, \( G^t = D_{i}(\lambda)\) (lemme~\ref{LEM_transpoMatricesTransfo}),  \( C \) est \( A^t \) avec la substitution \( C_i \leftarrow \lambda C_i \) (lemme~\ref{LemyrAXQs}).
+    
+    Donc \( C^t \) est la matrice \( (A^t)^t = A \) avec la substitution sur les lignes:  \( L_i \leftarrow \lambda L_i \) -- donc de nouveau \( B \).
+  
+  \item[Permutations]
+     Quand \( G = P_{\sigma} \), le lemme~\ref{LemyrAXQs} dit que \( B \) est \( A \) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\). De l'autre côté, avec le lemme~\ref{LEM_transpoMatricesTransfo}), \( G^t = P_{\sigma^{-1}} \), et \( C \) est \( A \) dans laquelle nous avons permuté les colonnes avec \( \sigma^{-1}\) (lemme~\ref{LemyrAXQs}). Il s'ensuit que \( C^t \) est la matrice \( (A^t)^t = A \) dans laquelle nous avons permuté les lignes avec \( \sigma^{-1}\), donc \( C^t = B \).
+  \end{subproof}
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Déterminant}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}      \label{DEFooYCKRooTrajdP}
-    Si \( A\in\eM(n,\eK)\) nous définissons le \defe{déterminant}{déterminant!matrice} de \( A\) par la formule
-    \begin{equation}
-        \det(A)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nA_{i\sigma(i)}
-    \end{equation}
-    où la somme est effectuée sur tous les éléments du groupe symétrique\footnote{Pour le groupe symétrique, c'est la définition \ref{DEFooJNPIooMuzIXd}, le fait que ce soit un groupe fini est le lemme \ref{LEMooSGWKooKFIDyT}, et pour la somme sur un groupe fini c'est la définition \ref{DEFooLNEXooYMQjRo}.} \( S_n\) et où \(\epsilon(\sigma)\) représente la signature\footnote{Définition~\ref{DEFooWPYSooPWuwWO}.} de la permutation \( \sigma\).
-\end{definition}
-En se souvenant que \( | S_n |=n!\), nous sommes frappés de stupeur devant le fait que le nombre de termes dans la somme croît de façon factorielle (c'est plus qu'exponentiel, pour info) en la taille de la matrice. Cette formule est donc sans espoir pour une matrice plus grande que \( 3\times 3\) ou à la rigueur \( 4\times 4\) à la main. À l'ordinateur, il est possible de monter plus haut, mais pas tellement.
-
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsection{Déterminant en petite dimension}
+\subsubsection{Déterminant en dimensions 2 et 3}
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 En dimension deux, le déterminant de la matrice
@@ -341,15 +510,16 @@ est le nombre
 \end{equation}
 Ce nombre détermine entre autres le nombre de solutions que va avoir le système d'équations linéaires associé à la matrice.
 
-Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus compliqué; nous avons la formule
-\begin{equation}
+Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus compliqué; nous avons la formule (dite "règle de Sarrus"):
+\begin{subequations}
+\begin{align}
     \det
     \begin{pmatrix}
         a_{11}    &   a_{12}    &   a_{13}    \\
         a_{21}    &   a_{22}    &   a_{23}    \\
         a_{31}    &   a_{32}    &   a_{33}
     \end{pmatrix}
-    =
+    &=
     \begin{vmatrix}
         a_{11}    &   a_{12}    &   a_{13}    \\
         a_{21}    &   a_{22}    &   a_{23}    \\
@@ -366,113 +536,220 @@ Pour une matrice $3\times 3$, nous avons le même concept, mais un peu plus comp
     a_{13}\begin{vmatrix}
         a_{21}  &   a_{22}    \\
         a_{31}    &   a_{32}
-    \end{vmatrix}.
-\end{equation}
+    \end{vmatrix}\\
+    &= a_{11}a_{22}a_{33} - a_{11}a_{32}a_{23} - a_{12}a{21}a{33}+a_{12}a_{31}a_{23}+a_{13}a_{21}a_{32}-a_{13}a_{31}a_{22}\\
+    &= a_{11}a_{22}a_{33}+a_{12}a_{31}a_{23}+a_{13}a_{21}a_{32}
+     - a_{11}a_{32}a_{23} - a_{12}a_{21}a_{33}-a_{13}a_{31}a_{22}\\
+\end{align}
+\end{subequations}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Mineur, rang}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Déterminant en plus grande dimension}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\label{SUBSUBSEC_calculDeterminantMat}
 
-Pour la définition du rang d'une matrice, nous en donnons une qui est clairement inspirée de l'application linéaire associée.
-\begin{definition}[\cite{ooKBOMooSkKHvu}]       \label{DEFooCSGXooFRzLRj}
-    Le \defe{rang}{rang d'une matrice} d'une matrice de \( \eM(n,\eK)\) est la dimension de la partie de \( \eK^n\) engendrée par ses colonnes.
+Une définition formelle du déterminant sera donnée avec la définition~\ref{DEFooYCKRooTrajdP}. Nous allons nous contenter dans ce chapitre d'une définition par récurrence.
+
+\begin{definition}
+  Soit \( M \in \eM(n,A) \). Pour tous \( i,j \in \{1,\dots,n \} \), on note \( M_{(i,j)} \) la matrice  \( M \) à qui on a retiré sa \( i \)\ieme{} ligne et sa \( j \) \ieme colonne.
+  
+  On choisit un indice \( k \in \{1,\dots,n \} \) quelconque. On définit alors
+  \begin{equation}
+    \det(M) = \sum_{i = 1}^n (-1)^{i+k} m_{ik} \det\bigl(M_{(i,k)}\bigr).
+  \end{equation}
 \end{definition}
 
-Il est possible d'exprimer le rang d'une matrice de façon plus «intrinsèque» via le concept de mineur.
+Cette définition va donner une complexité de calcul phénoménale: en effet, un déterminant de matrice d'ordre 3 passera par 3 déterminants d'ordre 2, soit 6 termes; celui de matrice d'ordre 4 passera par 4 déterminants d'ordre 3, donc 4 fois 3 fois 2 = 24 termes. On vous laisse voir qu'un déterminant d'ordre 5 contient a priori 120 termes\dots\ et, en général, un déterminant d'ordre \( n \) contient \( n! \) termes. Donc, autant dire qu'on ne fera jamais les calculs à la main au-delà de l'ordre 3.
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Premières propriétés}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+\begin{lemma}
+  L'indice \( k \) que l'on choisit pour calculer le déterminant n'a pas d'importance.
+\end{lemma}
+
+\begin{proof}
+  On va voir que choisir \( k \) ou une autre valeur \( k' \), ne change pas les déterminants. En fait, on va partir en développant selon la \( k \)\ieme{} colonne, puis la \( k' \) \ieme{}, et voir.
+  
+C'est parti pour quelques symboles sommatoires\dots
+  \begin{subequations}
+  \begin{align}
+    \det(M) &= \sum_{i = 1}^n (-1)^{i+k} M_{ik} \det(M_{(i,k)})\\
+    &= \sum_{i = 1}^n (-1)^{i+k} M_{ik} \Bigl(\sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i'+k'} M_{i'k'} \det((M_{(i,k)})_{(i',k')}\Bigr)\\
+    &= \sum_{i = 1}^n \sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i+k} (-1)^{i'+k'}M_{ik}  M_{i'k'} \det\bigl((M_{(i,k)})_{(i',k')}\bigr)\\
+    &= \sum_{i = 1}^n \sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i+k} (-1)^{i'+k'}M_{ik}  M_{i'k'} \det\bigl((M_{(i,k)})_{(i',k')}\bigr)\label{EQ_detcalculexplicite1}\\
+   \det(M) &= \sum_{i = 1}^n (-1)^{i+k'} M_{ik'} \det(M_{(i,k')})\\
+    &= \sum_{i = 1}^n (-1)^{i+k'} M_{ik'} \Bigl(\sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i'+k} M_{i'k} \det((M_{(i,k')})_{(i',k)}\Bigr)\\
+    &= \sum_{i = 1}^n \sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i+k} (-1)^{i'+k'}m_{ik}  M_{i'k'} \det\bigl((M_{(i,k)})_{(i',k')}\bigr)\\
+    &= \sum_{i = 1}^n \sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i+k'} (-1)^{i'+k}M_{ik'}  M_{i'k} \det\bigl((M_{(i,k')})_{(i',k)}\bigr)\label{EQ_detcalculexplicite2}
+%    &= \sum_{i = 1}^n \sum_{\substack{i' = 1\\i \neq i'}}^n (-1)^{i+k'} (-1)^{i'+k} m_{ik}  m_{i'k'} \det\bigl((M_{(i,k')})_{(i',k)}\bigr)\\
+  \end{align}
+  \end{subequations}
+  Il suffit alors de voir que chaque terme de~\eqref{EQ_detcalculexplicite1} se retrouve dans~\eqref{EQ_detcalculexplicite2}, et il y a un petit piège: celui qu'on a avec \(i \) et \( i' \) dans \eqref{EQ_detcalculexplicite1}, on l'a avec \(i' \) et \( i \) dans \eqref{EQ_detcalculexplicite2}. Les exposants sur \( (-1) \) sont alors les mêmes, on multiplie par les mêmes éléments de \( M \) \footnote{et c'est pour ça qu'il faut faire un switch d'indices.}, et les deux matrices apparaissant dans les déterminants sont \( M \) à qui les lignes \( i \) et \(i' \), tout comme les colonnes \( k \) et \( k' \), ont été enlevées.
+  
+  Conclusion: ça marche bien.
+\end{proof}
+
+Conséquence immédiate: pour calculer un déterminant, on va toujours choisir une colonne avec plein de zéros dedans. Cela va considérablement alléger le nombre de termes.
+
+Soit dit, en passant:
+\begin{lemma}   \label{LEM_detmtu}
+  Le déterminant de la matrice identité vaut \( 1 \), pour tout ordre \( n \):  \( \det(\mtu_n) = 1 \)
+\end{lemma}
+Vous voulez vraiment une preuve? Prenez la première colonne, il n'y a qu'un \( 1 \) en première ligne, \( (-1)^{1+1} = 1 \), et \( (\mtu_n)_{(1,1)} = \mtu_{n-1} \) dont le déterminant vaut \( 1 \) par récurrence. Collez ça dans la définition, et c'est réglé.
+
+Il y aura même des calculs assez immédiats.
+\begin{lemma}    \label{LEM_detMatColonneZeros}
+  Le déterminant d'une matrice dont au moins une colonne ne comporte que que des zéros, est nul.
+\end{lemma}
+\begin{proof}
+  Développer le déterminant suivant la colonne de zéros et constater que tous les termes sont nuls.
+\end{proof}
+
+La réciproque n'est pas vraie : il existe des matrices dont le déterminant est nul et dont aucune entrée n'est nulle. Par exemple
+\begin{equation}
+    \begin{vmatrix}
+        1    &   2    \\ 
+        4    &   8    
+    \end{vmatrix} = 8 - 4\cdot 2 = 0.
+\end{equation}
+
+En fait, on a parlé de colonnes jusqu'à présent. Il se trouve qu'on peut travailler avec les lignes, grâce à ce qui suit.
+\begin{lemma}[\cite{MonCerveau,ooKYTYooJlzZMp}]        \label{LEMooCEQYooYAbctZ}
+    Si \( M\) est une matrice carrée, alors:
+    \begin{enumerate}
+    \item
+      \( \det(M) \) peut être développé suivant les lignes;
+    \item
+      \( \det(M)=\det(M^t)\).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Par récurrence sur l'ordre de \( M \). Les ordres \( 1 \) et \( 2 \) sont simples. Si la formule est valable pour des matrices d'ordre \( n - 1 \), alors, en développant suivant la première colonne, puis les \( M_{(i,1)} \) suivant la première ligne, il vient:
+      \begin{subequations}
+  \begin{align}
+    \det(M) &= \sum_{i = 1}^n (-1)^{i+1} M_{i1} \det(M_{(i,1)})\\
+    &= (-1)^{i+1} M_{11} \det(M_{(1,1)}) + \sum_{i = 2}^n (-1)^{i+1} M_{i1} \Bigl(\sum_{k' = 2}^n (-1)^{1+k'} M_{1k'} \det((M_{(i,1)})_{(1,k')}\Bigr)\\
+    &= (-1)^{i+1} M_{11} \det(M_{(1,1)}) + \sum_{i = 2}^n \sum_{k' = 2}^n (-1)^{2+i+k'} M_{i1}  M_{1k'} \det((M_{(i,1)})_{(1,k')}  \\
+    &= (-1)^{i+1} M_{11} \det(M_{(1,1)}) \sum_{k' = 2}^n (-1)^{1+k'} M_{1k'} \Bigl(\sum_{i = 2}^n (-1)^{i+1} M_{i1} \det((M_{(1, k')})_{(i,1)}\Bigr)\\
+    &= \sum_{k' = 1}^n (-1)^{1+k'} M_{1k'} \det(M_{(1,k')}).\\
+  \end{align}  \end{subequations}
+  En d'autres termes, on peut calculer \( \det (M) \) avec la première ligne. Cela se généralise à n'importe quel ligne (en remplaçant les indices \( 1 \) par tout autre indice).
+  
+  Et comme calculer \( \det(M) \) selon la \(k\)\ieme{} ligne revient à calculer \( \det(M^t) \) selon la \(k\)\ieme{} colonne, ces déterminants sont égaux.
+\end{proof}
+
+Le fait que \( \det(M)=\det(M^t)\) permet, dans toutes les propositions du type «ce qui arrive au déterminant si on change telle ligne ou colonne» de ne donner qu'une preuve pour la partie «ligne» et déduire automatiquement le cas «colonne», par exemple.
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Mineur, rang}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Il est possible d'exprimer le rang d'une matrice via le concept de mineur.
 \begin{definition}[\cite{ooLFZTooJWJUed}]
     Les mineurs d'une matrice sont les déterminants de ses sous-matrices carrées.
 \end{definition}
+En particulier, pour calculer un déterminant d'ordre \( n \), on prend des mineurs d'ordre \(n - 1\).
+
 Dans la suite nous désignerons souvent par le mot «mineur» la sous-matrice carrée elle-même au lieu de son déterminant.
 
-\begin{proposition}      \label{DEFooVVBYooJbliTi}
+\begin{definition}      \label{DEFooVVBYooJbliTi}
     Le rang d'une matrice est la taille de son plus grand mineur non nul.
+\end{definition}
+
+Déterminer le rang d'une matrice ne semble pas une chose aisée: avec cette définition, il faut calculer le déterminant de la matrice elle-même (on l'a déjà dit, un calcul à la main est presque sans espoir), et, s'il est nul, se pencher sur les mineurs! On touche le fond\dots
+
+Heureusement, nous avons des outils de manipulation qui vont nous aider.
+
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Manipulations de lignes et de colonnes}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Nous voudrions savoir ce qu'il se passe avec le déterminant d'une matrice lorsque nous manipulons ses lignes et ses colonnes.
+
+Commençons par le plus simple:
+
+\begin{proposition}[Multiplication par un scalaire d'une ligne ou colonne \( L_k\to \lambda L_k\)\cite{ooKBOMooSkKHvu}] \label{PROPooXUFKooOaPnna}
+    Soient une matrice \( M\in \eM(n,A)\), et deux entiers naturels \( k\neq l\) inférieurs ou égaux à \( n\). Soit la matrice \( N\) obtenue à partir de \( M\) en multipliant la colonne \( k\) par \( \lambda\in A\), et la matrice \( N' \) obtenue à partir de \( M\) en multipliant la ligne \( k\) par \( \lambda\in A\)  Alors:
+    \begin{enumerate}
+        \item       \label{ITEMooBKIGooCDQEDt}
+            \( \det(N) = \det(N') = \lambda\det(M)\)
+        \item       \label{ITEMooWRRCooFXkRNW}
+            En considérant la matrice \( D_k(\lambda)=\mtu+(\lambda-1)E_{kk}\)\footnote{Définition~\ref{DEF_transvectionDilatationPermutation}.}, nous avons
+            \begin{equation}
+                N=MD_k(\lambda) \quad\text{ et } \quad N'=D_k(\lambda)M;
+            \end{equation}
+        \item       \label{ITEMooOGGDooPVVRzk}
+            Nous avons \( \det(D_k(\lambda))=\lambda\).
+        \item       \label{ITEMooIFRVooWQYgkK}
+            Et aussi : \( \det(MD_k(\lambda))=\det(M)\det(D_k(\lambda)) = \det(D_k(\lambda)M)\)
+    \end{enumerate}
 \end{proposition}
 
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Manipulations de lignes et de colonnes}
-%---------------------------------------------------------------------------------------------------------------------------
-
-Nous voudrions savoir ce qu'il se passe avec le déterminant d'une matrice lorsque nous substituons à une ligne ou une colonne une combinaison des autres lignes et colonnes. Lorsque une matrice est donnée, nous notons \( C_j\) sa \( j\)\ieme colonne.
-
-\begin{lemma}[\cite{MonCerveau,ooKYTYooJlzZMp}]        \label{LEMooCEQYooYAbctZ}
-    Si \( A\) est une matrice, alors \( \det(A)=\det(A^t)\).
-\end{lemma}
-
 \begin{proof}
-    Nous commençons par écrire la définition du déterminant :
-    \begin{equation}
-        \det(A^t)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^n(A^t)_{i,\sigma(i)}=\sum_{\sigma}\epsilon(\epsilon)\prod_iA_{\sigma(i),i}.
-    \end{equation}
-    Pour chaque \( \sigma\) séparément, nous utilisons la proposition \ref{PROPooQMUDooQQVRIe} pour ré-indexer le produit :
-    \begin{equation}
-        \prod_i A_{\sigma(i),i}=\prod_iA_{i,\sigma^{-1}(i)}.
-    \end{equation}
-    Nous profitons du fait que l'application \( \varphi\colon S_n\to S_n\) donnée par \( \varphi(\sigma)=\sigma^{-1}\) soit une permutation de \( S_n\) pour appliquer la définition \ref{DEFooLNEXooYMQjRo} et faire la somme sur \( \sigma^{-1}\) :
-    \begin{equation}
-        \det(A^t)=\sum_{\sigma}\epsilon(\sigma)\prod_iA_{i,\sigma^{-1}(i)}=\sum_{\sigma}\epsilon(\sigma^{-1})\prod_iA_{i,\sigma(i)}=\det(A)
-    \end{equation}
-    où nous avons utilisé le fait que \(\epsilon(\sigma^{-1})=\epsilon(\sigma)\) (corolaire \ref{CORooZLUKooBOhUPG}).
+    Point par point, uniquement avec \( N \).
+    \begin{subproof}
+        \item[\ref{ITEMooBKIGooCDQEDt}]
+            La matrice \( N\) est donnée par les éléments
+            \begin{equation}
+                N_{ij}=\begin{cases}
+                    M_{ij}    &   \text{si } j\neq k\\
+                    \lambda M_{ij}    &    \text{si } j=k.
+                \end{cases}
+            \end{equation}
+        On calcule \( \det(N) \) suivant la \( k\)\ieme{} colonne:
+          \begin{subequations}
+                  \begin{align}
+                \det(N) &= \sum_{i = 1}^n (-1)^{i+k} N_{ik} \det(N_{(i,k)})\\
+                &= \sum_{i = 1}^n (-1)^{i+k} \lambda M_{ik} \det(M_{(i,k)})\\
+                &=  \lambda \sum_{i = 1}^n (-1)^{i+k} M_{ik} \det(M_{(i,k)})\\
+                &= \lambda \det(M).
+        \end{align}
+          \end{subequations}            
+            
+        \item[\ref{ITEMooWRRCooFXkRNW}]
+            C'est le lemme \ref{LemyrAXQs} points~\ref{LemyrAXQsooiii} et~\ref{LemyrAXQsooiv}.
+        \item[\ref{ITEMooOGGDooPVVRzk}]
+            Nous calculons le déterminant de la matrice \( D = D_k(\lambda) \) selon sa \( k \)\ieme{} colonne; elle ne contient qu'un élément non nul, en ligne \( k \), et il vaut \( \lambda \). Ainsi,
+                    \begin{align}
+                \det(D_k(\lambda)) &= \sum_{i = 1}^n (-1)^{i+k} D_{ik} \det(D_{(i,k)})\\
+                &= (-1)^{k+k} \lambda \det(D_{(k,k)})\\
+                &=  \lambda  \det(\mtu_{n-1})\\
+                &= \lambda
+        \end{align}
+        (la dernière égalité est le lemme~\ref{LEM_detmtu}).
+        
+          \item[\ref{ITEMooIFRVooWQYgkK}]
+            Il faut mettre bout à bout les résultats déjà faits :
+            \begin{equation}
+                \det(D_k(\lambda)M)=\det(MD_k(\lambda))=\lambda\det(M)=\det(D_k(\lambda))\det(M).
+            \end{equation}
+    \end{subproof}
 \end{proof}
 
-Le fait que \( \det(A)=\det(A^t)\) permet, dans toutes les propositions du type «ce qui arrive au déterminant si on change telle ligne ou colonnes» de ne donner qu'une preuve pour la partie «ligne» et déduire automatiquement le cas «colonne». Le lemme suivant donne un exemple d'utilisation.
 
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooWMQWooGWFlmC}
-    Soit une matrice \( A\). Nous considérons la matrice \( B\) obtenue à partir de \( A\) par la permutation de lignes \( L_k\leftrightarrow L_l\) ainsi que la matrice \( C\) obtenue à partir de \( A^t\) par la permutation de colonnes \( C_k\leftrightarrow C_l\).
-    
-    Alors \( C^t=B\).
-\end{lemma}
-
-\begin{proof}
-    Calculons les éléments de matrice de \( C\) :
-    \begin{equation}
-        C_{ij}=\begin{cases}
-            (A^t)_{ij}    &   \text{si }  j\neq k, j\neq l\\
-            (A^t)_{ik}    &   \text{si } j=l\\
-            (A^t)_{il}    &    \text{si }j=k
-        \end{cases}=
-        \begin{cases}
-            A_{ji}    &   \text{si }  j\neq k, j\neq l\\
-            A_{ki}    &   \text{si } j=l\\
-            A_{li}    &    \text{si }j=k.
-        \end{cases}
-    \end{equation}
-    Ensuite nous prouvons que \( C^t=B\) en écrivant les éléments de \( C^t\) :
-    \begin{equation}
-        (C^t)_{ij}=C_{ji}=\begin{cases}
-            A_{ij}    &   \text{si } i\neq k, i\neq l\\
-            A_{kj}    &   \text{si } i=l\\
-            A_{lj}    &    \text{si }i=k.
-        \end{cases}
-    \end{equation}
-    Cette dernière expression est la matrice \( A\) après permutation des lignes \( L_k\leftrightarrow L_l\), c'est-à-dire a matrice \( B\).
-\end{proof}
-
-Nous rappelons que \( \mtu \) est la matrice «identité», c'est-à-dire celle dont les entrées sont toutes nulles à l'exception de celles pour lesquelles les indices de lignes et de colonnes sont les mêmes; autrement dit, \( \mtu_{ik} = \delta_{ik}\).  Nous écrivons également \( E_{ij}\) la matrice contenant de zéros partout sauf en \( (i,j)\) où elle a un \( 1\), c'est-à-dire
-\begin{equation}
-    (E_{ij})_{kl}=\delta_{ik}\delta_{jl}.
-\end{equation}
-
-\begin{proposition}[Permuter des lignes ou des colonnes \( L_k\leftrightarrow L_l\)\cite{ooKBOMooSkKHvu,MonCerveau}]    \label{PROPooFQRDooRPfuxk}
-    Soient une matrice \( A\in \eM(n,\eK)\), deux entiers naturels \( k\neq l\) inférieurs ou égaux à \( n\). 
+\begin{proposition}[Permuter deux colonnes \cite{ooKBOMooSkKHvu,MonCerveau}]    \label{PROPooFQRDooRPfuxk}
+    Soient une matrice \( M\in \eM(n,A)\), deux entiers naturels \( k\neq l\) inférieurs ou égaux à \( n\). 
     \begin{enumerate}
         \item   \label{ITEMooAIHWooHXzeys}
-            Si \( B\) est la matrice obtenue à partir de \( A\) en permutant deux lignes ou deux colonnes, alors
+            Si \( N\) est la matrice obtenue à partir de \( M\) en permutant deux colonnes ou deux lignes, alors
             \begin{equation}
-                \det(A)=-\det(B).
+                \det(N)=-\det(M).
             \end{equation}
         \item  \label{ITEMooDNHWooOMgmxa}
-            Si \( B\) est la matrice obtenue à partir de \( A\) par la permutation de lignes \( L_k\leftrightarrow L_l\). Alors
+            Si \( N\) est la matrice obtenue à partir de \( M\) par la permutation des colonnes \( k \) et \( l\), et \( N' \) celles correspondant à la permutation des lignes \( k \) et \( l\), alors
             \begin{equation}
-                B=P_{kl}A
+                N=MP_{kl}\quad\text{ et }\quad N'=P_{kl}M
             \end{equation}
-            avec \( P_{kl}=\mtu+E_{kl}+E_{lk}-E_{kk}-E_{ll}\) (autrement dit : la matrice \( P_{kl}\) est une matrice de permutations de lignes).
         \item \label{ITEMooSHRQooQrqVdO}
             La matrice \( P_{kl}\) vérifie \( \det(P_{kl})=-1\)
         \item       \label{ITEMooQXSEooMWiKbL}
             Nous avons 
             \begin{equation}
-                \det(P_{kl}A)=\det(P_{kl})\det(A).
+                \det(MP_{kl})=\det(M)\det(P_{kl}) = \det(P_{kl}M).
             \end{equation}
     \end{enumerate}
 \end{proposition}
@@ -480,86 +757,44 @@ Nous rappelons que \( \mtu \) est la matrice «identité», c'est-à-dire celle 
 \begin{proof}
     Point par point
     \begin{subproof}
-    \item[\ref{ITEMooAIHWooHXzeys} pour les colonnes]
-
-    Soient \( k\) et \( l\) fixés, et considérons la permutation des colonnes \( C_k\) et \( C_l\). Nous notons \( \alpha\) la permutation \( (k, l)\) dans \( S_n\) (groupe symétrique, définition \ref{DEFooJNPIooMuzIXd}). Nous avons
-    \begin{equation}
-        B_{ij}=A_{i \alpha(j)},
-    \end{equation}
-    ou encore : \( A_{ij}=B_{i\alpha(j)}\). Par définition,
-    \begin{equation}
-        \det(A)=\sum_{\sigma\in S_{n}}\epsilon(\sigma)\prod_{i=1}^nA_{i\sigma(i)}
-    \end{equation}
-    C'est le moment d'utiliser la proposition \ref{PROPooWJQQooFINSEc} à propos de somme sur des groupes avec \( G=S_n\), \( h=\alpha\) et 
-    \begin{equation}
-        f(\sigma)=\epsilon(\sigma)\prod_iA_{i,\sigma(i)}.
-    \end{equation}
-    Nous savons que \( \epsilon(\alpha)=-1\) et que \( \epsilon\) est un homomorphisme par la proposition \ref{ProphIuJrC}\ref{ITEMooBQKUooFTkvSu}, donc
-    \begin{equation}
-        f(\alpha \sigma)=\epsilon(\alpha\sigma)\prod_iA_{i,(\alpha\sigma)(i)}=-\epsilon(\sigma)\prod_iB_{i,\sigma(i)}.
-    \end{equation}
-    Avec ça, nous concluons :
-    \begin{equation}
-        \det(A)=\sum_{\sigma\in S_n}f(\sigma)=\sum_{\sigma}f(\alpha \sigma)=-\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nB_{i\sigma(i)}=-\det(B).
-    \end{equation}
-    \item[\ref{ITEMooAIHWooHXzeys} pour les lignes]
-
-    Que se passe-t-il si nous permutons les lignes \( L_k\) et \( L_{l}\) ? Si nous notons \( B'\) la matrice obtenue à partir de \( A\) par la permutation de lignes \( L_k\leftrightarrow L_l\), et \( C\) celle obtenue de \( A^t\) après permutation de colonnes \( C_k\leftrightarrow C_l\) alors le lemme \ref{LEMooWMQWooGWFlmC} nous dit que \( C^t=B'\). En utilisant le lemme \ref{LEMooCEQYooYAbctZ} sur le déterminant de la transposée,
-    \begin{equation}
-        \det(B')=\det(C^t)=\det(C)=-\det(A^t)=-\det(A).
-    \end{equation}
-    Voila qui prouve le résultat pour les permutations de lignes.
+    \item[\ref{ITEMooAIHWooHXzeys}]
+    Soient \( k\) et \( l\) fixés, et considérons la permutation des colonnes \( k\) et \( l\) de \(M \) La matrice \( N\) est donnée par les éléments
+            \begin{equation}
+                N_{ij}=\begin{cases}
+                    M_{ij}    &   \text{si } j\neq k, l\\
+                    M_{il}    &    \text{si } j=k,\\
+                    M_{ik}    &    \text{si } j=l.
+                \end{cases}
+            \end{equation}
+   Procédons alors par récurrence sur l'ordre des matrices en jeu. Si \( n = 2\), alors
+   \begin{subequations}
+    \begin{align}
+      M &= \begin{pmatrix} a&b\\c&d\end{pmatrix}, &\text{et }\det(M) & = ad - bc\\
+      N &= \begin{pmatrix} b&a\\d&c\end{pmatrix}, &\text{et }\det(N) & = bc - ad = - \det(M)\\
+    \end{align}
+   \end{subequations}
+   Pour des ordres supérieurs à \( 2 \), on développe le déterminant de \( N \) selon une colonne \( j \) qui n'est ni \( k \) ni \( l \):
+             \begin{subequations}
+                  \begin{align}
+                \det(N) &= \sum_{i = 1}^n (-1)^{i+j} N_{ij} \det(N_{(i,j)})\\
+                &= \sum_{i = 1}^n (-1)^{i+j} M_{ij} (- \det(M_{(i,j)}))\\
+                &= - \sum_{i = 1}^n (-1)^{i+j} M_{ij}  \det(M_{(i,j)})\\
+                &= - \det(M).
+            \end{align}
+   \end{subequations}
         
+            
 \item[\ref{ITEMooDNHWooOMgmxa}]
-    Si \( k=l\), il n'y a pas de permutations, et il est vite vu que la matrice \( P_{kl}\) est l'identité parce qu'il y a quatre fois le terme \( E_{kk}\). Nous supposons donc que \( k\neq l\); en particulier \( \delta_{kl}=0\).
+     C'est le lemme \ref{LemyrAXQs} points~\ref{LemyrAXQsoov} et~\ref{LemyrAXQsoovi}.
 
-    Il s'agit surtout d'un beau calcul :
-    \begin{subequations}
-        \begin{align}
-            (P_{kl}A)_{ij}=\sum_{m}(P_{kl})_{im}A_{mj}&=A_{ij}+\sum_m(\delta_{ki}\delta_{lm}+\delta_{li}\delta_{lm}-\delta_{ki}\delta_{km}-\delta_{li}\delta_{lm})A_{mj}\\
-            &=A_{ij}+\delta_{ki}A_{lj}+\delta_{li}A_{kj}-\delta_{ki}A_{kj}-\delta_{li}A_{lj}\\
-            &=A_{ij}+\delta_{ki}(A_{lj} - A_{kj})
-            +\delta_{li}(A_{kj}-A_{lj}).
-        \end{align}
-    \end{subequations}
-    Si \( i\neq j\) et \( i\neq l\), alors \( (P_{kl}A)_{ij}=A_{ij}\). Si \( i=k\), alors 
-    \begin{equation}
-        (P_{kl}A)_{kj}=A_{kj}+A_{lj}-A_{kj}=A_{lj},
-    \end{equation}
-    c'est-à-dire que la \( k\)\ieme ligne de \( SA\) est la \( l\)\ieme ligne de \( A\).
-
-    Avec \( i=l\) nous obtenons la \( k\)\ieme ligne de \( A\).
-
-    Tout cela montre que \( P_{kl}A\) est la matrice \( A\) dans laquelle les lignes \( k\) et \( l\) ont été inversées, c'est-à-dire \( P_{kl}A=B\).
 
 \item[\ref{ITEMooSHRQooQrqVdO}]
-            Pour éviter la multiplication des indices, on note \( S = P_{kl}\). En utilisant la définition du déterminant,
-            \begin{subequations}
-                \begin{align}
-                    \det(S)&=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nS_{i\sigma(i)}\\
-                    &=\sum_{\sigma}\epsilon(\sigma)\prod_i\big( \delta_{i\sigma(i)}+\delta_{ki}\delta_{l\sigma(i)}+\delta_{li}\delta_{k\sigma(i)}-\delta_{ki}\delta_{k\sigma(i)}-\delta_{li}\delta_{l\sigma(i)} \big).
-                \end{align}
-            \end{subequations}
-            Nous utilisons l'associativité et la commutativité du produit pour séparer les facteurs \( i=k\) et \( i=l\) des autres :
-            \begin{equation}
-                \det(S)=\sum_{\sigma}\epsilon(\sigma)\prod_{\substack{i\neq k\\i\neq l}}\delta_{i\sigma(i)}(\delta_{k\sigma(k)}+\delta_{l\sigma(k)}-\delta_{k\sigma(k)})(\delta_{l\sigma(l)}+\delta_{k\sigma(l)}-\delta_{l\sigma(l)}).
-            \end{equation}
-            À cause des facteurs \( i\neq k\) et \( i\neq l\), les \( \sigma\) pour lesquels le tout n'est pas nul doivent vérifier \( \delta_{i\sigma(i)}=1\) pour tout \( i\) différent de \( k\) et \( l\). Les deux seuls sont donc \( \sigma=\id\) et la permutation \( \sigma=(k,l)\). Pour \( \sigma=\id\), nous avons
-            \begin{equation}
-                \prod_{\substack{i\neq k\\i\neq l}}\delta_{ii}(\delta_{kk}+\delta_{lk}-\delta_{kk})(\delta_{ll}+\delta_{kl}-\delta_{ll})=0.
-            \end{equation}
-            Dernier espoir : \( \sigma=(k,l)\). Pour ce terme nous avons \( \epsilon(\sigma)=-1\) et
-            \begin{equation}
-                \prod_{\substack{i\neq k\\i\neq l}}\delta_{ii}(\delta_{kl}+\delta_{ll}-\delta_{kl})(\delta_{lk}+\delta_{kk}-\delta_{lk})=1.
-            \end{equation}
-            Au final dans \( \det(S)\) il n'y a de non nul que le terme \( \sigma=(k,l)\) et il vaut \( -1\). Donc
-            \begin{equation}
-                \det(S) = \det(P_{kl}) = -1.
-            \end{equation}
-        \item[\ref{ITEMooQXSEooMWiKbL}]
+    \( P_{kl} \) est finalement la matrice \( \mtu \), à laquelle on a inversé les colonnes \( k \) et \( l \); donc avec le point \ref{ITEMooAIHWooHXzeys}, on a \( \det (P_{kl}) = - 1 \).
+    
+\item[\ref{ITEMooQXSEooMWiKbL}]
             Il s'agit de mettre bout à bout les points déjà prouvés :
             \begin{equation}
-                \det(P_{kl}A)=-\det(A)=\det(P_{kl})\det(A).
+                \det(P_{kl}M)=-\det(M)=\det(P_{kl})\det(M).
             \end{equation}
     \end{subproof}
 \end{proof}
@@ -569,70 +804,64 @@ Nous rappelons que \( \mtu \) est la matrice «identité», c'est-à-dire celle 
 \end{corollary}
 
 \begin{proof}
-    Si deux colonnes sont égales, la matrice ne change pas lorsqu'on les permute, alors que le déterminant change de signes. La seule possibilité est que \( \det(A)=-\det(A)\), ce qui signifie que \( \det(A)=0\).
+    Si deux colonnes sont égales, la matrice ne change pas lorsqu'on les permute, alors que le déterminant change de signe. La seule possibilité est que \( \det(A)=-\det(A)\), ce qui signifie que \( \det(A)=0\).
 \end{proof}
 
-Notons que si pour \( k\neq l\) nous avons \( C_k=\lambda C_l\), alors nous avons aussi \( \det(A)=0\). Nous le prouverons plus tard.
+\begin{corollary}      
+    Soit une matrice \( A\in \eM(n,\eK)\). Si deux lignes ou deux colonnes de \( A\) sont multiples l'une de l'autre, alors \( \det(A)=0\).
+\end{corollary}
 
-La réciproque n'est pas vraie : il existe des matrices dont le déterminant est nul et dont aucune entrée n'est nulle. Par exempe
-\begin{equation}
-    \begin{pmatrix}
-        1    &   2    \\ 
-        1    &   2    
-    \end{pmatrix}.
-\end{equation}
+\begin{proof}
+    Disons que la colonne \( k \) est \( \lambda \) fois la colonne \( l \) dans \( A \). Alors la matrice \( B = A D_l(\frac 1 \lambda) \) a deux colonnes identiques, donc a un déterminant nul. Il s'ensuit que \( \det (A) = \frac 1 \lambda \det(B) = 0. \)
+\end{proof}
 
-\begin{probleme}
-Cet exemple n'est pas à sa place là. Peut-être 1,2 // 4,8 est mieux? Ça dépend de ce qu'on veut illustrer\dots
-\end{probleme}
-
-
+Le plus gros morceau à prouver est ce qui concerne les transvections.
 \begin{proposition}[\cite{ooKBOMooSkKHvu}]      \label{PROPooNGZJooHjtMyn}
-    Soient \( A\in \eM(n,\eK)\), et \( v\in \eK^n\). Si \( B\) est la matrice \( A\) avec la substitution \( L_j\to L_j+v\) et \( C\) est la matrice \( A\) avec la substitution \( L_j\to v\), alors
+    Soient \( M\in \eM(n,A)\). On considère \( k \in \{ 1, \dots , n \} \), et les matrices \( V \) et \( N \) toutes deux égales à \( M \) sauf en leur \( k \)\ieme{} colonne (ou ligne):
+    \begin{itemize}
+      \item la colonne (ou ligne) \( k \) de \( V \) est constituée d'autres éléments;
+      \item la colonne (ou ligne) \( k \) de \( N \) est la somme des colonnes \( k \) de \( M \) et \(V\).
+    \end{itemize}
+    Alors
     \begin{equation}
-        \det(B)=\det(A)+\det(C).
+        \det(N)=\det(M)+\det(V).
     \end{equation}
 \end{proposition}
 
 \begin{proof}
-    En utilisant l'associativité de la multiplication,
-    \begin{subequations}
-        \begin{align}
-            \det(B)&=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nB_{i\sigma(i)}\\
-            &=\sum_{\sigma}\epsilon(\sigma)\big( \prod_{i\neq j}B_{i\sigma(i)} \big)B_{j\sigma(j)}\\
-            &=\sum_{\sigma}\epsilon(\sigma)\big( \prod_{i\neq j}A_{i\sigma(i)} \big)(A_{j\sigma(j)}+v_{\sigma(j)})\\
-            &=\sum_{\sigma}\epsilon(\sigma)\prod_iA_{i\sigma(i)}+\sum_{\sigma}\epsilon(\sigma)\prod_{i\neq j}C_{i\sigma(i)}v_{\sigma(j)}         \label{SUBEQooKATCooVIbEpv}\\
-            &=\det(A)+\sum_{\sigma}\epsilon(\sigma)\prod_{i\neq j}C_{i\sigma(i)}C_{j\sigma(j)}  \label{SUBEQooCOTDooPPrEYJ}\\    
-            &=\det(A)+\det(C).
-        \end{align}
-    \end{subequations}
-    Justifications :
-    \begin{itemize}
-        \item \ref{SUBEQooKATCooVIbEpv} parce que pour \( i\neq j\) nous avons \( A_{i\sigma(i)}=C_{i\sigma(i)}\)
-        \item \ref{SUBEQooCOTDooPPrEYJ} parce que \( v_{\sigma(j)}=C_{j\sigma(j)}\).
-    \end{itemize}
-\end{proof}
+  On ne considère que le cas "colonne", et on développe \(\det(N) \) selon sa \( k\)\ieme{} colonne.
+  \begin{subequations}
+    \begin{align}
+      \det(S) &= \sum_{i = 1}^n (-1)^{i+k} N_{ik} \det(N_{(i,k)})\\
+              &= \sum_{i = 1}^n (-1)^{i+k} (M_{ik} + V_{ik}) \det(N_{(i,k)})\\
+              &= \sum_{i = 1}^n (-1)^{i+k} \bigl(M_{ik} \det(N_{(i,k)})+ v_{ik} \det(N_{(i,k)})\bigr)\\             
+              &= \sum_{i = 1}^n (-1)^{i+k} \bigl(M_{ik} \det(M_{(i,k)})+ v_{ik} \det(V_{(i,k)})\bigr)\\
+              &= \sum_{i = 1}^n (-1)^{i+k} M_{ik} \det(M_{(i,k)}) + \sum_{i = 1}^n (-1)^{i+k} V_{ik} \det(V_{(i,k)})\bigr)\\
+              &= \det(M) + \det(V).
+    \end{align}
+  \end{subequations}
+ \end{proof}
 
 \begin{proposition}[Combinaison de lignes ou colonnes \( L_k\to L_k+\lambda L_l\)\cite{ooKBOMooSkKHvu}]     \label{PROPooPYNHooLbeVhj}
-    Soient une matrice \( A\in \eM(n,\eK)\), deux entiers naturels \( k\neq l\) inférieurs ou égaux à \( n\).
+    Soient une matrice \( M\in \eM(n,A\), deux entiers naturels \( k\neq l\) inférieurs ou égaux à \( n\).
     \begin{enumerate}
         \item       \label{ITEMooJSRDooTggEyO}
-            Si \( B\) est la matrice obtenue à partir de \( A\) par la substitution \( L_k\to L_k+\lambda L_l\) ou \( C_k\to C_k+\lambda C_l\), alors
+            Si \( N \) est la matrice obtenue à partir de \( M\) par la substitution \( L_k\to L_k+\lambda L_l\) ou \( C_k\to C_k+\lambda C_l\), alors
             \begin{equation}
-                \det(A)=\det(B).
+                \det(N)=\det(M).
             \end{equation}
         \item   \label{ITEMooHKZWooVZDgnf}
-            Si \( B\) est la matrice \( A\) dans laquelle nous avons fait la substitution \( L_k\to L_k+\lambda L_l\), alors
+            Si \( N\) est la matrice \( M\) dans laquelle nous avons fait la substitution \( C_k\to C_k+\lambda C_l\), et si \( N'\) est la matrice \( M\) dans laquelle nous avons fait la substitution \( L_k\to L_k+\lambda L_l\), alors
             \begin{equation}
-                B=T_{kl}(\lambda)A
+                N=MT_{kl}(\lambda)\quad\text{ et }\quad N'=T_{kl}(\lambda)M
             \end{equation}
-            avec \( T_{kl}(\lambda)=\mtu+\lambda E_{kl}\), c'est-à-dire que \( U\) est une matrice de combinaison de lignes.
+           
         \item           \label{ITEMooPGYJooWTTghT}
             La matrice \( T_{kl}(\lambda)\) vérifie \( \det(T_{kl}(\lambda))=1\).
         \item       \label{ITEMooBBEAooZJVGNV}
             Nous avons 
             \begin{equation}
-                \det(T_{kl}(\lambda)A)=\det(T_{kl}(\lambda))\det(A).
+                \det(T_{kl}(\lambda)M)=\det(T_{kl}(\lambda))\det(M)=\det(MT_{kl}(\lambda)).
             \end{equation}
     \end{enumerate}
 \end{proposition}
@@ -641,37 +870,25 @@ Cet exemple n'est pas à sa place là. Peut-être 1,2 // 4,8 est mieux? Ça dép
     Point par point.
     \begin{subproof}
     \item[\ref{ITEMooJSRDooTggEyO}]
-        Soit la matrice \( C\) obtenue à partir de \( A\) par \( L_k\to \lambda L_l\). En considérant le vecteur \( v=\lambda L_l\), nous sommes dans la situation de la proposition \ref{PROPooNGZJooHjtMyn}. Donc
+        Soit la matrice \( N\) obtenue à partir de \( M\) par \( L_k\to \lambda L_l\). Nous sommes dans la situation de la proposition \ref{PROPooNGZJooHjtMyn} avec \( V \) contenant en sa \( k\)\ieme{} ligne, \(\lambda \) fois la \( l\)\ieme{} ligne de \( M \). On a donc
         \begin{equation}
-            \det(B)=\det(A)+\det(C).
+            \det(N)=\det(M)+\det(V).
         \end{equation}
-        Mais dans la matrice \( C\), nous avons \( L_k=\lambda L_l\), ce qui implique \( \det(C)=0\) par le corolaire \ref{CORooAZFCooSYINvBl}. Donc \( \det(A)=\det(B)\) comme il se devait.
+        Mais dans la matrice \( V\), nous avons \( L_k=\lambda L_l\), ce qui implique \( \det(V)=0\) par le corolaire \ref{CORooAZFCooSYINvBl}. Donc \( \det(N)=\det(M)\) comme il se devait.
     \item[\ref{ITEMooHKZWooVZDgnf}]
-        Encore un calcul :
-        \begin{equation}
-            (T_{kl}(\lambda)A)_{ij}=\sum_m\big( \delta_{im}+\lambda(E_{kl})_{im} \big)A_{mj}=A_{ij}+\lambda\sum_m\delta_{ki}\delta_{lm}A_{mj}=A_{ij}+\lambda \delta_{li}A_{kj}.
-        \end{equation}
-        Cela donne, pour \( i=k\) la ligne
-        \begin{equation}
-            (T_{kl}(\lambda)A)_{kj}=A_{kj}+\lambda A_{lj},
-        \end{equation}
-        ce qui correspond bien à \( L_k\to L_k+\lambda L_l\).
+     C'est le lemme \ref{LemyrAXQs} points~\ref{LemyrAXQsooi} et~\ref{LemyrAXQsooii}.
 
     \item[\ref{ITEMooPGYJooWTTghT}]
-            Nous calculons le déterminant de \( T_{kl}(\lambda)=\delta+\lambda E_{kl}\) avec \( k\neq l\). Nous avons dans un premier temps :
-            \begin{equation}
-                \det(T_{kl}(\lambda))=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^n(\delta_{i\sigma(i)}+\lambda \delta_{ki}\delta_{l\sigma(i)}).
-            \end{equation}
- 
-             Pour les \( \sigma\neq \id\), certains \(\delta_{i\sigma(i)}\) seront nuls; le produit ne sera pas nul si la partie \( \lambda\delta_{ki}\delta_{l\sigma(i)}\) ne s'annule pas. Cela n'arrive qu'à la condition que \( i=k\) et \( \sigma(i)=l\). Donc le seul terme non nul autre que \( \sigma=\id\) peut provenir de \( \sigma=(k,l)\). Pour ce terme, nous isolons les facteurs \( i=l\) et \( i=k\) :
-            \begin{equation}
-                (\delta_{k\sigma(k)}+\lambda\delta_{kk}\delta_{k\sigma(k)})(\delta_{l\sigma(l)}+\lambda\delta_{kl}\delta_{k\sigma(l)}) =  (\delta_{kl}+\lambda\delta_{kk}\delta_{kl})(\delta_{lk}+\lambda\delta_{kl}\delta_{kl}) = (0 + \lambda 0)(0 + \lambda 0).
-            \end{equation}
-            Finalement, même avec \( \sigma=(k,l)\), le terme est nul. Il s'ensuit qu'il ne reste \(\sigma = \id \), et
-            \begin{equation}
-            \det(T_{kl}(\lambda)) = 1 \prod_{i=1}^n(\delta_{ii}+\lambda \delta_{ki}\delta_{li}) = 1
-            \end{equation}
-            car \(\delta_{ki}\delta_{li} = 0 \) pour tout \( i \).
+        On procède par récurrence sur l'ordre de \( T = T_{kl}(\lambda)\).
+        
+        Pour l'ordre \( 2 \), c'est assez évident. De manière générale, nous calculons le déterminant de \( T \) selon sa \( l\)\ieme{} colonne. Tous les éléments y sont nuls, sauf le numéro \( k \) (il vaut \( \lambda \) ) et le numéro \( l \) (il vaut 1). On a donc
+    \begin{equation}
+      \det(T) = (-1)^{k+l} \lambda \det(T_{(k,l)}) + (-1)^{l+l} 1 \det(T_{(l,l)}).
+    \end{equation}
+    Or, dans \(T_{(k,l)}\), la ligne correspondant au numéro \( l \) ne contient que des zéros: en effet, le seul 1 qu'elle contenait a été retiré. Le premier terme est donc nul. Par ailleurs, \(T_{(l,l)}\) s'est vue retirer un 1 diagonal (et les 0 de la ligne et de la colonne correspondante), et est donc une matrice de transvection d'ordre inférieur. On en déduit
+       \begin{equation}
+      \det(T) = (-1)^{k+l} \lambda 0 + (-1)^{l+l} 1\cdot 1 = 1).
+    \end{equation}         
         \item[\ref{ITEMooBBEAooZJVGNV}]
             En mettant bout à bout les résultats prouvés,
             \begin{equation}
@@ -680,69 +897,16 @@ Cet exemple n'est pas à sa place là. Peut-être 1,2 // 4,8 est mieux? Ça dép
     \end{subproof}
 \end{proof}
 
-\begin{proposition}[Multiplication par un scalaire d'une ligne ou colonne \( L_k\to \lambda L_k\)\cite{ooKBOMooSkKHvu}] \label{PROPooXUFKooOaPnna}
-    Soient une matrice \( A\in \eM(n,\eK)\), un entier \( k\neq l\) inférieurs ou égal à \( n\). Soit la matrice \( B\) obtenue à partir de \( A\) en multipliant la ligne \( L_k\) par \( \lambda\in \eK\). Alors:
-    \begin{enumerate}
-        \item       \label{ITEMooBKIGooCDQEDt}
-            \( \det(B)=\lambda\det(A)\)
-        \item       \label{ITEMooWRRCooFXkRNW}
-            En considérant la matrice \( D_k(\lambda)=\mtu+(\lambda-1)E_{kk}\), nous avons
-            \begin{equation}
-                B=D_k(\lambda)A,
-            \end{equation}
-            c'est-à-dire que la matrice \( D_k(\lambda) \) est une matrice de multiplication de ligne par un scalaire.
-        \item       \label{ITEMooOGGDooPVVRzk}
-            Nous avons \( \det(D_k(\lambda))=\lambda\).
-        \item       \label{ITEMooIFRVooWQYgkK}
-            Et aussi : \( \det(D_k(\lambda)A)=\det(D_k(\lambda))\det(A)\)
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    Point par point.
-    \begin{subproof}
-        \item[\ref{ITEMooBKIGooCDQEDt}]
-            La matrice \( B\) est donnée par les éléments
-            \begin{equation}
-                B_{ij}=\begin{cases}
-                    A_{ij}    &   \text{si } j\neq k\\
-                    \lambda A_{ij}    &    \text{si } j=k
-                \end{cases}
-            \end{equation}
-            c'est-à-dire \( B_{ij}=\big( 1+(\lambda-1)\delta_{jk} \big)A_{ij}\). Nous mettons cela dans la définition du déterminant de \( B\) :
-            \begin{equation}        \label{EQooGVMTooPntKew}
-                \det(B)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nB_{i\sigma(i)}=\sum_{\sigma}\prod_i\big( 1+(\lambda-1)\delta_{\sigma(i)k}A_{i\sigma(i)} \big).
-            \end{equation}
-            L'associativité du produit dans \( \eK\) nous permet de séparer le produit de la façon suivante :
-            \begin{equation}
-                \prod_{i=1}^n\big( 1+(\lambda-1)\delta_{\sigma(i)k} \big)A_{i\sigma(i)}=\prod_i\big( 1+(\lambda-1)\delta_{\sigma(i)k} \big)\prod_iA_{i\sigma(i)}=\lambda\prod_iA_{i\sigma(i)}.
-            \end{equation}
-            En remettant dans \eqref{EQooGVMTooPntKew}, nous trouvons \( \det(B)=\det(A)\).
-        \item[\ref{ITEMooWRRCooFXkRNW}]
-            C'est un cas particulier de la proposition \ref{PROPooPYNHooLbeVhj}\ref{ITEMooHKZWooVZDgnf} en prenant \( k=l\) et en adaptant le \( \lambda\).
-        \item[\ref{ITEMooOGGDooPVVRzk}]
-            Nous calculons le déterminant de la matrice \( D_k(\lambda)=\mtu+(\lambda-1)E_{kk}\). La formule du déterminant donne
-            \begin{equation}
-                \det(D_k(\lambda))=\sum_{\sigma}\epsilon(\sigma)\prod_{i=1}^n\big( \delta_{i\sigma(i)}+(\lambda-1)\delta_{ki}\delta_{k\sigma(i)} \big).
-            \end{equation}
-            Si \( i\neq \sigma(i)\), alors non seulement \( \delta_{i\sigma(i)}=0\), mais en plus \( \delta_{ki}\delta_{k\sigma(i)}=0\). Donc seul \( \sigma=\id\) reste dans la somme sur \( \sigma\in S_n\). Il reste donc
-            \begin{equation}
-                \det(D_k(\lambda))=\prod_{i=1}^n\big( 1+(\lambda-1)\delta_{ki} \big)=\left( \prod_{i\neq k}1 \right)(1+(\lambda-1))=\lambda
-            \end{equation}
-            où nous avons utilisé encore l'associativité pour isoler le facteur \( i=k\).
-        \item[\ref{ITEMooIFRVooWQYgkK}]
-            Il faut mettre bout à bout les résultats déjà faits :
-            \begin{equation}
-                \det(D_k(\lambda)A)=\lambda\det(A)=\det(D_k(\lambda))\det(A).
-            \end{equation}
-    \end{subproof}
-\end{proof}
-
 %--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Réduction de Gauss}
+\subsection{Inversibilité et déterminant; réduction de Gauss}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous avons vu les matrices d'opérations élémentaire sur les lignes et colonnes :
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Réduction de Gauss}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Nous avons vu les matrices d'opérations élémentaires sur les lignes et colonnes :
 \begin{itemize}
     \item Permutation de lignes \( L_k\leftrightarrow L_l\)  : \( P_{kl}=\mtu+E_{kl}+E_{lk}-E_{kk}-E_{ll}\), proposition \ref{PROPooFQRDooRPfuxk}.
     \item Combinaisons de lignes \( L_k\to L_k+\lambda L_l\) : \( T_{kl} (\lambda)=\mtu+\lambda E_{kl}\), proposition \ref{PROPooPYNHooLbeVhj}.
@@ -765,7 +929,7 @@ pour toute matrice \( A\).
 \begin{proof}
     Nous faisons une récurrence sur \( n\). D'abord pour \( n=1\), la matrice \( A\) contient un seul élément \( A_{11}\) qui est non nul par hypothèse. Nous pouvons multiplier sa ligne par \( 1/A_{11}\) pour obtenir le résultat. Plus précisément, nous avons l'égalité
     \begin{equation}
-        T_{11}(\frac{1}{ A_{11} })A=\delta
+        T_{11}(\frac{1}{ A_{11} })A=\mtu_1
     \end{equation}
     dans \( \eM(1, \eK)\). Notons que \( \eK\) est un corps (donc \( A_{11}\) est inversible) commutatif, ce qui permet d'écrire \( 1/A_{11}\) sans ambiguïtés.
 
@@ -785,17 +949,11 @@ pour toute matrice \( A\).
     \begin{equation}
         B^{(3)}=\prod_{k=2}^{n+1}T_{k1}(-B^{(1)}_{k1})B^{(1)}
     \end{equation}
-    a toute sa première colonne nulle à l'exception de \( B^{(3)}_{11}=1\).
-
-    Nous n'avons pas donné de nom ni démontré de théorèmes à propos de la substitution \( C_k\to C_k+\lambda C_l\). En passant éventuellement par les transposées et en utilisant les lemmes \ref{LEMooRSJTooQEoOtN} et \ref{LEMooCEQYooYAbctZ} nous obtenons une matrice \( T'{kl}(\lambda)\) ayant la propriété que la matrice
-    \begin{equation}
-        B^{(4)}=\prod_{k=2}^{n+1}T'{k1}(-B^{(3)}_{1k})B^{(3)}
-    \end{equation}
-    vérifie \( B^{(4)}_{1j}=B^{(4)}_{j1}=0\) pour tout \( j\) sauf \( j=1\). En d'autres termes, la matrice \( B^{(4)}\) est de la forme
-    \begin{equation}
-        B^{(4)}=\begin{pmatrix}
+    a toute sa première colonne nulle à l'exception de \( B^{(3)}_{11}=1\). On a donc \( B^{(3)} \) de la forme
+  \begin{equation}
+        B^{(3)}=\begin{pmatrix}
             1    &   \begin{matrix} 
-                0    &   \ldots    &   0    
+                b_{12}    &   \ldots    &   b_{1n}
             \end{matrix}\\ 
             \begin{matrix}
                 0    \\ 
@@ -812,13 +970,13 @@ pour toute matrice \( A\).
     
     Voyons quelques propriétés de \( A'\). Nous savons que
     \begin{equation}
-        B^{(4)}=\prod_i G_iA
+        B^{(3)}=\prod_i G_iA
     \end{equation}
     où les \( G_i\) sont de type \( P\), \( T\) ou \( D\). Vu que \( \det(PA)=\det(P)\det(A)\) (et idem pour \( T\) et \( D\)), nous avons
     \begin{equation}
-        \det(B^{(4)})=\prod_i\det(G_i)\det(A),
+        \det(B^{(3)})=\prod_i\det(G_i)\det(A),
     \end{equation}
-    et comme aucun des \( \det(G_i)\) n'est nul, nous avons encore \( \det(B^{(4)})\neq 0\), ce qui implique \( \det(A')\neq 0\).
+    et comme aucun des \( \det(G_i)\) n'est nul, nous avons encore \( \det(B^{(3)})\neq 0\), ce qui implique \( \det(A')\neq 0\).
 
     La récurrence peut avoir lieu. Il existe des matrices \( G'_i\) telles que
     \begin{equation}
@@ -854,16 +1012,47 @@ pour toute matrice \( A\).
     \begin{equation}
         \prod_{i=1}^MG_iB^{(3)}=
       \begin{pmatrix}
-            1    &   \begin{matrix} 
-                0    &   \ldots    &   0    
+            1    &  
+                 \begin{matrix} 
+                b_{12}    &   \ldots    &   b_{1n}  
             \end{matrix}\\ 
             \begin{matrix}
                 0    \\ 
                 \vdots    \\ 
                 0    
             \end{matrix}& \prod_{i=1}^MG'_iA'
-        \end{pmatrix}=\mtu_{n+1}.
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1    &  
+                 \begin{matrix} 
+                b_{12}    &   \ldots    &   b_{1n}  
+            \end{matrix}\\ 
+            \begin{matrix}
+                0    \\ 
+                \vdots    \\ 
+                0    
+            \end{matrix}& \mtu_n.
+        \end{pmatrix}
     \end{equation}
+    Il reste alors à annuler les éléments de la première ligne, à coup de multiplications par les matrices \( T_{1k}(-b_{1k}) \) (transformations \( L_1 \leftarrow L_1 - b_{1k} L_k\)). Ainsi,
+     \begin{equation}
+        \prod_{k=2}^n T_{1k}(-b_{1k} )
+        \prod_{j=1}^M G_j
+        B^{(3)}=
+      \begin{pmatrix}
+            1    &  
+                 \begin{matrix} 
+                0    &   \ldots    &   0 
+            \end{matrix}\\ 
+            \begin{matrix}
+                0    \\ 
+                \vdots    \\ 
+                0    
+            \end{matrix}& \mtu_n
+        \end{pmatrix}
+        = \mtu_{n+1}.
+    \end{equation}   
 \end{proof}
 
 \begin{proposition} \label{PROPooPMYCooAAtHsB}
@@ -894,90 +1083,9 @@ pour toute matrice \( A\).
     et donc \( \det(G_1\ldots G_N)\det(A)=1\), ce qui est impossible lorsque \( \det(A)=0\). Nous en concluons que le processus doit s'arrêter et qu'une des matrices \( A^{(k)}\) doit avoir une colonne de zéros\footnote{En réalité, le processus tel que nous l'avons décrit ne s'arrête que lorsque la première colonne est remplie de zéros.}.
 \end{proof}
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Matrices inversibles}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{propositionDef}      \label{PROPooMLWRooRWfZXE}
-    Soit une matrice \( A\in \eM(n,\eK)\). Si les matrices \( B_1\) et \( B_2\) de \( \eM(n,\eK)\) vérifient
-    \begin{equation}
-        AB_1=B_1A=\mtu
-    \end{equation}
-    et
-    \begin{equation}
-        AB_2=B_2A=\mtu,
-    \end{equation}
-    alors \( B_1=B_2\). Dans ce cas, nous disons que \( A\) est inversible et nous notons \( A^{-1}\) l'unique matrice telle que \( AA^{-1}=A^{-1}A=\mtu\).
-\end{propositionDef}
-
-\begin{proof}
-    La preuve est réalisée dans le cas général par le lemme \ref{LEMooECDMooCkWxXf}. Mais si vous en voulez une preuve avec les notations d'ici, en voici une.
-
-    Nous avons $AB_1=AB_2$. En multipliant à gauche par \( B_1\), nous trouvons \( B_1AB_1=B_1AB_2\). En remplaçant \( B_1A\) par \( \mtu\) des deux côtés, il reste \( B_1=B_2\).
-\end{proof}
-
-\begin{lemma}[\cite{ooKBOMooSkKHvu}]        \label{LEMooGZCTooQigDvC}
-    Si \( A\in \eM(n,\eK)\), alors il existe au plus une matrice \( B\in \eM(n,\eK)\) telle que \( AB=\mtu\).
-\end{lemma}
-
-\begin{proof}
-    Soient des matrices \( B,C\in \eM(n,\eK)\) telles que \( AB=AC=\delta\). Nous allons montrer que \( B=C\).
-
-    Pour cela nous considérons les applications linéaires \( f_A, f_B, f_C\in \End(\eK^)\) associées par la proposition \ref{PROPooGXDBooHfKRrv}. Vu que \( AB=\delta\), par la proposition \ref{PROPooCSJNooEqcmFm}, nous avons \( f_A\circ f_B = f_{AB}=\id\). La proposition \ref{PROPooADESooATJSrH} nous dit alors que \( f_A\) et \( f_B\) sont bijectives. 
-
-    En particulier, vu que \( \{e_i\}\) est une base, son image par \( f_B\) est une base par la proposition \ref{PROPooZFKZooBGLSex}. La proposition \ref{PROPooHLUYooNsDgbn} dit alors que \( \{f_B(e_i)\}\) est une base. Soit \( k \) fixé. Nous décomposons \( f_B(e_k)-f_C(e_k)\) dans cette base :
-    \begin{equation}
-        f_B(e_k)-f_C(e_k)=\sum_j\alpha^{(k)}_jf_B(e_j).
-    \end{equation}
-    Vu que \( f_A\circ(f_B-f_C)=0\), nous avons 
-    \begin{equation}
-        0=f_A\big( f_B(e_k)-f_C(e_k) \big)=\sum_j(f_A\circ f_B)(e_j)=\sum_j\alpha^{(k)}_je_j.
-    \end{equation}
-    Donc les \( \alpha^{(k)}_j\) sont tous nuls, pour tout \( j \), et quel que soit le \( k \) de dépaet
-
-    Nous en déduisons que \( f_B(e_k)=f_C(e_k)\), et donc \( f_B=f_C\). Cela implique que \( B=C\) par la proposition \ref{PROPooGXDBooHfKRrv}\ref{ITEMooHSMLooRJZref}.
-\end{proof}
-
-\begin{proposition}[\cite{ooKBOMooSkKHvu}]      \label{PROPooECIIooVMCIwz}
-    Si \( A,B\in \eM(n,\eK)\) vérifient \( AB=\mtu\), alors \( BA=\mtu\).
-\end{proposition}
-
-\begin{proof}
-    L'astuce est de poser \( C=BA-\delta+B\) et de montrer que \( C=B\). Pour cela, un rapide calcul commence par montrer que
-    \begin{equation}
-        AC=ABA-A+AB=AB=\delta.
-    \end{equation}
-    Donc \( C\) est également un inverse à droite de \( A\). Le lemme \ref{LEMooGZCTooQigDvC} donne alors \( C=B\).
-\end{proof}
-
-\begin{corollary}       \label{CORooBQLXooTeVfgb}
-    Soit \( A\in \eM(n,\eK)\). Si il existe \( B\in \eM(n,\eK)\) tel que \( AB=\mtu\), alors \( A\) est inversible et son inverse est \( B\).
-\end{corollary}
-
-\begin{proof}
-    Il s'agit d'une paraphrase de la proposition \ref{PROPooECIIooVMCIwz} et de la définition \ref{PROPooMLWRooRWfZXE}.
-\end{proof}
-
-\begin{probleme}
-  On peut trouver des inverses sans passer par les applications linéaires: le faire, parce que les appli lin, on les voit plus tard.
-\end{probleme}
-
-\begin{lemma}       \label{LEMooZDNVooArIXzC}
-    Si une matrice \( A\) n'est pas inversible, alors le produit \( AB\) n'est inversible pour aucune matrice \( B\).
-\end{lemma}
-
-\begin{proof}
-    Supposons que \( AB\) soit inversible. Alors
-    \begin{equation}
-        AB(AB)^{-1}=\mtu,
-    \end{equation}
-    ce qui dirait que \( B(AB)^{-1}\) serait un inverse de \( A\).
-\end{proof}
-
-
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Inversibilité et déterminant}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Inversibilité et déterminant}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 \begin{proposition}     \label{PROPooAVIXooMtVCet}
     Une matrice au déterminant non nul est inversible.
@@ -986,7 +1094,7 @@ pour toute matrice \( A\).
 \begin{proof}
     Si \( A\) est une matrice telle que \( \det(A)\neq 0\), alors la proposition \ref{PROPooJBTZooNLobpf} nous donne des matrices \( G_1,\ldots, G_N\) telles que
     \begin{equation}
-        G_1\ldots G_NA=\delta.
+        G_1\ldots G_NA=\mtu.
     \end{equation}
     Donc la matrice \( G_1\ldots G_N\) est un inverse de \( A\) par le corolaire \ref{CORooBQLXooTeVfgb}.
 \end{proof}
@@ -1002,17 +1110,11 @@ pour toute matrice \( A\).
 \end{proposition}
 
 \begin{proof}
-    Par définition nous avons
-    \begin{equation}
-        \det(A)=\sum_{\sigma\in S_n}\epsilon(\sigma)\prod_{i=1}^nA_{i\sigma(i)}.
-    \end{equation}
-    Si la \( k\)\ieme ligne est nulle, alors \( A_{k\sigma(k)}=0\) pour tout \( \sigma\). Donc tous les produits contiennent un facteur nul. Donc \( \det(A)=0\).
-
-    Pour toute matrice \( B\) nous avons
-    \begin{equation}
-        (AB)_{kk}=\sum_lA_{kl}B_{lk}.
-    \end{equation}
-    Si la \( k\)\ieme ligne de \( A\) est nulle nous avons \( (AB)_{kk}=0\) et donc pas \( AB=\delta\). Donc \( A\) n'est pas inversible.
+  C'est le lemme~\ref{LEM_detMatColonneZeros} qui dit que \( \det(A) = 0 \). Par ailleurs, pour toute matrice \( B \) nous avons
+  \begin{equation}
+    (AB)_{kk} = \sum_l A_{kl} B_{lk};
+  \end{equation}
+  or, si la \( k \)\ieme{} ligne ou colonne de \( A \) est nulle, alors \( (AB)_{kk} = 0 \), donc \( AB \neq \mtu \). La matrice \( A \) n'est donc pas inversible
 \end{proof}
 
 \begin{proposition}     \label{PROPooVUDJooLWjmSI}
@@ -1024,11 +1126,11 @@ pour toute matrice \( A\).
     \begin{equation}        \label{EQooQGXBooXxFOtb}
         G_1\ldots G_NA
     \end{equation}
-    n'est pas inversible. Vu les déterminants des matrices \( G_i\),  la proposition \ref{PROPooAVIXooMtVCet} implique que \( G_1\ldots G_N\) est inversible. Si \( A\) était inversible, nous aurions
+    n'est pas inversible. Vu les déterminants des matrices \( G_i\),  la proposition \ref{PROPooAVIXooMtVCet} implique que \( G_1\ldots G_N\) est inversible. Alors,
     \begin{equation}
-        G_1\dots G_NAA^{-1}(G_1\ldots G_N)^{-1}=\delta,
+        (G_1\ldots G_N)^{-1}G_1\dots G_NA = A
     \end{equation}
-    c'est-à-dire que \( A^{-1}(G_1\ldots G_N)^{-1}\) serait un inverse de la matrice \eqref{EQooQGXBooXxFOtb}. Cette dernière n'ayant pas d'inverse, nous concluons que \( A\) n'en a pas non plus.
+    ne peut pas être inversible. Sinon, la matrice \( A^{-1}(G_1\ldots G_N)^{-1}\) serait un inverse de la matrice \eqref{EQooQGXBooXxFOtb}.
 \end{proof}
 
 \begin{theorem}     \label{THOooSNXWooSRjleb}
@@ -1039,9 +1141,10 @@ pour toute matrice \( A\).
     Dans un sens c'est la proposition \ref{PROPooAVIXooMtVCet} et dans l'autre sens c'est la proposition \ref{PROPooVUDJooLWjmSI}.
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Quelques ensembles de matrices particuliers}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Groupes linéaire et orthogonal}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Certains ensembles de matrices ont une importance particulière, que nous développerons plus tard.
 
 \begin{definition}[Groupe linéaire de matrices]
@@ -1052,20 +1155,29 @@ On note \( \GL(n,A) \) l'ensemble des matrices carrées d'ordre \( n \) à coeff
     On dit qu'une matrice \( M \) est \defe{orthogonale}{matrice!orthogonale} si son inverse est sa transposée, c'est-à-dire si \( M^{-1} = M^t \). On note \( \gO(n, A) \) l'ensemble des matrices carrées d'ordre \( n \) à coefficients dans \( A \), qui sont orthogonales.
 \end{definition}
 
-%--------------------------------------------------------------------------------------------------------------------------- 
-\subsection{Déterminant et combinaisons de lignes et colonnes}
-%---------------------------------------------------------------------------------------------------------------------------
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+\subsubsection{Autres propriétés sur le déterminant}
+%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \label{SUBSECooKMSVooBBHwkH}
 
-\begin{proposition}     \label{PROPooUCZVooPkloQp}
+\begin{proposition}    
     Soient des matrices \( A,B\in \eM(n,\eK)\) telles que \( \det(A)\neq 0\neq \det(B)\). Alors
     \begin{equation}
         \det(AB)=\det(A)\det(B).
     \end{equation}
 \end{proposition}
 
+\begin{proposition}    \label{PROPooUCZVooPkloQp} \label{PROPooWVJFooTmqoec}  \label{PROPooHQNPooIfPEDH}
+    Soient des matrices \( A,B\in \eM(n,\eK)\) sur un corps commutatif. Alors
+    \begin{equation}
+        \det(AB)=\det(A)\det(B).
+    \end{equation}
+\end{proposition}
+
 \begin{proof}
-    La proposition \ref{PROPooJBTZooNLobpf} nous donne des matrices de permutations de lignes et de colonnes \( G_1,\ldots, G_N\) et \( G'_1,\ldots, G'_N\) telles que\footnote{Les plus acharnés préciseront que pour avoir le même \( N\) des deux côtés, il a fallu compléter avec des matrices \( \delta\) là où il y en avait le moins.}
+    On distingue 3 cas: déterminants \(\det(A) \) et \(\det(B) \) non nuls, un déterminant nul, les deux déterminants nuls.
+    
+   Quand les deux déterminants sont non nuls, la proposition \ref{PROPooJBTZooNLobpf} nous donne des matrices de permutations de lignes et de colonnes \( G_1,\ldots, G_N\) et \( G'_1,\ldots, G'_N\) telles que\footnote{Les plus acharnés préciseront que pour avoir le même \( N\) des deux côtés, il a fallu compléter avec des matrices \( \delta\) là où il y en avait le moins.}
     \begin{subequations}        \label{EQooDNZUooHBhcZj}
         \begin{align}
             G_1\ldots G_NA&=\delta\\
@@ -1091,35 +1203,15 @@ On note \( \GL(n,A) \) l'ensemble des matrices carrées d'ordre \( n \) à coeff
     \begin{equation}
         1=\det(A)^{-1}\det(B)^{-1}\det(AB),
     \end{equation}
-    et donc ce qu'il nous fallait.
-\end{proof}
+    et donc \( \det(A)\det(B)=\det(AB)\).
 
-\begin{proposition}     \label{PROPooWVJFooTmqoec}
-    Soient des matrices \( A,B\in \eM(n,\eK)\) telles que \( \det(A)=0\) et \( \det(B)\neq 0\). Alors
-    \begin{equation}
-        \det(AB)=\det(BA)=\det(A)\det(B).
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Il existe des matrices de manipulations de lignes et de colonnes \( G_1,\ldots, G_N\) telles que \( G_1\ldots G_NB=\delta\). Donc
+    Supposons maintenant qu'une des matrices (disons \( A \) ), ait un déterminant nul (et pas \( B \)). Il existe des matrices de manipulations de lignes et de colonnes \( G_1,\ldots, G_N\) telles que \( G_1\ldots G_NB=\mtu\). Donc
     \begin{equation}
         0=\det(A)=\det(G_1\ldots G_NBA)=\det(G_1\ldots G_N)\det(BA).
     \end{equation}
-    Donc \( \det(BA)=0\).
-\end{proof}
+    Donc \( \det(BA)=0\), l'autre déterminant ne pouvant s'annuler.
 
-\begin{proposition}     \label{PROPooHQNPooIfPEDH}
-    Soient des matrices \( A\) et \( B\) sur un corps commutatif. Alors
-    \begin{equation}
-        \det(AB)=\det(A)\det(B).
-    \end{equation}
-\end{proposition}
-
-\begin{proof}
-    Les propositions \ref{PROPooUCZVooPkloQp} et \ref{PROPooWVJFooTmqoec} ont déjà fait une grosse partie du travail. Il ne reste que le cas où \( \det(A)=\det(B)=0\).
-
-    Dans ce cas, les matrices \( A\) et \( B\) ne sont pas inversibles (proposition \ref{THOooSNXWooSRjleb}). Le produit \( AB\) n'est alors pas inversible non plus\footnote{Citez le lemme \ref{LEMooZDNVooArIXzC} si vous voulez justifier ça.}. La proposition \ref{THOooSNXWooSRjleb}, utilisée dans le sens inverse, nous dit alors que \( \det(AB)=0\).
+    Il ne reste que le cas où \( \det(A)=\det(B)=0\). Dans ce cas, les matrices \( A\) et \( B\) ne sont pas inversibles (proposition \ref{THOooSNXWooSRjleb}). Le produit \( AB\) n'est alors pas inversible non plus\footnote{Citez le lemme \ref{LEMooZDNVooArIXzC} si vous voulez justifier ça.}. La proposition \ref{THOooSNXWooSRjleb}, utilisée dans le sens inverse, nous dit alors que \( \det(AB)=0\).
 
     Au final dans le cas \( \det(A)=\det(B)=0\) nous avons \( 0=\det(AB)=\det(A)\det(B)=0\).
 \end{proof}
@@ -1143,81 +1235,6 @@ Faisons maintenant le cas général des manipulations de lignes et colonnes.
         B_{ij}=\sum_ka_{kj}A_{ik}=(Aa)_{ij}.
     \end{equation}
     Donc \( B=Aa\). La proposition \ref{PROPooHQNPooIfPEDH} nous dit alors que \( \det(B)=\det(a)\det(A)\).
-\end{proof}
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Matrices équivalentes et semblables}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{definition}  \label{DefBLELooTvlHoB}
-    Deux relations d'équivalence entre les matrices.
-    \begin{enumerate}
-        \item   \label{ItemPFXCooOUbSCt}
-    Deux matrices \( A\) et \( B\) sont \defe{équivalentes}{matrice!équivalence} dans \( \eM(n,\eK)\) s'il existe \( P,Q\in\GL(n,\eK)\) telles que \( A=PBQ^{-1}\).
-\item
-    Deux matrices sont \defe{semblables}{matrices!similitude} s'il existe une matrice \( P\in \GL(n,\eK)\) telle que \( A=PBP^{-1}\).
-    \end{enumerate}
-\end{definition}
-
-\begin{lemma}   \label{LemZMxxnfM}
-    Une matrice de rang\footnote{Définition~\ref{DEFooVVBYooJbliTi}.} \( r\) dans \( \eM(n,\eK)\) est équivalente à la matrice par blocs
-    \begin{equation}
-        J_r=\begin{pmatrix}
-            \mtu_r    &   0    \\
-            0    &   0
-        \end{pmatrix}.
-    \end{equation}
-\end{lemma}
-\index{rang!classe d'équivalence}
-
-\begin{proof}
-    Nous devons prouver que pour toute matrice \( A\in\eM(n,\eK)\) de rang \( r\), il existe \( P,Q\in\GL(n,\eK)\) telles que \(QAP=J_r\). Soit \( \{ e_i \}\) la base canonique de \( \eK^n\), puis \( \{ f_i \}\) une base telle que \( Af_i=0\) dès que \( i>r\), qui existe par le lemme~\ref{LEMVecsaRgFixe}.
-
-    Nous considérons la matrice inversible \( P\) telle que \( Pe_i=f_i\); ses colonnes sont donc précisément les \( f_i \), si bien que
-    \begin{equation}
-        APe_i=Af_i=\begin{cases}
-            0    &   \text{si } i>r\\
-            \neq 0    &    \text{sinon}.
-        \end{cases}
-    \end{equation}
-    La matrice \( AP\) se présente donc sous la forme
-    \begin{equation}
-        AP=\begin{pmatrix}
-            M    &   0    \\
-            *    &   0
-        \end{pmatrix}
-    \end{equation}
-    où \( M\) est une matrice \( r\times r\). Nous considérons maintenant une base \( \{ g_i \}_{i=1,\ldots, n}\) dont les \( r\) premiers éléments sont les \( r\) premières colonnes de \( AP\) et une matrice inversible \( Q\) telle que \( Qg_i=e_i\). Alors
-    \begin{equation}
-        QAPe_i=\begin{cases}
-            e_i    &   \text{si } i<r\\
-            0    &    \text{sinon}.
-        \end{cases}.
-    \end{equation}
-    Cela signifie que \( QAP\) est la matrice \( J_r\).
-\end{proof}
-
-\begin{corollary}[Équivalence et rang]      \label{CorGOUYooErfOIe}
-    Deux matrices sont équivalentes\footnote{Définition~\ref{DefBLELooTvlHoB}\ref{ItemPFXCooOUbSCt}.} si et seulement si elles sont de même rang.
-\end{corollary}
-
-\begin{proof}
-    D'abord il y a des implicites dans l'énoncé. Vu que nous voulons soit par hypothèse soit par conclusion que les matrices \( A\) et \( B\) soient équivalentes, nous supposons qu'elles ont même dimension. Soient donc \( A\) et \( B\) deux matrices carrées d'ordre \( n \).
-
-    Par le lemme~\ref{LemZMxxnfM}, deux matrices de même rang \( r\) sont équivalentes à \( J_r\). Elles sont donc équivalentes entre elles.
-
-    Inversement, supposons que \( A\) et \( B\) soient deux matrices équivalentes : \( A=PBQ^{-1}\) avec \( P\) et \( Q\) inversibles. Alors
-    \begin{subequations}
-        \begin{align}
-            \Image(PBQ^{-1})&=\{ PBQ^{-1}v\tq v\in \eK^n \}\\
-            &=PB\underbrace{\{ Q^{-1}v\tq v\in \eK^n \}}_{=\eK^n}\\
-            &=P\big( B(\eK^n) \big).
-        \end{align}
-    \end{subequations}
-    L'ensemble \( B(\eK^n)\) est un sous-espace vectoriel de \( \eK^n\). Vu que le rang de \( P\) est maximum, la dimension de \( P\big( B(\eK^n) \big)\) est la même que celle de \( B(\eK^n)\). Par conséquent
-    \begin{equation}
-        \dim\Big( \Image(PBQ^{-1}) \Big)=\dim\big( B(\eK^n) \big)=\rang(B).
-    \end{equation}
-    Le membre de gauche de cela n'est autre que \( \rang(A)=\dim\big( \Image(PBQ^{-1}) \big)\).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
