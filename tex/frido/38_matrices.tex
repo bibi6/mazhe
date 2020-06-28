@@ -656,8 +656,9 @@ En particulier, pour calculer un déterminant d'ordre \( n \), on prend des mine
 Dans la suite nous désignerons souvent par le mot «mineur» la sous-matrice carrée elle-même au lieu de son déterminant.
 
 \begin{definition}      \label{DEFooVVBYooJbliTi}
-    Le rang d'une matrice est la taille de son plus grand mineur non nul.
+    Le \defe{rang}{rang d'une matrice} d'une matrice est la taille de son plus grand mineur non nul.
 \end{definition}
+\index{rang!d'une matrice}
 
 Déterminer le rang d'une matrice ne semble pas une chose aisée: avec cette définition, il faut calculer le déterminant de la matrice elle-même (on l'a déjà dit, un calcul à la main est presque sans espoir), et, s'il est nul, se pencher sur les mineurs! On touche le fond\dots
 
@@ -727,6 +728,8 @@ Commençons par le plus simple:
             \begin{equation}
                 \det(D_k(\lambda)M)=\det(MD_k(\lambda))=\lambda\det(M)=\det(D_k(\lambda))\det(M).
             \end{equation}
+         \item[\ref{ITEMooRangsDilatations}]
+            Les tailles des plus grands mineurs non-nuls dans \(M,\ N \) et \( N' \) sont les mêmes. le plus grand mineur non-nul de \( M \) se retrouvera dans \( N \) et \( N' \), éventuellement avec un facteur \( \lambda \) supplémentaire, selon qu'il contient la ligne ou colonne \( k \).
     \end{subproof}
 \end{proof}
 
@@ -751,6 +754,8 @@ Commençons par le plus simple:
             \begin{equation}
                 \det(MP_{kl})=\det(M)\det(P_{kl}) = \det(P_{kl}M).
             \end{equation}
+        \item     \label{ITEMooRangsPermutations}
+            Les rangs des matrices \( M,\ N \) et \( N' \) sont les mêmes.
     \end{enumerate}
 \end{proposition}
 
@@ -796,6 +801,8 @@ Commençons par le plus simple:
             \begin{equation}
                 \det(P_{kl}M)=-\det(M)=\det(P_{kl})\det(M).
             \end{equation}
+\item[\ref{ITEMooRangsPermutations}]
+    Les tailles des plus grands mineurs non-nuls dans \(M,\ N \) et \( N' \) sont les mêmes. En effet, soit le plus grand mineur non-nul de \( M \) ne fait pas intervenir les colonnes (ou lignes) \( k \) et \( l \), et c'est le même dans \( N \) et \( N' \); soit il fait intervenir les deux indices, et on le retrouve à l'ordre près dans les autres matrices; soit il ne fait intervenir qu'un seul indice, et dans ce cas, en choisissant bien, on le retrouve de nouveau à l'ordre près dans les autres.
     \end{subproof}
 \end{proof}
 
@@ -863,6 +870,8 @@ Le plus gros morceau à prouver est ce qui concerne les transvections.
             \begin{equation}
                 \det(T_{kl}(\lambda)M)=\det(T_{kl}(\lambda))\det(M)=\det(MT_{kl}(\lambda)).
             \end{equation}
+        \item     \label{ITEMooRangsTransvections}
+        Les rangs des matrices \( M, \ N \) et \(N' \) sont les mêmes.
     \end{enumerate}
 \end{proposition}
 
@@ -874,7 +883,7 @@ Le plus gros morceau à prouver est ce qui concerne les transvections.
         \begin{equation}
             \det(N)=\det(M)+\det(V).
         \end{equation}
-        Mais dans la matrice \( V\), nous avons \( L_k=\lambda L_l\), ce qui implique \( \det(V)=0\) par le corolaire \ref{CORooAZFCooSYINvBl}. Donc \( \det(N)=\det(M)\) comme il se devait.
+        Mais dans la matrice \( V\), nous avons \( L_k=\lambda L_l\), ce qui implique \( \det(V)=0\) par le corolaire~\ref{CORooAZFCooSYINvBl}. Donc \( \det(N)=\det(M)\) comme il se devait.
     \item[\ref{ITEMooHKZWooVZDgnf}]
      C'est le lemme \ref{LemyrAXQs} points~\ref{LemyrAXQsooi} et~\ref{LemyrAXQsooii}.
 
@@ -895,6 +904,9 @@ Le plus gros morceau à prouver est ce qui concerne les transvections.
                 \det(T_{kl}(\lambda)A)=\det(A)=\det(T_{kl}(\lambda))\det(A).
             \end{equation}
     \end{subproof}
+    
+    \item[\ref{ITEMooRangsTransvections}]
+      Parmi les mineurs non-nuls de \( M \), soit il en est qui ne font pas intervenir la ligne ou colonne \( k \) (et alors ils se retrouvent dans \( N \) et \( N' \), soit tous font intervenir la ligne ou colonne \( k \). Dans ce cas, la rangée (ligne ou colonne) \( k \) dans l'une ou l'autre matrice est une somme de la rangée \( k \) de \( M \) avec \( \lambda \) fois la rangée \( l \) de \( M \). Si de plus cette rangée \( l \) fait partie d'un plus grand mineur non-nul, alors on a la même configuration que pour la preuve du point~\ref{ITEMooJSRDooTggEyO}. Sinon... \begin{probleme}Terminer la preuve... bien. \end{probleme}
 \end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -1056,7 +1068,9 @@ pour toute matrice \( A\).
 \end{proof}
 
 \begin{proposition} \label{PROPooPMYCooAAtHsB}
-    Si \( A\in \eM(n,\eK)\) est telle que \( \det(A)=0\), alors il existe des matrices de manipulation de lignes et de colonnes \( G_1,\ldots, G_N\) telles que \( G_1\ldots G_NA\) ait une colonne de zéros.
+    Si \( A\in \eM(n,\eK)\) est telle que \( \det(A)=0\), alors il existe des matrices de manipulation de lignes et de colonnes \( G_1,\ldots, G_N\) telles que \( G_1\ldots G_NA\) ait une ligne de zéros.
+    
+    De manière générale, si le rang de \( A \) est \( r \), alors l'algorithme du pivot de Gauss s'arrêtera justa après l'étape \( r \).
 \end{proposition}
 
 \begin{proof}
@@ -1065,7 +1079,7 @@ pour toute matrice \( A\).
         G_1\ldots G_{N_1}A=
       \begin{pmatrix}
             1    &   \begin{matrix} 
-                0    &   \ldots    &   0    
+                a^{(1)}_{2}    &   \ldots    &   a^{(1)}_n
             \end{matrix}\\ 
             \begin{matrix}
                 0    \\ 
@@ -1074,13 +1088,31 @@ pour toute matrice \( A\).
             \end{matrix}& A^{(1)}
         \end{pmatrix}.
     \end{equation}
-    Si \( A^{(1)}\) ne possède pas de colonnes de zéros, nous pouvons continuer. 
-
-    Si nous parvenons à faire \( n\) pas de la sorte, alors nous aurions
-    \begin{equation}
-        G_1\ldots G_NA=\mtu,
+    Plusieurs cas se présentent alors:
+    \begin{itemize}
+    \item
+      Si \( A^{(1)}\)  est la matrice nulle: alors on s'arrête là, le rang de \( A \) est 1.
+    \item
+      Si \( A^{(1)}\) possède une de colonnes de zéros, on a la première assertion, mais pas la seconde. On continue alors.
+    \item
+      Si \( A^{(1)}\) n'a pas de colonne de zéros, on continue la réduction.
+    \end{itemize}
+    
+    Si l'on va à l'étape \(k \), on obtient
+        \begin{equation}
+        G_1\ldots G_{N_k}A=
+      \begin{pmatrix}
+            T^{(k)}    &   B^{(k)}\\ 
+            \mathbb 0 & A^{(k)}
+        \end{pmatrix},
     \end{equation}
-    et donc \( \det(G_1\ldots G_N)\det(A)=1\), ce qui est impossible lorsque \( \det(A)=0\). Nous en concluons que le processus doit s'arrêter et qu'une des matrices \( A^{(k)}\) doit avoir une colonne de zéros\footnote{En réalité, le processus tel que nous l'avons décrit ne s'arrête que lorsque la première colonne est remplie de zéros.}.
+    avec \( T^{(k)} \) une matrice triangulaire supérieure carrée d'ordre \( k \) qui a des \( 1 \) sur sa diagonale, \( B^{(k)} \) une matrice \( k \times (n-k) \), \( \mathbb 0 \) une matrice de zéros, et  \( A^{(k)} \) est carrée d'ordre \( n - k \). Le processus doit s'arrêter à une certaine étape \( k \), où la matrice \( A^{(k)} \)  est nulle. En effet, sinon nous pourrions aller à l'étape \( n \) et nous aurions
+    \begin{equation}
+        G_1\ldots G_NA=\mtu;
+    \end{equation}
+    il s'en suivrait \( \det(G_1\ldots G_N)\det(A)=1\), ce qui est impossible lorsque \( \det(A)=0\).
+    
+Nous en concluons que le processus doit s'arrêter et qu'une des matrices \( A^{(k)}\) doit être nulle (et donc, telle que la matrice transformée possède au moins une ligne de zéros). Reste à déterminer le rang: vu la matrice transformée, c'est la taille de \( T^{(k)} \), donc c'est \( k \), d'où \( k = r \).
 \end{proof}
 
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
