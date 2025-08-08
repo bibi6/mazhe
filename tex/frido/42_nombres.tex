@@ -2830,8 +2830,16 @@ Nous donnons deux preuves de ce lemme.
 	Nous notons également \( a<b \) si \( a\leq b\) et \( a\neq b\).
 \end{definition}
 
+\begin{propositionDef}	\label{PROPooDEFSoustractionN}
+	Soit \( a,b\in \eN\), nous notons \( a\leq b\). L'élément  \( x\in \eN\) tel que \( a+x=b\) est unique, et on note \( x = b - a \).
+\end{propositionDef}
+
+\begin{proof}
+	S'il existe deux entiers naturels \( x \) et \( x' \) tels que \( a + x = b \) et \( a + x' = b\), alors nous avons \( a + x = a + x' \). Mais la régularité de l'addition dans \( \eN \) (proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}), nous obtenons directement \( x = x' \), d'où l'unicité.
+\end{proof}
+
 \begin{lemma}       \label{LEMooWMYPooLTMyWb}
-	Nous avons \( a\leq s(a)\) pour tout \( a\in \eN\).
+	Nous avons \( a\leq s(a)\) pour tout \( a\in \eN\), et \( s(a) - a = 1 \).
 \end{lemma}
 
 \begin{proof}
@@ -2874,6 +2882,36 @@ Nous donnons deux preuves de ce lemme.
 		qui signifie bien que \( a+n\leq b+n\).
 	\end{subproof}
 \end{proof}
+
+\begin{proposition}	\label{PROPooSoustractionN}
+	Soit \( a,b, n in \eN\) tels que \( a\leq b\).
+ 	\begin{enumerate}
+		\item
+  			On a \( b - a = 0 \) si et seulement si \( a = b \).
+  		\item
+			On a \( (b+n) - (a+n) = b - a \).
+   		\item
+	 		Si \( a + n \leq b \), alors \( n \leq b-a \), et de plus \( b - (a+n) = (b-a) - n \).
+ 	\end{enumerate}
+\end{proposition}
+
+\begin{proof} Point par point.
+	\begin{enumerate}
+ 		\item
+   			On rappelle que \( x = b - a \) est tel que \( a + x = b \). Si \( x = 0 \), alors naturellement \( a = b \) par définition de l'addition. Réciproquement, si \( a = b \), alors on observe que \( a + x = a \) et donc \( x = 0 \) par régularité.
+ 		\item
+   			Observons au préalable que, l'ordre étant compatible avec l'addition, si \( a \leq b \) alors \( a+n \leq b+n \), et donc que les soustractions des deux membres font sens. Soit \( x = (b+n) - (a+n)\). Par définition, on a \( b+n = a+n+x \), soit par commutativité et par régularité, \( b = a+x \). Ainsi, on trouve \( (b+n) - (a+n) = x = b - a \).
+	  	\item
+			Soit \( x = b - (a+n) \); alors \( a + n + x = b \). On pose \( y = n+ x \), de telle sorte que \( a + y = b \), et donc \( y = b - a \). Or, on déduit aussi de \( y = n + x \) les deux choses suivantes:
+   			\begin{itemize}
+	  			\item
+	  				d'une part, que \( n \leq y = b-a \);
+	   			\item
+	   				d'autre part, que \( x = y - n = (b - a) - n \): d'où l'égalité annoncée.
+ 	\end{enumerate}
+\end{proof}
+
+% TODOooPropsSoustractionN sans doute faut-il mettre ici les autres propriétés relatives à la soustraction dans N.
 
 \begin{lemma}       \label{LEMooPVRQooXPMKTt}
 	À propos d'ordre et de stricte inégalité.
