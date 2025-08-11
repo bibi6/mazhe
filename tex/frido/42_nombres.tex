@@ -2839,11 +2839,11 @@ Nous donnons deux preuves de ce lemme.
 \end{proof}
 
 \begin{lemma}       \label{LEMooWMYPooLTMyWb}
-	Nous avons \( a\leq s(a)\) pour tout \( a\in \eN\), et \( s(a) - a = 1 \).
+	Pour tout \( a\in \eN\), nous avons \( a\leq s(a)\); \( s(a) - a = 1 \); et aussi \( a < s(a) \).
 \end{lemma}
 
 \begin{proof}
-	Cela est une conséquence du lemme \ref{LEMooMJMTooOtUuJT} : \( s(a)=a+1\).
+	Cela est une conséquence du lemme \ref{LEMooMJMTooOtUuJT} : \( s(a)=a+1\). Si l'inégalité n'était pas stricte, alors nous aurions \( a = s(a) = a + 1 \), soit par régularité de l'addition \( 0 = 1 \), en contradiction avec le lemme \ref{LEMooCOMSooEWrumL}.
 \end{proof}
 
 \begin{proposition}     \label{PROPooVXBBooZcghrA}
@@ -2953,7 +2953,7 @@ Nous donnons deux preuves de ce lemme.
 \begin{proof}
 	Puisque \( 0\) est neutre pour l'addition\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooSGRVooPAVFYK}.}, nous avons \( 0+a=a\) pour tout \( a\in \eN\) et donc \( 0\leq a\) pour tout \( a\). Cela veut dire que \( 0\) est plus petit que tout élément de \( \eN\).
 
-	En ce qui concerne l'unicité, soit \( z\in \eN\) tel que \( z\leq a\) pour tout \( a\in \eN\). Si \( z\neq 0\), il existe \( x\in \eN\) tel que \( z=s(x)\). Nous avons donc \( z\geq x\) en même temps que \(x\leq z\). Cela implique \( z=x\) (parce qu'une relation d'ordre est antisymétrique) et donc \( z=z+1\). En utilisant la régularité de \( z\) pour l'addition nous en déduisons que \( 0=1\), ce qui est impossible par le lemme \ref{LEMooCOMSooEWrumL}.
+	En ce qui concerne l'unicité, soit \( z\in \eN\) tel que \( z\leq a\) pour tout \( a\in \eN\). Si \( z\neq 0\), il existe \( x\in \eN\) tel que \( z=s(x)\). Nous avons donc \( z > x\) par le lemme \ref{LEMooWMYPooLTMyWb}, en même temps que \( z \leq x\), ce qui est impossible.
 \end{proof}
 
 \begin{lemma}[\cite{MonCerveau}]       \label{LEMooYMRJooYIAhBb}
