@@ -2850,7 +2850,7 @@ Nous donnons deux preuves de ce lemme.
 	La relation \( \leq\) est une relation d'ordre compatible avec l'addition.
 
  	Plus précisément, avec l'opération de soustraction\footnote{Définie avec la proposition \ref{PROPooDEFSoustractionN}.}, on a, pour tous \( a, b, c \in \eN \) tels que \( a \leq b \) et \( b \leq c \):
-  	\begin{enumerate}[label=\roman*]
+  	\begin{enumerate}
 		\item	\label{ITEMooSoustractionNi}
   			  	\( a \leq a \), et \( b - a = 0 \) si et seulement si \( a = b \);
 		\item	\label{ITEMooSoustractionAntisym}
@@ -2865,9 +2865,9 @@ Nous donnons deux preuves de ce lemme.
 \begin{proof}
 	Plusieurs choses à vérifier.
 	\begin{subproof}
-		\spitem[Réflexivité, propriété \ref{PROPooSoustractionNi}]
+		\spitem[Point \ref{ITEMooSoustractionNi} : réflexivité]
 		Nous avons \( a\leq a\) parce que \( a+0=a\) -- ce qui donne au passage que \( a - a = 0 \). Réciproquement, si \( x = b - a = 0 \), alors \( a = a + x = b \).
-		\spitem[Antisymétrie]
+		\spitem[Point \ref{ITEMooSoustractionAntisym} : antisymétrie]
 		Soient \( a,b\in \eN\) tels que \( a\leq b\) et \( b\leq a\). Il existe \( x,y\in \eN\) tels que
 		\begin{subequations}
 			\begin{align}
@@ -2880,13 +2880,13 @@ Nous donnons deux preuves de ce lemme.
 			0+b=b+(x+y).
 		\end{equation}
 		En utilisant la régularité, \( 0=x+y\) et donc \( x=y=0\) par le lemme \ref{LEMooQBHFooCuCusQ}. Cela donne alors \( a=b\).
-		\spitem[Transitivité, propriété \ref{PROPooSoustractionNii}]
+		\spitem[Point \ref{ITEMooSoustractionNii} : transitivité]
 		Si \( a\leq b\) et \( b\leq c\), nous avons \( x,y\in \eN\) tels que \( b=a+x\) et \( c=b+y\). Alors, par l'associativité de la somme, démontrée en la proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}, on a
 		\begin{equation}
 			c=(a+x)+y=a+(x+y)
 		\end{equation}
 		ce qui signifie d'une part, que \( a\leq c\), et d'autre part que \( c - a = x + y = (b - a) + (c - b) \).
-		\spitem[Compatibilité, , propriété \ref{PROPooSoustractionNiii}]
+		\spitem[Point \ref{ITEMooSoustractionNiii} : compatibilité]
 		Soient \( a,b,c\in \eN\) tels que \( a\leq b\). Nous devons montrer que \( a+c\leq b+c\). Puisque \( a\leq b\), il existe \( x\in \eN\) tel que \( b=a+x\). Par conséquent,
 		\begin{equation}
 			b+n=(a+x)+n=a+(n+x) = (a+n)+x,
