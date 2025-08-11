@@ -2831,7 +2831,7 @@ Nous donnons deux preuves de ce lemme.
 \end{definition}
 
 \begin{propositionDef}	\label{PROPooDEFSoustractionN}
-	Soit \( a,b\in \eN\), nous notons \( a\leq b\). L'élément  \( x\in \eN\) tel que \( a+x=b\) est unique, et on note \( x = b - a \).
+	Soit \( a,b\in \eN\), tels que \( a\leq b\). L'élément  \( x\in \eN\) tel que \( a+x=b\) est unique, et on note \( x = b - a \).
 \end{propositionDef}
 
 \begin{proof}
@@ -2848,14 +2848,26 @@ Nous donnons deux preuves de ce lemme.
 
 \begin{proposition}     \label{PROPooVXBBooZcghrA}
 	La relation \( \leq\) est une relation d'ordre compatible avec l'addition.
+
+ 	Plus précisément, avec l'opération de soustraction\footnote{Définie avec la proposition \ref{PROPooDEFSoustractionN}.}, on a, pour tous \( a, b, c \in \eN \) tels que \( a \leq b \) et \( b \leq c \):
+  	\begin{enumerate}[label=\roman*]
+		\item	\label{ITEMooSoustractionNi}
+  			  	\( a \leq a \), et \( b - a = 0 \) si et seulement si \( a = b \);
+		\item	\label{ITEMooSoustractionAntisym}
+  				si  \( a \leq b \) et \( b \leq a \), alors \( a = b \);
+		\item	\label{ITEMooSoustractionNii}
+  				\( a \leq c \), et \( (b - a) + (c - b) = c - a \);
+	  	\item	\label{ITEMooSoustractionNiii}
+				\( (b + c) - (a + c) = b - a \).
+    \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 	Plusieurs choses à vérifier.
 	\begin{subproof}
-		\spitem[Réflexive]
-		Nous avons \( a\leq a\) parce que \( a+0=a\).
-		\spitem[Antisymétrique]
+		\spitem[Réflexivité, propriété \ref{PROPooSoustractionNi}]
+		Nous avons \( a\leq a\) parce que \( a+0=a\) -- ce qui donne au passage que \( a - a = 0 \). Réciproquement, si \( x = b - a = 0 \), alors \( a = a + x = b \).
+		\spitem[Antisymétrie]
 		Soient \( a,b\in \eN\) tels que \( a\leq b\) et \( b\leq a\). Il existe \( x,y\in \eN\) tels que
 		\begin{subequations}
 			\begin{align}
@@ -2868,60 +2880,48 @@ Nous donnons deux preuves de ce lemme.
 			0+b=b+(x+y).
 		\end{equation}
 		En utilisant la régularité, \( 0=x+y\) et donc \( x=y=0\) par le lemme \ref{LEMooQBHFooCuCusQ}. Cela donne alors \( a=b\).
-		\spitem[Transitive]
-		Si \( a\leq b\) et \( b\leq c\), nous avons \( n,p\in \eN\) tels que \( b=a+n\) et \( c=b+p\). Donc
+		\spitem[Transitivité, propriété \ref{PROPooSoustractionNii}]
+		Si \( a\leq b\) et \( b\leq c\), nous avons \( x,y\in \eN\) tels que \( b=a+x\) et \( c=b+y\). Alors, par l'associativité de la somme, démontrée en la proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}, on a
 		\begin{equation}
-			c=(a+n)+p=a+(n+p),
+			c=(a+x)+y=a+(x+y)
 		\end{equation}
-		ce qui signifie que \( a\leq c\). Notez l'utilisation de l'associativité de la somme, démontrée en la proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}.
-		\spitem[Compatibilité]
-		Soient \( a,b,n\in \eN\) tels que \( a\leq b\). Nous devons montrer que \( a+n\leq b+n\). Puisque \( a\leq b\), il existe \( x\in \eN\) tel que \( b=a+x\). Par conséquent,
+		ce qui signifie d'une part, que \( a\leq c\), et d'autre part que \( c - a = x + y = (b - a) + (c - b) \).
+		\spitem[Compatibilité, , propriété \ref{PROPooSoustractionNiii}]
+		Soient \( a,b,c\in \eN\) tels que \( a\leq b\). Nous devons montrer que \( a+c\leq b+c\). Puisque \( a\leq b\), il existe \( x\in \eN\) tel que \( b=a+x\). Par conséquent,
 		\begin{equation}
-			b+n=a+x+n=(a+n)+x,
+			b+n=(a+x)+n=a+(n+x) = (a+n)+x,
 		\end{equation}
-		qui signifie bien que \( a+n\leq b+n\).
+		qui signifie bien, d'une part, que \( a+n\leq b+n\), et d'autre part, que \( x = (b + n) - (a + n) = b - a\).
 	\end{subproof}
 \end{proof}
 
 \begin{proposition}	\label{PROPooSoustractionN}
-	Soit \( a,b, n in \eN\) tels que \( a\leq b\).
- 	\begin{enumerate}
-		\item
-  			On a \( b - a = 0 \) si et seulement si \( a = b \).
-  		\item
-			On a \( (b+n) - (a+n) = b - a \).
-   		\item
-	 		Si \( a + n \leq b \), alors \( n \leq b-a \), et de plus \( b - (a+n) = (b-a) - n \).
- 	\end{enumerate}
-\end{proposition}
+	Soit \( a,b, c, d in \eN\) tels que \( a\leq b\) et \( c \leq d \). Alors \( a + c \leq b + d \), et de plus \( (b - a) + (d - c) = (b + d) - (a + c)\).
+ 
+ 	En outre, si nous avons (seulement) l'inégalité \( a + c \leq b \), alors \( c \leq b-a \), et de plus \( b - (a+c) = (b-a) - c \). 
+\end{proosition}
 
-\begin{proof} Point par point.
-	\begin{enumerate}
- 		\item
-   			On rappelle que \( x = b - a \) est tel que \( a + x = b \). Si \( x = 0 \), alors naturellement \( a = b \) par définition de l'addition. Réciproquement, si \( a = b \), alors on observe que \( a + x = a \) et donc \( x = 0 \) par régularité.
- 		\item
-   			Observons au préalable que, l'ordre étant compatible avec l'addition, si \( a \leq b \) alors \( a+n \leq b+n \), et donc que les soustractions des deux membres font sens. Soit \( x = (b+n) - (a+n)\). Par définition, on a \( b+n = a+n+x \), soit par commutativité et par régularité, \( b = a+x \). Ainsi, on trouve \( (b+n) - (a+n) = x = b - a \).
-	  	\item
-			Soit \( x = b - (a+n) \); alors \( a + n + x = b \). On pose \( y = n+ x \), de telle sorte que \( a + y = b \), et donc \( y = b - a \). Or, on déduit aussi de \( y = n + x \) les deux choses suivantes:
-   			\begin{itemize}
-	  			\item
-	  				d'une part, que \( n \leq y = b-a \);
-	   			\item
-	   				d'autre part, que \( x = y - n = (b - a) - n \): d'où l'égalité annoncée.
- 	\end{enumerate}
-\end{proof}
+\begin{proof}
+	On note \( x = b - a \) et \( y = d - c \), de telle sorte que \( a + x = b \) et \( c + y = d \). Il vient que
+ 	\begin{equation}
+  		b + d = (a + x) + (c + y) = a + (c + x) + y = (a + c) + (x + y).
+  	\end{equation}
+   	Ainsi,  \( a + c \leq b + d \), et \( (b + d) - (a + c) = x + y = (b - a) + (d - c) \).
+
+ 	Si maintenant seule l'inégalité \( a + c \leq b \) est garantie, on a, pour \( z = b - (a+c) \), l'égalité \( (a + c) + z = b \). Par associativité, on tire que \( a \leq b \), et que \( c + z = b - a \); de cette dernière égalité, on déduit \( z = (b - a) - c \). Finalement, \(  b - (a+c) = z = (b - a) - c \).
+  \end{proof}
 
 % TODOooPropsSoustractionN sans doute faut-il mettre ici les autres propriétés relatives à la soustraction dans N.
 
 \begin{lemma}       \label{LEMooPVRQooXPMKTt}
-	À propos d'ordre et de stricte inégalité.
+	À propos d'ordre et de stricte inégalité. Soit \( a, b, c \in \eN \).
 	\begin{enumerate}
 		\item       \label{ITEMooGWWFooYGPCZw}
-		      Si \( x\leq a\) et \( b\neq 0\), alors \( x<a+b\).
+		      Si \( c\leq a\) et \( b\neq 0\), alors \( c<a+b\).
 		\item       \label{ITEMooRWGWooAfkrri}
-		      Si \( x\leq a\), alors \( x<s(a)\).
+		      Si \( c\leq a\), alors \( c<s(a)\).
 		\item       \label{ITEMooWCOIooMWrCag}
-		      Si \( x<a\), alors \( s(x)\leq a\).
+		      Si \( c<a\), alors \( s(c)\leq a\).
 	\end{enumerate}
 \end{lemma}
 
@@ -2929,23 +2929,20 @@ Nous donnons deux preuves de ce lemme.
 	En plusieurs parties.
 	\begin{subproof}
 		\spitem[Pour \ref{ITEMooGWWFooYGPCZw}]
-		Si \( x\leq a\), il existe \( d\in \eN\) tel que \( x+d=a\). Nous avons alors aussi
+		Si \( c\leq a\), il existe \( x\in \eN\) tel que \( c+x=a\). Nous avons alors aussi
 		\begin{equation}
-			x+d+b=a+b,
+			c+x+b=a+b,
 		\end{equation}
-		ce qui signifie que \( x\leq a+b\). Mais si \( x\) était égal à \( a+b\), nous aurions \( d+b=0\), ce qui impliquerait\footnote{Par le lemme \ref{LEMooQBHFooCuCusQ}.} \( d=b=0\), alors que l'hypothèse stipule que \( b\neq 0\). Donc \( x\neq a+b\).
+		ce qui signifie que \( c\leq a+b\). Mais si \( c\) était égal à \( a+b\), nous aurions \( x+b=0\), ce qui impliquerait\footnote{Par le lemme \ref{LEMooQBHFooCuCusQ}.} \( x=b=0\), alors que l'hypothèse stipule que \( b\neq 0\). Donc \( c\neq a+b\).
 		\spitem[Pour \ref{ITEMooRWGWooAfkrri}]
 		Il s'agit seulement d'utiliser le point \ref{ITEMooGWWFooYGPCZw} avec \( b=1\) et le fait que \( s(a)=a+1\) par le lemme \ref{LEMooMJMTooOtUuJT}.
 		\spitem[Pour \ref{ITEMooWCOIooMWrCag}]
-		Par hypothèse, il existe \( b\neq 0\) tel que \( x+b=a\). Puisque \( b\neq 0\), il existe \( c\in \eN\) tel que \( b=s(c)\) et donc, tel que
+		Par hypothèse, il existe \( x \) tel que \( c+x=a\), et en plus \( x \neq 0 \) car \( c \neq a\). Il existe donc \( y\in \eN\) tel que \( x=s(y)\), d'où l'on déduit
 		\begin{equation}
-			x+s(c)=a.
+			a = c + s(y) = s(c + y) = s(y + c) = y + s(c),
 		\end{equation}
-		En utilisant le fait que \( s(c)=c+1\) ainsi que l'associativité et la commutativité de l'addition (proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}) nous avons
-		\begin{equation}
-			a=x+s(c)=s(x)+c,
-		\end{equation}
-		ce qui prouve que \( s(x)\leq a\).
+		par définition et commutativité de l'addition (propositions \ref{PROPooVFOXooXmwpFh}\ref{ITEMooZWHQooBAjZyE} et \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}).
+		Ainsi, on a bien \( s(c)\leq a\).
 	\end{subproof}
 \end{proof}
 
@@ -2954,17 +2951,41 @@ Nous donnons deux preuves de ce lemme.
 \end{lemma}
 
 \begin{proof}
-	Puisque \( 0\) est neutre pour l'addition\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooSGRVooPAVFYK}.}, nous avons \( a+0=a\) pour tout \( a\in \eN\) et donc \( 0\leq a\) pour tout \( a\). Cela veut dire que \( 0\) est plus petit que tout élément de \( \eN\).
+	Puisque \( 0\) est neutre pour l'addition\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooSGRVooPAVFYK}.}, nous avons \( 0+a=a\) pour tout \( a\in \eN\) et donc \( 0\leq a\) pour tout \( a\). Cela veut dire que \( 0\) est plus petit que tout élément de \( \eN\).
 
-	En ce qui concerne l'unicité, soit \( z\in \eN\) tel que \( z\leq a\) pour tout \( a\in \eN\). Si \( z\neq 0\), il existe \( x\in \eN\) tel que \( z=s(x)\). Nous avons donc \( z\geq x\) en même temps que \(x\leq z\). Cela implique \( z=x\) (parce qu'une relation d'ordre est symétrique) et donc \( z=z+1\). En utilisant la régularité de \( z\) pour l'addition nous en déduisons que \( 0=1\), ce qui est impossible par le lemme \ref{LEMooCOMSooEWrumL}.
+	En ce qui concerne l'unicité, soit \( z\in \eN\) tel que \( z\leq a\) pour tout \( a\in \eN\). Si \( z\neq 0\), il existe \( x\in \eN\) tel que \( z=s(x)\). Nous avons donc \( z\geq x\) en même temps que \(x\leq z\). Cela implique \( z=x\) (parce qu'une relation d'ordre est antisymétrique) et donc \( z=z+1\). En utilisant la régularité de \( z\) pour l'addition nous en déduisons que \( 0=1\), ce qui est impossible par le lemme \ref{LEMooCOMSooEWrumL}.
 \end{proof}
 
-\begin{lemma}       \label{LEMooJRZKooOMhOkH}
-	Si \( a\leq b\) et \( b\leq a\), alors \( a=b\).
+\begin{lemma}[\cite{MonCerveau}]       \label{LEMooYMRJooYIAhBb}
+	Quelques affirmations sur l'ordre dans \( \eN\).
+	\begin{enumerate}
+		\item       \label{ITEMooTLOIooTWNtod}
+		      Il n'existe pas de \( n\in \eN\) tel que \( n<0\).
+		\item       \label{ITEMooPJKQooGfLCUM}
+		      Si \( a,b\in \eN\) vérifient \( a>b\), alors il n'existe pas de \( x\) dans \( \eN\) tel que \( a+x=b\).
+	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-	L'inégalité \( a\leq b\) dit qu'il existe \( x\in \eN\) tel que \( a+x=b\). En mettant cela dans l'inégalité \( b\leq a\) nous trouvons \( a+x\leq a\) qui donne, via la proposition \ref{PROPooVXBBooZcghrA} : \( x\leq 0\). Nous en déduisons que \( x=0\) parce que zéro est l'unique minimum de \( \eN\) par le lemme \ref{LEMooCSIXooHeuWEd}.
+	En deux parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooTLOIooTWNtod}]
+		Nous savons par le lemme \ref{PLEMooCSIXooHeuWEd} que \( 0\) est l'unique minimum de \( \eN\). Nous avons donc forcément \( 0\leq n\). Si \( n\) vérifie de plus \( n\leq 0\) alors nous avons \( n=0\) par symétrie de la relation d'ordre \( \leq\). Il n'est donc pas possible d'avoir \( n\neq 0\).
+		\spitem[Pour \ref{ITEMooPJKQooGfLCUM}]
+		Si \( b\leq a\) il existe \( c\in \eN\) tel que \( b+c=a\). Et comme \( a\neq b\), \( c\) n'est pas nul et il existe \( y\in \eN\) tel que \( c=s(y)\). Bref, nous avons
+		\begin{equation}
+			b+s(y)=a.
+		\end{equation}
+		Si de plus il existe \( x\in \eN\) tel que \( a+x=b\) nous aurions
+		\begin{equation}
+			a+x+s(y)=a.
+		\end{equation}
+		Comme \( a\) est régulier pour l'addition\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}.}, nous avons
+		\begin{equation}
+			x+s(y)=0,
+		\end{equation}
+		ce qui signifie, par le lemme \ref{LEMooQBHFooCuCusQ} que \( x=s(y)=0\). Puisque \( s\) prend ses valeurs dans \( \eN\setminus\{ 0 \}\), cela est impossible.
+	\end{subproof}
 \end{proof}
 
 \begin{proposition}     \label{PROPooGCCRooFBYrlo}
@@ -2983,17 +3004,25 @@ Nous donnons deux preuves de ce lemme.
 
 	Nous avons \( 0\in A\subset A\cup B\) par le lemme \ref{LEMooCSIXooHeuWEd}.
 
-	Pour étudier \( s(A\cup B)\), nous considérons \( x\in A\cup B\) et nous subdivisons en deux cas selon que \( x\in A\) ou \( x\in B\).
+	Pour étudier \( s(A\cup B)\), nous considérons \( x\in A\cup B\) et nous voyons ce qu'il en est pour \( s(x) \). Nous subdivisons en deux cas selon que \( x\in A\) ou \( x\in B\).
 
 	\begin{subproof}
 		\spitem[Si \( x\in B\)]
 		Si \( x\in B\), alors \( a\leq x\leq s(x)\) parce que \( x\leq s(x)\) par le lemme \ref{LEMooWMYPooLTMyWb}. Donc \( s(x)\in B\subset A\cup B\).
 		\spitem[Si \( x\in A\)]
-		Si \( x\in A\), il y a deux possibilités : \( x=a\) et \( x\neq a\). Si \( x=a\), alors \( a\leq s(x)\) et donc \( s(x)\in A\subset A\cup B\).
+		Si \( x\in A\), il y a deux possibilités : \( x=a\) et \( x\neq a\). Si \( x=a\), alors, à nouveau par le lemme \ref{LEMooWMYPooLTMyWb}, \( a\leq s(a) \leq s(x) \) et donc \( s(x)\in B\subset A\cup B\).
 
-		Si \( x\neq a\), alors le lemme \ref{LEMooPVRQooXPMKTt}\ref{ITEMooWCOIooMWrCag} nous indique que \( s(x)\leq a\) et donc \( s(x)\in A\subset A\cup B\).
+		Si \( x\neq a\), alors \( x < a \) et le lemme \ref{LEMooPVRQooXPMKTt}\ref{ITEMooWCOIooMWrCag} nous indique que \( s(x)\leq a\), soit \( s(x)\in A\subset A\cup B\).
 	\end{subproof}
-	Nous avons donc prouvé que \( s(A\cup B)\subset A\cup B\), et donc que \( A\cup B=\eN\).
+	Nous avons ainsi prouvé que \( s(x) \in A \cup B \) quel que soit le cas de figure. Nous en déduisons que \( s(A\cup B)\subset A\cup B\), et en concluons que \( A\cup B=\eN\).
+\end{proof}
+
+\begin{corollary}	\label{CORooSoustractionDefinie}
+	Soit \( a, b \in \eN \). On peut toujours faire la soustraction de l'un à l'autre dans \( \eN \) (selon l'ordre). Si les deux soustractions sont possibles, alors \( a = b \).
+\end{corollary}
+
+\begin{proof}
+	La proposition suivante dit explicitement que soit \( a \leq b \) (auquel cas, \( b - a \) est défini), soit \( b \leq a \) (auquel cas \( a - b \) est défini), soit les deux (auqual cas \( b = a \) et les différences sont nulles).
 \end{proof}
 
 \begin{proposition}[\cite{RWWJooJdjxEK,MonCerveau}]     \label{PROPooMZOWooHmsXzI}
@@ -3106,40 +3135,6 @@ Nous donnons deux preuves de ce lemme.
 \end{probleme}
 
 
-
-
-\begin{lemma}[\cite{MonCerveau}]       \label{LEMooYMRJooYIAhBb}
-	Quelques affirmations sur l'ordre dans \( \eN\).
-	\begin{enumerate}
-		\item       \label{ITEMooTLOIooTWNtod}
-		      Il n'existe pas de \( n\in \eN\) tel que \( n<0\).
-		\item       \label{ITEMooPJKQooGfLCUM}
-		      Si \( a,b\in \eN\) vérifient \( a>b\), alors il n'existe pas de \( x\) dans \( \eN\) tel que \( a+x=b\).
-	\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-	En deux parties.
-	\begin{subproof}
-		\spitem[Pour \ref{ITEMooTLOIooTWNtod}]
-		Nous savons par la proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooJLAHooDKukfH} que \( 0\) est l'unique minimum de \( \eN\). Nous avons donc forcément \( 0\leq n\). Si \( n\) vérifie de plus \( n\leq 0\) alors nous avons \( n=0\) par symétrie de la relation d'ordre \( \leq\). Il n'est donc pas possible d'avoir \( n\neq 0\).
-		\spitem[Pour \ref{ITEMooPJKQooGfLCUM}]
-		Si \( b\leq a\) il existe \( c\in \eN\) tel que \( b+c=a\). Et comme \( a\neq b\), \( c\) n'est pas nul et il existe \( y\in \eN\) tel que \( c=s(y)\). Bref, nous avons
-		\begin{equation}
-			b+s(y)=a.
-		\end{equation}
-		Si de plus il existe \( x\in \eN\) tel que \( a+x=b\) nous aurions
-		\begin{equation}
-			a+x+s(y)=a.
-		\end{equation}
-		Comme \( a\) est régulier pour l'addition\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}.}, nous avons
-		\begin{equation}
-			x+s(y)=0,
-		\end{equation}
-		ce qui signifie, par le lemme \ref{LEMooQBHFooCuCusQ} que \( x=s(y)=0\). Puisque \( s\) prend ses valeurs dans \( \eN\setminus\{ 0 \}\), cela est impossible.
-	\end{subproof}
-\end{proof}
-
 \begin{definition}      \label{DEFooKBUFooLvMHrf}
 	Soient \( a,b\in \eN\) tels que \( a\leq b\). Nous notons par \( \{ a,\ldots, b \}\) l'ensemble
 	\begin{equation}
@@ -3198,7 +3193,7 @@ Nous donnons deux preuves de ce lemme.
 			\spitem[Ensuite]
 			Puisque \( M\) est le maximum de \( A\), \( M+1\) majore \( A\), c'est-à-dire que \( f(M+1)\geq a\).
 			\spitem[Les deux ensemble]
-			Nous avons prouvé que \( f(M+1)\leq a\) et \( f(M+1)\geq a\). Nous en déduisons, par le lemme \ref{LEMooJRZKooOMhOkH}, que \( f(M+1)=a\).
+			Nous avons prouvé que \( f(M+1)\leq a\) et \( f(M+1)\geq a\). Nous en déduisons, par antisymétrie de l'ordre (proposition \ref{PROPooVXBBooZcghrA}\tef{ITEMooSoustractionAntisym}), que \( f(M+1)=a\).
 		\end{subproof}
 	\end{subproof}
 \end{proof}
