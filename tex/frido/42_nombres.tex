@@ -2372,9 +2372,9 @@ Nous donnons deux preuves de ce lemme.
 \begin{proposition}[Récurrence\cite{RWWJooJdjxEK}]      \label{PROPooXTRCooKwrWkq}
 	Soit un triplet naturel \( (\mN,o,s)\) et une application \( P\colon \mN\to \{ 0,1 \}\) vérifiant\footnote{Les plus \randomGender{pointilleux}{pointilleuses} diront que \( 1\) n'est pas encore défini. Bon j'avoue. Ce qui est important est que \( P\) prenne ses valeurs dans un ensemble contenant deux éléments distincts. Si maintenant vous râlez parce que «deux» est encore moins défini, prenez un ensemble quelconque \( A\) et dites que \( P\) prend ses valeurs dans \( \{ A, \partP(A)\}\). Mais êtes-vous bien \randomGender{certain}{certaine} que \( \partP(A)\neq A\) ?}
 	\begin{enumerate}
-		\item
-		      \( P(o)=1\),
-		\item
+		\item	\label{ITEMooRecurPropInit}
+		      \( P(o) = 1\),
+		\item	\label{ITEMooRecurPropHered}
 		      pour tout \( a\in \mN\), si \( P(a)=1\), alors \( P\big( s(a) \big)=1\).
 	\end{enumerate}
 	Alors \( P(x)=1\) pour tout \( x\in \mN\).
@@ -2394,7 +2394,7 @@ Nous donnons deux preuves de ce lemme.
 		\item
 		      \( f(0)=b\)
 		\item
-		      \( f\big( s(n) \big)=g\big( f(n) \big)\) pour tout \( n\in \eN\setminus\{ 0 \}\).
+		      \( f\big( s(n) \big)=g\big( f(n) \big)\) pour tout \( n\in \eN \).
 	\end{enumerate}
 \end{theorem}
 
@@ -2415,28 +2415,26 @@ Nous donnons deux preuves de ce lemme.
 	\begin{subproof}
 		\spitem[L'ensemble est assez grand]
 		Nous considérons l'ensemble \( \mA\) des parties \( A\subset \eN\times E\) telles que
-		\begin{enumerate}
-			\item
-			      \( (0,b)\in A\)
-			\item
-			      \( (n,x)\in A \Rightarrow \big( s(n),g(x) \big)\in A\).
-		\end{enumerate}
+		\begin{gather}
+			(0,b)\in A,	\label{SEQooRecurFctPfInit}\\
+			\text{et, si } (n,x)\in A,\text{ alors }\big( s(n),g(x) \big)\in A.\label{SEQooRecurFctPfHered}
+		\end{gather}
 		L'ensemble \( \mA\) est non vide parce que \( \eN\times E\in \mA\).
+  
 		\spitem[Le plus petit]
 		Nous posons
 		\begin{equation}
 			G=\bigcap_{A\in \mA}A,
 		\end{equation}
-		et nous prouvons que \( G\in\mA\). D'abord \( (0,b)\in G\) parce que cet élément est dans chacun des \( A\in G\). Ensuite si \( (n,x)\in G\), alors pour tout \( A\in\mA \) nous avons \( (n,x)\in A\) et donc \( \big( s(n),g(x) \big)\in A\). Par conséquent \( \big( s(n),g(x) \big)\in \bigcup_{A\in\mA}A=G\).
-
-		Pour \( n\in \eN\) nous posons
-		\begin{equation}
-			G_n=\{ x\in E\tq (n,x)\in G \}.
-		\end{equation}
-		Nous avons en particulier que \( b\in G_0\) parce que \( (0,b)\in G\).
+		et nous prouvons que \( G\in\mA\). D'abord \( (0,b)\in G\) parce que cet élément est dans chacun des \( A\in G\). Ensuite si \( (n,x)\in G\), alors pour tout \( A\in\mA \) nous avons \( (n,x)\in A\) et donc \( \big( s(n),g(x) \big)\in A\). Par conséquent \( \big( s(n),g(x) \big)\in \bigcap_{A\in\mA}A=G\).
+  
 		\spitem[\( G\) contient un \( (n,x)\) pour tout \( n\)]
-		Nous prouvons que pour tout \( n\in \eN\), il existe \( x\in E\) tel que \( (n,x)\in G\). Nous faisons ça avec la proposition \ref{PROPooXTRCooKwrWkq} en posant
-		\begin{equation}
+  		Nous prouvons que pour tout \( n\in \eN\), il existe \( x\in E\) tel que \( (n,x)\in G\). Nous faisons ça avec la proposition \ref{PROPooXTRCooKwrWkq} en posant, pour \( n\in \eN\),
+		\begin{equation}	\label{EQNooRecurFctEnsGn}
+			G_n=\{ x\in E\tq (n,x)\in G \},
+		\end{equation}
+		puis
+  	 	\begin{equation}
 			\begin{aligned}
 				P\colon \eN & \to \{ 0,1 \}                           \\
 				n           & \mapsto \begin{cases}
@@ -2445,9 +2443,12 @@ Nous donnons deux preuves de ce lemme.
 				                      \end{cases}
 			\end{aligned}
 		\end{equation}
-		Puisque \( (0,b)\in G\) nous avons \( P(0)=1\). Supposons que \( P(k)=1\) et montrons que \( P\big( s(k) \big)=1\). Comme \( P(k)=1\), il existe \( x\in E\) tel que \( (k,x)\in G\). De ce fait, \( \big( s(k),g(x) \big)\in G\), ce qui donne \( G_{s(k)}\neq \emptyset\) et \( P\big( s(k) \big)=1\).
+		Puisque \( (0,b) \in G\), nous avons \( b \in G_0\) et donc \( P(0) = 1\), et donc l'hypothèse \ref{ITEMooRecurPropInit} de la proposition \ref{PROPooXTRCooKwrWkq} est vérifié. Pour l'hypothèse \ref{ITEMooRecurPropHered}, supposons que \( P(k)=1\) et montrons que \( P\big( s(k) \big)=1\). Comme \( P(k)=1\), il existe \( x\in E\) tel que \( (k,x)\in G\). Comme \( G \in \mA \), l'implication \eqref{SEQooRecurFctPfHered} s'applique, donc \( \big( s(k),g(x) \big)\in G\), ainsi\( G_{s(k)}\neq \emptyset\) et donc \( P\big( s(k) \big)=1\).
+
+  		On conclut, par la proposition \ref{PROPooXTRCooKwrWkq}, que \( P(n) = 1 \) pour tout \( n \in \eN \), donc que tous les \( G_n \) sont non-vides, soit que \( G\) contient un \( (n,x)\) pour tout \( n\).
+	
 		\spitem[\( G_n\) est un singleton]
-		Nous avons vu que \( G_n\) n'est jamais vide. Nous allons montrer que \( G_n\) est un singleton pour tout \( n\). Pour cela nous posons
+		Montrons à présent que \( G_n\) est un singleton pour tout \( n\). Pour cela nous posons
 		\begin{equation}
 			\begin{aligned}
 				P\colon \eN & \to \{ 0,1 \}                                        \\
@@ -2457,14 +2458,19 @@ Nous donnons deux preuves de ce lemme.
 				                      \end{cases}
 			\end{aligned}
 		\end{equation}
-		Nous prouvons par récurrence que \( P(n)=1\) pour tout \( n\).
+		Nous prouvons par récurrence\footnote{Encore la proposition \ref{PROPooXTRCooKwrWkq}.} que \( P(n)=1\) pour tout \( n\).
 		\begin{subproof}
 			\spitem[\( P(0)=1\)]
-			Nous commençons par prouver que \( P(0)=1\). Nous savons que \( (0,b)\in G_0\). Supposons \( a\neq b\) tel que \( (0,a)\in G_0\). Alors en posant \( G'=G\setminus\{ (0,a) \}\) nous avons \( G'\in \mA\).
-
-			En effet \( (0,b)\in G'\) parce que \( (0,b)\in G\) et \( (0,b)\neq (0,a)\). De plus si \( (n,x)\in G'\), alors \( \big( s(n),g(x) \big)\in G\). Mais comme \( s(n)\neq 0\) nous avons \( \big( s(n),g(x) \big)\neq (0,a)\) et donc \( \big( s(n),g(x) \big)\in G'\).
-
-			L'ensemble \( G'\) serait un élément de \( \mA\) strictement inclus dans \( G\). Impossible. Donc \( G_0\) est un singleton.
+			Nous commençons par prouver que \( P(0)=1\). Nous savons que \( (0,b)\in G_0\). Supposons \( a\neq b\) tel que \( (0,a)\in G_0\). Alors, en posant \( G'=G\setminus\{ (0,a) \}\), nous avons \( G'\in \mA\); en effet:
+   			\begin{itemize}
+	  			\item
+	  				\( (0,b)\in G'\) parce que \( (0,b)\in G\) et \( (0,b)\neq (0,a)\);
+	   			\item
+	   				et, si \( (n,x) \in G' \subset G \), alors \( \big( s(n),g(x) \big)\in G\); or, comme \( s(n)\neq 0\), nous avons \( \big( s(n),g(x) \big)\neq (0,a)\) et donc \( \big( s(n),g(x) \big)\in G'\).
+			\end{itemize}
+			Ainsi, l'ensemble \( G'\) serait un élément de \( \mA\) strictement inclus dans \( G\). Mais, par la construction même de \( G \), on a \( G \subseteq G' \); d'où la suite d'inclusions \( G \subseteq G' \subsetneq G \), qui est impossible.
+   
+   			Donc \( G_0\) ne peut contenir deux éléments distincts, c'est donc un singleton.
 
 			\spitem[Récurrence]
 			Supposons que \( P(k)=1\), c'est-à-dire que \( G_k\) est un singleton. Soit \( e\) l'unique élément de \( G_k\) : \( (k,e)\in G\). Nous avons alors aussi que \( \big( s(k),g(e) \big)\in G\). Nous devons prouver que si \( y\in G_{s(k)}\), alors \( y=g(e)\).
@@ -2473,26 +2479,29 @@ Nous donnons deux preuves de ce lemme.
 			\begin{equation}
 				G'=G\setminus\{ \big( s(k),y \big) \}.
 			\end{equation}
-			Nous prouvons que \( G'\in\mA\). D'abord \( (0,b)\in G'\) parce que \( s(k)\neq 0\). Soit ensuite \( (m,z)\in G'\). Si \( m=k\), alors \( z=e\) (parce que par hypothèse \( G_k\) est un singleton) et nous savons que \( \big( s(m),g(e) \big)\in G'\). Si par contre \( m\neq k\), comme  \( s\) est injective, nous avons aussi \( s(m)\neq s(k)\). Donc \( \big( s(m),g(z) \big)\neq \big( s(k),y \big)\) et \( \big( s(m),g(z) \big)\in G'\). Donc \( G'\in \mA\) et est strictement plus petit que \( G\). Contradiction.
+			Nous prouvons que \( G'\in\mA\) en vérifiant les deux assertions \eqref{SEQooRecurFctPfInit} et \label{SEQooRecurFctPfHered}. D'abord \( (0,b)\in G'\) parce que \( s(k)\neq 0\). Soit \( (m,z)\in G'\), démontrons que \( \big( s(m),g(z) \big)\in G'\). Naturellement, on sait que \( (m,z)\in G\), donc que \( \big( s(m),g(z) \big)\in G\); il suffit donc de voir que \( \big( s(m),g(z) \big) \neq \big( s(k),y \big) \).
+   			\begin{itemize}
+	  			\item
+   					 Si \( m=k\), alors \( z=e\) (parce que par hypothèse \( G_k\) est un singleton), donc le couple \( \big( s(m),g(z) \big) \) est le couple  \( \big( s(k),g(e) \big) \): ce n'est donc pas \(\big( s(k),y \big) \).
+				\item
+					 Si par contre \( m\neq k\), comme  \( s\) est injective, nous avons aussi \( s(m)\neq s(k)\). Donc \( \big( s(m),g(z) \big) \neq \big( s(k),y \big) \).
+	  		\end{itemize}
+	 		Ainsi, \( G'\in \mA\) et \( G' \) est strictement plus petit que \( G\). Comme précédemment, par construction de \( G \), cela est une contradiction.
 
 			Nous concluons que \( G_{s(k)}\) est un singleton, c'est-à-dire que \( P\big( s(k) \big)=1\).
 			\spitem[Conclusion]
 			Nous avons prouvé que \( G_n\) est un singleton pour tout \( n\).
 		\end{subproof}
 
-		\spitem[Et enfin]
+		\spitem[Construction de la fonction \( f \)]
+		Nous définissons \( f(n)\) comme étant l'unique élément de \( G_n\)\footnote{C'est l'ensemble défini à l'équation \eqref{EQNooRecurFctEnsGn}.}. Puisque \( (0,b)\in G\) nous avons \( G_0=\{ b \}\) et donc \( f(0)=b\).
 
-		Nous définissons \( f(n)\) comme étant l'unique élément de \( G_n\). Puisque \( (0,b)\in G\) nous avons \( G_0=\{ b \}\) et donc \( g(0)=b\).
-
-		Par définition de \( f\), nous avons \( \big( n,f(n) \big)\in G\). Parce que \( G\in\mA\) nous avons alors
+		Par définition de \( f\), nous avons \( \big( n,f(n) \big)\in G\) pour tout \(n \in \eN\). Parce que \( G\in\mA\), par \eqref{SEQooRecurFctPfHered}, nous avons \( \Big( s(n),g\big( f(n) \big) \Big)\in G \).
+		Puisque \( G_{s(n)} \) est un singleton, nous avons\( G_{s(n)} = \{  g\big( f(n) \big) \}\), et donc
 		\begin{equation}
-			\big( s(n),g\big( f(n) \big) \big)\in G.
+			f\big( s(n) \big)=g\big( f(n) \big).
 		\end{equation}
-		Autrement dit, \( G_{s(n)}= \{  g\big( f(n) \big) \}\). Cela montre que
-		\begin{equation}
-			f\big( s(n) \big)=g\big( f(n) \big),
-		\end{equation}
-		et donc que \( f\) vérifie les propriétés demandées.
+		La fonction \( f\) ainsi construite vérifie ainsi les propriétés demandées.
 	\end{subproof}
 \end{proof}
 
@@ -2500,7 +2509,7 @@ Nous donnons deux preuves de ce lemme.
 	Le théorème \ref{THOooEJPYooZFVnez} nous permet de définir une suite \( (x_n)_{n\in \eN}\) par récurrence en posant par exemple
 	\begin{subequations}
 		\begin{numcases}{}
-			x_1=b\\
+			x_0=b\\
 			x_{n+1}=f(x_n).
 		\end{numcases}
 	\end{subequations}
@@ -2508,27 +2517,55 @@ Nous donnons deux preuves de ce lemme.
 	Parfois nous pouvons avoir envie de définir une suite par récurrence de telle sorte que chaque nouveau terme dépende de tous les précédents :
 	\begin{subequations}
 		\begin{numcases}{}
-			x_1=b\\
-			x_{n+1}=g(x_1,\ldots,x_{n-1}).
+			x_0=b\\
+			x_{n+1}=g(x_0,\ldots,x_{n}).
 		\end{numcases}
 	\end{subequations}
-	Pour ce faire,  il faut un peu adapter.
+	Pour ce faire, il faut un peu adapter.
 
-	Posons \( E'=E\cup (E\times E)\cup (E\times E\times E)\cup\ldots\). Nous supposons avoir une application \(g \colon E'\to E'  \) qui ne prend ses valeurs que dans \( E\) : \( g(E')\subset E\). De plus nous considérons l'application
+	Posons, pour tout \( n \in \eN \setminus \{0\} \), \( E_n = E \times E \times \cdots \times E \), où le produit cartésien contient \( n + 1 \) composantes\footnote{Le décalage d'une unité est purement technique, cela nous évite de devoir systématiquement exclure 0 des entiers.}; puis \( E'=\bigcup_{n \in \eN} E_n \). Remarquons que \( E = E_0 \subset E' \). Nous supposons avoir une application \(g \colon E'\to E'  \) qui ne prend ses valeurs que dans \( E\) : \( g(E')\subset E\), et \( b \in E \). Considérons alors, pour tout \( n \in \eN \), les applications
 	\begin{equation}
 		\begin{aligned}
-			a\colon \eN & \to E'                                \\
-			n           & \mapsto \big( f(0),\ldots,f(n) \big).
+			g_n\colon E_n & \to E_{n+1}\\
+			(x_0, x_1, \ldots, x_n)           & \mapsto \big(x_0, x_1, \ldots, x_n, g(x_0, x_1, \ldots, x_n)\big),
 		\end{aligned}
 	\end{equation}
-
-	Le théorème \ref{THOooEJPYooZFVnez} appliqué à \( g\circ a\) nous donne l'existence et l'unicité d'une application \(f \colon \eN\to E'  \) telle que
+ 	puis l'application
+ 	\begin{equation}
+		\begin{aligned}
+			g' \colon E' & \to E'\\
+			x = (x_0, x_1, \ldots, x_n)  & \mapsto g_n(x).
+		\end{aligned}
+	\end{equation}
+ 
+ 	Le théorème \ref{THOooEJPYooZFVnez} appliqué à \( g' \) nous donne l'existence et l'unicité d'une application \(f' \colon \eN\to E'  \) telle que
 	\begin{subequations}
 		\begin{numcases}{}
-			f(0)=b\\
-			f(n+1)=g\big( f(0),\ldots,f(n) \big).
+			f'(0)=b\\
+			f'(n+1)=g'\big( f'(n) \big).
 		\end{numcases}
 	\end{subequations}
+	Cette fonction \( f' \) nous permet d'obtenir la fonction \( f \colon \eN\to E  \) dont nous avons besoin, comme suit: pour tout \( n \), si \( f'(n) = (y_1, \ldots, y_p \), alors \( f(n) = y_p \). Nous ne savons pas a priori le nombre de composantes \( p \), mais nous allons démontrer:
+ 	\begin{enumerate}
+  		\item que \( p = n +1 \) (donc, que \( f'(n) \) a \( n+1 \) composantes);
+   		\item qu'en fait \( y_i = f(i-1) \) pour \( 1 \leq i \leq n \) (autrement dit: \( f'(n) = \big(f(0), \ldots, f(n-1), y_p \) );
+		\item et que \( y_p = g\big(f(0),\ldots,f(n-1)\big) \);
+  		\item ce qui implique \( f(n) = g\big(f(0),\ldots,f(n-1)\big) \).
+ 	\end{enumerate}
+   Comme presque toujours, c'est une récurrence qui fait le travail.
+   
+	D'abord, \( f'(0) \) n'a qu'une composante qui est \( b \), et on a donc bien \( y_1 = f(0) = b \). De même, \( f'(1) = g'(f'(0)) = g'(b) = g_0(b)) = (b, g(b)) \) a deux composantes, la première est \( b = f(0) \), et \( f(1) = g(b) = g(f(0))\).
+ 
+ 	Supposons que les points à démontrer sont vrais pour un entier \( k > 1 \). On suppose donc que \( f'(k) \) a \( k+1 \) composantes, et on note \( f'(k) = (y_1, \ldots, y_k, y_{k+1}) \). Comme on suppose aussi \( y_i = f(i-1) \) pour \( 1 \leq i \leq k\), et que \( y_{k+1} = f(k) \), on peut écrire \( f'(k) = \big(f(0), \ldots, f(k-1), f(k)\big) \). Alors,
+	\begin{equation}
+		\begin{aligned}
+ 			f'(k+1) &= g'(f'(k)) &&\text{(définition)}\\
+   					&= g_k\big(f(0), \ldots, f(k-1), f(k)\big)\\
+	   				&=\Big(f(0), \ldots, f(k-1), f(k), g\big(f(0), \ldots, f(k-1), f(k)\big)\Big)\\
+		   \text{donc } f(k+1) = g\big(f(0), \ldots, f(k-1), f(k)\big).
+ 		\end{aligned}
+	\end{equation}
+	On observe au passage que \(f'(k+1) \) a bien \( k+2 \) composantes, que pour \( 1 \leq i \leq k+1 \), la \( i \)-ième composante est \( f(i-1) \), et que la dernière est bien \(  g\big(f(0), \ldots, f(k-1), f(k)\big) \).
 \end{normaltext}
 
 
