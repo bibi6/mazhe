@@ -13,7 +13,7 @@
 \label{SUBooTheorieEnsembles}
 %---------------------------------------------------------------------------------------------------------------------------
 \begin{normaltext}\label{NorooFridoIntro1}
-	Le Frido n'est pas supposé être lu dans l'ordre de la première à la dernière page; les matières y sont présentées dans l'ordre logique mathématique, et non dans l'ordre logique pédagogique, et encore moins par ordre de difficulté croissante.
+	Le Frido n'est pas supposé être lu dans l'ordre de la première à la dernière page; les matières y sont présentées dans un certain ordre logique mathématique, et non dans un ordre logique pédagogique, et encore moins par ordre de difficulté croissante.
 
 	En mathématique, si on lit une démonstration et que l'on veut vraiment tout justifier, et justifier toutes les étapes de tous les résultats utilisés, on tombe forcément un jour sur les axiomes.
 
@@ -949,7 +949,7 @@
 La proposition suivante est ce qui est utilisé à chaque fois qu'on dit «telle formule définit bien une fonction» ou «cette fonction est bien définie parce que \ldots»
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooCONJooTpJwBe}
-	Soient deux ensembles \( E\) et \( A\). Nous considérons une relation d'équivalence \( \sim\) sur \( E\) et une applcication \(g \colon E\to A  \) telle que si \( a\sim b\) alors \( g(a)=g(b)\).
+	Soient deux ensembles \( E\) et \( A\). Nous considérons une relation d'équivalence \( \sim\) sur \( E\) et une application \(g \colon E\to A  \) telle que si \( a\sim b\) alors \( g(a)=g(b)\).
 
 	Alors il existe une unique application \(\tilde g  \colon E/\sim\to A  \) vérifiant
 	\begin{equation}	\label{EQooCTHKooTXPfyh}
@@ -2506,7 +2506,7 @@ Nous donnons deux preuves de ce lemme.
 \end{proof}
 
 \begin{normaltext}[\cite{MonCerveau}]      \label{NORMooLNXMooWIblPf}
-	Le théorème \ref{THOooEJPYooZFVnez} nous permet de définir une suite \( (x_n)_{n\in \eN}\) par récurrence en posant par exemple
+	Le théorème \ref{THOooEJPYooZFVnez} nous permet de définir une suite \( (x_n)_{n\in \eN}\) par récurrence en posant par exemple\footnote{Les spépieu\randomGender{x}{ses} diront que \( + \) n'est pas encore défini, et ils auront raison. Qu'ils remplacent les \( +1 \) par des applications de \( s \) et les \( +2 \) par des double-applications de \( s \): tout fonctionne très bien.}
 	\begin{subequations}
 		\begin{numcases}{}
 			x_0=b\\
@@ -2523,7 +2523,7 @@ Nous donnons deux preuves de ce lemme.
 	\end{subequations}
 	Pour ce faire, il faut un peu adapter.
 
-	Posons, pour tout \( n \in \eN \setminus \{0\} \), \( E_n = E \times E \times \cdots \times E \), où le produit cartésien contient \( n + 1 \) composantes\footnote{Le décalage d'une unité est purement technique, cela nous évite de devoir systématiquement exclure 0 des entiers.}; puis \( E'=\bigcup_{n \in \eN} E_n \). Remarquons que \( E = E_0 \subset E' \). Nous supposons avoir une application \(g \colon E'\to E'  \) qui ne prend ses valeurs que dans \( E\) : \( g(E')\subset E\), et \( b \in E \). Considérons alors, pour tout \( n \in \eN \), les applications
+	Posons, pour tout \( n \in \eN \setminus \{0\} \), \( E_n = E \times E \times \cdots \times E \), où le produit cartésien contient \( n + 1 \) composantes\footnote{Le décalage d'une unité est purement technique, cela nous évite de devoir systématiquement exclure 0 des entiers.}; puis \( E'=\bigcup_{n \in \eN} E_n \). Remarquons que \( E = E_0 \subset E' \). Nous supposons avoir \( b \in E \), et une application \(g \colon E'\to E'  \) qui ne prend ses valeurs que dans \( E\) : \( g(E')\subset E\). Considérons alors, pour tout \( n \in \eN \), les applications
 	\begin{equation}
 		\begin{aligned}
 			g_n\colon E_n & \to E_{n+1}\\
@@ -2560,9 +2560,10 @@ Nous donnons deux preuves de ce lemme.
 	\begin{equation}
 		\begin{aligned}
  			f'(k+1) &= g'(f'(k)) &&\text{(définition)}\\
-   					&= g_k\big(f(0), \ldots, f(k-1), f(k)\big)\\
+   					&= g'\big(f(0), \ldots, f(k-1), f(k)\big)&&\text{(hyp. réc.)}\\
+   					&= g_k\big(f(0), \ldots, f(k-1), f(k)\big)&&\text{(déf. \( g'\))}\\
 	   				&=\Big(f(0), \ldots, f(k-1), f(k), g\big(f(0), \ldots, f(k-1), f(k)\big)\Big)\\
-		   \text{donc } f(k+1) = g\big(f(0), \ldots, f(k-1), f(k)\big).
+		   \text{donc } f(k+1) &= g\big(f(0), \ldots, f(k-1), f(k)\big).
  		\end{aligned}
 	\end{equation}
 	On observe au passage que \(f'(k+1) \) a bien \( k+2 \) composantes, que pour \( 1 \leq i \leq k+1 \), la \( i \)-ième composante est \( f(i-1) \), et que la dernière est bien \(  g\big(f(0), \ldots, f(k-1), f(k)\big) \).
@@ -2584,7 +2585,7 @@ Nous donnons deux preuves de ce lemme.
 	\begin{equation}
 		\begin{aligned}
 			g\colon E & \to E                 \\
-			s         & \mapsto \beta\circ s.
+			u         & \mapsto \beta\circ u.
 		\end{aligned}
 	\end{equation}
 	Le théorème \ref{THOooEJPYooZFVnez} donne alors l'existence d'une application \( f\colon \eN\to E\) telle que
@@ -2598,7 +2599,7 @@ Nous donnons deux preuves de ce lemme.
 	\begin{equation}
 		\begin{aligned}
 			H\colon X\times \eN & \to Y          \\
-			(x,n)               & \mapsto f(n)x,
+			(x,n)               & \mapsto f(n) (x),
 		\end{aligned}
 	\end{equation}
 	et nous vérifions qu'elle satisfait aux exigences.
@@ -2607,23 +2608,26 @@ Nous donnons deux preuves de ce lemme.
 		\item
 		      D'abord nous avons
 		      \begin{equation}
-			      H(x,0)=f(0)x=b(x)=\alpha(x).
+			      H(x,0)=f(0) (x) =b(x)=\alpha(x).
 		      \end{equation}
 		\item
 		      Ensuite, pour \( x\in X\) et \( n\in \eN\) nous avons :
 		      \begin{subequations}
 			      \begin{align}
-				      H(x,n+1) & =f(x+1)x                      \\
-				               & =g\big( f(n) \big)x           \\
-				               & =g\big( f(n) \big)x           \\
-				               & =\big( \beta\circ f(n) \big)x \\
-				               & =\beta\big( f(n)x \big)       \\
+				      H(x,n+1) & =f(n+1) (x)                      \\
+				               & =g\big( f(n) \big) (x)           \\
+				               & =\big( \beta\circ f(n) \big) (x) \\
+				               & =\beta\big( f(n) (x) \big)       \\
 				               & =\beta\big( H(x,n) \big).
 			      \end{align}
 		      \end{subequations}
 	\end{enumerate}
 	Et voilà.
 \end{proof}
+
+\begin{normaltext}	\label{NORMooPuissanceFonction}
+	Avec la notation habituelle de puissance (que nous n'avons pas encore défini), on observe que \( H \) est telle que \( H(x,n) = \beta^n\big(\alpha(x)\big) = (\beta^n \circ \alpha) (x)\).
+\end{normaltext}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Addition sur les naturels}
@@ -2855,7 +2859,7 @@ Nous donnons deux preuves de ce lemme.
 \end{definition}
 
 \begin{propositionDef}	\label{PROPooDEFSoustractionN}
-	Soit \( a,b\in \eN\), tels que \( a\leq b\). L'élément  \( x\in \eN\) tel que \( a+x=b\) est unique, et on note \( x = b - a \).
+	Soit \( a,b\in \eN\), tels que \( a\leq b\). L'élément  \( x\in \eN\) tel que \( a+x=b\) est unique, on note \( x = b - a \), et on dit que \( x \) est la \defe{différence}{différence!entiers naturels} entre \( b \) et \( a \)  (ou la \defe{soustraction}{soustraction!dans \( \eN \)} de \( a \) à \( b \)).
 \end{propositionDef}
 
 \begin{proof}
@@ -2901,7 +2905,7 @@ Nous donnons deux preuves de ce lemme.
 		\end{subequations}
 		En substituant la seconde équation dans la première, \( b=(b+y)+x\) que nous récrivons, en utilisant l'associativité\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}.},
 		\begin{equation}
-			0+b=b+(x+y).
+			b+0=b+(x+y).
 		\end{equation}
 		En utilisant la régularité, \( 0=x+y\) et donc \( x=y=0\) par le lemme \ref{LEMooQBHFooCuCusQ}. Cela donne alors \( a=b\).
 		\spitem[Point \ref{ITEMooSoustractionNii} : transitivité]
@@ -3041,14 +3045,6 @@ Nous donnons deux preuves de ce lemme.
 	Nous avons ainsi prouvé que \( s(x) \in A \cup B \) quel que soit le cas de figure. Nous en déduisons que \( s(A\cup B)\subset A\cup B\), et en concluons que \( A\cup B=\eN\).
 \end{proof}
 
-\begin{corollary}	\label{CORooSoustractionDefinie}
-	Soit \( a, b \in \eN \). On peut toujours faire la soustraction de l'un à l'autre dans \( \eN \) (selon l'ordre). Si les deux soustractions sont possibles, alors \( a = b \).
-\end{corollary}
-
-\begin{proof}
-	La proposition suivante dit explicitement que soit \( a \leq b \) (auquel cas, \( b - a \) est défini), soit \( b \leq a \) (auquel cas \( a - b \) est défini), soit les deux (auqual cas \( b = a \) et les différences sont nulles).
-\end{proof}
-
 \begin{proposition}[\cite{RWWJooJdjxEK,MonCerveau}]     \label{PROPooMZOWooHmsXzI}
 	L'ensemble ordonné \( (\eN,\leq)\) vérifie les propriétés suivantes.
 	\begin{enumerate}
@@ -3179,45 +3175,45 @@ Nous donnons deux preuves de ce lemme.
 \end{lemma}
 
 \begin{proof}
-	Nous considérons l'application suivante :
+	Nous considérons, pour tout \( n \), l'ensemble \( S_n = \{ x\in S\tq x>n \} \). Comme \( S \) n'est pas majoré, tous les \( S_n \) sont non-vides, et ils admettent tous un minimum par la proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooYAJIooEFmOpB}; ce qui permet de définir l'application :
 	\begin{equation}
 		\begin{aligned}
 			g\colon S & \to S                            \\
-			n         & \mapsto \min\{ x\in S\tq x>n \}.
+			n         & \mapsto \min(S_n).
 		\end{aligned}
 	\end{equation}
-	Cette application est bien définie parce que tout partie non vide de \( \eN\) a un plus petit élément\footnote{Proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooYAJIooEFmOpB}.}. Maintenant nous définissons \( f\colon \eN\to S\) par
+ 	Remarquons que
+  	\begin{equation}	\label{EQNooBijNonMajoreRemarque}
+   		n < g(n)
+	\end{equation}
+ 	par définition des ensembles \( S_n \).
+	Maintenant nous appliquons le théorème \ref{THOooEJPYooZFVnez} avec \( b = \min(S) \) (qui est bien défini aussi) et cette fonction \( g \) : nous obtenons une fonction \( f\colon \eN\to S\) telle que
 	\begin{subequations}
 		\begin{numcases}{}
 			f(0)=\min(S)\\
 			f(n+1)=g\big( f(n) \big).
 		\end{numcases}
 	\end{subequations}
-	C'est le théorème \ref{THOooEJPYooZFVnez} qui nous permet de le faire. Nous montrons que \( f\) est bijective.
+	Nous montrons que \( f\) est bijective, en démontrant l'injection puis la surjection.
 	\begin{subproof}
 		\spitem[Injective]
-		Nous avons
-		\begin{equation}
-			f(n+1)\in\{ x\in S\tq x>f(n) \}.
-		\end{equation}
-		Donc \( f\) est strictement croissante. Elle est donc injective.
+		Nous avons \( f(n+1)\in S_{f(n)} \), donc \( f(n+1) > f(n) \). Ainsi, \( f\) est strictement croissante, et donc injective par la proposition \ref{PROPooFYMJooWihvhk}.
+  
 		\spitem[Surjective]
-		Soit \( a\in S\). Nous allons voir que \( a\) est dans l'image de \( f\). Pour cela nous posons
+		Soit \( a\in S\). Nous allons voir que \( a\) est dans l'image de \( f\). Remarquons d'abord que, pour tout \( x \in \eN \), on a \( x \leq f(x) \). Par récurrence sur \( x \), l'initialisation est assurée par le lemme \ref{LEMooCSIXooHeuWEd}, et si \( x \leq f(x) \), puisque  \( f(x+1) > f(x) \), on a par transitivité\footnote{Relation d'ordre sur \( \eN \), proposition \ref{PROPooVXBBooZcghrA}.} \( x < f(x+1) \), puis \( x+1 \leq f(x+1) \) par le lemme \ref{LEMooPVRQooXPMKTt}\ref{ITEMooWCOIooMWrCag}.
+  
+  		Ensuite, nous posons
 		\begin{equation}
 			A=\{ x\in \eN\tq f(x)<a \}.
 		\end{equation}
-		Cet ensemble est majoré par \( a\). En effet si \( x\in A\) nous avons \( x\leq f(x)<a\). La partie \( A\) de \( \eN\) possède un maximum. Nous notons \( M=\max(A)\). Ce \( M\) a deux propriétés intéressantes.
+  		Si \( x\in A\) nous avons \( x\leq f(x) \) par notre remarque, et par définition, \( f(x) <a\). Par transitivité, nous avons \( x < a \), et donc \( A \) est majoré par \( a \). La partie \( A\) de \( \eN\) possède alors un maximum à cause de la proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooKIHZooDRTCdx}: nous notons \( M=\max(A)\). Ce \( M\) a deux propriétés intéressantes.
 		\begin{subproof}
 			\spitem[D'abord]
-			Puisque \( M\in A\), nous avons \( f(M)<a\). Une autre façon de dire cela est de dire que
-			\begin{equation}
-				a\in \{ x\in S\tq x>f(M) \}.
-			\end{equation}
-			Or \( f(M+1)=\min\{ x\in S\tq x>f(M) \}\). Donc \( f(M+1)\leq a\).
+			Puisque \( M\in A\), nous avons \( f(M)<a\); autrement dit \( a \in S_M \). Mais, par définition, \( f(M+1)=\min S_M\). Dès lors, \( f(M+1)\leq a\).
 			\spitem[Ensuite]
-			Puisque \( M\) est le maximum de \( A\), \( M+1\) majore \( A\), c'est-à-dire que \( f(M+1)\geq a\).
+			Puisque \( M\) est le maximum de \( A\), \( M+1\) n'est pas dans \( A\), c'est-à-dire que \( f(M+1)\geq a\).
 			\spitem[Les deux ensemble]
-			Nous avons prouvé que \( f(M+1)\leq a\) et \( f(M+1)\geq a\). Nous en déduisons, par antisymétrie de l'ordre (proposition \ref{PROPooVXBBooZcghrA}\ref{ITEMooSoustractionAntisym}), que \( f(M+1)=a\).
+			Nous avons prouvé que \( f(M+1)\leq a\) et \( f(M+1)\geq a\). Nous en déduisons, par antisymétrie de l'ordre (proposition \ref{PROPooVXBBooZcghrA}\ref{ITEMooSoustractionAntisym}), que \( f(M+1)=a\), donc que \( a \) est dans l'image de \( f \).
 		\end{subproof}
 	\end{subproof}
 \end{proof}
@@ -4015,11 +4011,34 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \label{SECooNombresEntiers}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+%---------------------------------------------------------------------------------------
+\subsection{Construction de l'ensemble}
+\label{SUBooEntiersConstruction}
+%---------------------------------------------------------------------------------------
+\begin{propositionDef}	\label{PROPooDEFEntiersRelatifsSoustraction}
+	On note \( Z = \{ +; - \} \times \eN \). L'application
+ 	\begin{equation}
+  		\begin{aligned}
+			r \colon \eN \times \eN &\to Z
+   				(a,b) &= \mapsto   \begin{cases}
+						            (+, b-a) & \text{si }  a\leq b,\\
+						            (-, a-b) & \text{sinon,}
+					               \end{cases}
+		\end{aligned}
+  	\end{equation}
+    est bien définie, et son image est \( Z \setminus\{(-,0)\} \).
+\end{propositionDef}
+
+\begin{proof}
+	Soit \( a, b \in \eN \). La proposition \ref{PROPooGCCRooFBYrlo} dit explicitement que soit \( a \leq b \) (auquel cas, \( b - a \) est bien défini, et on a \( r(a,b) = (+, b-a) \) ) , soit \( b \leq a \) (auquel cas, \( a - b \) est bien défini). Si \( b < a \), alors \( r(a,b) = (-, a-b) \), et \( a - b \neq 0 \). Si \( a = b \), on tire \( r(a,b) = (+, 0) \). L'élément \( (-,0) \) n'est ainsi jamais atteint.
+\end{proof}
+
 \begin{propositionDef}[\cite{RWWJooJdjxEK}]     \label{PROPooFIKUooVHlvTt}
 	Soient \( a,b,a',b'\in \eN\). Nous disons que \( (a,b)\sim(a',b')\) si et seulement si
 	\begin{equation}
 		a+b'=b+a'
 	\end{equation}
+ 	Alors:
 	\begin{enumerate}
 		\item
 		      \( \sim\) est une relation d'équivalence sur \( \eN^2\).
@@ -4039,12 +4058,8 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \begin{proof}
 	En plusieurs points.
 	\begin{subproof}
-		\spitem[Symétrie]
-		C'est la commutativité de la somme dans \( \eN\), proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}.
-		\spitem[Réflexive]
-		Immédiat.
-		\spitem[Transitive]
-		Nous supposons que \( (a,b)\sim(u,v)\) et que \( (u,v)\sim(x,y)\). Alors nous avons
+		\spitem[Relation d'équivalence]
+  		La fait que \( \sim \) soit réflexive est immédiat. Le fait qu'elle soit symétrique est exactement la commutativité de la somme dans \( \eN\), proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}. Pour la transitivité, nous supposons que \( (a,b)\sim(u,v)\) et que \( (u,v)\sim(x,y)\). Alors nous avons
 		\begin{subequations}
 			\begin{align}
 				a+v & =u+b  \\
@@ -4072,13 +4087,37 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	\end{subproof}
 \end{proof}
 
-\begin{lemma}	\label{LEMooEntiersEquivalentsZero}
+\begin{lemma}	\label{LEMooEntiersEquivalents}
 	Soient \( a,b\in \eN\). Nous avons \( (a,b)\sim (0,0)\) si et seulement si \( a=b\).
 \end{lemma}
 
 \begin{proof}
 	Dire que \( (a,b)\sim (0,0)\) est équivalent à dire que \( a+0=b+0\), ou encore que \( a=b\).
 \end{proof}
+
+\begin{proposition}	\label{PROPooEquivalenceSoustraction}
+  	Soient \( a, b, a', b' \in \eN\). On a \( (a,b)\sim(a',b')\) si et seulement si \( r(a,b) = r(a',b') \), où la fonction \( r \) est définie en \ref{PROPooDEFEntiersRelatifsSoustraction}.
+\end{proposition}
+
+\begin{proof}
+	Dire que \( (a,b)\sim (a',b')\) est équivalent à dire que \( a+b'=b+a'\). Pour le sens direct, on étudie selon que  \( a \leq b \) ou non.
+ 	\begin{subproof}
+  		\spitem[Si \( a \leq b \):]
+		alors \( r(a,b) = (+, b-a) \); on note \( c = b - a \). Il vient \( a + b' = b + a' = c + a + a' \); par commutativité et associativité de l'addition, on en déduit \( a + b' = a + a' + c \), soit par régularité de l'addition, \( b' =  a' + c \).  Ainsi, \( a' \leq b' \), on a \( c = b' - a' \), et \( r(a', b') = (+, c) = r(a,b) \).
+
+  		\spitem[Sinon:]
+		\( r(a,b) = (-, a-b) \); on note \( c = a - b \). Il vient \( a + b' =  c + b + b' = b + a'\); par commutativité et associativité de l'addition, on en déduit \( b + c + b' = b + a' \), soit par régularité de l'addition, \( c + b' =  a' \).  Ainsi, \( a' \geq b' \), et on a \( c = a' - b' \neq 0 \), donc \( a' > b' \); et \( r(a', b') = (-, c) = r(a,b) \).
+  	\end{subproof}
+
+  	Voyons maintenant la réciproque: supposons que \( r(a,b) = r(a',b') \), et étudions de nouveau selon que \( a \leq b \) ou non.
+    \begin{subproof}
+  		\spitem[Si \( a \leq b \):]
+		par définition,  \( r(a,b) = (+, b-a) = r(a', b')  \); puisque la première composante est \( + \), on déduit que \( a' \leq b' \), et donc \( b-a = b' - a' \). Alors \( a + (b' - a') = b \); puis en ajoutant \( a' \) aux deux membres, \( a + (b' - a') + a' = a+b' = b + a' \).
+  		\spitem[Sinon:]
+		\( r(a,b) = (-, a-b)= r(a', b') \); puisque la première composante est \( - \), on déduit que \( a' > b' \), et donc \( a - b = a' - b' \). Alors \( b + (a' - b') = a \); puis en ajoutant \( b' \) aux deux membres, \( b + (a' - b') + b' = b + a' = a+b' \).
+  	\end{subproof}
+\end{proof}
+
 
 \begin{propositionDef}[\cite{RWWJooJdjxEK}]	\label{PROPooDEFAdditionEntiersRelatifs}
 	Soient \( a,b,x,y\in \eN\). L'application
