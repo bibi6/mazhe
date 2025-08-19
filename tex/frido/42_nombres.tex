@@ -4026,40 +4026,59 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 					               \end{cases}
 		\end{aligned}
   	\end{equation}
-    est bien définie, et son image est \( Z \setminus\{(-,0)\} \).
+    est bien définie, et son image est \( \eZ = Z \setminus\{(-,0)\} \).
+	
+ 	Les nombres \defe{entiers}{entier}, appelés aussi \defe{entiers relatifs}{entier!entier relatif}, sont les éléments de \( \eZ \).
 \end{propositionDef}
 
 \begin{proof}
 	Soit \( a, b \in \eN \). La proposition \ref{PROPooGCCRooFBYrlo} dit explicitement que soit \( a \leq b \) (auquel cas, \( b - a \) est bien défini, et on a \( r(a,b) = (+, b-a) \) ) , soit \( b \leq a \) (auquel cas, \( a - b \) est bien défini). Si \( b < a \), alors \( r(a,b) = (-, a-b) \), et \( a - b \neq 0 \). Si \( a = b \), on tire \( r(a,b) = (+, 0) \). L'élément \( (-,0) \) n'est ainsi jamais atteint.
 \end{proof}
 
-\begin{propositionDef}[\cite{RWWJooJdjxEK}]     \label{PROPooFIKUooVHlvTt}
-	Soient \( a,b,a',b'\in \eN\). Nous disons que \( (a,b)\sim(a',b')\) si et seulement si
-	\begin{equation}
-		a+b'=b+a'
-	\end{equation}
- 	Alors:
-	\begin{enumerate}
-		\item
-		      \( \sim\) est une relation d'équivalence sur \( \eN^2\).
-		\item       \label{ITEMooZQSHooSDfdvK}
-		      Si \( (a,b)\sim (a',b')\) et \( (x,y)\sim (x',y')\) alors
-		      \begin{equation}
-			      (a+x,b+y)\sim(a'+x',b'+y').
-		      \end{equation}
-	\end{enumerate}
-	L'ensemble des \defe{entiers}{entier} est
-	\begin{equation}
-		\eZ=(\eN\times \eN)/\sim,
-	\end{equation}
-	et nous notons \( \overline{ a,b }\in \eZ\) la classe de \( (a,b)\in \eN\times \eN\).
-\end{propositionDef}
+\begin{normaltext}	\label{NORMooEntiersRelatifsEquivalence}
+	La fonction \( r \) nous permet d'obtenir une relation d'équivalence sur \( \eN \times \eN \) (qu'on notera dès à présent \( \eN^2 \) ). On \og copie \fg\ l'exemple \ref{EXooProjCanoniqueEquivAppl} %besoin de PROPooCONJooTpJwBe ?
+ 	qui crée la relation d'équivalence sur \( \eN^2 \) :
+  	\begin{equation}
+   		(a,b)\sim(a',b') \text{ si et seulement si } r(a,b) = r(a',b').
+   	\end{equation}
+	Il y a un autre moyen de l'obtenir, sans parler de la fonction \( r \).
+\end{normaltext}
+
+\begin{proposition}	\label{PROPooEquivalenceSoustraction}
+  	Soient \( a, b, a', b' \in \eN\). On a \( (a,b)\sim(a',b')\) si et seulement si \( a+b' = a'+b \).
+\end{proposition}
+
+\begin{proof}
+	Supposons que \( r(a,b) = r(a',b') \), et étudions ce qu'il se passe selon que \( a \leq b \) ou non.
+    \begin{subproof}
+  		\spitem[Si \( a \leq b \):]
+		par définition,  \( (+, b-a) = r(a', b')  \); puisque la première composante est \( + \), on déduit que \( a' \leq b' \), et donc \( b-a = b' - a' \). Alors \( a + (b' - a') = b \); puis en ajoutant \( a' \) aux deux membres, \( a + (b' - a') + a' = a+b' = b + a' \).
+  		\spitem[Sinon:]
+		\( r(a,b) = (-, a-b)= r(a', b') \); puisque la première composante est \( - \), on déduit que \( a' > b' \), et donc \( a - b = a' - b' \). Alors \( b + (a' - b') = a \); puis en ajoutant \( b' \) aux deux membres, \( b + (a' - b') + b' = b + a' = a+b' \).
+  	\end{subproof}
+
+    Voyons maintenant la réciproque:
+	\begin{subproof}
+  		\spitem[Si \( a \leq b \):]
+		alors \( r(a,b) = (+, b-a) \); on note \( c = b - a \). Il vient \( a + b' = b + a' = c + a + a' \); par commutativité et associativité de l'addition, on en déduit \( a + b' = a + a' + c \), soit par régularité de l'addition, \( b' =  a' + c \).  Ainsi, \( a' \leq b' \), on a \( c = b' - a' \), et \( r(a', b') = (+, c) = r(a,b) \).
+
+  		\spitem[Sinon:]
+		\( r(a,b) = (-, a-b) \); on note \( c = a - b \). Il vient \( a + b' =  c + b + b' = b + a'\); par commutativité et associativité de l'addition, on en déduit \( b + c + b' = b + a' \), soit par régularité de l'addition, \( c + b' =  a' \).  Ainsi, \( a' \geq b' \), et on a \( c = a' - b' \neq 0 \), donc \( a' > b' \); et \( r(a', b') = (-, c) = r(a,b) \).
+  	\end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{RWWJooJdjxEK}]     \label{PROPooFIKUooVHlvTt}
+	La relation \( \sim\) est une relation d'équivalence sur \( \eN^2\) compatible avec l'addition au sens suivant: si \( (a,b)\sim (a',b')\) et \( (x,y)\sim (x',y')\) alors
+    \begin{equation}
+	      (a+x,b+y)\sim(a'+x',b'+y').
+    \end{equation}
+\end{proposition}
 
 \begin{proof}
 	En plusieurs points.
 	\begin{subproof}
 		\spitem[Relation d'équivalence]
-  		La fait que \( \sim \) soit réflexive est immédiat. Le fait qu'elle soit symétrique est exactement la commutativité de la somme dans \( \eN\), proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}. Pour la transitivité, nous supposons que \( (a,b)\sim(u,v)\) et que \( (u,v)\sim(x,y)\). Alors nous avons
+  		En utilisant la fonction \( r \), c'est évident. Si on le fait sous forme de somme, le fait que \( \sim \) soit réflexive est immédiat. Le fait qu'elle soit symétrique est exactement la commutativité de la somme dans \( \eN\), proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooIFFPooXfftfG}. Pour la transitivité, nous supposons que \( (a,b)\sim(u,v)\) et que \( (u,v)\sim(x,y)\). Alors nous avons
 		\begin{subequations}
 			\begin{align}
 				a+v & =u+b  \\
@@ -4071,7 +4090,8 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 			a+v+u+y=u+b+v+x.
 		\end{equation}
 		La commutativité nous permet de mettre \( u\) et \( v\) à droite dans chacun des deux membres. Ensuite la proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv} nous permet de simplifier par \( u+v\). Il reste \( a+y=b+x\), qui signifie \( (a,b)\sim(x,y)\).
-		\spitem[Pour \ref{ITEMooZQSHooSDfdvK}]
+  
+		\spitem[Compatibilité additive]
 		L'hypothèse donne les égalités
 		\begin{subequations}
 			\begin{align}
@@ -4087,95 +4107,135 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	\end{subproof}
 \end{proof}
 
-\begin{lemma}	\label{LEMooEntiersEquivalents}
-	Soient \( a,b\in \eN\). Nous avons \( (a,b)\sim (0,0)\) si et seulement si \( a=b\).
+\begin{proposition}	\label{PROPooClassesEquivalenceRelatifs}
+	Les classes d'équivalence de la relation \( \sim \) sont les ensembles de la forme \( E_{(+,k)} = \{ (n, k+n) \tq n \in \eN \} \) ou de la forme \(E_{(-,k)} = \{ (k+n, n) \tq n \in \eN \} \), avec \( k \in \eN \).
+\end{proposition}
+
+\begin{proof}
+	Il y a deux choses à prouver. Montrons d'abord que les ensembles donnés sont bien des classes d'équivalence pour \( \sim \). Fixons \( k \in \eN \). Pour tout \( n \in \eN \), on a \( r(n, k+n) = (+,k) \), et pour \( k \neq 0 \), \( r(k+n, n) = (-, k) \); en effet, le seul entier naturel \( x \) tel que \( n + x = n+k \) est \( x = k = (n+k) - n\). Par suite, en rappelant l'ensemble \( Z = \{ +; - \} \times \eN \), on a pour tout \( z \in  Z \), tous les éléments de l'ensemble \( E_z \) ont la même image par \( r \); à l'exception de \( z = (-, 0) \), cette image est \(z \); et comme \( E_{(-,0)} = E_{(+,0)} \), on a \( r(E_{(-,0)}) = \{(+,0)\} \).
+
+  	Soit \( a, b \in \eN \); montrons que la classe d'équivalence dans laquelle est \( (a,b) \) est \( E_{r(a,b)} \). Quand \( a \leq b \), on a \( r(a,b) = (+,b-a) = r(0, b-a) \); en posant \( k = b - a \), et en se rappelant que, pour tout \( n \), on a \( (n + k) - n = k = b - a \) grâce à la proposition \ref{PROPooVXBBooZcghrA}\ref{ITEMooSoustractionNiii}, il s'ensuit que \( r(n, n+k) = r(a,b) \): ainsi, la classe d'équivalence de \( (a,b) \) est formée de tous les couples de la forme \( (n, n+(b-a) \) avec \( n \in \eN\), c'est bien \( E_{r(a,b)} \). Si \( a > b \), on a  \( r(a,b) = (-,a-b) = r(a-b, 0) = r(n+(a-b), n) \) pour tout \( n \), et donc la classe d'équivalence de \( (a,b) \) est aussi \( E_{r(a,b)} \).
+\end{proof}
+
+\begin{normaltext}	\label{CORooIntroSommeRelatifs}
+	Le fait que \( \sim \) soit une relation d'équivalence compatible avec l'addition dans \( \eN \) permet de créer une opération sur \( \eZ \), que l'on verra être une extension de l'addition sur \( \eN \).
+
+ 	À partir de maintenant, nous ne noterons plus les éléments de \( \eZ \) sous la forme habituelle de couple, et omettrons la virgule séparatrice, voire les parenthèses si elles ne sont pas nécessaires.
+\end{normaltext}
+
+\begin{lemma}	\label{LEMooResolutionEquationDifference}
+	Soit \( k \in \eN \). Pour tout \( n \in \eN \), il existe un unique \( x \in \eN \) tel que \( r(n,x) = (+k) \). De même, si \( k \neq 0 \), pour tout \( n \in \eN \), il existe un unique \( x \in \eN \) tel que \( r(x,n) = (-k) \). 
 \end{lemma}
 
 \begin{proof}
-	Dire que \( (a,b)\sim (0,0)\) est équivalent à dire que \( a+0=b+0\), ou encore que \( a=b\).
+	Un \( x \) convenable, dans les deux cas, est \( x = n+k \). L'unicité vient du fait que si \( r(a,b) = r(c,d) \), alors \( a+d = b+c \), et donc on a \( a = c \) si et seulement si \( b = d \) par régularité de l'addition dans \( \eN \).
 \end{proof}
-
-\begin{proposition}	\label{PROPooEquivalenceSoustraction}
-  	Soient \( a, b, a', b' \in \eN\). On a \( (a,b)\sim(a',b')\) si et seulement si \( r(a,b) = r(a',b') \), où la fonction \( r \) est définie en \ref{PROPooDEFEntiersRelatifsSoustraction}.
-\end{proposition}
-
-\begin{proof}
-	Dire que \( (a,b)\sim (a',b')\) est équivalent à dire que \( a+b'=b+a'\). Pour le sens direct, on étudie selon que  \( a \leq b \) ou non.
- 	\begin{subproof}
-  		\spitem[Si \( a \leq b \):]
-		alors \( r(a,b) = (+, b-a) \); on note \( c = b - a \). Il vient \( a + b' = b + a' = c + a + a' \); par commutativité et associativité de l'addition, on en déduit \( a + b' = a + a' + c \), soit par régularité de l'addition, \( b' =  a' + c \).  Ainsi, \( a' \leq b' \), on a \( c = b' - a' \), et \( r(a', b') = (+, c) = r(a,b) \).
-
-  		\spitem[Sinon:]
-		\( r(a,b) = (-, a-b) \); on note \( c = a - b \). Il vient \( a + b' =  c + b + b' = b + a'\); par commutativité et associativité de l'addition, on en déduit \( b + c + b' = b + a' \), soit par régularité de l'addition, \( c + b' =  a' \).  Ainsi, \( a' \geq b' \), et on a \( c = a' - b' \neq 0 \), donc \( a' > b' \); et \( r(a', b') = (-, c) = r(a,b) \).
-  	\end{subproof}
-
-  	Voyons maintenant la réciproque: supposons que \( r(a,b) = r(a',b') \), et étudions de nouveau selon que \( a \leq b \) ou non.
-    \begin{subproof}
-  		\spitem[Si \( a \leq b \):]
-		par définition,  \( r(a,b) = (+, b-a) = r(a', b')  \); puisque la première composante est \( + \), on déduit que \( a' \leq b' \), et donc \( b-a = b' - a' \). Alors \( a + (b' - a') = b \); puis en ajoutant \( a' \) aux deux membres, \( a + (b' - a') + a' = a+b' = b + a' \).
-  		\spitem[Sinon:]
-		\( r(a,b) = (-, a-b)= r(a', b') \); puisque la première composante est \( - \), on déduit que \( a' > b' \), et donc \( a - b = a' - b' \). Alors \( b + (a' - b') = a \); puis en ajoutant \( b' \) aux deux membres, \( b + (a' - b') + b' = b + a' = a+b' \).
-  	\end{subproof}
-\end{proof}
-
 
 \begin{propositionDef}[\cite{RWWJooJdjxEK}]	\label{PROPooDEFAdditionEntiersRelatifs}
-	Soient \( a,b,x,y\in \eN\). L'application
+	Soient \( a, b \in \eZ\). L'application
 	\begin{equation}
 		\begin{aligned}
-			f\colon \overline{ (a,b)\times \overline{ (x,y) } } & \to \eZ               \\
-			\big( (a',b'),(x',y') \big)                         & \mapsto (a'+x',b'+y')
+			f\colon E_a \times E_b & \to \eN \times \eN              \\
+			\big( (x,y),(m,p) \big)                         & \mapsto (x+m,y+p)
 		\end{aligned}
 	\end{equation}
-	est constante.
+	a pour image un ensemble inclus à l'un des \( E_z \), avec \( z \in \eZ \)
 
-	Nous nommons sa valeur \( \overline{ (a,b) }+\overline{ (x,y) }\).
+	Nous définissons alors l'opération \( + \) sur \( \eZ \) en disant que\( a + b = z \).
+
+ 	Il vient alors que si \( x, y, m, p \) sont dans \( \eN \), et sont tels que \( r(x,y) = a \) et \( r(m,p) = b \), alors \( a+b = r(x+m, y+p) \).
 \end{propositionDef}
 
 \begin{proof}
-	Cela est une conséquence de la proposition \ref{PROPooFIKUooVHlvTt}\ref{ITEMooZQSHooSDfdvK}.
+	Réécrite autrement, la proposition \ref{PROPooFIKUooVHlvTt} dit ceci: si \( (x,y) \) et \( (x', y') \) sont dans \( E_a \), si \( (m,p) \) et \( (m',p')\) sont dans \( E_b \), alors \( (x+m,y+p) \sim (x'+p',y'+m') \), c'est-à-dire que les couples \( (x+m,y+p) \) et \( (x'+p',y'+m') \) appartiennent à la même classe d'équivalence que l'on note \( E_z \). Ainsi, l'ensemble image de \( f \) est incluse dans \( E_z \), et par ailleurs \( z = r(x+m,y+p) \).
 \end{proof}
 
-\begin{proposition}	\label{PROPooGroupeEntiersRelatifs}
-	L'ensemble \( \eZ \), muni de l'addition telle que définie par la proposition \ref{PROPooDEFAdditionEntiersRelatifs}, est un groupe commutatif admettant pour neutre l'élément \( e = \overline{(0,0)} \).
-\end{proposition}
+\begin{propositionDef}	\label{PROPooGroupeEntiersRelatifs}
+	L'ensemble \( \eZ \), muni de l'addition telle que définie par la proposition \ref{PROPooDEFAdditionEntiersRelatifs}, est un groupe commutatif:
+ 	\begin{itemize}
+  		\item dont le neutre est l'élément \( e = +0 \);
+		\item et tel que, pour tout \( k \in \eN \setminus \{ 0 \} \), les éléments \( (+k) \) et \( (-k) \) sont inverses l'un de l'autre.
+  	\end{itemize}
+    Pour tout \( z \in \eZ \), on notera \( -z \) l'inverse de \( z \), qu'on appellera \defe{opposé}{entier!opposé} de \( z \).
+\end{propositionDef}
 
 \begin{proof}
 	En plusieurs points.
 	\begin{subproof}
 		\spitem[Neutre]
-		Pour tous entiers naturels \( a,\ b \), on a
+		L'ensemble \( E_{+0} \) contient exactement les couples de la forme \( (n,n) \) avec \( n \in \eN \). Pour tous entiers naturels \( a,\ b \), on a \( (a+n,b+n) \in E_{r(a,b)} \), donc, pour tout \( z \in \eZ \),
 		\begin{equation}
-			\overline{ (a,b) }+\overline{ (0,0) }=\overline{ (a+0,b+0) }=\overline{ (a,b) }.
+			z + (+0) = z.
 		\end{equation}
-		De même \( e+\overline{ (a,b) }=\overline{ (a,b) }\) par commutativité de la somme dans \( \eN\).
+		De même \( (+0) + z = z \) par commutativité de la somme dans \( \eN\).
 		\spitem[Inverse]
-		Il faut vérifier que \( \overline{ (b,a) }\) est l'inverse de \( \overline{ (a,b) }\).
-		% TODOooPreuveOpposeRelatifs à faire.
-		% TODOooDQGTooKXKrZY. Déjà dans ma liste.
-		\spitem[Associativité]
-		Calcul direct en utilisant l'associativité dans \( \eN\).
+  		Il est facile de voir que \( (+0) \) est son propre inverse. Soit \( z \in \eZ \), avec \( z \neq (+0) \). Il existe \( a,b  \in \eN \) tels que \( r(a,b) = z \). On a \( r(a,b) + r(b,a) = r(a+b, b+a) = (+0) \), donc \( r(b,a) \) est l'inverse de \( z \). Si \( z = (+k) \), alors \( b - a = k \), et l'inverse de \( z \) est \( (-k) \). En revanche si \( z = (-k) \), alors \( a - b = k \), et l'inverse de \( z \) est \( (+k) \). 
 	\end{subproof}
 \end{proof}
 
-\begin{proposition}		\label{PROPooVMGYooUWsbSr}
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Ordre sur \( \eZ\)}
+\label{SUBooEntiersRelatifsOrdre}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{normaltext}	\label{NORMooNotationInclusionEntiers}
+	Si \( z\in \eZ\), nous disons que \( z\in \eN\) lorsque \( z\in \iota(\eN)\). C'est un abus de notation qu'il est difficile de ne pas faire. Le même abus sera fait pour passer de \( \eZ\) à \( \eQ\) puis \( \eR\) puis \( \eC\).
+\end{normaltext}
+
+% TODOooKCJMooIHGrZN donner une notion de positivité sur Z, et modifier la définition PROPooMYYDooOABOdB.
+% Fusionner 
+% - DEFooYMRHooCyEKtr
+% - DEFooRelatifsPositifs
+% - PROPooMYYDooOABOdB
+% - PROPooMYYDooOABOdB
+% ceci est déjà dans ma liste
+
+\begin{definition}[Positivité et ordre dans \( \eZ\)\cite{MonCerveau}]	\label{DEFooYMRHooCyEKtr}
+	La positivité\footnote{Définition \ref{DEFooZRMFooCtzMov}.} que nous considérons sur \( \eZ\) est \( \eN\setminus\{ 0 \}\), plus formellement l'ensemble \( N^+ = \big\{ (+n) \tq n \in \eN \setminus\{0\}\big\} \). Nous considérons alors la relation d'ordre\footnote{De la proposition \ref{PROPooKLOPooBgQqhM}.} \( \leq\) donnée par \( a\leq b\) si et seulement si \( a = b \) ou bien \( b+(-a)\in N^+\).
+
+	Nous disons que
+	\begin{enumerate}
+		\item
+		      L'élément \( z\in \eZ\) est \defe{positif}{entier relatif!positif} si \( z\geq 0\).
+		\item
+		      L'élément \( z\in \eZ\) est \defe{strictement positif}{entier relatif!strictement positif} si \( z\geq 0\) et \( z\neq 0\). Nous notons \( z>0\).
+		\item
+		      L'élément \( z\in \eZ\) est \defe{négatif}{entier relatif!négatif} si \( z\leq 0\).
+		\item
+		      L'élément \( z\in \eZ\) est \defe{strictement négatif}{entier relatif!strictement négatif} si \( z\leq 0\) et \( z\neq 0\). Nous notons \( z<0\).
+	\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Relation d'ordre \cite{RWWJooJdjxEK}]       \label{PROPooMYYDooOABOdB}
+	La paire\footnote{Voir la définition \ref{DEFooYMRHooCyEKtr} pour \( \leq\).} \( (\eZ, \leq)\) est un ensemble totalement ordonné.
+\end{proposition}
+
+\begin{proof}
+	Soit \( a,b \in \eZ \). Nous devons pouvoir les comparer, et donc justifier que, ou bien \(b+(-a)\in N^+ \), ou bien \( a+(-b)\in N^+ \), ou bien \( a = b \). Supposons que \( a \neq b \), et que \(b+(-a)\notin N^+ \). Alors il existe \( k \in \eN \setminus \{ 0 \} \) tel que \( b+(-a) = (-k) \). Il s'ensuit alors que \( (+k) = -(-k) = -(b+(-a)) = -b+(-(-a)) = -b+a = a+(-b) \); dès lors \( a+(-b)\in N^+ \).
+\end{proof}
+
+\begin{proposition}		\label{PROPooCHGRooRksGGO}
 	L'application
 	\begin{equation}
 		\begin{aligned}
 			\iota\colon \eN & \to \eZ                    \\
-			n               & \mapsto \overline{ (n,0) }
+			n               & \mapsto (+n)
 		\end{aligned}
 	\end{equation}
-	est un morphisme\footnote{Certes \( \eN\) n'est pas un groupe, donc le mot «morphisme» est un peu abusé, mais vous voyez ce que je veux dire.} injectif.
+	est un morphisme\footnote{Certes \( \eN\) n'est pas un groupe, donc le mot «morphisme» est un peu abusé, mais vous voyez ce que je veux dire: \( \iota \) respecte la somme.} injectif.
+
+ 	De plus, si n < m, alors \iota(n) < \iota(m).
 \end{proposition}
 
 \begin{proof}
 	Le fait que ce soit un morphisme est le calcul
 	\begin{equation}
-		\iota(a+b)=\overline{ (a+b,0) }=\overline{ (a,0) }+\overline{ (b,0) }=\iota(a)+\iota(b).
+		\iota(a) +\iota(b)=r(0,a) + r(0,b) = r(0,a+b) =\iota(a+b).
 	\end{equation}
 
-	Pour l'injectivité, supposons que \( \iota(a)=\iota(b)\). Alors \( \overline{ (a,0) }=\overline{ (b,0) }\), c'est-à-dire \( a+0=b+0\). Donc \( a=b\).
+	Pour l'injectivité, supposons que \( \iota(a)=\iota(b)\). Alors \( r(0,a) = r(0,b) \), c'est-à-dire \( a - 0 = b - 0\), ou encore \( a = b \).
+
+ 	Il faut encore prouver que ça respecte l'ordre. Quand \( n < m \), il existe \( k \neq 0 \) tel que \( n + k = m \). Grâce au «morphisme» \( \iota \), on a \( \iota(m) = \iota(n) + \iota(k) \), soit \( \iota(k) = \iota(m) + (-\iota(n)) \); comme  \( \iota(k) > (+0) \), nous avons bien \( \iota(m) > \iota(n)\).
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -4183,115 +4243,11 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \label{SUBooEntiersRelatifsOpposes}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}       \label{LEMooSABNooZZDIes}
-	Tout élément de \( \eZ\) a un représentant de la forme \( (a,0)\) ou \( (0,b)\).
-\end{lemma}
-
-\begin{proof}
-	Soient \( a,b\in \eN\). Si \( b\leq a\), alors nous avons
-	\begin{equation}
-		(a,b)\sim(a-b,0)
-	\end{equation}
-	où la différence est calculée dans \( \eN\) et a un sens parce que nous avons supposé \( b\leq a\). Si par contre \( a\leq b\) alors
-	\begin{equation}
-		(a,b)\sim(0,b-a).
-	\end{equation}
-	Puisque l'ordre sur \( \eN\) est total\footnote{Proposition \ref{PROPooGCCRooFBYrlo}.}, tous les cas sont couverts.
-\end{proof}
-
-\begin{lemmaDef}	\label{LEMooDEFRelatifOppose}
-	Soit \( z\in \eZ\). L'application\footnote{Pour rappel, \( z\) est une classe d'équivalence dans \( \eN\times \eN\), c'est-à-dire une partie de \( \eN\times \eN\). Ça a un sens de prendre \( z\) comme ensemble sur lequel on définit une fonction.}
-	\begin{equation}
-		\begin{aligned}
-			f\colon z & \to \eZ                    \\
-			(a,b)     & \mapsto \overline{ (b,a) }
-		\end{aligned}
-	\end{equation}
-	est constante.
-
-	Nous nommons \( -z\) sa valeur.
-\end{lemmaDef}
-
-\begin{proof}
-	Soient \( (a,b)\) et \( (x,y)\) dans \( z\). Nous avons successivement :
-	\begin{itemize}
-		\item
-		      \( (a,b)\sim (x,y)\).
-		\item
-		      \( a+y=b+x\).
-		\item
-		      \( (b,a)\sim (y,x)\)
-		\item
-		      \( \overline{ (b,a) }=\overline{ (y,x) }\)
-		\item
-		      \( f(a,b)=f(x,y)\).
-	\end{itemize}
-	D'où la constance de \( f\).
-\end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooJMETooHQGwnv}
-	Soient \( a,b\in \eZ\). Nous avons
-	\begin{enumerate}
-		\item		\label{ITEMooWNYGooMopPcq}
-		      \( (-a)b=-(ab)\)
-	\end{enumerate}
-\end{proposition}
-
-
-\begin{lemma}	\label{LEMooEntiersRelatifsSigne}
-	Nous avons
-	\begin{enumerate}
-		\item       \label{ITEMooSQFGooQPgIMu}
-		      \( \eZ=\iota(\eN)\cup -\iota(\eN)\)
-		\item       \label{ITEMooHQUQooJeqULl}
-		      \( \iota(\eN)\cap -\iota(\eN)=\{ 0 \}\).
-	\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-	Nous avons
-	\begin{subequations}
-		\begin{align}
-			\iota(\eN)  & =\{ \overline{ (n,0) }\tq n\in \eN \}    \label{SUBEQooVJGVooCUxtvk} \\
-			-\iota(\eN) & =\{ \overline{ (0,n) }\tq n\in \eN \}.   \label{SUBEQooAPGRooOCkYRr}
-		\end{align}
-	\end{subequations}
-	Montrons à présent les deux points.
-	\begin{subproof}
-		\spitem[Pour \ref{ITEMooSQFGooQPgIMu}]
-		Nous savons par le lemme \ref{LEMooSABNooZZDIes} que tous les éléments de \( \eZ\) sont de la forme \eqref{SUBEQooVJGVooCUxtvk} ou \eqref{SUBEQooAPGRooOCkYRr}.
-		\spitem[Pour \ref{ITEMooHQUQooJeqULl}]
-		Si \( z\in \iota(\eN)\cap -\iota(\eN)\), il existe \( n,m\in \eN\) tels que \( \overline{ (n,0) }=\overline{ (0,m) }\), ce qui signifie en particulier que \( (n,0)\sim(0,m)\) ou encore que \( n+m=0\). Le lemme \ref{LEMooQBHFooCuCusQ} dit alors que \( n=m=0\).
-
-		Nous avons donc \( z= \overline{ (0,0) }=0\).
-	\end{subproof}
-\end{proof}
-
-
-\begin{proposition}		\label{PROPooCHGRooRksGGO}
-	L'application
-	\begin{equation}
-		\begin{aligned}
-			\iota\colon \eN & \to \eZ                    \\
-			n               & \mapsto \overline{ (n,0) }
-		\end{aligned}
-	\end{equation}
-	est un morphisme injectif qui respecte l'ordre.
-\end{proposition}
-
-\begin{proof}
-	Le fait que ce soit un morphisme injectif est la proposition \ref{PROPooVMGYooUWsbSr}.
-
-	Il faut encore prouver que ça respecte l'ordre\quext{Faites-le en envoyez-moi la preuve.}
-	%TODOooKQPQooAUkOlS il faut le faire.
-\end{proof}
-
-
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooORABooXRbVoz}
 	Soit \( G\), un sous-groupe de \( \eZ\) non réduit à \( \{ 0 \}\). Alors
 	\begin{enumerate}
 		\item		\label{ITEMooUZBJooUeVmmz}
-		      La partie \( \{ x>0\tq x\in G \}\) est non vide.
+		      La partie \( \{ x \in G\tq x > 0\}\) est non vide.
 		\item	\label{ITEMooIXXFooOWkbPb}
 		      En posant
 		      \begin{equation}
@@ -4319,61 +4275,27 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	\end{subproof}
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Ordre sur \( \eZ\)}
-\label{SUBooEntiersRelatifsOrdre}
-%---------------------------------------------------------------------------------------------------------------------------
 
-\begin{normaltext}	\label{NORMooNotationInclusionEntiers}
-	Si \( z\in \eZ\), nous disons que \( z\in \eN\) lorsque \( z\in \iota(\eN)\). C'est un abus de notation qu'il est difficile de ne pas faire. Le même abus sera fait pour passer de \( \eZ\) à \( \eQ\) puis \( \eR\) puis \( \eC\).
-\end{normaltext}
-
-% TODOooKCJMooIHGrZN donner une notion de positivité sur Z, et modifier la définition PROPooMYYDooOABOdB.
-% Fusionner 
-% - DEFooYMRHooCyEKtr
-% - DEFooRelatifsPositifs
-% - PROPooMYYDooOABOdB
-% - PROPooMYYDooOABOdB
-% ceci est déjà dans ma liste
-
-\begin{definition}[Positivité et ordre dans \( \eZ\)\cite{MonCerveau}]	\label{DEFooYMRHooCyEKtr}
-	La positivité\footnote{Définition \ref{DEFooZRMFooCtzMov}.} que nous considérons sur \( \eZ\) est \( \eN\setminus\{ 0 \}\). Nous considérons alors la relation d'ordre\footnote{De la proposition \ref{PROPooKLOPooBgQqhM}.} \( \leq\) donnée par \( a\leq b\) si et seulement si \( b-a\in \eN\).
-
-	Nous disons que
-	\begin{enumerate}
-		\item
-		      L'élément \( z\in \eZ\) est \defe{positif}{entier relatif!positif} si \( z\geq 0\).
-		\item
-		      L'élément \( z\in \eZ\) est \defe{strictement positif}{entier relatif!strictement positif} si \( z\geq 0\) et \( z\neq 0\). Nous notons \( z>0\).
-		\item
-		      L'élément \( z\in \eZ\) est \defe{négatif}{entier relatif!négatif} si \( z\leq 0\).
-		\item
-		      L'élément \( z\in \eZ\) est \defe{strictement négatif}{entier relatif!strictement négatif} si \( z\leq 0\) et \( z\neq 0\). Nous notons \( z<0\).
-	\end{enumerate}
-\end{definition}
-
-\begin{definition}[Éléments positifs de \( \eZ \)]	\label{DEFooRelatifsPositifs}
-	On dit qu'un élément \( z \in \eZ \) est \defe{positif}{entiers relatifs!positifs} si \( z \in \eN \). On note dans ce cas \( z \geq 0\).
-
-	On dira qu'il est \defe{négatif}{entiers relatifs!négatifs} quand \( -z \in \eN \). On note ainsi \( z \leq 0 \).
-
-	On dit qu'un entier relatif \( z \) est \defe{strictement positif}{} s'il est positif et non nul; on note \( z > 0 \). Il est \defe{strictement négatif} lorsqu'il est négatif et non nul, et cela est noté \( z < 0 \).
-\end{definition}
-
-\begin{propositionDef}[Relation d'ordre \cite{RWWJooJdjxEK}]       \label{PROPooMYYDooOABOdB}
-	La paire\footnote{Voir la définition \ref{DEFooYMRHooCyEKtr} pour \( \leq\).} \( (\eZ, \leq)\) est un ensemble totalement ordonné.
-\end{propositionDef}
-
-\begin{normaltext}
-	%\label{NORMooOrdreEntiersRelatifsExtension}
-	% Ce label me semble dangereux parce que si on le cite dans une démonstration entre ici et LEMooKAXFooIPyzJC, le détecteur de référence vers le futur
-	% ne préviendra pas du problème.
+\begin{normaltext}	\label{NORMooOrdreEntiersRelatifsExtension}
+	% TODOooProblemeLabel Ce label me semble dangereux parce que si on le cite dans une démonstration entre ici et LEMooKAXFooIPyzJC, le détecteur de référence vers le futur
+	% ne préviendra pas du problème. Bibi se demande pourquoi... mais a besoin de tous ces labels.
 	Une version de la proposition \ref{PROPooMYYDooOABOdB} dans \( \eR\) sera le lemme \ref{LEMooKAXFooIPyzJC}.
 \end{normaltext}
 
 \begin{probleme}	\label{TODOooDefinirMultiplicationRelatifs}
 	Définir ici la multiplication dans \( \eZ \) comme extension de celle de \( \eN \). Montrer que ça en fait un anneau totalement ordonné.
 \end{probleme}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooJMETooHQGwnv}
+	Soient \( a,b\in \eZ\). Nous avons
+	\begin{enumerate}
+		\item		\label{ITEMooWNYGooMopPcq}
+		      \( (-a)b=-(ab)\)
+	\end{enumerate}
+\end{proposition}
+
+%TODOooPreuveMultiplicationSigne
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooADGIooTioqdu}
 	L'anneau \( \eZ\) est totalement ordonné\footnote{Définition \ref{DEFooWACWooDWvXKJ}.}
@@ -4427,9 +4349,12 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \end{proposition}
 
 \begin{lemma}       \label{LEMooMYEIooNFwNVI}
-	Toute partie bornée de \( \eZ\) possède un plus grand élément.
-	%TODOooEDWPooRDujTs. Prouver ça. J'en mets deux parce que je parie que ce sera fait.
+	Toute partie non vide et bornée de \( \eZ\) possède un plus grand élément.
 \end{lemma}
+
+\begin{proof}
+	Soit \( A \) une partie bornée de \( \eZ\). Deux cas de figure se produisent selon que \( A \cap \eN \) est vide ou non. S'il est non vide, alors \( A \cap \eN \) admet un plus grand élément par la proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooKIHZooDRTCdx}. S'il est vide, on considére l'ensemble \( -A = \{-a \tq a \in A \} \) dont tous les éléments sont positifs; ainsi \( -A \subset \eN \), et par la proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooYAJIooEFmOpB}, \( -A \) admet un plus petit élément \( m \). Finalement, pour tout \( a \in A \), on a \( m \leq -a \), donc \( m+a \leq 0 \), et ainsi \( a \leq -m \); et \( -m \in A \) car \( m = -(-m) \in -A \).
+\end{proof}
 
 \begin{proposition}	\label{PROPooRelatifsValAbs}
 	Si \( z \in \eZ \), alors :
@@ -4442,7 +4367,7 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \end{proposition}
 
 \begin{proof}
-	C'est le fait que \( \eZ\) est un anneau totalement ordonné\footnote{Proposition \ref{PROPooADGIooTioqdu}.}: donc la proposition-définition \ref{DEFooJXKVooErANPh} s'applique, y compris l'équation \eqref{EQooORNAooBYFeFk}.
+	C'est le fait que \( \eZ\) soit un anneau totalement ordonné\footnote{Proposition \ref{PROPooADGIooTioqdu}.}: donc la proposition-définition \ref{DEFooJXKVooErANPh} s'applique, y compris l'équation \eqref{EQooORNAooBYFeFk}.
 \end{proof}
 
 
