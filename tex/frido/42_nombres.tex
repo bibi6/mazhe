@@ -4132,14 +4132,16 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \end{proof}
 
 \begin{propositionDef}[\cite{RWWJooJdjxEK}]	\label{PROPooDEFAdditionEntiersRelatifs}
-	Soient \( a, b \in \eZ\). L'application
+	Soient \( a, b \in \eZ\). L'application\footnote{On devrait la noter \( f_{a,b} \) car elle dépend des entiers relatifs \( a \) et \( b \), mais nous faisons le choix de ne pas alourdir les notations.}
 	\begin{equation}
 		\begin{aligned}
-			f\colon E_a \times E_b & \to \eN \times \eN              \\
+			f \colon E_a \times E_b & \to \eN \times \eN              \\
 			\big( (x,y),(m,p) \big)                         & \mapsto (x+m,y+p)
 		\end{aligned}
 	\end{equation}
-	a pour image un ensemble inclus à l'un des \( E_z \), avec \( z \in \eZ \)
+	a pour image un ensemble inclus à l'un des \( E_z \), avec \( z \in \eZ \).
+
+ 	Cette application est telle que \( r \circ f \) est constante (et en particulier, son image est \( z \)).
 
 	Nous définissons alors l'opération \( + \) sur \( \eZ \) en disant que\( a + b = z \).
 
@@ -4147,7 +4149,59 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \end{propositionDef}
 
 \begin{proof}
-	Réécrite autrement, la proposition \ref{PROPooFIKUooVHlvTt} dit ceci: si \( (x,y) \) et \( (x', y') \) sont dans \( E_a \), si \( (m,p) \) et \( (m',p')\) sont dans \( E_b \), alors \( (x+m,y+p) \sim (x'+p',y'+m') \), c'est-à-dire que les couples \( (x+m,y+p) \) et \( (x'+p',y'+m') \) appartiennent à la même classe d'équivalence que l'on note \( E_z \). Ainsi, l'ensemble image de \( f \) est incluse dans \( E_z \), et par ailleurs \( z = r(x+m,y+p) \).
+	Réécrite autrement, la proposition \ref{PROPooFIKUooVHlvTt} dit ceci: si \( (x,y) \) et \( (x', y') \) sont dans \( E_a \), si \( (m,p) \) et \( (m',p')\) sont dans \( E_b \), alors \( (x+m,y+p) \sim (x'+p',y'+m') \), c'est-à-dire que les couples \( (x+m,y+p) \) et \( (x'+p',y'+m') \) appartiennent à la même classe d'équivalence que l'on note \( E_z \), et ont même image par \( r \), qui vaut \( z \). Ainsi, l'ensemble image de \( f \) est incluse dans \( E_z \), et par ailleurs \( z = r(x+m,y+p) \).
+\end{proof}
+
+\begin{remark}	\label{REMooAdditionEntiersRelatifs}
+	On pourrait penser que l'image de la fonction \( f \) précédente est une classe d'équivalence complète: cela n'est pas vrai en général. Prenons en effet les entiers relatifs \( (+1) \) et \( (-1) \). La fonction \( f \) est alors définie sur \( E_{(+1)} \times E_{(-1)} \), dont les éléments sont de la forme \( \big( (n, 1+n), (1+k, k)\big), avec \( n, k \in \eN \) (rappelons-nous de la proposition \ref{PROPooClassesEquivalenceRelatifs}). L'image d'un tel élement par \( f \) est le couple \( (1+n+k, n+1+k) \in E_{(+0)} \). Or, le couple \( (0,0) \) est dans \(E_{(+0)} \), mais n'est pas dans l'image de \( f \).
+\end{remark}
+
+\begin{corollary}	\label{CORooAdditionRelatifsRegleSignes}
+	Soit \( m, n \in \eN \). L'addition dans \( \eZ \) obéit aux règles suivantes:
+ 	\begin{multicols}2
+  	\begin{align}
+  		(+m) + (+n) &= (+ (m+n) )	\label{SEQooAdditionRelatifsPP}\\
+		\text{si } m, n \neq 0,\ (-m) + (-n) &= (-(m+n))	\label{SEQooAdditionRelatifsMM}\\
+		\text{si }0 < m \leq n,\ (-m) + (+n) &= (+(n-m))	\label{SEQooAdditionRelatifsMPP}\\
+  		\text{si }m < n, (+m) + (-n) &= (-(n-m))	\label{SEQooAdditionRelatifsPMM}\\
+		\text{si }0 < n < m,\ (-m) + (+n) &= (-(m-n))	\label{SEQooAdditionRelatifsMPM}\\
+  		\text{si }m \geq n, (+m) + (-n) &= (+(m-n)).	\label{SEQooAdditionRelatifsPMP}
+  	\end{align}
+   \end{multicols}
+\end{corollary}
+
+\begin{proof}
+	On utilise la proposition-définition précédente pour vérifier point par point.
+ 	\begin{itemize}
+  		\item
+			On sait que \( (+m) = r(0,m) \) et que \( (+n) = r(0,n) \). Il vient par la proposition et par définition de \( r \), \( (+m) + (+n) = r(0+0, m+n) = (+ (m+n) )\).
+  		\item
+			On sait que \( (-m) = r(m,0) \) et que \( (-n) = r(n,0) \). Il vient \( (-m) + (-n) = r(m+n,0+0) = (- (m+n) )\).
+   		\item
+			On sait que \( (-m) = r(m,0) \) et que \( (+n) = r(0,n) \). Il vient \( (-m) + (+n) = r(m+0,0+n) = (+(n-m) )\), toujours par la proposition et par définition de \( r \).
+    	\item
+			On sait que \( (+m) = r(0,m) \) et que \( (-n) = r(n,0) \). Il vient \( (+m) + (-n) = r(0+n, m+0) = (- (n-m) )\).
+   		\item
+			On sait que \( (-m) = r(m,0) \) et que \( (+n) = r(0,n) \). Il vient \( (-m) + (+n) = r(m+0,0+n) = (-(m-n) )\), toujours par la proposition et par définition de \( r \).
+    	\item
+			On sait que \( (+m) = r(0,m) \) et que \( (-n) = r(n,0) \). Il vient \( (+m) + (-n) = r(0+n, m+0) = (+(m-n) )\).
+  	\end{itemize}
+\end{proof}
+
+\begin{lemma}	\label{LEMooAdditionRelatifsCommutative}
+	L'addition définie dans \( \eZ \) est commutative, et admet \( +0 \) pour neutre.
+\end{lemma}
+
+\begin{proof}
+	Voyons d'abord que \( (+0) \) est le neutre. En utilisant les formules \ref{SEQooAdditionRelatifsPP} et \ref{SEQooAdditionRelatifsPMP} du corolaire \ref{CORooAdditionRelatifsRegleSignes}, il vient que pour tout entier relatif \( z \), on a \( (+0) + z = z \). On a aussi \( z + (+0) = z \) grâce aux formules \ref{SEQooAdditionRelatifsPP} et \ref{SEQooAdditionRelatifsMPM}.
+ 
+	Soit \( a, b \in \eZ \). S'ils sont de même signe, alors la commutativité de l'addition dans \( \eN \) fait le travail, avec selon le cas la formule \ref{SEQooAdditionRelatifsPP} ou la formule \ref{SEQooAdditionRelatifsMM}. Sinon, supposons que \( a = (+x) \) et \( b = (-y) \). On peut supposer \( x \neq 0 \) car ce cas a été traité ci-avant. Trois cas se présentent: ou bien \(  x = y \), ou bien \( x < y \), ou bien \( x > y \).
+ 	\begin{subproof}
+  		\spitem[Si \( x = y\): ] la formule \ref{SEQooAdditionRelatifsPMP} dit que \( a + b = (+(x-y)) = (+0) \), et la formule \ref{SEQooAdditionRelatifsMPP} dit que \( b + a = (+(x-y)) = (+0) \). Donc \( a + b = b + a \).
+  		\spitem[Si  \( x < y \):] la formule \ref{SEQooAdditionRelatifsPMM} implique \( a + b = -(y-x) \), tandis que la formule \ref{SEQooAdditionRelatifsMPM} donne \( b + a = -(y-x) \). À nouveau, on a  \( a + b = b + a \).
+		\spitem[Si  \( x > y \):] la formule \ref{SEQooAdditionRelatifsPMP} implique \( a + b = +(x-y) \), tandis que la formule \ref{SEQooAdditionRelatifsMPP} donne \( b + a = +(x-y) \). On a encore \( a + b = b + a \).
+  	\end{subproof}
+   	Tous les cas sont couverts.
 \end{proof}
 
 \begin{propositionDef}	\label{PROPooGroupeEntiersRelatifs}
@@ -4162,12 +4216,8 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \begin{proof}
 	En plusieurs points.
 	\begin{subproof}
-		\spitem[Neutre]
-		L'ensemble \( E_{+0} \) contient exactement les couples de la forme \( (n,n) \) avec \( n \in \eN \). Pour tous entiers naturels \( a,\ b \), on a \( (a+n,b+n) \in E_{r(a,b)} \), donc, pour tout \( z \in \eZ \),
-		\begin{equation}
-			z + (+0) = z.
-		\end{equation}
-		De même \( (+0) + z = z \) par commutativité de la somme dans \( \eN\).
+		\spitem[Commutativité, Neutre]
+			C'est le lemme \ref{LEMooAdditionRelatifsCommutative}.
 		\spitem[Inverse]
   		Il est facile de voir que \( (+0) \) est son propre inverse. Soit \( z \in \eZ \), avec \( z \neq (+0) \). Il existe \( a,b  \in \eN \) tels que \( r(a,b) = z \). On a \( r(a,b) + r(b,a) = r(a+b, b+a) = (+0) \), donc \( r(b,a) \) est l'inverse de \( z \). Si \( z = (+k) \), alors \( b - a = k \), et l'inverse de \( z \) est \( (-k) \). En revanche si \( z = (-k) \), alors \( a - b = k \), et l'inverse de \( z \) est \( (+k) \). 
 	\end{subproof}
@@ -4224,7 +4274,7 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	\end{equation}
 	est un morphisme\footnote{Certes \( \eN\) n'est pas un groupe, donc le mot «morphisme» est un peu abusé, mais vous voyez ce que je veux dire: \( \iota \) respecte la somme.} injectif.
 
- 	De plus, si n < m, alors \iota(n) < \iota(m).
+ 	De plus, si \( n < m \), alors \(\iota(n) < \iota(m)\).
 \end{proposition}
 
 \begin{proof}
