@@ -2364,6 +2364,14 @@ Nous donnons deux preuves de ce lemme.
 	Nous notons \( 0\) l'élément \( o\) et \( 1\) l'élément \( s(0)\). C'est tout ce dont nous avons besoin dans l'immédiat.
 \end{normaltext}
 
+\begin{lemma}       \label{LEMooCOMSooEWrumL}
+	Nous avons \( 0\neq 1\).
+\end{lemma}
+
+\begin{proof}
+	Par définition \( 1=s(0)\). Comme \( s\) est à valeurs dans \( \eN\setminus\{ 0 \}\), nous ne pouvons pas avoir \( s(0)=0\).
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Applications définies par récurrence}
 \label{SUBooApplicationRecurrence}
@@ -2629,6 +2637,26 @@ Nous donnons deux preuves de ce lemme.
 	Avec la notation habituelle de puissance (que nous n'avons pas encore défini), on observe que \( H \) est telle que \( H(x,n) = \beta^n\big(\alpha(x)\big) = (\beta^n \circ \alpha) (x)\).
 \end{normaltext}
 
+\begin{corollary}	\label{CORooItereesOperation}
+	Soit \( X \) un ensemble et \( * \) une opération\footnote{Définition \ref{DEFooOperation}.} sur \( X \). Pour tout \( b \in X \), il existe une unique fonction \( \phi_b : X \times \eN \to X \) telle que:
+ 	\begin{enumerate}
+  		\item
+			pour tout \( x \in X\), \( \phi_b(x, 0) = b \);
+   		\item
+	 		pour tout \( x \in X\) et tout \( n \in \eN\), \( \phi_b(x, s(n)) = x*\phi_b(x,n) \).
+	\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+	C'est encore le théorème \ref{THOooEJPYooZFVnez} qui nous aide. Pour tout \( x \in X \), en définissant \( g_x : X \to X \) par \( g_x (y) = x*y \) et en utilisant le \( b \in \X \), ce théorème nous garantit l'existence et l'unicité d'une fonction \( f_{b,x} : \eN \to X \) avec \( f_{b,x}(0) = b \) et \( f_{b,x}\big(s(n)\big) = g_x\big(f_{b,x}(n)\big) = x * f_{b,x}(n) \). Il suffit alors de poser \( \phi_b(x,n) = f_{b,x}(n) \), et d'observer que les deux conditions sont naturellement vérifiées par construction.
+\end{proof}
+
+
+\begin{definition}      \label{DEFooLCWLooYrToFv}
+	Soit \( (A,+, \leq)\) un ensemble totalement ordonné muni d'une loi de composition interne, et admettant un neutre \( e \). On dit que \( A \) est \defe{archimédien}{ensemble!archimédien}\index{archimédien} si pour tout \( x,y\in A\) avec \( x>0\), il existe \( n\in \eN\) tel que \( \phi_e(x,n) \geq y\) (avec \( phi_e \) donné par le corolaire \ref{CORooItereesOperation}).
+\end{definition}
+
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Addition sur les naturels}
 \label{SUBooAdditionNaturels}
@@ -2640,9 +2668,9 @@ Nous donnons deux preuves de ce lemme.
 		\item       \label{ITEMooILZSooNYIkYR}
 		      \( f(a,0)=a\) pour tout \( a\in \eN\)
 		\item       \label{ITEMooZWHQooBAjZyE}
-		      \( f\big( a,s(b) \big)=s\big( f(a,b) \big)\) pour tout \( a,b\in \eN\).
+		      \( f\big( a,s(b) \big)=s\big( f(a,b) \big)\) pour tous \( a,b\in \eN\).
 	\end{enumerate}
-	Pour \( a,b\in \eN\) nous notons \( f(a,b)=a+b\).
+	Pour \( a,b\in \eN\) nous notons \( f(a,b)=a+b\) et nous appelons cela la \defe{somme}{entiers naturels!somme}\index{somme!entiers naturels} de \( a \) et \( b \)
 \end{propositionDef}
 
 \begin{proof}
@@ -2654,41 +2682,12 @@ Nous donnons deux preuves de ce lemme.
 		\end{numcases}
 	\end{subequations}
 	
-	Nous posons \( f(a,b)=f_a(b)\), et nous prouvons les deux conditions.
-	\begin{subproof}
-		\spitem[Condition \ref{ITEMooILZSooNYIkYR}]
-		%-----------------------------------------------------------
-		Montrons que \( f_0(a)=a\) pour tout \( a\in \eN\). Pour cela nous utilisons la récurrence de la proposition \ref{PROPooXTRCooKwrWkq} en posant
-		\begin{equation}
-			\begin{aligned}
-				P\colon \eN & \to \{ 0,1 \}                   \\
-				n           & \mapsto \begin{cases}
-			                      1 & \text{si } f_0(n)=n \\
-			                      0 & \text{sinon. }
-		                      \end{cases}
-			\end{aligned}
-		\end{equation}
-		Nous avons \( f_0(0)=0\) en posant \( a=0\) dans \eqref{EQooVOCZooOCHZLn}. Supposons ensuite que \( P(a)=1\). Nous avons
-		\begin{subequations}
-			\begin{align}
-				f_0\big( s(a) \big) & =s\big( f_0(a) \big)                      \\
-		    		                & =s(a)                & \text{pcq }P(a)=1.
-			\end{align}
-		\end{subequations}
-		Donc \( P\big( s(a) \big)=s(a)\). Nous en déduisons que \( P(x)=1\) pour tout \( x\in \eN\) et donc que
-		\begin{equation}		\label{EQooIKGVooHQMQqX}
-			f_0(a)=a
-		\end{equation}
-		pour tout \( a\).
-
-  		\spitem[Condition \ref{ITEMooZWHQooBAjZyE}]
-		%-----------------------------------------------------------
-		Nous avons :
-		\begin{equation}
-			f\big( a,s(b) \big)=f_a\big( s(b) \big)=s\big( f_a(b) \big)=s\big( f(a,b) \big).
-		\end{equation}
-	\end{subproof}
-
+	Nous posons, pour tous \( a, b \in \eN \),  \( f(a,b)=f_a(b)\). Il vient alors \( f(a,0) = f_a(0) = a \) d'une part; et nous avons
+	\begin{equation}
+		f\big( a,s(b) \big)=f_a\big( s(b) \big)=s\big( f_a(b) \big)=s\big( f(a,b) \big)
+	\end{equation}
+	d'autre part.
+ 
 	Démontrons maintenant l'unicité. Soient \( f\) et \( g\) deux applications vérifiant les conditions. Nous posons, pour tout \( a \in \eN \),
 	\begin{equation}
 		\begin{aligned}
@@ -2701,7 +2700,7 @@ Nous donnons deux preuves de ce lemme.
 	\begin{equation}
 		f_a\big( s(b) \big)=f\big( a,s(b) \big)=s\big( f(a,b) \big)=s\big( f_a(b) \big),
 	\end{equation}
- 		et de la même manière, \( g_a\big(s(b)\big) = s\big(g_a(b)\big)\). Par l'unicité garantie dans le théorème \ref{THOooEJPYooZFVnez}, \( f_a=g_a\) pour tout \( a \), et donc \( f=g\).
+ 	et de la même manière, \( g_a\big(s(b)\big) = s\big(g_a(b)\big)\). Par l'unicité garantie dans le théorème \ref{THOooEJPYooZFVnez}, \( f_a=g_a\) pour tout \( a \), et donc \( f=g\).
 \end{proof}
 
 \begin{lemma}[\cite{RWWJooJdjxEK}]      \label{LEMooMJMTooOtUuJT}
@@ -2746,7 +2745,7 @@ Nous donnons deux preuves de ce lemme.
 		\spitem[Associative]
 		Nous devons prouver que \( (a+b)+c=a+(b+c)\) pour tout \( a,b,c\in \eN\). Pour ce faire, nous fixons \( a,b\in\eN\) et nous prouvons l'égalité demandée par récurrence sur \( c\).
 
-		Pour \( c=0\), nous avons \( (a+b)+c=a+b\) et \( a+(b+c)=a+b\). Donc nous sommes d'accord\footnote{Notez que nous n'avons pas utilisé le fait que \( 0\) était neutre des deux côtés -- chose que nous n'avons pas encore démontré. Nous avons seulement utilisé \( a+0=a\), qui est dans la définition de la somme.}.
+		Pour \( c=0\), nous avons \( (a+b)+c=a+b\) et \( a+(b+c)=a+b\). Donc nous sommes d'accord\footnote{Notez que nous n'avons pas utilisé le fait que \( 0\) était neutre des deux côtés -- chose que nous n'avons pas encore démontré. Nous avons seulement utilisé \( a+0=a\), qui est dans la définition de la somme, proposition \ref{PROPooVFOXooXmwpFh}\ref{ITEMooILZSooNYIkYR}.}.
 
 		Nous vérifions avec \( s(c)\) :
 		\begin{subequations}
@@ -2757,14 +2756,12 @@ Nous donnons deux preuves de ce lemme.
 				           & =a+\big( b+s(c) \big).
 			\end{align}
 		\end{subequations}
-		Justifications.
-		\begin{itemize}
-			\item Pour \eqref{SUBEQooDDUBooAjuuZq}. C'est l'hypothèse de récurrence. À ce stade, je vous conseille d'être capable de rédiger complètement la récurrence et l'appel au théorème \ref{THOooEJPYooZFVnez}.
-		\end{itemize}
+		où l'égalité \eqref{SUBEQooDDUBooAjuuZq} est justifiée par l'hypothèse de récurrence\footnote{À ce stade, je vous conseille d'être capable de rédiger complètement la récurrence et l'appel au théorème \ref{THOooEJPYooZFVnez}.} et les autres par la condition \ref{ITEMooZWHQooBAjZyE} de la proposition-définition \ref{PROPooVFOXooXmwpFh}.
+
 		\spitem[Neutre]
 		La définition de l'addition contient déjà \( a+0=a\). Nous prouvons par récurrence que \( 0+a=a\) pour tout \( a\in \eN\).
 
-		Pour \( a=0\), l'égalité demandé est correcte : \( 0+0=0\) parce que pour tout \( x\) dans \( \eN\), \( 0+x=x\). Pour \( s(a)\) nous avons
+		Pour \( a=0\), l'égalité demandé est correcte : \( 0+0=0\) parce que pour tout \( x\) dans \( \eN\), \( x+0=x\). Pour \( s(a)\) nous avons
 		\begin{equation}
 			0+s(a)=s(0+a)=s(a).
 		\end{equation}
@@ -2775,34 +2772,38 @@ Nous donnons deux preuves de ce lemme.
 			A=\{ a\in \eN\tq 0+a=a \}.
 		\end{equation}
 		Nous avons prouvé que \( 0\in A\) et que \( s(A)\subset A\). Le théorème \ref{THOooEJPYooZFVnez} nous assure alors que \( A=\eN\).
+  
 		\spitem[Commutativité]
 		Nous fixons \( a\in \eN\) et nous prouvons par récurrence sur \( b\) que \( a+b=b+a\) pour tout \( b\in \eN\). Cela va être décomposé en plusieurs étapes.
-		\spitem[\( a+0=0+a\)]
-		Pour \( b=0\) c'est correct, car \( b+0=0+b=b\) parce que \( 0\) est neutre.
-		\spitem[\( a+1=1+a\)]
-		Nous démontrons par récurrence sur \( a\) que \( a+1=1+a\). Avec \( a=0\) c'est déjà fait. Pour les autres,
-		\begin{subequations}
-			\begin{align}
-				s(a)+1 & =(a+1)+1 & \text{lemme \ref{LEMooMJMTooOtUuJT}} \\
-				       & =(1+a)+1 & \text{hypothèse récurrence}          \\
-				       & =1+(a+1) & \text{associativité}                 \\
-				       & =1+s(a).
-			\end{align}
-		\end{subequations}
-		\spitem[\( a+b=b+a\)]
-		Nous y voici. Nous fixons \( a\) et nous prouvons par récurrence que \( a+b=b+a\). Pour \( b=0\) c'est déjà fait. Pour les autres,
-		\begin{subequations}
-			\begin{align}
-				a+s(b) & =a+(b+1)                                    \\
-				       & =(a+b)+1                                    \\
-				       & =(b+a)+1 & \text{hypothèse récurrence}      \\
-				       & =b+(a+1)                                    \\
-				       & =b+(1+a) & \text{commutativité avec \( 1\)} \\
-				       & =(b+1)+a & \text{associativité}             \\
-				       & =s(b)+a.
-			\end{align}
-		\end{subequations}
-		Récurrence terminée.
+  		\begin{subproof}
+			\spitem[\( a+0=0+a\)]
+				Pour \( b=0\) c'est correct, car \( b+0=0+b=b\) parce que \( 0\) est neutre.
+			\spitem[\( a+1=1+a\)]
+				Nous démontrons par récurrence sur \( a\) que \( a+1=1+a\). Avec \( a=0\) c'est déjà fait. Pour les autres,
+				\begin{subequations}
+					\begin{align}
+						s(a)+1 & =(a+1)+1 & \text{lemme \ref{LEMooMJMTooOtUuJT}} \\
+							& =(1+a)+1 & \text{hypothèse récurrence}          \\
+				       		& =1+(a+1) & \text{associativité}                 \\
+				       		& =1+s(a).
+				\end{align}
+			\end{subequations}
+			\spitem[\( a+b=b+a\)]
+				Nous y voici. Nous fixons \( a\) et nous prouvons par récurrence que \( a+b=b+a\). Pour \( b=0\) c'est déjà fait. Pour les autres,
+				\begin{subequations}
+					\begin{align}
+						a+s(b) & =a+(b+1)                                    \\
+				       		& =(a+b)+1                                    \\
+				       		& =(b+a)+1 & \text{hypothèse récurrence}      \\
+				       		& =b+(a+1)                                    \\
+				       		& =b+(1+a) & \text{commutativité avec \( 1\)} \\
+				       		& =(b+1)+a & \text{associativité}             \\
+				       		& =s(b)+a.
+					\end{align}
+				\end{subequations}
+			Récurrence terminée.
+   		\end{subproof}
+	 
 		\spitem[Régularité]
 		Nous devons prouver que, pour tout \( a,x,y\in \eN\), si \( a+x=a+y\) alors \( x=y\). Nous allons procéder par récurrence en posant
 		\begin{equation}
@@ -2825,14 +2826,6 @@ Nous donnons deux preuves de ce lemme.
 		\end{itemize}
 		Nous avons prouvé que \( s(A)\subset A\), et donc que \( A=\eN\).
 	\end{subproof}
-\end{proof}
-
-\begin{lemma}       \label{LEMooCOMSooEWrumL}
-	Nous avons \( 0\neq 1\).
-\end{lemma}
-
-\begin{proof}
-	Par définition \( 1=s(0)\). Comme \( s\) est à valeurs dans \( \eN\setminus\{ 0 \}\), nous ne pouvons pas avoir \( s(0)=0\).
 \end{proof}
 
 \begin{lemma}[\cite{MonCerveau}]       \label{LEMooQBHFooCuCusQ}
@@ -3160,6 +3153,7 @@ Nous donnons deux preuves de ce lemme.
 	\begin{equation}
 		\{ x\in \eN\tq a\leq x\leq b \}.
 	\end{equation}
+ 	Il s'agit d'un intervalle\footnote{Les intervalles ont été définis de manière générale en la définition\ref{DefEYAooMYYTz}.} dans \( \eN \). \index{intervalle!d'entiers naturels}
 \end{definition}
 
 \begin{proposition}     \label{PROPooFYMJooWihvhk}
@@ -3234,51 +3228,19 @@ Nous donnons deux preuves de ce lemme.
 \label{SUBooMultiplicationNaturels}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}[\cite{MonCerveau}]      \label{DEFooAZAYooVjNzmy}
-	Soit un ensemble muni d'une loi de composition interne \( (A,+)\). Soit \( n\in \eN\) et \( a\in A\). Nous définissons \( n\times A\) par
-	\begin{subequations}
-		\begin{numcases}{}
-			0\times a=0\\
-			(n+1)\times a= n\times a+a.
-		\end{numcases}
-	\end{subequations}
-\end{definition}
-
-\begin{definition}      \label{DEFooLCWLooYrToFv}
-	Un ensemble totalement ordonné muni d'une loi de composition interne \( (A,+, \leq)\) est \defe{archimédien}{ensemble!archimédien}\index{archimédien} si pour tout \( x,y\in A\) avec \( x>0\), il existe \( n\in \eN\) tel que \( n\times x\geq y\) (voir la définition \ref{DEFooAZAYooVjNzmy}).
-\end{definition}
-
-
-
 \begin{propositionDef}      \label{PROPooBBQPooRgPOjf}
-	Il existe une unique fonction \( f\colon \eN\times \eN\to \eN\) telle que
+	Il existe une unique fonction \( \phi \colon \eN\times \eN\to \eN\) telle que
 	\begin{enumerate}
 		\item       \label{ITEMooNTUUooDAUVsV}
-		      \( f(a,0)=0\) pour tout \( a\in \eN\)
+		      \( \phi (a,0)=0\) pour tout \( a\in \eN\)
 		\item       \label{ITEMooPPZZooQQabwn}
-		      \( f\big( a,s(b) \big)=f(a,b)+a\) pour tout \( a,b\in \eN\).
+		      \( \phi \big( a,s(b) \big) = a + \phi(a,b)\) pour tout \( a,b\in \eN\).
 	\end{enumerate}
-	Cette fonction est la \defe{multiplication}{multiplication} et nous notons \( f(a,b)=a\times b\), voire \( ab\) quand il n'y a pas d'ambigüité. Le nombre \( a\times b\) est nommé le \defe{produit}{produit} de \( a\) par \( b\).
+	Cette fonction est la \defe{multiplication}{multiplication!entiers naturels} et nous notons \( \phi (a,b)=a\times b\), voire \( ab\) quand il n'y a pas d'ambigüité. Le nombre \( a\times b\) est nommé le \defe{produit}{produit} de \( a\) par \( b\).
 \end{propositionDef}
 
 \begin{proof}
-	En deux parties.
-	\begin{subproof}
-		\spitem[Fonctions définies par récurrence]
-		Soit \( a\in \eN\). Par le théorème \ref{THOooEJPYooZFVnez}, il existe une unique application \( f_a\colon \eN\to \eN\) telle que
-		\begin{subequations}        \label{EQSooWVCTooNTVjKU}
-			\begin{numcases}{}
-				f_a(0)=0\\
-				f_a\big( s(b) \big)=f_a(b)+a
-			\end{numcases}
-		\end{subequations}
-		\spitem[Existence]
-		Nous considérons, pour chaque \( a\in \eN\) la fonction \( f_a\) définie par les conditions \eqref{EQSooWVCTooNTVjKU}. En posant \( f(a,b)=f_a(b)\), nous avons une application qui vérifie toutes les conditions.
-		\spitem[Unicité]
-		Soient des applications \( f\) et \( g\) vérifiant les propriétés demandées. Soit \( a\in \eN\). Nous pouvons définir \( f_a\colon \eN\to \eN\) et \( g_a\colon \eN\to \eN\) par \( f_a(n)=f(a,b)\) et \( g_a(b)=g(a,b)\).
-
-		Les applications \( f_a\) et \( g_a\) vérifient toutes deux les conditions \eqref{EQSooWVCTooNTVjKU}, et sont donc égales : \( f_a=g_a\) pour tout \( a\). Donc \( f=g\).
-	\end{subproof}
+	On utilise le corolaire \ref{CORooItereesOperation} avec \( X = \eN \), l'opération \( + \) et \( b = 0 \). Il existe une unique application \( \phi = \phi_0 \) telle que, pour tout \( a \in \eN \), \( \phi (a,0) = 0 \) et, pour tous \(a, n \in \eN \), \( \phi(a, s(n)) = a + \phi(a, n) \)
 \end{proof}
 
 \begin{normaltext}	\label{NORMooPrioriteOperations}
@@ -3289,86 +3251,113 @@ Nous donnons deux preuves de ce lemme.
 	La multiplication dans \( \eN \) possède les propriétés suivantes.
 	\begin{enumerate}
 		\item       \label{ITEMooHFWRooDCEpjj}
-		      \( n\times 1=n\) pour tout \( n\in \eN\).
-		\item       \label{ITEMooRSYMooSUrRsl}
-		      \( 1\times n=n\) pour tout \( n\in \eN\).
-		\item       \label{ITEMooWJPOooRUYjwQ}
-		      La multiplication est commutative.
+		    \( n\times 1=n\) pour tout \( n\in \eN\).
 		\item       \label{ITEMooNBYKooXnGRrf}
-		      \( 0\times n=0\) pour tout \( n\in \eN\)
-		\item      \label{ITEMooLJQBooVpUxUv}
-		      L'élément \( 1\) est neutre pour la multiplication.
+		    \( 0\times n=0\) pour tout \( n\in \eN\)
+		\item       \label{ITEMooRSYMooSUrRsl}
+		    \( 1\times n=n\) pour tout \( n\in \eN\).
+	  	\item       \label{ITEMooLJQBooVpUxUv}
+		    L'élément \( 1\) est neutre pour la multiplication.
 		\item       \label{ITEMooDYLIooETIBEL}
-		      La multiplication est distributive par rapport à l'addition.
+		    La multiplication est distributive (à gauche et à droite) par rapport à l'addition: pour tous \( a, b, c \in \eN \), on a
+			\begin{equation}
+				(a + b) \times c = a \times c + b \times c \qquad\text{et}\qquad c \times (a + b) = c \times a + c \times b.
+			\end{equation}
+		\item       \label{ITEMooWJPOooRUYjwQ}
+		    La multiplication est commutative.
 		\item       \label{ITEMooQBFSooWGDQYX}
-		      La multiplication est associative.
+		    La multiplication est associative.
 	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-	Point par point.
+	Point par point, avec beaucoup de récurrence\footnote{Nous les détaillerons très peu, mais nous invitons \randomGender{le lecteur}{la lectrice} à compléter et appeler correctement le théorème \ref{THOooEJPYooZFVnez}.}
 	\begin{subproof}
 		\spitem[Pour \ref{ITEMooHFWRooDCEpjj}]
-		Nous avons \( n\times 1=n\times s(0)=(n\times 0)+n=0+n=n\). Donc \( n\times 1=n\).
+		Nous avons \( n\times 1=n\times s(0)=n + (n\times 0) = n + 0 = n\). Donc \( n\times 1=n\).
+  		\spitem[Pour \ref{ITEMooNBYKooXnGRrf}]
+		C'est vrai pour \( n=0\) par la définition \ref{PROPooBBQPooRgPOjf}\ref{ITEMooNTUUooDAUVsV}. En ce qui concerne \( s(n)\), si \( 0 \times n = 0\), alors nous avons
+		\begin{equation}
+			0\times s(n) = 0+(0\times n) = 0+0 = 0.
+		\end{equation}
 		\spitem[Pour \ref{ITEMooRSYMooSUrRsl}]
 		Nous le faisons par récurrence. Par définition c'est vrai pour \( n=0\). En ce qui concerne la récurrence, nous supposons que \( 1\times n=n\), et nous prouvons que \( 1\times s(n)=s(n)\) :
 		\begin{equation}
-			1\times s(n)=(1\times n)+1=n+1=s(n).
+			1\times s(n) = 1+(1\times n) = 1 + n = n + 1 = s(n).
 		\end{equation}
-		\spitem[Pour \ref{ITEMooWJPOooRUYjwQ}]
-		Soit \( a\in \eN\). Nous prouvons par récurrence sur \( b\in \eN\) que \( a\times b=b\times a\). Pour \( b=0\) c'est bon. Pour la récurrence, nous supposons que \( a\times b=b\times a\) et nous prouvons que \( a\times s(b)=s(b)\times a\) :
-		\begin{subequations}
-			\begin{align}
-				a\times s(b) & =a\times b+a                                                   \\
-				             & =b\times a+a             & \text{récurrence}                   \\
-				             & =(b\times a)+(1\times a) & \text{par \ref{ITEMooRSYMooSUrRsl}} \\
-				             & =(b+1)\times a           & \text{distributivité}               \\
-				             & =s(b)\times a.
-			\end{align}
-		\end{subequations}
-		\spitem[Pour \ref{ITEMooNBYKooXnGRrf}]
-		C'est vrai pour \( n=0\) par la définition \ref{PROPooBBQPooRgPOjf}\ref{ITEMooNTUUooDAUVsV}. En ce qui concerne \( s(n)\), nous avons
-		\begin{equation}
-			0\times s(n)=(0\times n)+0=0.
-		\end{equation}
-		\spitem[Pour \ref{ITEMooLJQBooVpUxUv}]
+  		\spitem[Pour \ref{ITEMooLJQBooVpUxUv}]
 		C'est la combinaison de \ref{ITEMooHFWRooDCEpjj} et \ref{ITEMooRSYMooSUrRsl}.
 		\spitem[Pour \ref{ITEMooDYLIooETIBEL}]
 		Soient \( a,b\in \eN\). Nous prouvons par récurrence sur \( c\in \eN\) que\footnote{Nous n'écrivons pas toutes les parenthèses parce que les règles de priorité des opérations sont supposées connues. J'invite cependant \randomGender{le lecteur}{la lectrice} à remarquer qu'une formalisation de ces règles n'est probablement pas facile. Pour que tout soit rigoureux, il faudrait un algorithme qui parcourt une suite de caractères et l'interprète en ajoutant correctement les parenthèses.}
 		\begin{equation}
 			(a+b)\times c=a\times c+b\times c.
 		\end{equation}
-		Pour \( c=0\), nous avons \( (a+b)\times 0=0\) ainsi que \( a\times 0=b\times 0=0\) en vertu des points précédents sur la multiplication par zéro. Pour la récurrence nous utilisons associativité et commutativité de la somme :
+		Pour \( c=0\), nous avons \( (a+b)\times 0=0\) ainsi que \( a\times 0 + b\times 0=0\) par définition de la multiplication par zéro. Pour la récurrence nous utilisons associativité et commutativité de la somme :
+		\begin{align}
+			(a+b)\times s(c) & =(a+b) + (a+b)\times c              &\text{définition mult.}                \\
+			                 & =a + b + a\times c + b\times c      &\text{hyp. récurrence}                 \\
+			                 & =(a + a\times c)+(b + b\times c)    &\text{associativité add.}              \\
+			                 & =\big( a\times s(c) \big)+\big( b\times s(c) \big),
+		\end{align}
+  		ce dernier point étant justifié par la définition de la multiplication.
+	
+		Prouvons rapidement que \( c(a+b) = ca + cb \). Quand \( c = 0 \), les deux membres valent zéro à cause du point \ref{ITEMooNBYKooXnGRrf}. Cela fonctionne aussi pour \( c = 1 \) à cause du point \ref{ITEMooRSYMooSUrRsl}. Si l'égalité est vérifiée pour un certain \( c \in \eN \), alors
+  		\begin{align}
+			s(c) \times (a+b)& = (1+c) \times (a+b)                                         &\text{commutativité addition}                        \\
+			                 & = 1 \times (a+b) + c \times(a+b)                             &\text{distributivité précédente}                     \\
+			                 & = (a + b) + (c \times a + c \times b)                        &\text{point \ref{ITEMooRSYMooSUrRsl} et hyp. réc.}   \\
+			                 & = (a + c \times a) + (b + c \times b)                        &\text{comm. et assoc. additive}                      \\
+							 & =\big( 1 \times a + c \times a \big)+\big( 1 \times b + c \times b \big)                                           \\
+							 & =\big( (1 + c) \times a \big)+\big( (1 + c) \times b \big)   &\text{distributivité précédente}                     \\
+							 & = s(c) \times a + s(c) \times b                              &\text{commutativité addition}                        
+		\end{align}
+  
+  		\spitem[Pour \ref{ITEMooWJPOooRUYjwQ}]
+		Soit \( a\in \eN\). Nous prouvons par récurrence sur \( b\in \eN\) que \( a\times b=b\times a\). Pour \( b=0\) c'est bon, grâce à la définition et au point \ref{ITEMooNBYKooXnGRrf}. Pour la récurrence, nous supposons que \( a\times b=b\times a\) et nous prouvons que \( a\times s(b)=s(b)\times a\) :
 		\begin{subequations}
 			\begin{align}
-				(a+b)\times s(c) & =(a+b)\times c+(a+b)                                \\
-				                 & =a\times c+b\times c+a+b                            \\
-				                 & =(a\times c +a)+(b\times c+b)                       \\
-				                 & =\big( a\times s(c) \big)+\big( b\times s(c) \big).
+				a\times s(b) & = a + a\times b                                                                       \\
+				             & = a + b\times a             & \text{récurrence}                                       \\
+				             & =(1\times a) + (b\times a)  & \text{par \ref{ITEMooRSYMooSUrRsl}}                     \\
+				             & =(1 + b)\times a            & \text{distributivité -- point \ref{ITEMooDYLIooETIBEL}} \\
+				             & =s(b)\times a.              & \text{commutativité addition}                           \\
 			\end{align}
 		\end{subequations}
-		On devrait aussi prouver que \( c(a+b) = ca + cb \): c'est peu ou prou la même chose.
+
 		\spitem[Pour \ref{ITEMooQBFSooWGDQYX}]
-		Soient \( a,b\in \eN\). Nous démontrons par récurrence sur \( c\in \eN\) que \( (a\times b)\times c=a\times (b\times c)\). Pour \( c=0\) l'égalité est triviale. Nous supposons que l'égalité est correcte pour \( c\), et nous la prouvons pour \( s(c)\) :
+		Soient \( a,b\in \eN\). Nous démontrons par récurrence sur \( c\in \eN\) que \( (a\times b)\times c=a\times (b\times c)\). Pour \( c=0\), nous avons \( (a \times b ) \times 0 = 0 \), et \( a \times (b \times 0) = a \times 0 = 0\), donc c'est bon. Nous supposons que l'égalité est correcte pour un certain \( c \in \eN \), et nous la prouvons pour \( s(c)\) :
 		\begin{subequations}
 			\begin{align}
-				(a\times b)\times s(c) & =\big( (a\times b)\times c \big)+a\times b                                                                      \\
-				                       & =\big( a\times (b\times c) \big)+a\times b & \text{récurrence}                                                  \\
-				                       & =\big( (b\times c)\times a \big)+b\times a & \text{commutativité}                                               \\
-				                       & =(b\times c+b)\times a                     & \text{distributivité}                                              \\
-				                       & =\big( b\times s(c) \big)\times a          & \text{définition \ref{PROPooBBQPooRgPOjf}\ref{ITEMooPPZZooQQabwn}} \\
-				                       & =a\times \big( b\times s(c) \big)          & \text{commutativité}.
-			\end{align}
+				(a\times b)\times s(c) & = (a\times b)\times (c+1) \big)                                                                           \\
+				                       & = a\times b + \big( (a\times b)\times c \big)   & \text{distributivité -- point \ref{ITEMooDYLIooETIBEL}} \\
+				                       & = a \times b + \big( a\times (b\times c) \big)  & \text{récurrence}                                       \\
+				                       & = a \times (b + b \times c)                     & \text{distributivité avec \( b \) et \( b \times c \)}  \\
+				                       & = a \times (b \times 1 + b \times c)            & \text{point \ref{ITEMooHFWRooDCEpjj}}                   \\
+				                       & = a \times \big(b \times (1+c)\big)             & \text{distributivité}                                   \\
+						   			   & = a \times \big(b \times s(c)\big)				 & \text{commutativité addition}                           \\
 		\end{subequations}
+  		Récurrence terminée.
 	\end{subproof}
 \end{proof}
 
-\begin{lemma}[\cite{MonCerveau}]	\label{LEMooCompatMultiplicationOrdre}
-	La multiplication est compatible avec l'ordre :
+\begin{lemma}       \label{LEMooEHYEooLDudfn}
+	Si \( a\times b=0\), alors \( a=0\) ou \( b=0\) (ou les deux).
+\end{lemma}
+
+\begin{proof}
+	Si \( a = 0 \), c'est fini. Supposons que \( a\neq 0\); alors il existe \( c\in \eN\) tel que \( a=s(c)\), et nous avons
 	\begin{equation}
-		a\leq b\Rightarrow a\times n\leq b\times n
+		0 = a\times b = s(c)\times b = b + c\times b.
 	\end{equation}
-	pour tout \( n\in \eN\).
+	Le lemme \ref{LEMooQBHFooCuCusQ} nous dit alors que les deux termes sont nuls, en particulier \( b = 0 \).
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooCompatMultiplicationOrdre}
+	La multiplication est compatible avec l'ordre : si \(a, b, n\) sont trois entiers naturels, alors
+	\begin{equation}
+		a\leq b\Rightarrow a\times n\leq b\times n.
+	\end{equation}
+	De plus, Si \( a< b\) et si \( n\neq 0\), alors \( a\times n<b\times n \).
 \end{lemma}
 
 \begin{proof}
@@ -3377,37 +3366,12 @@ Nous donnons deux preuves de ce lemme.
 		b\times n=(a+c)\times n=a\times n+c\times n.
 	\end{equation}
 	Nous en déduisons que \( a\times n\leq b\times n\) parce que \( c\times n \in \eN\).
-\end{proof}
 
-\begin{lemma}       \label{LEMooEHYEooLDudfn}
-	Si \( a\times b=0\), alors \( a=0\) ou \( b=0\) (ou les deux).
-\end{lemma}
-
-\begin{proof}
-	Supposons que \( a\neq 0\). Alors il existe \( c\in \eN\) tel que \( a=s(c)\). Nous avons
-	\begin{equation}
-		0=a\times b=s(c)\times b=c\times b+b.
-	\end{equation}
-	Le lemme \ref{LEMooQBHFooCuCusQ} nous dit alors que \( c\times b=b=0\).
-\end{proof}
-
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooGUXGooBcKJdS}
-	Soit \(a, b, n\) trois entiers naturels. Si \( a< b\) et si \( n\neq 0\), alors
-	\begin{equation}
-		a\times n<b\times n.
-	\end{equation}
-\end{lemma}
-
-\begin{proof}
-	L'hypothèse \( a\leq b\) implique qu'il existe \( c\in \eN\) tel que \( a+c=b\). De plus \( c\neq 0\) parce que \( a\neq b\). En utilisant la distributivité\footnote{Proposition \ref{PROPooGHDOooFYRmon}\ref{ITEMooDYLIooETIBEL}.}, nous avons
-	\begin{equation}
-		b\times n=(a+c)\times n=(a\times n)+(c\times n).
-	\end{equation}
-	Cela prouve que \( a\times n\leq b\times n\). Et comme \( c\) et \( n\) ne sont pas nuls, nous avons même\footnote{Lemme \ref{LEMooEHYEooLDudfn}.} \( c\times n\neq 0\) et donc \( a\times n<b\times n\).
+ 	En outre, si \( c \neq 0 \) et \( n \neq 0 \), le lemme \ref{LEMooEHYEooLDudfn} implique \( c \times n \neq 0 \), et donc quand \( a < b \), on a \( a\times n<b\times n \).
 \end{proof}
 
 \begin{remark}	\label{REMooultiplicationNaturelsOrdreStrictZ}
-	Une version du lemme \ref{LEMooGUXGooBcKJdS} dans \( \eZ\) sera le lemme \ref{LEMooSVDDooWsyxNP}.
+	Une version du lemme \ref{LEMooCompatMultiplicationOrdre} dans \( \eZ\) sera le lemme \ref{LEMooSVDDooWsyxNP}.
 \end{remark}
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooSFUKooBNAple}
@@ -3418,14 +3382,13 @@ Nous donnons deux preuves de ce lemme.
 \end{lemma}
 
 \begin{proof}
-	Il s'agit d'une application du lemme \ref{LEMooGUXGooBcKJdS} en partant de l'inégalité \( 1<b\) et en la «multipliant» par \( a\).
+	Il s'agit d'une application du lemme \ref{LEMooCompatMultiplicationOrdre} en partant de l'inégalité \( 1<b\) et en la «multipliant» par \( a\).
 \end{proof}
 
 \begin{proposition}[\cite{MonCerveau}]		\label{PROPooNaturelsReguliersMultiplication}
-	Tous les naturels non nuls sont réguliers par rapport à la multiplication. Autrement dit, si \( a\neq 0\), alors nous avons
-	\begin{equation}
-		a\times x=a\times y\Rightarrow x=y.
-	\end{equation}
+	Tous les naturels non nuls sont réguliers\footnote{Élément régulier pour une opération, définition \ref{DEFooIJIEooZaAdSs}.} par rapport à la multiplication.
+ 
+ 	Autrement dit, si \( a, x, y \in \eN \), si \( a\neq 0\), et si \(a\times x = a\times y\), alors \( x = y \).
 \end{proposition}
 
 \begin{proof}
@@ -3435,12 +3398,40 @@ Nous donnons deux preuves de ce lemme.
 	\begin{equation}
 		a\times x=a\times y=a\times (x+d)=(a\times x)+(a\times d).
 	\end{equation}
-	Puisque \( (a\times x)\) est régulier pour la somme\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}.} nous en déduisons que
+	Puisque \( a\times x \) est régulier pour la somme\footnote{Proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}.} nous en déduisons que
 	\begin{equation}
 		0=a\times d.
 	\end{equation}
 	Le lemme \ref{LEMooEHYEooLDudfn} dit alors que \( a=0\) ou que \( d=0\). Étant donné que \( a\neq 0\) par hypothèse, nous déduisons que \( d=0\), c'est-à-dire que \( x=y\).
 \end{proof}
+
+\begin{propositionDef}[Puissances entières]	\label{PROPooDEFPuissanceEntiers}
+	Il existe une unique fonction \( \phi : \eN \times \eN \to \eN \) telle que:
+ 	\begin{enumerate}
+  		\item
+			pour tout \( a \in \eN\), \( \phi(a,0) = 1 \);
+   		\item
+	 		pour tous \( a, n \in \eN), \( \phi(a,s(n)) = a \times \phi(a,n) \).
+	\end{enumerate}
+Cette fonction est la \defe{fonction puissance}{puissance!entiers naturels} et nous notons \( \phi (a,b)=a^b\).
+\end{propositionDef}
+
+\begin{proof}
+	On utilise le corolaire \ref{CORooItereesOperation} avec \( X = \eN \), l'opération \( \times \) et \( b = 1 \). Il existe une unique application \( \phi = \phi_1 \) telle que, pour tout \( a \in \eN \), \( \phi (a,0) = 1 \) et, pour tous \(a, n \in \eN \), \( \phi(a, s(n)) = a \times \phi(a, n) \).
+\end{proof}
+
+\begin{remark}	\label{REMooProprietesPuissance}
+	Quelques remarques à propos de cette fonction puissance.
+ 	\begin{itemize}
+  		\item
+			On constate que l'égalité \( 0^0 = 1 \) n'est pas une simple convention, mais bien une conséquence de la proposition définissant la puissance: on a \( a^0 = 1 \) quel que soit \( a \).
+   		\item
+	 		On a aussi, pour tout \( a \in \eN \), \( a^1 = a \times a^0 = a \). Par récurrence, on démontre que \( 1^a = 1 \), d'abord parce que \( 1^0 = 1 \), ensuite parce que \( 1^s(a) = 1 \times 1^a = 1 \) à cause de la récurrence.
+		\item
+  			De cela, on déduit que la fonction puissance n'est pas commutative. Par exemple pour \( a = 2 = s(1) \), on a \( 1^2 = 1 \) tandis que \( 2^1 = 2 \); or \( 2 = s(1) \neq 1 \).
+	 \end{itemize}
+\end{remark}
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Presque unicité des triplets naturels}
@@ -3595,7 +3586,7 @@ Nous donnons deux preuves de ce lemme.
 		\item       \label{ITEMooIPDTooEhOxea}
 		      \( \sum_{i=0}^0\alpha(i)=\alpha(0)\),
 		\item	\label{ITEMooSommeNaturelsSucc}
-		      \( \sum_{i=0}^{k}\alpha(i)=\sum_{i=0}^{k-1}\alpha(i)+\alpha(k)\).
+		      \( \sum_{i=0}^{k+1}\alpha(i)=\sum_{i=0}^{k}\alpha(i)+\alpha(k+1)\).
 	\end{enumerate}
 \end{normaltext}
 
@@ -3608,11 +3599,11 @@ Nous donnons deux preuves de ce lemme.
 \end{proposition}
 
 \begin{proof}
-	Nous le faisons par récurrence en partant de \( n=1\). Avec \( n=1\) nous avons \( \sum_{i=1}^1a=a\), et \( a\times 1=a\). Donc c'est bon.
+	Nous le faisons par récurrence en partant de \( n=1\). Avec \( n=1\) nous avons \( \sum_{i=1}^1 a = a \), et \( a\times 1 = a\). Donc c'est bon.
 
 	Pour la récurrence nous avons :
 	\begin{equation}
-		a\times s(n)=a\times n+a=\sum_{i=1}^na+a=\sum_{i=1}^{n+1}a=\sum_{i=1}^{s(n)}a.
+		a\times s(n)=a + a\times n = a + \sum_{i=1}^n a = \sum_{i=1}^n a + a = \sum_{i=1}^{n+1} a = \sum_{i=1}^{s(n)}a.
 	\end{equation}
 \end{proof}
 
@@ -4028,12 +4019,20 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
   	\end{equation}
     est bien définie, et son image est \( \eZ = Z \setminus\{(-,0)\} \).
 	
- 	Les nombres \defe{entiers}{entier}, appelés aussi \defe{entiers relatifs}{entier!entier relatif}, sont les éléments de \( \eZ \).
+ 	Les nombres \defe{entiers}{entier}, appelés aussi \defe{entiers relatifs}{entier!entier relatif} \index{entiers relatifs}, sont les éléments de \( \eZ \).
 \end{propositionDef}
 
 \begin{proof}
 	Soit \( a, b \in \eN \). La proposition \ref{PROPooGCCRooFBYrlo} dit explicitement que soit \( a \leq b \) (auquel cas, \( b - a \) est bien défini, et on a \( r(a,b) = (+, b-a) \) ) , soit \( b \leq a \) (auquel cas, \( a - b \) est bien défini). Si \( b < a \), alors \( r(a,b) = (-, a-b) \), et \( a - b \neq 0 \). Si \( a = b \), on tire \( r(a,b) = (+, 0) \). L'élément \( (-,0) \) n'est ainsi jamais atteint.
 \end{proof}
+
+\begin{definition}	\label{DEFooEntiersRelatifsSigneDistance}
+	Soit \( a \in \eZ \). On a soit \( a = (+,k) \) ou \( a = (-, k) \) pour un certain \( k \in \eN \).
+
+ 	Le \defe{signe}{entiers relatifs!signe} de \( a \) est le symbole \( + \) ou \( - \) apparaissant en première composante. On dit que \( a \) est \defe{positif}{entiers relatifs!positifs} si le signe est \( + \), \defe{négatif}{entiers relatifs!négatifs} sinon.
+
+  	La \defe{distance à zéro}{entiers relatifs!distance à zéro} de \( a \) est le nombre \( k \) apparaissant en deuxième composante. C'est aussi la \defe{valeur absolue}{valeur absolue!entiers relatifs} de \( a \).
+\end{definition}
 
 \begin{normaltext}	\label{NORMooEntiersRelatifsEquivalence}
 	La fonction \( r \) nous permet d'obtenir une relation d'équivalence sur \( \eN \times \eN \) (qu'on notera dès à présent \( \eN^2 \) ). On \og copie \fg\ l'exemple \ref{EXooProjCanoniqueEquivAppl} %besoin de PROPooCONJooTpJwBe ?
@@ -4112,12 +4111,31 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \end{proposition}
 
 \begin{proof}
-	Il y a deux choses à prouver. Montrons d'abord que les ensembles donnés sont bien des classes d'équivalence pour \( \sim \). Fixons \( k \in \eN \). Pour tout \( n \in \eN \), on a \( r(n, k+n) = (+,k) \), et pour \( k \neq 0 \), \( r(k+n, n) = (-, k) \); en effet, le seul entier naturel \( x \) tel que \( n + x = n+k \) est \( x = k = (n+k) - n\). Par suite, en rappelant l'ensemble \( Z = \{ +; - \} \times \eN \), on a pour tout \( z \in  Z \), tous les éléments de l'ensemble \( E_z \) ont la même image par \( r \); à l'exception de \( z = (-, 0) \), cette image est \(z \); et comme \( E_{(-,0)} = E_{(+,0)} \), on a \( r(E_{(-,0)}) = \{(+,0)\} \).
+	Il y a deux choses à prouver. Montrons d'abord que les ensembles donnés sont bien des classes d'équivalence pour \( \sim \). Fixons \( k \in \eN \). Pour tout \( n \in \eN \), on a \( r(n, k+n) = (+,k) \), et pour \( k \neq 0 \), \( r(k+n, n) = (-, k) \); en effet, le seul entier naturel \( x \) tel que \( n + x = n+k \) est \( x = k = (n+k) - n\). Par suite, en rappelant l'ensemble \( Z = \{ +; - \} \times \eN \), on a:
+ 	\begin{itemize}
+  		\item
+			pour tout \( z \in  Z \), tous les éléments de l'ensemble \( E_z \) ont la même image par \( r \);
+   		\item
+	 		à l'exception de \( z = (-, 0) \), cette image est \(z \);
+		\item
+  			et comme \( E_{(-,0)} = E_{(+,0)} \), on a \( r(E_{(-,0)}) = \{(+,0)\} \).
+	 \end{itemize}
 
-  	Soit \( a, b \in \eN \); montrons que la classe d'équivalence dans laquelle est \( (a,b) \) est \( E_{r(a,b)} \). Quand \( a \leq b \), on a \( r(a,b) = (+,b-a) = r(0, b-a) \); en posant \( k = b - a \), et en se rappelant que, pour tout \( n \), on a \( (n + k) - n = k = b - a \) grâce à la proposition \ref{PROPooVXBBooZcghrA}\ref{ITEMooSoustractionNiii}, il s'ensuit que \( r(n, n+k) = r(a,b) \): ainsi, la classe d'équivalence de \( (a,b) \) est formée de tous les couples de la forme \( (n, n+(b-a) \) avec \( n \in \eN\), c'est bien \( E_{r(a,b)} \). Si \( a > b \), on a  \( r(a,b) = (-,a-b) = r(a-b, 0) = r(n+(a-b), n) \) pour tout \( n \), et donc la classe d'équivalence de \( (a,b) \) est aussi \( E_{r(a,b)} \).
+  	Montrons maintenant que l'on a bien toutes les classes d'équivalence. Soit \( a, b \in \eN \); montrons que la classe d'équivalence dans laquelle est \( (a,b) \) est \( E_{r(a,b)} \).
+   	\begin{subproof}
+		\spitem[Quand \( a \leq b \):]
+  			on a \( r(a,b) = (+,b-a) = r(0, b-a) \); en posant \( k = b - a \), et en se rappelant que, pour tout \( n \), on a \( (n + k) - n = k = b - a \) grâce à la proposition \ref{PROPooVXBBooZcghrA}\ref{ITEMooSoustractionNiii}, il s'ensuit que \( r(n, n+k) = r(a,b) \): ainsi, la classe d'équivalence de \( (a,b) \) est formée de tous les couples de la forme \( (n, n+(b-a) \) avec \( n \in \eN\), c'est bien \( E_{r(a,b)} \).
+	 	\spitem[Si \( a > b \):]
+   			on a  \( r(a,b) = (-,a-b) = r(a-b, 0) = r(n+(a-b), n) \) pour tout \( n \), et donc la classe d'équivalence de \( (a,b) \) est aussi \( E_{r(a,b)} \).
+	\end{subproof}
 \end{proof}
 
-\begin{normaltext}	\label{CORooIntroSommeRelatifs}
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Somme d'entiers relatifs}
+\label{SUBooEntiersRelatifsOpposes}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{normaltext}	\label{NORooIntroSommeRelatifs}
 	Le fait que \( \sim \) soit une relation d'équivalence compatible avec l'addition dans \( \eN \) permet de créer une opération sur \( \eZ \), que l'on verra être une extension de l'addition sur \( \eN \).
 
  	À partir de maintenant, nous ne noterons plus les éléments de \( \eZ \) sous la forme habituelle de couple, et omettrons la virgule séparatrice, voire les parenthèses si elles ne sont pas nécessaires.
@@ -4153,7 +4171,7 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \end{proof}
 
 \begin{remark}	\label{REMooAdditionEntiersRelatifs}
-	On pourrait penser que l'image de la fonction \( f \) précédente est une classe d'équivalence complète: cela n'est pas vrai en général. Prenons en effet les entiers relatifs \( (+1) \) et \( (-1) \). La fonction \( f \) est alors définie sur \( E_{(+1)} \times E_{(-1)} \), dont les éléments sont de la forme \( \big( (n, 1+n), (1+k, k)\big), avec \( n, k \in \eN \) (rappelons-nous de la proposition \ref{PROPooClassesEquivalenceRelatifs}). L'image d'un tel élement par \( f \) est le couple \( (1+n+k, n+1+k) \in E_{(+0)} \). Or, le couple \( (0,0) \) est dans \(E_{(+0)} \), mais n'est pas dans l'image de \( f \).
+	On pourrait penser que l'image de la fonction \( f \) précédente est une classe d'équivalence complète: cela n'est pas vrai en général. Prenons en effet les entiers relatifs \( (+1) \) et \( (-1) \). La fonction \( f \) est alors définie sur \( E_{(+1)} \times E_{(-1)} \), dont les éléments sont de la forme \( \big( (n, 1+n), (1+k, k)\big) \), avec \( n, k \in \eN \) (rappelons-nous de la proposition \ref{PROPooClassesEquivalenceRelatifs}). L'image d'un tel élement par \( f \) est le couple \( (1+n+k, n+1+k) \in E_{(+0)} \). Or, le couple \( (0,0) \) est dans \(E_{(+0)} \), mais n'est pas dans l'image de \( f \).
 \end{remark}
 
 \begin{corollary}	\label{CORooAdditionRelatifsRegleSignes}
@@ -4185,6 +4203,35 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 			On sait que \( (-m) = r(m,0) \) et que \( (+n) = r(0,n) \). Il vient \( (-m) + (+n) = r(m+0,0+n) = (-(m-n) )\), toujours par la proposition et par définition de \( r \).
     	\item
 			On sait que \( (+m) = r(0,m) \) et que \( (-n) = r(n,0) \). Il vient \( (+m) + (-n) = r(0+n, m+0) = (+(m-n) )\).
+  	\end{itemize}
+\end{proof}
+
+\begin{normaltext}	\label{NORooRelatifsMoinsZero}
+	Par définition, \( (-0) \) n'est a priori pas un entier relatif. En disant que \( (-0) = (+0) \), il devient entier relatif, le seul à être à la fois positif et négatif.
+\end{normaltext}
+
+\begin{corollary}	\label{CORooEntiersRelatifsRegleSignesSimple}
+	Soit \( a, b \in \eZ \).
+ 	\begin{enumerate}
+  		\item	\label{ITEMooEntiersRelatifsSommeMemeSigne}
+			Si \( a \) et \( b \) ont même signe, alors le signe de \( a+b \) est leur signe commun, et sa distance à zéro est la somme des distances à zéro de \( a \) et \( b \).
+   		\item	\label{ITEMooEntiersRelatifsSommeSignesContraires}
+	 		Si \( a \) et \( b \) ont des signes contraires, alors \( a+b \) a:
+			\begin{itemize}
+   				\item pour signe, celui de l'entier avec la plus grande distance à zéro;
+	   			\item pour distance à zéro, la différence des distances à zéro.
+	   		\end{itemize}
+	  \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+	Si \( a \) et \( b \) ont même signe, les formules \ref{SEQooAdditionRelatifsPP} et \ref{SEQooAdditionRelatifsMM} justifient le point \ref{ITEMooEntiersRelatifsSommeMemeSigne}. S'ils ont des signes contraires, à cause des autres formules du corolaire \ref{CORooAdditionRelatifsRegleSignes}, la distance à zéro de la somme est bien obtenue par la différence des distance à zéro. Reste à voir le signe\dots\ on distingue selon le signe et les valeurs:
+ 	\begin{itemize}
+  		\item \( a = +m \), \( b = -n \) avec \( m \geq n \) : c'est la formule \label{SEQooAdditionRelatifsPMP};
+  		\item \( a = +m \), \( b = -n \) avec \( m < n \) : c'est la formule \label{SEQooAdditionRelatifsPMM};
+  		\item \( a = -m \), \( b = +n \) avec \( m > n \) : c'est la formule \label{SEQooAdditionRelatifsMPP};
+  		\item \( a = -m \), \( b = +n \) avec \( m > n \) : c'est la formule \label{SEQooAdditionRelatifsMPM};
+  		\item \( a = -m \), \( b = +m \): la formule \label{SEQooAdditionRelatifsMPM} dit que \( a + b = (-0)\); mais nous avons réhabilité \( (-0) \) dans \( \eZ \) comme \( (-0) = (+0) \).
   	\end{itemize}
 \end{proof}
 
@@ -4223,14 +4270,18 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	\end{subproof}
 \end{proof}
 
+\begin{theoremDef}[Résolution d'équations additives dans \( \eZ \) ]	\label{THMooEquationsAdditivesEntiersRelatifs}
+	Soit \( a, b \in \eZ \). Il existe un unique \( x \in \eZ\) tel que \( a+x = b \). Cet entier est \( x = b + (-a) \), noté plus simplement \( x = b - a \), et c'est la \defe{différence}{différence!entiers relatifs} des entiers \( b \) et \( a \).
+\end{theoremDef}
+
+\begin{proof}
+	On a \( a+x = b \) si et seulement si \( (-a) + (a + x) = (-a) + b \); mais l'associativité de l'addition dans \( \eZ \) donne \( ((-a)+a) + x = x = (-a) + b  = b + (-a) \), par commutativité. 
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Ordre sur \( \eZ\)}
 \label{SUBooEntiersRelatifsOrdre}
 %---------------------------------------------------------------------------------------------------------------------------
-
-\begin{normaltext}	\label{NORMooNotationInclusionEntiers}
-	Si \( z\in \eZ\), nous disons que \( z\in \eN\) lorsque \( z\in \iota(\eN)\). C'est un abus de notation qu'il est difficile de ne pas faire. Le même abus sera fait pour passer de \( \eZ\) à \( \eQ\) puis \( \eR\) puis \( \eC\).
-\end{normaltext}
 
 % TODOooKCJMooIHGrZN donner une notion de positivité sur Z, et modifier la définition PROPooMYYDooOABOdB.
 % Fusionner 
@@ -4288,10 +4339,9 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
  	Il faut encore prouver que ça respecte l'ordre. Quand \( n < m \), il existe \( k \neq 0 \) tel que \( n + k = m \). Grâce au «morphisme» \( \iota \), on a \( \iota(m) = \iota(n) + \iota(k) \), soit \( \iota(k) = \iota(m) + (-\iota(n)) \); comme  \( \iota(k) > (+0) \), nous avons bien \( \iota(m) > \iota(n)\).
 \end{proof}
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Opposé}
-\label{SUBooEntiersRelatifsOpposes}
-%---------------------------------------------------------------------------------------------------------------------------
+\begin{normaltext}	\label{NORMooNotationInclusionEntiers}
+	Si \( z\in \eZ\), nous disons que \( z\in \eN\) lorsque \( z\in \iota(\eN)\), où \( \iota \) est l'application définie en proposition \ref{PROPooCHGRooRksGGO}. C'est un abus de notation qu'il est difficile de ne pas faire. Le même abus sera fait pour passer de \( \eZ\) à \( \eQ\) puis \( \eR\) puis \( \eC\).
+\end{normaltext}
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooORABooXRbVoz}
 	Soit \( G\), un sous-groupe de \( \eZ\) non réduit à \( \{ 0 \}\). Alors
