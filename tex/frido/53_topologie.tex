@@ -36,7 +36,7 @@ Deux espaces topologiques sont isomorphes quand il existe une bijection continue
 	Soit un espace topologique \( (X,\mT)\). Soit une partie \( \mB\) de \( \mT\). Les propriétés suivantes sont équivalentes :
 	\begin{enumerate}
 		\item\label{ITEMooCTPEooRCaxvx}
-		Tout élément de \( \mT\) est une réunion d'éléments de \( \mB\).
+		      Tout élément de \( \mT\) est une réunion d'éléments de \( \mB\).
 		\item       \label{ITEMooWOVWooRozYmM}
 		      Pour tout \( x\in X\) et pour tout ouvert \( \mO\) contenant \( x\), il existe \( B\in \mB\) tel que
 		      \begin{equation}
@@ -768,6 +768,7 @@ La définition suivante est \emph{la} définition de la continuité dans tous le
 
 \begin{lemma}       \label{LEMooYTLSooKhetml}
 	Soient deux espaces topologiques \( X\) et \( Y\) et une application \( f\colon X\to Y\). Soit une base de topologie \( \{ A_i \}_{i\in I}\) de \( Y\). Si \( f^{-1}(A_i) \) est ouvert dans \( X\) pour tout \( i\in I\) alors \( f\) est continue.
+	%TODOooTXEUooQOdSSE. Prouver ça.
 \end{lemma}
 \index{base de topologie et continuité}
 
@@ -1072,20 +1073,33 @@ La topologie quotient d'un espace topologique par une relation d'équivalence es
 \end{definition}
 
 
-\begin{propositionDef}[Produit d'espaces topologiques, thème~\ref{THEMEooYRIWooDXZnhX}]      \label{DefIINHooAAjTdY}
-	Soient \( \{ (X_i,\tau_i) \}_{i=1,\ldots, n}\) des espaces topologiques. Nous posons
-	\begin{equation}
-		X=\prod_{i=1}^nX_i
-	\end{equation}
-	et
+\begin{proposition}[Produit d'espaces topologiques, thème~\ref{THEMEooYRIWooDXZnhX}]      \label{DefIINHooAAjTdY}
+	Soient \( \{ (X_i,\tau_i) \}_{i=1,\ldots, n}\) des espaces topologiques. La topologie produit\footnote{Définition \ref{DEFooJHXKooQApPtQ}.} sur \( X=\prod_{i=1}^nX_i\) est donnée par
 	\begin{equation}		\label{EQooVECGooKLUkTy}
 		\mT=\{ \mO\subset X\tq \forall x\in U,\exists U_i\in\tau_i\tq x\in U_1\times\ldots\times U_n\subset \mO \}.
 	\end{equation}
-	Alors \( (X,\mT)\) est un espace topologique.
+\end{proposition}
 
-	Cette topologie est la \defe{topologie produit}{topologie produit}.
-	%TODOooNLHSooIQmMnD. Ceci doit être un cas particulier de DEFooJHXKooQApPtQ. C'est dans la liste.
-\end{propositionDef}
+\begin{proof}
+	Nous devons montrer que les\( p_i\) sont continues pour \( \mT\) et que toute topologie rendant les \( p_i\) continues doit contenir \( \mT\).
+	\begin{subproof}
+		\spitem[Les \( p_i\) sont continues pour \( \mT\)]
+		%-----------------------------------------------------------
+		Soit un ouvert \( \mO\) de \( \mT\). Nous devons montrer que \( p_i^{-1}(\mO)\in \tau_i\). Soit \( a\in p_i^{-1}(\mO)\). Soit \( x\in\mO\) tel que \( p_i(a)=x\). Il existe des ouverts \( U_j\in\tau_j\) tels que
+		\begin{equation}
+			x\in U_1\times \ldots\times U_n\subset\mO.
+		\end{equation}
+		Nous avons alors \( p_i^{-1}(U_1\times \ldots\times U_n)=U_i\). Et donc \( a\in U_i\subset p_i^{-1}(\mO)\).
+
+		\spitem[Si les \( p_i\) sont continues pour \( \mT_0\)]
+		%-----------------------------------------------------------
+		Soit une topologie \( \mT_0\) pour laquelle toutes les projections sont continue. Soient des ouverts \( U_i\in \tau_i\). Nous devons prouver que \( U_1\times\ldots\times U_n\in\mT_0\). Vu que \( p_i\) est continue et que \( U_i\) est un ouvert, nous devons avoir \( p_i^{-1}(U_i)\in \tau_0\). Et par stabilité d'une topologie pour les intersections,
+		\begin{equation}
+			\bigcap_{i=1}^np_i^{-1}(U_i)=U_1\times\ldots\times U_n
+		\end{equation}
+		doit encore être dans \( \mT_0\). Donc \( \mT\subset\mT_0\).
+	\end{subproof}
+\end{proof}
 
 
 Dans le cas d'espaces normés, nous verrons dans le lemme \ref{LEMooFQMSooLmdIvD} que la topologie produit est la même que celle obtenue par la norme produit.
@@ -1143,10 +1157,12 @@ Dans le cas d'espaces normés, nous verrons dans le lemme \ref{LEMooFQMSooLmdIvD
 
 \begin{proposition}     \label{PROPooDRPLooONCwYs}
 	Soit un espace topologique \( X\) muni d'une relation d'équivalence \( \sim\). Une partie \( \mO\in X/\sim\) est ouverte\footnote{La topologie est définie en \ref{DEFooHWSYooZZLXQU}.} si et seulement si \( p^{-1}(\mO)\) est ouverte dans \( X\).
+	%TODOooCDNLooBcuXWR. Prouver ça.
 \end{proposition}
 
 \begin{proposition}[\cite{BIBooMMVIooAxChJL}]       \label{PROPooYKLBooQuqnfA}
 	Soient des espaces topologiques \( X\) et \( Y\) ainsi qu'une relation d'équivalence \( \sim\) sur \( X\). Soit la projection canonique \( p\colon X\to X/\sim\). Une application \( f\colon X/\sim\to Y\) est continue si et seulement si l'application composée \( f\circ p\colon X\to Y\) est continue.
+	%TODOooSTOHooHjDCRJ. Prouver ça.
 \end{proposition}
 
 \begin{definition}[Passage d'une application aux classes]       \label{DEFooBXGJooOBQaNw}
@@ -1175,7 +1191,7 @@ Dans le cas d'espaces normés, nous verrons dans le lemme \ref{LEMooFQMSooLmdIvD
 	qui est ouvert parce que \( f\) est continue.
 \end{proof}
 
-\begin{lemma}[\cite{BIBooLLBJooKbBmEN}]
+\begin{lemma}[\cite{BIBooLLBJooKbBmEN}]	\label{LEMooIGLQooIMSWYg}
 	Soient deux espaces topologiques \( X\) et \( Y\) ainsi qu'une relation d'équivalence \( \sim\) sur \( X\). Nous considérons une application continue \( g\colon X/\sim\to Y\). Alors
 	\begin{enumerate}
 		\item
@@ -1853,10 +1869,6 @@ Cette union contient en général de nombreuses redondances. Si par exemple \( E
 	La définition \ref{DefJJVsEqs} en cache deux. En effet, si la partie \( A\) est l'espace topologique lui-même, cela définit un espace topologique compact. Un espace topologique est compact \emph{en soi} lorsque de tout recouvrement par des ouverts, nous pouvons extraire un sous-recouvrement fini. Dans ce cas, si \( X\) est l'espace et si \( \{ A_i \}_{i\in I}\) est le recouvrement, nous avons \( X=\bigcup_{i\in I}A_i\) et non une simple inclusion \( X\subset \bigcup_{i\in I}A_i\).
 \end{normaltext}
 
-\begin{lemma}       \label{LEMooNNHYooITNbyz}
-	Si \( a,b\in \eR\), alors la partie \( \mathopen[ a , b \mathclose]\) est compacte\footnote{Définition \ref{DefJJVsEqs}.} dans \( \eR\).
-\end{lemma}
-
 \begin{lemma}       \label{LEMooVYTRooKTIYdn}
 	Si \( K\) est une partie compacte de l'espace topologique \( X\), alors \( K\) est un espace topologique compact pour la topologie induite\footnote{Définition \ref{DefVLrgWDB}.} de \( X\).
 \end{lemma}
@@ -1905,8 +1917,10 @@ Cette union contient en général de nombreuses redondances. Si par exemple \( E
 	Nous disons qu'un espace topologique est \defe{séquentiellement compact}{compact!séquentiellement} si toute suite admet une sous-suite convergente.
 \end{definition}
 
-\begin{definition}      \label{DefFCGBooLpnSAK}
-	Un espace topologique est \defe{dénombrable à l'infini}{dénombrable!à l'infini} si il est réunion dénombrable de compacts.
+\begin{definition}[\cite{BIBooYNXFooXgzmvu}]	\label{DEFooSOLWooWlSiUn}
+	Un espace topologique est \defe{\( \sigma\)-compact}{\( \sigma\)-compact} si il est union dénombrable de sous-espaces compacts.
+
+	On dit aussi \defe{dénombrable à l'infini}{dénombrable à l'infini}.
 \end{definition}
 
 \begin{definition}
@@ -1917,13 +1931,13 @@ Cette union contient en général de nombreuses redondances. Si par exemple \( E
 	Soient \( X\) un espace topologique et \( K\subset X\). Les propriétés suivantes sont équivalentes :
 	\begin{enumerate}
 		\item\label{ItemXYmGHFai}
-		\( K\) est compact.
+		      \( K\) est compact.
 		\item\label{ItemXYmGHFaii}
-		Si \( \{ F_i \}_{i\in I}\) est une famille de fermés telle que \( \bigcap_{i\in I}F_i \cap K =\emptyset\), alors il existe une partie finie non vide \( A\) de \( I\) tel que \( \bigcap_{i\in A}F_i \cap K =\emptyset\).
+		      Si \( \{ F_i \}_{i\in I}\) est une famille de fermés telle que \( \bigcap_{i\in I}F_i \cap K =\emptyset\), alors il existe une partie finie non vide \( A\) de \( I\) tel que \( \bigcap_{i\in A}F_i \cap K =\emptyset\).
 		\item\label{ItemXYmGHFaiii}
-		Si \( \{ F_i \}_{i\in I}\) est une famille de fermés telle que pour tout choix de \( A\) fini dans \( I\) nous ayons \( \bigcap_{i\in A}F_i \cap K \neq\emptyset\), alors l'intersection complète est non vide : \( \bigcap_{i\in I}F_i \cap K\neq\emptyset\).
+		      Si \( \{ F_i \}_{i\in I}\) est une famille de fermés telle que pour tout choix de \( A\) fini dans \( I\) nous ayons \( \bigcap_{i\in A}F_i \cap K \neq\emptyset\), alors l'intersection complète est non vide : \( \bigcap_{i\in I}F_i \cap K\neq\emptyset\).
 		\item\label{ItemXYmGHFaiv}
-		Toute famille de fermés de \( X \), à laquelle \( K \) est joint, et qui a la propriété d'intersection finie non vide, a une intersection non vide.
+		      Toute famille de fermés de \( X \), à laquelle \( K \) est joint, et qui a la propriété d'intersection finie non vide, a une intersection non vide.
 	\end{enumerate}
 \end{proposition}
 

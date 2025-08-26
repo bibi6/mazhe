@@ -96,17 +96,88 @@
 \section{Action de groupe et connexité}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{theorem}     \label{ThojrLKZk}
-	Soit \( G\) un groupe topologique localement compact et dénombrable à l'infini\footnote{Cela signifie qu'il est une réunion dénombrable de compacts} agissant continûment et transitivement sur un espace topologique localement compact\footnote{Définition~\ref{DefEIBYooAWoESf}.} \( E\). Soit \( x\in E\). Alors l'application
+\begin{definition}[\cite{BIBooXGHGooNQUvHR}]	\label{DEFooFRFGooPkzoyV}
+	Si \(\phi \colon G\times X\to X  \) est une action du groupe\footnote{Définition \ref{DefActionGroupe}.} topologique \( G\) sur l'espace topologique \( X\), nous disons que \( G\) \defe{agit continument}{action continue} sur \( X\) lorsque \( \phi\) est une application continue pour la topologie produit\footnote{Définition \ref{DEFooJHXKooQApPtQ}.} sur \( G\times E\).
+\end{definition}
+
+
+\begin{proposition}[\cite{BIBooXGHGooNQUvHR}]	\label{PROPooVWHJooXaMvTj}
+	Soit un groupe \( G\) agissant sur l'ensemble \( E\). Pour chaque \( x\in E\) nous considérons l'application
 	\begin{equation}
 		\begin{aligned}
-			\varphi\colon G/\Stab(x) & \to E            \\
-			[g]                      & \mapsto g\cdot x
+			\phi_x\colon G & \to \Orb(x)       \\
+			g              & \mapsto g\cdot x.
 		\end{aligned}
 	\end{equation}
-	où \( \Stab(x)\) est le stabilisateur\footnote{Définition \ref{DEFooMDYGooLrOERP}.} de \( x\) est un homéomorphisme.
-	%TODOooIJGAooObcQjK. prouver ça.
+	Alors il existe une unique application \( \tilde \phi_x \colon G/\Stab(x)\to \Orb(x) \) telle que
+	\begin{equation}
+		\phi_x=\tilde \phi_x\circ\pi.
+	\end{equation}
+	Cette application \( \tilde \phi_x\) est une bijection et
+	\begin{equation}		\label{EQooIOGMooEjMaCP}
+		\tilde \phi_x^{-1}=\pi\circ\phi_x^{-1}.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Existence et unicité]
+		%-----------------------------------------------------------
+		Nous montrons que si \( g\sim h\) alors \( \phi_x(g)=\phi_x(h)\). La proposition \ref{PROPooCONJooTpJwBe} donnera l'existence et l'unicité. Soient \( g,h\in G\). La condition \( g\sim h\) signifie qu'il existe \( z\in\Stab(x)\) tel que \( g=hz\) (c'est la définition du quotient \( G/\Stab(x)\)). Nous avons alors
+		\begin{equation}
+			\phi_x(g)=\phi_x(hz)=(hz)\cdot x=h\cdot(z\cdot x)=h\cdot h=\phi_x(h).
+		\end{equation}
+		Cela montre l'existence et l'unicité.
+
+		\spitem[Surjective]
+		%-----------------------------------------------------------
+		Soit \( y\in \Orb(x)\). Il existe \( g\in G\) tel que \( y=g\cdot x\). Nous avons alors
+		\begin{equation}
+			y=\phi_x(g)=\tilde \phi_x([g]).
+		\end{equation}
+
+		\spitem[Injective]
+		%-----------------------------------------------------------
+		Soient \( g,h\in G\) tels que \( \tilde \phi_x([g])=\tilde \phi_x([h])\). Nous avons donc \( \phi_x(g)=\phi_x(h)\) et donc \( g\cdot x=h\cdot x\). En agissant avec \( g^{-1}\) des deux côtés nous trouvons
+		\begin{equation}
+			x=(g^{-1}h)\cdot x.
+		\end{equation}
+		Autrement dit \( g^{-1}h\in \Stab(x)\). Nous avons \(h=g(g^{-1} h)\in g\Stab(x)\). Donc \( h\sim g\).
+
+		\spitem[Inverse]
+		%-----------------------------------------------------------
+		Il nous reste à prouver la formule \eqref{EQooIOGMooEjMaCP}. Soit \( y\in\Orb(x)\). Nous avons
+		\begin{equation}
+			\phi_x^{-1}(y)=\{ g\in G\tq g\cdot x=y \},
+		\end{equation}
+		et donc
+		\begin{subequations}
+			\begin{align}
+				(\pi\circ\phi_x^{-1})(y) & =\{ [g]\in G/\Stab(x)\tq g\cdot x=y \}                \\
+				                         & =\{ [g]\in G/\Stab(x)\tq  \tilde \phi_x([g])  =y \}   \\
+				                         & =\{ \alpha\in G/\Stab(x)\tq\tilde \phi_x(\alpha)=y \} \\
+				                         & =\tilde \phi_x^{-1}(y).
+			\end{align}
+		\end{subequations}
+	\end{subproof}
+\end{proof}
+
+
+\begin{theorem}[\cite{BIBooXGHGooNQUvHR}]     \label{ThojrLKZk}
+	Si \( G\) est un groupe topologique compact agissant continûment\footnote{Définitions \ref{DefActionGroupe} et \ref{DEFooFRFGooPkzoyV}.} sur l'espace topologique \( X\), alors pour tout \( x\in X\), l'application
+	\begin{equation}
+		\begin{aligned}
+			\tilde \phi_x\colon G/\Stab(x) & \to E            \\
+			[g]                            & \mapsto g\cdot x
+		\end{aligned}
+	\end{equation}
+	définie en \ref{PROPooVWHJooXaMvTj} est un homéomorphisme\footnote{Isomorphisme d'espaces topologiques, définition \ref{DEFooYPGQooMAObTO}.}.
 \end{theorem}
+
+\begin{proof}
+	Rappelez-vous la formule \eqref{EQooIOGMooEjMaCP} : \( \tilde \phi_x^{-1}=\pi\circ\phi^{-1}_x\). Soit un ouvert \( S\) de \( \Orb(x)\). Vu que \(  \phi_x\) est continue, la partie \( \phi_x^{-1}(S)\) est ouverte, et par définition de la topologie quotient \( \pi\big( \phi_x^{-1}(S) \big)\) est alors ouvert. Au final \( \tilde \phi_x^{-1}(S)=(\pi\circ\phi_x^{-1})(S)\) est ouverte.
+\end{proof}
 
 \begin{lemma}       \label{LemkLRAet}
 	Si \( G\) et \( H\) sont des groupes topologiques tels que \( G/H\) et \( H\) sont connexes\footnote{Définition~\ref{DefIRKNooJJlmiD}.}, alors \( G\) est connexe.
