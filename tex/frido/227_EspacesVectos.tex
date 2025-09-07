@@ -135,6 +135,110 @@ Dans la suite nous nommerons \( Q^{-1}\) la matrice inverse de \( Q\). Inverse a
 \end{proof}
 Il s'agit bien d'une égalité de matrices ou, à la limite, d'applications linéaires sur \( \eK^n\), et non d'une égalité d'application linéaire sur \( E\).
 
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Déterminant de Vandermonde}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{fJhCTE}]  \label{PropnuUvtj}
+	Le \defe{déterminant de Vandermonde}{déterminant!Vandermonde}\index{Vandermonde (déterminant)} est le polynôme en \( n\) variables donné par
+	\begin{equation}
+		V(T_1,\ldots, T_n)=\det\begin{pmatrix}
+			1         & 1         & \ldots & 1         \\
+			T_1       & T_2       & \ldots & T_n       \\
+			\vdots    & \ddots    & \ddots & \vdots    \\
+			T_1^{n-1} & T_2^{n-1} & \ldots & T_n^{n-1}
+		\end{pmatrix}=\prod_{1\leq i<j\leq n}(T_j-T_i).
+	\end{equation}
+	Notez que l'inégalité du milieu est stricte (sinon d'ailleurs l'expression serait nulle).
+\end{proposition}
+
+\begin{proof}
+	Nous considérons le polynôme
+	\begin{equation}
+		f(X)=V(T_1,\ldots, T_{n-1},X)\in \big( \eK[T_1,\ldots, T_{n-1}] \big)[X].
+	\end{equation}
+	C'est un polynôme de degré au plus \( n-1\) en \( X\) et il s'annule aux points \( T_1,\ldots, T_{n-1}\). Par conséquent\footnote{Proposition \ref{PropHSQooASRbeA}.} nous pouvons factoriser les \( X-T_i\), c'est-à-dire qu'il existe \( \alpha\in \eK[T_1,\ldots, T_{n-1}]\) tel que
+	\begin{equation}    \label{EqeVxRwO}
+		f=\alpha\prod_{i=1}^{n-1}(X-T_i).
+	\end{equation}
+	Nous trouvons \( \alpha\) en écrivant \( f(0)\). D'une part la formule \eqref{EqeVxRwO} nous donne
+	\begin{equation}    \label{EqblwWMj}
+		f(0)=\alpha(-1)^{n-1}T_1\ldots T_{n-1}.
+	\end{equation}
+	D'autre part la définition donne
+	\begin{subequations}
+		\begin{align}
+			f(0) & =\det\begin{pmatrix}
+				            1         & \cdots & 1             & 1      \\
+				            T_1       &        & T_{n-1}       & 0      \\
+				            \vdots    &        & \vdots        & \vdots \\
+				            T_1^{n-1} & \cdots & T_{n-1}^{n-1} & 0
+			            \end{pmatrix}                   \\
+			     & =(-1)^{n-1}\det\begin{pmatrix}
+				                      T_1       & \ldots & T_{n-1}       \\
+				                      \vdots    & \ddots & \vdots        \\
+				                      T_1^{n-1} & \ldots & T_{n-1}^{n-1}
+			                      \end{pmatrix}                  \\
+			     & =(-1)^{n-1}T_1\ldots T_{n-1}\det\begin{pmatrix}
+				                                       1         & \cdots & 1             \\
+				                                       \vdots    & \ddots & \vdots        \\
+				                                       T_1^{n-1} & \cdots & T_{n-1}^{n-1}
+			                                       \end{pmatrix} \\
+			     & =(-1)^{n-1}T_1\ldots T_{n-1}V(T_1,\ldots, T_{n-1})
+		\end{align}
+	\end{subequations}
+	En égalisant avec \eqref{EqblwWMj}, nous trouvons \( \alpha=V(T_1,\ldots, T_{n-1})\), et donc
+	\begin{equation}
+		f=V(T_1,\ldots, T_{n-1})\prod_{j\leq n-1}(X-T_j)
+	\end{equation}
+	Enfin, une récurrence montre que
+	\begin{subequations}
+		\begin{align}
+			V(T_1,\ldots, T_n) & =f(T_n)                                           \\
+			                   & =V(T_1,\ldots, T_{n-1})\prod_{j\leq n-1}(T_n-T_j) \\
+			                   & =\prod_{k\leq n}\prod_{j\leq k-1}(T_k-T_j)        \\
+			                   & =\prod_{1\leq j<k\leq n}(T_i-T_j).
+		\end{align}
+	\end{subequations}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooNVXIooXJKplZ}
+	Soient des \( a_i\in \eR\) tels que
+	\begin{equation}
+		f(x)=\sum_{k=0}^na_kx^k
+	\end{equation}
+	ait \( n+1\) racines distinctes dans \( \eR\). Alors
+	\begin{enumerate}
+		\item
+		      \( f=0\)
+		\item
+		      \( a_k=0\) pour tout \( k\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Nous nommons \( (r_i)_{i=1,\ldots,n+1}\) les racines de \( f\). L'équation \( f(x)=0\) s'écrit
+	\begin{equation}
+		(1,x,\ldots,x^n)\cdot(a_0,\ldots,a_n)=0.
+	\end{equation}
+	Le système \( f(r_i)=0\) (vu comme système d'équation pour les \( a_i\)) pour tout \( i\) s'écrit
+	\begin{equation}
+		\begin{pmatrix}
+			1      & r_1    & \ldots & r_1^n  \\
+			1      & r_2    & \ldots & r_2^n  \\
+			\vdots & \vdots &        & \vdots \\
+			1      & r_n    & \ldots & r_n^n
+		\end{pmatrix}
+		\begin{pmatrix}
+			a_0    \\
+			\vdots \\
+			a_n
+		\end{pmatrix}=0.
+	\end{equation}
+	La proposition \ref{PropnuUvtj} nous dit que le déterminant de ce système est non nul. Donc il existe une solution unique. Cette unique solution est manifestement \( (a_0,\ldots,a_n)=(0,\ldots,0)\).
+\end{proof}
+
+
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Espaces de polynômes}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -148,8 +252,16 @@ Pour chaque \( k>0\) donné, nous définissons
 \end{equation}
 Il est facile de se convaincre que la somme de deux polynômes de degré inférieur ou égal à \( k\) est encore un polynôme de degré inférieur ou égal à \( k\). En outre il est clair que la multiplication par un scalaire ne peut pas augmenter le degré d'un polynôme. L'ensemble \( \mathcal{P}_\eR^k\) est donc un espace vectoriel muni des opérations héritées de \( \mathcal{P}_{\eR}\).
 
-La base canonique de l'espace \( \mathcal{P}_\eR^k\) est donnée par les monômes \( \mathcal{B}=\{x\mapsto x^j \,|\, j=0, \ldots, k\}\). Le fait que cela soit une base est vraiment facile à démontrer, et est un exercice très utile si vous ne l'avez pas encore vu dans un cours précédent.
-%TODOooAJWIooAfLBIo Prouver que c'est une base, en faire un lemme.
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooWOMFooLpTKgG}
+	Les polynômes \( x\mapsto x^k\) avec \( k=0,\ldots,n\) forment une base de \( \mP_{\eR}^k\).
+\end{proposition}
+
+\begin{proof}
+	Si nous notons \( e_i(x)=x^i\), et si \( P\) est un polynôme, alors il existe des \( a_i\) tels que \( P(x)=\sum_{i=0}^na_ix^i\). Dans ce cas, \( P=\sum_ia_ie_i\). Cela prouver que \( \{ e_i \}_{i=0,\ldots,n}\) est générateur.
+
+	Pour montrer que c'est libre, nous supposons que \( \sum_{i=0}^na_ie_i=0\). En particulier le polynôme \( P(x)=\sum_ia_ix^i\) a plein de racines distinctes et la proposition \ref{PROPooNVXIooXJKplZ} implique que \( a_i=0\) pour tout \( i\).
+\end{proof}
+
 
 Nous allons maintenant étudier trois applications linéaires de \( \mathcal{P}_\eR^k\) vers d'autres espaces vectoriels.
 \begin{description}
@@ -267,7 +379,7 @@ L'espace de tous les polynômes étant de dimension infinie, il peut servir de c
 		      Une \defe{forme linéaire}{forme linéaire} sur \( E \) est une application linéaire de \( E \) sur son corps de base \( \eK\).
 		\item
 		      Le \defe{dual algébrique}{dual algébrique} de \( E\), noté \( E^*\), est l'ensemble des formes linéaires sur \( E\). Autrement dit : \( E^* = \aL(E,\eK)\).
-	\end{enumerate}<++>
+	\end{enumerate}
 \end{definition}
 Nous verrons les formes multilinéaires en la définition \ref{DefFRHooKnPCT}.
 
