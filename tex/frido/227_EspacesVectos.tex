@@ -400,6 +400,28 @@ Nous verrons plus tard qu'en dimension infinie, les applications linéaires ne s
 		\dim(E)=\dim(E^*).
 	\end{equation}
 \end{lemmaDef}
+
+\begin{proof}
+	Notons pour commencer que \( b_i^*\big( \sum_ix_ib_i \big)=x_i\).
+	\begin{subproof}
+		\spitem[Générateur]
+		%-----------------------------------------------------------
+		Soit \( \varphi\in E^*\). Nous avons
+		\begin{equation}
+			\varphi(x)=\sum_ix_i\varphi(b_i)=\sum_i\varphi(b_i)b^*_i(x),
+		\end{equation}
+		ce qui signifie que \( \varphi=\sum_i\varphi(b_i)b^*_i\).
+
+		\spitem[Libre]
+		%-----------------------------------------------------------
+		Si \( \sum_ia_ib^*_i=0\), alors en particulier en appliquant à \( b_k\) nous avons
+		\begin{equation}
+			0=\big( \sum_ia_ib^*_i \big)(b_k)=\sum_ia_i\delta_{ik}=a_k.
+		\end{equation}
+		Donc tous les coefficients sont nuls et \( \{ b_i^* \}_{i=1,\ldots,n}\) est libre.
+	\end{subproof}
+\end{proof}
+
 Notons que si \( v\in E\) est un vecteur, ça n'a aucun sens à priori de parler de \( v^*\). Il s'agit bien de définir \emph{toute} la base \( \{ e_i^* \}\) à partir de toute la base \( \{ e_i \}\).
 
 \begin{lemma}[Changement de base duale\cite{MonCerveau}]		\label{LEMooSVRIooFbxfue}
@@ -523,6 +545,26 @@ Notons que si \( v\in E\) est un vecteur, ça n'a aucun sens à priori de parler
 		Nous appliquons \( \Phi^{-1}\) à cette dernière équation pour obtenir \( e_j=\Phi^{-1}(\epsilon_j)\). Donc les \( e_j\) sont déterminés de façon unique à partir des \( \alpha_i\).
 	\end{subproof}
 \end{proof}
+
+Si \( u\) et \( v\) sont des vecteurs de \( \eK^n\), alors nous notons \( uv^*\) l'application linéaire
+\begin{equation}
+	\begin{aligned}
+		uv^*\colon \eK^n & \to \eK^n        \\
+		x                & \mapsto uv^*(x).
+	\end{aligned}
+\end{equation}
+
+\begin{lemma}[Lemme des déterminants\cite{BIBooEWYNooTcCLSQ}]	\label{LEMooJVDHooONXNAh}
+	Soit une application linéaire \( A\in\End(\eK^n)\) ainsi que \( u,v\in \eK^n\). Nous avons
+	\begin{enumerate}
+		\item
+		      \( \det(A+uv^*)=(1+v\cdot Au)\det(A)\)
+		\item		\label{ITEMooGJOZooVLfZcX}
+		      \( \det(\mtu+af)=1+f(a)\).
+	\end{enumerate}
+	%TODOooBWATooAnEenD. Prouver ça.
+\end{lemma}
+
 
 %-------------------------------------------------------
 \subsection{Changement de base duale}

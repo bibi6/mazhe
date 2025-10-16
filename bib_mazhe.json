@@ -12,6 +12,78 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooWLIQooWDfTpI",
+    "url": "https://licence-math.univ-lyon1.fr/lib/exe/fetch.php?media=pmi:prepahermit.pdf",
+    "title": "1. Formes hermitiennes",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "9 octobre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooLDIPooRKBZxS",
+    "url": "https://www.maths91.fr/coursTermSPE_MATHS/TSpeMaths-probabilites-02-loi_binomiale-cours.pdf",
+    "title": "Loi binomiale",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "29 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIooGNKFooTYlRlt",
+    "url": "https://linuxfr.org/nodes/140246/comments/2001196",
+    "title": "Re: Le cas particulier ChatGPT",
+    "author": [
+      {
+        "family": "Jeanas"
+      }
+    ],
+    "date": "28 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMPEKooHWaUAJ",
+    "url": "https://math.stackexchange.com/a/5097932/294061",
+    "title": "Every non-empty Dedekind-finite totally ordered set has a maximum (using Zorn's lemma and without using natural numbers)",
+    "author": [
+      {
+        "family": "Jean Abou Sama"
+      }
+    ],
+    "date": "25 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMVOHooZFuWSW",
+    "url": "https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_central_limite",
+    "title": "Théorème central limite",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "14 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooEWYNooTcCLSQ",
+    "url": "https://en.wikipedia.org/wiki/Matrix_determinant_lemma",
+    "title": "Matrix determinant lemma",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "7 septembre 2025",
+    "type": "article-journal"
+  },
+  {
     "id": "BIBooLIHCooVSqNUv",
     "url": "https://agreg.org/data/uploads/rapports/rapport2013.pdf",
     "title": "Rapport 2013",
@@ -446,7 +518,7 @@
         "family": "Victor Lecerf"
       }
     ],
-    "date": "27 avrail 2025",
+    "date": "27 avril 2025",
     "type": "article-journal"
   },
   {
@@ -896,7 +968,7 @@
   {
     "id": "BIBooCSDMooMcXgXz",
     "url": "https://perso.univ-rennes1.fr/francois.maucourant/enseignement/cours_AR4_2.pdf",
-    "title": "COURS ET DM AR4 : GROUPE SYM´ETRIQUE II, ACTION DE GROUPE",
+    "title": "COURS ET DM AR4 : GROUPE SYMÉTRIQUE II, ACTION DE GROUPE",
     "author": [
       {
         "family": "FRANÇOIS MAUCOURANT"
@@ -1023,18 +1095,6 @@
       }
     ],
     "date": "29 novembre 2024",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooKDKPooJvKENj",
-    "url": "https://math.stackexchange.com/questions/1067067/partial-converse-of-holders-theorem",
-    "title": "<++>",
-    "author": [
-      {
-        "family": ""
-      }
-    ],
-    "date": "<++>",
     "type": "article-journal"
   },
   {
