@@ -16,7 +16,9 @@ Voir la définition \ref{DEFooYWOBooUGJojy} des applications multilinéaires.
 
 	Cela définit une norme.
 	%TODOooKIUOooUCrggs. Prouver ça.
+	% À mon avis c'est un duplicat de DEFooTAUWooNDJJEO.
 \end{lemmaDef}
+Voir aussi \ref{DEFooTAUWooNDJJEO}.
 
 
 \begin{proposition} \label{PropUADlSMg}
@@ -299,7 +301,12 @@ Dans le même ordre d'idée nous avons la convergence des queues de suites.
 	\begin{equation}
 		\lim_{n\to \infty} \| x_{\tau(n)}-x \|=0.
 	\end{equation}
-	La notion de convergence commutative est surtout intéressante pour les séries. La somme
+\end{definition}
+
+La notion de convergence commutative est surtout intéressante pour les séries.
+
+\begin{definition}\label{DEFooYMOHooMKzTSJ}
+	La somme
 	\begin{equation}
 		\sum_{k=0}^{\infty}x_k
 	\end{equation}
@@ -307,10 +314,12 @@ Dans le même ordre d'idée nous avons la convergence des queues de suites.
 	\begin{equation}
 		\lim_{N\to \infty} \| x-\sum_{k=0}^Nx_{\tau(k)} \|=0.
 	\end{equation}
+
+	Dans ce cas nous disons que la suite \( (x_k)_{k\in \eN}\) est \defe{commutativement sommable}{commutativement sommable}.
 \end{definition}
 
-\begin{proposition} \label{PopriXWvIY}
-	Soit \( (a_i)_{i\in \eN}\) une suite absolument convergente\footnote{Définition \ref{DefVFUIXwU}.} dans \( \eC\). Alors elle converge commutativement.
+\begin{proposition} 	\label{PROPooOGOEooBkZoEJ}
+	Soit \( (a_i)_{i\in \eN}\) une suite absolument sommable\footnote{Définition \ref{DefVFUIXwU}.} dans \( \eC\). Alors elle est commutativement sommable\footnote{Définition \ref{DEFooYMOHooMKzTSJ}.}.
 \end{proposition}
 
 \begin{proof}
@@ -537,6 +546,10 @@ Dans le même ordre d'idée nous avons la convergence des queues de suites.
 \end{proof}
 
 
+%-------------------------------------------------------
+\subsection{Famille sommable}
+%----------------------------------------------------
+
 Pour une revue des définitions de sommes dans le cas de \( \{ 0,\ldots, n \}\), des ensembles finis quelconques, voir le thème \ref{THEMEooMKLBooLGFCdx}. Maintenant nous donnons la définition pour une somme sur un ensemble infini.
 \begin{definition}  \label{DefIkoheE}
 	Si \( \{ v_i \}_{i\in I}\) est une famille de vecteurs dans un espace vectoriel normé indexée par un ensemble quelconque \( I\). Nous disons que cette famille est \defe{sommable}{famille!sommable} de somme \( v\) si pour tout \( \epsilon>0\), il existe un \( J_0\) fini dans \( I\) tel que pour tout ensemble fini \( K\) tel que \( J_0\subset K\) nous avons\footnote{La somme sur la partie finie \( K\) est la définition \ref{DEFooLNEXooYMQjRo}.}
@@ -636,6 +649,38 @@ Dans le cas de familles de nombres réels positifs, nous avons une caractérisat
 	\end{subproof}
 \end{proof}
 
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooHCLZooLjQNDl}
+	Soit une suite \( (a_i)_{i\in \eN}\) dans un espace de Banach \( E\). Nous supposons que
+	\begin{enumerate}
+		\item
+		      La série est convergente : \( \sum_{i=1}^{\infty}a_i=v\),
+		\item
+		      La série est absolument convergente : \( \sum_{i=0}^{\infty}\| a_i \|<\infty\).
+	\end{enumerate}
+	Alors \( (a_i)_{i\in \eN}\) est une famille sommable.
+\end{proposition}
+
+\begin{proof}
+	Soit \( \epsilon>0\). Nous considérons un \( N\in \eN\) tel que pour tout \( n>N\),
+	\begin{equation}		\label{EQooXWOAooAYxFZI}
+		\begin{aligned}[]
+			\| \sum_{i=0}^na_i-v \|<\epsilon & \text{ et } & \sum_{i=n}^{\infty}\| a_i \|<\epsilon.
+		\end{aligned}
+	\end{equation}
+	Nous posons ensuite \( J_0=\{ 0,\ldots,N \}\). Soit une partie finie \( K\subset \eN\) telle que \( J_0\subset K\). Nous posons \( K_c=K\subset J_0\) et \( m=\min(K_c)\). Nous avons ce calcul :
+	\begin{subequations}
+		\begin{align}
+			\| \sum_{i\in K}a_i-v \| & =\| \sum_{i=0}^na_i+\sum_{i\in K_c}a_i-v \|           \\
+			                         & \leq \| \sum_{i=0}^Na_i-v \|+\| \sum_{i\in K_c}a_i \| \\
+			                         & \leq \epsilon+\sum_{i\in K_c}\| a_i \|                \\
+			                         & \leq \epsilon+\sum_{i=m}^{\infty}\| a_i \|            \\
+			                         & \leq 2\epsilon.
+		\end{align}
+	\end{subequations}
+	Si nous avions pris \( \epsilon/2\) dans \eqref{EQooXWOAooAYxFZI}, ça aurait été juste bon.
+\end{proof}
+
 Attention : dans le lemme suivant, nous supposons que \( (a_k)_{k\in \eN}\) est sommable. Sans cette hypothèse, il n'est pas vrai que \( \sum_{k=0}^{\infty}a_i=\sum_{k\in \eN}a_i\). Et il n'est même pas vrai que l'existence de la première implique la sommabilité de la seconde.
 
 \begin{lemma}[\cite{MonCerveau}]       \label{LEMooGXPGooZTJPoN}
@@ -709,6 +754,10 @@ Attention : dans le lemme suivant, nous supposons que \( (a_k)_{k\in \eN}\) est 
 		      Pour \ref{SUBEQooPZSMooRNVSOt}. Vu que les sommes sont finies et que \( S_a\) et \( S_b\) sont disjoints d'union \( S\), nous pouvons couper la somme en utilisant le lemme \ref{LEMooNDBYooAGEkmw}.
 	\end{itemize}
 \end{proof}
+
+%-------------------------------------------------------
+\subsection{Sommation associative}
+%----------------------------------------------------
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Somme non dénombrables}

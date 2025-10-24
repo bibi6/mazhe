@@ -9,7 +9,9 @@ Dépendances/*
 thebookedition/*
 build/*
 todo/*
+pyenv/
 .pyenv/
+
 
 # Related to the epub tests
 mazhe-epub/*
