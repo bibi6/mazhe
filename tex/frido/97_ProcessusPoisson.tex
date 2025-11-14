@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2012-2013, 2019, 2022-2024
+% Copyright (c) 2012-2013, 2019, 2022-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -32,7 +32,7 @@ On trouve différentes définitions de processus de Poisson dans la littérature
 \begin{definition}
 	Une famille de variables aléatoires \( (N_t)_{t\geq 0}\) forment un \defe{processus de a-Poisson}{processus de Poisson} d'intensité \( \lambda\) si
 	\begin{enumerate}
-		\item Pour tout choix \( 0<t_0<t_1<\ldots t_n\), les variables aléatoires \( N_{t_{i+1}}-N_{t_i}\) sont indépendantes.
+		\item Pour tout choix \( 0<t_0<t_1<\ldots< t_n\), les variables aléatoires \( N_{t_{i+1}}-N_{t_i}\) sont indépendantes.
 		\item Si \( 0<s<t\) et \( h>0\) alors
 		      \begin{equation}
 			      N_{t+h}-N_{s+h}\stackrel{\mL}{=}N_t-N_s,
@@ -259,7 +259,7 @@ On trouve différentes définitions de processus de Poisson dans la littérature
 			                              & \quad + \sum_{k=2}^np_{n-k}(t)\frac{ \beta(h) }{ h }.
 		\end{aligned}
 	\end{equation}
-	C'est le moment de prendre la limite \( h\to 0\). En utilisant la règle de l'Hospital,
+	C'est le moment de prendre la limite \( h\to 0\). En utilisant la règle de L'Hôpital,
 	\begin{equation}
 		\lim_{h\to 0}\frac{ e^{-\lambda h}-1 }{ h }=\lim_{h\to 0}(-\lambda e^{-\lambda h})=-\lambda.
 	\end{equation}

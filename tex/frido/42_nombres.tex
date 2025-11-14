@@ -980,7 +980,6 @@ La proposition suivante est ce qui est utilisé à chaque fois qu'on dit «telle
 	\end{subproof}
 \end{proof}
 
-Dans le même ordre d'idée, nous avons la proposition suivante qui est presque toujours utilisée pour trouver un majorant lorsqu'on vérifie les hypothèses le lemme de Zorn.
 
 
 \begin{example}     \label{EXooYDRVooHsANlC}
@@ -1013,7 +1012,7 @@ Dans le même ordre d'idée, nous avons la proposition suivante qui est presque 
 	\end{equation}
 \end{example}
 
-Dans le même ordre d'idée, la proposition suivante est souvent utilisée pour créer un majorant quand on veut vérifier les hypothèses du lemme de Zorn.
+La proposition suivante est souvent utilisée pour créer un majorant quand on veut vérifier les hypothèses du lemme de Zorn.
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooKXBGooJYUbtF}
 	Soit un ensemble d'ensembles \( \{ X_i \}_{i\in I}\) et des applications \(f_i \colon X_i\to A  \) telles que
@@ -1966,15 +1965,17 @@ Nous donnons deux preuves de ce lemme.
 \begin{proof}
 	Point par point vis-à-vis de la définition~\ref{DEFooSousGroupe}. On notera \( \cdot \) l'opération de \( H \) et \( \cdot_G \) celle de \( G \).
 	\begin{subproof}
-		\item[Opération interne]
+		\spitem[Opération interne]
 		Si \( h \) et \( h' \) sont deux éléments de \( \alpha(G)\), il existe deux éléments \( g \) et \( g'\) de \( G \) tels que \( h = \alpha(g) \) et \( h' = \alpha(g') \). Alors
 		\[
 			h \cdot h' = \alpha(g) \cdot \alpha(g') = \alpha(g\cdot_G g'),
 		\]
 		puisque \( \alpha \) est un morphisme de groupes. Ainsi \( h \cdot h' \in \alpha(G) \) car il est l'image de \( g\cdot_G g' \).
-		\item[Neutre]
+
+		\spitem[Neutre]
 		On a \( e_H = \alpha(e_G) \) quel que soit le morphisme \( \alpha \).
-		\item[Inverse]
+
+		\spitem[Inverse]
 		L'inverse d'un élément \( h = \alpha(g) \) est l'élément \( \alpha(g^{-1}) \).
 	\end{subproof}
 \end{proof}
@@ -2486,7 +2487,7 @@ Nous donnons deux preuves de ce lemme.
 	Point par point
 	\begin{subproof}
 		\spitem[\ref{ITEMooSDNHooDnjScE}]
-		Si \( x\geq 0\) alors c'est vrai. Sinon, \( x\leq 0\) et \( | x |=-x\geq 0\) par le point~\ref{ITEMooRRUGooRUpYwt} de la propostion \ref{PROPooELXCooCYzEVD}.
+		Si \( x\geq 0\) alors c'est vrai. Sinon, \( x\leq 0\) et \( | x |=-x\geq 0\) par le point~\ref{ITEMooRRUGooRUpYwt} de la proposition \ref{PROPooELXCooCYzEVD}.
 		\spitem[\ref{ITEMooLQLTooTJTPVM}]
 		Si \( x=0\) alors \( x=-x\) et \( | x |=0\).  Si \(x\neq 0\) alors \( -x\neq 0\) (par le lemme \ref{LEMooLTERooVKgqjn} point \ref{ITEMooWNPVooFeMQAp}).  Que l'on ait \( x\) positif ou \( x\) négatif, nous aurons toujours \( | x | \pm x\neq 0\).
 		\spitem[\ref{ITEMooVJAEooOEatzY}]
@@ -2494,7 +2495,7 @@ Nous donnons deux preuves de ce lemme.
 
 		Lorsque \( x\leq 0\), on a \( | x |= - x\) par définition, et par ailleurs, \( -x\geq 0\) grâce au point \ref{ITEMooNKYCooCmqHsO} du lemme \ref{LEMooLTERooVKgqjn}, donc \( | -x |= - x = | x |\).
 
-		Supposons \( x\geq 0\). Alors d'une part \( | x |=x\). D'autre part \( -x\leq 0\) par le point~\ref{ITEMooRRUGooRUpYwt} de la propostion \ref{PROPooELXCooCYzEVD}, de telle sorte que
+		Supposons \( x\geq 0\). Alors d'une part \( | x |=x\). D'autre part \( -x\leq 0\) par le point~\ref{ITEMooRRUGooRUpYwt} de la proposition \ref{PROPooELXCooCYzEVD}, de telle sorte que
 		\begin{equation}
 			| -x |=-(-x)=x,
 		\end{equation}
@@ -4766,14 +4767,18 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \begin{proof}
 	Selon que \( n \geq 0 \) ou que \( n \leq 0 \), on effectue la division euclidienne de \( n \) ou de \( -n \) par 2.
 	\begin{subproof}
-		\item[Cas \( n \geq 0 \)]: il existe \( q \in \eN \) et \( r \in \{ 0, 1\} \) tel que \( n = 2q+r \).
+		\spitem[Cas \( n \geq 0 \)]
+		%--------------------------------------------------------
+		Il existe \( q \in \eN \) et \( r \in \{ 0, 1\} \) tel que \( n = 2q+r \).
 		\begin{itemize}
 			\item
 			      Quand \( n \) est pair, on a \( r = 0 \). Alors \( n+1 = 2q + 1 \) et \( n - 1 = 2(q-1) + 2 - 1 =  2(q-1) + 1 \) sont impairs.
 			\item
 			      Quand \( n \) est impair, on a \( r = 1 \). Alors \( n+1 = 2q + 2 = 2(q+1) \) et \( n - 1 = 2q + 1 - 1 =  2q \) sont pairs.
 		\end{itemize}
-		\item[Cas \( n \leq 0 \)]: il existe \( q \in \eN \) et \( r \in \{ 0, 1\} \) tel que \( -n = 2q+r \).
+		\spitem[Cas \( n \leq 0 \)]
+		%--------------------------------------------------------
+		Il existe \( q \in \eN \) et \( r \in \{ 0, 1\} \) tel que \( -n = 2q+r \).
 		\begin{itemize}
 			\item
 			      Quand \( n \) est pair, on a \( r = 0 \). Alors \( -n+1 = 2q + 1 \) est impair, et \( n-1 = -(-n+1) \) l'est aussi. De même, \( -n - 1 = 2(q-1) + 2 - 1 =  2(q-1) + 1 \), et donc \( n+1 = -(-n-1) \), sont impairs.
