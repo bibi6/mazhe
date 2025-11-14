@@ -154,10 +154,8 @@ Ce choix de topologie donne deux propriétés utiles de l'espace produit
 	\item
 	      Pour toute partie \( A\) de \( V\) et \( B\) de \( W\), nous avons \( \Int (A\times B)=\Int A\times \Int B\).\label{PgovlABeqbAbB}
 \end{enumerate}
-Une propriété moins facile à prouver est que pour toute partie \( A\) de \( V\) et \( B\) de \( W\) nous avons  \( \overline{A\times B}=\bar{A}\times \bar{B}\). Voir le lemme~\ref{LemCvVxWcvVW}.
-%TODOooIGVAooBZJfuC prouver la susdite propriété.
-% position 26329
-%et l'exercice~\ref{exoGeomAnal-0009}.
+Une propriété moins facile à prouver est que pour toute partie \( A\) de \( V\) et \( B\) de \( W\) nous avons  \( \overline{A\times B}=\bar{A}\times \bar{B}\). Voir la proposition \ref{PROPooPESUooGAmqCW}.
+
 
 Ce que nous avons dit jusqu'ici est valable pour tout produit d'un nombre fini d'espaces vectoriels normés. En particulier, pour tout \( m>0\)  l'espace  \( \eR^m\) peut être considéré comme le produit de \( m\) copies de \( \eR\).
 
@@ -256,7 +254,7 @@ Ce que nous avons dit jusqu'ici est valable pour tout produit d'un nombre fini d
 \begin{proposition}     \label{PROPooYMCUooERvDpk}
 	La norme est une application continue sur un espace vectoriel normé.
 
-	Plus précisément, si \( (E,\| . \|)\) est un espace vectoriel normé, alors l'application
+	Plus précisément, si \( (E,\| . \|)\) est un espace vectoriel normé\footnote{Dont la topologie métrique est donnée par \ref{ThoORdLYUu}.}, alors l'application
 	\begin{equation}
 		\begin{aligned}
 			f\colon E & \to \eR         \\
@@ -264,21 +262,26 @@ Ce que nous avons dit jusqu'ici est valable pour tout produit d'un nombre fini d
 		\end{aligned}
 	\end{equation}
 	est continue.
-	%TODOooJGFRooJawIBN. Prouver ça.
 \end{proposition}
+
+\begin{proof}
+	Soit la boule \( B(a,r)\) dans \( \eR\). Nous montrons que \( f^{-1}(B(a,r))\) est un ouvert de \( E\) pour la topologie métrique. Soit \( x_0\in f^{-1}\big( B(a,r) \big)\). Nous prenons \( \alpha\in \eR\) tel que \( \big| \| x_0 \|-a \big|<\alpha<r\). Et nous considérons la boule \( B_E(x_0,\epsilon)\) avec \( \epsilon\) que nous allons fixer plus tard.
+
+	Pour tout \( x\in B_E(x_0,\epsilon)\), nous avons
+	\begin{subequations}
+		\begin{align}
+			\big| \| x \|-a \big| & \leq\big| \| x \|-\| x_0 \| \big|+\big| \| x_0 \|-a \big| \\
+			                      & <\alpha+\epsilon.
+		\end{align}
+	\end{subequations}
+	En prenant \( \epsilon\) tel que \( \alpha+\epsilon<r\) nous avons \( f(x)\in B(a,r)\).
+\end{proof}
 
 \begin{proposition}     \label{PROPooQUAZooGXskwF}
 	La norme sur un espace vectoriel normé est une fonction de classe \(  C^{\infty}\).
+	%TODOooJGFRooJawIBN. Prouver ça.
 \end{proposition}
 
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooGCJEooOAynZW}
-	Soient un espace vectoriel normé \( E\) ainsi qu'une partie libre \( \{ a_i \}\) dans \( E\). Si nous avons \( \| \sum_i\lambda_ia_i \|<M\), alors nous avons
-	\begin{equation}
-		| \lambda_i |\| a_i \|<M
-	\end{equation}
-	pour chaque \( i\).
-	%TODOooHSTTooZwKibn. Prouver ça.
-\end{lemma}
 
 \begin{lemma}       \label{LEMooSCIIooRyRrHA}
 	Soient un espace vectoriel normé \( (V,\| . \|)\) ainsi qu'une isométrie \( f\colon V\to V\). Si \( A\) est une partie de \( V\) telle que \( f(A)\subset A\), alors

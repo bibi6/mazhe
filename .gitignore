@@ -9,7 +9,9 @@ Dépendances/*
 thebookedition/*
 build/*
 todo/*
+pyenv/
 .pyenv/
+
 
 # Related to the epub tests
 mazhe-epub/*
@@ -58,6 +60,7 @@ volumes/session.vim
 Inter_*
 tex/sage/*.sage.py
 .deploy.log
+bib.txt
 venv/
 
 # Useless binary files
@@ -68,6 +71,7 @@ publication/volumes/Utilities.o
 lst_exercices.py
 lst_one.json
 lst_actu.py
+lst_actu.json
 lst_actu.json
 lst_ractu.json
 lst_ractu.py

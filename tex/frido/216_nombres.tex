@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2024
+% Copyright (c) 2011-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -465,11 +465,12 @@ Ici \( A^{(I)}\) désigne l'ensemble de toutes les applications \( I\to A\) de s
 	Un anneau \( A\) est lui-même un \( A\)-module et ses sous-modules sont les idéaux.
 \end{example}
 
-\begin{definition}
+\begin{definition}[Projecteur]		\label{DEFooZACWooWydFDp}
 	Soit \( M\) un module sur un anneau commutatif \( A\). Un \defe{projecteur}{projecteur!dans un module} est une application linéaire \( p\colon M\to M\) telle que \( p^2=p\).
 
 	Une famille \( (p_i)_{i\in I}\) sur \( M\) est \defe{orthogonale}{orthogonal!famille de projecteurs} si \( p_i\circ p_j=0\) pour tout \( i\neq j\). La famille est \defe{complète}{complète!famille de projecteurs} si \( \sum_{i\in I}p_i=\mtu\).
 \end{definition}
+
 
 \begin{theorem}     \label{ThoProjModpAlsUR}
 	Soient des sous-modules \( M_1,\ldots,M_n\) du module \( M \) tels que \( M=M_1\oplus\ldots\oplus M_n\). Les applications \( p_i\) définies par
@@ -483,6 +484,38 @@ Ici \( A^{(I)}\) désigne l'ensemble de toutes les applications \( I\to A\) de s
 		M=\bigoplus_{i=1}^np_i(M).
 	\end{equation}
 \end{theorem}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[Première partie]
+		%-----------------------------------------------------------
+		Les \( p_i\) sont des projecteurs parce que \( p_i^2(x_1+\ldots+x_n)=p_i(x_i)=x_1=p_i(x_1+\ldots+x_n)\). Ils sont orthogonaux parce que
+		\begin{equation}
+			(p_i\circ p_j)(x_1+\ldots+x_n)=p_i(x_j)=0
+		\end{equation}
+		lorsque \( i\neq j\). De plus nous avons
+		\begin{equation}
+			(p_1+\ldots+p_n)(x_1+\ldots+x_n)=x_1+\ldots+x_n,
+		\end{equation}
+		donc la somme est l'identité.
+
+		\spitem[L'autre sens]
+		%-----------------------------------------------------------
+		Tout élément de \( M\) doit pouvoir être écrit de façon unique comme somme d'éléments des \( p_i(M)\). Avant de nous lancer dans la preuve proprement dite, notons que que si \( i\neq j\), alors \( p_j(x_i)=0\). En effet il existe \( m\in M\) tel que \( x_i=p_i(m)\); donc \( p_j(x_i)=(p_j\circ p_i)(m)=0\).
+
+		Pour l'existence, soit \( x\in M\). Nous avons
+		\begin{equation}
+			x=(p_1+\ldots+p_n)(x)=p_1(x)+\ldots+p_n(x).
+		\end{equation}
+
+		En ce qui concerne l'unicité, si \( x_1+\ldots+x_n=y_1+\ldots+y_n\) avec \( x_i,y_i\in p_i(M)\), en prenant \( p_i\) des deux côtés, nous obtenons
+		\begin{equation}
+			x_i=p_i(x_1+\ldots+x_n)=p_i(y_1+\ldots+y_n)=y_i.
+		\end{equation}
+		Donc \( x_i=y_i\) pour tout \( i\) et nous avons l'unicité.
+	\end{subproof}
+\end{proof}
 
 \begin{definition}
 	Un module est \defe{simple}{simple!module}\index{module!simple} ou \defe{irréductible}{irréductible!module}\index{module!irréductible} si il n'a pas d'autres sous-modules que \( \{ 0 \}\) et lui-même. Un module est \defe{indécomposable}{indécomposable!module}\index{module!indécomposable} si il ne peut pas être écrit comme somme directe de sous-modules.

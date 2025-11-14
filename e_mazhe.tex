@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2017, 2019-2024
+% Copyright (c) 2011-2017, 2019-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -18,11 +18,26 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
-\usepackage{mathabx}          % For \divides and \widehat.
+
+% Pour le passage de mathabx vers mathtools, voir
+% https://github.com/LaurentClaessens/mazhe/issues/182#issuecomment-3408719298
+
+%\usepackage{mathabx}          % For \divides, \widehat et quelque autre symboles.
+
+\usepackage{mathtools}
+\newcommand\nsimeq{\not\simeq}
+\newcommand\nsubset{\not\subset}
+\newcommand\divides{\mid}
+\newcommand\notdivides{\nmid}
+\renewcommand\emptyset{\varnothing}
+\renewcommand\leq{\leqslant}
+\renewcommand\geq{\geqslant}
+
+
+% \newcommand\nsubseteq{\not\subseteq}
+
+
 \usepackage{bbm}
-
-
-
 
 
 \usepackage{wrapfig}
@@ -83,7 +98,7 @@
 \usepackage{hyperref}
 
 \usepackage[inline]{showlabels}
-\renewcommand{\showlabelfont}{\tiny\color{green}}
+\renewcommand{\showlabelfont}{\small\color{green}}
 
 \usepackage{makeidx}
 %\usepackage{minitoc}
@@ -237,6 +252,7 @@
 \DeclareMathOperator{\ResW}{\Res_W}
 \DeclareMathOperator{\sgrad}{sgrad}     % symplectic gradient
 \DeclareMathOperator{\stab}{\mathfrak{Stab}}
+\DeclareMathOperator{\Orb}{Orb}	% orbite d'un point sous l'action d'un groupe
 \DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\Ad}{Ad}
 \DeclareMathOperator{\AD}{\textbf{Ad}}
@@ -691,8 +707,8 @@
 \newcommand{\decompss}[3]{%
 	\begin{equation}
 		\begin{split}
-			\mfs_1&=\{#1\}\\
-			\mfs_2&=\{#2\}#3
+			\mfs_1 & =\{#1\}   \\
+			\mfs_2 & =\{#2\}#3
 		\end{split}
 	\end{equation}
 }
@@ -1008,9 +1024,23 @@
 \newcommand{\scal}[2]{ \langle #1,#2\rangle }
 \newcommand{\vect}[1]{\overrightarrow{#1}}
 
-\newcommand{\tq}{\text{ tel que }}          %TODO : il y a un paquet qui doit être changé en \st
-\newcommand{\st}{\text{ such that }}
+%\newcommand{\tq}{\text{ tel que }}          %TODO : il y a un paquet qui doit être changé en \st
+%\newcommand{\st}{\text{ such that }}
 \newcommand{\tqs}{\text{ tels que }}
+
+\newcommand{\tq}{}
+\newcommand{\st}{}
+
+\addto\extrasfrench{%
+	\renewcommand{\tq}{\text{ tel que }}%
+	\renewcommand{\st}{\text{ tel que }}%
+}
+\addto\extrasenglish{%
+	\renewcommand{\tq}{\text{ such that }}%
+	\renewcommand{\st}{\text{ such that }}%
+}
+
+
 \newcommand{\quext}[1]{\footnote{\textsf{#1}}}
 \newcommand{\info}[1]{\texttt{#1}}
 

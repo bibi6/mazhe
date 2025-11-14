@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008, 2009, 2011-2024
+% Copyright (c) 2008, 2009, 2011-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -35,9 +35,9 @@ Les généralités sur les suites et séries de fonctions, c'est dans la section
 	La première égalité est le théorème~\ref{ThoUnifCvIntRiem}, les autres sont de simples manipulations rhétoriques.
 \end{proof}
 
-Le théorème suivant est une paraphrase du théorème de la convergence dominée de Lebesgue (\ref{ThoConvDomLebVdhsTf}).
+Le théorème suivant est une paraphrase du théorème de la convergence dominée de Lebesgue \ref{ThoConvDomLebVdhsTf}.
 \begin{theorem}     \label{ThoockMHn}
-	Soient des fonctions \( (f_n)_{n\in \eN}\) telles que \( \sum_{n=0}^Nf_n\) soit intégrable sur \( (\Omega,\tribA,\mu)\) pour chaque \( N\). Nous supposons que la somme converge simplement vers
+	Soient des fonctions \( f_n \colon \Omega\to \eC )_{n\in \eN}\) telles que \( \sum_{n=0}^Nf_n\) soit intégrable sur \( (\Omega,\tribA,\mu)\) pour chaque \( N\). Nous supposons que la somme converge simplement vers
 	\begin{equation}
 		f(x)=\sum_{n=0}^{\infty}f_n(x)
 	\end{equation}
@@ -55,33 +55,94 @@ Le théorème suivant est une paraphrase du théorème de la convergence dominé
 			      \lim_{N\to \infty} \int_{\Omega}\sum_{n=0}^Nf_nd\mu=\int_{\Omega}\sum_{n=0}^{\infty}f_n,
 		      \end{equation}
 		\item
+		      Nous avons la formule
 		      \begin{equation}
 			      \lim_{N\to \infty} \int_{\Omega}\left| \sum_{n=0}^Nf_n-\sum_{n=0}^{\infty}f_n \right| =\lim_{N\to \infty} \int_{\Omega}\left| \sum_{n=N}^{\infty}f_n \right| =0.
 		      \end{equation}
 	\end{enumerate}
-	%TODOooKFICooETmtZY. Prouver ça.
 \end{theorem}
 
+\begin{proof}
+	Nous posons \( s_n=\sum_{k=0}^nf_n\). Par hypothèse nous avons \( s_n\in L^1(\Omega)\), et \( s_n\to f\) par définition du symbole \( \sum_{n=0}^{\infty}\). Le théorème de convergence dominée de Lebesgue \ref{ThoConvDomLebVdhsTf} s'applique. Point par point en remplaçant \( f_n\) par \( s_n\) on est bon.
+\end{proof}
 
-\begin{theorem} \label{ThoCSGaPY}
+
+\begin{theorem}[\cite{MonCerveau}] \label{ThoCSGaPY}
 	Soit \( f_n\) des fonctions \( C^1\mathopen[ a , b \mathclose]\) telles que
 	\begin{enumerate}
 		\item
 		      la série \( \sum_n f_n(x_0)\) converge pour un certain \( x_0\in\mathopen[ a , b \mathclose]\),
 		\item
-		      la série des dérivées \( \sum_n f'_n\) converge uniformément sur \( \mathopen[ a , b \mathclose]\).
+		      la série des dérivées \( \sum_n f'_n\) converge uniformément sur \( \mathopen[ a , b \mathclose]\) vers une fonction \( G\).
 	\end{enumerate}
-	Alors la série \( \sum_n f_n\) converge vers une fonction \( F\) et
+	Alors
 	\begin{enumerate}
-		\item
-		      La convergence est uniforme sur \( \mathopen[ a , b \mathclose]\).
+		\item		\label{ITEMooNBHUooMvbJoP}
+		      La série \( \sum_n f_n\) converge vers une fonction \( F\) et
 		\item
 		      La fonction \( F\) est dérivable
+		\item		\label{ITEMooTYLMooQdSdoK}
+		      La convergence est uniforme sur \( \mathopen[ a , b \mathclose]\).
 		\item
 		      \( F'(x)=\sum_nf'_n(x)\).
 	\end{enumerate}
-	%TODOooQXTOooZSQoJM. Prouver ça.
 \end{theorem}
+
+\begin{proof}
+	En plusieurs étapes.
+	\begin{subproof}
+		\spitem[Théorème fondamental]
+		%-----------------------------------------------------------
+		Posons \( s_n=\sum_{k=0}^nf_k\) et \( d_n=\sum_{k=0}^nf'_k\). Pour chaque \( n\) nous avons \( d_n=s'_n\) et donc, en vertu du théorème fondamental de l'analyse \ref{ThoRWXooTqHGbC} nous avons, pour tout \( x\in \mathopen[ a,b\mathclose]\) :
+		\begin{equation}		\label{EQooXKRPooMcdCQz}
+			s_n(x)=\int_{x_0}^xs_n'(t)dt+s_n(x_0)=\int_{x_0}^x\sum_{k=0}^nf_n'(t)dt+s_n(x_0).
+		\end{equation}
+		Nous voulons prendre la limite en permutant avec l'intégrale à droite.
+
+		\spitem[Permuter limite et intégrale]
+		%-----------------------------------------------------------
+
+		Nous utilisons le théorème \ref{ThoockMHn}. Par hypothèse nous avons la convergence uniforme \( \sum_nf'_n\stackrel{ unif}{\longrightarrow} G\). En tant que limite uniforme de fonctions continues (les sommes partielles), la fonction \( G\) est continue par \ref{PropCZslHBx}.
+
+		La fonction \( G\) est continue sur le compact \( \mathopen[ a,b\mathclose]\). Elle est donc majorée, et nous considérons un majorant \( a\).
+
+		Soit \( \epsilon>0\) et \( N_{\epsilon}\) tel que \( \| \sum_{k=0}^nf'_n-G \|_{\infty}<\epsilon\) pour tout \( n\geq N_{\epsilon}\). Avec ça, les nombres \(  \| \sum_{k=0}^nf'_k) \|_{\infty}\) sont majorés par \( a+\epsilon\). Pour chacun des \( n<N_{\epsilon}\), en tant que somme finie de fonctions continues sur un compact, \( \| \sum_{k=0}^nf_k \|<a_n\) pour certaines bornes \( a_n\).
+
+		En posant \( M=\max\{ a_0,\ldots,a_{N_{\epsilon}}, a+\epsilon \}\), nous avons
+		\begin{equation}
+			| \sum_{k=0}^nf'_k(x) |<M
+		\end{equation}
+		pour tout \( n\) et pour tout \( x\) dans \( \mathopen[ a,b\mathclose]\).
+
+		Tout cela pour dire que nous pouvons prendre la limite des deux côtés de \eqref{EQooXKRPooMcdCQz} et la permuter avec l'intégrale.
+
+		\spitem[La limite]
+		%-----------------------------------------------------------
+		La fonction \( G\) étant une limite uniforme de fonctions continues sur le compact \( \mathopen[ a,b\mathclose]\), elle est continue et donc bornée. Donc elle est intégrable sur tout intervalle de \( \mathopen[ a,b\mathclose]\). Nous avons le calcul suivant :
+		\begin{subequations}		\label{EQooZXHUooXgSDFo}
+			\begin{align}
+				\lim_{n\to \infty}s_n(x) & =\int_{x_0}^x\underbrace{\sum_{k=0}^{\infty}f'_k(t)}_{=G(t)}dt+\lim_{n\to \infty}s_n(x_0) \\
+				                         & = \int_{x_0}^xG(t)dt+\sum_{k=0}^{\infty}f_n(x_0)<\infty.
+			\end{align}
+		\end{subequations}
+		Voilà qui prouve le point \ref{ITEMooNBHUooMvbJoP}.
+
+		\spitem[Question de dérivées]
+		%-----------------------------------------------------------
+		Nous considérons la fonction
+		\begin{equation}
+			\begin{aligned}
+				H\colon \mathopen[ a,b\mathclose] & \to \eR                     \\
+				x                                 & \mapsto \int_{x_0}^xG(t)dt.
+			\end{aligned}
+		\end{equation}
+		L'application \( G\) est continue en tant que limite uniforme de fonctions continues (les sommes partielles des \( f'_k\)). Donc la proposition \ref{PropEZFRsMj} dit que \( H\) est dérivable (donc continue) et que \( H'=G\). Mais ce que dit \eqref{EQooZXHUooXgSDFo}, c'est que \( F=H+cst\). Donc \( F'=H'=G\).
+
+		\spitem[Pour \ref{ITEMooTYLMooQdSdoK}]
+		%-----------------------------------------------------------
+		Vu que \( F\) est continue, la proposition \ref{PROPooFWVIooCzXojO} dit que la convergence est uniforme sur tout compact; en particulier sur \( \mathopen[ a,b\mathclose]\).
+	\end{subproof}
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Différentiabilité}
@@ -92,6 +153,7 @@ Le théorème suivant est une paraphrase du théorème de la convergence dominé
 	\begin{equation}
 		\left( \sum_{n=0}^{\infty}T_n \right)(v)=\sum_{n=0}^{\infty}T_n(v).
 	\end{equation}
+	%TODOooQXTOooZSQoJM. Prouver ça.
 \end{lemma}
 
 
@@ -379,13 +441,16 @@ L'unicité du développement (quand il existe) sera la proposition \ref{PROPooVU
 \subsection{Disque de convergence}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Une \defe{série de puissance}{série!de puissance} est une série de la forme
-\begin{equation}		\label{eqseriepuissance}
-	\sum_{k=0}^{\infty}c_k(z-z_0)^k
-\end{equation}
-où \( z_0\in \eC\) est fixé, \( (c_k)\) est une suite complexe fixée, et \( z\) est un paramètre complexe. Nous disons que cette série est \emph{centrée} en \( z_0\).
+\begin{definition}\label{DEFooYTYJooFzvKDu}
+	Une \defe{série de puissance}{série!de puissance} est une série de la forme
+	\begin{equation}		\label{eqseriepuissance}
+		\sum_{k=0}^{\infty}c_k(z-z_0)^k
+	\end{equation}
+	où \( z_0\in \eC\) est fixé, \( (c_k)\) est une suite complexe fixée, et \( z\) est un paramètre complexe. Nous disons que cette série est \emph{centrée} en \( z_0\).
+	%TODOooDUDYooBrAvqp. Fusionner les définitions DEFooYTYJooFzvKDu, DEFooLGGNooGapMIK etDEFooIXGBooPgJTzB. Cette dernière doit être la définition de base. Il faut démontrer que quand E=F=\eC, alors ça se réduit à DEFooLGGNooGapMIK.
+\end{definition}
 
-\begin{definition}
+\begin{definition}		\label{DEFooLGGNooGapMIK}
 	Une \defe{série entière}{série!entière} est une somme de la forme
 	\begin{equation}
 		\sum_{n=0}^{\infty}a_nz^n
@@ -398,14 +463,15 @@ Une série entière peut définir une fonction
 \end{equation}
 Le but de cette section est d'étudier des conditions sur la suite \( (a_n)\) qui assurent la continuité de \( f\) ou la possibilité de dériver ou intégrer la série terme à terme.
 
-\begin{definition}  \label{DefZWKOZOl}
-	Soit \( \sum_{n\in \eN}a_nz^n\) une série entière. Le \defe{rayon de convergence}{rayon!de convergence} de cette série est le nombre
-	\begin{equation}
+\begin{definition}[rayon de convergence]  \label{DefZWKOZOl}
+	Soit \( (a_n)_{n\in \eN}\) une suite dans \( \eC\). Nous disons que le \defe{rayon de convergence}{rayon de convergence} de \( (a_n)\) est le nombre
+	\begin{equation}		\label{EQooIBQJooWRfGKX}
 		R=\sup\{ r\in \eR^+\tq \text{la suite }(a_nr^n)\text{ est bornée} \}\in\mathopen[ 0 , \infty \mathclose].
 	\end{equation}
-	La boule \( B(0,R)\) est le \defe{disque de convergence}{disque de convergence} de la série.
 
-	Dans le cas d'une série de la forme  \( \sum_n a_n(z-z_0)^n\), le disque de convergence est l'ensemble \( | z-z_0 |< R\).
+	Lorsque nous avons une série de puissance \( \sum_{n=0}^{\infty}a_nx(z-z_0)^n\), nous disons que la boule \( B(z_0,R)\) est le \defe{disque de convergence}{disque de convergence} de la série.
+
+	Notez bien que la définition \eqref{EQooIBQJooWRfGKX} est plutôt une propriété de la suite \( (a_n)\) que de la série \( \sum_na_nz^n\).
 \end{definition}
 
 \begin{normaltext}
@@ -445,7 +511,7 @@ Le but de cette section est d'étudier des conditions sur la suite \( (a_n)\) qu
 	Soit \( R>0\) le rayon de convergence de la somme \( \sum_na_nz^n\) et \( z\in \eC\).
 	\begin{enumerate}
 		\item
-		      Si \( | z |<R\) alors la série converge absolument.
+		      Si \( | z |<R\) alors la série converge absolument\footnote{Définition \ref{DefVFUIXwU}.}.
 		\item
 		      Si \( | z |>R\) alors la série diverge.
 	\end{enumerate}
@@ -456,7 +522,7 @@ Le but de cette section est d'étudier des conditions sur la suite \( (a_n)\) qu
 	\begin{enumerate}
 		\item
 
-		      Si \( | z |<R\) alors la suite \( (a_nz^n)\) est bornée et il existe un nombre \( M\in \eR\) tel que \( | a_n |r^n\leq M\) pour tout \( n\). Nous considérons alors un \( r\) tel que \( | z |<r<R\) et nous pouvons calculer :
+		      Nous supposons que \( | z |<R\). Nous choisissons alors un \( r\) tel que \( | z |<r<R\). La suite \( (a_nr^n)\) est bornée; il existe un \( M>0\) tel que \( |a_nr^n|<M\) pour tout \( M\). Nous pouvons calculer :
 		      \begin{equation}
 			      | a_nz^n |=| a_n |r^n\big( \frac{ | z | }{ r } \big)^n\leq M\left( \frac{ | z | }{ r } \right)^n
 		      \end{equation}
@@ -500,7 +566,7 @@ Le but de cette section est d'étudier des conditions sur la suite \( (a_n)\) qu
 \end{proposition}
 
 \begin{proof}
-	Soit \( z\in \eC\) avec \( | z |<R_a\). Alors la série \( \sum_n| a_n |z^n\) converge absolument\footnote{Critère d'Abel, lemme \ref{LemmbWnFI}.}, c'est à dire que la série \( \sum_n| a_nz^n |\) converge. La proposition \ref{PropAKCusNM} dit alors que la série \( \sum_na_nz^n\) converge. Vu que cela est vrai pour tout \( z\in B(0,R_a)\), nous en déduisons que \( R_a\geq R\).
+	Soit \( z\in \eC\) avec \( | z |<R_a\). Alors la série \( \sum_n| a_n |z^n\) converge absolument\footnote{Critère d'Abel, lemme \ref{LemmbWnFI}.}, c'est-à-dire que la série \( \sum_n| a_nz^n |\) converge. La proposition \ref{PropAKCusNM} dit alors que la série \( \sum_na_nz^n\) converge. Vu que cela est vrai pour tout \( z\in B(0,R_a)\), nous en déduisons que \( R_a\geq R\).
 \end{proof}
 
 
@@ -901,8 +967,8 @@ La proposition suivante sera surtout utile lorsqu'on parlera de dérivée.
 	Si \( P\) est un polynôme, alors les séries
 	\begin{subequations}
 		\begin{align}
-			 & \sum_na_nz^n,                                           \\
-			 & \sum_nP(n)a_nz^n                                        \\
+			 & \sum_na_nz^n,                                             \\
+			 & \sum_nP(n)a_nz^n                                          \\
 			 & \sum_n\frac{ a_n }{ P(n) }z^n		\label{SUBEQooWNLCooBdNnY}
 		\end{align}
 	\end{subequations}
@@ -1404,7 +1470,7 @@ Le résultat suivant permet d'identifier deux séries complexes lorsque leurs va
 		et nous allons prouver que si  \( T_{a,k}\) converge sur \( U\), alors \( T_{a,k+1}\) converge sur \( U\) et \( T_{a,k+1}(z)=\lim_{\xi\to z} \big( T_{a,k}(\xi)-T_{a,k}(z) \big)/(\xi-z)   \). Supposons donc que \( T_{a,k}\) converge sur \( U\). D'abord nous avons
 		\begin{subequations}
 			\begin{align}
-				T_{a,k}(z) & =\sum_{n=k}^{\infty}\frac{ n! }{ (n-k)! }a_nz^{n-k}                             \\
+				T_{a,k}(z) & =\sum_{n=k}^{\infty}\frac{ n! }{ (n-k)! }a_nz^{n-k}                               \\
 				           & =\sum_{n=0}^{\infty}\frac{ (n+k)! }{ n! }a_{n+k}z^n.		\label{SUBEQooCKZXooDhdQra}
 			\end{align}
 		\end{subequations}
@@ -1613,7 +1679,7 @@ Vu que le rayon de convergence ne varie pas par la dérivation ou par l'intégra
 Le polynôme de Taylor d'une fonction définie par une série entière s'obtient en tronquant la série. Cela est une assez bonne nouvelle que nous allons démontrer maintenant.
 
 \begin{proposition}[\cite{MonCerveau}]      \label{PROPooQLHNooRsBYbe}
-	Soit une série entière
+	Soit une série entière\footnote{Définition \ref{DEFooIXGBooPgJTzB}.}
 	\begin{equation}
 		f(x)=\sum_ka_kx^k
 	\end{equation}

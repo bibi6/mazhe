@@ -9,7 +9,7 @@
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %-------------------------------------------------------
-\subsection{En général}
+\subsection{Série de puissance}
 %----------------------------------------------------
 
 
@@ -22,7 +22,7 @@
 	où les \( \alpha_n\) sont des applications
 	\begin{enumerate}
 		\item
-		      \( n\)-multilinéaire, c'est à dire \( \alpha_n\in \aL_n(E,F)\) (définition \ref{DefFRHooKnPCT}),
+		      \( n\)-multilinéaire, c'est-à-dire \( \alpha_n\in \aL_n(E,F)\) (définition \ref{DefFRHooKnPCT}),
 		\item
 		      symétrique,
 		\item
@@ -34,20 +34,85 @@
 	\end{equation}
 	Notons toutefois que la dernières notation est particulièrement vicieuse parce que, si \( E\) est un espace de Banach, il n'y a pas de sens à multiplier des éléments de \( E\) entre eux.
 
-	Notons aussi que \( \alpha_0\) est une application \( 0\)-multilinéaire, c'est à dire juste un élément de \( F\).
+	Notons aussi que \( \alpha_0\) est une application \( 0\)-multilinéaire, c'est-à-dire juste un élément de \( F\).
 \end{definition}
 
 \begin{definition}[\cite{BIBooTIAZooFwCEtZ}]	\label{DEFooZUYHooDwwRfp}
 	Une série de puissance qui est une somme finie est un \defe{polynôme}{polynôme sur un espace de Banach}.
 \end{definition}
 
-\begin{definition}[\cite{BIBooTIAZooFwCEtZ}]	\label{DEFooAIHMooKbWsBt}
-	Soient deux espaces de Banach \( E\) et \( F\). Une application \(f \colon E\to F  \) définie sur un voisinage de \( x_0\in E\) est \defe{analytique}{analytique entre espaces de Banach} en \( x_0\) si elle peut être écrite sous la forme\footnote{Juste pour rappel, ce que nous notons ici \( \alpha_k(x-x_0)\) est ce qui serait noté \( \alpha_k(x-x_0)^k\).}
+
+\begin{normaltext}
+	Nous avons deux définitions de polynômes. Une sur les espaces de Banach qui ne s'applique pas aux anneaux, et une sur les anneaux (\ref{DEFooFYZRooMikwEL}) qui ne s'applique pas aux espaces de Banach.
+
+	Entre les deux, je vous propose d'espérer que les deux définitions coïncident sur les espaces de Banach qui sont en même temps des anneaux. Typiquement \( \eR\).
+	%TODOooZPEMooOwmONe. Le faire. C'est dans la liste.
+\end{normaltext}
+
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooCAWCooWHLpwl}
+	Soit une série de puissance \( \sum_{n=0}^{\infty}\alpha_k(x)\). Le \defe{rayon de convergence}{rayon de convergence} de \( (\alpha_k)_{k\in \eN}\) est le nombre
 	\begin{equation}
-		f(x)=\sum_{k=0}^{\infty}\alpha_k(x-x_0)
+		R=\sup\{ r\in \eR^+\tq \text{la suite \( (\alpha_kr^k)_{n\in \eN}\) est bornée dans \( \aL_k(E,F)\)} \}.
 	\end{equation}
-	où pour chaque \( k\in \eN\), l'application \( \alpha_k\in\aL_k(E,F)\) est symétrique et continue.
 \end{definition}
+
+
+%-------------------------------------------------------
+\subsection{Applications analytiques}
+%----------------------------------------------------
+
+\begin{definition}[\cite{BIBooTIAZooFwCEtZ}]	\label{DEFooAIHMooKbWsBt}
+	Soient deux espaces de Banach \( E\) et \( F\). Une application \(f \colon E\to F  \) définie sur un voisinage de \( x_0\in E\) est \defe{analytique}{analytique entre espaces de Banach} en \( x_0\) si il existe un voisinage \( U\) de \( x_0\) sur lequel nous avons
+	\begin{equation}		\label{EQooWATIooCCmlbT}
+		f(x)=\sum_{k=0}^{\infty}\alpha_k(x-x_0)^k
+	\end{equation}
+	avec les conditions
+	\begin{enumerate}
+		\item
+		      Pour chaque \( k\in \eN\), l'application \( \alpha_k\) est une forme \( k\)-multilinéaire, continue et symétrique
+		\item
+		      La notation \( \alpha_kx^k=\alpha_k(x,\ldots,x)\).
+		\item
+		      Pour chaque \( x\in U\), nous avons
+		      \begin{equation}	\label{EQooQYBGooKyoNHA}
+			      \sum_{k=0}^{\infty}\| \alpha_k \|\| x-x_0 \|^k<\infty
+		      \end{equation}
+		      où \( \| \alpha_k \|\) est la norme de \( \alpha_k\) en tant qu'application \( k\)-multilinéaire, définition \ref{DEFooTAUWooNDJJEO}.
+	\end{enumerate}
+\end{definition}
+
+\begin{normaltext}
+	Notez que la condition \eqref{EQooQYBGooKyoNHA} n'est pas la convergence absolue de \( \sum_n\alpha_n(x)\) qui aurait été la condition \( \sum_n\| \alpha_n(x) \|_F<\infty\) ni la convergence normale qui aurait été \( \sum_n\| \alpha_n \|<\infty\).
+\end{normaltext}
+
+\begin{proposition}[Critère d'Abel\cite{MonCerveau}]	\label{PROPooHCYXooHlUEuV}
+	Soit une série entière \( \sum_{n=0}^{\infty}\alpha_k(x)\) de rayon de convergence \( R\).
+
+	\begin{enumerate}
+		\item		\label{ITEMooVAOTooELMOlK}
+		      Si \( \| x \|<R\) alors
+		      \begin{equation}
+			      \sum_{n=0}^{\infty}\| \alpha_n \|\| x \|^n<\infty.
+		      \end{equation}
+		      Autrement dit : une série entière est analytique à l'intérieur de son disque de convergence.
+		\item	\label{ITEMooEEVMooVeiHyY}
+		      Si \( \| x \|>R\) alors
+		      \begin{equation}
+			      \sum_{n=0}^{\infty}\| \alpha_n \|\| x \|^n=\infty.
+		      \end{equation}
+		      Autrement dit : une série entière n'est pas analytique à l'extérieur de son disque de convergence.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Nous considérons un \( r\in \eR\) satisfaisant \( \| x \|<r<R\), et nous considérons un majorant \( M\) pour \( \| \alpha_n \|r^n\). Nous avons alors
+	\begin{equation}
+		\| \alpha_n \|\| x \|^n=\| \alpha_n \|r^n\left( \frac{ \| x \| }{ r } \right)^n\leq M\left( \frac{ \| x \| }{ r } \right)^r.
+	\end{equation}
+	Donc la suite \( \| \alpha_n \|\| x \|\) est majorée par la suite \( M(\| x \|/r)^r\) dont la série est convergente en tant que série géométrique (proposition \ref{PROPooWOWQooWbzukS}\ref{ITEMooVZHKooNGpDkx}).
+
+	Si \( \| x \|>R\) alors la suite \( \| \alpha_k \|\| x \|^r\) n'est pas bornée. En tant que série de termes positifs non bornés nous avons \( \sum_{n=0}^{\infty}\| \alpha_n \|\| x \|^n=\infty\).
+\end{proof}
 
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooMGWOooTeCDRk}
@@ -55,7 +120,7 @@
 \end{proposition}
 
 \begin{proof}
-	Si \(f \colon E\to F  \) est linéaire, alors \( f(x)=\sim_{n=0}^{\infty}\alpha_n(x)\) avec \( \alpha_k(x)=0\) pour \( k\neq 1\) et \( \alpha_1(x)=f(x)\).
+	Si \(f \colon E\to F  \) est linéaire, alors \( f(x)=\sum_{n=0}^{\infty}\alpha_n(x)\) avec \( \alpha_k(x)=0\) pour \( k\neq 1\) et \( \alpha_1(x)=f(x)\).
 \end{proof}
 
 \begin{theorem}[\cite{BIBooTIAZooFwCEtZ}]	\label{THOooNBNFooMsAorH}
@@ -75,7 +140,9 @@
 \end{proof}
 
 \begin{normaltext}		\label{NORMooQDCKooXHtrHQ}
-	Dans la proposition suivante, nous devons faire appel à quelque astuces de notations. Si \( \alpha\in \aL_{k+n}(E,F)\) est symétrique, alors nous notons \( \alpha x^n\) l'élément de \(\aL_k(E,F) \) donné par
+	Dans la suite, nous devons faire appel à quelques astuces de notations. Si \( \alpha\in\aL_n\), nous notons \( \alpha(x)\) pour \( \alpha(x,\ldots,x)\).
+
+	Si \( \alpha\in \aL_{k+n}(E,F)\) est symétrique, alors nous notons \( \alpha x^n\) l'élément de \(\aL_k(E,F) \) donné par
 	\begin{equation}
 		(y_1,\ldots,y_k)\mapsto \alpha(x,\ldots,x,y_1,\ldots,y_n).
 	\end{equation}
@@ -83,7 +150,7 @@
 \end{normaltext}
 
 
-\begin{theorem}[\cite{BIBooTIAZooFwCEtZ}]	\label{THOooHSXLooMCzTTD}
+\begin{theorem}[\cite{BIBooTIAZooFwCEtZ,BIBChatGPT}]	\label{THOooHSXLooMCzTTD}
 	Soient des espaces de Banach \( E\) et \( F\). Nous supposons que la série de puissance
 	\begin{equation}
 		\begin{aligned}
@@ -94,27 +161,62 @@
 	ait un rayon de convergence \( r_0>0\).
 
 	Nous posons\footnote{Voir la notation expliquée en \ref{NORMooQDCKooXHtrHQ}.}
-	\begin{equation}
+	\begin{equation}		\label{EQooXVAIooOXGaQz}
 		b_k=\sum_{n=0}^{\infty}\binom{n+k}{n}a_{n+k}(x_1-x_0)^n\in\aL_k(E,F),
 	\end{equation}
 	Alors :
 	\begin{enumerate}
 		\item		\label{ITEMooWBTAooGrKzpo}
 		      \( f\) est analytique\footnote{Définition \ref{DEFooAIHMooKbWsBt}.} en tout point de \( B(x_0,r)\),
-		\item
+		\item		\label{ITEMooOPLBooTZZOOx}
+		      Pour tout \( x\in B(x_1,r_1)\) nous avons
+		      \begin{equation}
+			      f(x)=\sum_{k=0}^{\infty}b_k(x-x_1)^k.
+		      \end{equation}
+		\item		\label{ITEMooNTPIooXpKePf}
 		      La série
 		      \begin{equation}
 			      \sum_{k=0}^{\infty}b_k(x-x_1)^k
 		      \end{equation}
 		      a un rayon de convergence \( r_1\geq r_0-\| x_1-x_0 \|\).
-		\item
-		      Pour tout \( x\in B(x_1,r_1)\) nous avons
-		      \begin{equation}
-			      f(x)=\sum_{k=0}^{\infty}b_k(x-x_1)^k.
-		      \end{equation}
 	\end{enumerate}
-	%TODOooLVFUooHijJCO. Prouver ça.
 \end{theorem}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooWBTAooGrKzpo}]
+		%-----------------------------------------------------------
+		C'est le critère d'Abel \ref{PROPooHCYXooHlUEuV}\ref{ITEMooVAOTooELMOlK}.
+		\spitem[Pour \ref{ITEMooOPLBooTZZOOx}]
+		%-----------------------------------------------------------
+		Soit \( x_1\in B(x_0,r)\). Notons \( h=x_1-x_0\), de telle sorte que \( x-x_0=(x-x_1)+h\). En appliquant la multilinéarité de \( \alpha_n\), nous voyons que le binôme de Newton \ref{PropBinomFExOiL} fonctionne aussi bien :
+		\begin{equation}
+			\alpha_n\big( (x-x_1)+h \big)=\sum_{k=0}^n\binom{ n }{ k }\alpha_n\big( h^{n-k},(x-x_1)^k \big).
+		\end{equation}
+		Nous pouvons permuter les deux sommes avec le lemme \ref{LEMooKMCIooItDMRo} :
+		\begin{subequations}
+			\begin{align}
+				f(x) & =\sum_{n=0}^{\infty}\alpha_n\big( (x-x_1)+h \big)                                                 \\
+				     & =\sum_{n=0}^{\infty}\sum_{k=0}^n\binom{ n }{ k }\alpha_n\big( h^{n-k},(x-x_1)^k \big)             \\
+				     & =\sum_{k=0}^{\infty}\sum_{n=k}^{\infty}\binom{ n }{ k }\alpha_n\big( h^{n-k},(x-x_1)^k \big)      \\
+				     & =\sum_{k=0}^{\infty}\left( \sum_{n=k}^{\infty}\binom{ n }{ k }\alpha_n(h^{n-k}) \right)(x-x_1)^k.
+			\end{align}
+		\end{subequations}
+		Donc en posant \( \beta_k=\sum_{n=k}^{\infty}\binom{ n }{ k }\alpha_n(h^{n-k})\) nous avons bien
+		\begin{equation}
+			f(x)=\sum_{k=0}^{\infty}\beta_k(x-x_1).
+		\end{equation}
+		La formule \eqref{EQooXVAIooOXGaQz} est maintenant juste un décalage de la somme.
+		\spitem[Pour \ref{ITEMooNTPIooXpKePf}]
+		%-----------------------------------------------------------
+		Vu que \( B(x_1,r_1)\subset B(x_0,r_0)\), la fonction \( f\) est analytique sur \( B(x_1,r_1)\). Vu que
+		\begin{equation}
+			f(x)=\sum_{n=0}^{\infty}\beta_n(x-x_1),
+		\end{equation}
+		la partie \( B(x_1,r_1)\) soit être dans le rayon de convergence des \( \beta_k\) par le lemme d'Abel \ref{PROPooHCYXooHlUEuV}\ref{ITEMooEEVMooVeiHyY}.
+	\end{subproof}
+\end{proof}
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooFEMWooDwAYyO}
 	Soient un espace de Banach \( E\) ainsi que \( a\in E\). L'application
@@ -127,40 +229,64 @@
 \end{proposition}
 
 
-\begin{theorem}[\cite{BIBooTIAZooFwCEtZ}]	\label{THOooCESLooZxAzOg}
-	Soient deux espaces de Banach \( E\) et \( F\) ainsi que des formes \( \alpha_n\in\aL_n(E,F)\) et \( x_0\in E\). Nous supposons que
+\begin{lemma}[\cite{BIBooTIAZooFwCEtZ,BIBooPWRQooGjpqBi}]	\label{LEMooVIINooOUwAUQ}
+	Soient des espaces de Banach \( E\) et \( F\) ainsi qu'une application analytique
 	\begin{equation}
-		\sum_{n=0}^{\infty}\| \alpha_n \|\| x-x_0 \|^n
+		\begin{aligned}
+			f\colon F & \to F                                       \\
+			x         & \mapsto \sum_{n=0}^{\infty}\alpha_n(x-x_0).
+		\end{aligned}
 	\end{equation}
-	converge pour tout \( x\in B(x_0,r)\).
+	Alors \( f\) est différentiable en \( x_0\) et
+	\begin{equation}
+		df_{x_0}=\alpha_1.
+	\end{equation}
+\end{lemma}
 
-	Alors :
-	\begin{enumerate}
-		\item
-		      La série\footnote{Voir les notations dans \ref{NORMooQDCKooXHtrHQ}.} \( \sum_{n=1}^{\infty}n\alpha_n(x-x_0)^{n-1}\) converge pour tout \( x\in B(x_0,r)\).
-		\item
-		      L'application
-		      \begin{equation}
-			      \begin{aligned}
-				      f\colon E & \to F                                      \\
-				      x         & \mapsto \sum_{n=0}^{\infty}\alpha_n(x-x_0)
-			      \end{aligned}
-		      \end{equation}
-		      est différentiable.
-		\item
-		      La série
-		      \begin{equation}
-			      \sum_{n=1}^{\infty}\| \alpha_n \|\| x-x_0 \|^{n-1}
-		      \end{equation}
-		      converge pour tout \( x\in B(x_0,r)\).
-		\item
-		      Pour tout \( x\in B(x_0,r)\), nous avons
-		      \begin{equation}
-			      df_x=\sum_{n=1}^{\infty}n\alpha_n(x-x_0)^{n-1}.
-		      \end{equation}
-	\end{enumerate}
-	%TODOooTNQVooMxLtUn. Prouver ça.
+\begin{proof}
+	Le candidat différentielle est \( T(h)=\alpha_1(h)\). Nous testons la définition de la différentielle. D'abord
+	\begin{equation}
+		f(x_0+h)-f(x_0)-\alpha_1(h)=\sum_{n=2}^{\infty}\alpha_n(h).
+	\end{equation}
+	Ensuite
+	\begin{equation}
+		\frac{ \| \sum_{n=2}^{\infty}\alpha_n(h) \| }{ \| h \| }\leq\sum_{n=2}^{\infty}\| \alpha_n \|\| h \|^{n-1}
+	\end{equation}
+	Nous savons, de la définition d'une application analytique que si \( t\) est assez petit, \( \sum_{n=0}^{\infty}\| \alpha_n \|t^{n}\). Le lemme conclu que \( \lim_{h\to 0}\sum_{n=2}^{\infty}\| \alpha_n \|\| h \|^{n-1}=0\).
+\end{proof}
+
+
+\begin{theorem}[\cite{BIBooTIAZooFwCEtZ}]	\label{THOooCESLooZxAzOg}
+	Soient deux espaces de Banach \( E\) et \( F\) ainsi que des formes \( \alpha_n\in\aL_n(E,F)\) et \( x_0\in E\). Nous supposons que l'application
+	\begin{equation}
+		f(x)=\sum_{n=0}^{\infty}\alpha_n(x)
+	\end{equation}
+	est analytique sur \( B(x_0,r)\).
+
+	Alors \( f\) est différentiable sur \( B(x_0,r)\) et pour tout \( x\in B(x_0,r)\) nous avons
+	\begin{equation}
+		df_x=\sum_{n=1}^{\infty}n\alpha_n(x-x_0)^{n-1}.
+	\end{equation}
 \end{theorem}
+
+\begin{proof}
+	Nous savons déjà que \( f\) est différentiable en \( x_0\) par le lemme \ref{LEMooVIINooOUwAUQ} que \( f\) est différentiable et \( df_{x_0}=\alpha_1\).
+
+	Si \( x_1\in B(x_0,r)\), nous pouvons aller voir le théorème \ref{THOooHSXLooMCzTTD} pour développer en
+	\begin{equation}
+		f(x)=\sum_{k=0}^{\infty}\beta_k(x-x_1)
+	\end{equation}
+	avec les \( \beta_k\) donné par \eqref{EQooXVAIooOXGaQz}. Comme précédemment nous avons \( df_{x_1}=\beta_1\). Mais
+	\begin{equation}
+		\beta_1=\sum_{n=0}^{\infty}\underbrace{\binom{ n+1 }{ n }}_{=n+1}\alpha_{n+1}(x_1-x_0)^n=\sum_{n=0}^{\infty}(n+1)\alpha_{n+1}(x_1-x_0)^n=\sum_{n=0}^{\infty}n\alpha_n(x_1-x_0)^{n-1}.
+	\end{equation}
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooGMWRooPIzwus}
+	Toute application analytique entre espaces de Banach est de classe \( C^{\infty}\).
+	%TODOooAOAEooZKQydc. Prouver ça.
+\end{proposition}
 
 
 \begin{proposition}[Composition d'applications analytiques\cite{MonCerveau}]	\label{PROPooXKHBooQvvNmN}
@@ -194,8 +320,8 @@
 	nous avons bien que \( \beta_k\in\aL_k(W,E)\) est positif et symétrique. Et bien entendu \( f_0(w)=\sum_{k=0}^{\infty}\beta_k(w)\).
 \end{proof}
 
-\begin{theorem}[\cite{BIBooTIAZooFwCEtZ}]	\label{THOooSZHVooKSEmuI}
-	Soient des espaces de Banach \( X\) et \( X\) ainsi qu'une application \(f \colon X\to T  \) satisfaisant
+\begin{theorem}[Inversion locale, version analytique\cite{BIBooTIAZooFwCEtZ,BIBooKWIMooEYRhWj}]	\label{THOooSZHVooKSEmuI}
+	Soient des espaces de Banach \( X\) et \( Y\) ainsi qu'une application \(f \colon X\to Y  \) satisfaisant
 	\begin{enumerate}
 		\item
 		      \( f\) est de classe \( C^1\),
@@ -206,11 +332,48 @@
 	\end{enumerate}
 	Alors \( f\) est localement inversible en \( x_0\) et son inverse est analytique en \( f(x_0)\).
 	%TODOooKXRKooOaomaP. Prouver ça.
+	% quand c'est fait, donner un lien sur https://math.stackexchange.com/questions/4345396/local-inverse-of-analytic-function
 \end{theorem}
 
+%-------------------------------------------------------
+\subsection{Cauchy-Lipschitz analytique}
+%----------------------------------------------------
+
+Vous saviez qu'en anglais ce théorème était nommé « Picard–Lindelöf » au lieu de Cauchy-Lipschitz ?
+
+% https://math.stackexchange.com/questions/5101596/analytic-picard-lindel%c3%b6f-theorem
+
+\begin{theorem}[\cite{BIBChatGPT}]	\label{THOooZEBOooQJOSQj}
+	Soient \( n,m\in \eN\), soit \( U\) un voisinage de \( 0\) dans \( \eR^n\) et \( P\) un voisinage de \( 0\) dans \( \eR^m\). Nous considérons \( y_0\in U\) et une application analytique\footnote{Définition \ref{DEFooAIHMooKbWsBt}.} \(f \colon U\times P\to \eR^n  \).
+
+	Alors
+	\begin{enumerate}
+		\item
+		      il existe \( T>0\) et un voisinage \( W\subset P\) de \( 0\) tel que pour tout \( p\in W\) l'équation différentielle
+		      \begin{subequations}
+			      \begin{numcases}{}
+				      y'(t)=f\big( y(t),p \big)\\
+				      y(0)=0
+			      \end{numcases}
+		      \end{subequations}
+		      possède une unique solution \(y_p \colon \mathopen[ -T,T\mathclose]\to \eR^n  \).
+		\item
+		      L'application
+		      \begin{equation}
+			      \begin{aligned}
+				      \sigma\colon \mathopen[ -T,T\mathclose]\times W & \to \eR^n      \\
+				      (t,p)                                           & \mapsto y_p(t)
+			      \end{aligned}
+		      \end{equation}
+		      est analytique.
+	\end{enumerate}
+\end{theorem}
+
+% Quand la démonstration sera finie, poser [1] comme exemple de théorème manquant sur internet dans un des commentaires sur linuxfr.
+% [1] https://math.stackexchange.com/questions/5101596/analytic-picard-lindel%c3%b6f-theorem
 
 %-------------------------------------------------------
-\subsection{Série de puissance \( \eC\)}
+\subsection{Série de puissance sur \( \eC\)}
 %----------------------------------------------------
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooBFGJooYVvYaw}
@@ -544,7 +707,7 @@ L'ensemble \( \End^0(E)\) est l'ensemble des endomorphismes bornés de \( E\). D
 	\begin{equation}
 		\sum_{k=0}^{\infty}\gamma_k(x,y)=\big( \sum_{k=0}^{\infty}\alpha_k(x),\sum_{k=0}^{\infty}\beta_k(y) \big)=(f\times g)(x,y).
 	\end{equation}
-	c'est à dire que nous avons bien écrit \( f\times g\) comme série de formes symétriques.
+	c'est-à-dire que nous avons bien écrit \( f\times g\) comme série de formes symétriques.
 \end{proof}
 
 

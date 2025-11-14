@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2024
+% Copyright (c) 2008-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -13,12 +13,13 @@
 
 \begin{proposition}     \label{PROPooJJRZooACUmWN}
 	À propos d'intervalles.
-	\begin{description}
+	\begin{enumerate}
 		\item
 		      Un intervalle\footnote{Définition \ref{DEFooKRRYooZlwiEo}.} est ouvert si il est de la forme \( \mathopen] a , b \mathclose[\) avec éventuellement \( a=-\infty\) ou \( b=+\infty\).
 		\item
 		      Un intervalle est fermé si il est de la forme \( \mathopen[ a , b \mathclose]\) ou \( \mathopen] -\infty , b \mathclose]\) ou \( \mathopen[ a , +\infty [\) avec \( a,b\in \eR\).
-	\end{description}
+	\end{enumerate}
+	%TODOooRMPWooDrgmzq. Prouver ça.
 \end{proposition}
 
 \begin{remark}
@@ -112,7 +113,7 @@ Les définitions d'injection, surjection, bijection et d'application réciproque
 \end{remark}
 
 \begin{lemma}       \label{LEMooSDMMooYYDDLs}
-	Toute fonction strictement monotone sur un intervalle \( I\) est injective.
+	Toute fonction strictement monotone sur un intervalle est injective.
 \end{lemma}
 
 \begin{example}
@@ -174,7 +175,7 @@ La valeur absolue de la définition \ref{DEFooJXKVooErANPh} permet de définir u
 \end{lemma}
 
 \begin{proof}
-	Grâce au lemme \ref{LemooANTJooYxQZDw} et à la remarque \ref{RemooJCAUooKkuglX}, on a, pour tous \(x,\ y,\ \lambda \in \eR \):
+	Grâce au lemme \ref{LemooANTJooYxQZDw}\ref{ITEMooISWFooMeOtjZ}, on a, pour tout \(x,\ y,\ \lambda \in \eR \):
 	\begin{enumerate}
 		\item \( | x |=0\) implique \( x=0\),
 		\item \( | \lambda x |=| \lambda | |x |\),
@@ -379,6 +380,17 @@ La valeur absolue de la définition \ref{DEFooJXKVooErANPh} permet de définir u
 	\end{subproof}
 \end{proof}
 
+
+\begin{lemma}       \label{LEMooNNHYooITNbyz}
+	Si \( a,b\in \eR\), alors la partie \( \mathopen[ a , b \mathclose]\) est compacte\footnote{Définition \ref{DefJJVsEqs}.} dans \( \eR\).
+\end{lemma}
+
+\begin{proof}
+	Nous prouvons que c'est fermé et borné. Le théorème \ref{ThoXTEooxFmdI} fera le reste. Borné, c'est par définition \ref{DefEYAooMYYTz} d'un intervalle. Pour montrer que \( K=\mathopen[ a,b\mathclose]\) est fermé, nous prouvons que le complémentaire est ouvert. Soit \( x\in K^c\); nous allons montrer qu'il existe \( \epsilon>0\) tel que \( B(a,\epsilon)\subset K^c\). Il y a deux possibilités : \( x<a\) et \( x>a\). Nous traitons la seconde.
+
+	Étant donné que \( a\leq x\leq b\) est contenu dans \( K\) nous avons \( x>b\). Le lemme \ref{LemooHLHTooTyCZYL}\ref{ITEMooGVTMooQsoTCi} donne un élément \( q\) tel que \( b<q<x\). En posant \( r=| x-q |/2\) nous avons \( B(x,r)\subset \{ y\in \eR\tq y>q \}\). Donc si \( y\in B(x,r)\) alors \( y>q>b\) et donc \( y\in K^c\).
+\end{proof}
+
 \begin{example}[Compacité de la boule unité]
 	La boule unité fermée \( \overline{ B(0,1) }\) d'un espace vectoriel normé de dimension finie est compacte parce que fermée et bornée. En dimension infinie, cela n'est plus le cas. Certes la boule unité est encore fermée et bornée, mais elle n'est plus compacte. En effet nous allons donner un recouvrement par des ouverts duquel il ne sera pas possible d'extraire un sous-recouvrement fini.
 
@@ -502,12 +514,31 @@ Il est à noter que le rang \( N\) dont il est question dans la définition de s
 \begin{lemma}       \label{LEMooNDSKooMsexOq}
 	Quelques suites usuelles.
 	\begin{enumerate}
-		\item
+		\item		\label{ITEMooWTAYooRisBLO}
 		      La suite \( x_n=\frac{1}{ n }\) converge vers \( 0\).
-		\item
+		\item	\label{ITEMooOYSEooROKIKs}
 		      La suite \( x_n=(-1)^n\) ne converge pas.
 	\end{enumerate}
 \end{lemma}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooWTAYooRisBLO}]
+		%-----------------------------------------------------------
+		Soit \( \epsilon>0\). Le lemme \ref{LemooMWOUooVWgaEi} nous permet de considérer \( N\in \eN\) tel que \( N>\frac{1}{ \epsilon}\). Grâce à la proposition \ref{PROPooVIDJooSzXPLP}, si \( n>N\) nous avons
+		\begin{equation}
+			\frac{1}{  n}<\frac{1}{ N}<\frac{1}{ 1/\epsilon}=\epsilon.
+		\end{equation}
+		Donc \( x_n<\epsilon\) pour tout \( n>N\). Et comme \( x_n>0\) pour tout \( n\), nous avons \( | x_n |<\epsilon\) et donc \( x_n\to 0\).
+
+		\spitem[Pour \ref{ITEMooOYSEooROKIKs}]
+		%-----------------------------------------------------------
+		Nous supposons que \( (x_n)\) converge vers \( l\). Il existe \( N\) tel que pour tout \( n\geq N\) nous ayons \( | x_n-l |<\frac{1}{ 2}\). Pour \( n=2N\) nous avons \( x_n=1\) et donc \( | 1-l |<\frac{1}{ 2}\). Pour \( n=2N+1\) nous avons \( x_n=-1\) et donc \( | -1-l |<\frac{1}{ 2}\).
+
+		Le lemme \ref{LEMooSWBTooSkmheK} donne alors \( l>1-\frac{ 1 }{2}=\frac{ 1 }{2}\) et \( l<-1+\frac{ 1 }{2}=\frac{ 1 }{2}\). Contradiction.
+	\end{subproof}
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Limites infinies}
@@ -592,7 +623,7 @@ Deux limites pour voir comment ça fonctionne.
 	\begin{equation}
 		\| (A_k-A,B_k-B) \|\to 0,
 	\end{equation}
-	c'est à dire (métrique produit)
+	c'est-à-dire (métrique produit)
 	\begin{equation}
 		\max\big\{  \| A_k-A \|,\| B_k-B \| \big\}\to 0,
 	\end{equation}
@@ -885,7 +916,7 @@ Une erreur courante est de croire que la borne est la limite : le lemme n'affirm
 	\begin{equation}
 		\lim_{n\to \infty} \big( \sup_{k\geq n}a_k \big)\geq L+\epsilon>L.
 	\end{equation}
-	Voila. Donc si \( S_{\epsilon}\) est infini, \( \limsup_ia_i\geq L+\epsilon>L\).
+	Voilà. Donc si \( S_{\epsilon}\) est infini, \( \limsup_ia_i\geq L+\epsilon>L\).
 \end{proof}
 
 \begin{lemma}       \label{LEMooMTRDooBMxFmn}

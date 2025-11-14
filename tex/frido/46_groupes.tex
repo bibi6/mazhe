@@ -621,7 +621,7 @@ Pour alléger les notations, on convient d'écrire \( g \cdot x\), voire plus si
 \begin{definition}[Orbite]      \label{DEFooMZXFooXbwGjj}
 	Si \( G\) agit sur un ensemble \( E\), nous notons \( G\cdot x\) l'\defe{orbite}{orbite!d'un point sous une action} de \( x\in E\) sous l'action de \( G\):
 	\begin{equation*}
-		G\cdot x = \{ gx \tq g \in G\}.
+		\Orb(x)=G\cdot x = \{ gx \tq g \in G\}.
 	\end{equation*}
 \end{definition}
 
@@ -788,7 +788,7 @@ Le lemme suivant est une généralisation du théorème de Lagrange~\ref{ThoLagr
 	Donc la formule \( \Card(G\cdot g)=| G:G_g |\) devient, dans le cas de l'action adjointe de \( G\) sur lui-même : \( \Card(C_g)=| G:Z_G(g) |\).
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}		\label{LEMooVGOJooSBpIag}
 	Soit \( G\) un groupe agissant sur l'ensemble \( E\). On définit \( x\sim x'\) si et seulement si il existe \( g\in G\) tel que \( g\cdot x=x'\). Alors
 	\begin{enumerate}
 		\item
@@ -796,6 +796,7 @@ Le lemme suivant est une généralisation du théorème de Lagrange~\ref{ThoLagr
 		\item
 		      la classe \( [x]\) est l'orbite \( \mO_x\) de \( x\) sous \( G\).
 	\end{enumerate}
+	%TODOooMBTYooOfmzZJ. Prouver ça.
 \end{lemma}
 
 \begin{corollary}[Équation des orbites]\index{équation!des orbites} \label{CorARFVMP}
@@ -806,6 +807,7 @@ Le lemme suivant est une généralisation du théorème de Lagrange~\ref{ThoLagr
 		\item
 		      \( \Card(E)=\sum_i\Card(\mO_i)\).
 	\end{enumerate}
+	%TODOooXOPLooUcNnGA. Prouver ça.
 \end{corollary}
 
 \begin{definition}  \label{DefcSuYxz}
@@ -885,7 +887,7 @@ où  \( g(F) = \phi_g(F) = \{ \phi_g(x) \tq x \in F\} \). L'union est disjointe,
 	\end{equation}
 \end{proof}
 
-\begin{proposition}     \label{PROPooMYKKooLetZWi}
+\begin{proposition}[\cite{BIBooHWDXooCeqQWn}]     \label{PROPooMYKKooLetZWi}
 	Soient \( G\) un groupe, et \( H\), un sous-groupe du centre de \( G\).
 	\begin{enumerate}
 		\item
@@ -894,6 +896,33 @@ où  \( g(F) = \phi_g(F) = \{ \phi_g(x) \tq x \in F\} \). L'union est disjointe,
 		      Si \( G/H\) est monogène, alors \( G\) est abélien.
 	\end{enumerate}
 \end{proposition}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[Normal]
+		%-----------------------------------------------------------
+		Si \( g\in G\) et si \( h\in H\), alors \( ghg^{-1}=gg^{-1}h=h\in H\).
+
+		\spitem[Abélien]
+		%-----------------------------------------------------------
+		Soit \( g_0\in G\) tel que \( [g_0]\) engendre \( G/H\). Soient \( g\in G\) et \( s\in [g]\). Il existe \( h\in H\) tel que \( s=gh^{-1}\), et donc tel que \( g=sh\). Il existe aussi \( n\in \eN\) tel que \( [s]=[g_0^n]\), et donc un \( h_2\in H\) tel que \( s=g_0^nh_2\).
+
+		Nous avons prouvé que pour tout \( g\in G\), il existe \( n\in \eN\) et \( h\in H\) tel que \( g=g_0^nh\).
+
+		Soient \( g_1,g_2\in G\). Nous avons \( n,m\in \eN\) et \( h_1,h_2\in H\) tels que \( g_1=g_0^nh_1\) et \( g_2=g_0^mh_2\). Nous avons alors
+		\begin{subequations}
+			\begin{align}
+				g_1g_2a & =g_0^nh_1g_0^mh_2                                    \\
+				        & =g_0^ng_0^mh_1h_2 & \text{pcq.} h_1\in H\subset Z(G) \\
+				        & =g_0^mg_0^nh_1h_2                                    \\
+				        & =g_0^mh_2g_0^nh_1                                    \\
+				        & =g_2g_1,
+			\end{align}
+		\end{subequations}
+		et donc \( G\) est bien abélien.
+	\end{subproof}
+\end{proof}
 
 \begin{proposition}[\cite{BIBooTZECooKlUeDT}]       \label{PROPooWPQTooECUPLK}
 	L'indice du centre d'un groupe n'est jamais un nombre premier.

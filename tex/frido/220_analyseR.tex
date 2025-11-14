@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2024
+% Copyright (c) 2008-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -238,31 +238,63 @@ Nous allons démontrer maintenant une série de petits résultats qui permettent
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooBUJCooBHmKEG}
 	Si \(f \colon \eR\to \eR  \) est une fonction continue ne s'annulant pas, alors \( x\mapsto 1/f(x)  \) est une fonction continue.
+	%TODOooWUBNooWSxocX. Prouver ça.
 \end{proposition}
 
 
-\begin{theorem}
-	Si \( f\) et \( g\) sont deux fonctions continues en \( a\), alors la fonction \( f+g\) est également continue en \( a\).
+\begin{theorem}		\label{THOooWRXOooUvKgkQ}
+	Si \( f\) et \( g\) sont deux fonctions continues en \( a\), alors
+	\begin{enumerate}
+		\item
+		      La fonction \( f+g\) est continue en \( a\).
+		\item		\label{ITEMooSHMVooZPNtCv}
+		      La fonction \( fg\) est continue en \( a\).
+	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	La continuité des fonctions \( f\) et \( g\) au point \( a\) fait en sorte que pour tout choix de \( \epsilon_1\) et \( \epsilon_2\), il existe \( \delta_1\) et \( \delta_2\) tels que
-	\[
-		(| x-a |\leq \delta_1)\Rightarrow | f(x)-f(a) |\leq \epsilon_1.
-	\]
-	et
-	\[
-		(| x-a |\leq \delta_2)\Rightarrow | g(x)-g(a) |\leq \epsilon_2.
-	\]
-	La quantité que nous souhaitons analyser est \( | f(x)+g(x)-f(a)-g(a) |\). Tout le jeu de la démonstration de la continuité est de triturer cette expression pour en tirer quelque chose en termes de \( \epsilon_1\) et \( \epsilon_2\). Si nous supposons avoir pris \( | x-a |\) plus petit en même temps que \( \delta_1\) et que \( \delta_2\), nous avons
-	\[
-		| f(x)+g(x)-f(a)-g(a) |\leq| f(x)-g(x) |+| g(x)-g(a) |\leq\epsilon_1+\epsilon_2
-	\]
-	en utilisant la formule générale \( | a+b |\leq | a |+| b |\). Maintenant, si on choisit \( \epsilon_1\) et \( \epsilon_2\) tels que \( \epsilon_1+\epsilon_2<\epsilon\), et les \( \delta_1\), \( \delta_2\) correspondants, on a
-	\[
-		| f(x)+g(x)-f(a)-g(a) |\leq\epsilon,
-	\]
-	pourvu que \( | x-a |\) soit plus petit que \( \delta_1\) et \( \delta_2\). Le bon \( \delta\) à prendre est donc le minimum de \( \delta_1\) et \( \delta_2\) qui eux-mêmes sont donnés par un choix de \( \epsilon_1\) et \( \epsilon_2\) tels que \( \epsilon_1+\epsilon_2\leq\epsilon\).
+	Deux continuités à prouver en utilisant la caractérisation \ref{PROPooVNGEooPwbxXP} de la continuité.
+	\begin{subproof}
+		\spitem[La somme]
+		%-----------------------------------------------------------
+
+		La continuité des fonctions \( f\) et \( g\) au point \( a\) fait en sorte que pour tout choix de \( \epsilon_1\) et \( \epsilon_2\), il existe \( \delta_1\) et \( \delta_2\) tels que
+		\[
+			(| x-a |\leq \delta_1)\Rightarrow | f(x)-f(a) |\leq \epsilon_1.
+		\]
+		et
+		\[
+			(| x-a |\leq \delta_2)\Rightarrow | g(x)-g(a) |\leq \epsilon_2.
+		\]
+		La quantité que nous souhaitons analyser est \( | f(x)+g(x)-f(a)-g(a) |\). Tout le jeu de la démonstration de la continuité est de triturer cette expression pour en tirer quelque chose en termes de \( \epsilon_1\) et \( \epsilon_2\). Si nous supposons avoir pris \( | x-a |\) plus petit en même temps que \( \delta_1\) et que \( \delta_2\), nous avons
+		\[
+			| f(x)+g(x)-f(a)-g(a) |\leq| f(x)-g(x) |+| g(x)-g(a) |\leq\epsilon_1+\epsilon_2
+		\]
+		en utilisant la formule générale \( | a+b |\leq | a |+| b |\). Maintenant, si on choisit \( \epsilon_1\) et \( \epsilon_2\) tels que \( \epsilon_1+\epsilon_2<\epsilon\), et les \( \delta_1\), \( \delta_2\) correspondants, on a
+		\[
+			| f(x)+g(x)-f(a)-g(a) |\leq\epsilon,
+		\]
+		pourvu que \( | x-a |\) soit plus petit que \( \delta_1\) et \( \delta_2\). Le bon \( \delta\) à prendre est donc le minimum de \( \delta_1\) et \( \delta_2\) qui eux-mêmes sont donnés par un choix de \( \epsilon_1\) et \( \epsilon_2\) tels que \( \epsilon_1+\epsilon_2\leq\epsilon\).
+
+		\spitem[Le produit]
+		%-----------------------------------------------------------
+		Soit \( \epsilon'>0\). Nous considérons \( \delta>0\) tel que \( | f(x)-f(a) |<\epsilon'\) et \( | g(x)-g(a) |<\epsilon'\) pour tout \( x\in B(a,\delta)\). Nous avons alors
+		\begin{subequations}
+			\begin{align}
+				| (fg)(x)-(fg)(a) | & =| f(x)g(x)-f(a)g(a) |                                                  \\
+				                    & \leq | f(x)g(x)-f(x)g(a) |+| f(x)g(a)-f(a)g(x) |                        \\
+				                    & =| f(x) || g(x)-g(a) |+| g(a) |\underbrace{| f(x)-f(a) |}_{< \epsilon'} \\
+				                    & \leq \epsilon'\big( | f(x) |+| g(a) | \big).
+			\end{align}
+		\end{subequations}
+		Notons que \( x\in B(a,\delta)\), donc \( |f(x)- f(a) |<\epsilon'\) et donc \( | f(x) |\leq | f(a) |+\epsilon'\). Nous avons prouvé que pour tout \( \epsilon'>0\), il existe un \( \delta>0\) tel que si \( x\in B(a,\delta)\), alors
+		\begin{equation}		\label{EQooSMPXooIhJmnJ}
+			| (fg)(x)-(fg)(a) |<\epsilon'\big( M+\epsilon' \big)
+		\end{equation}
+		où \( M=| f(a) |+| g(a) |\).
+
+		Soit maintenant \( \epsilon>0\). En posant \( \epsilon'<\min\{ 1,\epsilon/(M+1) \}\) nous avons bien \( \epsilon'(M+\epsilon')<\epsilon\), et donc l'inégalité \eqref{EQooSMPXooIhJmnJ} donne la continuité de \( fg\).
+	\end{subproof}
 \end{proof}
 
 Pour résumer ces deux théorèmes, on dit que si \( f\) et \( g\) sont continues en \( a\), alors la fonction \( \alpha f+\beta g\) est également continue en \( a\) pour tout \( \alpha\), \( \beta\in\eR\).
@@ -340,6 +372,15 @@ Cette fonction est continue en zéro. En effet, prenons \( \delta>0\); il nous f
 
 Et pourtant, dès que l'on s'écarte un tant soit peu de zéro, elle fait des bons une infinité de fois par millionième de millimètre ! Cette fonction est donc la plus discontinue du monde en tous les points, sauf un (zéro), où c'est une fonction continue !
 
+\begin{normaltext}
+	J'ai longtemps cru que cette fonction \( \chi_{\eQ}\) était la plus discontinue du monde. Je me trompais lourdement. Celle-ci est encore plus incroyable :
+	\begin{center}
+		Numberphile : Conway's Base 13 Function\\
+		\url{https://www.youtube.com/watch?v=zsBaApyf_Ns}
+	\end{center}
+	Divulgâchis : avec cette fonction, chaque ouvert de \( \eR\) est surjectif sur \( \eR\). Elle fait donc une infinité non dénombrable de sauts sur chaque intervalle.
+\end{normaltext}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Approche topologique}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -405,11 +446,15 @@ Le théorème suivant est une très importante caractérisation des fonctions co
 	Nous savons que \( [a,b]\) est connexe parce que c'est un intervalle (proposition~\ref{PropInterssiConn}). Donc \( f\big( [a,b] \big)\) est connexe (lemme~\ref{LemConncontconn}) et donc est un intervalle (à nouveau la proposition~\ref{PropInterssiConn}). Étant donné que \( f\big( [a,b] \big)\) est un intervalle, il contient toutes les valeurs intermédiaires entre n'importe quels deux de ses éléments. En particulier toutes les valeurs intermédiaires entre \( f(a)\) et \( f(b)\).
 \end{proof}
 
-\begin{normaltext}      \label{NORMooTQWWooQVPWIJ}
-	Une façon classique d'utiliser le théorème des valeurs intermédiaires \ref{ThoValInter}. Si \( f\colon \mathopen[ 0 , \infty \mathclose[\to \mathopen[ 0 , \infty \mathclose[\) est continue et vérifie \( f(0)=0\) et \( \lim_{x\to \infty} f(x)=\infty\), alors \( f\) est surjective.
 
-	En effet si \( y\in \mathopen[ 0 , \infty \mathclose[\), alors il existe \( a\in\mathopen[ 0 , \infty \mathclose[\) tel que \( f(a)>y\). Donc il existe \( x\in \mathopen[ 0 , a \mathclose]\) tel que \( f(x)=y\).
-\end{normaltext}
+\begin{proposition}	\label{PROPooIJZWooCAFPRn}
+	Si \( f\colon \mathopen[ 0 , \infty \mathclose[\to \mathopen[ 0 , \infty \mathclose[\) est continue et vérifie \( f(0)=0\) et \( \lim_{x\to \infty} f(x)=\infty\), alors \( f\) est surjective.
+\end{proposition}
+
+\begin{proof}
+	Soit \( y\in \mathopen[ 0 , \infty \mathclose[\). Vu que \( \lim_{x\to\infty}f(x)=\infty\), il existe \( a\in\mathopen[ 0 , \infty \mathclose[\) tel que \( f(a)>y\). Le théorème de valeurs intermédiaires \ref{ThoValInter} dit qu'il existe \( x\in \mathopen[ 0 , a \mathclose]\) tel que \( f(x)=y\).
+\end{proof}
+
 
 \begin{corollary}       \label{CorImInterInter}
 	L'image d'un intervalle par une fonction continue est un intervalle.
@@ -459,6 +504,7 @@ Le théorème suivant est une très importante caractérisation des fonctions co
 		\item       \label{ITEMooEPHBooCEeJOD}
 		      \( \sqrt{ \lambda^2 x }=| \lambda |\sqrt{ x }\) si \( x\geq 0\).
 	\end{enumerate}
+	%TODOooAOBZooLZouGN. Prouver ça.
 \end{lemma}
 
 \begin{lemma}       \label{LEMooSBOAooOOIotR}
@@ -733,9 +779,9 @@ Voilà. Vous êtes déjà content d'apprendre que l'on peut démontrer \( | z^n 
 		Vu que \( | a+b |\) et \( | a |+| b |\) sont positifs, ils sont égaux si et seulement si leurs carrés sont égaux. Nous avons donc
 		\begin{subequations}
 			\begin{align}
-				| a+b |=| a |+| b | & \Leftrightarrow | a+b |^2=\big( | a |+| b | \big)^1                                                                                                                                             \\
-				                    & \Leftrightarrow | a |^2+| b |^2+2\real(a\bar b)=| a |^2+| b |^2+2| a || b |                                                     & \text{prop. \ref{PROPooUMVGooIrhZZg}\ref{ITEMooGVWGooPQBUHC}} \\
-				                    & \Leftrightarrow \real(a\bar b)=| a || b |                                                                                                                                                       \\
+				| a+b |=| a |+| b | & \Leftrightarrow | a+b |^2=\big( | a |+| b | \big)^1                                                                                                                                              \\
+				                    & \Leftrightarrow | a |^2+| b |^2+2\real(a\bar b)=| a |^2+| b |^2+2| a || b |                                                      & \text{prop. \ref{PROPooUMVGooIrhZZg}\ref{ITEMooGVWGooPQBUHC}} \\
+				                    & \Leftrightarrow \real(a\bar b)=| a || b |                                                                                                                                                        \\
 				                    & \Leftrightarrow \real(a\bar b)=| a\bar b |	\text{prop. \ref{PROPooUMVGooIrhZZg}\ref{ITEMooFXKYooUOXbwH}\ref{ITEMooDKWDooUjEuZA}}                                                                 \\
 				                    & \Leftrightarrow a\bar b\in \eR^+
 			\end{align}
@@ -1053,31 +1099,6 @@ Voilà. Vous êtes déjà content d'apprendre que l'on peut démontrer \( | z^n 
 	Nous considérons \( \delta<\min\{ \delta_1,\delta_2 \}\), et nous prenons \( x\in B(a,\delta)\setminus\{ a \}\). Il y a deux possibilités : \( x>a\) et \( x<a\). Si \( x>a\), alors nous avons \( x\in  B(a,\delta)\cap I^+\subset B(a,\delta_1)\cap I^+\), de telle sorte que \( \gamma(x)\in U\) par \eqref{EQooXTMBooYBGxci}. Si \( x<a\), alors nous avons également \( \gamma(x)\in U\), en utilisant \eqref{EQooEGOHooHauKRX}.
 \end{proof}
 
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{Norme à partir d'un produit scalaire}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-\begin{proposition}[\cite{MonCerveau}]            \label{PROPooJLWSooNicxQV}
-	Soit un espace vectoriel complexe \( E\) muni d'une forme sesquilinéaire \( \langle ., .\rangle \) telle que la forme quadratique réelle \( x\mapsto\langle x, x \rangle\) soit définite positive. La formule\footnote{Pour la racine carrée, définition \ref{DEFooGQTYooORuvQb}.}
-	\begin{equation}        \label{EQooZIXRooMGcsXY}
-		\| x \|=  \sqrt{ \langle x, x\rangle }
-	\end{equation}
-	est une norme sur \( E\).
-	%TODOooMNIYooHIHdFG Un certain nombre des notations et affirmations au haut de la preuve de  LEMooCSBVooZzqxqg devraient être des lemmes ici.
-\end{proposition}
-
-\begin{definition}      \label{DEFooGUXNooXwCsrq}
-	Dans le cas de \( \eC^n\), nous considérons toujours la norme associée à la forme \eqref{EqFormSesqQrjyPH} par la proposition \ref{PROPooJLWSooNicxQV}, c'est-à-dire, pour rappel :
-	\begin{equation}
-		\langle x, y\rangle =\sum_{k=1}^nx_k\overline {y_k},
-	\end{equation}
-	et
-	\begin{equation}
-		\| x \|=  \sqrt{ \langle x, x\rangle }
-	\end{equation}
-	pour tout \( x\in \eC^n\).
-\end{definition}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Continuité de la racine carrée, invitation à la topologie induite}

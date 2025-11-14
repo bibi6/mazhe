@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2006-2024
+% Copyright (c) 2006-2025
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -12,20 +12,6 @@
 \subsection{Norme suprémum}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Ne pas confondre la norme suprémum avec la norme \( L^{\infty}\) (définition \ref{DEFooIQOOooLpJBqi}), bien que les deux peuvent être écrites \( \| f \|_{\infty}\).
-
-\begin{definition}[norme suprémum\cite{TrenchRealAnalisys}]		\label{DEFooSFNFooBygeXX}
-	Soient un ensemble \( \Omega\), une partie \( A\) de \( \Omega\) et un espace normé \( V\). Lorsque \( g\) est une fonction \( g\colon \Omega\to V\), nous notons
-	\begin{equation}
-		\| g \|_A=\sup_{x\in A}\| g(x) \|
-	\end{equation}
-	C'est la \defe{norme suprémum}{norme suprémum} limitée à la partie \( A\).
-
-	Nous disons qu'une suite de fonctions \( (f_n)\) définies sur un ensemble \( A\) \defe{converge uniformément sur \( A\)}{convergence!uniforme} vers la fonction \( f\) si
-	\begin{equation}
-		\lim_{n\to \infty} \| f_n-f \|_A=0.
-	\end{equation}
-\end{definition}
 
 \begin{lemma}       \label{LEMooLPRZooUPsWTR}
 	Soient un espace compact \( K\) et une fonction continue \( f\colon K\to \eC\) qui se décompose en partie réelle et complexe comme \( f(x)=u(x)+iv(x)\). Alors
@@ -35,8 +21,9 @@ Ne pas confondre la norme suprémum avec la norme \( L^{\infty}\) (définition \
 		\item
 		      \( \| u \|_{\infty}\leq \| f \|_{\infty}\),
 		\item
-		      \( \| v \|_{\infty}\leq \| f \|_{\infty}\),
+		      \( \| v \|_{\infty}\leq \| f \|_{\infty}\)
 	\end{enumerate}
+	où \( \| . \|_{\infty}\) est la norme suprémum \ref{DEFooSFNFooBygeXX}.
 	%TODOooTCWHooFnTnrC. Prouver ça.
 \end{lemma}
 
@@ -44,39 +31,6 @@ Ne pas confondre la norme suprémum avec la norme \( L^{\infty}\) (définition \
 \subsection{Convergence uniforme}
 %---------------------------------------------------------------------------------------------------------------------------
 
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-\subsubsection{Critère de Cauchy uniforme}
-%///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-\begin{proposition}[Critère de Cauchy uniforme\cite{LCbyNWQ}]   \label{PropNTEynwq}
-	Soit \( X\) un espace topologique et \( (Y,d)\) un espace topologique complet. La suite de fonctions \( f_n\colon X\to Y\) converge uniformément sur \( A\) si et seulement si pour tout \( \epsilon>0\) il existe \( N\in \eN\) tel que si \( k,l>N\) alors
-	\begin{equation}
-		d\big( f_k(x),f_l(x) \big)\leq \epsilon
-	\end{equation}
-	pour tout \( x\in A\).
-\end{proposition}
-\index{Cauchy!critère!uniforme}
-\index{critère!Cauchy!uniforme}
-Grosso modo, cela dit que si qu'une suite de Cauchy pour la norme uniforme est une suite uniformément convergente. Le fait que la suite converge fait partie du résultat et n'est pas une hypothèse. Ce critère sera utilisé pour montrer que \( \big( C(K),\| . \|_{\infty} \big)\) est complet, proposition~\ref{PropSYMEZGU}.
-
-\begin{proof}
-	Si \( f_n\stackrel{unif}{\longrightarrow}f\) alors le critère est satisfait; c'est dans l'autre sens que la preuve est intéressante.
-
-	Soit donc une suite de fonctions satisfaisant au critère et montrons qu'elle converge uniformément. Pour tout \( x\in X\) la suite \( n\mapsto f_n(x)\) est de Cauchy dans l'espace complet \( Y\); nous avons donc convergence ponctuelle \( f_n\to f\). Nous devons prouver que cette convergence est uniforme. Soit \( \epsilon>0\) et \( N\in \eN\) tel que si \( k,l>N\) alors
-	\begin{equation}
-		d\big( f_k(x),f_l(x) \big)\leq \epsilon
-	\end{equation}
-	pour tout \( x\in X\). Si nous nous fixons un tel \( k\) et un \( x\in A\) nous considérons l'inégalité
-	\begin{equation}
-		d\big( f_k(x),f_l(x) \big)\leq \epsilon
-	\end{equation}
-	qui est vraie pour tout \( l\). En passant à la limite \( l\to\infty\) (limite qui commute avec la fonction distance par définition de la topologie) nous avons
-	\begin{equation}
-		d\big( f_k(x),f(x) \big)\leq \epsilon.
-	\end{equation}
-	Cette inégalité étant valable pour tout \( x\in X\), cela signifie que \( f_n\stackrel{unif}{\longrightarrow}f\).
-\end{proof}
 
 \begin{theorem}[Limite uniforme de fonctions continues]			\label{ThoUnigCvCont}
 	Soit \( A\), un ensemble mesuré et \( f_n\colon A\to \eR^n\), une suite de fonctions continues convergeant uniformément vers \( f\). Si les fonctions \( f_n\) sont toutes continues en \( x_0\in A\), alors \( f\) est continue en \( x_0\).
@@ -108,7 +62,7 @@ Grosso modo, cela dit que si qu'une suite de Cauchy pour la norme uniforme est u
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 \begin{proposition}[Limite uniforme de fonctions continues]\label{PropCZslHBx}
-	Soit \( X\) un espace topologique et \( (Y,d)\) un espace métrique. Si une suite de fonctions \( f_n\colon X\to Y\) continues converge uniformément, alors la limite est séquentiellement continue\footnote{Si \( X\) est métrique, alors c'est la continuité usuelle par la proposition~\ref{PropFnContParSuite}.}.
+	Soit \( X\) un espace topologique et \( (Y,d)\) un espace métrique. Si une suite de fonctions \( f_n\colon X\to Y\) continues converge uniformément\footnote{Convergence uniforme, définition \ref{DEFooOHRYooWUsYTi}.}, alors la limite est séquentiellement continue\footnote{Si \( X\) est métrique, alors c'est la continuité usuelle par la proposition~\ref{PropFnContParSuite}.}.
 \end{proposition}
 
 \begin{proof}
@@ -283,19 +237,25 @@ Les séries de fonctions sont des cas particuliers de suites.
 \end{definition}
 Avant de vous lancer, relisez une bonne fois les définitions de convergence absolue (définition \ref{DefVFUIXwU}) et de convergence uniforme (équation \ref{EqLNCJooVCTiIw}).
 
-\begin{lemma}
-	Soient des fonctions \( u_n\colon \Omega\to \eC\). Si il existe une suite réelle positive \( (a_n)_{n\in \eN}\) telle que
+\begin{lemma}			\label{LEMooJDYSooRnurKb}
+	Soit un ensemble dénombrable \( I\). Soient des fonctions \( (u_i\colon \Omega\to \eC)_{i\in I}\). Si il existe des réels positifs \( (a_i)_{i\in I}\) telle que
 	\begin{enumerate}
 		\item
-		      pour tout \( z\in \Omega\) et pour tout \( n\in \eN\) nous avons \( | u_n(z) |\leq a_n\) (c'est-à-dire \( a_n\geq \| u_n \|_{\infty}\)),
+		      pour tout \( z\in \Omega\) et pour tout \( i\in I\) nous avons \( | u_i(z) |\leq a_i\) (c'est-à-dire \( a_i\geq \| u_i \|_{\infty}\)),
 		\item
-		      la somme \( \sum_{n}a_n\) converge,
+		      la somme \( \sum_{i\in I}a_i\) converge,
 	\end{enumerate}
-	alors la série de fonctions \( \sum_{n=0}^{\infty}u_n\) converge normalement\footnote{Définition~\ref{DefVBrJUxo}.}.
+	alors la série de fonctions \( \sum_{n=0}^{\infty}u_n\)
+	\begin{enumerate}
+		\item
+		      converge normalement\footnote{Définition~\ref{DefVBrJUxo}.},
+		\item
+		      converge uniformément.
+	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-	Découle du lemme de comparaison~\ref{LemgHWyfG}.
+	Le premier point découle du lemme de comparaison~\ref{LemgHWyfG}. Le second point est alors le lemme \ref{LEMooJZTBooIopLok}.
 \end{proof}
 
 \begin{theorem}				\label{ThoSerCritAbel}
@@ -1579,7 +1539,8 @@ Notons que les voisinages sur lesquels \( f_{\alpha}\) est injective sont assez 
 	Nous allons subdiviser quelque cas.
 	\begin{subproof}
 		\spitem[Pour \( \alpha\in \eN\)]
-		Nous supposons que ce cas va bien.      % TODOooDGMKooMrqjgX
+		Nous prouvons que \( f_n\) est continue pour tout \( n\) par récurrence. D'abord la fonction \( f_1\) est continue parce que c'est l'identité. Pour les autres, il s'agit d'une récurrence en utilisant le théorème \ref{THOooWRXOooUvKgkQ}\ref{ITEMooSHMVooZPNtCv}.
+
 		\spitem[Pour \( \alpha\in \eQ^+\)]
 		Soit \( q=m/n\) avec \( m,n\in \eN\). Soit aussi \( \epsilon>0\). Nous avons :
 		\begin{subequations}
@@ -1698,6 +1659,15 @@ Notons que les voisinages sur lesquels \( f_{\alpha}\) est injective sont assez 
 	\end{subproof}
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooURSHooFfEsFS}
+	Soient \( a,b>0\) et \( \alpha\in \eR\). Nous avons
+	\begin{equation}
+		(ab)^{\alpha}=a^{\alpha}b^{\alpha}.
+	\end{equation}
+	%TODOooKGJUooEtWSOV. Prouver ça.
+\end{proposition}
+
+
 \begin{proposition}     \label{PROPooJRWCooGiXAYt}
 	Soit \( \alpha>0\) dans \( \eR\). Nous avons
 	\begin{equation}
@@ -1761,7 +1731,7 @@ Notons que les voisinages sur lesquels \( f_{\alpha}\) est injective sont assez 
 		\item
 		      La fonction \( f_{\alpha}\) est continue par la proposition \ref{PROPooUQNZooSSHLqr}.
 	\end{itemize}
-	Le théorème des valeurs intermédiaires\footnote{Voir \ref{NORMooTQWWooQVPWIJ}.} conclut que \( f_{\alpha}\) est surjective sur \( \mathopen[ 0 , \infty \mathclose[\).
+	Le théorème des valeurs intermédiaires\footnote{Dans sa version de la proposition \ref{PROPooIJZWooCAFPRn}.} conclut que \( f_{\alpha}\) est surjective sur \( \mathopen[ 0 , \infty \mathclose[\).
 \end{proof}
 
 Le lemme suivant montre en gros que \( x^y\) croît plus rapidement en \( y\) qu'en \( x\).
@@ -1833,7 +1803,7 @@ Le lemme suivant montre en gros que \( x^y\) croît plus rapidement en \( y\) qu
 	\end{equation}
 	Par similitude, c'est le même polynôme caractéristique que celui de \( A\) et nous savons alors que la diagonale de \( D\) contient les valeurs propres de \( A\).
 
-	Vu que \( A^n=P^{-1}(D+N)^nP\), nous allons montrer que \( \| (D+N)^n \|\to 0\), et ce sera suffisant. Notons \( r\) l'ordre de nilpotence de \( N\) (c'est à dire \( N^r=0\)), et prenons \( n>r\). En utilisant le fait que \( D\) et \( N\) commutent, pour tout \( n\geq r\) nous avons :
+	Vu que \( A^n=P^{-1}(D+N)^nP\), nous allons montrer que \( \| (D+N)^n \|\to 0\), et ce sera suffisant. Notons \( r\) l'ordre de nilpotence de \( N\) (c'est-à-dire \( N^r=0\)), et prenons \( n>r\). En utilisant le fait que \( D\) et \( N\) commutent, pour tout \( n\geq r\) nous avons :
 	\begin{subequations}
 		\begin{align}
 			\| (D+N)^n \| & \leq \| \sum_{k=0}^n\binom{ n }{ k }D^{n-k}N^k \|                                   \\
@@ -1859,6 +1829,43 @@ Le lemme suivant montre en gros que \( x^y\) croît plus rapidement en \( y\) qu
 	\end{equation}
 	où \( c'\) est une nouvelle constante. Du coup si \( \rho(D)<1\) alors \( \| (D+N)^k \|\to 0\) par lemme \ref{LemLJOSooEiNtTs}.
 \end{proof}
+
+
+
+
+\begin{lemma}[\cite{BIBooPWRQooGjpqBi,MonCerveau}]	\label{LEMooZWXGooQkgsqw}
+	Soient \( a_n\geq 0\) tels que
+	\begin{equation}
+		\sum_{n=0}^{\infty}a_n| x |^n<\infty
+	\end{equation}
+	pour tout \( x\in B(0,r)\).
+
+	Alors
+	\begin{equation}
+		\lim_{t\to 0}\sum_{n=2}^{\infty}a_nt^{n-1}=0.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Soit \( 0<\epsilon<1\). Soit \( 0<x<\min\{ r,1 \}\). Nous notons \(M= \sum_{n=2}^{\infty}a_nx^n\). Nous considérons un nombre \( 0<t_0<1\) tel que
+	\begin{equation}
+		t_0<x^2.
+	\end{equation}
+	En utilisant les propositions \ref{PROPooDWZKooNwXsdV} et \ref{PROPooUOFKooYyGwIr}, nous avons \( t_0^{n-1}<x^{2n-2}\). Mais vu que nous ne considérons que \( n\geq 2\) et que \( 0<x<1\), nous en déduisons
+	\begin{equation}
+		t_0^{n-1}<x^{2n-2}<x^n.
+	\end{equation}
+	Nous posons enfin \( t_1<\epsilon t_0\) de telle sorte à avoir, en utilisant \ref{PROPooURSHooFfEsFS},
+	\begin{equation}
+		a_nt_1^{n-1}<a_n\epsilon^{n-1}t_0^{n-1}<\epsilon^na_nx^n<\epsilon a_nx^n.
+	\end{equation}
+	Enfin nous avons
+	\begin{equation}
+		\sum_{n=2}^{\infty}a_nt_1^{n-1}\leq \epsilon\sum_{n=2}^{\infty}a_nx^n=\epsilon M.
+	\end{equation}
+	Nous avons donc trouvé un \( t>0\) (donné par \( \epsilon t_0\)) tel que si \( t_1<t\) alors \( \sum_{n=2}^{\infty}a_nt^{n-1}<\epsilon M\). Cela prouve bien la limite demandée.
+\end{proof}
+
 
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2302,11 +2309,10 @@ Note : une équation du même type, avec \( f(x+y)=f(x)+f(y)\) sera dans le lemm
 	\begin{equation}
 		h'(x)=0
 	\end{equation}
-	et donc \( h\) est constante. Vu que \( h(0)=1\) nous avons \( g(x)y(-x)=1\) pour tout \( x\), c'est-à-dire
+	et donc \( h\) est constante. Vu que \( h(0)=1\) nous avons \( g(x)y(-x)=1\) pour tout \( x\). Grâce au lemme \ref{LEMooWUQBooXzjmZv} qui nous indisque que \( y\) ne s'annule pas, nous pouvons alors écrire
 	\begin{equation}
 		g(x)=\frac{1}{ y(-x) }=y(x).
 	\end{equation}
-	La seconde égalité est le lemme \ref{LEMooWUQBooXzjmZv}.
 \end{proof}
 
 \begin{normaltext}
@@ -2490,8 +2496,76 @@ vérifie l'équation fonctionnelle \eqref{EQooULHBooByFVec}. Nous pouvons nous d
 \end{proof}
 
 \begin{proposition}[\cite{BIBooXUZHooOHWxiF}]       \label{PROPooLTLWooBGcXAZ}
-	Si \( y\) vérifie l'équation exponentielle, alors elle est continue, monotone et vérifie l'équation fonctionnelle.
+	Soit \( a\in \eR\).
+
+	\begin{enumerate}
+		\item		\label{ITEMooJDMKooAfUWnv}
+		      Si elle existe, une solution \( y\) à l'équation différentielle
+		      \begin{subequations}		\label{EQooSJBOooWbgvDg}
+			      \begin{numcases}{}
+				      y'=y\\
+				      y(1)=a.
+			      \end{numcases}
+		      \end{subequations}
+		      est nulle soit sur tout \( \eR\) soit nulle part.
+
+		\item		\label{ITEMooYPYAooHtCflq}
+		      L'équation différentielle
+		      \begin{subequations}
+			      \begin{numcases}{}
+				      y'=y\\
+				      y(1)=a.
+			      \end{numcases}
+		      \end{subequations}
+		      possède une unique solution \(y \colon \eR\to \eR  \). Cette solution est donnée par
+		      \begin{equation}		\label{EQooNHOOooLLGzRR}
+			      y(x)=\frac{ a }{ e }e^x
+		      \end{equation}
+		      où \( e\) est la constante définie en \ref{PROPooJDPEooYTDVtU}\ref{ITEMooQQFRooWtlViJ}.
+	\end{enumerate}
 \end{proposition}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooJDMKooAfUWnv}]
+		%-----------------------------------------------------------
+		Supposons que \( y\) est une solution non identiquement nulle. Soit \( x_1\in \eR\) tel que \( y(x_1)\neq 0\). Alors en posant
+		\begin{equation}
+			z(x)=\frac{ y(x+x_1) }{ y(x_1) }
+		\end{equation}
+		nous avons \( z'=z\) et \( z(0)=1\). Le lemme \ref{LEMooWUQBooXzjmZv} nous dit alors que \( z\) ne s'annule pas. Donc \( y\) non plus.
+
+		\spitem[Pour \ref{ITEMooYPYAooHtCflq}, existence]
+		%-----------------------------------------------------------
+		Si \( a=0\) alors nous avons la solution \( y=0\) qui fonctionne. Sinon, il suffit de vérifier que \eqref{EQooNHOOooLLGzRR} fonctionne. C'est le cas grâce à la proposition \ref{PROPooJDPEooYTDVtU} et au fait que \( y=\frac{ a }{ e }g_e\).
+
+		\spitem[Pour \ref{ITEMooYPYAooHtCflq}, unicité]
+		%-----------------------------------------------------------
+		Si \( a=0\) alors le point \ref{ITEMooJDMKooAfUWnv} dit que l'unique solution est \( y=0\). Si \( a\neq 0\) alors nous savons qu'aucune solution ne s'annule où que ce soit, et nous pouvons travailler.
+
+		Nous supposons que \( y\) et \( g\) sont des solutions du problème \eqref{EQooSJBOooWbgvDg}. En posant \( h_1(x)=y(x)y(-x)\) et en dérivant nous trouvons que \( h\) est constante. Nous posons \( A=h(x)\). En particulier pour \( x=1\) nous avons \( y(1)=a\) et donc
+		\begin{equation}
+			A=h(1)=ay(-1).
+		\end{equation}
+		Nous faisons de même avec \( h_2(x)=g(x)y(-x)\). Nous trouvons de même que \( h_2\) est constante et nous posons \( h_2(x)=B\). En évaluant en \( x=1\) nous trouvons
+		\begin{equation}
+			B=h_2(1)=ay(-1),
+		\end{equation}
+		de telle sorte que \( A=B\).
+
+		Nous avons le calcul suivant :
+		\begin{subequations}
+			\begin{align}
+				g(x) & =\frac{ h_2(x) }{ y(-x) } \\
+				     & =\frac{ B }{ y(-x) }      \\
+				     & =B\frac{ y(x) }{ A }      \\
+				     & =y(x).
+			\end{align}
+		\end{subequations}
+		Notons que ce calcul est possible parce que \( y(-x)\neq 0\) pour tout \( x\). D'où l'importance du point \ref{ITEMooJDMKooAfUWnv}.
+	\end{subproof}
+\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Dérivation de la fonction puissance (seconde)}

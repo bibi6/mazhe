@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2008-2009,2011-2017, 2019-2020, 2023-2024
+% Copyright (c) 2008-2009,2011-2017, 2019-2020, 2023-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -298,7 +298,7 @@ En ce qui concerne l'interprétation des équations\cite{QUMHooCSloAC},
 				-cy+dxy
 			\end{pmatrix}.
 		\end{equation}
-		C'est une fonction continue localement Lipschitz partout par le lemme~\ref{LemCFZUooVqZmpc} et la proposition~\ref{PropGIBZooVsIqfY}.
+		C'est une fonction continue localement lipschitzienne partout par le lemme~\ref{LemCFZUooVqZmpc} et la proposition~\ref{PropGIBZooVsIqfY}.
 
 		Nous savons cependant que les solutions sont de classe \( C^1\) et que moyennant la donnée d'une condition initiale, la solution est unique.
 		\spitem[Les solutions restent positives]
@@ -472,18 +472,21 @@ Nous commençons par argumenter que si \( q\) est continue, alors l'ensemble des
 	\end{pmatrix}Y(t).
 \end{equation}
 
-Soient deux solutions \( y_1\) et \( y_2\) de l'équation différentielle. Le \defe{Wronskien}{Wronskien} de ces deux solutions est le déterminant
-\begin{equation}
-	W(t)=\begin{vmatrix}
-		y_1  & y_2  \\
-		y'_1 & y'_2
-	\end{vmatrix}.
-\end{equation}
+\begin{definition}	\label{DEFooISLFooPUcCIK}
+	Soient deux solutions \( y_1\) et \( y_2\) de l'équation différentielle. Le \defe{wronskien}{wronskien} de ces deux solutions est le déterminant
+	\begin{equation}
+		W(t)=\begin{vmatrix}
+			y_1  & y_2  \\
+			y'_1 & y'_2
+		\end{vmatrix}.
+	\end{equation}
+\end{definition}
+
 Si nous considérons l'équation différentielle
 \begin{equation}
 	y''+py'+qy=0,
 \end{equation}
-le Wronskien peut être déterminé sans savoir explicitement \( y_1\) et \( y_2\) parce que \( W=y_1y'_2-y'_1y_2\), et en dérivant,
+le wronskien peut être déterminé sans savoir explicitement \( y_1\) et \( y_2\) parce que \( W=y_1y'_2-y'_1y_2\), et en dérivant,
 \begin{subequations}
 	\begin{align}
 		W' & =y_1y_2''+y'_1y'_2-y''_1y_2-y'_1y'_2 \\
@@ -577,9 +580,9 @@ en fonction de telle ou telle hypothèse sur \( q\).
 	\end{subequations}
 	En prenant la limite des deux côtés on voit que \( y(x)\to \infty\) dès que \( \alpha\neq 0\), ce qui est contraire aux hypothèses. Donc \( \alpha=0\).
 
-	Pour la seconde partie de la proposition, nous devons prouver que l'équation \( y''+qy=0\) possède des solutions non bornées. Si l'équation a seulement des solutions bornées et si \( \{ u,v \}\) est une base de solutions, alors nous avons \( u',v'\to 0\). Si nous reprenons l'équation \eqref{EqHEMRgM} avec \( p=0\) nous savons que dans notre cas le Wronskien satisfait à \( W'=0\), c'est-à-dire qu'il est constant. Mais vu que \( u\) et \( v\) sont bornées et que les dérivées tendent vers zéro, nous avons \( W(t)\to 0\) et donc \( W(t)=0\).
+	Pour la seconde partie de la proposition, nous devons prouver que l'équation \( y''+qy=0\) possède des solutions non bornées. Si l'équation a seulement des solutions bornées et si \( \{ u,v \}\) est une base de solutions, alors nous avons \( u',v'\to 0\). Si nous reprenons l'équation \eqref{EqHEMRgM} avec \( p=0\) nous savons que dans notre cas le wronskien satisfait à \( W'=0\), c'est-à-dire qu'il est constant. Mais vu que \( u\) et \( v\) sont bornées et que les dérivées tendent vers zéro, nous avons \( W(t)\to 0\) et donc \( W(t)=0\).
 
-	Or l'annulation identique du Wronskien contredit que \( \{ u,v \}\) serait une base de solutions. Donc il existe des solutions non bornées.
+	Or l'annulation identique du wronskien contredit que \( \{ u,v \}\) serait une base de solutions. Donc il existe des solutions non bornées.
 \end{proof}
 
 \begin{proposition} \label{PropMYskGa}
@@ -744,14 +747,14 @@ Remémorons nous toutefois, pour calmer tout enthousiasme excessif, que \( T\) d
 
 
 \begin{proof}
-	Remarquons que le déterminant de la matrice \( T\) est égal au Wronskien des solutions \( y_1\) et \( y_2\) calculé en \( t=\pi\). Calculons sa valeur :
+	Remarquons que le déterminant de la matrice \( T\) est égal au wronskien des solutions \( y_1\) et \( y_2\) calculé en \( t=\pi\). Calculons sa valeur :
 	\begin{equation}
 		W(y_1,y_2)=\det\begin{pmatrix}
 			y_1  & y_2  \\
 			y'_1 & y'_2
 		\end{pmatrix}=y_1y'_2-y'_1y_2.
 	\end{equation}
-	En dérivant et en remplaçant \( y''_i\) par \( -qy_i\), nous trouvons tout de suite \( W(y_1,y_2)'=0\). Donc le Wronskien est constant et il est facile de le calculer en \( t=0\) :
+	En dérivant et en remplaçant \( y''_i\) par \( -qy_i\), nous trouvons tout de suite \( W(y_1,y_2)'=0\). Donc le wronskien est constant et il est facile de le calculer en \( t=0\) :
 	\begin{equation}
 		W(y_1,y_2)(0)=1-0=1.
 	\end{equation}
@@ -1174,9 +1177,9 @@ Pour définir ce que nous entendons par une fonction de classe \( C^k\) à valeu
 		Là dedans, \( \chi(t)\) peut sortir à la fois de la transformée de Fourier et de l'application des distributions; il doit seulement rester dans l'intégrale. Dans le second terme nous allons utiliser l'égalité (due entre autre à la proposition~\ref{PropUDkgksG}) :
 		\begin{subequations}    \label{EqCRGfbLU}
 			\begin{align}
-				\frac{ d }{ dt }\big( \hat u_t( e^{it\| . \|^2}\varphi) \big) & =\frac{ d }{ dt }\left( u_t\big( \TF e^{it\| . \|^2}\varphi \big) \right)                                                                                         \\
-				                                                              & =u_t^{(1)}\big( \TF  e^{it\| . \|^2}\varphi \big)+u_t\left( \frac{ \partial  }{ \partial t }\TF e^{it\| . \|^2}\varphi \right)                                    \\
-				                                                              & =(\TF u_t^{(1)})\big( x\mapsto  e^{it\| x \|^2}\varphi(x) \big)+(\TF u_t)\big( x\mapsto i\| x \|^2 e^{it\| x \|^2}\varphi(x) \big)                                \\
+				\frac{ d }{ dt }\big( \hat u_t( e^{it\| . \|^2}\varphi) \big) & =\frac{ d }{ dt }\left( u_t\big( \TF e^{it\| . \|^2}\varphi \big) \right)                                                                                          \\
+				                                                              & =u_t^{(1)}\big( \TF  e^{it\| . \|^2}\varphi \big)+u_t\left( \frac{ \partial  }{ \partial t }\TF e^{it\| . \|^2}\varphi \right)                                     \\
+				                                                              & =(\TF u_t^{(1)})\big( x\mapsto  e^{it\| x \|^2}\varphi(x) \big)+(\TF u_t)\big( x\mapsto i\| x \|^2 e^{it\| x \|^2}\varphi(x) \big)                                 \\
 				                                                              & =(\TF u)_t^{(1)}\big( x\mapsto  e^{it\| x \|^2}\varphi(x) \big)+(\TF u_t)\big( x\mapsto i\| x \|^2 e^{it\| x \|^2}\varphi(x) \big)\;	\text{lem. \ref{LemWRoRPIX}.}
 			\end{align}
 		\end{subequations}

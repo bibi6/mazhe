@@ -12,6 +12,426 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooHMPRooCTfBOV",
+    "url": "https://fr.wikipedia.org/wiki/Famille_sommable",
+    "title": "Famille sommable",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "22 octobre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooWLIQooWDfTpI",
+    "url": "https://licence-math.univ-lyon1.fr/lib/exe/fetch.php?media=pmi:prepahermit.pdf",
+    "title": "1. Formes hermitiennes",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "9 octobre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooLDIPooRKBZxS",
+    "url": "https://www.maths91.fr/coursTermSPE_MATHS/TSpeMaths-probabilites-02-loi_binomiale-cours.pdf",
+    "title": "Loi binomiale",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "29 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIooGNKFooTYlRlt",
+    "url": "https://linuxfr.org/nodes/140246/comments/2001196",
+    "title": "Re: Le cas particulier ChatGPT",
+    "author": [
+      {
+        "family": "Jeanas"
+      }
+    ],
+    "date": "28 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMPEKooHWaUAJ",
+    "url": "https://math.stackexchange.com/a/5097932/294061",
+    "title": "Every non-empty Dedekind-finite totally ordered set has a maximum (using Zorn's lemma and without using natural numbers)",
+    "author": [
+      {
+        "family": "Jean Abou Sama"
+      }
+    ],
+    "date": "25 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMVOHooZFuWSW",
+    "url": "https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_central_limite",
+    "title": "Théorème central limite",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "14 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooEWYNooTcCLSQ",
+    "url": "https://en.wikipedia.org/wiki/Matrix_determinant_lemma",
+    "title": "Matrix determinant lemma",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "7 septembre 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooLIHCooVSqNUv",
+    "url": "https://agreg.org/data/uploads/rapports/rapport2013.pdf",
+    "title": "Rapport 2013",
+    "author": [
+      {
+        "family": "MINISTÈRE DE L’ÉDUCATION NATIONALE"
+      }
+    ],
+    "date": "27 aout 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooXGHGooNQUvHR",
+    "url": "https://math.univ-lyon1.fr/~caldero/Cours-GCG.pdf",
+    "title": "Hitchhiker’s Manual of Maths",
+    "author": [
+      {
+        "family": "Philippe Caldero"
+      }
+    ],
+    "date": "18 aout 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooYNXFooXgzmvu",
+    "url": "https://fr.wikipedia.org/wiki/Espace_%CF%83-compact",
+    "title": "Espace sigma-compact",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "18 aout 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMJJZooWEKogX",
+    "url": "https://math.stackexchange.com/questions/5085835/norm-of-lambda-nk-when-n-is-nilpotent/5085843#5085843",
+    "title": "Norm of (lambda + N)k when N is nilpotent",
+    "author": [
+      {
+        "family": "Just a user"
+      }
+    ],
+    "date": "27 juilllet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPWRQooGjpqBi",
+    "url": "https://math.stackexchange.com/questions/5085132/differential-of-analytic-map-between-banach-spaces/5085135#5085135",
+    "title": "differential of analytic map between Banach spaces",
+    "author": [
+      {
+        "family": "mihaild"
+      }
+    ],
+    "date": "24 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMZCTooPdvxTn",
+    "url": "https://schecter.math.ncsu.edu/ma_732_sp13/diff_banach_2.pdf",
+    "title": "TWO MORE THEOREMS ABOUT DIFFERENTIATION IN BANACH SPACE",
+    "author": [
+      {
+        "family": "Stephen Schecter"
+      }
+    ],
+    "date": "20 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooVBBTooCSGcHZ",
+    "url": "https://hebey.u-cergy.fr/CalculDiffAvanChap4.pdf",
+    "title": "Calcul Diff´erentiel Avanc´e",
+    "author": [
+      {
+        "family": "Emmanuel Hebey"
+      }
+    ],
+    "date": "20 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooJVIDooLZroz",
+    "url": "https://agreg-maths.fr/uploads/versions/4879/33)%20The%CC%81ore%CC%80me%20chinois.pdf",
+    "title": "Théorème chinois",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "19 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooSALPooIrQwPd",
+    "url": "https://mathieu-mansuy.fr/pdf/agreg-interne-cours-restes-chinois.pdf",
+    "title": "Autour du théorème des restes chinois",
+    "author": [
+      {
+        "family": "Mathieu Mansuy"
+      }
+    ],
+    "date": "16 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooHDJZooEVwGMS",
+    "url": "https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_des_restes_chinois",
+    "title": "Théorème des restes chinois",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "16 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooFVHEooDuxDWi",
+    "url": "https://fr.wikipedia.org/wiki/Nombre_entier",
+    "title": "Nombre entier",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooQHHCooXEhgqZ",
+    "url": "https://fnacry.perso.math.cnrs.fr/Fichiers-Ens/Alg/CM_Anneaux.pdf",
+    "title": "Algèbre : théorie des anneaux",
+    "author": [
+      {
+        "family": "Florent Nacry"
+      }
+    ],
+    "date": "15 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooYQTTooOscORo",
+    "url": "http://pucci.math.free.fr/Cours/07_Proprietes_L3%20-%20Analyse%20complexe.pdf",
+    "title": "PROPRIÉTÉS DES FONCTIONS HOLOMORPHES",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "14 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooHKYXooLwkilK",
+    "url": "https://mabouzai.perso.univ-pau.fr/ConiquesISA2.pdf",
+    "title": "Coniques, quadriques et formes quadratiques",
+    "author": [
+      {
+        "family": "Mourad ABOUZAID"
+      }
+    ],
+    "date": "12 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooHPNXooPDTWvW",
+    "url": "https://en.wikipedia.org/wiki/Weierstrass_M-test",
+    "title": "Weierstrass M-test",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "2 juillet 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPCEDooMHkbnu",
+    "url": "https://licence-math.univ-lyon1.fr/lib/exe/fetch.php?media=p23:s4_complements:ch2-seriesdefonctions2021.pdf",
+    "title": "Séries de fonctions",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "30 juin 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooKKTCooINtxKB",
+    "url": "https://laurentgry-sciences.fr/data/seriesentieres.pdf",
+    "title": "Suites et séries de fonctions - Séries entières",
+    "author": [
+      {
+        "family": "Laurent Gry"
+      }
+    ],
+    "date": "28 juin 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooAUVTooAEiHfH",
+    "url": "https://math.stackexchange.com/questions/3863760/uniform-convergence-of-complex-fourier-series",
+    "title": "Uniform convergence of complex Fourier series",
+    "author": [
+      {
+        "family": "Kavi Rama Murthy"
+      }
+    ],
+    "date": "28 juin 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooQMEFooEUkxJp",
+    "url": "https://fr.wikipedia.org/wiki/Axiome_de_l%27infini",
+    "title": "Axiome de l'infini",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "24 juin 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooSAYFooEtXedK",
+    "url": "https://fr.wikipedia.org/wiki/Construction_des_entiers_naturels",
+    "title": "Construction des entiers naturels",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "24 juin 2024",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooHWDXooCeqQWn",
+    "url": "https://www.imo.universite-paris-saclay.fr/~david.harari/enseignement/agreg21/groupagreg.pdf",
+    "title": "Cours agrégation (2020-2021) : Groupes",
+    "author": [
+      {
+        "family": "David Harari"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooGTNUooUYDzIH",
+    "url": "https://youtu.be/xpKLXNR6HcM",
+    "title": "Problème de Cauchy pour une équation différentielle linéaire du premier ordre",
+    "author": [
+      {
+        "family": "bibmath.net"
+      }
+    ],
+    "date": "9 juin 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooKNNSooMIoyOg",
+    "url": "https://www.youtube.com/watch?v=yCmVLulzxyc",
+    "title": "Résolution des équations différentielles linéaires homogènes du premier ordre ",
+    "author": [
+      {
+        "family": "bibmath.net"
+      }
+    ],
+    "date": "9 juin 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooKKSLooGjoYjh",
+    "url": "https://www.ilemaths.net/sujet-partie-precompacte-121705.html",
+    "title": "partie précompacte",
+    "author": [
+      {
+        "family": "jowayriya"
+      }
+    ],
+    "date": "29 mai 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooFGDGooGQUSNn",
+    "url": "https://perso.univ-rennes1.fr/karim.bekka/ANAH/Week%20by%20week/2013-2014/ANAH5.pdf",
+    "title": "Équicontinuité. Théorème d’Ascoli",
+    "author": [
+      {
+        "family": "Karim Bekka"
+      }
+    ],
+    "date": "27 mai 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPEIZooQUlfHx",
+    "url": "https://fr.wikipedia.org/wiki/Convergence_uniforme",
+    "title": "Convergence uniforme",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "20 mai 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooARERooBepIbf",
+    "url": "https://fr.wikipedia.org/wiki/Partie_relativement_compacte",
+    "title": "Partie relativement compacte",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "20 mai 2025",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooCMYGooDzAKmh",
+    "url": "https://math.stackexchange.com/questions/35038/is-the-intersection-of-a-closed-set-and-a-compact-set-always-compact",
+    "title": "Is the intersection of a closed set and a compact set always compact?",
+    "author": [
+      {
+        "family": "Matt E"
+      }
+    ],
+    "date": "8 mai 2025",
+    "type": "article-journal"
+  },
+  {
     "id": "BIBooRNUTooNwYWtS",
     "url": "https://fr.wikipedia.org/wiki/Produit_cart%C3%A9sien",
     "title": "Produit cartésien",
@@ -110,7 +530,7 @@
         "family": "Victor Lecerf"
       }
     ],
-    "date": "27 avrail 2025",
+    "date": "27 avril 2025",
     "type": "article-journal"
   },
   {
@@ -305,19 +725,6 @@
     "type": "article-journal"
   },
   {
-    "id": "BIBooARJKooLuqoxW",
-    "url": "https://chatgpt.com",
-    "title": "",
-    "author": [
-      {
-        "family": "ChatGPT"
-      }
-    ],
-    "date": "29 janvier 2025",
-    "note": "Same prompt as in \\url{https://math.stackexchange.com/questions/5028910}",
-    "type": "article-journal"
-  },
-  {
     "id": "BIBooUZAMooXuhUBs",
     "url": "https://fr.wikiversity.org/wiki/Topologie_g%C3%A9n%C3%A9rale/Propri%C3%A9t%C3%A9_de_Baire",
     "title": "Propriété de Baire",
@@ -443,7 +850,7 @@
     "title": "Two definitions of locally compact space",
     "author": [
       {
-        "family": " Forever Mozart"
+        "family": "Forever Mozart"
       }
     ],
     "date": "15 dec 2015",
@@ -573,7 +980,7 @@
   {
     "id": "BIBooCSDMooMcXgXz",
     "url": "https://perso.univ-rennes1.fr/francois.maucourant/enseignement/cours_AR4_2.pdf",
-    "title": "COURS ET DM AR4 : GROUPE SYM´ETRIQUE II, ACTION DE GROUPE",
+    "title": "COURS ET DM AR4 : GROUPE SYMÉTRIQUE II, ACTION DE GROUPE",
     "author": [
       {
         "family": "FRANÇOIS MAUCOURANT"
@@ -700,18 +1107,6 @@
       }
     ],
     "date": "29 novembre 2024",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooKDKPooJvKENj",
-    "url": "https://math.stackexchange.com/questions/1067067/partial-converse-of-holders-theorem",
-    "title": "<++>",
-    "author": [
-      {
-        "family": ""
-      }
-    ],
-    "date": "<++>",
     "type": "article-journal"
   },
   {
@@ -1084,6 +1479,19 @@
       }
     ],
     "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooARJKooLuqoxW",
+    "url": "https://chatgpt.com",
+    "title": "",
+    "author": [
+      {
+        "family": "ChatGPT"
+      }
+    ],
+    "date": "29 janvier 2025",
+    "note": "Same prompt as in \\url{https://math.stackexchange.com/questions/5028910}",
     "type": "article-journal"
   },
   {
@@ -6451,13 +6859,13 @@
     "url": "http://www.cmi.univ-mrs.fr/~gallouet/licence.d/mes-int-pro.pdf"
   },
   {
+    "id": "ooBCKVooVunKyT",
     "url": "https://www.i2m.univ-amu.fr/~gallouet/licence.d/anum.d/anum-tg2.pdf",
     "author": [
       {
         "family": "Gallouët!Thierry"
       }
     ],
-    "id": "ooBCKVooVunKyT",
     "title": "Norme et conditionnement d’une matrice",
     "type": "article-journal"
   },
@@ -7152,7 +7560,7 @@
     "type": "article-journal"
   },
   {
-    "url": "http://sma.epfl.ch/~troyanov/Papers/MesureIntegration.pdf",
+    "url": "https://sma.epfl.ch/~troyanov/Papers/MesureIntegration.pdf",
     "author": [
       {
         "family": "Troyanov",
@@ -8293,13 +8701,13 @@
     "type": "article-journal"
   },
   {
+    "id": "ooYDVWooPWLUGW",
     "url": "http://fr.wikipedia.org/w/index.php?title=%C3%89quicontinuit%C3%A9&oldid=137910699",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "ooYDVWooPWLUGW",
     "issued": {
       "date-parts": [
         [
@@ -9635,18 +10043,6 @@
     },
     "title": "Théorème de Rolle — Wikipédia, l’encyclopédie libre",
     "type": "no-type"
-  },
-  {
-    "url": "https://www.ceremade.dauphine.fr/~carlier/analysecomplexe.pdf",
-    "author": [
-      {
-        "family": "Carlier",
-        "given": "Guillaume"
-      }
-    ],
-    "id": "ooXDXQooWXsXlk",
-    "title": "Analyse complexe",
-    "type": "article-journal"
   },
   {
     "url": "https://fr.wikiversity.org/w/index.php?title=Fonctions_d%27une_variable_complexe/Le_logarithme_complexe&oldid=617412",
@@ -11798,6 +12194,7 @@
     "type": "article-journal"
   },
   {
+    "id": "SNDooCQYseS",
     "url": "http://www.iecn.u-nancy.fr/~mortajin/chap3-L3-S5.pdf",
     "author": [
       {
@@ -11805,7 +12202,6 @@
         "given": "Mortajine"
       }
     ],
-    "id": "SNDooCQYseS",
     "title": "Les extensions de corps",
     "type": "article-journal"
   },
@@ -12360,12 +12756,12 @@
   },
   {
     "url": "http://fr.wikipedia.org/w/index.php?title=Convergence_uniforme&oldid=95493463",
+    "id": "LCbyNWQ",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "LCbyNWQ",
     "issued": {
       "date-parts": [
         [
@@ -12991,13 +13387,14 @@
     "type": "article-journal"
   },
   {
+    "id": "TUEWwUN",
+    "url": "https://webusers.imj-prg.fr/~bernard.maurey/agreg/ag045/Convolution045.pdf",
     "author": [
       {
         "family": "Mauray",
         "given": "B."
       }
     ],
-    "id": "TUEWwUN",
     "issued": {
       "date-parts": [
         [
@@ -13006,8 +13403,7 @@
       ]
     },
     "title": "Convolution, inégalités, approximations et régularisation",
-    "type": "article-journal",
-    "url": "https://webusers.imj-prg.fr/~bernard.maurey/agreg/ag045/Convolution045.pdf"
+    "type": "article-journal"
   },
   {
     "author": [
@@ -13724,16 +14120,16 @@
     "url": "http://www.math.jussieu.fr/~romagny/agreg/theme/rlgf_paysage.pdf"
   },
   {
+    "id": "LoFdlw",
+    "url": "http://perso.univ-rennes1.fr/christophe.mourougane/enseignements/2009-10/THGG/poly.groupes.pdf",
     "author": [
       {
         "family": "Mourougane",
         "given": "Christophe"
       }
     ],
-    "id": "LoFdlw",
     "title": "Théorie des groupes et géométrie",
-    "type": "article-journal",
-    "url": "http://perso.univ-rennes1.fr/christophe.mourougane/enseignements/2009-10/THGG/poly.groupes.pdf"
+    "type": "article-journal"
   },
   {
     "author": [
@@ -13853,15 +14249,15 @@
     "url": "http://www-fourier.ujf-grenoble.fr/~panchish/05ensl.pdf"
   },
   {
+    "id": "XPXxPl",
+    "url": "http://www.ac-grenoble.fr/champo/IMG/arithmetique.pdf",
     "author": [
       {
         "family": "Anonyme"
       }
     ],
-    "id": "XPXxPl",
     "title": "sans titre",
-    "type": "article-journal",
-    "url": "http://www.ac-grenoble.fr/champo/IMG/arithmetique.pdf"
+    "type": "article-journal"
   },
   {
     "url": "https://www-fourier.ujf-grenoble.fr/~demange/integration/2012/integration-chap5.pdf",
@@ -14557,6 +14953,7 @@
     "url": "http://agreg-maths.univ-rennes1.fr/documentation/docs/PointFixe.pdf"
   },
   {
+    "id": "DHdwZRZ",
     "url": "http://www.rblld.fr/cours/chap6.pdf",
     "author": [
       {
@@ -14564,7 +14961,6 @@
         "given": "Romain"
       }
     ],
-    "id": "DHdwZRZ",
     "title": "Séries de fonctions",
     "type": "article-journal"
   },
@@ -16358,13 +16754,13 @@
     "type": "no-type"
   },
   {
-    "url": "http://fr.wikipedia.org/w/index.php?title=Th%C3%A9or%C3%A8me_d%27Ascoli&oldid=92958118",
+    "id": "LBLADXV",
+    "url": "https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_d%27Ascoli",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "LBLADXV",
     "issued": {
       "date-parts": [
         [

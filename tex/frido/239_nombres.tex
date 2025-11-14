@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2024
+% Copyright (c) 2011-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -610,21 +610,67 @@ Le lemme suivant permet d'extraire le cycle de \( \sigma\) associé à un élém
 \end{definition}
 
 \begin{example} \label{ExVYZPzub}
-	Les classes de conjugaison de \( S_4\). Nous savons que les classes de conjugaison dans \( S_4\) sont caractérisées par la structure des décompositions en cycles (proposition~\ref{PropEAHWXwe}). Le groupe symétrique \( S_4\) possède donc les classes de conjugaison suivantes.
+\end{example}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooQRZYooKVZTCJ}
+	Les classes de conjugaison de \( S_4\) sont :
 	\begin{enumerate}
-		\item
+		\item		\label{ITEMooZIYYooCqpicx}
 		      Le cycle vide qui représente la classe constituée de l'identité seule.
-		\item
+		\item \label{ITEMooVDLGooFOkgzc}
 		      Les transpositions (de type \( (a,b)\)) qui sont au nombre de \( 6\).
-		\item
-		      Les \( 3\)-cycles. Pour savoir \href{http://www.toujourspret.com/techniques/expression/chants/C/cantique_des_etoiles.php}{quel est leur nombre} nous commençons par remarquer qu'il y a \( 4\) façons de prendre \( 3\) nombres parmi \( 4\) et ensuite \( 2\) façons de les arranger. Il y a donc \( 8\) éléments dans cette classe de conjugaison.
-		\item
-		      Les \( 4\)-cycles. Le premier est arbitraire (parce que c'est cyclique). Pour le second il y a \( 3\) possibilités, et deux possibilités pour le troisième; le quatrième est alors automatique. Cette classe de conjugaison contient donc \( 6\) éléments.
+		\item	\label{ITEMooWKUIooTedZAA}
+		      Les doubles transpositions (de type \( (a,b)(c,d)\)) qui sont au nombre de \( 6\).
+		\item		\label{ITEMooMHRWooSkUveJ}
+		      Les \( 3\)-cycles qui sont au nombre de \( 8\).
+		\item		\label{ITEMooCBYNooZmFsBd}
+		      Les \( 4\)-cycles qui sont au nombre de \( 6\).
+
 		\item       \label{ITEMooGCMYooKZgFHX}
-		      Les doubles transpositions, du type \( (a,b)(c,d)\). Dans ce cas, tous les nombres sont permutés, et l'image de \( 1\) détermine la double transposition. Il y a \( 3\) images possibles, et donc \( 3\) éléments dans cette classe.
+		      Les doubles transpositions, du type \( (a,b)(c,d)\) qui sont au nombre de \( 3\).
 	\end{enumerate}
 	\index{classe de conjugaison!dans \( S_4\) }
-\end{example}
+\end{proposition}
+
+\begin{proof}
+	Nous savons que les classes de conjugaison dans \( S_4\) sont caractérisées par la structure des décompositions en cycles (proposition~\ref{PropEAHWXwe}). Avec \( 4\) éléments, il n'y a pas des tonnes de cycles qu'on peut faire.
+
+	On peut faire des cycles de taille \( 1\), \( 2\), \( 3\) ou \( 4\). Les seules façons de faire \( 4\) avec ces nombres sont :
+	\begin{enumerate}
+		\item
+		      \( 1+1+1+1\)
+		\item
+		      \( 2+1+1\)
+		\item
+		      \( 2+2\)
+		\item
+		      \( 3+1\)
+		\item
+		      \( 4\)
+	\end{enumerate}
+	Comptons combien il y a de possibilités dans chaque cas.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooZIYYooCqpicx}]
+		%-----------------------------------------------------------
+		À propos de la possibilité \( 1+1+1+1=4\). Il y a une seule possibilité de fixer tous les éléments.
+		\spitem[Pour \ref{ITEMooVDLGooFOkgzc}]
+		%-----------------------------------------------------------
+		À propos de \( 2+1+1=4\). Il y a \( 4\) possibilités pour \( a\), et \( 3 \) pour \( b\). Mais \( (a,b)=(b,a)\), donc il faut diviser par deux. Donc \( 6\) en tout.
+		\spitem[Pour \ref{ITEMooWKUIooTedZAA}]
+		%-----------------------------------------------------------
+		À propos de \( 2+2=4\). Nous cherchons les possibilités pour  \( (a,b)(c,d)\). Nous venons de voir qu'il y a \( 6\) possibilités pour \( (a,b)\). Les deux autres sont fixés.
+		\spitem[Pour \ref{ITEMooMHRWooSkUveJ}]
+		%-----------------------------------------------------------
+		Pour savoir \href{http://www.toujourspret.com/techniques/expression/chants/C/cantique_des_etoiles.php}{quel est leur nombre} nous commençons par remarquer qu'il y a \( 4\) façons de prendre \( 3\) nombres parmi \( 4\) et ensuite \( 2\) façons de les arranger. Il y a donc \( 8\) éléments dans cette classe de conjugaison.
+		\spitem[Pour \ref{ITEMooCBYNooZmFsBd}]
+		%-----------------------------------------------------------
+		Le premier est arbitraire (parce que c'est cyclique). Pour le second il y a \( 3\) possibilités, et deux possibilités pour le troisième; le quatrième est alors automatique. Cette classe de conjugaison contient donc \( 6\) éléments.
+		\spitem[Pour \ref{ITEMooGCMYooKZgFHX}]
+		%-----------------------------------------------------------
+		Dans ce cas, tous les nombres sont permutés, et l'image de \( 1\) détermine la double transposition. Il y a \( 3\) images possibles, et donc \( 3\) éléments dans cette classe.
+	\end{subproof}
+\end{proof}
 
 \begin{proposition} \label{PropPWIJbu}
 	Tout élément de \( S_n\) peut être écrit sous la forme d'un produit fini de transpositions.
@@ -827,7 +873,7 @@ La notion de parité d'une permutation est la clef pour savoir quelles positions
 \end{proof}
 
 %-------------------------------------------------------
-\subsection{Permutation un peu ordonnées}
+\subsection{Permutations un peu ordonnées}
 %----------------------------------------------------
 
 \begin{lemma}[\cite{MonCerveau}]		\label{LEMooEOTGooPslULz}
@@ -966,7 +1012,7 @@ Si \( S\) est un ensemble fini, nous savons de la proposition \ref{PROPooJLGKooD
 		\sum_{i=1}^nf\big( \sigma_1(i) \big)=\sum_{i=1}^nf\big( \sigma_2(i) \big).
 	\end{equation}
 	La valeur commune est notée
-	\begin{equation}
+	\begin{equation}	\label{EQooWTTJooIJEbrV}
 		\sum_{i\in I}f(i)
 	\end{equation}
 \end{lemmaDef}
@@ -1031,7 +1077,17 @@ et de faire tourner la définition \ref{DEFooLNEXooYMQjRo}. La même chose tient
 	\begin{equation}
 		\sum_{i\in I}f(i)=\sum_{j\in J}f\big( \varphi^{-1}(j) \big).
 	\end{equation}
+	%TODOooVIEIooZgsQZb. Prouver ça.
 \end{lemma}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooQDFLooVTwJQq}
+	Soit un groupe \( G\) ainsi qu'une application \(f \colon E\to G  \). Soient deux parties \( A,B\subset E\) telles que \( A\cup B=E\) et \( A\cap B=\emptyset\). Alors
+	\begin{equation}
+		\sum_{i\in E}f(i)=\sum_{i\in A}f(i)+\sum_{i\in B}f(i).
+	\end{equation}
+	%TODOooLLGDooAMffOw. Prouver ça.
+\end{lemma}
+
 
 \begin{lemma}		\label{LEMooNDBYooAGEkmw}
 	Soit un ensemble \( A\) fini pouvant être écrit comme une union disjointe \( A=\bigcup_{k=1}^nA_k\); nous supposons que les \( A_i\) sont non vides. Soient un groupe commutatif \( (G,+)\) et une application \( f\colon A\to G\). Alors
@@ -1211,86 +1267,6 @@ Nous avons déjà parlé d'anneaux dans la définition \ref{DefHXJUooKoovob}.
 	Un \defe{isomorphisme d'anneaux}{isomorphisme!d'anneaux} est un morphisme d'anneaux\footnote{Définition \ref{DEFooSPHPooCwjzuz}.}, bijectif.
 \end{definition}
 
-La distributivité de la partie \ref{ITEMooGMNOooSTGiXw} de la définition \ref{DefHXJUooKoovob} ne traite que de l'addition; pas de la soustraction. Voici une lemme qui dit que ça fonctionne quand même.
-\begin{lemma}[\cite{BIBooZFPUooIiywbk}]     \label{LEMooVPYUooRzexke}
-	Soient un anneau \( A\) ainsi que \( a,b,c\in A\). Alors
-	\begin{equation}
-		a(b-c)=ab-ac.
-	\end{equation}
-\end{lemma}
-
-\begin{proof}
-	Nous avons le calcul suivant :
-	\begin{subequations}
-		\begin{align}
-			a(b-c)+ac & =a\big( (b-c)+c \big)     \label{SUBEQooKCOWooFeOHUM} \\
-			          & =ab.       \label{SUBEQooMLLOooNRmIYM}
-		\end{align}
-	\end{subequations}
-	Justifications :
-	\begin{itemize}
-		\item Pour \ref{SUBEQooKCOWooFeOHUM}. Distributivité.
-		\item Pour \ref{SUBEQooMLLOooNRmIYM}. Parce que \( (b-c)+c=b\).
-	\end{itemize}
-	Nous avons donc \( a(b-c)+ac=ab\) et donc l'égalité demandée en ajoutant \( -ac\) des deux côtés.
-\end{proof}
-
-\begin{lemma}       \label{LEMooVUSMooWisQpD}
-	Pour tout élément \( a\) d'un anneau nous avons \( a\cdot 0=0\).
-\end{lemma}
-
-\begin{proof}
-	L'élément \( 0\) est le neutre de l'addition. Il peut être écrit \( 1-1\), et en utilisant la distributivité sous la forme du lemme \ref{LEMooVPYUooRzexke},
-	\begin{equation}
-		a\cdot 0=a\cdot (1-1)=a-a=0.
-	\end{equation}
-	Notons que la dernière égalité s'écrit en détail \( a-a=a+(-a)\) qui donne le neutre de l'addition.
-\end{proof}
-
-\begin{proposition}     \label{PROPooNCCGooXjVyVt}
-	Dans un anneau\footnote{Définition \ref{DefHXJUooKoovob}.} non nul, le neutre pour l'addition est distinct du neutre pour la multiplication.
-\end{proposition}
-\begin{proof}
-	Supposons par contraposée que dans un anneau \( A\), nous ayons \( 1 = 0 \). Alors, pour tout \( a \in A \), on a \( a = 1a = 0a = (1 - 1)a = a - a=0 \), \( a = 0\). Autrement dit \( a=0\) pour tout \( a\in A\) et l'anneau est nul.
-\end{proof}
-
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooLTERooVKgqjn}
-	Un peu d'arithmétique. Soit un anneau \( A\) et un élément \( a\in A\).
-	\begin{enumerate}
-		\item       \label{ITEMooUGHCooOPgoeR}
-		      \( 1\times 1=1\).
-		\item       \label{ITEMooJMBSooVgvVwg}
-		      \( (-1)\times a=-a\).
-		\item       \label{ITEMooXJGMooKNLlHU}
-		      \( -(-a)=a\).
-		\item       \label{ITEMooYMRKooHVYYKU}
-		      \( (-1)\times (-1)=1\).
-	\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-	En plusieurs parties.
-	\begin{subproof}
-		\spitem[Pour \ref{ITEMooUGHCooOPgoeR}]
-		La définition de \( 1\) est que \( 1\times a=a\) pour tout \( a\). En particulier pour \( a=1\) nous avons le résultat.
-		\spitem[Pour \ref{ITEMooJMBSooVgvVwg}]
-		Nous avons
-		\begin{equation}
-			(-1)\times a + a= a\times \big( (-1)+1 \big)=a\times 0=0.
-		\end{equation}
-		Nous avons utilisé le fait que la multiplication était distributive et que le zéro était absorbant (lemme \ref{LEMooVUSMooWisQpD}).
-
-		\spitem[Pour \ref{ITEMooXJGMooKNLlHU}]
-		Nous avons \( -a+a=0\) par définition de la notation \( -a\). Donc \( a\) est bien l'inverse de \( -a\) pour l'addition.
-
-		\spitem[Pour \ref{ITEMooYMRKooHVYYKU}]
-		En utilisant les points \ref{ITEMooJMBSooVgvVwg} et \ref{ITEMooXJGMooKNLlHU} nous avons
-		\begin{equation}
-			(-1)\times (-1)=-(-1)=1.
-		\end{equation}
-	\end{subproof}
-\end{proof}
-
 Soit \( X\) un ensemble et un anneau \( (A, +, \times)\). Nous considérons \( \Fun(X,A)\)\nomenclature[A]{\( \Fun(X,Y)\)}{les applications de \( X\) vers \( Y\)} l'ensemble des applications \( X\to A\). Cet ensemble devient un anneau avec les définitions
 \begin{subequations}
 	\begin{align}
@@ -1328,9 +1304,20 @@ C'est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \
 	Lorsqu'un ensemble est idéal à gauche et à droite, nous disons que c'est un \defe{idéal bilatère}{idéal!bilatère}. Lorsque nous parlons d'idéal sans précision, nous parlons d'idéal bilatère.
 \end{definition}
 
+\begin{definition}[Idéaux premiers entre eux\cite{BIBooSALPooIrQwPd}]	\label{DEFooZFYSooJGZndS}
+	Deux définitions.
+	\begin{enumerate}
+		\item
+		      Deux idéaux \( I\) et \( J\) de l'anneau \( A\) sont \defe{premiers entre eux}{idéaux premiers entre eux} si \( I+J=A\).
+		\item
+		      Des idéaux \( I_1\),\ldots, \( I_n\) sont \defe{premiers dans leur ensemble}{idéaux premiers dans leur ensemble} si \( I_1+\ldots+I_n=A\).
+	\end{enumerate}
+\end{definition}
+
 
 \begin{lemma}		\label{LEMooMAHXooXSowdn}
 	Les seuls idéaux d'un corps sont \( \{ 0 \}\) et le corps lui-même.
+	%TODOooTIZHooMPxRYF. Prouver ça.
 \end{lemma}
 
 %-------------------------------------------------------
@@ -1355,7 +1342,7 @@ C'est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \
 	\begin{subproof}
 		\spitem[Somme]
 		%-----------------------------------------------------------
-		Soient \( a,b\in (S)\). Nous devons prouver que \( a+b\in (S)\) c'est à dire que que si \( I\) est un idéal de \( A\), alors \( a+b\in I\). Soit donc un idéal \( I\). Vu que \( (S)\subset I\) nous avons \( a,b\in I\). Et comme \( I\) est un idéal, \( a+b\in I\).
+		Soient \( a,b\in (S)\). Nous devons prouver que \( a+b\in (S)\) c'est-à-dire que que si \( I\) est un idéal de \( A\), alors \( a+b\in I\). Soit donc un idéal \( I\). Vu que \( (S)\subset I\) nous avons \( a,b\in I\). Et comme \( I\) est un idéal, \( a+b\in I\).
 		\spitem[\( a(S)\subset (S)\)]
 		%-----------------------------------------------------------
 		Soit \( a\in A\). Nous prouvons que \( a(S)\subset (S)\). Soit \( x\in (S)\) et un idéal \( I\) de \( A\). Nous avons \( x\in (S)\subset I\). Donc \( ax\in I\).
@@ -1374,7 +1361,7 @@ C'est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \
 	\begin{subproof}
 		\spitem[\( P\subset (S)\)]
 		%-----------------------------------------------------------
-		Il faut montrer que \( P\) est inclus à tous les idéaux contenant \( S\). Soit \( I\) un tel idéal. Soit un élément \( \sum_{i=1}^ra_is_ib_i\) dans \( P\). Vu que \( s_i\in S\subset I\), nous avons \( s_i\in I\) et donc \( a_is_ib_i\in I\).
+		Il faut montrer que \( P\) est inclus dans tous les idéaux contenant \( S\). Soit \( I\) un tel idéal. Soit un élément \( \sum_{i=1}^ra_is_ib_i\) dans \( P\). Vu que \( s_i\in S\subset I\), nous avons \( s_i\in I\) et donc \( a_is_ib_i\in I\).
 
 		\spitem[\( (S)\subset P\)]
 		%-----------------------------------------------------------
@@ -1408,6 +1395,18 @@ C'est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \
 		Si \( s=\in (x)\), alors la proposition \ref{PROPooDTYUooJPzPZV} dit qu'il existe \( a,b\in A\) tels que \( s=axb\). Donc un élément général de \( (s)\) est de la forme \( \alpha s\beta\) avec \( \alpha,\beta\in A\). Mais \( \alpha s\beta=\alpha axb\beta\in (x)\).
 	\end{subproof}
 \end{proof}
+
+\begin{lemma}[\cite{}]	\label{LEMooSEIAooYVIvPK}
+	Soit un anneau \( A\).
+	\begin{enumerate}
+		\item
+		      Toute union d'idéaux est un idéal.
+		\item
+		      Une somme finie d'idéaux est un idéal.
+	\end{enumerate}
+	%TODOooIXGMooXlWont. Prouver ça.
+\end{lemma}
+
 
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooHSVYooRjhGUU}
 	Soient un anneau commutatif \( A\) ainsi que \( S\subset A\). Les parties
@@ -1463,11 +1462,11 @@ C'est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \
 			\end{subproof}
 			\spitem[\( \Leftarrow\)]
 			%-----------------------------------------------------------
-			Soit un générateur \( \mu\) de \( I\), c'est à dire que \( \mu A=I\).
+			Soit un générateur \( \mu\) de \( I\), c'est-à-dire que \( \mu A=I\).
 			\begin{subproof}
 				\spitem[\( S\divides \mu\).]
 				%-----------------------------------------------------------
-				Soit \( s\in S\). Vu que \( \mu\in I\), nous avons \( \mu\in\bigcap_{s\in S}sA\), et donc il existe \( a\in A\) tel que \( \mu =sa\), c'est à dire que \( s\divides \mu\). Bref, tout élément de \( S\) divise \( \mu\).
+				Soit \( s\in S\). Vu que \( \mu\in I\), nous avons \( \mu\in\bigcap_{s\in S}sA\), et donc il existe \( a\in A\) tel que \( \mu =sa\), c'est-à-dire que \( s\divides \mu\). Bref, tout élément de \( S\) divise \( \mu\).
 				\spitem[Si \( S\divides m\), alors \( \mu\divides m\)]
 				%-----------------------------------------------------------
 				Nous supposons que \( m\)  est un multiple de tout élément de \( S\). Donc pour tout \( s\in S\), il existe \( a_s\) tel que \( m=sa_s\). Donc \( m\in I\), et donc \( \mu\) divise \( m\).
@@ -1487,7 +1486,7 @@ C'est la \defe{structure canonique}{structure d'anneau canonique} d'anneau sur \
 			\begin{equation}
 				\delta=\sum_{s\in \alpha}sb_s=\sum_{s\in \alpha}da_sb_s=d\sum_{s\in \alpha}a_sb_s,
 			\end{equation}
-			c'est à dire que \( d\) divise \( \delta\).
+			c'est-à-dire que \( d\) divise \( \delta\).
 		\end{subproof}
 	\end{subproof}
 \end{proof}
@@ -1848,7 +1847,7 @@ Conséquence : dans un corps nous avons toujours la règle du produit nul, et l'
 	\begin{equation}
 		\delta d\in \delta\pgcd(S/\delta)=\pgcd(S).
 	\end{equation}
-	Donc \( \delta d\) divise tous les éléments de \( S\). Étant donné que \( \delta\) est un pgcd de \( S\), la définition \ref{DefrYwbct}\ref{ITEMooVCKGooWDXZOj} nous dit que \( \delta d\) divise \( \delta\). Il existe donc \( d'\in A\) tel que \( \delta dd'=\delta\), c'est à dire
+	Donc \( \delta d\) divise tous les éléments de \( S\). Étant donné que \( \delta\) est un pgcd de \( S\), la définition \ref{DefrYwbct}\ref{ITEMooVCKGooWDXZOj} nous dit que \( \delta d\) divise \( \delta\). Il existe donc \( d'\in A\) tel que \( \delta dd'=\delta\), c'est-à-dire
 	\begin{equation}
 		\delta(dd'-1)=0.
 	\end{equation}
@@ -1867,54 +1866,6 @@ Conséquence : dans un corps nous avons toujours la règle du produit nul, et l'
 	de telle sorte que \( d\) divise \( \delta u\).
 \end{proof}
 
-%-------------------------------------------------------
-\subsection{Positivité}
-%----------------------------------------------------
-
-\begin{definition}[\cite{MonCerveau}]	\label{DEFooZRMFooCtzMov}
-	Soit un anneau \( A\). Une \defe{positivité}{positivité} sur \( A\) est une partie \( A^+\subset A\) telle que
-	\begin{enumerate}
-		\item
-		      Pour tout \( a\neq 0\) dans \( A\), nous avons\footnote{\emph{xor} est le ou exclusif. L'un ou l'autre est vrai, mais les deux en même temps.} \( a\in A^+ \text{ xor } -a\in A^+\).
-		\item
-		      Pour tout \( a,b\in A^+\), nous avons \( a+b\in A^+\).
-	\end{enumerate}
-	Oui, il faudrait dire une \emph{stricte} positivité.
-\end{definition}
-
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooKLOPooBgQqhM}
-	Si \( A^+\) est une positivité\footnote{Définition \ref{DEFooZRMFooCtzMov}.} sur \( A\), alors en posant \( a\leq b\) si et seulement si \( b-a\in A^+\cup\{ 0 \}\), nous avons une relation d'ordre\footnote{Définition \ref{DefooFLYOooRaGYRk}.}.
-\end{proposition}
-
-\begin{proof}
-	Nous vérifions les conditions de la définition \ref{DefooFLYOooRaGYRk}.
-	\begin{subproof}
-		\spitem[Réflexivité]
-		%-----------------------------------------------------------
-		Vu que \( a-a=0\) et que \( 0\in A^\cup\{ 0 \}\), nous avons \( a\leq a\).
-		\spitem[Antisymétrie]
-		%-----------------------------------------------------------
-		Si \( a\leq b\) et \( b\leq a\), nous avons
-		\begin{subequations}
-			\begin{numcases}{}
-				b-a\in A^+\cup\{ 0 \}\\
-				a-b\in A^+\cup\{ 0 \}.
-			\end{numcases}
-		\end{subequations}
-		Entre \( a-b\) et \( b-a\), au maximum un des deux peut être dans \( A^+\). Donc soit \( a-b=0\), soit \( b-a=0\) (ou le deux en même temps, ce qui est le cas).
-
-		\spitem[Transitive]
-		%-----------------------------------------------------------
-		Supposons que \( a\leq b\) et \( b\leq c\). Nous avons alors
-		\begin{subequations}
-			\begin{numcases}{}
-				b-a\in A^+\cup\{ 0 \}\\
-				c-b\in A^+\cup\{ 0 \}.
-			\end{numcases}
-		\end{subequations}
-		Si l'un des deux est nul, c'est facile. Nous supposons qu'ils sont tous les deux dans \( A^+\). Alors leur somme est dans \( A^+\) : \( (b-a)+(c-b)\in A^+\). Cela donne tout de suite \( c-a\in A^+\) et donc \( a\leq c\) comme demandé.
-	\end{subproof}
-\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Fonction puissance}
@@ -2269,50 +2220,45 @@ Sur un anneau non intègre, la notion d'élément premier n'est pas aussi intér
 \end{proof}
 
 
-
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Théorème de Bézout}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{theorem}[Théorème de Bézout\footnote{Il y a une super application ici : \url{https://perso.univ-rennes1.fr/matthieu.romagny/agreg/dvt/mauvais_prix.pdf}.}\cite{LSAmvR}, thème~\ref{THEMEooNRZHooYuuHyt}] \label{ThoBuNjam}
-	Deux entiers non nuls \( a,b\in\eZ^*\) sont premiers entre eux si et seulement si il existe \( u,v\in\eZ\) tels que
-	\begin{equation}
-		au+bv=1
-	\end{equation}
-\end{theorem}
-\index{Bézout!nombres entiers}
-
-\begin{proof}
-	Soit \( d=\pgcd(a,b)\) et des nombres \( u,v\) tels que \( au+bv=1\). Le PGCD \( d\) divise à la fois \( a\) et \( b\), et donc divise \( au+bv\). Nous en déduisons que \( d\) divise \( 1\) et est par conséquent égal à \( 1\).
-
-	Nous supposons maintenant que \( \pgcd(a,b)=1\) et nous considérons l'ensemble
-	\begin{equation}
-		E=\{ au+bv\tq u,v\in \eZ \}\cap \eN^*.
-	\end{equation}
-	C'est-à-dire l'ensemble des nombres strictement positifs pouvant s'écrire sous la forme \( au+bv\). Cet ensemble est non vide parce qu'il contient par exemple soit \( a\) soit \( -a\). Soit \( m\) le plus petit élément de \( E\) et écrivons
-	\begin{equation}    \label{EqMBsfrP}
-		m=au_1+bv_1.
-	\end{equation}
-	Par le théorème de division euclidienne\footnote{Théorème~\ref{ThoDivisEuclide}.} (avec \( a\) et \( m\)), il existe des entiers uniques \( q\) et \( r\) tels que
-	\begin{equation}
-		a=mq+r
-	\end{equation}
-	avec \( 0\leq r<m\). En remplaçant \( m\) par sa valeur \eqref{EqMBsfrP}, \( a=(au_1+bv_1)q+r\) et
-	\begin{equation}
-		r=a(1-u_1q)-bv_1q,
-	\end{equation}
-	c'est-à-dire que \( r\in \eZ a+\eZ b\) en même temps que \( 0\leq r<m\). Si \( r\) était strictement positif, il serait dans \( E\). Mais cela est impossible par minimalité de \( m\). Donc \( r=0\) et \( a\) est divisible par \( m\).
-
-	De la même façon nous prouvons que \( b\) est divisible par \( m\). Puisque \( m\) divise à la fois \( a\) et \( b\) nous avons \( m=1\).
-\end{proof}
 
 Une généralisation de Bézout \ref{ThoBuNjam} à plus de \( 2\) variables et dans un anneau principal : proposition \ref{PROPooXQKMooWJlEFq}.
-\begin{proposition}     \label{PROPooWSMTooMdfqse}
-	Si \( \{ a_i \}_{i=1,\ldots, N}\) sont des entiers tels que \( \pgcd(a_1,\ldots, a_N)=1\), alors il existe des entiers \( \{ u_i \}_{i=1,\ldots, N}\) tels que
+
+\begin{theorem}[Théorème de Bézout\footnote{Il y a une super application ici : \url{https://perso.univ-rennes1.fr/matthieu.romagny/agreg/dvt/mauvais_prix.pdf}.}\cite{LSAmvR}, thème~\ref{THEMEooNRZHooYuuHyt}] \label{ThoBuNjam}
+	Si \( \{ a_i \}_{i=1,\ldots, N}\) sont des entiers non nuls. Nous avons \( \pgcd(a1,\ldots,a_N)=1\) si et seulement si il existe \( u_1,\ldots,u_N\) tels que
 	\begin{equation}
 		\sum_ia_iu_i=1.
 	\end{equation}
-\end{proposition}
+\end{theorem}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		Soit \( E=\{ \sum_{i=1}^Na_iu_i\tq u_i\in \eZ \}\). Cet ensemble est non vide. Il contient par exemple \( a_1\). Nous posons \( m=\min\big( E\setminus\{ 0 \} \big)\), et nous considérons des \( v_i\in \eZ\) tels que
+		\begin{equation}		\label{EQooQSJLooOGbTzx}
+			m=\sum_ja_jv_j.
+		\end{equation}
+		Nous prouvons à présent que \( m\) divise tous les \( a_i\). Nous nous fixons \( i\in\{ 1,\ldots,N \}\) et nous considérons la division euclidienne\footnote{Théorème \ref{THOooKDJVooRIJRHP}.} \( a_i=mq+r\) avec \( 0\leq r<m\). En remplaçant dedans la valeur de \( m\) de \eqref{EQooQSJLooOGbTzx} nous trouvons \( a_i=\sum_ja_jv_jq+r\), et en isolant \( r\) :
+		\begin{equation}
+			r=a_i-\sum_{j}a_jv_jq=a_i(1-v_iq)-\sum_{j\neq i}a_jv_jq\in E.
+		\end{equation}
+		Mais comme \( 0\leq r<m\) et \( r\in E\) et \( m=\min(E\setminus\{ 0 \})\) nous avons \( r=0\), ce qui signifie que \( m\) divise \( a_i\).
+
+		Donc \( m=1\) parce que \( 1\) est le seul diviseur commun des tous les \( a_i\). Donc \( 1\in E\), ce qu'il fallait démontrer.
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Supposons qu'il existe des nombres \( u_i\) tels que \( \sum_ia_iu_i=1\). Si \( \delta\) divise tous les \( a_i\), alors il existe \( v_i\) tels que \( a_i=\delta v_i\) et donc tels que
+		\begin{equation}
+			\sum_ia_iu_i=\sum_i\delta v_iu_i=\delta\sum_iv_iu_i,
+		\end{equation}
+		ce qui montre que \( \delta\divides 1\) et donc que \( \delta=1\). Nous avons démontré que \( 1\) est le seul diviseur commun des tous les \( a_i\).
+	\end{subproof}
+\end{proof}
 
 \begin{corollary}       \label{CorgEMtLj}
 	Soient \( p\) et \( q\) deux entiers premiers entre eux. Alors
@@ -2330,9 +2276,8 @@ Notons que l'application \( p\eZ+q\eZ\) vers \( \eZ\) n'est évidemment pas inje
 
 
 \begin{corollary}       \label{CORooLINXooBlUKPG}
-	Les quotients de \( \eZ\) sont \( \eZ/n\eZ\).
+	Les groupes quotients du groupe \( (\eZ,+)\) sont \( \eZ/n\eZ\).
 \end{corollary}
-%TODOooKQDLooFnggOd: il faut préciser si ça veut dire quelque chose comme les seuls quotients de (Z,+) qui sont encore des groupes.
 
 \begin{proof}
 	Tous les idéaux de \( \eZ\) sont de la forme \( n\eZ\). En effet en vertu de la proposition~\ref{PropSsgpZestnZ}, les seuls sous-groupes de \( \eZ\) (en tant que groupe additif) sont les \( n\eZ\). Tous les idéaux sont donc de cette forme. De plus les \( n\eZ\) sont effectivement tous des idéaux\footnote{Définition \ref{DefooQULAooREUIU}.} : si \( a\in n\eZ\) et si \( k\in \eZ\) alors \( ak\in n\eZ\).
@@ -2536,6 +2481,7 @@ La proposition suivante établit que si \( x\) est assez grand, alors il peut m�
 	Puisque \( a\) est premier avec \( c\), nous avons \( \pgcd(a,c)=1\) et le théorème de Bézout~\ref{ThoBuNjam} nous donne donc \( s,t\in \eZ\) tels que \( sa+tc=1\). En multipliant par \( b\), nous avons \( sab+tbc=b\). Mais les deux termes du membre de gauche sont multiples de \( a\) parce que \( a\) divise \( bc\). Par conséquent \( b\) est somme de deux multiples de \( a\) et donc est multiple de \( a\).
 \end{proof}
 
+Il y a une généralisation du lemme de Gauss pour les anneaux principaux dans \ref{LemSdnZNX}.
 \begin{lemma}[Lemme d'Euclide\cite{BTDWooZCyXfb}]       \label{LemAXINooOeuMJZ}
 	Soient \( a,b\in \eZ\). Si le nombre premier \( p\) divise le produit \( ab\), alors \( p\) divise \( a\) ou \( b\).
 \end{lemma}
@@ -2548,6 +2494,7 @@ La proposition suivante établit que si \( x\) est assez grand, alors il peut m�
 
 \begin{lemma}		\label{LEMooSRFMooHgEMwj}
 	Soient \( a,b\in \eN\) tels que \( a\) divise \( b\) et \( b\) divise \( a\). Alors \( a=b\).
+	%TODOooNFZZooGETGlh. Prouver ça.
 \end{lemma}
 
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooFVSJooRysGAm}
@@ -2654,6 +2601,65 @@ Le théorème fondamental de l'arithmétique permet de décomposer des nombres e
 	Donc \( q\) divise \( p_i\) et \( p_1\) et donc \( q=1\) parce que \( p_i\) et \( p_1\) sont des nombres premiers distincts.
 \end{proof}
 
+%-------------------------------------------------------
+\subsection{Double comptage}
+%----------------------------------------------------
+
+Lorsqu'on veut compter le nombre d'éléments d'un ensemble, il arrive souvent d'entendre «nous partitionnons cet ensemble en telles parties, mais ce faisant nous avons compté chaque élément 3 fois. Donc on doit diviser par 3». Cela arrive très souvent en combinatoire et dans les problèmes de dénombrement. La proposition suivante est ce qui se cache derrière ce raisonnement.
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooURPFooYSdyKW}
+	Soit un ensemble \( A=\{ a_1,\ldots,a_n \}\). Nous considérons des parties \( A_j\subset A\) (\( j=1,\ldots,s\)) telles que
+	\begin{enumerate}
+		\item
+		      \( \bigcup_{j=1}^sA_j=A\),
+		\item
+		      Pour chaque \( a\in A\), nous avons \( \Card\{ j\tq a\in A_j \}=k\), c'est-à-dire que chaque élément de \( A\) se trouve dans exactement \( k\) des parties \( A_j\).
+	\end{enumerate}
+	Alors
+	\begin{equation}
+		\Card(A)=\frac{1}{ k}\sum_{j=1}^s\Card(A_j).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous allons mettre les éléments de \( A\) un par un dans un ensemble \( E\) et les retirer au fur et à mesure des différents \( A_j\). Nous commençons par poser
+	\begin{subequations}
+		\begin{numcases}{}
+			E_0=\emptyset\\
+			A_j^{(0)}=A_j.
+		\end{numcases}
+	\end{subequations}
+	Ensuite, pour chaque \( i=1,\ldots,n\) nous posons
+	\begin{subequations}
+		\begin{numcases}{}
+			E_i=\{ a_1,\ldots,a_i \}\\
+			A_j^{(i)}=A_j^{(i-1)}\setminus\{ a_i \}.
+		\end{numcases}
+	\end{subequations}
+	Première remarque facile : \( \Card(E_i)=i\).
+
+	Ensuite fixons nous un \( i\) pour voir comment évoluent les cardinaux des \( A_j^{(i)}\) avec \( i\). Nous posons \( S=\{ j=1,\ldots,s\tq a_i\in A_j \}\). Par hypothèse \( \Card(S)=k\). Le lemme \ref{LEMooQDFLooVTwJQq} nous permet de couper la somme sur \( j=1,\ldots,n\) en une somme sur \( j\in S\) et une sur \( j\neq S\) :
+	\begin{subequations}
+		\begin{align}
+			\sum_{j=1}^{n}\Card(A_j^{(i)}) & =\sum_{j\in S}\Card\big( A^{(i-1)}_j\setminus\{ a_i \} \big)+\sum_{j\not\in S}\Card\big( A^{(i-1)}_j\setminus\{ a_i \} \big)                                        \\
+			                               & =\sum_{j\in S}\Big( \Card\big( A_j^{(i-1)} \big)-1 \Big)+\sum_{j\not\in S}\Card(A_j^{(i-1)})                                 & \text{prop. \ref{LEMooRURDooRIGJnY}} \\
+			                               & =\sum_{j=1}^n\Card(A_j^{(i-1)})-k.
+		\end{align}
+	\end{subequations}
+	Avec une récurrence sur \( i\) nous trouvons cette intéressante formule :
+	\begin{equation}
+		\sum_{j=1}^s\Card(A_j^{(i)})=\sum_{j=1}^s\Card(A_j)-ki.
+	\end{equation}
+	Nous évaluons cela en \( i=n\) :
+	\begin{equation}		\label{EQooGWBXooDqXwTW}
+		\sum_{j=1}^s\Card(A_j^{(n)})=\sum_{j=1}^s\Card(A_j)-kn.
+	\end{equation}
+	Mais \( A_j^{(n)}=A_j\setminus\{ a_1,\ldots,a_n \}=\emptyset\). Donc le membre de gauche de \eqref{EQooGWBXooDqXwTW} est nul. Donc
+	\begin{equation}
+		n=\frac{1}{ k}\sum_{j=1}^s\Card(A_j),
+	\end{equation}
+	c'est-à-dire ce que nous voulions.
+\end{proof}
 
 %-------------------------------------------------------
 \subsection{Binôme de Newton}
@@ -2684,21 +2690,151 @@ Le théorème fondamental de l'arithmétique permet de décomposer des nombres e
 \end{proof}
 
 \begin{lemma}[\cite{MonCerveau}]		\label{LEMooUTDTooXAmvdF}
-	Nous considérons ces deux ensembles :
-	\begin{subequations}
-		\begin{align}
-			A & =\{ I=(i_1,\ldots,i_k)\tq 1\leq i_1<\ldots <i_k\leq n \}                     \\
-			C & =\big\{ \text{parties de cardinal \( k\) dans \( \{ 1,\ldots,n \}\)} \big\}.
-		\end{align}
-	\end{subequations}
-	Il existe une bijection entre \( A\) et \( C\).
-
-	Nous avons de plus\footnote{Pour le coefficient binomial, définition \ref{DEFooHXNFooOBKgqD}.}
-	\begin{equation}        \label{EQooSPVNooHoPnOe}
-		\Card(A)=\Card(C)={n\choose k}
+	Deux énoncés de dénombrement.
+	\begin{enumerate}
+		\item
+		      Soit un ensemble \( E\) de cardinal \( n\). Nous posons
+		      \begin{equation}
+			      B_k  =\big\{ \text{parties de cardinal \( k\) dans \( E\)} \big\}.
+		      \end{equation}
+		\item
+		      Soit \(  A_k  =\{ I=(i_1,\ldots,i_k)\in\{ 0,\ldots,n \}^k\tq 1\leq i_1<\ldots <i_k\leq n \}\).
+		\item
+		      Soit \( C_k=\{ s\in\{ 0,1 \}^n\tq \sum_is_i=k \}\).
+	\end{enumerate}
+	Alors
+	\begin{equation}
+		\Card(A_k)=\Card(B_k)=\Card(C_k)={n\choose k}.
 	\end{equation}
-	%TODOooGOFJooKrymcy. Prouver ça.
 \end{lemma}
+
+\begin{proof}
+	Nous faisons en détail la démonstration pour \( B_k\), en utilisant la proposition \ref{PROPooURPFooYSdyKW}. Nous fixons \( n\) et nous faisons une récurrence sur \( k\).
+	\begin{subproof}
+		\spitem[Le partitionnement de \( B_{k+1}\)]
+		D'abord nous posons
+		\begin{equation}
+			\begin{aligned}
+				f\colon B_k & \to \partP(B_{k+1})                              \\
+				A           & \mapsto \{ A\cup\{ a \}\tq a\in E\setminus A \}.
+			\end{aligned}
+		\end{equation}
+		où \( \partP\) désigne l'ensemble des parties. Notez que
+		\begin{equation}
+			B_{k+1}=\bigcup_{A\in B_k}f(A).
+		\end{equation}
+
+		\spitem[Combien de multi-compatage (1)]
+		%-----------------------------------------------------------
+		Prouvons que
+		\begin{equation}
+			\{ A\in B_k\tq S\in f(A) \}= \{ S\setminus\{ a \}\tq q\in S \}.
+		\end{equation}
+		Pour prouver la première inclusion, nous considérons \( A\in B_k\) tel que \( S\in f(A)\). Alors \( S=A\cup\{ a \}\) pour un certain \( a\in E\setminus A\) et donc \( S\setminus\{ a \}=A\).
+
+		Pour l'inclusion dans l'autre sens, nous considérons \( a\in S\). Alors \( S\setminus\{ a \}\in B_k\), ce qui fait que \( a\in E\setminus\big( S\setminus\{ a \} \big)\) et donc \( S\in f\big( S\setminus\{ a \} \big)\).
+		\spitem[Combien de multi-compatage (2)]
+		%-----------------------------------------------------------
+		Nous avons donc
+		\begin{equation}
+			\Card\big( \{ A\in B_k\tq S\in f(A) \} \big)=\Card\{ S\setminus\{ a \}\tq a\in S \}=\Card(S)=k+1
+		\end{equation}
+
+		\spitem[Le cardinal recherché]
+		%-----------------------------------------------------------
+		La proposition \ref{PROPooURPFooYSdyKW} nous donne alors
+		\begin{equation}
+			\Card(B_{k+1})=\frac{1}{ k+1}\sum_{A\in B_k}\Card\big( f(A) \big).
+		\end{equation}
+		Mais \( \Card\big( f(A) \big)=n-k\) et par hypothèse de récurrence \( \Card(B_k)={n\choose k}\) Donc
+		\begin{subequations}
+			\begin{align}
+				\Card(B_{k+1}) & =\binom{ n }{ k }\frac{ n-k }{ k+1 }           \\
+				               & = \frac{ n! }{ k!(n-k)! }\frac{ (n-k) }{ k+1 } \\
+				               & =\frac{ n! }{ (k+1)!(n-k-1)! }                 \\
+				               & =\frac{ n! }{ (k+1)!\big( n-(k+1) \big)! }     \\
+				               & =\binom{ n }{ k+1 }.
+			\end{align}
+		\end{subequations}
+	\end{subproof}
+
+	En ce qui concerne la démonstration pour \( A_k\), c'est du même tonneau. Si \( I\in A_k\), alors pour chaque \( l\in \{ 0,\ldots,n \}\setminus I\) nous avons un élément de \( A_{k+1}\) en l'insérant «au bon endroit» dans \( I\). Je te laisse te débrouiller pour construire la fonction \( f\) correspondante et pour vérifier que tout va bien\quext{Moi j'ai pas vérifié ni même essayé. Donc écrivez-moi si ça bloque réellement quelque part.}.
+
+	Maintenant nous montrons que \( \Card(C_k)=\binom{ n }{ k }\) en donnant une bijection entre \( C_k\) et \( B_k\). Il existe une bijection
+	\begin{equation}
+		\sigma \colon \{ 1,\ldots,n \}\to E
+	\end{equation}
+	et nous considérons l'application
+	\begin{equation}
+		\begin{aligned}
+			\varphi\colon C_k & \to \partP(E)                     \\
+			s                 & \mapsto \{ \sigma(i)\tq s_i=1 \}.
+		\end{aligned}
+	\end{equation}
+	Nous allons voir que \( \varphi(C_k)\subset B_k\) et que \(\varphi \colon C_k\to B_k  \) est une bijection.
+	\begin{subproof}
+		\spitem[\( \varphi(C_k)\subset B_k\)]
+		%-----------------------------------------------------------
+		Soit \( s\in C_k\). Vu que \( \sigma\) est une bijections, \( \Card(U)=\Card\big( \sigma^{-1}(U) \big)\) pour tout \( U\subset E\). En particulier
+		\begin{equation}		\label{EQooXBIMooDaFHMZ}
+			\Card\big(\{ \sigma(i)\tq s_i=1 \}\big)=\Card\big(\{ i\tq s_i=1 \}\big).
+		\end{equation}
+		Nous posons \( S=\{ i\tq s_i=1 \}\) et nous calculons
+		\begin{subequations}		\label{SUBEQooIQKMooUfRNcK}
+			\begin{align}
+				k  =\sum_{i=1}^ns_i & = \sum_{i\in\{ 1,\ldots,n \}}s_i        & \text{not. \eqref{EQooWTTJooIJEbrV}} \\
+				                    & = \sum_{i\in S}s_i+\sum_{i\not\in S}s_i & \text{lem. \ref{LEMooQDFLooVTwJQq}}  \\
+				                    & = \sum_{i\in S}1                                                               \\
+				                    & = \Card(S)                              & \text{lem. \ref{LEMooVFNOooZenJSl}}
+			\end{align}
+		\end{subequations}
+		En remettant avec \eqref{EQooXBIMooDaFHMZ} nous avons prouvé que
+		\begin{equation}
+			k=\Card(S)=\Card\big( \{ \sigma(i)\tq s_i=1 \} \big)=\Card\big( \varphi(s) \big)
+		\end{equation}
+
+		\spitem[\( \varphi\) est injective]
+		%-----------------------------------------------------------
+		Si \( \varphi(s)=^vp(t)\) alors
+		\begin{equation}
+			\{ \sigma(i)\tq s_i=1 \}=\{ \sigma(i)\tq t_i=1 \},
+		\end{equation}
+		et en prenant \( \sigma^{-1}\) des deux côtés,
+		\begin{equation}
+			\{ i\tq s_i=1 \}=\{ i\tq t_i=1 \},
+		\end{equation}
+		c'est-à-dire \( s=t\).
+
+		\spitem[\( \varphi\) est surjective]
+		%-----------------------------------------------------------
+		Soit \( A\in B_k\). Nous considérons \(s \colon \{ 1,\ldots,n \}\to \{ 0,1 \}  \) donnée par
+		\begin{equation}		\label{EQooOWYDooOAwqTa}
+			s(i)=\begin{cases}
+				1 & \text{si } \sigma(i)\in A \\
+				0 & \text{sinon. }
+			\end{cases}
+		\end{equation}
+		\begin{subproof}
+			\spitem[\( \varphi(s)=A\)]
+			%-----------------------------------------------------------
+			Nous devons prouver que \( \{ \sigma(i)\tq s_i=1 \}=A\). En deux inclusions.
+
+			D'abord soit \( x\in\{ \sigma(i)\tq s_i=1 \}\). Alors il existe \( i\in\{ 1,\ldots,n \}\) tel que \( x=\sigma(i)\) et \( s_i=1\). Mais \( s_i=1\) implique \( \sigma(i)\in A\). Donc \( x\in A\).
+
+			Dans l'autre sens, soit \( a\in A\). Alors en prenant \( i=\sigma^{-1}(a)\), nous avons \( \sigma(i)=a\in A\) et donc \( s_i=1\). Donc \( a\in\{ \sigma(j)\tq s_j=1 \}\).
+			\spitem[\( s\in C_k\)]
+			%-----------------------------------------------------------
+			Nous devons voir que pour l'application \( s\) définie en \eqref{EQooOWYDooOAwqTa}, \( \sum_{i=1}^ns_i=k\). Posons \( S=\sigma^{-1}(A)\). Vu que \( \sigma\) est une bijection, \( \Card(S)=\Card(A)=k\). Nous avons
+			\begin{equation}		\label{EQooQHGEooEDYEna}
+				\sum_{i=1}^ns_i=\sum_{i\in S}s_i+\sum_{i\not\in S} s_i.
+			\end{equation}
+			Mais si \( i\in\sigma^{-1}(A)\) alors \( s_i=1\) et si \( i\not\in \sigma^{-1}(A)\) alors \( s_i=0\). Bref, la somme \eqref{EQooQHGEooEDYEna} vaut
+			\begin{equation}
+				\sum_{i=1}^ns_i=\sum_{i\in S}1+0=\Card\big( \sigma^{-1}(A) \big)=\Card(A)=k.
+			\end{equation}
+		\end{subproof}
+	\end{subproof}
+\end{proof}
 
 
 %-------------------------------------------------------
@@ -2726,7 +2862,7 @@ Le théorème fondamental de l'arithmétique permet de décomposer des nombres e
 		\begin{equation}
 			k\binom{ n }{ k }=n\binom{ n-1 }{ k-1 }.
 		\end{equation}
-		Donc \( n\) divise le produit \(k\binom{ n }{ k }\); vu que \( n\) est premier, le lemme d'Euclide \ref{LemAXINooOeuMJZ} dit qu'il divise un des deux facteurs. Le nombre \( n\) ne peut pas diviser \( k\) parce que \( k<n\). Donc il divise l'autre. C'est à dire que \( n\) divise \( \binom{ n }{ k }\).
+		Donc \( n\) divise le produit \(k\binom{ n }{ k }\); vu que \( n\) est premier, le lemme d'Euclide \ref{LemAXINooOeuMJZ} dit qu'il divise un des deux facteurs. Le nombre \( n\) ne peut pas diviser \( k\) parce que \( k<n\). Donc il divise l'autre. C'est-à-dire que \( n\) divise \( \binom{ n }{ k }\).
 
 		\spitem[\( \Leftarrow\)]
 		%-----------------------------------------------------------
@@ -2745,7 +2881,7 @@ Le théorème fondamental de l'arithmétique permet de décomposer des nombres e
 \end{proof}
 
 %-------------------------------------------------------
-\subsection{Coefficient binmoniaux et polynômes}
+\subsection{Coefficients binomiaux et polynômes}
 %----------------------------------------------------
 
 \begin{normaltext}		\label{NORMooROXXooXOybXN}
@@ -2871,11 +3007,45 @@ La définition d'un idéal dans un anneau est la définition~\ref{DefooQULAooREU
 \end{remark}
 
 \begin{lemma}       \label{LEMooQAYSooCYJXkC}
-	L'ensemble \( 2\eZ\) est un idéal\footnote{Idéal, définition \ref{DefooQULAooREUIU}.} de \( \eZ\). On peut aussi le noter \( (2) \).
+	La partie \( 2\eZ\) est un idéal\footnote{Idéal, définition \ref{DefooQULAooREUIU}.} de \( \eZ\). On peut aussi le noter \( (2) \).
+	%TODOooXMJAooYcLVcZ. Prouver ça.
 \end{lemma}
 
+\begin{proposition}[\cite{BIBooQHHCooXEhgqZ} Premier théorème d'isomorphisme]	\label{PROPooPZGFooEbSBXD}
+	Soit des anneaux \( A\) et \( B\) ainsi qu'un idéal bilatère\footnote{Définition \ref{DefooQULAooREUIU}.} \( I\). Nous considérons la projection canonique \(\pi \colon A\to A/I  \).
+
+	Soit un morphisme d'anneaux\footnote{Morphisme d'anneaux, définition \ref{DEFooSPHPooCwjzuz}.} \(f \colon A\to B  \) vérifiant \( f(I)=\{ 0 \}\). Alors il existe un unique morphisme \(\tilde f \colon A/I\to B  \) tel que \( \tilde f\circ\pi=f\).
+
+	\begin{equation}
+		\xymatrix{%
+			A \ar[r]^{f}\ar[d]_{\pi}       &   B                         \\
+			A/I    \ar@{-->}[ru]_{\tilde f}
+		}
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Soient \( a,b\in A\) tels que \( \pi(a)=\pi(b)\). Alors \( a-b\in I\) et donc \( f(a-b)=0\). Vu que \( f\) est un morphisme nous en déduisons que \( f(a)=f(b)\). La proposition \ref{PROPooCONJooTpJwBe} dit qu'il existe alors une unique application \(\tilde f \colon A/I\to B  \) telle que
+	\begin{equation}
+		\tilde f\big( \pi(a) \big)=f(a)
+	\end{equation}
+	pour tout \( a\in A\).
+
+	Nous devons prouver que cette application est un morphisme d'anneaux. Le neutre de \( A/I\) est la classe \( [1]\) et nous avons \( \tilde f([1])=1\). En ce qui concerne la somme, soient \( \alpha,\beta\in A/I\). Si \( a\in \alpha\) et \( b\in \beta\) nous avons
+	\begin{subequations}
+		\begin{align}
+			\tilde f(\alpha+\beta) & =\tilde f([a+b])                   \\
+			                       & =f(a+b)                            \\
+			                       & =f(a)+f(b)                         \\
+			                       & =\tilde f([a])+\tilde f([b])       \\
+			                       & =\tilde f(\alpha)+\tilde f(\beta).
+		\end{align}
+	\end{subequations}
+	Pour la multiplication c'est le même genre de vérifications.
+\end{proof}
+
 \begin{proposition}[Premier théorème d'isomorphisme pour les anneaux]   \label{PROPooJALPooHFIObB}
-	Soient \( A\) et \( B\) des anneaux et un homomorphisme \( f\colon A\to B\). Nous considérons l'injection canonique \( j\colon f(A)\to B\) et la surjection canonique \( \phi\colon A\to A/\ker f\). Alors il existe un unique isomorphisme
+	Soient \( A\) et \( B\) des anneaux et un morphisme \( f\colon A\to B\). Nous considérons l'injection canonique \( j\colon f(A)\to B\) et la surjection canonique \( \phi\colon A\to A/\ker f\). Alors il existe un unique isomorphisme
 	\begin{equation}
 		\tilde f \colon A/\ker f\to f(A)
 	\end{equation}
@@ -2883,12 +3053,20 @@ La définition d'un idéal dans un anneau est la définition~\ref{DefooQULAooREU
 
 	\begin{equation}
 		\xymatrix{%
-			A \ar[r]^{f}\ar[d]_{\phi}       &   B                         \\
-			A/\ker f    \ar[r]_{\tilde f}   &   f(A)\subset B \ar[u]^{j}
+		A \ar[r]^{f}\ar[d]_{\phi}       &   B                         \\
+		A/\ker f    \ar|{-->}[r]_{\tilde f}   &   f(A)\subset B \ar[u]^{j}
 		}
 	\end{equation}
 \end{proposition}
 \index{théorème!isomorphisme!premier!pour les anneaux}
+
+\begin{proof}
+	Il s'agit d'appliquer la proposition \ref{PROPooPZGFooEbSBXD} au cas particulier \( I=\ker(f)\). Vérifions que \( \tilde f\) est alors bien injective. Supposons que \( \alpha,\beta\in A/\ker(f)\) vérifient \( \tilde f(\alpha)=\tilde f(\beta)\). Soient \( a\in \alpha\) et \( b\in \beta\). Nous avons
+	\begin{equation}
+		f(a)=\tilde f(\alpha)=\tilde f(\beta)=f(b).
+	\end{equation}
+	Donc \( f(a-b)=0\), ce qui signifie \( a-b\in\ker(f)\) et donc \( \alpha=\beta\).
+\end{proof}
 
 \begin{proposition}     \label{PropIJJIdsousphi}
 	Soient \( I\) un idéal de \( A\) et la projection canonique
@@ -3056,6 +3234,7 @@ La définition d'un idéal dans un anneau est la définition~\ref{DefooQULAooREU
 		\item
 		      L'idéal \( pA\) est un idéal maximal.
 	\end{enumerate}
+	%TODOooPSCUooQnrpBR. Prouver ça.
 \end{proposition}
 
 
@@ -3192,13 +3371,193 @@ Nous verrons au théorème~\ref{ThoBUEDrJ} que l'anneau \( A\) est intègre si e
 	Nous verrons dans la proposition~\ref{PROPooVWRPooGQMenV} que l'anneau des fonctions holomorphes sur un compact de \( \eC\) est principal.
 \end{example}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Théorèmes chinois et idéaux}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{theorem}\index{théorème!chinois!anneau principal}        \label{ThofPXwiM}
-	Si \( A\) est un anneau principal et si \( p\) et \( q\) sont premiers entre eux dans \( A\), alors on a l'isomorphisme d'anneaux
+
+\begin{proposition}[\cite{BIBooSALPooIrQwPd}]	\label{PROPooFGDKooPiDCAE}
+	Soit un anneau \( A\). Soient des idéaux \( I_1,\ldots,I_n\) premiers deux à deux\footnote{Définition \ref{DEFooZFYSooJGZndS}.}. Nous posons
 	\begin{equation}
-		A/pqA\simeq A/pA\times A/qA.
+		J_i=\bigcap_{\substack{ j=1 \\ j\neq i } }^nI_j.
 	\end{equation}
+	Alors les idéaux \( J_i\) sont premiers dans leur ensemble.
+\end{proposition}
+
+\begin{proof}
+	Nous y allons par récurrence. Pour \( n=2\) c'est facile parce que \( J_1=I_2\) et \( J_2=I_1\). Donc \( J_1+J_2=I_2+I_1=A\).
+
+	Supposons que la propriété soit vraie pour \( n\), et voyons pour \( n+1\). Soient donc des idéaux \( I_1\),\ldots, \( I_{n+1}\) premiers deux à deux.  Pour \( i=1,\ldots,n\) nous posons
+	\begin{equation}
+		K_i=\bigcap_{\substack{ j=1 \\ j\neq i } }^nI_j.
+	\end{equation}
+	Par hypothèse de récurrence les \( K_i\) sont premiers dans leur ensemble. Il existe \( (k_1,\ldots,k_n)\in K_1\times\ldots\times K_n\) tels que
+	\begin{equation}
+		k_1+\ldots+k_n=1.
+	\end{equation}
+
+	Par ailleurs \( I_i\) est premier avec \( I_{n+1}\), donc il existe \( a_i\in I_i\) et \( b_i\in I_{n+1}\) tels que \( a_i+b_i=1\). Nous avons donc l'égalité
+	\begin{equation}
+		k_1(a_1+b_1)+\ldots+k_n(a_n+b_n)=1
+	\end{equation}
+	que nous réarrangeons en
+	\begin{equation}		\label{EQooDOFHooQUWtss}
+		(k_1a_1+\ldots+k_na_n)+ k_1b_1+\ldots+k_nb_n=1.
+	\end{equation}
+	Vu que \( k_i\in K_i\) et \( a_i\in I_i\) et vu que les idéaux sont absorbants,
+	\begin{equation}
+		k_ia_i  \in I_i\cap\bigcap_{\substack{ j=1 \\ j\neq i }  }^nI_j=\bigcap_{j=1}^nI_j=\bigcap_{\substack{ j=1 \\ j\neq n+1 }  }^{n+1}I_j=J_{n+1}.
+	\end{equation}
+	Vu que cela est vrai pour chaque \( i\), et vu que les idéaux sont stables par somme, nous avons
+	\begin{equation}
+		k_1a_1+\ldots+k_na_n\in J_{n+1}.
+	\end{equation}
+
+	De même pour chaque \( i\) nous avons \( k_i\in I_i\) et \( b_i\in I_{n+1}\), et donc
+	\begin{equation}
+		k_ib_i\in K_1\cap I_{n+1}=I_{n+1}\cap\bigcap_{\substack{ j=1 \\ j\neq i }  }^nI_j=\bigcap_{\substack{ j=1 \\ j\neq i }  }^{n+1}I_j=J_i.
+	\end{equation}
+
+	Nous pouvons revenir à l'équation \eqref{EQooDOFHooQUWtss} :
+	\begin{equation}
+		\underbrace{(k_1a_1+\ldots+k_na_n)}_{\in J_{n+1}}+ \underbrace{k_1b_1}_{\in J_1}+\ldots+\underbrace{k_nb_n}_{\in J_n}=1.
+	\end{equation}
+	Nous avons donc démontré que \( 1\in J_1+\ldots+J_{n+1}\) et donc que ces idéaux sont premiers dans leur ensemble.
+\end{proof}
+
+\begin{proposition}[Théorème des restes chinois version congruence\cite{BIBooSALPooIrQwPd}]	\label{PROPooKWZLooCHhSjs}
+	Soit un anneau \( A\). Soient \( a_1,\ldots,a_n\in A\). Soient des idéaux premiers entre eux \( I_1,\ldots,I_n\). Nous considérons l'ensemble
+	\begin{equation}
+		S=\{ x\in A\tq x\in[a_i]_{I_i}\,\forall i \}.
+	\end{equation}
+	Alors
+	\begin{enumerate}
+		\item		\label{ITEMooTGOEooZfsiKG}
+		      \( S\) est non vide.
+		\item		\label{ITEMooCECDooQzGovx}
+		      Si \( x\in S\) alors \( S=[x]_{I_1\cap\ldots\cap I_n}\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooTGOEooZfsiKG}]
+		%-----------------------------------------------------------
+		Nous commençons par poser
+		\begin{equation}
+			J_i=\bigcap_{\substack{ j=1 \\ j\neq i }  }^nI_j
+		\end{equation}
+		qui sont des idéaux premiers dans leur ensemble par \ref{PROPooFGDKooPiDCAE}. Il existe donc \( (j_1,\ldots,j_n)\in J_1\times J_n\) tel que \( j_1+\ldots+j_n=1\). Nous posons alors
+		\begin{equation}
+			x=a_1j_1+\ldots+a_nj_n,
+		\end{equation}
+		et nous vérifions que \( x\in S\). Pour cela nous fixons un \( i\) et nous calculons un petit peu :
+		\begin{subequations}
+			\begin{align}
+				x-a_i & =a_1j_1+\ldots+a_nj_n-(a_ij_1+\ldots+a_ij_n)                    \\
+				      & =(a_1-a_i)j_1+\ldots+(a_n-a_i)j_n.		\label{SUBEQooKDVXooKfVntq}
+			\end{align}
+		\end{subequations}
+		Notez que dans la dernière somme, le coefficient de \( j_i\) est \( (a_i-a_i)=0\). Pour les autres termes (\( k\neq i\)) nous avons
+		\begin{equation}
+			(a_k-a_i)j_k\in J_k=\bigcup_{\substack{ l=1 \\ l\neq k }  }^nI_l\subset I_i.
+		\end{equation}
+		La dernière inclusion est parce que \( i\neq k\), donc il y a un terme \( l=i\) dans l'intersection. Nous avons démontré que chaque terme de la somme \eqref{SUBEQooKDVXooKfVntq} est dans \( I_i\).
+
+		Donc \( x-a_i\in I_i\). Cela étant valable pour tout \( i\), nous avons bien prouvé que \( x\in S\).
+		\spitem[Pour \ref{ITEMooCECDooQzGovx}]
+		%-----------------------------------------------------------
+		Soit \( x\in S\). Nous prouvons les deux inclusions.
+		\begin{subproof}
+			\spitem[\( S\subset [x]_{I_1\cap\ldots\cap I_n}\)]
+			%-----------------------------------------------------------
+			Soit \( s\in S\). Vu que \( x\) et \( s\) sont dans \( S\), pour chaque \( i\) nous avons
+			\begin{subequations}
+				\begin{align}
+					s-a_i=e_i \\
+					x-a_i=f_i
+				\end{align}
+			\end{subequations}
+			pour certains éléments \( e_i,f_i\in I_i\). En soustrayant, \( s-x=e_i-f_i\in I_i\). Un tel calcul étant valable pour chaque \( I\), nous avons \( s-x\in I_1\cap\ldots \cap I_n\), c'est-à-dire \( s\in [x]_{I_1\cap\ldots\cap I_n}\).
+
+			\spitem[\( [x]_{I_1\cap\ldots\cap I_n}\subset S\)]
+			%-----------------------------------------------------------
+			Nous posons \( s=x+e\) avec \( e\in I_1\cap\ldots \cap I_n\), et nous prouvons que \( s\in S\). Nous avons
+			\begin{equation}
+				s-a_i=\underbrace{x-a_i}_{\in I_i}-\underbrace{e}_{\in I_i}\in I_i.
+			\end{equation}
+			Donc \( s\in [a_i]_{I_i}\) pour chaque \( i\). Donc \( s\in S\).
+		\end{subproof}
+	\end{subproof}
+\end{proof}
+
+
+\begin{theorem}[Théorème des restes chinois version anneaux quotients, thème \ref{THEMEooNRZHooYuuHyt}\cite{BIBooSALPooIrQwPd,BIBooHDJZooEVwGMS}]	\label{THOooCBWWooEGjeSV}
+	Soient un anneau \( A\) et des idéaux \( I_1,\ldots,I_n\) premiers entre eux deux à deux.
+	\begin{enumerate}
+		\item		\label{ITEMooPNFZooInhOQo}
+		      Il existe une unique application \(f \colon A/I_1\cap\ldots\cap I_n\to A/I_1\times\ldots\times A/_n  \) vérifiant
+		      \begin{equation}
+			      f\big( [x] \big)=\big( [x]_{I_1},\ldots,[x]_{I_n} \big)
+		      \end{equation}
+		      pour tout \( x\in A\).
+		\item		\label{ITEMooYSDNooSpMVcB}
+		      Cette application est un isomorphisme d'anneaux.
+	\end{enumerate}
 \end{theorem}
+
+\begin{proof}
+	En plusieurs points.
+	\begin{subproof}
+		\spitem[Existence et unicité]
+		%-----------------------------------------------------------
+		Nous considérons l'application
+		\begin{equation}
+			\begin{aligned}
+				g\colon A & \to A/I_1\times \ldots \times A/I_n             \\
+				x         & \mapsto \big( [x]_{I_1},\ldots,[x]_{I_n} \big).
+			\end{aligned}
+		\end{equation}
+		Afin d'utiliser la proposition \ref{PROPooCONJooTpJwBe} nous vérifions que si \( u\in [x]_{I_1\cap\ldots \cap I_n}\) alors \( g(x)=g(y)\). En effet dire \( y\in[x]\) signifie \( x-y\in I_1\cap\ldots\cap I_n\) et donc pour tout \( j\) nous avons \( x-y\in I_j\). Du coup pour tout \( j\) nous avons \( [x]_{I_j}=[y]_{I_j}\). Voilà. Donc la proposition \ref{PROPooCONJooTpJwBe} prouve le point \ref{ITEMooPNFZooInhOQo}.
+
+		\spitem[Injective]
+		%-----------------------------------------------------------
+		Soient \( \alpha,\beta\in A/I_1\cap\ldots\cap I_n\) tels que \( f(\alpha)=f(\beta)\). Nous considérons \( x\in \alpha\) et \( y\in \beta\). Nous avons
+		\begin{subequations}
+			\begin{align}
+				f(\alpha) & =\big( [x]_{I_1},\ldots,[x]_{I_n} \big)  \\
+				f(\beta)  & =\big( [y]_{I_1},\ldots,[y]_{I_n} \big).
+			\end{align}
+		\end{subequations}
+		Donc \( [x]_{I_i}=[y]_{I_i}\) pour tout \( i\). Pour chaque \( i\), il existe un \( e_i\in I_i\) tel que \( x-y=e_i\). Forcément tous les \( e_i\) sont égaux et nous avons donc \( x-y\in I_1\cap\ldots\cap I_n\). Cela prouve que \( \alpha=\beta\) et donc que \( f\) est injective.
+
+		\spitem[Surjective]
+		%-----------------------------------------------------------
+		Soient \( \alpha_i\in A/I_i\). Nous avons besoin de trouver \( \alpha\in A/I_I\cap\ldots\cap I_n\) tel que \( f(\alpha)=(\alpha_1,\ldots,\alpha_n)\). Pour chaque \( \alpha_i\) nous considérons \( a_i\in \alpha_i\) et nous cherchons \( x\in A\) tel que
+		\begin{equation}
+			x\in[a_i]_{I_i}
+		\end{equation}
+		pour tout \( i\). La version congruence du théorème chinois (proposition \ref{PROPooKWZLooCHhSjs}) dit qu'un tel \( x\) existe. En prenant \( \alpha=[x]_{I_1\cap\ldots\cap I_n}\) nous avons bien \( f(\alpha)=(\alpha_1,\ldots,\alpha_n)\).
+
+		\spitem[Morphisme]
+		%-----------------------------------------------------------
+		L'application \( f\) est un morphisme d'anneaux parce que si \( \alpha,\beta\in A/I_1\cap\ldots\cap I_n\) et si \( x\in \alpha\) et \( y\in \beta\), alors
+		\begin{equation}
+			f(\alpha+\beta)=f([x]+[y])=f([x+y])=\big( [x+y]_1,\ldots, \big)=\big( [x]_1+[y]_1,\ldots, \big)=f(\alpha)+f(\beta).
+		\end{equation}
+		Le même genre de vérification marche pour le produit.
+	\end{subproof}
+\end{proof}
+
+Pour la suite nous rappelons que \( [x]_a\) est la classe de \( x\) pour le quotient par l'idéal \( (a)\). Donc
+\begin{equation}
+	[x]_a=\{ y\in A\tq x-y\in (a) \}.
+\end{equation}
+Notez au passage que
+\begin{equation}		\label{EQooJAAQooJCcmVE}
+	[xa]_a=[0]_a
+\end{equation}
 
 
 

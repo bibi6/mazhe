@@ -5,14 +5,18 @@
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Quelques résultats de cardinalité}
+\label{SECooResultatsCardinalite}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %-------------------------------------------------------
 \subsection{Ensembles dénombrables}
+\label{SUBooEnsemblesDenombrables}
 %----------------------------------------------------
 
+\begin{normaltext}	\label{NORMooEnsembleFiniEquivalenceDef}
+	La proposition suivante est à peu près prise comme définition d'un ensemble fini dans \cite{ooVAYLooJxVYex} qui donne également une preuve de l'équivalence avec notre définition.
+\end{normaltext}
 
-La proposition suivante est à peu près prise comme définition d'un ensemble fini dans \cite{ooVAYLooJxVYex} qui donne également une preuve de l'équivalence avec notre définition.
 \begin{proposition}     \label{PROPooBYKCooGDkfWy}
 	L'ensemble \( \eN\) est infini\footnote{Définition \ref{DefEOZLooUMCzZR}.}.
 \end{proposition}
@@ -40,13 +44,22 @@ La proposition suivante est à peu près prise comme définition d'un ensemble f
 \end{proof}
 
 \begin{lemma}       \label{LEMooYIWDooIQFSad}
-	Soit \( N\in \eN\). La partie \( \{ 0,\ldots, N \}\) est finie\footnote{Pour rappel, la définition de \( \{ 0,\ldots, N \}\) est \ref{DEFooKBUFooLvMHrf}.}.
+	Si \( a\leq b\) dans \( \eN\), alors la partie\footnote{Définition \ref{DEFooKBUFooLvMHrf}.} \( \{ a,\ldots, b \}\) est finie.
 \end{lemma}
 
 \begin{proof}
-	Par récurrence sur \( N\). Avec \( N=0\), la partie \( \{ 0 \}\) est finie parce que son seul sous-ensemble propre est \( \emptyset\) qui n'est pas en bijection avec \( \{ 0 \}\).
+	En deux parties.
+	\begin{subproof}
+		\spitem[Pour \( a=0\)]
+		%-----------------------------------------------------------
+		Nous commençons par prouver que \( \{ 0,\ldots,b \}\) est fini. Par récurrence sur \( b\). Avec \( b=0\), la partie \( \{ 0 \}\) est finie parce que son seul sous-ensemble propre est \( \emptyset\) qui n'est pas en bijection avec \( \{ 0 \}\).
 
-	Supposons que \( \{ 0,\ldots, N \}\) est fini. Alors \( \{ 0,\ldots, N \}\cup \{ N+1 \}\) est fini par le lemme \ref{PROPooVOKDooOStPzU}.
+		Supposons que \( \{ 0,\ldots, b \}\) est fini. Alors \( \{ 0,\ldots, b \}\cup \{ b+1 \}\) est fini par le lemme \ref{PROPooVOKDooOStPzU}.
+
+		\spitem[Cas général]
+		%-----------------------------------------------------------
+		Nous avons \( \{ a,\ldots,b \}\subset\{ 0,\ldots,b \}\). Donc \( \{ a,\ldots,b \}\) est une partie d'un ensemble fini. Elle est finie par \ref{LEMooTUIRooEXjfDY}.
+	\end{subproof}
 \end{proof}
 
 \begin{lemma}       \label{LEMooJDGOooHdyJnu}
@@ -56,9 +69,6 @@ La proposition suivante est à peu près prise comme définition d'un ensemble f
 \begin{proof}
 	Supposons pour fixer les idées que \( p\leq q\). Dans ce cas \( \{ 0,\ldots, p \}\) est une partie stricte de \( \{ 0,\ldots, q \}\). Vu que \( \{ 0,\ldots, q \}\) est fini (lemme \ref{LEMooYIWDooIQFSad}), il n'y a pas de bijection avec ses parties strictes.
 \end{proof}
-
-
-
 
 \begin{propositionDef}[Cardinal d'un ensemble fini\cite{MonCerveau}]     \label{PROPooJLGKooDCcnWi}
 	Soit un ensemble non vide \( I\).
@@ -87,7 +97,7 @@ La proposition suivante est à peu près prise comme définition d'un ensemble f
 			\item
 			      \( N_1\leq N_2\)
 			\item
-			      \( \varphi_2\) étend \( \varphi_1\), c'est-à-dire que \( \varphi_2=\varphi_1\) sur \( \{ 0,\ldots, N \}\).
+			      \( \varphi_2\) étend \( \varphi_1\), c'est-à-dire que \( \varphi_2=\varphi_1\) sur \( \{ 0,\ldots, N_1 \}\).
 		\end{enumerate}
 		\begin{subproof}
 			\spitem[\( \mA\) est inductif]
@@ -97,14 +107,14 @@ La proposition suivante est à peu près prise comme définition d'un ensemble f
 			\end{equation}
 			Si \( S\) est majoré, alors il a un maximum (proposition \ref{PROPooMZOWooHmsXzI}\ref{ITEMooKIHZooDRTCdx}). Si \( M\) est le maximum de \( S\), le \( (M,\varphi)\) de \( \mF\) qui correspond à ce maximum est un majorant de \( \mF\).
 
-			Supposons --pour l'absurde-- que \( \mF\) n'est pas majoré dans \( \mA\); en particulier \( S\) n'est pas majoré dans \( n\). Pour chaque \( n\in S\), il existe une application \( \varphi_n\) telle que \( (n,\varphi_n)\in\mF\). Cela nous permet de définir
+			Supposons --pour l'absurde-- que \( \mF\) n'est pas majoré dans \( \mA\); en particulier \( S\) n'est pas majoré dans \( \eN\). Pour chaque \( n\in S\), il existe une application \( \varphi_n\) telle que \( (n,\varphi_n)\in\mF\). Cela nous permet de définir
 			\begin{equation}
 				\begin{aligned}
 					\phi\colon S & \to A                 \\
 					n            & \mapsto \varphi_n(n).
 				\end{aligned}
 			\end{equation}
-			Montrons que \( \phi\) est injective. Si \( \phi(m)=\phi(n)\), alors \( \varphi_m(m)=\varphi_n(n)\). Supposons pour fixer les idées que \( n\leq m\). Vu que \( (n,\varphi_n)\) et \( (m,\varphi_m)\) sont dans \( \mF\) qui est ordonné, \( \varphi_m\) prolonge \( \varphi_n\); en particulier \( \varphi_n(n)=\varphi_m(n)\). Mais comme \( \varphi_m\) est injective, \( m=n\).
+			Montrons que \( \phi\) est injective. Si \( \phi(m)=\phi(n)\), alors \( \varphi_m(m)=\varphi_n(n)\). Supposons pour fixer les idées que \( n\leq m\). Vu que \( (n,\varphi_n)\) et \( (m,\varphi_m)\) sont dans \( \mF\) qui est totalement ordonné, \( \varphi_m\) prolonge \( \varphi_n\); en particulier \( \varphi_n(n)=\varphi_m(n)\). Mais comme \( \varphi_m\) est injective, \( m=n\).
 
 			Nous avons donc une injection \( \phi\colon S\to A\). Mais \( S\) est non borné et donc infini\footnote{Le lemme \ref{LEMooFKLPooPrmeUU} dit qu'il existe une bijection entre \( S\) et \( \eN\). De là nous concluons que \( S\) est infini parce qu'un ensemble en bijection avec un ensemble infini est infini par la proposition \ref{PROPooWKSIooHcfYPN}.}. La proposition \ref{PROPooWKSIooHcfYPN} conclut que \( A\) est infini, ce qui est contraire aux hypothèses.
 
@@ -143,6 +153,69 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 	Si \( A\setminus\{ 0,\ldots, n \}\) était vide, cela signifierait que \( A\) est une partie de \( \{ 0,\ldots, n \}\). Or nous savons que \( \{ 0,\ldots, n \}\) est fini (lemme \ref{LEMooYIWDooIQFSad}), et que toute partie d'un ensemble fini est finie (lemme \ref{LEMooTUIRooEXjfDY}). Donc nous aurions que \( A\) est fini, ce qui est contraire à l'hypothèse.
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooOTHMooPzPzdW}
+	À propos d'ensembles finis.
+	\begin{enumerate}
+		\item		\label{ITEMooFIEUooRmDcfo}
+		      Si \( I\) est un ensemble fini et si \( \{ A_i \}_{i\in I}\) sont des ensembles finis, alors \( \bigcup_{i\in I}A_i\) est fini.
+		\item		\label{ITEMooLVSVooHEwNWA}
+		      Si \( A\) et \( B\) sont finis, alors \( A\times B\) est fini.
+	\end{enumerate}
+	%TODOooVLQNooBumUlE. Prouver ça. On a une récurrence à faire, donc on ne peut en parler plus tôt.
+\end{proposition}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooVFNOooZenJSl}
+	Si \( A\) est un ensemble fini, alors
+	\begin{equation}
+		\sum_{i\in A}1=\Card(A).
+	\end{equation}
+	%TODOooLGNRooDdqfrB. Prouver ça.
+\end{lemma}
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooRURDooRIGJnY}
+	Si \( \Card(A)=n\) et si \( a\in A\) alors \( \Card(A\setminus\{ a \})=n-1\).
+	%TODOooKFQHooGJEnzl. Prouver ça.
+\end{lemma}
+
+\begin{normaltext}
+	En termes de notations, si \( I\) et \( A\) sont des ensembles et si \(\sigma \colon I\to A  \) est une injection, nous notons souvent
+	\begin{equation}
+		\{ a_i \}_{i\in I}
+	\end{equation}
+	l'ensemble \( \sigma(I)\) en écrivant \( a_i\) pour \( \sigma(i)\).
+
+	La proposition \ref{PROPooTJVUooZDxMpU} dira entre autres que \( \Card\big( \{ a_1,\ldots,a_n \} \big)=n\) ou que
+	\begin{equation}
+		\Card\big( a_i\tq i\in I \big)=\Card(I)
+	\end{equation}
+	pourvu que les \( a_i\) sont tous différents.
+
+	La proposition \ref{PROPooFRKAooAnqKEh} permettra de dire, si \( \Card(A)=k\), que \( A=\{ a_1,\ldots,a_k \}\).
+\end{normaltext}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooTJVUooZDxMpU}
+	Si il existe une injection \(\sigma \colon I\to E  \) alors \( \Card\big( \sigma(I) \big)=\Card(I)\).
+\end{proposition}
+
+\begin{proof}
+	L'application \( \sigma\) est une bijection entre \( I\) et son image \( \sigma(I)\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooFRKAooAnqKEh}
+	Soient un ensemble fini \( E\) tel que \( \Card(E)=n\) et une partie finie \( A\subset E\) telle que \( \Card(A)=k\). Nous considérons une bijection \(\sigma \colon \{ 1,\ldots,n \}\to E  \). Alors il existe \( S\subset\{ 1,\ldots,n \}\) tel que
+	\begin{enumerate}
+		\item
+		      \( \Card(S)=k\)
+		\item
+		      \( A=\sigma(S)\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Il suffit de poser \( S=\sigma^{-1}(A)\).
+\end{proof}
 
 \begin{lemma}[\cite{MonCerveau}]       \label{LEMooVFPNooVmdUXY}
 	Union d'ensembles finis.
@@ -217,6 +290,12 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 \end{proof}
 
 
+%-------------------------------------------------------
+\subsection{Minimum, maximum}
+%----------------------------------------------------
+
+
+Une démonstration sans utilisation des naturels est dans la proposition \ref{PROPooVZRVooAncMjb}.
 \begin{lemma}[\cite{BIBooQNGLooNkeBVr}]       \label{LEMooPCRFooXRGrUr}
 	Si \( E\) est un ensemble ordonné et si \( A\) est une partie finie non vide totalement ordonnée de \( E\), alors \( A\) possède un unique minimum et un unique maximum\footnote{Définition \ref{DEFooBZNRooYRPGme}.}.
 \end{lemma}
@@ -248,14 +327,76 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 		%-----------------------------------------------------------
 		En ce qui concerne l'unicité, si \( a\) et \( b\) sont des maximums d'une partie \( A\), alors \( a\geq b\) parce que \( b\in A\) et \( b\geq a\) parce que \( a\in A\). La définition \ref{DefooFLYOooRaGYRk}\ref{ITEMooQTXOooTZXEnu} de la relation d'ordre conclu que \( a=b\).
 	\end{subproof}
-	% TODOooMKVUooOSJAzg. Faire l'existence et l'unicité du minimum.
-	% Déjà dans la liste.
+	Pour l'existence et l'unicité du minimum, nous adaptons juste ce que nous venons de faire\quext{Je n'ai pas vérifié. Faites-le et écrivez-moi si ça pose un problème.}.
+\end{proof}
+
+
+\begin{lemmaDef}[\cite{MonCerveau}]        \label{LEMooOEJOooOgaxzi}
+	Si \( A\) est une partie non vide de \( \eN\), il existe un unique élément \( m\in \eN\) tel que
+	\begin{subequations}
+		\begin{numcases}{}
+			m\in A\\
+			m\leq x\,\forall x\in A.
+		\end{numcases}
+	\end{subequations}
+	Cet élément est noté \( \min(A)\) et nommé \defe{minimum de \( A\)}{minimum}.
+
+	Si \( A\) est majoré, il existe un unique élément \( M\in \eN\) tel que
+	\begin{subequations}
+		\begin{numcases}{}
+			M\in A\\
+			M\geq x\,\forall x\in A.
+		\end{numcases}
+	\end{subequations}
+	Cet élément est noté \( \max(A)\) et nommé \defe{maximum de \( A\)}{maximum}.
+\end{lemmaDef}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Existence minimum]
+		%-----------------------------------------------------------
+		Soit \( a\in A\). Nous considérons \( E=A\cap\{ 0,\ldots,a \}\). C'est un en semble non vide (il contient \( a\)) et fini en tant que partie de \( \{ 0,\ldots,a \}\) (utilisation des lemmes \ref{LEMooTUIRooEXjfDY} et de \ref{LEMooYIWDooIQFSad}). Donc \ref{LEMooPCRFooXRGrUr} dit que \( E\) possède un minimum. Soit \( m\) ce minimum.
+
+		Si \( x\in A\) alors soit \( x\in E\) (et alors \( l\leq x\)), soit \( x\) n'est pas dans \( E\) et alors \( x\geq a\geq m\).
+
+		\spitem[Existence maximum]
+		%-----------------------------------------------------------
+		Soit un majorant \( M\) de \( A\). Si \( M\in A\) alors on est bon. Sinon nous posons
+		\begin{equation}
+			E=\bigcap_{a\in A}\{ a,\ldots,M \}.
+		\end{equation}
+		C'est un ensemble non vide parce qu'il contient \( M\). Et il est fini parce qu'il est contenu dans \( \{ 0,\ldots,M \}\) qui est fini.
+
+		Nous considérons le minimum \( \mu\) de \( E\). Pour tout \( a\in A\) nous avons \( \mu\in\{ a,\ldots,M \}\) et donc \( \mu\geq a\).
+
+		Nous devons encore prouver que \( \mu\in A\). Supposons que ce ne soit pas le cas. Alors pour tout \( a\in A\) nous avons \( \mu\in \{ a,\ldots,M \}\). Mains \( \mu\neq a\), donc \( \mu\in\{ a+1,\ldots,M \}\). Autrement dit, \( \mu\in\{ a+1,\ldots,M \}\). Donc
+		\begin{equation}
+			\mu-1\in \bigcap_{a\in A}\{ a,\ldots,M \}=E.
+		\end{equation}
+		Contradiction à propos de la minimalité de \( \mu\).
+
+		\spitem[Unicité minimum]
+		%-----------------------------------------------------------
+		Soient des minima \( m_1\) et \( m_2\). Nous avons \( m_1\leq m_2\) parce que \( m_2\in A\) et \( m_1\) est une minimum de \( A\). De même \( m_2\leq m_1\). Donc \( m_1=m_2\).
+		\spitem[Unicité maximum]
+		%-----------------------------------------------------------
+		De même que l'unicité du minimum.
+	\end{subproof}
 \end{proof}
 
 \begin{lemma}       \label{LEMooKUWUooPLWelf}
 	Toute partie finie non vide de \( \eN\) est majorée et minorée.
-	%TODOooGKSOooLXwZsi. Prouver ça.
-	% c'est un corollaire de LEMooPCRFooXRGrUr. Tellement que j'en mets deux avec le même.
+\end{lemma}
+
+\begin{proof}
+	Cas particulier du lemme \ref{LEMooPCRFooXRGrUr}.
+\end{proof}
+
+
+\begin{lemma}       \label{LEMooGQUWooYJQfJB}
+	Une partie de \( \eN\) admet un maximum si et seulement si elle est finie.
+	%TODOooRRGMooVNRcLR. Prouver ça.
 \end{lemma}
 
 
@@ -346,16 +487,17 @@ Une chose vraiment amusante avec cette définition que l'on met en rapport avec 
 	\end{subproof}
 \end{proof}
 
-\begin{normaltext}
+\begin{normaltext}	\label{NORMooPartieDenombrableParCantorBernstein}
 	La proposition \ref{PROPooOBKMooWEGCvM} pourrait être prouvée plus facilement en acceptant le théorème de Cantor-Schröder-Bernstein \ref{THOooRYZJooQcjlcl}. Il existe une injection \( A\to \eN\) parce que \( A\) est une partie de \( \eN\). Mais puisque \( A\) est infini, il possède une partie dénombrable. Cela donne une surjection \( A\to \eN\) et donc une injection \( \eN\to A\). Le théorème de Cantor-Schröder-Bernstein conclut.
 
 	Cela dit, une telle preuve demanderait des outils plus complexes.
 \end{normaltext}
 
 
-\begin{normaltext}
+\begin{normaltext}	\label{NORMooBijectionNNMadore}
 	La proposition suivante donne une bijection explicite entre \( \eN\) et \( \eN\times \eN\). Elle n'a rien de transcendante, mais je ne résiste pas à la donner ici parce qu'elle est utilisée dans l'article \emph{Un peu de programmation transfinie} de David Madore\footnote{Et comme j'aime beaucoup cet article, il me fallait une excuse pour le placer ici.\\ \url{http://www.madore.org/~david/weblog/d.2017-08-18.2460.html}.}. Son utilité est de pouvoir créer un langage de programmation pouvant traiter des paires d'entiers rien qu'en traitant des entiers.
 \end{normaltext}
+
 \begin{proposition}[Une bijection \( \eN\times \eN\to \eN\)]        \label{PROPooLPKUooAlsYJg}
 	La fonction
 	\begin{equation}
@@ -421,7 +563,10 @@ Une chose vraiment amusante avec cette définition que l'on met en rapport avec 
 		prennent les valeurs \( a^2+1\), \ldots, \( a^2+a-1\). Enfin nous avons \( f(a,0)=a^2+a\) et les nombres \( f(a,1),\ldots, f(a,a)\) prennent les valeurs de \( a^2+a+1\) à \( a^2+2a=(a+1)^2-1\).
 	\end{subproof}
 \end{proof}
-Sachez que cette fonction s'étend aux ordinaux (mais là ce n'est plus pour rigoler).
+
+\begin{remark}	\label{REMooBijectionNNOrdinaux}
+	Sachez que cette fonction s'étend aux ordinaux (mais là ce n'est plus pour rigoler).
+\end{remark}
 
 \begin{corollary}       \label{CORooNRPIooZPSmqa}
 	Il existe des parties \( \{ \eN_i \}_{i\in \eN}\) telles que \( \bigcup_{i\in \eN}\eN_i=\eN\) et que chaque \( \eN_i\) soit en bijection avec \( \eN\)
@@ -581,7 +726,10 @@ Sachez que cette fonction s'étend aux ordinaux (mais là ce n'est plus pour rig
 	En ce qui concerne le fait que \( A^n\) soit dénombrable, nous le faisons par récurrence. Pour \( n=1\), nous savons que \( A^n=A\) est dénombrable. Si nous supposons que \( A^{n-1}\) est dénombrable, alors nous avons \( A^n=A^{n-1}\times A\) qui est dénombrable en tant que produit cartésien de deux ensembles dénombrables.
 \end{proof}
 
-Les ensembles dénombrables sont les plus petits ensembles infinis possibles, comme en témoigne la proposition suivante.
+\begin{normaltext}	\label{NORMooDenombrablesPlusPetitsInfinis}
+	Les ensembles dénombrables sont les plus petits ensembles infinis possibles, comme en témoigne la proposition suivante.
+\end{normaltext}
+
 \begin{proposition}      \label{PROPooUIPAooCUEFme}
 	Tout ensemble infini contient une partie en bijection avec \( \eN\).
 \end{proposition}
@@ -635,8 +783,6 @@ Les ensembles dénombrables sont les plus petits ensembles infinis possibles, co
 	Soit un ensemble \( E\) non dénombrable ainsi qu'une application \( f\colon E\to F\) où \( F\) est un ensemble quelconque. Si \( f(E)\) est dénombrable (ou fini), alors il existe \( y\in f(E)\) tel que \( f^{-1}(y)\) est indénombrable.
 \end{lemma}
 
-
-
 \begin{proof}
 	Nous avons
 	\begin{equation}
@@ -648,9 +794,12 @@ Les ensembles dénombrables sont les plus petits ensembles infinis possibles, co
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Ajouter ou soustraire des cardinalités}
+\label{SUBooOperationsCardinaux}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous allons prouver une série de résultats que nous pourrions résumer en  «ajouter ou retrancher des parties de cardinalité plus petite ne change pas la cardinalité».
+\begin{normaltext}	\label{NORMooOperationsCardinaux}
+	Nous allons prouver une série de résultats que nous pourrions résumer en  «ajouter ou retrancher des parties de cardinalité plus petite ne change pas la cardinalité».
+\end{normaltext}
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooUFCAooSyZtZj}
 	Si \( A\) est infini et \( B\) est fini, alors \( A\cup B\approx A\).
@@ -742,7 +891,10 @@ Nous allons prouver une série de résultats que nous pourrions résumer en  «a
 	\end{subproof}
 \end{proof}
 
-La proposition suivante sera utilisée en théorie de la mesure, dans l'exemple~\ref{ExOIXoosScTC}.
+\begin{normaltext}	\label{NORMooBijectionApplicThMesure}
+	La proposition suivante sera utilisée en théorie de la mesure, dans l'exemple~\ref{ExOIXoosScTC}.
+\end{normaltext}
+
 \begin{proposition}[\cite{ooFAOQooACUugI,BIBooZFPUooIiywbk}] \label{PropVCSooMzmIX}
 	Si \( S\) est un ensemble infini alors il existe une bijection \( \varphi\colon \{ 0,1 \}\times S\to S\).
 \end{proposition}
@@ -763,15 +915,12 @@ La proposition suivante sera utilisée en théorie de la mesure, dans l'exemple~
 \end{corollary}
 
 \begin{proof}
-	La proposition \ref{PropVCSooMzmIX} donne une bijection \( \varphi\colon \{ 1,2 \}\times A\to A\). Il suffit de poser \( A_1=\varphi(1,A)\) et \( A_2=\varphi(2,A)\).
+	La proposition \ref{PropVCSooMzmIX} donne une bijection \( \varphi\colon \{ 0,1 \}\times A\to A\). Il suffit de poser \( A_1=\varphi(0,A)\) et \( A_2=\varphi(1,A)\).
 \end{proof}
 
-
-Maintenant que nous pouvons mettre dans \( A\) deux copies disjointes de \( A\), il n'est pas très étonnant que nous puissions en mettre une infinité dénombrable. Nous verrons ça dans \ref{PROPooFKBEooKXqujV}.
-
-
-
-
+\begin{normaltext}	\label{NORMooInfiniteCopies}
+	Maintenant que nous pouvons mettre dans \( A\) deux copies disjointes de \( A\), il n'est pas très étonnant que nous puissions en mettre une infinité dénombrable. Nous verrons ça dans \ref{PROPooFKBEooKXqujV}.
+\end{normaltext}
 
 \begin{proposition} \label{PROPooFKBEooKXqujV}
 	Si \( A\) est infini, alors \( A\times \eN\approx A\).
@@ -890,9 +1039,7 @@ Maintenant que nous pouvons mettre dans \( A\) deux copies disjointes de \( A\),
 	\begin{equation}
 		U\approx B\approx B\times B\approx B\times U\approx U\times B\approx U\times U.
 	\end{equation}
-	Chacun des ensembles  \( U\times B\),  \( B\times U\) et \( U\times U\) est équipotent à \( U\). Leur union est donc équipotente\footnote{Lemme \ref{LEMooXMVDooIWLWis}.}
-	%TODOooXYEQooYLQifP il y a surement un résultat plus simple pour dire que si A et B sont équipotents, AuB est équipotent à A et B.
-	à \( U\) et nous avons une bijection
+	Chacun des ensembles  \( U\times B\),  \( B\times U\) et \( U\times U\) est équipotent à \( U\). Leur union est donc équipotente\footnote{Lemme \ref{LEMooXMVDooIWLWis}.} à \( U\) et nous avons une bijection
 	\begin{equation}
 		\varphi\colon U\to U\times B\cup (B\times U)\cup (U\times U).
 	\end{equation}
@@ -909,7 +1056,10 @@ Maintenant que nous pouvons mettre dans \( A\) deux copies disjointes de \( A\),
 	Cette définition est bonne parce que \( U\) et \( B\) sont disjoints, et \( g\) est injective.
 \end{proof}
 
-Le théorème suivant est une généralisation de la proposition \ref{PropVCSooMzmIX}. Elle implique, entre autres choses, qu'il existe une bijection entre \( \eR\) et \( \eR\times \eR\). Pour le cas de \( \eN\times \eN\approx \eN\), il y a la proposition \ref{PROPooLPKUooAlsYJg} qui donne une bijection explicite et donc sans axiome du choix et sans lemme de Zorn.
+\begin{normaltext}	\label{NORMooBijectionAA}
+	Le théorème suivant est une généralisation de la proposition \ref{PropVCSooMzmIX}. Elle implique, entre autres choses, qu'il existe une bijection entre \( \eR\) et \( \eR\times \eR\). Pour le cas de \( \eN\times \eN\approx \eN\), il y a la proposition \ref{PROPooLPKUooAlsYJg} qui donne une bijection explicite et donc sans axiome du choix et sans lemme de Zorn.
+\end{normaltext}
+
 \begin{theorem}     \label{THOooDGOVooRdURVi}
 	Si \( A\) est infini, alors \( A\approx A\times A\).
 \end{theorem}

@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2024
+% Copyright (c) 2008-2025
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -72,6 +72,167 @@
 		T_A(x,y)= x\cdot Ay =\sum_{i,j}A_{ij}x_i y_j.
 	\end{equation}
 \end{example}
+
+\begin{proposition}	\label{PROPooXIWIooWVeEJo}
+	Si \(T \colon (\eR^n)^k\to \eR  \) est une application \( k\)-multilinéaire, alors nous avons
+	\begin{equation}
+		T\big( x^{(1)},\ldots,x^{(k)} \big)=\sum_{i_1,\ldots,i_k=1}^nS_{i_1,\ldots,i_k}x^{(1)}_{i_1}\ldots x^{(k)}_{i_k}
+	\end{equation}
+	où \( S_{i_1,\ldots,i_k}=T(e_{i_1},\ldots,e_{i_k})\).
+\end{proposition}
+
+\begin{proof}
+	Pour chaque \( j\) nous posons \( x^{(j)}=\sum_lx^{(j)}_le_l\) et en utilisant la multilinéarité,
+	\begin{equation}
+		T(x^{(1)},\ldots,x^{(k)})=T\big( \sum_{i_1}x_{i_1}^{(1)}e_{i_1},\ldots,\sum_{i_k}x_{i_k}^{(k)}e_{i_k} \big)=\sum_{i_1,\ldots,i_k=1}^nx_{i_1}^{(1)}\ldots x_{i_k}^{(k)}T(e_{i_1},\ldots,e_{i_k}).
+	\end{equation}
+\end{proof}
+
+
+\begin{lemma}[\cite{MonCerveau,BIBChatGPT}]	\label{LEMooIEXNooPOHokX}
+	Soit un espace de Banach \( F\). Nous considérons une application \( k\)-multilinéaire \(A \colon (\eR^n)^k\to \eR  \). Nous posons
+	\begin{equation}
+		\begin{aligned}
+			a\colon \eR^n & \to \eR                \\
+			x             & \mapsto T(x,\ldots,x).
+		\end{aligned}
+	\end{equation}
+	Alors
+	\begin{equation}
+		a(x)=\sum_{| \alpha |=k}a_{\alpha}x^{\alpha}
+	\end{equation}
+	avec
+	\begin{equation}
+		a_{\alpha}=\frac{ k! }{ \alpha! }A(e_1^{\alpha_1},\ldots,a_n^{\alpha_n}).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Plein de Définitions]
+		%-----------------------------------------------------------
+		Soit \( x\in \eR^n\). Nous avons
+		\begin{equation}		\label{EQooAJCPooQnXdyI}
+			a(x)=A\big( \sum_{i_1}x_{i_1}e_{i_1},\ldots,\sum_{i_k}x_{i_k}e_{i_k} \big)=\sum_{i_1,\ldots,i_k=1}^nA(e_{i_1},\ldots,e_{i_k})x_{i_1}\ldots x_{i_k}.
+		\end{equation}
+		Pour les besoins de la preuve nous posons
+		\begin{equation}
+			M=\big\{ (i_1,\ldots,i_k)\in \{ 1,\ldots,n \}^k \big\}
+		\end{equation}
+		et
+		\begin{equation}
+			\Lambda_k=\big\{  (\alpha_1,\ldots,\alpha_n)\in \eN^n\tq\sum_{i=1}^n\alpha_i=k  \big\}.
+		\end{equation}
+		Pour chaque \( s\in M\) et \( i\in\{ 1,\ldots,n \}\) considérons les indices de \( s\) égaux à \( i\), c'est à dire
+		\begin{equation}
+			P_i(s)=\big\{ j\in \{ 1,\ldots,k \}\tq s_j=i  \big\},
+		\end{equation}
+		et le nombre de fois que \( i\) apparaît dans \( s\), c'est à dire
+		\begin{equation}
+			f_i(s)=\Card\big( P_i(s) \big),
+		\end{equation}
+		et enfin nous posons
+		\begin{equation}
+			f(s)=\big( f_1(s),\ldots,f_n(s) \big).
+		\end{equation}
+		\spitem[Les \( P_i(s)\) forment une partition de \( \{ 1,\ldots,k \}\)]
+		%-----------------------------------------------------------
+		D'abord si \( l\in P_j(s)\cap P_i(s)\) alors \( s_l=i\) et \( s_l=j\), ce qui donne \( i=j\). Donc \( P_i(s)\cap P_j(s)=\emptyset\) dès que \( i\neq j\). Ensuite si \( l\in \{ 1,\ldots,k \}\), en posant \( j=s_l\) nous avons \( l\in P_j(s)\subset\bigcup_{i=1}^nP_i(s)\).
+
+		Bref nous avons bien
+		\begin{equation}		\label{EQooNLPRooFFwhYb}
+			\{ 1,\ldots,k \}=\bigcup_{i=1}^nP_i(s)
+		\end{equation}
+		et l'union est disjointe.
+
+		\spitem[\( f(s)\in \Lambda_k\)]
+		%-----------------------------------------------------------
+		Étant donné que \( f_i(s)=\Card\big( P_i(s) \big)\), et que l'union \eqref{EQooNLPRooFFwhYb} est disjointe\footnote{Nous utilisons le lemme \ref{LEMooVFPNooVmdUXY}\ref{ITEMooBUCZooYLCuIe}.} nous avons
+		\begin{equation}
+			\sum_{i=1}^nf_i(s)=\sum_{i=1}^n\Card(P_i(s))=\Card\big( \bigcup_{i=1}^nP_i(s) \big)=\Card\{ 1,\ldots,k \}=k.
+		\end{equation}
+
+		\spitem[\(f \colon M\to \Lambda_k  \) est surjective]
+		%-----------------------------------------------------------
+		Pour \(\alpha\in\Lambda_k\) nous posons
+		\begin{equation}
+			s=(\underbrace{1,\ldots,1}_{\text{\( \alpha_1\) fois}}, \underbrace{2,\ldots,2}_{\text{\( \alpha_2\) fois}},\ldots,\underbrace{n,\ldots,n}_{\text{\( \alpha_n\) fois}}).
+		\end{equation}
+		Vu que \( \alpha_1+\ldots+\alpha_n=k\), ce \( s\) est bien dans \( M=\{ 1,\ldots,n \}^k\). Avec ça, l'ensemble des positions dans \( s\) où apparaît le \( 1\) est \( \{ 1,\ldots,\alpha_1 \}\), de telle sorte que \( P_1(s)=\{ 1,\ldots,\alpha_1 \}\) et donc \( f_1(s)=\alpha_1\). De même pour les autres \( i=1,\ldots,n\). Donc \( \Card\big( P_i(s) \big)=\alpha_i\), et
+		\begin{equation}
+			f(s)=\alpha.
+		\end{equation}
+
+		\spitem[Stabilisateur]
+		%-----------------------------------------------------------
+		Le groupe symétrique \( S_k\) agit sur \( M\) par \( \sigma(s)_i=s_{\sigma(i)}\). Soient \( \alpha\in \Lambda_k\) et \( s\in f^{-1}(\alpha)\). Question : quel est le stabilisateur\footnote{Définition \ref{DEFooMDYGooLrOERP}.} de \( s\) dans \( S_k\) ?
+
+		Étant donne que \( s\) contient \( \alpha_i\) fois le nombre \( i\) aux positions \( P_i(s)\), le groupe \( S_{\alpha_i}\) peut agir sur \( P_i(s)\) sans changer \( s\). Le stabilisateur de \( s\) est donc
+		\begin{equation}
+			\Stab(s)= S_{\alpha_1}\times\ldots\times S_{\alpha_n}.
+		\end{equation}
+
+		\spitem[Orbite]
+		%-----------------------------------------------------------
+		Soit encore \( s\in f^{-1}(\alpha)\). Quelle est l'orbite de \( s\) sous \( S_k\) ? Si \( S_k\) agit sur \( s\), alors le nombre de \( 1,\ldots,n\) dans \( \sigma(s)\) sera le même que dans \( s\); ils auront juste changé de place. Autrement dit, les ensembles \( P_i(s)\) et \( P_i\big( \sigma(s) \big)\) ne sont pas identiques, mais leur cardinal sont égaux. Donc \( \sigma(s)\) est encore dans \( f^{-1}(\alpha)\). Autrement dit, pour l'orbite de \( s\) nous avons
+		\begin{equation}		\label{EQooFIBBooVcZiOB}
+			\mO_s=f^{-1}(\alpha).
+		\end{equation}
+
+		\spitem[Quelques factorielles]
+		%-----------------------------------------------------------
+		C'est le moment d'utiliser le théorème orbite-stabilisateur \ref{Propszymlr} :
+		\begin{equation}
+			\Card(\mO_s)=\frac{ \Card(S_k) }{ \Card\big( \Stab(s) \big)}=\frac{ k! }{ \alpha_1!\ldots \alpha_n! }.
+		\end{equation}
+		En utilisant \eqref{EQooFIBBooVcZiOB} et les notations \ref{EQooMZAMooMJuLKD},
+		\begin{equation}		\label{EQooFQONooJhLOER}
+			\Card\big( f^{-1}(\alpha) \big)=\frac{ k! }{ \alpha! }.
+		\end{equation}
+
+		\spitem[\( \{ f^{-1}(\alpha) \}_{\alpha\in \Lambda_k}\) est une partition de \( M\)]
+		%-----------------------------------------------------------
+		D'une part si \( s\in f^{-1}(\alpha)\cap f^{-1}(\beta)\), alors \( f(s)=\alpha\) et \( f(s)=\beta\) de telle sorte que \( \alpha=\beta\). D'autre part si \( s\in M\), en posant \( \alpha=f(s)\) nous avons bien \( s\in f^{-1}(\alpha)\). Bref
+		\begin{equation}
+			M=\bigcup_{\alpha\in \Lambda_k}f^{-1}(\alpha)
+		\end{equation}
+		et l'union est disjointe.
+
+		\spitem[Retour à la fonction \( a\)]
+		%-----------------------------------------------------------
+		Nous pouvons maintenant décomposer la somme \eqref{EQooAJCPooQnXdyI} en
+		\begin{subequations}
+			\begin{align}
+				a(x) & =\sum_{s\in M}A(e_{s_1},\ldots,e_{s_k})x_{s_1}\ldots x_{s_k}                                          \\
+				     & =\sum_{\alpha\in\Lambda_k}\sum_{s\in f^{-1}(\alpha)}  A(e_{s_1},\ldots,e_{s_k})x_{s_1}\ldots x_{s_k}.
+			\end{align}
+		\end{subequations}
+		Notez que si \( f(s)=f(t)\) alors \( \Card(P_i(s))=\Card\big( P_i(t) \big)\), c'est à dire que \( A(e_{s_1},\ldots,e_{s_k}) \) et \( A(e_{t_1},\ldots,e_{t_k})\) contiennent autant de \( e_i\) l'un que l'autre. Étant donné que \( A\) est symétrique, ça donne \( A(e_{s_1},\ldots, e_{s_k})=A(e_{t_1},\ldots,e_{t_k})\). Idem pour \( x_{s_1}\ldots x_{s_k}=x_{t_1}\ldots x_{t_k}\).
+
+		Donc tous les termes de
+		\begin{equation}
+			\sum_{s\in f^{-1}(\alpha)}A(e_{s_1},\ldots s_k)x_{s_1}\ldots x_{s_k}
+		\end{equation}
+		sont égaux et valent
+		\begin{equation}		\label{EQooCUAOooWhhhAY}
+			A(\underbrace{e_1,\ldots,e_1}_{\text{\( \alpha_1\) fois}},\ldots,\underbrace{e_n,\ldots,e_n}_{\text{\( \alpha_n\) fois}})x_1^{\alpha_1}\ldots x_n^{\alpha_n}=A(e_1^{\alpha_1},\ldots,e_n^{\alpha_n})x^{\alpha}.
+		\end{equation}
+		La seconde égalité est juste une notation plus compacte.
+
+		\spitem[Et enfin]
+		%-----------------------------------------------------------
+		En utilisant \eqref{EQooFQONooJhLOER} et \eqref{EQooCUAOooWhhhAY} nous trouvons bien
+		\begin{equation}
+			a(x)=\sum_{\alpha\in \Lambda_k}a_{\alpha}x^{\alpha}
+		\end{equation}
+		avec
+		\begin{equation}
+			a_{\alpha}=\frac{ k! }{ \alpha! }A(e_1^{\alpha_1},\ldots,e_n^{\alpha_n}).
+		\end{equation}
+	\end{subproof}
+\end{proof}
+
 
 %-------------------------------------------------------
 \subsection{Continuité}
@@ -151,7 +312,7 @@
 		Nous supposons que \( \lambda>0\) vérifie \( \| \alpha(x_1,\ldots,x_n) \|\leq \lambda \prod_i\| x_i \|\) pour tout \( (x_1,\ldots,x_n)\in E_1\times \ldots\times E_n\). En utilisant le lemme \ref{LEMooGQWQooUfqURv}, nous avons, pour tout \( x_i\) et \( a_i\) :
 		\begin{subequations}
 			\begin{align}
-				\| \alpha(x_1,\ldots,x_n)-\alpha(a_1,\ldots,a_n) \| & =\| \sum_{i=1}^n\alpha(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n) \|                                                           \\
+				\| \alpha(x_1,\ldots,x_n)-\alpha(a_1,\ldots,a_n) \| & =\| \sum_{i=1}^n\alpha(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n) \|                                                             \\
 				                                                    & \leq \sum_{i=1}^n  \lambda  \| x_i-a_i \|\cdot \prod_{j=1}^{i-1}\| a_j \|\cdot\prod_{j=i+1}^n\| x_j \|.		\label{SUBEQooYDGCooJFBaxN}
 			\end{align}
 		\end{subequations}
@@ -170,6 +331,31 @@
 
 	\end{subproof}
 \end{proof}
+
+%-------------------------------------------------------
+\subsection{Norme}
+%----------------------------------------------------
+
+La proposition suivante\quext{Que je n'ai pas vérifiée. Démontrez-la par vous-même avant de me croire sur parole.} doit surement beaucoup à la proposition \ref{PROPooDQBOooByBvmj}.
+
+\begin{propositionDef}[\cite{MonCerveau}]	\label{DEFooTAUWooNDJJEO}
+	Soient des espaces vectoriels normés \( E_1,\ldots,E_n\) et \( F\). Si \(\alpha \colon E_1\times\ldots \times E_n\to F  \) est \( n\)-multilinéaire, alors
+	\begin{enumerate}
+		\item
+		      Nous avons
+		      \begin{equation}
+			      \begin{aligned}[]
+				      \inf & \{ \lambda\in \eR\tq\,\forall (x_1,\ldots,x_n)\in E_1\times \ldots E_n,\, \| \alpha(x_1,\ldots,x_n) \|\leq \lambda \| x_1 \|\ldots\| x_n \| \} \\
+				           & =\sup\{ \| \alpha(x_1,\ldots,x_n) \|\tq\| x_i \|\leq 1 \}
+			      \end{aligned}
+		      \end{equation}
+		\item
+		      Ce nombre est définit une norme sur l'espace des applications \( n\)-linéaires.
+	\end{enumerate}
+	%TODOooVGCXooCWtuGG. Prouver ça.
+	% À mon avis c'est un duplicat de DefKPBYeyG.
+\end{propositionDef}
+Voir aussi la définition \ref{DefKPBYeyG}.
 
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -281,9 +467,9 @@ Nous considérons un corps \( \eK\) et l'espace vectoriel \( E\) de dimension \(
 	Les propriétés du déterminant. Soit \( B\) une base de \( E\).
 	\begin{enumerate}
 		\item\label{ITEMooAHOHooDZgtSB}
-		L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire.
+		      L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire.
 		\item\label{ITEMooTXXBooBmDtzd}
-		L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire est antisymétrique et alternée\footnote{Alternée, définition \ref{DEFooYWOBooUGJojy}. En caractéristique \( 2\), alternée n'est pas équivalent à symétrique.}.
+		      L'application \( \det_B\colon E^n\to \eK\) est \( n\)-linéaire est antisymétrique et alternée\footnote{Alternée, définition \ref{DEFooYWOBooUGJojy}. En caractéristique \( 2\), alternée n'est pas équivalent à symétrique.}.
 		\item   \label{ITEMooNFJTooTqGoPr}
 		      Pour toute base, \( \det_B(B)=1\).
 		\item   \label{ITEMooALRQooDvBzDQ}
@@ -303,7 +489,7 @@ Nous considérons un corps \( \eK\) et l'espace vectoriel \( E\) de dimension \(
 		      \end{equation}
 		\item   \label{ITEMooXKTAooXynFTE}
 		      Nous avons aussi la formule \( \det_{B}(B')\det_{B'}(B)=1\).
-		      \item\label{ItemDWFLooDUePAf}
+		\item\label{ItemDWFLooDUePAf}
 		      Les vecteurs \( \{ v_1,\ldots, v_n \}\) forment une base si et seulement si \( \det_B(v_1,\ldots, v_n)\neq 0\).
 	\end{enumerate}
 \end{lemma}
@@ -407,7 +593,7 @@ L'interprétation géométrique du déterminant en termes d'aires et de volumes 
 	Cela soit dit en passant, ça rend plus compliqué que prévu la preuve que \( \GL(E,F)\) est ouvert dans \( \aL(E,F)\). Il ne suffira pas de dire que le déterminant est une application continue. Voir la proposition \ref{PROPooQCPJooFSzaPc}.
 \end{normaltext}
 
-\begin{lemmaDef}       \label{LEMooQTRVooAKzucd}
+\begin{lemmaDef}[Déterminant d'un endomorpisme]       \label{LEMooQTRVooAKzucd}
 	Si \( f\colon E\to E\) est un endomorphisme, et si les parties \( B\) et \( B'\) sont deux bases, alors\footnote{Définition de \( \det_B(B')\), \ref{DEFooODDFooSNahPb}.}
 	\begin{equation}
 		\det_B\big( f(B) \big)=\det_{B'}\big( f(B') \big).
@@ -540,73 +726,6 @@ L'interprétation géométrique du déterminant en termes d'aires et de volumes 
 	En ce qui concerne la seconde formule, il s'agit de se souvenir de la proposition \ref{PROPooCSJNooEqcmFm} qui donne \( f_{AB}=f_A\circ f_B\), et ensuite de la proposition \ref{PropYQNMooZjlYlA}\ref{ItemUPLNooYZMRJy} qui donne \( \det(f_A\circ f_B)=\det(f_A)\det(f_B)\).
 \end{proof}
 
-
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Déterminant de Vandermonde}
-%---------------------------------------------------------------------------------------------------------------------------
-
-\begin{proposition}[\cite{fJhCTE}]  \label{PropnuUvtj}
-	Le \defe{déterminant de Vandermonde}{déterminant!Vandermonde}\index{Vandermonde (déterminant)} est le polynôme en \( n\) variables donné par
-	\begin{equation}
-		V(T_1,\ldots, T_n)=\det\begin{pmatrix}
-			1         & 1         & \ldots & 1         \\
-			T_1       & T_2       & \ldots & T_n       \\
-			\vdots    & \ddots    & \ddots & \vdots    \\
-			T_1^{n-1} & T_2^{n-1} & \ldots & T_n^{n-1}
-		\end{pmatrix}=\prod_{1\leq i<j\leq n}(T_j-T_i).
-	\end{equation}
-	Notez que l'inégalité du milieu est stricte (sinon d'ailleurs l'expression serait nulle).
-\end{proposition}
-
-\begin{proof}
-	Nous considérons le polynôme
-	\begin{equation}
-		f(X)=V(T_1,\ldots, T_{n-1},X)\in \big( \eK[T_1,\ldots, T_{n-1}] \big)[X].
-	\end{equation}
-	C'est un polynôme de degré au plus \( n-1\) en \( X\) et il s'annule aux points \( T_1,\ldots, T_{n-1}\). Par conséquent\footnote{Proposition \ref{PropHSQooASRbeA}.} nous pouvons factoriser les \( X-T_i\), c'est-à-dire qu'il existe \( \alpha\in \eK[T_1,\ldots, T_{n-1}]\) tel que
-	\begin{equation}    \label{EqeVxRwO}
-		f=\alpha\prod_{i=1}^{n-1}(X-T_i).
-	\end{equation}
-	Nous trouvons \( \alpha\) en écrivant \( f(0)\). D'une part la formule \eqref{EqeVxRwO} nous donne
-	\begin{equation}    \label{EqblwWMj}
-		f(0)=\alpha(-1)^{n-1}T_1\ldots T_{n-1}.
-	\end{equation}
-	D'autre part la définition donne
-	\begin{subequations}
-		\begin{align}
-			f(0) & =\det\begin{pmatrix}
-				            1         & \cdots & 1             & 1      \\
-				            T_1       &        & T_{n-1}       & 0      \\
-				            \vdots    &        & \vdots        & \vdots \\
-				            T_1^{n-1} & \cdots & T_{n-1}^{n-1} & 0
-			            \end{pmatrix}                   \\
-			     & =(-1)^{n-1}\det\begin{pmatrix}
-				                      T_1       & \ldots & T_{n-1}       \\
-				                      \vdots    & \ddots & \vdots        \\
-				                      T_1^{n-1} & \ldots & T_{n-1}^{n-1}
-			                      \end{pmatrix}                  \\
-			     & =(-1)^{n-1}T_1\ldots T_{n-1}\det\begin{pmatrix}
-				                                       1         & \cdots & 1             \\
-				                                       \vdots    & \ddots & \vdots        \\
-				                                       T_1^{n-1} & \cdots & T_{n-1}^{n-1}
-			                                       \end{pmatrix} \\
-			     & =(-1)^{n-1}T_1\ldots T_{n-1}V(T_1,\ldots, T_{n-1})
-		\end{align}
-	\end{subequations}
-	En égalisant avec \eqref{EqblwWMj}, nous trouvons \( \alpha=V(T_1,\ldots, T_{n-1})\), et donc
-	\begin{equation}
-		f=V(T_1,\ldots, T_{n-1})\prod_{j\leq n-1}(X-T_j)
-	\end{equation}
-	Enfin, une récurrence montre que
-	\begin{subequations}
-		\begin{align}
-			V(T_1,\ldots, T_n) & =f(T_n)                                           \\
-			                   & =V(T_1,\ldots, T_{n-1})\prod_{j\leq n-1}(T_n-T_j) \\
-			                   & =\prod_{k\leq n}\prod_{j\leq k-1}(T_k-T_j)        \\
-			                   & =\prod_{1\leq j<k\leq n}(T_i-T_j).
-		\end{align}
-	\end{subequations}
-\end{proof}
 
 \begin{example}
 	Le déterminant de Vandermonde (proposition~\ref{PropnuUvtj}) est alterné, semi-symétrique et non symétrique. Le fait qu'il soit alterné est le fait qu'il soit un déterminant. Étant donné qu'il est alterné, il est semi-symétrique parce que sur \( A_n\), nous avons \( \epsilon=1\). Étant donné qu'il est alterné, il change de signe sous l'action des éléments impairs de \( S_n\) et n'est donc pas symétrique.
@@ -1010,6 +1129,7 @@ Un tel polynôme s'écrit sous la forme
 	\end{equation}
 	ce qui prouve que \( \alpha\) est une racine de l'unité. Nous avons donc prouvé que toutes les racines de \( P_{2^k}\) sont des racines de l'unité et donc que les racines de \( P\) sont racines de l'unité.
 \end{proof}
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 \section{Orientation}

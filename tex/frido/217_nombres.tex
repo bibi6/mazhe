@@ -202,7 +202,7 @@ Lorsque dans la suite nous parlerons d'un élément de \( \eQ\) comme étant un 
 		\item   \label{ITEMooKRBYooZGhhch}
 		      \( \modE^+\cap\modE^-=\modE_0 \)
 		\item       \label{ITEMooRCIZooHUIymE}
-		      Le neutre pour l'addition dans \( \eR\) est \( \bar\modE_0\) c'est à dire la classe de la suite constante nulle.
+		      Le neutre pour l'addition dans \( \eR\) est \( \bar\modE_0\) c'est-à-dire la classe de la suite constante nulle.
 		\item       \label{ITEMooZRVXooANHspZ}
 		      \( \modE^+\cup\modE^-=\modE\)
 	\end{enumerate}
@@ -864,7 +864,11 @@ Le théorème \ref{ThoKHTQJXZ} donne une complétion de tout espace métrique en
 	Pour \ref{ITEMooVOVYooFUbccG}. Il suffit de faire la même chose, en partant de \( 0<q_0<x\).
 \end{proof}
 
+Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFooYUqQYo}. Ils ne sont pas équivalents, ne parlent pas exactement du même objet «\( \eR\)», ni des mêmes notions de suites de Cauchy et de complétude.
+
 \begin{theorem}[Complétude de \( \eR\), critère de Cauchy\cite{RWWJooJdjxEK}] \label{THOooUFVJooYJlieh}
+	% Attention : c'est presque certainement pas ce théorème-ci que tu veux citer.
+	% ce serait plutôt THOooNULFooYUqQYo.
 	Nous avons :
 	\begin{enumerate}
 		\item
@@ -875,7 +879,6 @@ Le théorème \ref{ThoKHTQJXZ} donne une complétion de tout espace métrique en
 \end{theorem}
 \index{complet!\( \eR\)!corps}
 \index{critère!de Cauchy}
-Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFooYUqQYo}. Ils ne sont pas équivalents, ne parlent pas exactement du même objet «\( \eR\)», ni des mêmes notions de suites de Cauchy et de complétude.
 
 \begin{proof}
 	Soit \( (x_n)\) une suite de Cauchy dans \( \eR\). Pour chaque \( n\), il existe par le lemme~\ref{LemooHLHTooTyCZYL} un \( y_n\in \eQ\) tel que
@@ -919,6 +922,12 @@ Notez la grande similitude entre ce théorème et le théorème~\ref{THOooNULFoo
 
 Nous avons terminé avec la construction des réels. Les propriétés topologiques arrivent en la section~\ref{SECooGKHYooMwHQaD}. En particulier le théorème~\ref{THOooNULFooYUqQYo} pour la complétude de \( \eR\) en tant qu'espace métrique.
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooSWBTooSkmheK}
+	Soit \( \epsilon>0\). Si \( a,x\in \eR\) vérifient \( | x-a |<\epsilon\) alors \( x<a+\epsilon\) et \( x>a-\epsilon\).
+	%TODOooVCKLooTInilC. Prouver ça.
+\end{lemma}
+
+
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Intervalles}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -949,6 +958,37 @@ Nous avons déjà défini la notion d'intervalle pour un espace totalement ordon
 	\end{enumerate}
 	La proposition \ref{PROPooHPMWooQJXCAS} nous dira que tous les intervalles de \( \eR\) sont d'une de ces formes.
 \end{definition}
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooCZLZooTtkXgR}
+	Si \( I\) et \( J\) sont des intervalles, alors \( I\setminus J\) est une union de \( 0\), \( 1\) ou \( 2\) intervalles.
+	%TODOooXHLUooQqBXGd. Prouver ça.
+\end{lemma}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooJEXCooHwHAKq}
+	Soient un intervalle \( I\) et des intervalles \( \{ I_k \}_{k=1,\ldots,n}\) tels que \( I=\bigcup_{k=1}^nI_k\). Alors il existe des intervalles \( \{ J_i \}_{i=1,\ldots,m}\) tels que
+	\begin{enumerate}
+		\item
+		      \( I=\bigcup_{i=1}^mJ_i\),
+		\item
+		      les \( J_i\) sont disjoints,
+		\item
+		      pour tout \( i=1,\ldots,m\), il existe un \( k=1,\ldots,n\) tel que \( J_i\subset I_k\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Nous posons
+	\begin{subequations}
+		\begin{numcases}{}
+			A_1=I_1\\
+			A_k=I_k\setminus\bigcup_{l=1}^{k-1}A_l.
+		\end{numcases}
+	\end{subequations}
+	Les \( A_k\) sont par construction disjoints. Avec une récurrence utilisant le lemme \ref{LEMooCZLZooTtkXgR}, on démontre que si \( A_k\) est une union finie disjointe d'intervalles, alors \( A_{k+1}\) aussi.
+
+	Finalement \( I=\bigcup_{k=1}^nA_k\) est donc une union finie d'intervalles disjoints.
+\end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Maximum, supremum et compagnie}
@@ -1235,6 +1275,11 @@ Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son
 	Je vous laisse voir les autres cas.
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooBWXYooDcwXrp}
+	Si \( I\) est un intervalle fermé de \( \eR\), alors il existe \( a,b\in \eR\) tels que \( I=\mathopen[ a,b\mathclose]\).
+	%TODOooMDCKooVxqWpK. Prouver ça.
+\end{proposition}
+
 
 %///////////////////////////////////////////////////////////////////////////
 \subsubsection{Quelques exemples}
@@ -1441,6 +1486,115 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eQ^+\). Vous 
 	%TODOooLAXFooNhrwsT. Prouver ça.
 \end{lemma}
 
+%-------------------------------------------------------
+\subsection{Le tore}
+%----------------------------------------------------
+
+\begin{normaltext}
+	Cette section sur le tore est juste un avant-gout pour insister sur les classes d'équivalences. Ce que vous voulez réellement savoir est dans \ref{SUBSECooZVJPooCBqBuk}. Notez que la fonction \( \tau\) qui sera définie là-bas n'est pas exactement la même que celle sur laquelle nous travaillons ici.
+
+	Bref, je crois que vous pouvez sauter cette partie sur le tore.
+\end{normaltext}
+
+
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooRWLLooHkdFDN}
+	Nous considérons la relation d'équivalence \( x\sim y\) si \( x-y\in \eZ\) sur \( \eR\). Et la relation \( (x,y)\sim(x',y')\) si \( x-x'\in \eZ\) et \( y-y'\in \eZ\) sur \( \eR^2\).
+\end{definition}
+
+
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooTSSTooOFPxzu}
+	Le \defe{tore}{tore} de \( \eR^2\) est l'ensemble \( \eR^2/\sim\). Nous le notons \( T\).
+\end{definition}
+
+Nous considérons l'application
+\begin{equation}
+	\begin{aligned}
+		\tau\colon \eR & \to \mathopen] -\frac{ 1 }{2},\frac{ 1 }{2}\mathclose]   \\
+		x              & \mapsto \begin{cases}
+			                         \rational(x)   & \text{si } \rational(x)\leq 1/2 \\
+			                         \rational(x)-1 & \text{si }\rational(x)<1/2
+		                         \end{cases}
+	\end{aligned}
+\end{equation}
+où \(\rational \colon \eR\to \mathopen[ 0,1\mathclose[  \) est la partie fractionnaire définie par le lemme \ref{LEMooLEXTooGAQxGB}. Nous posons aussi
+\begin{equation}
+	\begin{aligned}
+		\tau\colon \eR^2 & \to \mathopen] \frac{ 1 }{2},\frac{ 1 }{2}\mathclose]\times \mathopen] -\frac{ 1 }{2},\frac{ 1 }{2}\mathclose] \\
+		(x,y)            & \mapsto    \big( \tau(x),\tau(y) \big).
+	\end{aligned}
+\end{equation}
+
+Notez que si \( y=x+k\) avec \( k\in \eZ\), nous avons \( \tau(y)=\tau(x)\), donc nous pouvons poser
+\begin{equation}
+	\begin{aligned}
+		\tau\colon \eR/\sim & \to \mathopen] -\frac{ 1 }{2},\frac{ 1 }{2}\mathclose] \\
+		[x]                 & \mapsto \tau(x).
+	\end{aligned}
+\end{equation}
+Et enfin nous posons
+\begin{equation}		\label{EQooCRZHooMNPBDo}
+	\begin{aligned}
+		\tau\colon T & \to \mathopen] -\frac{ 1 }{2},\frac{ 1 }{2}\mathclose]\times \mathopen] -\frac{ 1 }{2},\frac{ 1 }{2}\mathclose] \\
+		[(x,y)]      & \mapsto \big( \tau(x),\tau(y) \big).
+	\end{aligned}
+\end{equation}
+Tout cela pour rapporter le tore au carré de côté \( 1\) centré en \( (0,0)\).
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooNRNGooJahxQv}
+	Soit \( x\in \eR\). Parmi les éléments de \( A_x=\{ x+k\tq k\in \eZ \}\), l'élément le plus proche de \( 0\) est \( \tau(x)\).
+\end{proposition}
+
+\begin{proof}
+	Nous avons \( \tau(x)\in\mathopen] -1/2,1/2\mathclose]\). Nommons \( y\) l'élément de \( A_x\) le plus proche de zéro. Si \( 1/2\in A_x\), alors c'est lui le plus proche : \( y=1/2\). Dans ce cas nous avons \( | \tau(x) |\leq 1/2=y\).
+
+	Si \( 1/2\) n'est pas dans \( A_x\), alors l'hypothèse \( | y |\leq | \tau(x) |\) donne \( | y |<1/2\). Nous avons alors
+	\begin{equation}
+		| \tau(x)-y |\leq | \tau(x) |+| y |<1,
+	\end{equation}
+	ce qui est impossible parce que \( \tau(x)-y\in \eZ\).
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooQAQPooGGumSe}
+	Pour tout \( \alpha,\beta, \gamma\in T\) nous avons
+	\begin{equation}
+		d(\alpha+\gamma,\beta+\gamma)=d(\alpha,\beta).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Soient \( x\in \alpha\), \( y\in \beta\) et \( z\in \gamma\). Nous avons \( \alpha+\gamma=[a+z]\) et \( \beta+\gamma=[b+z]\), de telle sorte que
+	\begin{subequations}
+		\begin{align}
+			d(\alpha+\gamma,\beta+\gamma) & =\inf_{\substack{ a\in\alpha+\gamma \\ b\in \beta+\gamma }  }f(a,b)\\
+			                              & =\inf_{\substack{ k\in \eZ^2        \\ l\in \eZ^2 }  }d(a+z+k,b+z+l)\\
+			                              & =\inf_{\substack{ k\in \eZ^2        \\ l\in \eZ^2 }  }d(a+k,b+l)\\
+			                              & =d(\alpha,\beta).
+		\end{align}
+	\end{subequations}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooQNDHooFXYjtj}
+	Soit \( \beta\in T\). Nous avons
+	\begin{equation}
+		d(0,\beta)=d\big( 0,\tau(\beta) \big)
+	\end{equation}
+	où à gauche nous avons la «distance»\footnote{Qui n'en est pas une d'ailleurs.} sur \( T\) et à droite nous avons la distance usuelle sur \( \eR^2\).
+\end{lemma}
+
+\begin{proof}
+	Nous choisissons \( b\in \beta\) et nous avons
+	\begin{subequations}
+		\begin{align}
+			d(0,\beta) & =\min_{\substack{ k\in \eZ^2                                         \\ l\in \eZ^2 }  }d(k,b+l)\\
+			           & =\min_{\substack{ k\in \eZ^2                                         \\ l\in \eZ^2 }  }f(0,b-k+l)\\
+			           & =\min_{k\in\eZ^2}f(0,b+k)                                            \\
+			           & =d\big( 0,\tau(b) \big)      & \text{prop. \ref{PROPooNRNGooJahxQv}} \\
+			           & =d\big( 0,\tau(\beta) \big).
+		\end{align}
+	\end{subequations}
+\end{proof}
+
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Les complexes}
@@ -1570,6 +1724,6 @@ L'étude de la série géométrique est reportée à (beaucoup) plus tard, à la
 \subsection{Norme et inégalités}
 %----------------------------------------------------
 
-Rien ici. La norme sur \( \eC\) demande la racine carré qui sera vue plus tard. Voir par exemple la proposition \ref{PROPooVSVMooZrqxdc} pour \( | x+y |\leq |x|+| y |\).
+Rien ici. La norme sur \( \eC\) demande la racine carrée qui sera vue plus tard. Voir par exemple la proposition \ref{PROPooVSVMooZrqxdc} pour \( | x+y |\leq |x|+| y |\).
 
 Si vous cherchez des propriétés de la valeur absolue, c'est la proposition \ref{LemooANTJooYxQZDw}.
