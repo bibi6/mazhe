@@ -83,11 +83,9 @@
 \usepackage{cases}
 \usepackage{lscape}           % pour l'environnement landscape, utilisé dans la correction corr0076.tex
 \usepackage{multicol}
-%\usepackage{xspace}
 \usepackage[normalem]{ulem}   % Pour le barré, commande \sout
+%\usepackage[all]{xy}
 \usepackage[all]{xy}
-\let\second\undefined         % le paquet mathabx définit \second
-\let\degree\undefined         % le paquet mathabx définit \degree
 
 \let\parallel\sslash
 
@@ -143,7 +141,8 @@
 %}
 \makeatother
 
-\usepackage{listingsutf8}     % Has to be called after babel
+%\usepackage{listingsutf8}     % Has to be called after babel
+\usepackage{listings}
 
 
 % Some  'configuration' for tikz       1829426939
@@ -1326,7 +1325,12 @@
 	\expandafter\StrSubstitute\expandafter{\result}{ù}{\%C3\%B9}[\result]%
 	\expandafter\StrSubstitute\expandafter{\result}{û}{\%C3\%BB}[\result]%
 	\expandafter\StrSubstitute\expandafter{\result}{ô}{\%C3\%B4}[\result]%
-	\expandafter\StrSubstitute\expandafter{\result}_{\_}[\result]%
+	\expandafter\StrSubstitute\expandafter{\result}{_}{\%5F}[\result]%
+}
+
+\newcommand{\myurl}[1]{%
+	\MakeUTFPerCent{#1}%
+	\href{\result}{#1}%
 }
 
 %\expandafter\StrSubstitute\expandafter{\result}{#}{\%23}[\result]%       If you want a # in the URL you still have to write \# in the source.
