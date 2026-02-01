@@ -260,6 +260,19 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 				                                                & =\Card(B).                               & \text{lem. \ref{LEMooVFNOooZenJSl}}
 			\end{align}
 		\end{subequations}
+		En posant
+		\begin{equation}
+			X_a=\bigcup_{b\in B}\{ (a,b) \},
+		\end{equation}
+		nous venons de voir que \( \Card(X_a)=\Card(B)\). Et comme \( A\times B=\bigcup_{a\in A}X_a\), nous avons
+		\begin{subequations}
+			\begin{align}
+				\Card(A\times B) & =\sum_{a\in A}\Card(X_a)                                       \\
+				                 & =\sum_{a\in A}\Card(B)                                         \\
+				                 & =\Card(B)\sum_{a\in A}1  & \text{lem. \ref{LEMooUWMYooIHdoeZ}} \\
+				                 & =\Card(B)\Card(A).
+			\end{align}
+		\end{subequations}
 	\end{subproof}
 \end{proof}
 
