@@ -76,11 +76,21 @@
 		\item
 		      ensemble vide,
 		\item
-		      ensemble, appartenance, intersection, union,
+		      ensemble, appartenance, intersection, union.
 		\item
 		      produit cartésien de plusieurs ensembles\footnote{Nous en proposons une définition dans un cadre général -- définition \ref{DEFooTYIMooZUsYJw} --, dont les fondements devraient être analysés de très près.}.
 		      % TODO réf futur OK.
 	\end{enumerate}
+
+	Si \( I\) est un ensemble et si pour chaque \( i\in I\) nous avons un ensemble \( A_i\), alors nous ne définissons pas ce qu'est
+	\begin{equation}
+		\bigcup_{i\in I}A_i.
+	\end{equation}
+	Et si \( J\) est un ensemble et qu'on a une bijection \(\varphi \colon I\to J  \) nous ne démontrons pas que
+	\begin{equation}
+		\bigcup_{i\in I}A_i=\bigcup_{j\in J}A_j.
+	\end{equation}
+
 	Ce sont toutes des choses dont la construction à partir des axiomes n'est en aucun cas évidente. En particulier, des «définitions» comme «l'intersection de deux ensembles est l'ensemble contenant exactement les éléments communs aux deux ensembles» ne sont pas correctes parce qu'elles passent à côté de l'existence et de l'unicité d'un tel ensemble.
 \end{normaltext}
 
@@ -2746,6 +2756,16 @@ Nous donnons deux preuves de ce lemme.
 	\end{subproof}
 \end{proof}
 
+\begin{normaltext}
+	Le théorème \ref{THOooEJPYooZFVnez} permet de faire des démonstration par récurrence en posant \(P \colon \eN\to \{ 0,1 \}  \) où \( P(n)=0\) si la proposition à prouver est fausse pour \( n\) et \( P(n)=1\) si elle est vraie. Et on démontre que \( P(n)=1\) pour tout \( n\).
+\end{normaltext}
+
+\begin{normaltext}		\label{NORMooPUOAooGnFjaX}
+	Il est cependant compliqué d'utiliser le théorème de récurrence pour faire une récurrence sur le cardinal d'un ensemble. Supposons que vous vouliez démontrer qu'une propriété est vraie pour tout ensemble fini \( I\). Vu que l'ensemble des ensembles finis n'existe pas, vous ne pouvez pas définir l'application \( P\) qui à un ensemble fait correspondre \( 0\) ou \( 1\).
+
+	Nous pouvons par contre dire \( P(n)=1\) si la propriété est vraie pour tout ensemble de cardinal \( n\). C'est cela que nous entendrons à quelque fois que nous dirons faire une preuve par récurrence sur le cardinal d'un ensemble.
+\end{normaltext}
+
 \begin{normaltext}[\cite{MonCerveau}]      \label{NORMooLNXMooWIblPf}
 	Le théorème \ref{THOooEJPYooZFVnez} nous permet de définir une suite \( (x_n)_{n\in \eN}\) par récurrence en posant par exemple
 	\begin{subequations}
@@ -3782,7 +3802,7 @@ Nous donnons deux preuves de ce lemme.
 	Soit \( A\) un ensemble muni d'une loi de composition interne\footnote{Peut-être un anneau, mais comme nous avons l'intention, dans les propositions \ref{PROPooXXGHooLafGsI} et suivantes, de faire des sommes vers \( (\eN,+)\), plutôt un monoïde.} notée \( +\). Si nous avons une application \( \alpha\colon \eN\to A\), alors il existe une unique application \(f \colon \eN\to A  \) telle que
 	\begin{subequations}		\label{SUBEQSooKJOFooOOxDKH}
 		\begin{numcases}{}
-			f(0)=\alpha(0)\\
+			f(0)=\alpha(0) 	\label{SUBEQooCCBKooQTbwrQ}\\
 			f(k)=f(k-1)+\alpha(k).
 		\end{numcases}
 	\end{subequations}
