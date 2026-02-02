@@ -1173,10 +1173,10 @@ et de faire tourner la définition \ref{DEFooLNEXooYMQjRo}. La même chose tient
 	Nous allons même écrire \( x_k\) pour \( x_{\varphi(k)}\). Sinon on devient fou avec les notations. Nous faisons une récurrence sur \( n\), c'est à dire sur le cardinal de \( I\) :
 	\begin{subequations}
 		\begin{align}
-			\sum_{k=1}^{n+1}sx_k=\Big( \sum_{k=1}^nsx_k \Big)+sx_{k+1} & \text{def. de \( \sum\)}                                        \\
-			                                                           & =s\sum_{k=1}^nx_k+sx_{k+1}          & \text{hyp.rec.}           \\
-			                                                           & =s\big( \sum_{k=1}x_k+x_{k+1} \big) & \text{assoc.}             \\
-			                                                           & =s\sum_{k=1}^{n+1}x_k               & \text{def. de \( \sum\)}.
+			\sum_{k=1}^{n+1}sx_k & =\Big( \sum_{k=1}^nsx_k \Big)+sx_{k+1} & \text{def. de \( \sum\)}  \\
+			                     & =s\sum_{k=1}^nx_k+sx_{k+1}             & \text{hyp.rec.}           \\
+			                     & =s\big( \sum_{k=1}x_k+x_{k+1} \big)    & \text{assoc.}             \\
+			                     & =s\sum_{k=1}^{n+1}x_k                  & \text{def. de \( \sum\)}.
 		\end{align}
 	\end{subequations}
 \end{proof}
