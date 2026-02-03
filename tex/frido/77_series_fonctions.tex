@@ -474,6 +474,28 @@ Afin de tester l'uniforme convergence d'une intégrale, nous avons le \defe{crit
 	%TODOooRWOVooJduvaU. Prouver ça.
 \end{theorem}
 
+
+%-----------------------------------
+\subsubsection{Critère de Cauchy}
+
+Rappel : une intégrale impropre est la définition \ref{DEFooINPOooWWObEz}.
+
+\begin{proposition}[Critère de Cauchy de convergence uniforme pour les intégrales impropres\cite{BIBooPQGLooQqJGUH}]	\label{PROPooQDLZooYRABia}
+	Soit une fonction \(f \colon \mathopen[ a,b\mathclose[\times S\to \eR  \). Nous supposons que pour tout \( \epsilon>0\) il existe \( r_0\in \mathopen[ a,b\mathclose[\) tel que si \( r_0<r_1,<r<b\),
+	\begin{equation}
+		\sup_{y\in S}\big| \int_{r_1}^rf(x,y)dx \big| <\epsilon.
+	\end{equation}
+
+	Alors l'intégrale impropre
+	\begin{equation}
+		\int_a^bf(x,y)dx=\lim_{r\to a^+}\int_r^bf(x,y)dx
+	\end{equation}
+	converge uniformément sur \( S\).
+	%TODOooGRAIooMrpLvC. Prouver ça.
+\end{proposition}
+
+
+
 %-----------------------------------
 \subsubsection{Critère d'Abel}
 
@@ -554,28 +576,99 @@ Afin de tester l'uniforme convergence d'une intégrale, nous avons le \defe{crit
 \end{proof}
 
 
-Le théorème suivant est le \defe{critère d'Abel}{critère!Abel pour intégrales} :
-\begin{theorem}[Critère d'Abel\cite{BIBooVMEDooNFFqpc}]     \label{ThoAbelIntUnif}
-	Supposons que \( f(x,t)=\varphi(x,t)\psi(x,t)\) où \( \varphi\) et \( \psi\) sont bornées et intégrables en \( t\) au sens de Riemann sur tout compact \( [a,b]\), \( b\geq a\). Supposons que :
+%-----------------------------------
+\subsubsection{Critère de Dirichlet}
+
+
+\begin{theorem}[Critère de Dirichlet\cite{BIBooPQGLooQqJGUH}]	\label{THOooTLUZooGeOvke}
+	Soient des applications continues \(g,h \colon \mathopen[ a,b\mathclose[\times S\to \eR  \). Nous supposons que
 	\begin{enumerate}
-		\item \( \left| \int_a^{T}\varphi(x,t)dt \right| \leq M\) où \( M\) est indépendant de \( T\) et de \( x\),
-		\item \( \psi(x,t)\geq 0\),
-		\item pour tout \( x\in[\alpha,\beta]\), \( \psi(x,t)\) est une fonction décroissante de \( t\),
-		\item les fonctions \( x\mapsto \psi(x,t)\) convergent uniformément vers \( 0\) lorsque \( t\to\infty\).
+		\item
+		      \( \partial_1g\) est continue sur \(\mathopen[ a,b\mathclose[\times S \).
+		\item		\label{ITEMooZKXTooVocyVc}
+		      Nous avons
+		      \begin{equation}
+			      \lim_{x\to b^-}\Big( \sup_{y\in S}| g(x,y) | \Big)=0.
+		      \end{equation}
+		\item		\label{ITEMooEPPPooPrbHYe}
+		      Il existe \( M\in \eR\) tel que
+		      \begin{equation}
+			      \sup_{y\in S}\big| \int_a^xh(u,y)du \big|<M
+		      \end{equation}
+		      pour tout \( a\leq x<b\).
+		\item		\label{ITEMooOQNNooPDdEQi}
+		      L'intégrale impropre
+		      \begin{equation}
+			      \int_a^b|(\partial_1g)(x,y)|dx
+		      \end{equation}
+		      converge uniformément sur \( S\).
 	\end{enumerate}
 	Alors l'intégrale
 	\begin{equation}
-		\int_a^{\infty}f(x,t)dt
+		\int_a^bg(x,y)h(x,y)dx
 	\end{equation}
-	est uniformément convergente.
+	converge uniformément sur \( S\).
 \end{theorem}
 
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[La fonction \( H\)]
+		%-----------------------------------------------------------
+		Nous posons
+		\begin{equation}
+			H(x,y)=\int_{a}^xh(u,y)du
+		\end{equation}
+		de telle sorte que \( \partial_1H=h\) par la proposition \ref{PropEZFRsMj}.
+
+		\spitem[Intégration par parties]
+		%-----------------------------------------------------------
+		Ensuite nous pouvons prendre \( r_1,r\) tels que \( a\leq r<r_1<b\) et faire une intégration par partie\footnote{Proposition \ref{PROPooRLFIooQHnyJY}.} :
+		\begin{subequations}		\label{SUBEQSooETSHooKfuRQv}
+			\begin{align}
+				\int_r^{r_1}g(x,y)h(x,y)dx & =\int_r^{r_1}g(x,y)(\partial_1H)(x,y)dx                                \\
+				                           & =g(r_1,y)H(r_1,y)-g(r,y)H(r,y)-\int_r^{r_1}(\partial_xg)(x,y)H(x,y)dx.
+			\end{align}
+		\end{subequations}
+		Soit \( \epsilon>0\).
+
+		\spitem[Quelques majorations]
+		%-----------------------------------------------------------
+		Étant donnée l'hypothèse \ref{ITEMooOQNNooPDdEQi}, il existe \( s_0\) tel que si \( a\leq s_0<r<r_1<b\) on ait
+		\begin{equation}
+			\int_r^{r_1}| (\partial_1g)(x,y) |dx<\epsilon
+		\end{equation}
+		pour tout \( y\in S\).
+
+		D'autre part, l'hypothèse \ref{ITEMooZKXTooVocyVc} nous dit que si \( s_0\) est assez grand et si \( r>s_0\),
+		\begin{equation}
+			\sup_{x\geq r}| g(x,y) |\leq \sup_{x\geq r}\big( \sup_{y\in S}| g(x,y) | \big)<\epsilon.
+		\end{equation}
+
+		Et l'hypothèse \ref{ITEMooEPPPooPrbHYe} donne en plus \( | H(x,y) |<M\).
+
+		\spitem[Retour à l'intégrale par partie]
+		%-----------------------------------------------------------
+		Nous pouvons maintenant faire plein de majorations dans \eqref{SUBEQSooETSHooKfuRQv}.
+		\begin{subequations}
+			\begin{align}
+				|\int_r^{r_1}g(x,y)h(x,y)dx| & \leq |g(r_1,y)H(r_1,y)|+|g(r,y)H(r,y)|+ \int_r^{r_1}|(\partial_xg)(x,y)H(x,y)|dx \\
+				                             & \leq 2M\sup_{x\geq r}| g(x,y) |+M\int_r^{r_1}| (\partial_xg)(x,y) |              \\
+				                             & \leq 3M\epsilon.
+			\end{align}
+		\end{subequations}
+		\spitem[Conclusion]
+		%-----------------------------------------------------------
+		Le critère de Cauchy \ref{PROPooQDLZooYRABia} conclu que l'intégrale converge uniformément.
+	\end{subproof}
+\end{proof}
+
 \begin{remark}
-	Étant donné que la fonction sinus est bornée, il est tentant de l'utiliser comme \( \varphi\) dans le critère d'Abel (théorème~\ref{ThoAbelIntUnif}). Hélas,
+	Étant donné que la fonction sinus est bornée, il est tentant de l'utiliser comme \( g\) dans le critère de Dirichlet (théorème~\ref{ThoAbelIntUnif}). Hélas,
 	\begin{equation}
 		\int_0^T\sin(xt)dt=-\frac{ 1 }{ x }\big( \cos(xT)-\cos(x) \big),
 	\end{equation}
-	qui n'est pas bornée en \( x\). Poser \( \varphi(x,t)=\sin(xt)\) \emph{ne fonctionne pas} pour assurer la convergence uniforme sur un intervalle qui contient des \( x\) arbitrairement proches de \( 0\). Le critère d'Abel avec \( \varphi(x,t)=\sin(xt)\) ne permet que de conclure à l'uniforme convergence \emph{sur tout compact} ne contenant pas \( 0\). C'est toutefois souvent suffisant pour étudier la continuité ou la dérivabilité en se servant coup du compact. Voir \ref{NORMooZWECooHvRgBw}.
+	qui n'est pas bornée en \( x\). Poser \( g(x,t)=\sin(xt)\) \emph{ne fonctionne pas} pour assurer la convergence uniforme sur un intervalle qui contient des \( x\) arbitrairement proches de \( 0\). Le critère d'Abel avec \( \varphi(x,t)=\sin(xt)\) ne permet que de conclure à l'uniforme convergence \emph{sur tout compact} ne contenant pas \( 0\). C'est toutefois souvent suffisant pour étudier la continuité ou la dérivabilité en se servant coup du compact. Voir \ref{NORMooZWECooHvRgBw}.
 	%1403337912512
 \end{remark}
 

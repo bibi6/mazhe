@@ -12,6 +12,18 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooPQGLooQqJGUH",
+    "url": "https://math.libretexts.org/Bookshelves/Analysis/Functions_Defined_by_Improper_Integrals_(Trench)",
+    "title": "Functions Defined by Improper Integrals (Trench)",
+    "author": [
+      {
+        "family": "William F. Trench"
+      }
+    ],
+    "date": "2 février 2026",
+    "type": "article-journal"
+  },
+  {
     "id": "BIBooVMEDooNFFqpc",
     "url": "https://webusers.imj-prg.fr/~jean-yves.ducloux/U4AH36/TD/Regle_Abel.pdf",
     "title": "Complément : règles d’Abel (J-Y D)",
@@ -13648,7 +13660,7 @@
     "type": "article-journal"
   },
   {
-    "url": "http://www.ljll.math.upmc.fr/~lissy/Agreg/developpements/DecPol.pdf",
+    "title": "Décomposition polaire",
     "author": [
       {
         "family": "Lissy",
@@ -13656,8 +13668,8 @@
       }
     ],
     "id": "JJdQPyK",
-    "title": "Décomposition polaire",
-    "type": "article-journal"
+    "type": "article-journal",
+    "url": "http://www.ljll.math.upmc.fr/~lissy/Agreg/developpements/DecPol.pdf"
   },
   {
     "url": "http://www.iecn.u-nancy.fr/~munnier/files/cours_edo.pdf",
