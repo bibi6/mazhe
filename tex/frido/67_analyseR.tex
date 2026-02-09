@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2006-2024
+% Copyright (c) 2006-2025
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -505,6 +505,93 @@ Au final, ce que nous avons prouvé est que
 	d(g\circ f)_a(u)=dg_{f(a)}\big( df_a(u) \big).
 \end{equation}
 
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Différentielle de fonctions à plusieurs variables}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooPRDIooNYOesw}
+	Soient des espaces vectoriels normés de dimensions finies \( V\) et \( W\). Soit une fonction différentiable \(f \colon V\to W  \). Nous avons
+	\begin{equation}
+		df_a(u)=\sum_{i=1}^nu_k(\partial_kf)(a).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous devons calculer
+	\begin{equation}		\label{EQooMBURooBWNgOQ}
+		\lim_{h\to 0} \frac{ f(a+h)-f(a)-\sum_{i=1}^nh_k(\partial_kf)(a) }{ \| h \| }.
+	\end{equation}
+	Pour cela nous considérons \( \epsilon>0\) et \( h\in V\) tel que \( \| h \|=\epsilon\). Nous posons \( h=\epsilon u\) avec \( \| u \|=1\) et nous utilisons la formule des accroissements finis (proposition \ref{PROPooYYSMooUDxtlB}). Le numérateur de \eqref{EQooMBURooBWNgOQ} est
+	\begin{equation}
+		\sum_{k=1}^n\epsilon u_k(\partial_kf)\big( a+\sum_{i=k+1}^n\epsilon u_ie_i \big)+\epsilon\alpha(\epsilon)-\sum_{i=1}^n\epsilon u_k(\partial_kf)(a).
+	\end{equation}
+	Le dénominateur est juste \( \| h \|=\epsilon \). Nous pouvons simplifier par \( \epsilon\) :
+	\begin{equation}
+		\sum_{k=1}^nu_k(\partial_kf)\big( a+\sum_{i=k+1}^n\epsilon u_i e_i \big)+\alpha(\epsilon)-\sum_{i=1}^nu_k(\partial_kf)(a).
+	\end{equation}
+	Et quand nous faisons la limite \( \epsilon\to 0\), tout part et il reste zéro.
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooCAZBooJZKXod}
+	Soient des espaces vectoriels \( S,E_1,\ldots,E_n\) de dimensions finies. Soient des applications différentiables \(a_i \colon S\to  E_i \). Alors l'application
+	\begin{equation}
+		\begin{aligned}
+			\varphi\colon S & \to E_1\times \ldots\times E_n           \\
+			x               & \mapsto \big( a_1(x),\ldots,a_n(x) \big)
+		\end{aligned}
+	\end{equation}
+	est différentiable et
+	\begin{equation}
+		(d\varphi_a)(h)=\Big( (da_1)_a(h),\ldots,(da_n)_a(h) \Big).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous devons calculer
+	\begin{equation}
+		\lim_{h\to 0}\frac{ \varphi(a+h)-\varphi(a)-\big( (d\varphi_1)_a(h),\ldots,(d\varphi_n)_a(h) \big) }{ \| h \| }.
+	\end{equation}
+	Nous considérons \( \epsilon>0\) et posons \( h=\epsilon u\) avec \( \| u \|=1\). Nous utilisons les accroissements finis du lemme \ref{LEMooNMTAooLgMkgH}. Après simplification par \( \epsilon\) comme dans la preuve de \ref{PROPooPRDIooNYOesw}, il reste
+	\begin{equation}
+		\sum_{k=1}^nu_k(\partial_k\varphi)\big( a+\sum_{i=k+1}^b\epsilon u_ie_i \big)+\alpha(\epsilon)-\big( (da_1)_a(u),\ldots,(da_n)_a(u) \big).
+	\end{equation}
+	Lorsqu'on fait \( \epsilon\to 0\), il reste
+	\begin{equation}		\label{EQooLBBYooKqIdBh}
+		\sum_{k=1}^nu_k(\partial_k\varphi)(a)-\big( (da_1)_a(u),\ldots,(da_n)_a(u) \big).
+	\end{equation}
+	La dérivée d'une fonction à valeurs dans un espace vectoriel est la dérivée composante par composante :
+	\begin{equation}
+		(\partial_k\varphi)(a)=\big( (\partial_k\varphi_1)(a),\ldots,(\partial_k\varphi_n)(a) \big).
+	\end{equation}
+	Mais \ref{PROPooPRDIooNYOesw} nous dit que pour chaque \( i\) nous avons
+	\begin{equation}
+		\sum_{k=1}^nu_k(\partial_k\varphi_i)(a)=(d\varphi_i)_a(u).
+	\end{equation}
+	Il reste à substituer ça dans \eqref{EQooLBBYooKqIdBh} en nous souvenant que \( \varphi_i=a_i\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooCTXUooTGJbIK}
+	Soient des espaces vectoriels normés de dimensions finies \( E_1,\ldots,E_n, S, F\) ainsi que des fonctions différentiables \(a_i \colon S\to E_i  \) et \(\phi \colon E_1\times \ldots\times E_n\to F  \). Alors l'application
+	\begin{equation}
+		\begin{aligned}
+			f\colon S & \to F                                        \\
+			x         & \mapsto \phi\big( a_1(x),\ldots,a_n(x) \big)
+		\end{aligned}
+	\end{equation}
+	est différentiable et
+	\begin{equation}
+		df_a(u)=\sum_{i=1}^n(d_i\phi)_{\big( a_1(a),\ldots,a_n(a) \big)}\big( (da_i)_a(u) \big).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Il s'agit de remarquer que \( f=\phi\circ \varphi\) avec \( \varphi\) comme dans la proposition \ref{PROPooCAZBooJZKXod}, et d'utiliser la différentielle de la composée, proposition \ref{PropDiffCompose}.
+\end{proof}
+
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Autres trucs sur la différentielle}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -621,8 +708,8 @@ Le plan \( T_a\) avec \( a=(a_1,a_2)\) a pour équation dans \( \eR^3\):
 	l'ensemble des points
 	\begin{equation*}
 		\begin{split}
-			T_af &= \{ (x,z) \in \eR^n \times \eR \tq z = f(a) + d f_a (x-a)\}\\
-			&= \{ (x,z) \in \eR^n \times \eR \tq z = f(a) + \scalprod{\nabla f(a)}{x-a}\}
+			T_af & = \{ (x,z) \in \eR^n \times \eR \tq z = f(a) + d f_a (x-a)\}                 \\
+			     & = \{ (x,z) \in \eR^n \times \eR \tq z = f(a) + \scalprod{\nabla f(a)}{x-a}\}
 		\end{split}
 	\end{equation*}
 \end{definition}
@@ -635,7 +722,7 @@ Le plan \( T_a\) avec \( a=(a_1,a_2)\) a pour équation dans \( \eR^3\):
 		\item $x \mapsto \left\{ \begin{array}{ll} 0 & \mbox{si } x \not= 0 \\ 1 & \mbox{sinon} \end{array} \right.  $
 		\item $x \mapsto \left\{ \begin{array}{ll} \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right.  $
 		\item $x \mapsto \left\{ \begin{array}{ll} x \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right. $
-		      \item\label{Item0035d} $x \mapsto \left\{ \begin{array}{ll} x^2 \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right.  $
+		\item\label{Item0035d} $x \mapsto \left\{ \begin{array}{ll} x^2 \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right.  $
 	\end{enumerate}
 
 	Dans ces exercices, les fonctions données sont dérivables et à dérivée
@@ -725,7 +812,7 @@ Le plan \( T_a\) avec \( a=(a_1,a_2)\) a pour équation dans \( \eR^3\):
 	\begin{enumerate}
 		\item 			$f(x,y) = \sqrt{x^2+y^2}$.
 		\item 			$f(x,y) = \sqrt{1-x^2-y^2}$.
-		      \item\label{Item0041}	$f(x,y) = (x^2+y^2)^2-8xy$.
+		\item\label{Item0041}	$f(x,y) = (x^2+y^2)^2-8xy$.
 	\end{enumerate}
 	Les courbes de niveau de l'exercice \ref{Item0041} sont  les \emph{ovales de Cassini}; en particulier, la courbe de niveau 0 est la \emph{lemniscate de Bernouilli}.
 

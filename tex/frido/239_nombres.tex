@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2025
+% Copyright (c) 2011-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -1276,6 +1276,127 @@ Tout cela nous permet de définir une somme sympathique et bien connue.
 \begin{proof}
 	C'est exactement la proposition \ref{DEFooLNEXooYMQjRo}, sauf qu'ici la loi de groupe est notée multiplicativement au lieu d'additivement.
 \end{proof}
+
+
+%-------------------------------------------------------
+\subsection{Cardinalité d'ensembles finis}
+%----------------------------------------------------
+
+
+
+\begin{proposition}[Cardinalité d'ensembles finis\cite{MonCerveau}]	\label{PROPooOTHMooPzPzdW}
+	À propos d'ensembles finis.
+	\begin{enumerate}
+		\item	\label{ITEMooBQDUooOoYhnI}
+		      Si \( A\) et \( B\) sont finis et vérifient \( A\cap B=\emptyset\), alors \( \Card(A\cup B)=\Card(A)+\Card(B)\).
+		\item		\label{ITEMooUCUFooBLByHz}
+		      Si \( I\) est fini et si les \( (A_i)_{i\in I}\) sont des ensembles disjoints, alors
+		      \begin{equation}
+			      \Card\left( \bigcup_{i\in I}A_i \right)=\sum_{i\in I}\Card(A_i).
+		      \end{equation}
+		      %TODOooOSEYooOBOjRo. Prouver ce point.	Attention il y en a deux.
+		\item		\label{ITEMooSXBMooFgAvyJ}
+		      Si \( A\) et \( B\) sont finis, alors \( A\cup B\) est fini.
+		\item	\label{ITEMooKYXFooWukErM}
+		      Si \( A\) et \( B\) sont finis, alors \( \Card(A\cup B)=\Card(A)+\Card(B)-\Card(A\cap B)\).
+		      %TODOooOSEYooOBOjRo. Prouver ce point.	Attention il y en a deux.
+		\item		\label{ITEMooFIEUooRmDcfo}
+		      Si \( I\) est un ensemble fini et si \( \{ A_i \}_{i\in I}\) sont des ensembles finis, alors \( \bigcup_{i\in I}A_i\) est fini.
+		\item		\label{ITEMooLVSVooHEwNWA}
+		      Si \( A\) et \( B\) sont finis, alors \( A\times B\) est fini et
+		      \begin{equation}
+			      \Card(A\times B)=\Card(A)\Card(B).
+		      \end{equation}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooBQDUooOoYhnI}]
+		%-----------------------------------------------------------
+		Nous considérons des bijections \(\varphi \colon \{ 1,\ldots,n \}\to A  \) et \(\sigma \colon \{ 1,\ldots,m \}\to B  \). Puis nous posons
+		\begin{equation}
+			\begin{aligned}
+				\alpha\colon \{ 1,\ldots,n+m \} & \to A\cup B                                               \\
+				s                               & \mapsto \begin{cases}
+					                                          \varphi(s)  & \text{si } s\in\{ 1,\ldots,n \}     \\
+					                                          \sigma(s-n) & \text{si }s\in\{ n+1,\ldots,n+m \}.
+				                                          \end{cases}
+			\end{aligned}
+		\end{equation}
+		\begin{subproof}
+			\spitem[\( \sigma\) est injective]
+			%-----------------------------------------------------------
+			Si \( \alpha(a)=\alpha(b)\), il y a \( 4\) possibilités suivant que \( a\) et \( b\) soient dans \( \{ 1,\ldots,n \}\) ou dans \( \{ n+1,\ldots,n+m \}\).
+			\begin{subproof}
+				\spitem[Si \( a,b\in\{ 1,\ldots,n \}\)]
+				%-----------------------------------------------------------
+				Alors \( \alpha(a)=\varphi(a)\) et \( \alpha(b)=\varphi(b)\). Donc \( \varphi(a)=\varphi(b)\) et comme \( \varphi\) est injective, nous avons \( a=b\).
+				\spitem[Si \( a\in\{ 1,\ldots,n \}\) et \( b\in \{ n+1,\ldots,m+n \}\)]
+				%-----------------------------------------------------------
+				Alors \( \alpha(a)=\varphi(a)\in A\) et \( \alpha(b)=\sigma(b-n)\in B\). Donc \( \alpha(a)=\alpha(b)\in A\cap B\). Mais comme \( A\cap B=\emptyset\), ce cas est impossible.
+				\spitem[Les deux autres cas \ldots]
+				%-----------------------------------------------------------
+				Sont laissés \randomGender{au lecteur}{à la lectrice}.
+			\end{subproof}
+			\spitem[\( \alpha\) est surjective]
+			%-----------------------------------------------------------
+			Soit \( x\in A\cup B\). Si \( x\in A\) alors \( x=\alpha\big( \varphi^{-1}(x) \big)\) et si \( x\in B\), alors \( x=\alpha\big( \sigma^{-1}(x)+n \big)\).
+		\end{subproof}
+		\spitem[Pour \ref{ITEMooSXBMooFgAvyJ}]
+		%-----------------------------------------------------------
+		Si \( A\cap B=X\), alors nous avons l'union disjointe \( A\cup B=A\cup(B\setminus A)\). Par hypothèse \( A\) est fini et par \ref{LEMooTUIRooEXjfDY}, la partie \( B\setminus A\) est finie. Donc par le point \ref{ITEMooBQDUooOoYhnI}, l'union est finie.
+
+		\spitem[Pour \ref{ITEMooKYXFooWukErM}]
+		%-----------------------------------------------------------
+		\spitem[Pour \ref{ITEMooFIEUooRmDcfo}]
+		%-----------------------------------------------------------
+		Nous y allons par récurrence sur \( \Card(I)\). Si \( \Card(I)=2\), c'est déjà fait au point \ref{ITEMooBQDUooOoYhnI}. Sinon on suppose que la proposition est vraie pour tout choix d'ensemble \( I\) et d'ensembles \( (A_i)_{i\in I}\). Nous supposons que \( \Card(I)=n+1\) et nous considérons une bijection \(\varphi \colon \{ 1,\ldots,n+1 \}\to I  \). Nous avons
+		\begin{subequations}
+			\begin{align}
+				\bigcup_{i\in I}A_i & =\bigcup_{k=1}^{n+1}A_{\varphi(k)}                   & \text{cf. \ref{NorooFridoIntro2}} \\
+				                    & =\bigcup_{k=1}^nA_{\varphi(k)}\cup A_{\varphi(n+1)}.
+			\end{align}
+		\end{subequations}
+		Le premier est fini par hypothèse de récurrence et le second par hypothèse.
+		\spitem[Pour \ref{ITEMooLVSVooHEwNWA}]
+		%-----------------------------------------------------------
+		Nous écrivons le produit \( A\times B \) sous la forme
+		\begin{equation}
+			A\times B=\bigcup_{a\in A}\left( \bigcup_{b\in B}\{ (a,b) \} \right).
+		\end{equation}
+		Fixons \( a\in A\). Pour \( b\in B\) nous notons \( A_b=\{ (a,b) \}\), de telle sorte à avoir \( \Card(A_b)=1\) et
+		\begin{subequations}
+			\begin{align}
+				\Card\left( \bigcup_{b\in B}\{ (a,b) \} \right) & =\Card\left( \bigcup_{b\in B}A_b \right)                                       \\
+				                                                & =\sum_{b\in B}\Card\big( \{ a,b \} \big) & \text{par \ref{ITEMooUCUFooBLByHz}} \\
+				                                                & =\sum_{b\in B}1                                                                \\
+				                                                & =\Card(B).                               & \text{lem. \ref{LEMooVFNOooZenJSl}}
+			\end{align}
+		\end{subequations}
+		En posant
+		\begin{equation}
+			X_a=\bigcup_{b\in B}\{ (a,b) \},
+		\end{equation}
+		nous venons de voir que \( \Card(X_a)=\Card(B)\). Et comme \( A\times B=\bigcup_{a\in A}X_a\), nous avons
+		\begin{subequations}
+			\begin{align}
+				\Card(A\times B) & =\sum_{a\in A}\Card(X_a)                                       \\
+				                 & =\sum_{a\in A}\Card(B)                                         \\
+				                 & =\Card(B)\sum_{a\in A}1  & \text{lem. \ref{LEMooUWMYooIHdoeZ}} \\
+				                 & =\Card(B)\Card(A).
+			\end{align}
+		\end{subequations}
+	\end{subproof}
+\end{proof}
+
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooRURDooRIGJnY}
+	Si \( \Card(A)=n\) et si \( a\in A\) alors \( \Card(A\setminus\{ a \})=n-1\).
+	%TODOooKFQHooGJEnzl. Prouver ça.
+\end{lemma}
 
 
 

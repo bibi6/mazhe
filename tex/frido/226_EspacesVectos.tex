@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2008-2025
+% Copyright (c) 2008-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -385,18 +385,8 @@ Soit \( b\), une forme bilinéaire symétrique non dégénérée  sur l'espace v
 	Toutes ces inégalités sont donc des égalités et \( \dim(E)=\dim(F)+\dim(F^{\perp})\).
 \end{proof}
 
-Rappels :
-\begin{enumerate}
-	\item
-	      \( Q(E)\) sont les formes quadratiques réelles sur \( E\), définition \ref{DefBSIoouvuKR}.
-	\item
-	      \( S(n,\eR)\) sont les matrice symétriques définition \ref{NORMooAJLHooQhwpvr}.
-	\item
-	      \( \gS(E)\) est l'ensemble des opérateurs autoadjoints (définition \ref{DEFooYAWTooGUpAvw}) de \( E\) quand \( E\) est un espace euclidien réel.
-\end{enumerate}
-
 \begin{lemma}       \label{LEMooWRCIooWkMpoF}
-	L'application
+	L'application\footnote{\( Q(E)\) sont les formes quadratiques réelles sur \( E\), définition \ref{DefBSIoouvuKR}.}
 	\begin{equation}  \label{EqZYBooZysmVh}
 		\begin{aligned}
 			N\colon Q(E) & \to \eR                            \\
@@ -405,51 +395,34 @@ Rappels :
 	\end{equation}
 	est une norme.
 
-	L'application
-	\begin{equation}  \label{EQooJETQooIjxRWu}
-		\begin{aligned}
-			N\colon \gS(E) & \to \eR                                  \\
-			A              & \mapsto  \sup_{\| x \|_E=1}| x\cdot Ax |
-		\end{aligned}
-	\end{equation}
-	est une norme.  À droite, nous trouvons le produit scalaire sur \( E\) et la valeur absolue usuelle sur \( \eR\).
-
-	Ces normes sont celles que nous considérons pour la topologie sur \( Q(E)\) et \( S(n,\eR)\).
+	La topologie que nous considérerons sur \( Q(E)\) est celle de la norme \( N\).
 \end{lemma}
 
 \begin{proof}
 	Il faut vérifier les conditions de la définition \ref{DefNorme} d'une norme. En deux parties.
-	\begin{subproof}
-		\spitem[Pour \( Q(E)\)]
-		%-----------------------------------------------------------
-		Si \( N(q)=0\), alors \( | q(u) |=0\) pour tout \( u\in B(0,1)\). Mais si \( x\in E\), il existe \( \lambda\in \eR\) tel que \( x=\lambda u\) avec \( u\in B(0,1)\). Avec ce \( u\) nous avons
-		\begin{equation}
-			q(x)=q(\lambda u)=\lambda^2q(u)=0.
-		\end{equation}
+	Si \( N(q)=0\), alors \( | q(u) |=0\) pour tout \( u\in B(0,1)\). Mais si \( x\in E\), il existe \( \lambda\in \eR\) tel que \( x=\lambda u\) avec \( u\in B(0,1)\). Avec ce \( u\) nous avons
+	\begin{equation}
+		q(x)=q(\lambda u)=\lambda^2q(u)=0.
+	\end{equation}
 
-		En ce qui concerne l'inégalité triangulaire,
-		\begin{subequations}
-			\begin{align}
-				N(q+f) & =\sup_{\| u \|=1}| q(u)+f(u) |                                                                                         \\
-				       & \leq \sup_{\| u \|=1}| q(u) |+\sup_{\| u \|=1}| f(u) | & \text{prop. \ref{PROPooQULXooVzUtAi}\ref{ITEMooBOMOooTDUpgb}} \\
-				       & =N(q)+N(f).
-			\end{align}
-		\end{subequations}
+	En ce qui concerne l'inégalité triangulaire,
+	\begin{subequations}
+		\begin{align}
+			N(q+f) & =\sup_{\| u \|=1}| q(u)+f(u) |                                                                                         \\
+			       & \leq \sup_{\| u \|=1}| q(u) |+\sup_{\| u \|=1}| f(u) | & \text{prop. \ref{PROPooQULXooVzUtAi}\ref{ITEMooBOMOooTDUpgb}} \\
+			       & =N(q)+N(f).
+		\end{align}
+	\end{subequations}
 
-		Si \( \lambda\in \eR\) alors
-		\begin{subequations}
-			\begin{align}
-				N(\lambda q) & =\sup_{\| u \|=1}| (\lambda q)(u) |                                                                              \\
-				             & =\sup_{\| u \|=1}\Big( | \lambda || q(u) | \Big)                                                                 \\
-				             & =| \lambda |\sup_{\| u \|=1}| q(u) |             & \text{prop. \ref{PROPooQULXooVzUtAi}\ref{ITEMooMWCRooSqwXgN}} \\
-				             & =| \lambda |N(q).
-			\end{align}
-		\end{subequations}
-		\spitem[Pour \( \gS(E)\)]
-		%-----------------------------------------------------------
-		Si \( N(A)=0\), alors pour tout \( x\) nous avons \( | x\cdot A(x) |=0\).
-		%TODOooXQKZooEuzxGX. Finir la preuve.
-	\end{subproof}
+	Si \( \lambda\in \eR\) alors
+	\begin{subequations}
+		\begin{align}
+			N(\lambda q) & =\sup_{\| u \|=1}| (\lambda q)(u) |                                                                              \\
+			             & =\sup_{\| u \|=1}\Big( | \lambda || q(u) | \Big)                                                                 \\
+			             & =| \lambda |\sup_{\| u \|=1}| q(u) |             & \text{prop. \ref{PROPooQULXooVzUtAi}\ref{ITEMooMWCRooSqwXgN}} \\
+			             & =| \lambda |N(q).
+		\end{align}
+	\end{subequations}
 \end{proof}
 
 \begin{proposition} \label{PROPooZLXVooOsXCcB}
