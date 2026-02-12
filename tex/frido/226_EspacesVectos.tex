@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2008-2025
+% Copyright (c) 2008-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -386,8 +386,7 @@ Soit \( b\), une forme bilinéaire symétrique non dégénérée  sur l'espace v
 \end{proof}
 
 \begin{lemma}       \label{LEMooWRCIooWkMpoF}
-	La topologie considérée sur \( Q(E)\)\footnote{\( Q(E)\) sont les formes quadratiques réelles sur \( E\), définition \ref{DefBSIoouvuKR}.} est celle de la norme
-	L'application
+	L'application\footnote{\( Q(E)\) sont les formes quadratiques réelles sur \( E\), définition \ref{DefBSIoouvuKR}.}
 	\begin{equation}  \label{EqZYBooZysmVh}
 		\begin{aligned}
 			N\colon Q(E) & \to \eR                            \\
@@ -396,17 +395,35 @@ Soit \( b\), une forme bilinéaire symétrique non dégénérée  sur l'espace v
 	\end{equation}
 	est une norme.
 
-	L'application
-	\begin{equation}  \label{EQooJETQooIjxRWu}
-		\begin{aligned}
-			N\colon S(n,\eR) & \to \eR                                  \\
-			A                & \mapsto  \sup_{\| x \|_E=1}| x\cdot Ax |
-		\end{aligned}
-	\end{equation}
-	est une norme.  À droite, nous trouvons le produit scalaire usuel sur \( \eR^n\) et la valeur absolue usuelle sur \( \eR\).
-
-	Ces normes sont celles que nous considérons pour la topologie sur \( Q(E)\) et \( S(n,\eR)\).
+	La topologie que nous considérerons sur \( Q(E)\) est celle de la norme \( N\).
 \end{lemma}
+
+\begin{proof}
+	Il faut vérifier les conditions de la définition \ref{DefNorme} d'une norme. En deux parties.
+	Si \( N(q)=0\), alors \( | q(u) |=0\) pour tout \( u\in B(0,1)\). Mais si \( x\in E\), il existe \( \lambda\in \eR\) tel que \( x=\lambda u\) avec \( u\in B(0,1)\). Avec ce \( u\) nous avons
+	\begin{equation}
+		q(x)=q(\lambda u)=\lambda^2q(u)=0.
+	\end{equation}
+
+	En ce qui concerne l'inégalité triangulaire,
+	\begin{subequations}
+		\begin{align}
+			N(q+f) & =\sup_{\| u \|=1}| q(u)+f(u) |                                                                                         \\
+			       & \leq \sup_{\| u \|=1}| q(u) |+\sup_{\| u \|=1}| f(u) | & \text{prop. \ref{PROPooQULXooVzUtAi}\ref{ITEMooBOMOooTDUpgb}} \\
+			       & =N(q)+N(f).
+		\end{align}
+	\end{subequations}
+
+	Si \( \lambda\in \eR\) alors
+	\begin{subequations}
+		\begin{align}
+			N(\lambda q) & =\sup_{\| u \|=1}| (\lambda q)(u) |                                                                              \\
+			             & =\sup_{\| u \|=1}\Big( | \lambda || q(u) | \Big)                                                                 \\
+			             & =| \lambda |\sup_{\| u \|=1}| q(u) |             & \text{prop. \ref{PROPooQULXooVzUtAi}\ref{ITEMooMWCRooSqwXgN}} \\
+			             & =| \lambda |N(q).
+		\end{align}
+	\end{subequations}
+\end{proof}
 
 \begin{proposition} \label{PROPooZLXVooOsXCcB}
 	Soit une forme bilinéaire \( b\) et la forme quadratique associée \( q\). Alors nous avons l'\defe{identité de polarisation}{identité de polarisation} :
@@ -1038,6 +1055,33 @@ Le produit scalaire ne dépend en réalité pas de la base orthogonale choisie.
 
 Cette proposition nous permet de réellement parler du produit scalaire entre deux vecteurs de façon intrinsèque sans nous soucier de la base dans laquelle nous exprimons les vecteurs.
 
+%-------------------------------------------------------
+\subsection{Autoadjoint}
+%----------------------------------------------------
+
+\begin{proposition}[Adjoint\cite{MonCerveau}]	\label{PROPooYCSWooBnVwFv}
+	Soit un espace euclidien\footnote{Avec produit scalaire, définition \ref{DefLZMcvfj}.} réel \( E\). Soit un endomorphisme \(A \colon E\to E  \). Alors il existe un unique opérateur \( B\in \End(E)\) tel que
+	\begin{equation}
+		x\cdot Ay=Bx\cdot y
+	\end{equation}
+	pour tout \( x,y\in E\).
+
+	Cet opérateur est l'\defe{adjoint}{adjoint} de \( A\) et sera noté \( A^{\dag}\) ou \( A^t\).
+	%TODOooYUCJooNXhwst. Prouver ça.
+\end{proposition}
+
+\begin{definition}[Autoadjoint\cite{MonCerveau}]	\label{DEFooYAWTooGUpAvw}
+	Si \( E\) est un espace euclidien réel, nous disons qu'un opérateur \( A\in \End(E)\) est \defe{autoadjoint}{opérateur autoadjoint} si \( A^t=A\).
+
+	L'ensemble des opérateur autoadjoints de \( E\) sera noté \( \gS(E)\) ou \( S(n,\eR)\) lorsque ce sera sur \( \eR^n\). La notation \( S(n,\eR)\) devrait être réservée aux matrices, mais je ne promets rien.
+\end{definition}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooECJFooXjrBdX}
+	Si \( A\) est un opérateur autoadjoint, alors sa matrice est symétrique dans toute base.
+	%TODOooTSZEooXzJfxq. Prouver ça.
+\end{lemma}
+
+
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Hermitien, unitaire, etc.}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1072,6 +1116,7 @@ Cette proposition nous permet de réellement parler du produit scalaire entre de
 	pour tout \( x,y\in E\).
 
 	L'opérateur \( B\) ainsi défini est noté \( A^{\dag}\) et est nommé \defe{hermitien conjugué}{conjugué hermitien} de \( A\).
+	%TODOooALOSooCCMyJE. Prouver ça.
 \end{propositionDef}
 
 \begin{lemma}       \label{LEMooBOXMooSDyCfm}
@@ -1080,6 +1125,7 @@ Cette proposition nous permet de réellement parler du produit scalaire entre de
 		A^{\dag}_{ij}=A^*_{ji}
 	\end{equation}
 	où \( z^*\) est le conjugué complexe.
+	%TODOooJLIAooGaLUnH. Prouver ça.
 \end{lemma}
 
 \begin{definition}      \label{DEFooKEBHooWwCKRK}
@@ -1093,7 +1139,7 @@ Cette proposition nous permet de réellement parler du produit scalaire entre de
 	Note : le conjugué hermitien est parfois noté \( A^*\) au lieu de \( A^{\dag}\).
 \end{definition}
 
-\begin{normaltext}
+\begin{normaltext}	\label{NORMooYCCGooYyOEdo}
 	Le mot «hermitien» est réservé aux opérateurs sur des espaces hermitiens, c'est-à-dire des espaces vectoriels sur \( \eC\). Le mot «autoadjoint» par contre est plutôt utilisé dans le cadre d'opérateurs sur les espaces réels. En conséquence de quoi, ces deux mots sont synonymes, mais il est préférable d'utiliser «hermitien» lorsque l'espace vectoriel est sur \( \eC\) et «autoadjoint» lorsqu'il est sur \( \eR\).
 
 	L'ensemble des opérateurs autoadjoints de \( E\) est noté \( \gS(E)\)\nomenclature[A]{\( \gS(E)\)}{Les opérateurs autoadjoints de \( E\)}. Cette notation provient du fait que dans \( \eR^n\) muni du produit scalaire usuel, les opérateurs autoadjoints sont les matrices symétriques.

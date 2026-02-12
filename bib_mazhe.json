@@ -12,6 +12,54 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooQUMGooOxmczN",
+    "url": "https://gitlabpages.univ-lille.fr/m53lille/2023/Cours/Chap2-int%c3%a9grales_%c3%a0_param%c3%a8tres_intervalles_bornes.pdf",
+    "title": "INTÉGRALES DÉPENDANT D’UN PARAMÈTRE : CAS DES INTÉGRALES DÉFINIES",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "4 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPQGLooQqJGUH",
+    "url": "https://math.libretexts.org/Bookshelves/Analysis/Functions_Defined_by_Improper_Integrals_(Trench)",
+    "title": "Functions Defined by Improper Integrals (Trench)",
+    "author": [
+      {
+        "family": "William F. Trench"
+      }
+    ],
+    "date": "2 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooVMEDooNFFqpc",
+    "url": "https://webusers.imj-prg.fr/~jean-yves.ducloux/U4AH36/TD/Regle_Abel.pdf",
+    "title": "Complément : règles d’Abel (J-Y D)",
+    "author": [
+      {
+        "family": "Jean-Yves Ducloux"
+      }
+    ],
+    "date": "26 janvier 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooCQKFooJiwBtL",
+    "url": "https://en.wikibooks.org/wiki/Math_for_Non-Geeks/_Derivative_and_local_extrema",
+    "title": "Derivative and local extrema – Math for Non-Geeks",
+    "author": [
+      {
+        "family": "Wikibooks"
+      }
+    ],
+    "date": "25 janvier 2026",
+    "type": "article-journal"
+  },
+  {
     "id": "BIBooAFQMooNudkHJ",
     "url": "https://perso.univ-rennes1.fr/karim.bekka/CDHO/Week%20by%20week/2009-2010/CDHO11.pdf",
     "title": "héorème fondamental du calcul différentiel et intégral",
@@ -13624,7 +13672,7 @@
     "type": "article-journal"
   },
   {
-    "url": "http://www.ljll.math.upmc.fr/~lissy/Agreg/developpements/DecPol.pdf",
+    "title": "Décomposition polaire",
     "author": [
       {
         "family": "Lissy",
@@ -13632,8 +13680,8 @@
       }
     ],
     "id": "JJdQPyK",
-    "title": "Décomposition polaire",
-    "type": "article-journal"
+    "type": "article-journal",
+    "url": "http://www.ljll.math.upmc.fr/~lissy/Agreg/developpements/DecPol.pdf"
   },
   {
     "url": "http://www.iecn.u-nancy.fr/~munnier/files/cours_edo.pdf",

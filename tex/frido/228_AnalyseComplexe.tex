@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2021-2023, 2025
+% Copyright (c) 2021-2023, 2025-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -32,6 +32,12 @@ Pour rappel, la définition d'une application holomorphe est \ref{DefMMpjJZ} et 
 	%TODOooCRAUooMxNCzY. Prouver ça.
 \end{proposition}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooFTXYooBMVlSS}
+	Une composée de fonctions holomorphes est holomorphes.
+	%TODOooDRTXooVNuHTe. Prouver ça.
+\end{proposition}
+
+
 
 \begin{definition}[\cite{BIBooXNQTooNgvlKd}]
 	Soient des ouverts \( B_1\) et \( B_2\) dans \( \eC^n\). Nous disons que \( f\colon B_1\to B_2\) est \defe{biholomorphe}{biholomorphe} si
@@ -44,6 +50,25 @@ Pour rappel, la définition d'une application holomorphe est \ref{DefMMpjJZ} et 
 		      \( f^{-1}\) est holomorphe.
 	\end{enumerate}
 \end{definition}
+
+%-------------------------------------------------------
+\subsection{Série}
+%----------------------------------------------------
+
+\begin{proposition}	\label{PROPooJWDGooLLnldZ}
+	Soient des application holomorphe \(f_n \colon B_{_\eC^n}(0,r)\to \eC  \) telles que \( \| f_n \|<M_n\) avec \( \sum_{n=0}^{\infty}M_n<\infty\). Alors l'application
+	\begin{equation}
+		\sum_{n=0}^{\infty}f_n \colon B_{\eC^n(0,r)}\to \eC
+	\end{equation}
+	est holomorphe.
+	%TODOooHVZFooRsQJNy. Prouver ça.
+\end{proposition}
+
+
+%-------------------------------------------------------
+\subsection{Inversion locale}
+%----------------------------------------------------
+
 
 \begin{theorem}[Inversion locale, version holomorphe]       \label{THOooNBGZooHuGtxW}
 	Soient des ouverts \( B_1\) et \( B_2\) dans \( \eC^n\). Nous considérons une fonction holomorphe \( f\colon B_1\to B_2\). Soit \( z_0\in B_1\) et \( w_0=f(z_0)\). Il y a équivalence entre
@@ -92,6 +117,147 @@ Pour rappel, la définition d'une application holomorphe est \ref{DefMMpjJZ} et 
 	\end{equation}
 	Cela vérifie l'hypothèse \ref{ITEMooPNFYooXRzWby}. Et conclu donc la preuve.
 \end{proof}
+
+%-------------------------------------------------------
+\subsection{Extension d'analytique vers holomorphe}
+%----------------------------------------------------
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooYCSQooIffjUX}
+	Soit \( a\in \eR^n\). Si \(f \colon B_{\eC^n}(a,r)\to \eC^m  \) est holomorphe, alors la restriction \(g \colon B_{\eR^n}(a,r)\to \eC^m  \) est analytique.
+	%TODOooBCCKooGRlSHi. Prouver ça.
+\end{lemma}
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooSOYJooLLilgz}
+	Soit un polynôme \( P\) homogène de degré \( k\) sur \( \eC^n\). Nous avons
+	\begin{equation}
+		\sup_{z\in B(z_0,r)}| P(z-z_0) |\leq \| z-z_0 \|^k\sup_{z\in B(z_0,1)}| P(z-z_0) |.
+	\end{equation}
+	%TODOooNSLMooFquzrE. Prouver ça.
+\end{lemma}
+
+
+\begin{lemma}[\cite{BIBChatGPTDifficile}]	\label{LEMooAPNOooJSpgUi}
+	Si \( P\) est un polynôme réel homogène de degré \( k\) sur \( \eR^n\), nous notons \( \tilde P\) son extension complexe\footnote{C'est à dire : mêmes coefficients (réels), mais en acceptant les variables complexes.}.
+
+	Soient \( k,n\in \eN\). Il existe des réels \( C_{k,n}>0\) tels que pour tout polynôme réel homogène de degré \( k\),
+	\begin{enumerate}
+		\item
+		      \begin{equation}
+			      \sup_{\| z \|\leq 1}| \tilde P(z) |\leq C_{k,n}\sup_{\| x \|\leq 1}| P(x) |.
+		      \end{equation}
+		\item
+		      Si \( x_0\in \eR^n\), alors
+		      \begin{equation}
+			      \sup_{z\in B(x_0,r)}| \tilde P(z-x_0) |\leq C_{k,n}\sup_{x\in B(x_0,r)}| P(x-x_0) |.
+		      \end{equation}
+		\item
+		      Pour chaque \( n\),
+		      \begin{equation}
+			      \lim_{k\to \infty}C_{k,n}^{1/k}=1.
+		      \end{equation}
+	\end{enumerate}
+	Notez le point important : le même nombre \( C_{k,n}\) fonctionne pour tous les polynôme en même temps.
+	%TODOooPLSVooFSYtIB. Prouver ça.
+\end{lemma}
+
+
+Le théorème suivant dit que si \( f\) est analytique sur une \( \eR^{n}\)-boule autour de \( x_0\), alors en prenant la même formule, nous avons une application analytique sur une \( \eC^n\)-boule à peine plus petite\footnote{Plus petite en rayon, mais de dimension deux fois plus grande.}.
+\begin{theorem}[\cite{BIBChatGPTDifficile}]	\label{THOooXJNJooFucWqn}
+	Soient \( 0<\rho<r\) et une application analytique\footnote{Définition \ref{DEFooAIHMooKbWsBt}.} \(f \colon B_{\eR^n}(x_0,r)\to \eR  \) s'écrivant sous la forme
+	\begin{equation}
+		f(x)=\sum_{k=0}^{\infty} a_k(x-x_0),
+	\end{equation}
+	avec
+	\begin{equation}
+		a_k(x)=\sum_{\alpha\in\Lambda_k}a_{k,\alpha}x^{\alpha}.
+	\end{equation}
+	Pour chaque \( k\) nous posons
+	\begin{equation}
+		\begin{aligned}
+			\tilde a_k\colon B_{\eC^n}(x_0,\rho) & \to \eC                                                   \\
+			z                                    & \mapsto \sum_{\alpha\in \Lambda_k}a_{k,\alpha}z^{\alpha}.
+		\end{aligned}
+	\end{equation}
+	Alors
+	\begin{enumerate}
+		\item
+		      l'application
+		      \begin{equation}
+			      \begin{aligned}
+				      \tilde f\colon B_{\eC^n}(x_0,\rho) & \to \eC                                      \\
+				      z                                  & \mapsto \sum_{k=0}^{\infty}\tilde a_k(z-x_0)
+			      \end{aligned}
+		      \end{equation}
+		      est holomorphe.
+		\item
+		      Une telle extension est unique : si \( \tilde f_1\) et \( \tilde f_2\) sont deux telles extensions alors \( \tilde f_1=\tilde f_2\).
+	\end{enumerate}
+
+	Nous notons \( P\) l'application qui à une fonction analytique fait correspondre de cette façon une fonction holomorphe :
+	\begin{equation}
+		P \colon \{f \colon B_{\eR^n}(x_0,r)\to \eR\, \text{analytique}   \} \to \{  \tilde f \colon B_{\eC^n}(x_,\rho)\to \eC\,\text{holomorphe}     \} 	.
+	\end{equation}
+	Notez que \( r\) et \( \rho\) sont implicites dans la définition de \( P\).
+\end{theorem}
+
+\begin{proof}
+	D'abord en tant que sommes finies, chacune des \( \tilde a_k\) est holomorphe; ce sont des polynômes homogènes de degré \( k\). Soit \( \rho>0\); pour tout \( z\in B(z_0,\rho)\) et pour tout \( k\), en utilisant le lemme \ref{LEMooAPNOooJSpgUi} nous avons
+	\begin{subequations}
+		\begin{align}
+			| \tilde a_k(z-x_0) | & \leq \| z-x_0 \|^k\sup_{s\in B_{\eC^n}(x_0,1)}| \tilde a_k(s-x_0) | \\
+			                      & \leq \| z-x_0 \|^kC_k\sup_{x\in B_{\eR^n}(x_0,1)}| a_k(x-x_0) |     \\
+			                      & \leq \| z-x_0 \|^kC_k\| a_k \|                                      \\
+			                      & \leq \rho^k C_k\| a_k \|
+		\end{align}
+	\end{subequations}
+	Vu que \( f\) est analytique nous avons par ailleurs
+	\begin{equation}
+		\sum_{k=0}^{\infty}r^k\| a_k \|<\infty.
+	\end{equation}
+	Vu que \( C_k^{1/k}\to 1\) nous savons que \( C_k\) peut très bien croître polynômialement; sans hypothèses supplémentaires, nous ne pouvons rien dire à propos de la convergence de
+	\begin{equation}
+		\sum_{k=0}^{\infty}| \tilde a_k(z-x_0) |\leq \sum_{k=0}^{\infty}\rho^k C_k\| a_k \|.
+	\end{equation}
+	Nous choisissons donc \( \rho<r\) pour avoir
+	\begin{equation}
+		\rho^kC_k\| a_k \|=\left( \frac{ \rho }{ r } \right)^kr^kC_k\| a_k \|.
+	\end{equation}
+	Étant donné que \( r^kC_k\) a au plus une croissance polynômiale et que \( (\rho/r)^k\) a une décroissance exponentielle, nous avons
+	\begin{equation}
+		| \tilde a(z-x_0) |\leq \left( \frac{ \rho }{ r } \right)^kr^kC_k\| a_k \|\leq r^k\| a_k \|
+	\end{equation}
+	dès que \( k\) est grand (lemme \ref{LemLJOSooEiNtTs}). Tout cela pour dire que
+	\begin{equation}
+		\| \tilde a_k \|_{\infty}<\left( \frac{ \rho }{ r } \right)^kr^kC_k\| a_k \|<r^k\| a_k \|
+	\end{equation}
+	où à gauche \( \| \tilde a_k \|_{\infty}\) est la norme uniforme sur \( B_{\eC^n}(x_0,\rho)\) et non la norme en tant qu'application \( k\)-multiniléaire. Donc en posant
+	\begin{equation}
+		M_k=r^k\| a_k \|,
+	\end{equation}
+	nous avons \( \| \tilde a_k \|<M_k\) avec \( \sum_{k=0}^{\infty}M_k<\infty\). La proposition \ref{PROPooJWDGooLLnldZ} nous dit alors qu'en posant
+	\begin{equation}
+		\tilde f(z)=\sum_{k=0}^{\infty}\tilde a_k(z-x_0),
+	\end{equation}
+	nous avons une fonction holomorphe sur \( B(x_0,\rho)\).
+
+	Nous prouvons à présent l'unicité. D'abord \( x_0\) n'est pas un zéro isolé de \( \tilde f_1-\tilde f_2\) parce que \( \tilde f_1=\tilde f_2\) sur un voisinage réel de \( x_0\). Donc, par le principe des zéros isolée (théorème \ref{ThoukDPBX}), \( \tilde f_1-\tilde f_2=0\) sur un voisinage complexe de \( x_0\). Ensuite le corollaire \ref{CORooFBXXooZyfUQi} nous dit que \( \tilde f_1-\tilde f_2=0\) sur tout \( B_{\eC^n}(x_0,\rho)\).
+
+	\begin{probleme}
+		Pour être tout à fait correct, il faudrait une version à plusieurs variables du principe des zéros isolés. Vous êtes \randomGender{le bienvenu}{la bienvenue} pour m'envoyer un énoncé avec une démonstration.
+		%TODOooBYHKooEvhJOB. Le faire. C'est déjà sur ma feuille des choses à faire.
+	\end{probleme}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooTVOAooUTyoCz}
+	Avec l'application \( P\) du théorème \ref{THOooXJNJooFucWqn} nous avons
+	\begin{equation}
+		P(f')=P(f)'
+	\end{equation}
+	où à gauche \( f'\) est le dérivée réelle, et à droite le prime désigne la dérivée complexe.
+	%TODOooCCXFooMklJWQ. Prouver ça.
+\end{lemma}
+
 
 %-------------------------------------------------------
 \subsection{Espace de fonctions holomorphes}
@@ -347,4 +513,194 @@ Pour rappel, la définition d'une application holomorphe est \ref{DefMMpjJZ} et 
 		\end{subequations}
 		Nous avons donc bien \( T(y)=y\).
 	\end{subproof}
+\end{proof}
+
+%-------------------------------------------------------
+\subsection{Cauchy-Lipschitz analytique}
+%----------------------------------------------------
+
+\begin{theorem}[Cauchy-Lipschitz réel analytique\cite{BIBChatGPTDifficile}]	\label{THOooHDHCooLMkfaB}
+	Nous posons \( \Lambda=\eR^m\) et nous considérons un ouvert \( U\) de \( \eR^n\), un ouvert \( \Gamma\) de \( \Lambda\) ainsi qu'une fonction \(f \colon \eR\times U \times \Gamma\to \eR \) telle que
+	\begin{enumerate}
+		\item
+		      L'application \( f\) est Lipschitzienne en \( y\) : pour chaque compact \( K\) de \( \eR\times U\times \Gamma\), il existe une constante \( L_K\) telle que
+		      \begin{equation}
+			      \| f(y,y_1,\lambda)-f(t,y_2,\lambda) \|\leq L_K\| y_1-y_2 \|
+		      \end{equation}
+		      pour tout \( (t,y_i,\lambda)\in K\).
+
+		\item
+		      L'application \( f\) est analytique sur \( \overline{\eR\times U\times \Gamma}\).
+	\end{enumerate}
+	Alors pour tout \( (t_0,y_0,\lambda)\in \eR\times U\Gamma\), il existe \( R>0\) et une application
+	\begin{equation}
+		y \colon B(t_0,R)\times B(\lambda_0,\eR)\to \eR^n
+	\end{equation}
+	telle que
+	\begin{subequations}
+		\begin{numcases}{}
+			(\partial_ty)(t,\lambda)=f\big( t,y(t,\lambda),\lambda \big)\\
+			y(t_0,\lambda)=y_0
+		\end{numcases}
+	\end{subequations}
+	pour tout \( (t,\lambda)\in B(t_0,\epsilon)\times B(\lambda_0,\epsilon)\).
+
+	Celle application \( y\) est alors analytique sur \( B(t_0,\epsilon)\times B(\lambda_0,\epsilon)\).
+\end{theorem}
+
+\begin{proof}
+	Par le théorème \ref{THOooXJNJooFucWqn}, il existe un \( \rho>0\) et une extension holomorphe
+	\begin{equation}
+		\tilde f \colon B_{\eC}(t_0,\rho)\times B_{\eC^n}(y_0,\rho)\times B_{\eC^m}(\lambda_0,\rho)\to \eC^n.
+	\end{equation}
+	Par le théorème de Cauchy-Lipschitz holomorphe \ref{PROPooYYYDooXeEcVw}, il existe une unique fonction holomorphe
+	\begin{equation}
+		y_C \colon B_{\eC}(t_0,\rho)\times B_{\eC^m}(\lambda_0,\rho) \to \eC^n
+	\end{equation}
+	telle que
+	\begin{subequations}
+		\begin{numcases}{}
+			(\partial_ty_C)(t,\lambda)=\tilde f\big( t,y_C(t,\lambda),\lambda \big)\\
+			y_C(t_0,\lambda)=y_0
+		\end{numcases}
+	\end{subequations}
+	où \( \partial_ty_C\) est la dérivée complexe de \( y_C\) par rapport à sa variable \( t\). Et nous considérons la restriction \( y_R\) de \( y_C\) aux réels.
+
+	\begin{subproof}
+		\spitem[Nous avons \( \overline{\tilde f(t,z,\lambda)}=\tilde f(\bar t,\bar z,\bar\lambda)\)]		\label{ITEMooLAXTooDgIgWJ}
+		%-----------------------------------------------------------
+		La fonction \( \tilde f\) étant analytique, elle est une limite de polynômes dont les coefficients sont réels. Chacun de polynômes vérifie l'égalité parce que \( \bar x\bar y=\overline{xy}\) (proposition \ref{PROPooKBOIooRJPXAH}).
+		\spitem[\( y_R(t,\lambda)\in \eR^m\)]
+		%-----------------------------------------------------------
+		Nous montrons que si \( (t,\lambda)\in B_{\eR}(t_0,\rho)\times B_{\eR^m}(\lambda_0,\rho)\), alors \( y_R(t,\lambda)\in \eR^n\). Pour cela nous posons
+		\begin{equation}
+			w(t,\lambda)=\overline{y_C(\bar t,\bar\lambda)},
+		\end{equation}
+		et nous montrons que \( w\) vérifie la même équation que \( y_C\). La partie unicité de Cauchy-Lipschitz holomorphe dira alors que \( w=y_C\).
+
+		Nous calculons donc la dérivée complexe de \(w \) par rapport à la variable \( t \). D'abord notez que la conjugaison complexe est continue (lemme \ref{LEMooSYTWooMDzrnX}), donc
+		\begin{equation}		\label{EQooDTGOooHQeHKr}
+			\lim_{\epsilon\to 0}g(\epsilon)=\lim_{\epsilon\to 0}g(\bar\epsilon)
+		\end{equation}
+		pour tout fonction \(g \colon \eC\to \eC  \) continue en \( 0\). Calcul  :
+		\begin{subequations}
+			\begin{align}
+				(\partial_tw)(t,\lambda) & =\lim_{\epsilon\to 0}\frac{ w(t+\epsilon,\lambda)-w(t,\lambda) }{ \epsilon }                                                                                     \\
+				                         & =\lim_{\epsilon\to 0}\frac{ w(t+\bar\epsilon,\lambda)-w(t,\lambda) }{ \bar\epsilon }                                       & \text{eq.\eqref{EQooDTGOooHQeHKr}}  \\
+				                         & =\lim_{\epsilon\to 0}\frac{ \overline{y_C(\bar t+\epsilon,\lambda)}-\overline{y_C(\bar t,\bar \lambda)} }{ \bar \epsilon }                                       \\
+				                         & =\lim_{\epsilon\to 0}\overline{   \frac{ y_C(\bar t+\epsilon,\bar \lambda)-yC(\bar t,\bar \lambda) }{ \epsilon }  }                                              \\
+				                         & =\overline{(\partial_ty_C)(\bar t,\bar\lambda)}                                                                                                                  \\
+				                         & =\overline{  \tilde f\big(\bar t,y_C(\bar t,\bar\lambda),\bar \lambda\big) }                                                                                     \\
+				                         & =\tilde f\big( t,\overline{y_C(\bar t,\bar \lambda)},\lambda \big)                                                         & \text{par \ref{ITEMooLAXTooDgIgWJ}} \\
+				                         & =\tilde f\big( t,w(t,\lambda),\lambda \big).
+			\end{align}
+		\end{subequations}
+		On recopie juste pour le plaisir :
+		\begin{equation}
+			(\partial_tw)(t,\lambda) =\tilde f\big( t,w(t,\lambda),\lambda \big).
+		\end{equation}
+		Mais \( t_0\in \eR\), donc \( \bar t_0=t_0\), et donc
+		\begin{equation}
+			w(t_0,\lambda)=\overline{y_C(\bar t_0,\bar \lambda)} = \overline{ y_C( t_0,\bar \lambda)}=\overline{y_C(t_0,\lambda)}=\bar y_0=y_0.
+		\end{equation}
+		La fonction \( w\) vérifie donc le problème
+		\begin{subequations}
+			\begin{numcases}{}
+				(\partial_tw)(t,\lambda) =\tilde f\big( t,w(t,\lambda),\lambda \big)\\
+				w(t_0,\lambda)=y_0.
+			\end{numcases}
+		\end{subequations}
+		Par unicité de la solution, nous avons \( w=y_C\) :
+		\begin{equation}
+			\overline{y_C(\bar t,\bar \lambda)}=y_C(t,\lambda).
+		\end{equation}
+		En particulier si \( t\in \eR\) et \(  \lambda\in \eR^m\), nous avons \( \bar t=t\) et \( \bar\lambda=\lambda\) et \( \overline{y_C(t,\lambda)}=t_C(t,\lambda)\), c'est à dire \( y_C(t,\lambda)\in \eR^n\). Nous avons donc bien
+		\begin{equation}
+			y_R \colon B_{\eR}(t_0,\rho)\times B_{\eR^m}(\lambda_0,\rho)\to \eR^n.
+		\end{equation}
+
+		\spitem[\( y_R\) vérifie l'équation]
+		%-----------------------------------------------------------
+		Prenons \( (t,\lambda)\in B_{\eR}(t_0,\rho)\times B_{\eR^m}(\lambda_0,\rho)\), et calculons la dérivée réelle :
+		\begin{subequations}
+			\begin{align}
+				(\partial_ty_R)(t,\lambda) & =\lim_{\substack{ \epsilon\to 0 \\ \epsilon\in \eR }  }\frac{ y_R(t+\epsilon,\lambda)-y_R(t,\lambda) }{ \epsilon }  \\
+				                           & =\lim_{\substack{ \epsilon\to 0 \\ \epsilon\in \eR }  }  \frac{ y_C(t+\epsilon,\lambda)-y_C(t,\lambda) }{ \epsilon }.
+			\end{align}
+		\end{subequations}
+		Mais \( y_C\) est complexe-dérivable, donc la dernière limite est égale à la même limite avec \( \epsilon\in \eC\) :
+		\begin{subequations}
+			\begin{align}
+				(\partial_ty_R)(t,\lambda) & =\lim_{\substack{ \epsilon\to 0 \\ \epsilon\in \eR }  }  \frac{ y_C(t+\epsilon,\lambda)-y_C(t,\lambda) }{ \epsilon }\\
+				                           & =\lim_{\substack{ \epsilon\to 0 \\ \epsilon\in \eC }  }  \frac{ y_C(t+\epsilon,\lambda)-y_C(t,\lambda) }{ \epsilon }\\
+				                           & =(\partial_ty_C)(t,\lambda)
+			\end{align}
+		\end{subequations}
+		où à droite, \( (\partial_ty_C)\) est la dérivée complexe. On continue à calculer avec les justifications en-dessous :
+		\begin{subequations}
+			\begin{align}
+				(\partial_ty_R)(t,\lambda) & =(\partial_ty_C)(t,\lambda)                   \\
+				                           & =\tilde f\big( t,y_C(t,\lambda),\lambda \big) \\
+				                           & =\tilde f\big( t,y_R(t,\lambda),\lambda \big) \\
+				                           & =f\big( t,y_R(t,\lambda),\lambda \big).
+			\end{align}
+		\end{subequations}
+		Justifications :
+		\begin{itemize}
+			\item
+			      \( y_C(t,\lambda)=y_R(t,\lambda)\)
+			\item
+			      \( y_R(t,\lambda)\in \eR^n\).
+			\item
+			      \( \tilde f=f\) lorsque les arguments sont réels.
+		\end{itemize}
+		\spitem[Existence]
+		%-----------------------------------------------------------
+		Il y a existence du problème réel : \( y_R\) fait l'affaire.
+	\end{subproof}
+	Nous passons à l'unicité. Nous considérons \( y_R\) et \( y_C\) des solutions réelles et complexes comme avant. Nous prenons une autre solution réelle \( x_R\) et nous considérons sa complexification \( x_C=P(x_R)\). À ce point, nous ne savons pas si \( x_C\) est une solution du problème complexe. C'est ce que nous allons prouver. Le lemme \ref{LEMooTVOAooUTyoCz} permet de dire que
+	\begin{equation}
+		P(\partial_tx_R)=\partial_tP(x_R)=\partial_tx_C.
+	\end{equation}
+	Notez que \( x_R\) est solution du problème réel, donc
+	\begin{equation}
+		(\partial_tx_R)(t,\lambda)=f\big( t,x_R(t,\lambda),\lambda \big).
+	\end{equation}
+	Nous définissons les applications
+	\begin{equation}
+		\begin{aligned}
+			g\colon B_{\eR}(t_0,\rho)\times B_{\eR^m}(\lambda_0,\rho) & \to \eR^n                                     \\
+			(t,\lambda)                                               & \mapsto f\big( t,x_R(t,\lambda),\lambda \big)
+		\end{aligned}
+	\end{equation}
+	et
+	\begin{equation}
+		\begin{aligned}
+			h\colon B_{\eC}(t_0,\rho)\times B_{\eC^m}(\lambda_0,\rho) & \to \eC^n                                         \\
+			(t,\lambda)                                               & \mapsto P(f)\big( t,x_C(t,\lambda),\lambda \big).
+		\end{aligned}
+	\end{equation}
+	L'application \( h\) est holomorphe parce que \( x_C\) est holomorphe et le tout est une composée de fonctions holomorphes\footnote{Qui est alors holomorphe par la proposition \ref{PROPooFTXYooBMVlSS}.}. Voyons que \( P(f)\) et \( h\) coïncident sur les réels. Soit donc \( (t,\lambda)\in B_{\eR}(t_0,\rho)\times B_{\eR^m}(\lambda_0,\rho)\); nous avons
+	\begin{equation}
+		P(g)(t,\lambda)  =g(t,\lambda)=f\big( t,x_R(t,\lambda),\lambda \big).
+	\end{equation}
+	Et d'autre part, \( x_C(t,\lambda)=x_R(t,\lambda)\in \eR^n\), de telle sorte que
+	\begin{equation}
+		h(t,\lambda)=P(f)\big( t,x_C(t,\lambda),\lambda \big)=P(f)\big( t,x_R(t,\lambda),\lambda \big)=f\big( t,x_R(t,\lambda),\lambda \big).
+	\end{equation}
+	Bref, \( P(g)=h\) sur les réels. Par le principe des zéros isolés\footnote{Théorème \ref{ThoukDPBX}.}, nous avons \( P(g)=h\) partout.
+	%TODOooBYHKooEvhJOB. Ici aussi il faut référentier le bon théorème des zéros isolés en plusieurs variables.
+
+	Parce que \( x_R\) est une solution du problème réel, nous avons \( \partial_tx_R=g\). Donc
+	\begin{subequations}
+		\begin{align}
+			P(\partial_tx_R)(t,\lambda) & =P(g)(t,\lambda)                              \\
+			                            & =h(t,\lambda)                                 \\
+			                            & =P(f)\big( t,x_C(t,\lambda),\lambda \big)     \\
+			                            & =\tilde f\big( t,x_C(t,\lambda)\lambda \big).
+		\end{align}
+	\end{subequations}
+	Et aussi parce que \( x_R\) est solution réelle, l'application \( \lambda\mapsto x_C(t_0,\lambda)\) est holomorphe et coïncide sur \( B_{\eR^m}(\lambda_0,\rho)\) avec \( \lambda\mapsto x_R(t_0,\lambda)=y_0 \). Donc \( x_C(t_0,\lambda)=y_0\) pour tout \( \lambda\in B_{\eC^m}(\lambda_0,\rho)\).
+
+	Tout ça pour dire que \( x_C\) est une solution du problème complexe. Par unicité de Cauchy-Lipschitz holomorphe, nous avons \( x_C=y_C\). Et donc en particulier sur les réels, \( x_R=y_R\).
 \end{proof}

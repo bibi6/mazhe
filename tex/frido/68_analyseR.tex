@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2006-2025
+% Copyright (c) 2006-2026
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -503,6 +503,15 @@ et
 \end{equation}
 Notez que les dérivées de \( \varphi\) et des composantes de \( g\) sont calculées en \( (x,y)\), tandis que celles de \( f\) sont calculées en \( g(x,y)\).
 
+\begin{lemma}[Ouverture de la condition de rang maximum\cite{BIBChatGPT}]	\label{LEMooRSDHooDpNEjo}
+	Soit une fonction \(f \colon \eR^m\to \eR^n  \) de classe \( C^1\). Nous supposons que \( df_a\) est de rang \( m\). Alors il existe \( r>0\) tel que \( \rank(df_x)=m\) pour tout \( x\in B(a,r)\).
+\end{lemma}
+
+\begin{proof}
+	Le lemme \ref{LEMVecsaRgFixe} dit qu'il existe une base \( \{ e_1,\ldots,e_m \}\) de \( \eR^m\) telle que \( df_a(e_i)\neq 0\) pour tout \( i\). Vu que \( f\) est de classe \( C^1\), les fonctions \( x\mapsto df_x(e_i)\) sont continues. Donc on a un \( r>0\) tel que \( df_x(e_i)\neq 0\) pour tout \( x\in B(a,r)\). Pour chacun de ces \( x\), l'application \( df_x\) est de rang \( m\).
+\end{proof}
+
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Différentielle et dérivée complexe}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -522,6 +531,27 @@ Nous identifions \( \eR^2\) à \( \eC\) par l'application
 	\end{aligned}
 \end{equation}
 Dans cette partie, nous désignons par \( \Omega\) un ouvert de \( \eC\).
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooLFNVooUOCGMF}
+	Si \(f \colon \eC\to \eC  \) est continue en \( 0\), alors
+	\begin{equation}
+		\lim_{z\to 0}f(z)=\lim_{z\to 0}f(\bar z).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	L'application de conjugaison complexe \(c \colon \eC\to \eC  \) est continue\footnote{Lemme \ref{LEMooSYTWooMDzrnX}.}. La continuité de \( f\) en \( 0\) donne l'existence de la limite que nous notons \( \lim_{z\to 0}f(z)=L\). Nous utilisons la caractérisation séquentielle de la continuité de \( f\) est \( 0\) (proposition \ref{PropXIAQSXr}). Pour toute suite \( (z_n)_{n\in \eN}\) telle que \( z_n\to 0\) nous avons \( \lim_{n\to \infty}f(z_n)=L\). En particulier nous avons \( c(z_n)\to 0\) et donc
+	\begin{equation}
+		\lim_{n\to \infty}f\big( c(z_n) \big)=0,
+	\end{equation}
+	c'est à dire \( \lim_{n\to \infty}(f\circ c)(z_n)=L\). Et vu que cette égalité est vraie pour toute suite \( z_n\to 0\), nous en déduisons
+	\begin{equation}
+		\lim_{z\to 0}(f\circ c)(z)=L.
+	\end{equation}
+\end{proof}
+
+
+
 
 \begin{definition}      \label{DEFooVJVXooKlnFkh}
 	Une fonction \( f\colon \Omega\to \eC\) est \defe{\( \eC\)-dérivable}{dérivable!au sens complexe} si la limite
@@ -1794,8 +1824,59 @@ Enfin pour celles qui aiment les notations matricielles de tout poil, il y a cet
 	\end{pmatrix}.
 \end{equation}
 
-%---------------------------------------------------------------------------------------------------------------------------
+
+%-------------------------------------------------------
 \subsection{Ordre supérieur}
+%----------------------------------------------------
+
+Les notions de classe \( C^k\) et \( C^{\infty}\) sont dans la définition \ref{DefPNjMGqy}.
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooXKBPooMsDLuq}
+	Toute application linéaire est de classe \( C^{\infty}\).
+	%TODOooZXSWooLmwyvh. Prouver ça.
+\end{lemma}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooJAUVooBhhDkD}
+	Si \( f\) et \( g\) sont des fonctions de classe \( C^{k}\), alors \( f+g\) et \( fg\) sont de classe \( C^k\).
+	%TODOooIGDNooBGMoLY. Prouver ça.
+\end{proposition}
+
+
+\begin{proposition}		\label{PROPooMGFBooHWGXyC}
+	Tout polynôme \(P \colon \eR^n\to \eR^m  \) est de classe
+	\( C^{\infty}\).
+\end{proposition}
+
+\begin{proof}
+	Nous posons \( e_n(x)=x^n\), et nous prouvons par récurrence que \( e_n\) est de classe \( C^{\infty}\). D'abord \( e_0\) est une fonction constante et donc est \( C^{\infty}\) lemme \ref{LEMooXKBPooMsDLuq}.
+
+	Ensuite si \( e_n\) est de classe \( C^{\infty}\), alors le lemme \ref{LEMooZQIAooVbgFKo} donne \( e_{n+1}(x)=xe_n(x)\) est \( C^{\infty}\) parce qu'il s'agit du produit de \( e_n\) par \( x\mapsto 0\) et que le produit conserve le caractère \( C^{\infty}\) par la proposition \ref{PROPooJAUVooBhhDkD}.
+\end{proof}
+
+
+\begin{proposition}[Exemple en dimension infinie\cite{MonCerveau}]        \label{PROPooZCUSooLUUrxi}
+	L'endomorphisme de dérivation sur l'espace des fonctions\footnote{Les classes \( C^k\), définition \ref{DefPNjMGqy}.} \( C^{\infty}(\eR,\eR)\) n'a pas de polynôme minimal.
+\end{proposition}
+
+\begin{proof}
+	Nous considérons l'opérateur de dérivation \(\mD \colon C^{\infty}(\eR,\eR)\to C^{\infty(\eR,\eR)}  \). Comme demandé dans la définition \ref{DefCVMooFGSAgL} nous considérons la partie
+	\begin{equation}
+		I_{\mD}=\{ P\in \eR[X]\tq P(\mD)=0 \}.
+	\end{equation}
+	Nous montrons que \( I_{\mD}=\{ 0 \}\). Soit \( P=\sum_{k=0}^{n}a_kX^k\in \eR[X]\). Nous considérons \( f(x)=x^{n+1}\) qui est de classe \( C^{\infty}\) parce que c'est ce que dit la proposition \ref{PROPooMGFBooHWGXyC}. Nous considérons aussi le plus petit \( k\) pour lequel \( a_k\neq 0\). Le lemme \ref{LEMooZQIAooVbgFKo}\ref{ITEMooQKYJooKqZhRS} donne
+	\begin{equation}
+		(a_k\mD^k)(f)(x)=a_k\frac{ n! }{ (n-k)! }x^{n-k}.
+	\end{equation}
+	Tous les autres termes de \( P(\mD)f\) sont de degrés plus petits. Donc \( P(\mD)f\) est un polynôme non nul.
+
+	Tout ça pour dire que \( I_{\mD}=\{ 0 \}\) et que donc \( \mD\) n'a pas de polynôme minimal.
+\end{proof}
+
+
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Différentielle et dérivées partielles multiples}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Intuitivement, une fonction est de classe \( C^p\) si elle est \( p\) fois continûment différentiable. Cela est la définition \ref{DefPNjMGqy}.

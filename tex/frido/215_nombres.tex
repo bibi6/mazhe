@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2025
+% Copyright (c) 2011-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -144,6 +144,22 @@
 \end{proof}
 Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très compliqué et ça ne nous servira pas.
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooVFNOooZenJSl}
+	Si \( A\) est un ensemble fini, alors
+	\begin{equation}
+		\sum_{i\in I}1=\Card(I).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Si \(\varphi \colon \{ 1,\ldots,n \}\to I  \) est une bijection, la somme à calculer est
+	\begin{equation}
+		\sum_{i=1}^na_{\varphi(i)}
+	\end{equation}
+	où \( a_i=1\) pour tout \( i\). Cette somme est définie par \ref{DEFooNEVNooJlmJOC} (voir \ref{NORooNotationSommeNaturels}). Si \( \Card(I)=1\), alors la somme est \( \sum_{k=1}^11=1\) par \eqref{SUBEQooCCBKooQTbwrQ}.
+
+	Si la proposition est vraie pour tout ensemble de cardinal \( n\), alors nous considérons un ensemble \( I\) de cardinal \( n+1\), et nous devons calculer \( \sum_{k=1}^{n+1}1=\sum_{k=1}^n1+1=n+1\).
+\end{proof}
 
 \begin{lemma}       \label{LEMooRWUDooTgoRXH}
 	Si \( A\) est une partie infinie de \( \eN\), alors pour tout \( n\), la partie \( A\setminus\{ 0,\ldots, n \}\) est non vide.
@@ -153,30 +169,6 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 	Si \( A\setminus\{ 0,\ldots, n \}\) était vide, cela signifierait que \( A\) est une partie de \( \{ 0,\ldots, n \}\). Or nous savons que \( \{ 0,\ldots, n \}\) est fini (lemme \ref{LEMooYIWDooIQFSad}), et que toute partie d'un ensemble fini est finie (lemme \ref{LEMooTUIRooEXjfDY}). Donc nous aurions que \( A\) est fini, ce qui est contraire à l'hypothèse.
 \end{proof}
 
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooOTHMooPzPzdW}
-	À propos d'ensembles finis.
-	\begin{enumerate}
-		\item		\label{ITEMooFIEUooRmDcfo}
-		      Si \( I\) est un ensemble fini et si \( \{ A_i \}_{i\in I}\) sont des ensembles finis, alors \( \bigcup_{i\in I}A_i\) est fini.
-		\item		\label{ITEMooLVSVooHEwNWA}
-		      Si \( A\) et \( B\) sont finis, alors \( A\times B\) est fini.
-	\end{enumerate}
-	%TODOooVLQNooBumUlE. Prouver ça. On a une récurrence à faire, donc on ne peut en parler plus tôt.
-\end{proposition}
-
-\begin{lemma}[\cite{MonCerveau}]	\label{LEMooVFNOooZenJSl}
-	Si \( A\) est un ensemble fini, alors
-	\begin{equation}
-		\sum_{i\in A}1=\Card(A).
-	\end{equation}
-	%TODOooLGNRooDdqfrB. Prouver ça.
-\end{lemma}
-
-
-\begin{lemma}[\cite{MonCerveau}]	\label{LEMooRURDooRIGJnY}
-	Si \( \Card(A)=n\) et si \( a\in A\) alors \( \Card(A\setminus\{ a \})=n-1\).
-	%TODOooKFQHooGJEnzl. Prouver ça.
-\end{lemma}
 
 \begin{normaltext}
 	En termes de notations, si \( I\) et \( A\) sont des ensembles et si \(\sigma \colon I\to A  \) est une injection, nous notons souvent

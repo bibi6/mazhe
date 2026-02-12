@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2015,2017-2020,2023-2025
+% Copyright (c) 2011-2015,2017-2020,2023-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -456,41 +456,720 @@ Nous prouvons le théorème pour la norme \( \| . \|_2\).
 	\end{subequations}
 \end{proof}
 
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{L'aire en dessous d'une courbe}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Soit \( f\) une fonction à valeurs dans \( \eR^+\).
+
+Nous voudrions pouvoir calculer l'aire au-dessous du graphe de la fonction \( f\). Nous notons \( S_f(x)\) l'aire en dessous de la fonction \( f\) entre l'abscisse \( 0\) et \( x\), c'est-à-dire l'aire bleue de la figure~\ref{LabelFigKKRooHseDzC}.
+
+\newcommand{\CaptionFigKKRooHseDzC}{L'aire en dessous d'une courbe. Le rectangle rouge d'aire \( f(x)\Delta x\) approxime de combien la surface augmente lorsqu'on passe de \( x\) à \( x+\Delta x\).}
+\input{auto/pictures_tex/Fig_KKRooHseDzC.pstricks}
+
+Si la fonction \( f\) est continue et que \( \Delta x\) est assez petit, la fonction ne varie pas beaucoup entre \( x\) et \( x+\Delta x\). L'augmentation de surface entre \( x\) et \( x+\Delta x\) peut donc être approximée par le rectangle de surface \( f(x)\Delta x\). Ce que nous avons donc, c'est que quand \( \Delta x\) est très petit,
+\begin{equation}
+	S_f(x+\Delta x)-S_f(x)=f(x)\Delta x,
+\end{equation}
+ou encore
+\begin{equation}
+	f(x)=\frac{  S_f(x+\Delta x)-S_f(x)}{ \Delta x }.
+\end{equation}
+Nous formalisons la notion de «lorsque \( \Delta x\) est très petit» par une limite :
+\begin{equation}
+	f(x)=\lim_{\Delta x\to 0}\frac{  S_f(x+\Delta x)-S_f(x)}{ \Delta x }.
+\end{equation}
+Donc, la fonction \( f\) est la dérivée de la fonction qui représente l'aire en dessous de \( f\). Calculer des surfaces revient donc au travail inverse de calculer des dérivées.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Propriétés des intégrales}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{lemma}			\label{LemIneqnormeintintnorm}
+	Pour toute fonction \( u\colon \mathopen[ a , b \mathclose]\to \eR^n\), nous avons
+	\begin{equation}
+		\| \int_a^bu(t)dt\|\leq\int_a^b\| u(t) \|dt
+	\end{equation}
+	pourvu que le membre de gauche ait un sens.
+\end{lemma}
+
+\begin{proof}
+	Étant donné que \( \int_a^bu(t)dt\) est un élément de \( \eR^n\), par la proposition~\ref{LemSclNormeXi}, il existe un \( \xi\in\eR^n\) de norme \( 1\) tel que
+	\begin{equation}
+		\| \int_a^bu(t)dt \|=\xi\cdot\int_a^b u(t)dt=\int_a^b u(t)\cdot\xi dt\leq\int_a^b\| u(t) \|   \| \xi \|=\int_a^b\| u(t) \|dt.
+	\end{equation}
+\end{proof}
+
+\begin{proposition}[Relations de Chasles]
+	Soit  \( f\) une fonction continue sur l'intervalle \( I\). Si \( a,b,c\in I\) nous avons
+	\begin{equation}
+		\int_a^cf(x)dx=\int_a^bf(x)dx+\int_b^cf(x)dx.
+	\end{equation}
+\end{proposition}
+\index{relations!de Chasles}
+
+Sur la figure~\ref{LabelFigNWDooOObSHB}, la surface de \( a\) à \( c\) est évidemment égale à la somme des surfaces de \( a\) à \( b\) et de \( b\) à \( c\).
+\newcommand{\CaptionFigNWDooOObSHB}{Illustration pour les relations de Chasles.}
+\input{auto/pictures_tex/Fig_NWDooOObSHB.pstricks}
+
+\begin{corollary}
+	\begin{equation}
+		\int_a^bf(x)dx=-\int_b^af(x)dx.
+	\end{equation}
+\end{corollary}
+
+\begin{proposition}[Linéarité de l'intégrale]\label{lineariteintegrale}
+	Si \( f\) et \( g\) sont deux fonctions continues sur \( I\subset\eR\), \( a, \, b\in I\) et \( \lambda\in \eR\) nous avons
+	\begin{equation}
+		\int_a^b\big( f(x)+g(x) \big)dx=\int_a^bf(x)dx+\int_a^bg(x)dx,
+	\end{equation}
+	et
+	\begin{equation}
+		\int_a^b \lambda f(x)dx=\lambda\int_a^bf(x)dx.
+	\end{equation}
+\end{proposition}
+
+\begin{proposition}[L'intégrale est monotone]   \label{PropCJIooHqECbq}
+	Soient \( a,b\in I\) avec \( a<b\). Si \( f\geq g\) sur \( \mathopen[ a , b \mathclose]\) alors
+	\begin{equation}
+		\int_a^bf(x)dx\geq \int_a^bg(x)dx.
+	\end{equation}
+\end{proposition}
+
+\begin{corollary}[Positivité] \label{PropHVWooBDRhCX}
+	Si \( a<b\) et \( f\geq 0\) sur \( \mathopen[ a , b \mathclose]\) alors
+	\begin{equation}
+		\int_a^bf(x)dx\geq 0.
+	\end{equation}
+\end{corollary}
+
+Ce résultat n'est qu'une application de la proposition~\ref{PropCJIooHqECbq} car il consiste à prendre comme fonction \( g\) la fonction nulle.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Techniques d'intégration}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Par le théorème \ref{ThoRWXooTqHGbC}, la calcul d'une intégrale consiste essentiellement à trouver une primitive de la fonction à intégrer.  Il est donc indispensable de bien connaitre les dérivées des fonctions usuelles.
+
+Voici un tableau des primitives à connaitre.
+
+\label{PageLCHooMbWjOj}
+\begin{equation*}
+	\begin{array}[]{|c||c|c|c|}
+		\hline
+		\text{Fonction}           & \text{Primitive}                      & \text{Ensemble de définition}                                                                   & \text{Remarques}               \\
+		f(x)                      & \int f(x)\, dx                        & \text{de } f                                                                                    &                                \\
+		\hline\hline
+		x^{\alpha}                & \frac{ x^{\alpha+1} }{ \alpha+1 } + C & \text{dépend de }\alpha                                                                         & \alpha\in \eR\setminus\{ -1 \} \\
+		\hline
+		\frac{1}{ x }             & \ln\big( | x | \big) + C              & x\neq 0                                                                                         &                                \\
+		\hline
+		\frac{1}{ 1+x^2 }         & \arctan(x) + C                        & \eR                                                                                             &                                \\
+		\hline
+		\frac{1}{ \sqrt{1-x^2} }  & \arcsin(x) + C                        & \mathopen] -1 , 1 \mathclose[                                                                   &                                \\
+			\hline
+		\frac{-1}{ \sqrt{1-x^2} } & \arccos(x) + C                        & \mathopen] -1 , 1 \mathclose[                                                                   &                                \\
+			\hline
+		e^x                       & e^x + C                               & \eR                                                                                             &                                \\
+			\hline
+		\sin(x)                   & -\cos(x) + C                          & \eR                                                                                             &                                \\
+			\hline
+		\cos(x)                   & \sin(x) + C                           & \eR                                                                                             &                                \\
+			\hline
+		1+\tan^2(x)               & \tan(x) + C                           & \text{un intervalle de la forme }\mathopen] -\frac{ \pi }{2} , \frac{ \pi }{2} \mathclose[+k\pi &                                \\
+		\hline
+	\end{array}
+\end{equation*}
+
+
+
+Notez que au signe près, les fonctions \( \arcsin \) et \( \arccos\) ont la même dérivée.
+
+Si la fonction à intégrer est une combinaison linéaire de fonctions usuelles alors sa primitive peut \^etre calculée en utilisant la proposition~\ref{lineariteintegrale}. Dans les sections suivantes on abordera deux autres cas où la fonction à intégrer peut s'écrire en termes de fonctions dont on connaît une primitive.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Intégration par parties}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{proposition}[\cite{MonCerveau}]     \label{PROPooRLFIooQHnyJY}
+	Si \( u\) et \( v\) sont deux fonctions dérivables de dérivées continues sur l'intervalle \( \mathopen[ a , b \mathclose]\) alors
+	\begin{equation}        \label{EQooKISBooQvGMQT}
+		\int_a^b u(x)v'(x)dx=\big[ u(x)v(x) \big]_a^b-\int_a^bu'(x)v(x)dx.
+	\end{equation}
+
+	Si de plus les fonctions \( uv'\) et \( u'v\) sont intégrables sur \( \mathopen[ a , \infty \mathclose]\), alors
+	\begin{equation}
+		\int_a^{\infty} u(x)v'(x)dx=\big[ u(x)v(x) \big]_a^{\infty}-\int_a^{\infty}u'(x)v(x)dx.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Il s'agit d'utiliser à l'envers la formule de dérivation d'un produit :
+	\begin{equation}
+		uv'=(uv)'-u'v.
+	\end{equation}
+	Les fonctions à gauche et à droite étant égales, elles ont même intégrale sur \( \mathopen[ a , b \mathclose]\) et par linéarité, voir  proposition~\ref{lineariteintegrale}, on a :
+	\begin{equation}
+		\int_a^b u(x)v'(x)dx=\int_a^b (uv)'(x)-\int_a^b u'(x)v(x)dx.
+	\end{equation}
+	La fonction \( uv\) est évidemment une primitive de \( (uv)'\), de telle sorte que l'on puisse un peu simplifier cette expression :
+	\begin{equation}
+		\int_a^b u(x)v'(x)dx= \Big[ u(x)v(x) \Big]_a^b -\int_a^b u'(x)v(x)dx,
+	\end{equation}
+	ce qu'il fallait démontrer.
+
+	En ce qui concerne l'affirmation avec \( b=\infty\), le lemme \ref{LEMooKGZDooWiKiHR} est applicable et il suffit de passer à la limite dans \eqref{EQooKISBooQvGMQT}.
+\end{proof}
+
+\begin{example} \label{ExWIEooVUgvSp}
+	Un cas typique d'utilisation de l'intégrale par parties est le suivant. Soit à calculer
+	\begin{equation}
+		\int_0^{\pi}x\cos(x)dx.
+	\end{equation}
+	Nous devons écrire \( x\cos(x)\) comme un produit \( u(x)v'(x)\). Il y a (au moins) deux moyens de le faire :
+	\begin{subequations}
+		\begin{numcases}{}
+			u=x\\
+			v'=\cos(x).
+		\end{numcases}
+	\end{subequations}
+	ou
+	\begin{subequations}
+		\begin{numcases}{}
+			u=\cos(x)\\
+			v'=x.
+		\end{numcases}
+	\end{subequations}
+	Nous allons choisir le premier\footnote{Mais nous conseillons vivement au lecteur d'essayer le deuxième pour se rendre compte qu'il ne fonctionne pas.}. Nous avons donc
+	\begin{equation}
+		\begin{aligned}[]
+			u  & =x, & v' & =\cos(x)  \\
+			u' & =1  & v  & =\sin(x).
+		\end{aligned}
+	\end{equation}
+	En utilisant la formule d'intégration par parties,
+	\begin{equation}
+		\int_0^{\pi}x\cos(x)dx=\Big[ x\sin(x) \Big]_0^{\pi}-\int_0^{\pi} 1\times \sin(x)dx=\pi\sin(\pi)-\Big[ -\cos(x) \Big]_0^{\pi}=-2.
+	\end{equation}
+\end{example}
+
+Le plus souvent, pour alléger les notations, il est plus pratique d'utiliser l'intégration par parties pour déterminer une primitive. Nous utilisons pour cela la formule (sans doute plus simple à retenir)
+\begin{equation}
+	\int uv'=uv-\int u'v.
+\end{equation}
+
+\begin{example} \label{ExLTJooDZIYWP}
+	Nous reprenons l'exemple~\ref{ExWIEooVUgvSp} en déterminant cette fois une primitive de \( x\cos(x)\) :
+	\begin{equation}\label{EqTQNooVTYkZX}
+		\int x\cos(x)dx=x\sin(x)-\int \sin(x)dx=x\sin(x)+\cos(x) + C, \qquad C \in\eR.
+	\end{equation}
+	Nous retrouvons le résultat numérique de l'exemple précédent en ajoutant les extrêmes d'intégration
+	\begin{equation}
+		\int_0^{\pi} x\cos(x)dx=\big[ x\sin(x)+\cos(x) \big]_0^{\pi}=-2.
+	\end{equation}
+\end{example}
+
+
+\begin{remark}
+	Lorsqu'on calcule des intégrales, il est bon de passer par la primitive (c'est-à-dire en suivant l'exemple~\ref{ExLTJooDZIYWP} et non~\ref{ExWIEooVUgvSp}) parce qu'il est alors facile de vérifier le résultat en calculant la dérivée de la primitive trouvée.
+
+	Par exemple pour vérifier si \eqref{EqTQNooVTYkZX} est correct, il suffit de dériver \( x\sin(x)+\cos(x)\) :
+	\begin{equation}
+		\big( x\sin(x)+\cos(x) \big)'=\sin(x)+x\cos(x)-\sin(x)=x\cos(x).
+	\end{equation}
+	La fonction \( x\sin(x)+\cos(x)\) est donc bien une primitive de \( x\cos(x)\).
+\end{remark}
+
+\begin{example}[Primitive du logarithme]\label{primln}
+	La primitive de la fonction logarithme définie en~\ref{DEFooELGOooGiZQjt} nous offre un bon moment d'intégration par partie.
+
+	Trouver la primitive de la fonction \( x\mapsto \ln(x)\). Pour calculer
+	\begin{equation}
+		\int\ln(x)dx
+	\end{equation}
+	nous écrivons \( \ln(x)=1\times \ln(x)\) et nous posons \( u'=1\) et \( v=\ln(x)\), c'est-à-dire
+	\begin{equation}
+		\begin{aligned}[]
+			u' & =1 & v=\ln(x)          \\
+			u  & =x & v'=\frac{1}{ x }.
+		\end{aligned}
+	\end{equation}
+	La formule d'intégration par parties \eqref{EQooKISBooQvGMQT} donne donc
+	\begin{equation}
+		\int \ln(x)=x\ln(x)-\int x\times \frac{1}{ x }=x\ln(x)-\int 1=x\ln(x)-x+C, \qquad C\in\eR.
+	\end{equation}
+	Il est facile de vérifier par un petit calcul que
+	\begin{equation}
+		\big( x\ln(x)-x \big)'=\ln(x).
+	\end{equation}
+\end{example}
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Changement de variables -- pour trouver des primitives}
+%---------------------------------------------------------------------------------------------------------------------------
+
+De la même manière que l'utilisation «à l'envers» de la formule de dérivation du produit avait donné la méthode d'intégration par parties, nous allons voir que que l'utilisation «à l'envers» de la formule de dérivation d'une fonction composée donne lieu à la méthode d'intégration par changement de variables.
+\begin{proposition}     \label{PROPooMVIUooZmvHxS}
+	Soient \( I\) et \( J\) des intervalles de \( \eR\), \( u\colon I\to J\) une fonction qui est dérivable de dérivée continue et \( f\colon J\to \eR\) une fonction admettant une primitive \( F\). Alors la fonction
+	\begin{equation}
+		x\mapsto F\big( u(x) \big)
+	\end{equation}
+	est une primitive de
+	\begin{equation}\label{changvar}
+		f\big( u(x) \big)u'(x).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Cela est une utilisation immédiate de la formule de dérivée des fonctions composées.
+\end{proof}
+
+\begin{example}
+	Soit à calculer
+	\begin{equation}
+		\int x\sqrt{1-x^2}dx.
+	\end{equation}
+	La fonction \( g(x) = x\sqrt{1-x^2}\) est le produit de \( x\) et de \( \sqrt{1-x^2}\). On remarque que la dérivée de \( 1-x^2\) est \( -2x\) : nous avons alors, à un facteur \( -2\) près, une expression de la forme \eqref{changvar} où la racine carrée joue le r\^ole de \( f\), \( f(t)=\sqrt{t}\),   et \( 1-x^2\) le r\^ole de \( u\).  Une primitive de la fonction \( f(t)=\sqrt{t}\) est \( F(t) = 2t^{3/2}/3\).
+
+	Donc la fonction
+	\(   \frac{ 2u(x)^{3/2} }{ 3 }=\frac{ 2 }{ 3 }(1-x^2)^{3/2}\)
+	est primitive de
+	\(    -2x\sqrt{1-x^2} = -2 g(x)\).
+	Autrement dit,
+	\begin{equation}
+		\int -2x\sqrt{1-x^2}\,dx=\frac{ 2 (1-x^2)^{3/2}}{ 3 } + C,
+	\end{equation}
+	et en divisant par \( -2\) nous trouvons la primitive demandée :
+	\begin{equation}
+		\int x\sqrt{1-x^2}\,dx=-\frac{ (1-x^2)^{3/2} }{ 3 } + C.
+	\end{equation}
+\end{example}
+
+L'exemple suivant donne une façon plus économe de retenir la méthode du changement de variables.
+
+\begin{example}\label{exempleprimitivechangvar}
+	Soit à calculer
+	\begin{equation}
+		\int \cos(x) e^{\sin(x)}dx.
+	\end{equation}
+	Vu qu'il y a beaucoup de fonctions trigonométriques dans la fonction à intégrer, nous allons poser \( u(x)=\sin(x)\), et remplacer élément par élément tout ce qui contient du «\( x\)»  dans l'intégrale demandée par la quantité correspondante en termes de \( u\).
+
+	La difficulté est de savoir ce que nous allons faire du «\( dx\)» dans l'intégrale. Ce \( dx \) marque une variation (infinitésimale) de \( x\). La formule des accroissements finis dit que si \( x\) augmente de la valeur \( dx\), alors \( u(x)\) augmente de \( u'(x)dx\), c'est-à-dire que
+	\begin{equation}
+		du=\cos(x)dx.
+	\end{equation}
+
+	Nous avons donc les substitutions suivantes à faire :
+	\begin{subequations}
+		\begin{align}
+			\sin(x) & =u                       \\
+			du      & =\cos(x)dx               \\
+			dx      & =\frac{ du }{ \cos(x) }.
+		\end{align}
+	\end{subequations}
+	La chose «magique» est que le \( \cos(x)\) se trouvant dans la fonction se simplifie avec le cosinus qui arrive lorsqu'on remplace \( dx\) par \( \frac{ du }{ \cos(x) }\). Les substitutions faites nous restons avec
+	\begin{equation}
+		\int\cos(x) e^{\sin(x)}dx=\int e^{u}du=e^u + C, \qquad \text{où } u= \sin(x).
+	\end{equation}
+	Attention : la réponse doit \^etre impérativement donnée en termes de \( x\) et non de \( u\). Nous écrivons donc
+	\begin{equation}
+		\int \cos(x) e^{\sin(x)}= e^{\sin(x)}+C.
+	\end{equation}
+\end{example}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Changement de variables -- pour calculer des intégrales}
+%---------------------------------------------------------------------------------------------------------------------------
+
+Le théorème \ref{ThoRWXooTqHGbC} fixe la relation entre la recherche des primitives de \( f \) et la calcul de l'intégrale de \( f\) sur l'intervalle d'extrêmes \( a\) et \( b\). On a vu dans la section précédente comment utiliser le changement de variable pour trouver une primitive de \( f\). Il faut maintenant comprendre comment appliquer ce qu'on a vu dans le calcul d'une intégrale.
+
+En effet nous avons le choix entre
+\begin{itemize}
+	\item trouver une primitive de \( f\) comme dans la section précédente et appliquer ensuite la formule du corolaire \ref{ThoRWXooTqHGbC} ;
+	\item écrire une intégrale pour la nouvelle variable \( u = u(x)\) sur l'intervalle entre \( u(a)\) et \( u(b)\).
+\end{itemize}
+
+Nous allons voir ces deux méthodes dans des exemples.
+
+\begin{example}
+	Soit à  calculer
+	\begin{equation}
+		\int_{1/3}^{1/2}x\sqrt{1-x^2}dx.
+	\end{equation}
+	Les primitives \( \int x\sqrt{1-x^2}dx\) ont été trouvé dans l'exemple~\ref{exempleprimitivechangvar}. Une primitive est
+	\begin{equation}
+		F(x)=\int x\sqrt{1-x^2}dx=-\frac{(1-x^2)^{3/2}}{ 3 }.
+	\end{equation}
+	Nous pouvons maintenant calculer l'intégrale de \( x\sqrt{1-x^2}\) sur l'intervalle \( [1/3, 1/2]\) par la définition
+	\begin{equation}
+		\int_{1/3}^{1/2}x\sqrt{1-x^2}dx=F\left(\frac{ 1 }{2}\right)-F\left(\frac{1}{ 3 }\right)=-\frac{ \sqrt{3} }{ 8 }+\frac{ 16\sqrt{2} }{ 81 }.
+	\end{equation}
+\end{example}
+\begin{remark}
+	Pour que le calcul d'intégrale donne quelque chose de sensé il faut absolument que la primitive soit écrite en tant que fonction de \( x\) et non comme fonction de \( u\). La méthode que nous allons voir dans l'exemple suivant réduit grandement la probabilité d'oublier ce détail, d'où le fait qu'elle soit de loin la plus utilisée.
+\end{remark}
+\begin{example}
+	Calculons à nouveau
+	\begin{equation}
+		\int_{1/3}^{1/2}x\sqrt{1-x^2}dx.
+	\end{equation}
+	Cette fois nous allons toucher à l'intervalle d'intégration en même temps que faire le changement de variables. Nous savons déjà les substitutions
+	\begin{subequations}
+		\begin{numcases}{}
+			u=1-x^2\\
+			du=-2xdx\\
+			dx=\frac{ du }{ -2x }.
+		\end{numcases}
+	\end{subequations}
+	En ce qui concerne les extrêmes d'intégration, si \( x=1/3\) alors \( u=1-\frac{1}{ 9 }=\frac{ 8 }{ 9 }\) et si \( x=\frac{ 1 }{2}\) alors \( u=\frac{ 3 }{ 4 }\). Nous avons donc encore les substitutions suivantes  :
+	\begin{subequations}
+		\begin{numcases}{}
+			x=1/3\to u=8/9\\
+			x=1/2\to u=3/4
+		\end{numcases}
+	\end{subequations}
+	Le calcul est alors
+	\begin{equation}
+		\int_{1/3}^{1/2}x\sqrt{1-x^2}dx=-\frac{ 1 }{2}\int_{8/9}^{3/4}\sqrt{u}du=-\frac{ 1 }{2}\left[  \frac{ u^{3/2} }{ 3/2 }    \right]_{8/9}^{3/4}=-\frac{ \sqrt{3} }{ 8 }+\frac{ 16\sqrt{2} }{ 81 }.
+	\end{equation}
+	Attention : la dernière égalité n'est pas immédiate; elle demande quelques calculs et une bonne utilisation des règles de puissances.
+\end{example}
+
+La deuxième méthode est plus utilisée et, avec un peu d'exercice, plus rapide à mettre en place que la première.
+
+Jusqu'à présent nous avons utilisé des changements de variables dans lesquels nous exprimions \( u\) en termes de \( x\). Comme le montre l'exemple suivant, il est parfois fructueux d'utiliser le changement de variable dans le sens inverse : avec \( x\) exprimé en termes d'un paramètre.
+
+\begin{example}\label{exemplepassagepolaires}
+	À calculer :
+	\begin{equation}
+		\int_{1/2}^{\sqrt{3}/2}\sqrt{1-x^2}dx.
+	\end{equation}
+	Nous posons \( x=\sin(\theta)\) parce que nous savons que \( 1-\sin^2(\theta)=\cos^2(\theta)\); nous espérons que le changement de variables simplifie l'expression\footnote{Lorsqu'on fait un changement de variables, il s'agit toujours d'\emph{espérer} que l'expression se simplifie. Il n'y a pas moyen de savoir à priori si tel changement de variable va être utile. Il faut essayer.}. Les substitutions à faire dans l'intégrale sont :
+	\begin{subequations}
+		\begin{numcases}{}
+			x=\sin(\theta)\\
+			dx=\cos(\theta)d\theta,
+		\end{numcases}
+	\end{subequations}
+	et en ce qui concerne les bornes, si \( x=1/2\) alors \( \sin(\theta)=\frac{ 1 }{2}\), c'est-à-dire \( \theta=\frac{ \pi }{ 6 }\). Si \( x=\sqrt{3}/2\) alors \( \theta=\frac{ \pi }{ 3 }\). Donc
+	\begin{equation}
+		\int_{1/2}^{\sqrt{3}/2}\sqrt{1-x^2}dx=\int_{\pi/6}^{\pi/3}\sqrt{1-\sin^2(\theta)}\cos(\theta)d\theta.
+	\end{equation}
+	Nous avons \( 1-\sin^2(\theta)=\cos^2(\theta)\) et vu que \( \theta\in\mathopen[ \frac{ \pi }{ 6 } , \frac{ \pi }{ 3 } \mathclose]\) nous avons toujours \( \cos(\theta)>0\), ce qui donne \( \sqrt{\cos^2(\theta)}=\cos(\theta)\). Nous devons donc calculer
+	\begin{equation}
+		\int_{\pi/6}^{\pi/3}\cos^2(\theta)d\theta.
+	\end{equation}
+	Pour celle-là, il faut utiliser une formule de trigonométrie\footnote{En fait, il y a moyen de terminer le calcul en intégrant deux fois par parties, mais c'est plus compliqué.} :
+	\begin{equation}
+		\cos^2(\theta)=\frac{ 1+\cos(2\theta) }{ 2 }.
+	\end{equation}
+	Donc
+	\begin{equation}
+		\int_{\pi/6}^{\pi/3}\cos^2(\theta)d\theta=\int_{\pi/6}^{\pi/3}\frac{ 1+\cos(2\theta) }{2}d\theta=\left[ \frac{ \theta }{2}\right]_{\pi/6}^{\pi/3}+\int_{\pi/6}^{\pi/3}\frac{ \cos(2\theta) }{2}d\theta,
+	\end{equation}
+	Pour calculer proprement la dernière intégrale nous effectuons un autre changement de variable (facile) en posant \( t = 2\theta\), \( dt = 2 d\theta\), \( t(\pi/6) = \pi/3\) et \( t(\pi/3) = 2\pi/3\), nous avons alors
+	\begin{equation}
+		\int_{\pi/6}^{\pi/3}\cos^2(\theta)d\theta=\left[ \frac{ \theta }{2}\right]_{\pi/6}^{\pi/3}+\int_{\pi/3}^{2\pi/3}\frac{ \cos(t) }{4}dt  = \left[ \frac{ \theta }{2}\right]_{\pi/6}^{\pi/3}=\frac{ \pi }{ 6 }-\frac{ \pi }{ 12 }=\frac{ \pi }{ 12 },
+	\end{equation}
+	parce que \( \sin\big( \frac{ 2\pi }{ 3 } \big)=\sin\big( \frac{ \pi }{ 3 } \big)\). Au final,
+	\begin{equation}
+		\int_{1/2}^{\sqrt{3}/2}\sqrt{1-x^2}dx=\frac{ \pi }{ 12 }.
+	\end{equation}
+\end{example}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Intégrations des fractions rationnelles réduites}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{definition}
+	Une \defe{fraction rationnelle}{fraction rationnelle} est un quotient de deux polynômes à coefficients réels ou complexes.
+\end{definition}
+Par exemple
+\begin{equation}
+	\frac{ x^5+7x^4-\frac{ x^3 }{2}+x }{ x^2-1 }
+\end{equation}
+est une fraction rationnelle.
+
+Il sera expliqué dans le cours d'algèbre que toute fraction rationnelle peut être écrite sous forme d'une somme d'éléments simples, c'est-à-dire de fractions rationnelles d'un des deux types suivants :
+\begin{subequations}
+	\begin{align}
+		\frac{ \alpha }{ (x-a)^m },              &  & \alpha,a\in \eR,m\in \eN  \label{CasMMIooZnZpUWi}                     \\
+		\frac{ \alpha x+\beta }{ (x^2+ax+b)^m }; &  & \alpha, \beta ,a,b\in \eR,m\in \eN,a^2-4b<0. \label{CasMMIooZnZpUWii}
+	\end{align}
+\end{subequations}
+Nous allons nous contenter de donner un exemple de chaque type.
+
+\begin{enumerate}
+	\item
+	      En ce qui concerne le cas \eqref{CasMMIooZnZpUWi} avec \( m=1\), nous avons par exemple
+	      \begin{equation}
+		      \int\frac{1}{ x-3 }dx=\ln\big( | x-3 | \big)+C .
+	      \end{equation}
+	      Si vous voulez en être tout à fait sûr, effectuez d'abord le changement de variables \( u=x-3\) qui donne \( dx=du\).
+	\item
+	      En ce qui concerne le cas \eqref{CasMMIooZnZpUWi} avec \( m\neq 1\), nous avons par exemple
+	      \begin{equation}
+		      \int\frac{1}{ (x-1)^4 }dx=-\frac{1}{ 3(x-1)^3 }+C.
+	      \end{equation}
+	      Encore une fois, pour s'en convaincre, utiliser le changement de variables \( u=x-1\), \( dx=du\) :
+	      \begin{equation}
+		      \int\frac{1}{ (x-1)^4 }dx=\int\frac{1}{ u^4 }du=\int u^{-4}du=-\frac{ u^{-3} }{ 3 }+C=-\frac{1}{ 3 }\frac{1}{ (x-1)^3 }+C.
+	      \end{equation}
+	\item
+	      En ce qui concerne le cas \eqref{CasMMIooZnZpUWii} avec \( \alpha\neq 0\), nous avons par exemple
+	      \begin{equation}
+		      \int\frac{ x }{ x^2+4 }dx=\frac{ 1 }{2}\ln(x^2+4)+C.
+	      \end{equation}
+	      Pour ce faire, il faut faire le changement de variables \( u=x^2+4\), \( du=2xdx\), \( dx=\frac{ du }{ 2x }\) qui donne
+	      \begin{equation}
+		      \int \frac{ x }{ x^2+4 }dx=\frac{ 1 }{2}\int\frac{ du }{ u }=\frac{ 1 }{2}\ln(| u |)+C=\frac{ 1 }{2}\ln(| x^2+4 |)+C.
+	      \end{equation}
+	      Dans ce cas nous pouvons oublier d'écrire la valeur absolue dans le logarithme parce que de toutes façons, \( x^2+4\) est toujours positif.
+	\item
+	      En ce qui concerne le cas \eqref{CasMMIooZnZpUWii} avec \( \alpha= 0\), nous avons par exemple
+	      \begin{equation}
+		      \int\frac{ dx }{ x^2+4 }=\frac{1}{ 4 }\int\frac{ dx }{ (\frac{ x }{2})^2+1 }=\frac{ 1 }{2}\arctan(\frac{ x }{2})+C.
+	      \end{equation}
+	      où nous avons utilisé la primitive \( \int \frac{dx}{ x^2+1 }dx=\arctan(x)\) du tableau de la page \pageref{PageLCHooMbWjOj}. Pour vous en convaincre vous pouvez faire la dernière étape avec le changement de variables \( u=x/2\), \( dx=2du\).
+\end{enumerate}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Quelques formules à connaitre}
+%---------------------------------------------------------------------------------------------------------------------------
+
+\begin{Aretenir}
+	\begin{subequations}
+		\begin{equation}
+			\int \left(\alpha f(x) + \beta g(x)\right) \, dx = \alpha \int f(x) \, dx + \beta \int g(x) \, dx.
+		\end{equation}
+		\begin{equation}
+			\int f(x) g'(x) \, dx = f(x)g(x) - \int f'(x) g(x) \, dx.
+		\end{equation}
+		\begin{equation}
+			\int f'(u(x))u'(x)\, dx = \int f(t)\, dt, \qquad \text{avec } t = u(x).
+		\end{equation}
+		\begin{equation}
+			\int \frac{f'(x)}{f(x)} \, dx = \log |f(x)| + C, \qquad \text{c'est un cas particulier de la formule précédente.}
+		\end{equation}
+	\end{subequations}
+\end{Aretenir}
+
+
 %------------------------------------------------------------------------------------------------------------------------
 \subsection{Critères de convergence uniforme}
 %---------------------------------------------------------------------------------------------------------------------------
 
+%-----------------------------------
+\subsubsection{Critère de Weierstrass}
+
+
 Afin de tester l'uniforme convergence d'une intégrale, nous avons le \defe{critère de Weierstrass}{critère!Weierstrass}:
-\begin{theorem}     \label{ThoCritWeiIntUnifCv}
+\begin{theorem}[Critère de Weierstrass]     \label{ThoCritWeiIntUnifCv}
 	Soit \( f(x,t)\colon [\alpha,\beta]\times[a,\infty[ \to \eR\), une fonction dont la restriction à toute demi-droite \( x=c\) est mesurable. Si \( | f(x,t) |< \varphi(t)\) et \( \int_a^{\infty}\varphi(t)dt\) existe, alors l'intégrale
 	\begin{equation}
 		\int_0^{\infty}f(x,t)dt
 	\end{equation}
 	est uniformément convergente.
+	%TODOooRWOVooJduvaU. Prouver ça.
 \end{theorem}
 
-Le théorème suivant est le \defe{critère d'Abel}{critère!Abel pour intégrales} :
-\begin{theorem}     \label{ThoAbelIntUnif}
-	Supposons que \( f(x,t)=\varphi(x,t)\psi(x,t)\) où \( \varphi\) et \( \psi\) sont bornées et intégrables en \( t\) au sens de Riemann sur tout compact \( [a,b]\), \( b\geq a\). Supposons que :
+
+%-----------------------------------
+\subsubsection{Critère de Cauchy}
+
+Rappel : une intégrale impropre est la définition \ref{DEFooINPOooWWObEz}.
+
+\begin{proposition}[Critère de Cauchy de convergence uniforme pour les intégrales impropres\cite{BIBooPQGLooQqJGUH}]	\label{PROPooQDLZooYRABia}
+	Soit une fonction \(f \colon \mathopen[ a,b\mathclose[\times S\to \eR  \). Nous supposons que pour tout \( \epsilon>0\) il existe \( r_0\in \mathopen[ a,b\mathclose[\) tel que si \( r_0<r_1,<r<b\),
+	\begin{equation}
+		\sup_{y\in S}\big| \int_{r_1}^rf(x,y)dx \big| <\epsilon.
+	\end{equation}
+
+	Alors l'intégrale impropre
+	\begin{equation}
+		\int_a^bf(x,y)dx=\lim_{r\to a^+}\int_r^bf(x,y)dx
+	\end{equation}
+	converge uniformément sur \( S\).
+	%TODOooGRAIooMrpLvC. Prouver ça.
+\end{proposition}
+
+
+
+%-----------------------------------
+\subsubsection{Critère d'Abel}
+
+
+\begin{lemma}[Transformation d'Abel\cite{BIBooVMEDooNFFqpc,MonCerveau}]	\label{LEMooZBARooCFlMyM}
+	Soient deux suites \( (u_n)\) et \( (v_n)\) dans \( \eC\). Soit \( p\leq q\) dans \( \eN\setminus\{ 0 \}\). En posant
+	\begin{equation}
+		V_n=\sum_{k=1}^nv_k,
+	\end{equation}
+	nous avons
+	\begin{equation}		\label{EQooVCMBooOiwCVi}
+		\sum_{n=p}^qu_nv_n=-u_pV_{p-1}+\sum_{n=p}^{q-1}(u_n-u_{n+1})V_n+u_qV_q.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Nous fixons \( p\) et nous faisons une récurrence sur \( q\) en commençant par \( q=p\). En posant \( q=p\) dans \eqref{EQooVCMBooOiwCVi}, le membre de gauche se réduit à \( u_pv_p\) et celui de droite devient
+	\begin{equation}
+		-u_pV_{p-1}+0+u_pV_p=u_p(V_p-V_{p-1})=u_pv_p.
+	\end{equation}
+
+	Pour la récurrence, nous notons
+	\begin{equation}
+		f(q)=-u_pV_{p-1}+\sum_{n=p}^{q-1}(u_n-u_{n+1})V_n+u_qV_q
+	\end{equation}
+	et
+	\begin{equation}
+		g(q)=\sum_{n=p}^qu_nv_n.
+	\end{equation}
+	Nous avons déjà montré que \( f(p)=g(p)\), et maintenant nous prouvons que \( f(q+1)=g(q+1)\) sous l'hypothèse que \( f(q)=g(q)\). Pour cela nous calculons \( f(q+1)-g(q+1)\).
+	\begin{equation}
+		\diamondsuit = f(q+1)+g(q+1)  =-u_pV_{p-1}+\sum_{n=p}^q(u_n-n_{n+1})V_n+u_{q+1}V_{q+1}-\sum_{n=p}^{q+1}u_nv_n
+	\end{equation}
+	En ce qui concerne la dernière somme, en utilisant l'hypothèse de récurrence, nous avons
+	\begin{equation}
+		\sum_{n=p}^{q+1}u_nv_q=g(q)+u_{q+1}v_{q+1}=f(q)+u_{q+1}v_{q+1}.
+	\end{equation}
+	Donc
+	\begin{equation}
+		\diamondsuit = \underline{-u_pV_{p-1}}+\underline{\sum_{n=p}^{q-1}(u_n-u_{n+1})V_n}+(\underline{u_q}-u_{q+1})V_q+u_{q+1}V_{q+1}-f(q)-u_{q+1}v_{q+1}
+	\end{equation}
+	Notez que les termes soulignés forment \( f(q)\). Nous avons donc
+	\begin{equation}
+		\diamondsuit=f(q)-u_{q+1}V_q+u_{q+1}V_{q+1}-f(q)-u_{q+1}v_{q+1}=u_{q+1}(-V_q+V_{q+1}-v_{q+1})=0.
+	\end{equation}
+\end{proof}
+
+\begin{proposition}[\cite{BIBooVMEDooNFFqpc}]	\label{PROPooZELPooQrHBuv}
+	Soit \( \eK\) étant \( \eR\) ou \( \eC\). Soit une suite \( (u_n)\) dans \( \eK\) et une suite \( (v_n)\) dans un espace de Banach sur \( \eK\). Si
 	\begin{enumerate}
-		\item \( \left| \int_a^{T}\varphi(x,t)dt \right| \leq M\) où \( M\) est indépendant de \( T\) et de \( x\),
-		\item \( \psi(x,t)\geq 0\),
-		\item pour tout \( x\in[\alpha,\beta]\), \( \psi(x,t)\) est une fonction décroissante de \( t\),
-		\item les fonctions \( x\mapsto \psi(x,t)\) convergent uniformément vers \( 0\) lorsque \( t\to\infty\).
+		\item
+		      \( u_n\to 0\),
+		\item		\label{ITEMooZAFCooSOaOXw}
+		      \( \sum_{k=0}^{\infty}| u_{k+1}-u_k |\) converge,
+		\item
+		      \( s_n=\sum_{k=0}^{n}v_k\) est bornée,
+	\end{enumerate}
+	alors la série \( \sum_{k=0}^{\infty}u_nv_n\) converge.
+\end{proposition}
+
+\begin{proof}
+	Soient \( p,q\in \eN\). Par le lemme \ref{LEMooZBARooCFlMyM}, nous avons
+	\begin{equation}
+		\sum_{k=p}^qu_kv_k=-u_pV_{p-1}+\sum_{k=p}^{q-1}(u_k-u_{k-1})V_k+u_qV_q,
+	\end{equation}
+	et en prenant la norme\footnote{Et en utilisant \ref{LEMooGEVOooKeVQbb}.}, et en notant \( \alpha=\sup_{k\geq 1}| V_k |\) (qui est fini par hypothèse), nous avons
+	\begin{subequations}
+		\begin{align}
+			\| \sum_{k=p}^qu_kv_k \| & \leq | u_p |\| V_{p-1} \|+\sum_{k=p}^{q-1}| u_k-u_{k+1} |\| V_k \|+| u_q |\| V_q \| \\
+			                         & \leq\alpha\Big( | u_p |+\sum_{k=p}^{q-1}| u_n-u_{n+1} |+| u_q | \Big).
+		\end{align}
+	\end{subequations}
+	L'hypothèse \ref{ITEMooZAFCooSOaOXw} nous permet d'utiliser le critère de Cauchy \ref{PROPooNNMFooUHMcSE} pour les séries et dire que si \( p\) est grand,
+	\begin{equation}
+		\| \sum_{k=p}^qu_kv_k \|\leq \alpha\Big(  | u_p |+\sum_{k=p}^{q-1}| u_n-u_{n+1} |+| u_q | \Big)<\epsilon.
+	\end{equation}
+	Cela signifie que la suite des sommes partielles \( S_n=\sum_{k=0}^nu_kv_k\) est de Cauchy dans l'espace complet \( E\). Donc elle converge.
+\end{proof}
+
+
+%-----------------------------------
+\subsubsection{Critère de Dirichlet}
+
+
+\begin{theorem}[Critère de Dirichlet\cite{BIBooPQGLooQqJGUH}]	\label{THOooTLUZooGeOvke}
+	Soient des applications continues \(g,h \colon \mathopen[ a,b\mathclose[\times S\to \eR  \). Nous supposons que
+	\begin{enumerate}
+		\item
+		      \( \partial_1g\) est continue sur \(\mathopen[ a,b\mathclose[\times S \).
+		\item		\label{ITEMooZKXTooVocyVc}
+		      Nous avons
+		      \begin{equation}
+			      \lim_{x\to b^-}\Big( \sup_{y\in S}| g(x,y) | \Big)=0.
+		      \end{equation}
+		\item		\label{ITEMooEPPPooPrbHYe}
+		      Il existe \( M\in \eR\) tel que
+		      \begin{equation}
+			      \sup_{y\in S}\big| \int_a^xh(u,y)du \big|<M
+		      \end{equation}
+		      pour tout \( a\leq x<b\).
+		\item		\label{ITEMooOQNNooPDdEQi}
+		      L'intégrale impropre
+		      \begin{equation}
+			      \int_a^b|(\partial_1g)(x,y)|dx
+		      \end{equation}
+		      converge uniformément sur \( S\).
 	\end{enumerate}
 	Alors l'intégrale
 	\begin{equation}
-		\int_a^{\infty}f(x,t)dt
+		\int_a^bg(x,y)h(x,y)dx
 	\end{equation}
-	est uniformément convergente.
+	converge uniformément sur \( S\).
 \end{theorem}
 
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[La fonction \( H\)]
+		%-----------------------------------------------------------
+		Nous posons
+		\begin{equation}
+			H(x,y)=\int_{a}^xh(u,y)du
+		\end{equation}
+		de telle sorte que \( \partial_1H=h\) par la proposition \ref{PropEZFRsMj}.
+
+		\spitem[Intégration par parties]
+		%-----------------------------------------------------------
+		Ensuite nous pouvons prendre \( r_1,r\) tels que \( a\leq r<r_1<b\) et faire une intégration par partie\footnote{Proposition \ref{PROPooRLFIooQHnyJY}.} :
+		\begin{subequations}		\label{SUBEQSooETSHooKfuRQv}
+			\begin{align}
+				\int_r^{r_1}g(x,y)h(x,y)dx & =\int_r^{r_1}g(x,y)(\partial_1H)(x,y)dx                                \\
+				                           & =g(r_1,y)H(r_1,y)-g(r,y)H(r,y)-\int_r^{r_1}(\partial_xg)(x,y)H(x,y)dx.
+			\end{align}
+		\end{subequations}
+		Soit \( \epsilon>0\).
+
+		\spitem[Quelques majorations]
+		%-----------------------------------------------------------
+		Étant donnée l'hypothèse \ref{ITEMooOQNNooPDdEQi}, il existe \( s_0\) tel que si \( a\leq s_0<r<r_1<b\) on ait
+		\begin{equation}
+			\int_r^{r_1}| (\partial_1g)(x,y) |dx<\epsilon
+		\end{equation}
+		pour tout \( y\in S\).
+
+		D'autre part, l'hypothèse \ref{ITEMooZKXTooVocyVc} nous dit que si \( s_0\) est assez grand et si \( r>s_0\),
+		\begin{equation}
+			\sup_{x\geq r}| g(x,y) |\leq \sup_{x\geq r}\big( \sup_{y\in S}| g(x,y) | \big)<\epsilon.
+		\end{equation}
+
+		Et l'hypothèse \ref{ITEMooEPPPooPrbHYe} donne en plus \( | H(x,y) |<M\).
+
+		\spitem[Retour à l'intégrale par partie]
+		%-----------------------------------------------------------
+		Nous pouvons maintenant faire plein de majorations dans \eqref{SUBEQSooETSHooKfuRQv}.
+		\begin{subequations}
+			\begin{align}
+				|\int_r^{r_1}g(x,y)h(x,y)dx| & \leq |g(r_1,y)H(r_1,y)|+|g(r,y)H(r,y)|+ \int_r^{r_1}|(\partial_xg)(x,y)H(x,y)|dx \\
+				                             & \leq 2M\sup_{x\geq r}| g(x,y) |+M\int_r^{r_1}| (\partial_xg)(x,y) |              \\
+				                             & \leq 3M\epsilon.
+			\end{align}
+		\end{subequations}
+		\spitem[Conclusion]
+		%-----------------------------------------------------------
+		Le critère de Cauchy \ref{PROPooQDLZooYRABia} conclu que l'intégrale converge uniformément.
+	\end{subproof}
+\end{proof}
+
 \begin{remark}
-	Étant donné que la fonction sinus est bornée, il est tentant de l'utiliser comme \( \varphi\) dans le critère d'Abel (théorème~\ref{ThoAbelIntUnif}). Hélas,
+	Étant donné que la fonction sinus est bornée, il est tentant de l'utiliser comme \( g\) dans le critère de Dirichlet (théorème~\ref{THOooTLUZooGeOvke}). Hélas,
 	\begin{equation}
 		\int_0^T\sin(xt)dt=-\frac{ 1 }{ x }\big( \cos(xT)-\cos(x) \big),
 	\end{equation}
-	qui n'est pas bornée en \( x\). Poser \( \varphi(x,t)=\sin(xt)\) \emph{ne fonctionne pas} pour assurer la convergence uniforme sur un intervalle qui contient des \( x\) arbitrairement proches de \( 0\). Le critère d'Abel avec \( \varphi(x,t)=\sin(xt)\) ne permet que de conclure à l'uniforme convergence \emph{sur tout compact} ne contenant pas \( 0\). C'est toutefois souvent suffisant pour étudier la continuité ou la dérivabilité en se servant coup du compact, voir \ref{NORMooZWECooHvRgBw}.
+	qui n'est pas bornée en \( x\). Poser \( g(x,t)=\sin(xt)\) \emph{ne fonctionne pas} pour assurer la convergence uniforme sur un intervalle qui contient des \( x\) arbitrairement proches de \( 0\). Le critère d'Abel avec \( \varphi(x,t)=\sin(xt)\) ne permet que de conclure à l'uniforme convergence \emph{sur tout compact} ne contenant pas \( 0\). C'est toutefois souvent suffisant pour étudier la continuité ou la dérivabilité en se servant coup du compact. Voir \ref{NORMooZWECooHvRgBw}.
 	%1403337912512
 \end{remark}
 
@@ -964,6 +1643,215 @@ Un autre théorème tourne autour du pot, et me semble inutile.
 	et donc \( dF_a=\int_{\Omega}(df_{\omega})_ad\mu(\omega)\).
 \end{proof}
 Notons qu'en passant aux composantes, ce théorème fonctionne tout aussi bien pour des fonctions à valeurs dans un espace vectoriel normé de dimension finie plutôt que dans \( \eR\).
+
+
+
+
+%-------------------------------------------------------
+\subsection{Dérivation dans les bornes}
+%----------------------------------------------------
+
+
+La proposition suivante sera utilisée entre autres pour montrer que sous l'hypothèse d'une densité continue, la loi exponentielle est sans mémoire, proposition~\ref{PropREXaIBg}.
+\begin{proposition}[\cite{BIBooQUMGooOxmczN}]     \label{PROPooIEUTooAfHqaC}
+	Soient des intervalles compacts \( I\) et \( J\) de \( \eR\). Soient des fonctions continues \(f \colon I\times J\to \eR  \) et \(a,b \colon I\to J  \).
+	\begin{enumerate}
+		\item
+		      L'application
+		      \begin{equation}
+			      \begin{aligned}
+				      \phi\colon I\times J\times J & \to \eR                  \\
+				      (x,u,v)                      & \mapsto \int_u^vf(x,t)dt
+			      \end{aligned}
+		      \end{equation}
+		      est bien définie et continue.
+		\item
+		      L'application
+		      \begin{equation}
+			      \begin{aligned}
+				      F\colon I & \to \eR                            \\
+				      x         & \mapsto \int_{a(x)}^{b(x)}f(x,t)dt
+			      \end{aligned}
+		      \end{equation}
+		      est continue.
+	\end{enumerate}
+\end{proposition}
+\index{permuter!dérivée et intégrale!dans \( \eR\) avec les bornes}
+
+\begin{proof}
+	Pour chaque \( x\in I\) nous notons
+	\begin{equation}
+		\begin{aligned}
+			f_x\colon J & \to \eR         \\
+			t           & \mapsto f(x,t).
+		\end{aligned}
+	\end{equation}
+	La fonction \( f_x\) est continue\footnote{Par le lemme \ref{LEMooRTWNooMZTWgS}.} En notons \( u=a(x)\) et \( v=b(x)\), l'intégrale \( F(x)=\int_u^vf_x(t)dt\) est l'intégrale d'une application continue sur un compact. Pas de problèmes pour l'existence.
+
+	Nous passons à la continuité de \( \phi\). Soient \( (x_0,u_0,v_0)\in I\times J\times J\) et \( \epsilon>0\). Nous devons évaluer
+	\begin{equation}		\label{EQooUCSDooZMlIct}
+		\phi(x,u,v)-\phi(x_0,u_0,v_0).
+	\end{equation}
+	En utilisant l'additivité des domaines de l'intégrale (proposition \ref{PropOPSCooVpzaBt}), nous avons \( \phi(x,a,b)=\phi(x,a,h)+\phi(x,h,b)\). Le truc est maintenant d'utiliser cette relation pour décomposer \eqref{EQooUCSDooZMlIct} de telle sorte à n'avoir que des bouts facilement majorables :
+	\begin{subequations}		\label{EQooXKAMooJQqhYZ}
+		\begin{align}
+			\phi(x,u,v) & =\phi(x,u,u_0)+\phi(x,u_0,v)                  \\
+			            & =\phi(x,u,u_0)+\phi(x,u_0,v_0)+\phi(x,v_0,v).
+		\end{align}
+	\end{subequations}
+	Vu que \( f\) est continue sur le compact\footnote{En tant que produit de compacts de \( \eR\) par le lemme \ref{LemCKBooXkwkte}.} \( I\times J\), elle y est uniformément continue (théorème de Heine \ref{PROPooBWUFooYhMlDp}) et bornée (théorème \ref{ThoMKKooAbHaro}) :
+	\begin{enumerate}
+		\item
+		      Il existe \( \eta>0\) tel que si \( | x-x_0 |<\eta\), alors \( | f(x,t)-f(x_0,t) |<\epsilon\).
+		\item
+		      il existe \( M>0\) tel que \( | f(x,t) |<M\) pour tout \( (x,t)\in I\times J\).
+	\end{enumerate}
+	Avec ça, si \( | x-x_0 |<\eta\) on a :
+	\begin{equation}
+		\begin{aligned}[]
+			| \phi(x,u,u_0) | & \leq M| u-u_0 |, \\
+			| \phi(x,v_0,v) | & \leq M| v-v_0 |,
+		\end{aligned}
+	\end{equation}
+	ainsi que
+	\begin{subequations}
+		\begin{align}
+			| \phi(x,u_0,v_0)-\phi(x_0,u_0,v_0) | & \leq \int_{u_0}^{v_0}| f(x,y)-f(x_0,t) |dt \\
+			                                      & \leq | v_0-u_0 |\epsilon.
+		\end{align}
+	\end{subequations}
+	En prenant de plus \( | u-u_0 |<\epsilon\) et \( | v-v_0 |<\epsilon\) nous majorons \eqref{EQooXKAMooJQqhYZ} :
+	\begin{equation}
+		| \phi(x,u,v)-\phi(x_0,u_0,v_0) |\leq \big( 2M+| u_0-v_0 | \big)\epsilon.
+	\end{equation}
+	Donc \( \phi\) est continue.
+
+	L'application \( F(x)=^p\big( x,a(x),b(x) \big)\) est donc continue en tant que composée d'applications continues.
+\end{proof}
+
+\begin{theorem}[\cite{BIBooQUMGooOxmczN}]	  \label{THOooZPUYooQAlUTa}
+	Soient des intervalles compacts \( I,J\) dans \( \eR\). Soient des applications \(f \colon I\times J\to \eR  \) et \(a,b \colon I\to J  \) telles que
+	\begin{enumerate}
+		\item
+		      Les applications \( a\) et \( b\) sont de classe \( C^1\).
+		\item
+		      L'application \( f\) est continue.
+		\item
+		      L'application \( \partial_1f) \) est continue sur \( I\times J\).
+	\end{enumerate}
+	Nous posons :
+	\begin{equation}
+		\begin{aligned}
+			F\colon I & \to \eR                             \\
+			x         & \mapsto \int_{a(x)}^{b(x)}f(x,t)dt.
+		\end{aligned}
+	\end{equation}
+	Alors
+	\begin{enumerate}
+		\item
+		      \( F\) est bien définie,
+		\item
+		      \( F\) est de classe \( C^1\).
+		\item
+		      Nous avons la formule
+		      \begin{equation}
+			      F'(x)=b'(x)f\big( x,b(x) \big)-a'(x)f\big( x,a(x) \big)+\int_{a(x)}^{b(x)}(\partial_1f)(x,t)dt.
+		      \end{equation}
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Le fait que \( F\) existe et soit continue est la proposition \ref{PROPooIEUTooAfHqaC}. Nous reprenons la fonction
+	\begin{equation}
+		\begin{aligned}
+			\phi\colon I\times J\times J & \to \eR                   \\
+			(x,u,v)                      & \mapsto \int_u^vf(x,t)dt.
+		\end{aligned}
+	\end{equation}
+
+	Fixons \( x_0\in I\) et \( u_0\in J\). Nous considérons l'application
+	\begin{equation}
+		\begin{aligned}
+			\varphi\colon J & \to \eR                                                                  \\
+			v               & \mapsto \phi(x_0,u_0,v)=\int_{u_0}^vf(x_0,t)dt=\int_{u_0}^vf_{x_0}(t)dt.
+		\end{aligned}
+	\end{equation}
+	Nous avons \( \varphi'(v)=f_{x_0}(v)=f(x_0,v)\) (primitive et intégrale, proposition \ref{PropEZFRsMj}). Nous écrivons cela sous la forme
+	\begin{equation}
+		(\partial_v\phi)(x,u,v)=f(x,v).
+	\end{equation}
+	De même nous avons
+	\begin{equation}
+		(\partial_u\phi)(x,u,v)=-f(x,u).
+	\end{equation}
+
+	Nous fixons \( u\) et \( v\) et nous posons
+	\begin{equation}
+		S(x)=\int_u^vf(x,t)dt,
+	\end{equation}
+	et nous vérifions les hypothèses du théorème \ref{ThoMWpRKYp}.
+	\begin{enumerate}
+		\item
+		      Vu que \( f\) est continue, pour chaque \( f\) l'application \( t\mapsto f(x,t)\) est \( L^1\big( \mathopen[ u,v\mathclose] \big)\).
+		\item
+		      La dérivabilité de \( x\mapsto f(x,t)\) est dans l'hypothèse.
+		\item
+		      Par hypothèse \( \partial_1f\) est continue, de ses deux variables; elle est donc bornée par \( M\) sur le compact \( I\times J\). Donc poser \( G(t)=M\) fait l'affaire.
+	\end{enumerate}
+	Nous avons donc
+	\begin{equation}
+		S'(x)=\int_u^v(\partial_xf)(x,t)dt.
+	\end{equation}
+	Et nous notons ça sous la forme
+	\begin{equation}
+		(\partial_x\phi)(x,u,v)=\int_u^v(\partial_xf)(x,t)dt.
+	\end{equation}
+
+	Et maintenant nous pouvons passer à la dérivée de \( F\). Nous utilisons la proposition \ref{PROPooCTXUooTGJbIK} pour écrire
+	\begin{equation}
+		\begin{aligned}[]
+			F'(x) & =(\partial_x\phi)\big( x,a(x),b(x) \big)       \\
+			      & +a'(x)(\partial_u\phi)\big( x,a(x),b(x) \big)  \\
+			      & +b'(x)(\partial_v\phi)\big( x,a(x),b(x) \big),
+		\end{aligned}
+	\end{equation}
+	qui est continue en tant que composée de fonctions continues.
+\end{proof}
+
+L'exemple qui suit sera rendu rigoureux par les propositions \ref{PROPooUMIPooQGXaPd} et \ref{PropJLnPpaw}.
+%TODOooRNUUooQFJyke. Il faut donc le déplacer, pour éviter de le citer.
+
+\begin{example} \label{ExfYXeQg}
+	Si \( g\) est une fonction continue, la fonction suivante est une primitive de \( g\) :
+	\begin{equation}
+		\int_0^xg(t)dt=\int_0^{\infty}g(t)\mtu_{t<x}(t)dt.
+	\end{equation}
+	Nous nous proposons de justifier \emph{de façon un peu heuristique} le fait que ce soit bien une primitive de \( g\) en considérant la fonction
+	\begin{equation}
+		f(t,x)=g(t)\mtu_{t<x}(t).
+	\end{equation}
+	Nous posons
+	\begin{equation}
+		F(x)=\int_0^{\infty}f(x,t)dt,
+	\end{equation}
+	et nous calculons \( F'\) en permutant la dérivée et l'intégrale\footnote{Ceci n'est pas rigoureux : il faudrait avoir un théorème à propos de distributions qui permet de le faire.}. D'abord,
+	\begin{equation}
+		f(t,x)=\begin{cases}
+			g(t) & \text{si } t\in \mathopen[ 0 , x \mathclose] \\
+			0    & \text{sinon.}
+		\end{cases}
+	\end{equation}
+	La dérivée de \( f\) par rapport à \( x\) est donnée par la distribution
+	\begin{equation}
+		\frac{ \partial f }{ \partial x }(t_0,x_0)=g(t_0)\delta(t_0-x_0).
+	\end{equation}
+	Donc
+	\begin{equation}
+		F'(x_0)=\int_0^{\infty}\frac{ \partial f }{ \partial x }(t,x_0)dt=\int_0^{\infty}g(t)\delta(t-x_0)=g(x_0),
+	\end{equation}
+	comme attendu.
+\end{example}
+
 
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++
