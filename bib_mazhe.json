@@ -12,6 +12,198 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooVJPMooOllpcn",
+    "url": "https://math.stackexchange.com/questions/3354282/why-do-two-vector-fields-commute-iff-their-flows-do",
+    "title": "Why do two vector fields commute iff their flows do?",
+    "author": [
+      {
+        "family": "Kadmos"
+      }
+    ],
+    "date": "17 nov 2024",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooNRCAooLccdiL",
+    "url": "https://www.math.toronto.edu/mgualt/courses/17-1300/docs/17-1300-notes.pdf",
+    "title": "Geometry and topology",
+    "author": [
+      {
+        "family": "Marco Gualtieri"
+      }
+    ],
+    "date": "2017",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooOUGZooCoBnry",
+    "url": "https://fr.wikipedia.org/wiki/Lemme_d%27Urysohn",
+    "title": "Lemme d'Urysohn",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "5 avril 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooJSLJooDOUqIt",
+    "url": "http://tomlr.free.fr/Math%E9matiques/G%E9o%20diff/3%20-%20Partitions.pdf",
+    "title": "Partitions de l'unité",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooBDJFooLZypXV",
+    "url": "https://fr.wikipedia.org/wiki/Adh%C3%A9rence_(math%C3%A9matiques)",
+    "title": "Adhérence (mathématiques)",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "25 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooBNSSooJVSjFi",
+    "url": "https://math.stackexchange.com/questions/5129807/unicity-part-of-riesz-representation-theorem",
+    "title": "unicity part of Riesz representation theorem",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "23 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTYSSooWPqfAx",
+    "url": "https://planetmath.org/ASpaceIsCompactIffAnyFamilyOfClosedSetsHavingFipHasNonemptyIntersection",
+    "title": "a space is compact iff any family of closed sets having fip has non-empty intersection",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "10 fev. 2018",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooFFDKooOsRapH",
+    "url": "https://fr.wikipedia.org/wiki/Topologie_finale",
+    "title": "Topologie finale",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "9 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTXKYooAELPZR",
+    "url": "https://fr.wikiversity.org/wiki/Th%C3%A9orie_des_groupes/Sous-groupe_distingu%C3%A9_et_groupe_quotient",
+    "title": "Théorie des groupes : Sous-groupe distingué et groupe quotient",
+    "author": [
+      {
+        "family": "Wikiversité"
+      }
+    ],
+    "date": "2 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTIRCooTIWtGD",
+    "url": "https://fr.wikiversity.org/wiki/Th%C3%A9orie_des_groupes/Th%C3%A9or%C3%A8me_de_Jordan-H%C3%B6lder",
+    "title": "Théorie des groupes : Théorème de Jordan-Hölder ",
+    "author": [
+      {
+        "family": "Wikiversité"
+      }
+    ],
+    "date": "2 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooVEBRooBViECB",
+    "url": "https://fr.wikiversity.org/wiki/Th%C3%A9orie_des_groupes/Sous-groupe_distingu%C3%A9_et_groupe_quotient#Les_trois_th%C3%A9or%C3%A8mes_d'isomorphisme",
+    "title": "Théorie des groupes : Sous-groupe distingué et groupe quotient",
+    "author": [
+      {
+        "family": "Wikiversité"
+      }
+    ],
+    "date": "26 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMistral",
+    "url": "https://chat.mistral.ai/chat/",
+    "title": "Quelques prompts assez simples.",
+    "author": [
+      {
+        "family": "mistral"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooUAYYooVSFLtg",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec05.pdf",
+    "title": "LECTURE 5: SUBMERSIONS, IMMERSIONS AND EMBEDDINGS",
+    "author": [
+      {
+        "family": "Zuoqin Wang"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPEDGooCQRqcV",
+    "url": "https://github.com/LaurentClaessens/mazhe/issues/275",
+    "title": "Sous-corps engendré",
+    "author": [
+      {
+        "family": "jeanas"
+      }
+    ],
+    "date": "15 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooFUKSooQARznK",
+    "url": "https://math.stackexchange.com/questions/5124332/finite-partially-ordered-set-has-a-maximal-element-without-natural-numbers",
+    "title": "Finite partially ordered set has a maximal element (without natural numbers)",
+    "author": [
+      {
+        "family": "Asaf Karagila"
+      }
+    ],
+    "date": "13 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooKYTNooKQzrGS",
+    "url": "https://en.wikipedia.org/wiki/Euler%27s_totient_function",
+    "title": "Euler's totient function",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "11 février 2026",
+    "type": "article-journal"
+  },
+  {
     "id": "BIBooQUMGooOxmczN",
     "url": "https://gitlabpages.univ-lille.fr/m53lille/2023/Cours/Chap2-int%c3%a9grales_%c3%a0_param%c3%a8tres_intervalles_bornes.pdf",
     "title": "INTÉGRALES DÉPENDANT D’UN PARAMÈTRE : CAS DES INTÉGRALES DÉFINIES",
@@ -3880,13 +4072,13 @@
     "type": "no-type"
   },
   {
+    "id": "BIBooLREGooRSBfsj",
     "url": "https://desvl.xyz/2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/",
     "author": [
       {
         "family": "Desvl"
       }
     ],
-    "id": "BIBooLREGooRSBfsj",
     "issued": {
       "date-parts": [
         [
@@ -3898,15 +4090,15 @@
     "type": "article-journal"
   },
   {
-    "url": "https://webspace.science.uu.nl/~crain101/topologie11/chapter5.pdf",
+    "id": "BIBooRNREooMaKTGj",
+    "url": "https://webspace.science.uu.nl/~crain101/topologie11/lecture-notes.pdf",
     "author": [
       {
         "family": "Crainic",
         "given": "Marius"
       }
     ],
-    "id": "BIBooRNREooMaKTGj",
-    "title": "chapter 5: partition of unity",
+    "title": "Inleiding Topologie 2011",
     "type": "article-journal"
   },
   {
@@ -3927,6 +4119,7 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooWEPLooDsLEvu",
     "url": "https://4dspace.mtts.org.in/expository-article-download.php?ai=160",
     "author": [
       {
@@ -3934,18 +4127,17 @@
         "given": "S."
       }
     ],
-    "id": "BIBooWEPLooDsLEvu",
     "title": "Riesz-Markov Representation Theorem",
     "type": "article-journal"
   },
   {
+    "id": "BIBooMGTQooQQVmPG",
     "url": "https://en.wikibooks.org/w/index.php?title=Measure_Theory/Riesz%27_representation_theorem&oldid=4042731",
     "author": [
       {
         "family": "Wikibooks"
       }
     ],
-    "id": "BIBooMGTQooQQVmPG",
     "issued": {
       "date-parts": [
         [
@@ -3988,13 +4180,13 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooXACUooPPyLuN",
     "url": "https://en.wikipedia.org/w/index.php?title=Finite_intersection_property&oldid=1076876990",
     "author": [
       {
         "literal": "Wikipedia contributors"
       }
     ],
-    "id": "BIBooXACUooPPyLuN",
     "issued": {
       "date-parts": [
         [
@@ -10025,6 +10217,7 @@
     "type": "no-type"
   },
   {
+    "id": "ooIIMKooJpdFyk",
     "url": "https://www.math.u-psud.fr/~perrin/CAPES/geometrie/isometries11-12.pdf",
     "author": [
       {
@@ -10032,7 +10225,6 @@
         "given": "Daniel"
       }
     ],
-    "id": "ooIIMKooJpdFyk",
     "title": "Isométries du plan",
     "type": "article-journal"
   },
@@ -10158,13 +10350,13 @@
     "type": "article-journal"
   },
   {
-    "url": "http://fr.wikipedia.org/w/index.php?title=Partition_de_l%27unit%C3%A9&oldid=122365411",
+    "id": "ooQCDSooCpqDvB",
+    "url": "https://fr.wikipedia.org/w/index.php?title=Partition_de_l%27unit%C3%A9&oldid=122365411",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "ooQCDSooCpqDvB",
     "issued": {
       "date-parts": [
         [
@@ -16994,13 +17186,13 @@
     "type": "no-type"
   },
   {
-    "url": "http://fr.wikipedia.org/w/index.php?title=Fonction_de_M%C3%B6bius&oldid=91236321",
+    "id": "POkXeBE",
+    "url": "https://fr.wikipedia.org/w/index.php?title=Fonction_de_M%C3%B6bius&oldid=91236321",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "POkXeBE",
     "title": "Fonction de Möbius — Wikipédia, l’encyclopédie libre",
     "type": "no-type"
   },

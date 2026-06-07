@@ -1,5 +1,5 @@
 % This is part of (everything) I know in mathematics
-% Copyright (c) 2011-2017, 2019, 2021-2023
+% Copyright (c) 2011-2017, 2019, 2021-2023, 2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -26,7 +26,7 @@ Si vous ne voulez pas savoir ce qu'est un produit semi-direct de groupes, vous p
 			      \end{aligned}
 		      \end{equation}
 		      est une bijection. Ici,  \( T(n)\) est le groupe des translations de \( \eR^n\).
-		\item
+		\item		\label{ITEMooBWQSooCJGPmC}
 		      Un couple \( (v,\Lambda)\in T(n)\times\SO(n)\) agit sur \( x\in \eR^n\) par
 		      \begin{equation}
 			      (v,\Lambda)x=\Lambda x+v
@@ -38,8 +38,16 @@ Si vous ne voulez pas savoir ce qu'est un produit semi-direct de groupes, vous p
 			      \Isom(\eR^n)\simeq T(n)\times_{\rho}\gO(n)
 		      \end{equation}
 		      où \( \rho\) représente l'action adjointe de \( \gO(n)\) sur \( T(n)\) et \( \times_{\rho}\) dénote le produit semi-direct de la définition~\ref{DEFooKWEHooISNQzi}.
+		\item	\label{ITEMooLJAXooZeSzor}
+		      L'application \(\psi \colon T(n)\times_{\rho} \gO(n)\to \Isom(\eR^n)  \) est un isomorphisme et en particulier
+		      \begin{equation}
+			      \psi\big( (v,A)\cdot (w,B) \big)=\psi(v,A)\circ\psi(w,B)
+		      \end{equation}
+		      pour tout \( v,w\in T(n)\) et \( A,B\in \gO(n)\).
 		\item     \label{ITEMooSKUPooBDvNWX}
 		      Une isométrie de \( \eR^n\) est une application affine\footnote{Définition \ref{DEFooUAWZooXcMKve}.}.
+		\item     \label{ITEMooBZJHooWCPkfM}
+		      Une isométrie de \( \eR^n\) qui fixe \( 0\) est dans \( \gO(n)\).
 		\item     \label{ITEMooQLNPooSyHaps}
 		      La partie linéaire\footnote{Définition \ref{LEMooYJCDooOGAHkF}.} d'une isométrie \( f\) est \( \psi^{-1}(f)_2\).
 	\end{enumerate}
@@ -47,76 +55,97 @@ Si vous ne voulez pas savoir ce qu'est un produit semi-direct de groupes, vous p
 
 \begin{proof}
 	Point par point.
-	\begin{enumerate}
-		\item
-		      Prouvons que l'application proposée est injective et surjective. Notons aussi que ce point ne parle pas de structure de groupe, mais seulement d'une bijection en tant qu'ensembles.
-		      \begin{subproof}
-			      \spitem[Injection]
-			      Si \( \psi(v,\Lambda)=\psi(w,\Lambda')\) alors en appliquant sur \( x=0\) nous avons tout de suite \( v=w\). Et ensuite \( \Lambda=\Lambda'\) est immédiat.
-			      \spitem[Surjection]
-			      Une isométrie \( g\in\Isom(\eR^n)\) est une application \( g\colon \eR^n\to \eR^n\) telle que \( d(x,y)=d\big( g(x),g(y) \big)\). Dans le cas de \( \eR^n\) cela se traduit par
-			      \begin{equation}
-				      \| x-y \|=\big\| g(x)-g(y) \big\|,
-			      \end{equation}
-			      Comme \( x\mapsto\| x \|^2\) est une forme quadratique, elle tombe sous le coup du théorème~\ref{ThoDsFErq}, ce qui nous permet de dire que \( g\) est affine. Or par définition une application est affine lorsqu'elle est la composée d'une translation et d'une application linéaire.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooLLUIooIGsknv}]
+		%-----------------------------------------------------------
+		Prouvons que l'application proposée est injective et surjective. Notons aussi que ce point ne parle pas de structure de groupe, mais seulement d'une bijection en tant qu'ensembles.
+		\begin{subproof}
+			\spitem[Injection]
+			Si \( \psi(v,\Lambda)=\psi(w,\Lambda')\) alors en appliquant sur \( x=0\) nous avons tout de suite \( v=w\). Et ensuite \( \Lambda=\Lambda'\) est immédiat.
+			\spitem[Surjection]
+			Une isométrie \( g\in\Isom(\eR^n)\) est une application \( g\colon \eR^n\to \eR^n\) telle que \( d(x,y)=d\big( g(x),g(y) \big)\). Dans le cas de \( \eR^n\) cela se traduit par
+			\begin{equation}
+				\| x-y \|=\big\| g(x)-g(y) \big\|,
+			\end{equation}
+			Comme \( x\mapsto\| x \|^2\) est une forme quadratique, elle tombe sous le coup du théorème~\ref{ThoDsFErq}, ce qui nous permet de dire que \( g\) est affine. Or par définition une application est affine lorsqu'elle est la composée d'une translation et d'une application linéaire.
 
-			      Donc \( g=\tau_v\circ \Lambda\) pour une certaine application linéaire isométrique \( \Lambda\colon \eR^n\to \eR^n\). L'application \( \Lambda\) est donc dans \( \gO(n)\) par la proposition \ref{PropKBCXooOuEZcS}\ref{ITEMooOWMBooHUatNb}.
-		      \end{subproof}
-		\item
-		      C'est seulement le fait que \( (\tau_v\circ\Lambda)x=\tau_v\big( \Lambda x \big)=\Lambda(x)+v\).
-		\item
-		      Nous allons étudier l'application
-		      \begin{equation}
-			      \psi\colon T(n)\times_{\rho}O(n)\to \Isom(\eR^n).
-		      \end{equation}
-		      \begin{subproof}
-			      \spitem[Le produit semi-direct est bien défini]
-			      Il faut montrer que
-			      \begin{equation}
-				      \begin{aligned}
-					      \rho\colon O(n) & \to \Aut\big( T(n) \big) \\
-					      \Lambda         & \mapsto \AD(\Lambda)
-				      \end{aligned}
-			      \end{equation}
-			      est correcte.
+			Donc \( g=\tau_v\circ \Lambda\) pour une certaine application linéaire isométrique \( \Lambda\colon \eR^n\to \eR^n\). L'application \( \Lambda\) est donc dans \( \gO(n)\) par la proposition \ref{PropKBCXooOuEZcS}\ref{ITEMooOWMBooHUatNb}.
+		\end{subproof}
+		\spitem[Pour \ref{ITEMooBWQSooCJGPmC}]
+		%-----------------------------------------------------------
 
-			      D'abord pour \( \Lambda\in O(n)\), nous avons bien \( \rho_{\Lambda}(\tau_v)\in T(n)\) parce qu'en appliquant à \( x\in \eR^n\),
-			      \begin{equation}
-				      (\Lambda\tau_v\Lambda^{-1})(x)=\Lambda\big( \tau_v(\Lambda^{-1} x) \big)=\Lambda\big( \Lambda^{-1}x+v \big)=x+\Lambda(v)=\tau_{\Lambda(v)}(x).
-			      \end{equation}
-			      Donc \( \rho_{\Lambda}(\tau_v)=\tau_{\Lambda(v)}\).
+		C'est seulement le fait que \( (\tau_v\circ\Lambda)x=\tau_v\big( \Lambda x \big)=\Lambda(x)+v\).
+		\spitem[Pour \ref{ITEMooEWSIooNKzRxB}]
+		%-----------------------------------------------------------
+		Nous allons étudier l'application
+		\begin{equation}
+			\psi\colon T(n)\times_{\rho}O(n)\to \Isom(\eR^n).
+		\end{equation}
+		\begin{subproof}
+			\spitem[Le produit semi-direct est bien défini]
+			Il faut montrer que
+			\begin{equation}
+				\begin{aligned}
+					\rho\colon O(n) & \to \Aut\big( T(n) \big) \\
+					\Lambda         & \mapsto \AD(\Lambda)
+				\end{aligned}
+			\end{equation}
+			est correcte.
 
-			      De plus, \( \rho_{\Lambda}\in\Aut\big( T(n) \big)\) parce que
-			      \begin{equation}
-				      \rho_{\Lambda}\big( \tau_v\circ \tau_w \big)=\rho_{\Lambda}(\tau_v)\circ\rho_{\Lambda}(\tau_w),
-			      \end{equation}
-			      comme on peut aisément vérifier que les deux membres sont égaux à \( \tau_{\Lambda(v+w)}\).
-			      \spitem[\( \psi\) est une bijection]
-			      Cela est déjà vérifié.
-			      \spitem[\( \psi\) est un morphisme]
-			      Nous avons d'une part
-			      \begin{equation}
-				      \psi\big( (v,g)(w,h) \big)=\psi\big( v\rho_g(w),gh \big)=\tau_v\circ g\circ\tau_w\circ g^{-1}\circ g\circ h=\tau_v\circ g\circ\tau_w\circ h.
-			      \end{equation}
-			      Et d'autre part,
-			      \begin{equation}
-				      \psi(v,g)\circ\psi(w,h)=\tau_v\circ g\circ \tau_w\circ h,
-			      \end{equation}
-			      ce qui est la même chose.
-		      \end{subproof}
-		\item
-		      Si \(f \) est une isométrie de \( \eR^n\), et si \( \psi(f)=(v,\Lambda)\), nous avons
-		      \begin{equation}
-			      f(a+x)=\tau_v\big( \Lambda(a)+\Lambda(x) \big)=\Lambda(a)+\Lambda(x)+v=f(a)+\Lambda(x).
-		      \end{equation}
-		      Donc \( f\) est affine et l'application qui serait notée \( u_M\) dans \eqref{EqMqIoWX} est \( u_M=\Lambda\) pour tout \( M\).
-		\item
-		      Si \( f(x)=\psi(v,\Lambda)x=\Lambda x+v\), nous avons
-		      \begin{equation}
-			      f(a+x)=\psi(v,\Lambda)(a+x)=f(a)+\Lambda(x),
-		      \end{equation}
-		      et donc \( \Lambda\) est bien la partie linéaire de \( f\).
-	\end{enumerate}
+			D'abord pour \( \Lambda\in O(n)\), nous avons bien \( \rho_{\Lambda}(\tau_v)\in T(n)\) parce qu'en appliquant à \( x\in \eR^n\),
+			\begin{equation}
+				(\Lambda\tau_v\Lambda^{-1})(x)=\Lambda\big( \tau_v(\Lambda^{-1} x) \big)=\Lambda\big( \Lambda^{-1}x+v \big)=x+\Lambda(v)=\tau_{\Lambda(v)}(x).
+			\end{equation}
+			Donc \( \rho_{\Lambda}(\tau_v)=\tau_{\Lambda(v)}\).
+
+			De plus, \( \rho_{\Lambda}\in\Aut\big( T(n) \big)\) parce que
+			\begin{equation}
+				\rho_{\Lambda}\big( \tau_v\circ \tau_w \big)=\rho_{\Lambda}(\tau_v)\circ\rho_{\Lambda}(\tau_w),
+			\end{equation}
+			comme on peut aisément vérifier que les deux membres sont égaux à \( \tau_{\Lambda(v+w)}\).
+			\spitem[\( \psi\) est une bijection]
+			Cela est déjà vérifié.
+			\spitem[\( \psi\) est un morphisme]		\label{SPITEMooWJPAooGOmSsd}
+			Nous avons d'une part
+			\begin{equation}
+				\psi\big( (v,g)(w,h) \big)=\psi\big( v\rho_g(w),gh \big)=\tau_v\circ g\circ\tau_w\circ g^{-1}\circ g\circ h=\tau_v\circ g\circ\tau_w\circ h.
+			\end{equation}
+			Et d'autre part,
+			\begin{equation}
+				\psi(v,g)\circ\psi(w,h)=\tau_v\circ g\circ \tau_w\circ h,
+			\end{equation}
+			ce qui est la même chose.
+		\end{subproof}
+
+		\spitem[Pour \ref{ITEMooLJAXooZeSzor}]
+		%-----------------------------------------------------------
+		Le fait que ce soit une bijection et un morphisme vient d'être démonté dans \ref{ITEMooLLUIooIGsknv} et \ref{SPITEMooWJPAooGOmSsd}.
+
+		\spitem[Pour \ref{ITEMooSKUPooBDvNWX}]
+		%-----------------------------------------------------------
+		Si \(f \) est une isométrie de \( \eR^n\), et si \( \psi(f)=(v,\Lambda)\), nous avons
+		\begin{equation}
+			f(a+x)=\tau_v\big( \Lambda(a)+\Lambda(x) \big)=\Lambda(a)+\Lambda(x)+v=f(a)+\Lambda(x).
+		\end{equation}
+		Donc \( f\) est affine et l'application qui serait notée \( u_M\) dans \eqref{EqMqIoWX} est \( u_M=\Lambda\) pour tout \( M\).
+
+		\spitem[Pour \ref{ITEMooBZJHooWCPkfM}]
+		%-----------------------------------------------------------
+		Soit \( g\in\Isom(\eR^n)\) tel que \( g(0)=0\). Nous avons \( v\in \eR^n\) et \( \Lambda\in\gO(n)\) tels que \( g=\psi(v,\Lambda)\). En l'appliquant à \( 0\) nous trouvons :
+		\begin{equation}
+			\psi(v,\Lambda)(0)=(\tau_cv\circ\Lambda)(0)=\tau_v(0)=v.
+		\end{equation}
+		Donc \( g(0)=0\) implique \( g=\psi(0,\Lambda)=\Lambda\in\gO(n)\).
+
+
+		\spitem[Pour \ref{ITEMooQLNPooSyHaps}]
+		%-----------------------------------------------------------
+		Si \( f(x)=\psi(v,\Lambda)x=\Lambda x+v\), nous avons
+		\begin{equation}
+			f(a+x)=\psi(v,\Lambda)(a+x)=f(a)+\Lambda(x),
+		\end{equation}
+		et donc \( \Lambda\) est bien la partie linéaire de \( f\).
+	\end{subproof}
 \end{proof}
 
 \begin{remark}      \label{REMooLUEZooIwvTqu}
@@ -173,21 +202,68 @@ Si vous ne voulez pas savoir ce qu'est un produit semi-direct de groupes, vous p
 	\end{subproof}
 \end{proof}
 
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Isométries dans \( \eR^n\)}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{definition}
-	Un \defe{hyperplan}{hyperplan} de \( \eR^n\) est un sous-espace affine de dimension \( n-1\).
-\end{definition}
+\begin{proposition}[\cite{MonCerveau,BIBooMistral}]	\label{PROPooOGHYooYgPkuE}
+	Si \(f \colon \eR^2\to \eR^2  \) est une isométrie avec \( a\in \eR^2\) comme unique point fixe, alors
+	\begin{equation}
+		f=\tau_{a}\circ A\circ \tau_{-a}
+	\end{equation}
+	où \( A\) est une isométrie de \( (\eR^2,\| . \|)\) ayant \( 0\) comme unique point fixe.
 
-\begin{lemmaDef}		\label{LEMooPXIOooSlMIIY}
-	Si un hyperplan \( H\) de \( \eR^n\) est donné, et si \( x\in \eR^n\), il existe un unique point \( y\in \eR^n\) tel que
+	De plus avec l'application \(\psi \colon T(n)\times \gO(n)\to \Isom(\eR^n)  \) du théorème \ref{THOooQJSRooMrqQct}, nous avons \( A=\psi^{-1}(f)_2\)
+\end{proposition}
+
+\begin{proof}
+	Nous posons \( A=\tau_{-a}\circ f\circ \tau_a\). Nous utilisons la décomposition du théorème \ref{THOooQJSRooMrqQct} :
+	\begin{equation}
+		f(x)=\Lambda(x)+v
+	\end{equation}
+	avec \( \Lambda\in \gO(2)\) et \( v\in \eR^2\). En posant \( x=a\) nous avons
+	\begin{equation}
+		a=f(a)=\Lambda(a)+v,
+	\end{equation}
+	donc \( v=a-\Lambda(a)\) et
+	\begin{equation}
+		f(x)=\Lambda(x)+a-\Lambda(a).
+	\end{equation}
+	Nous avons
+	\begin{subequations}
+		\begin{align}
+			A(x) & =f(x+a)-a                       \\
+			     & =\Lambda(x+a)+a-\Lambda(a)-a    \\
+			a=\Lambda(x)+\Lambda(a)+a-\Lambda(a)-a \\
+			     & =\Lambda(x).
+		\end{align}
+	\end{subequations}
+	Nous avons prouvé que \( A=\Lambda\).
+
+	Nous devons encore prouver que l'unique point fixe de \( \Lambda\) est \( 0\). Supposons que \( u\) soit un point fixe de \( \Lambda\). Nous avons
+	\begin{subequations}
+		\begin{align}
+			f(u+a) & =\Lambda(u+a)+a-\Lambda(a)          \\
+			       & =\Lambda(u)+\Lambda(a)+a-\Lambda(a) \\
+			       & =u+a.
+		\end{align}
+	\end{subequations}
+	Donc \( u+a\) est point fixe de \( f\). Donc \( u+a=a\) et donc \( u=0\). Cela prouve que si \( \Lambda\) a un point fixe, alors c'est \( 0\). Évidemment \( 0\) est un point fixe de \( \Lambda\) parce que \( \Lambda\) est linéaire.
+\end{proof}
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Réflexion par rapport à un hyperplan}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+\begin{lemmaDef}[Réflexion par rapport à un hyperplan]		\label{LEMooPXIOooSlMIIY}
+	Soit un espace euclidien\footnote{Vectoriel avec produit scalaire, définition \ref{DefLZMcvfj}.} \( E\). Soit un hyperplan affin\footnote{Définition \ref{DefLZMcvfj}.} \( H\) de \(E\). Nous notons \( H_0\) l'hyperplan vectoriel parallèle à \( H\). Il existe une unique application \(\sigma_H \colon E\to E  \) telle que
 	\begin{enumerate}
 		\item
-		      \( x-y\perp H\),
+		      \( \big( \sigma_H(x)-x \big)\cdot u=0\) pour tout \( u\in H_0\).
 		\item
-		      Le segment \( [x,y]\) coupe \( H\) en son milieu.
+		      Pour tout \( x\in E\),
+		      \begin{equation}
+			      \frac{ \sigma_H(x)+x }{2}\in H
+		      \end{equation}
 	\end{enumerate}
 	La \defe{réflexion}{réflexion!par rapport à un hyperplan} \( \sigma_H\) est l'application \( \sigma_H\colon \eR^n\to \eR^n \) qui à \( x\) fait correspondre ce \( y\).
 \end{lemmaDef}
@@ -201,6 +277,60 @@ Si vous ne voulez pas savoir ce qu'est un produit semi-direct de groupes, vous p
 
 	Une droite passant par \( x\) et perpendiculaire à \( H\) est de la forme \( t\mapsto x+te_n\). Si \( x=\sum_{i=1}^{n}x_ie_i\) alors l'unique point de cette droite à être dans \( H\) est le point tel que \(   x_ne_n+te_n=\lambda e_n   \), c'est-à-dire \( t=\lambda-x_n\). L'unique point \( y\) sur cette droite à être tel que \( [x,y ]\) coupe \( H\) en son milieu est celui qui correspond à \( t=2(\lambda-x_n)\).
 \end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooVQOTooUEGYiY}
+	Soit un espace euclidien \( E\). Soit un hyperplan \( H\) et \( a\in E\). Si \( \sigma_H\) est la réflexion\footnote{Définition \ref{LEMooPXIOooSlMIIY}.} par rapport à \( H\), alors la réflexion par rapport à \( H+a\) est donnée par
+	\begin{equation}
+		\sigma_{H+a}=\tau_a\circ\sigma_H\circ\tau_{-a}.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous posons \( \alpha=\tau_a\circ\sigma_H\circ\tau_{-a}\) et nous prouvons que \( \alpha\) vérifie les deux propriétés de la définition \ref{LEMooPXIOooSlMIIY}.
+	\begin{subproof}
+		\spitem[Si \( H\) est vectoriel]
+		%-----------------------------------------------------------
+		Nous commençons par supposer que \( H\) est un hyperplan vectoriel. Soient \( u\in H\) et \( x\in E\). Nous avons
+		\begin{subequations}
+			\begin{align}
+				\big( \alpha(x)-x \big)\cdot u & =\big( \sigma_H(x-a)+a-x \big)\cdot u   \\
+				                               & =\big( \sigma_H(x-a)-(x-a) \big)\cdot u \\
+				                               & =0
+			\end{align}
+		\end{subequations}
+		parce que \( \sigma_H\) est une réflexion.
+
+		Nous considérons ensuite (grâce à la proposition \ref{PROPooHLRRooHWtHSR}) un \( n\in E\) tel que
+		\begin{equation}
+			H=\{ x\in E\tq x\cdot n=0 \}.
+		\end{equation}
+		Nous posons
+		\begin{equation}
+			m=\frac{ \alpha(x)+x }{ 2 },
+		\end{equation}
+		et nous devons prouver que \( m\in H+a\), c'est à dire que \( m-a\in H\) ou encore \( (m-a)\cdot n=0\). Nous calculons donc
+		\begin{subequations}
+			\begin{align}
+				\frac{ \alpha(x)-x-2a }{ 2 }\cdot n & =\frac{ a+\sigma_H(x-a)+x-2a }{2}\cdot n \\
+				                                    & =\frac{ \sigma_H(x-a)+(x-a) }{2}\cdot n  \\
+				                                    & =0
+			\end{align}
+		\end{subequations}
+		parce que c'est la propriété de \( \sigma_H\) appliquée au point \( x-a\).
+
+		\spitem[Si \( H \) n'est pas vectoriel]
+		%-----------------------------------------------------------
+		Soit \( h\in H\). L'hyperplan \( H_0=H-h\) est vectoriel, et \( H+a=H_0+(h+a)\). Donc
+		\begin{equation}
+			\sigma_{H+a}=\sigma_{H_0+(h+a)}=\tau_{h+a}\circ\sigma_{H_0}\circ \tau_{-h-a}=\tau_a\circ\underbrace{\big( \tau_h\circ\sigma_{H_0}\circ\tau_{-h} \big)}_{=\sigma_H}\circ\tau_{-a}=\tau_a\circ\sigma_H\tau_{-a}.
+		\end{equation}
+	\end{subproof}
+\end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Isométries dans \( \eR^n\)}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{lemma}
 	Soit un hyperplan vectoriel \( H_0\) de \( \eR^n\). Nous considérons une base \( \{ e_1,\ldots,e_n \}\) de \( \eR^n\) telle que \( \{ e_1,\ldots,e_{n-1} \}\) soit une base de \( H_0\) et \( e_n\perp  H_0\).
@@ -243,6 +373,7 @@ Si vous ne voulez pas savoir ce qu'est un produit semi-direct de groupes, vous p
 		\sigma_H(x)=x+2(\lambda-x_n)e_n=x-2x_ne_n+2\lambda e_n=\sigma_{H_0}(x)+2\lambda e_n.
 	\end{equation}
 \end{proof}
+
 
 Le lemme suivant est une généralisation du fait que tous les points de la médiatrice d'un segment sont à égale distance des deux extrémités du segment (très utile lorsqu'on étudie les triangles isocèles).
 \begin{lemma}[\cite{ooZYLAooXwWjLa}]        \label{LEMooDPLYooJKZxiM}
@@ -372,6 +503,40 @@ Pour le lemme suivant, et pour que la récurrence se passe bien nous disons que 
 	\end{subproof}
 \end{proof}
 
+La proposition suivante dit que si la composée de deux réflexions est une isométrie, alors les axes sont des droites sécantes.
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooXMPPooJbuJiw}
+	Soient deux droites parallèles \( l_1,l_2\) dans \( \eR^2\). Nous notons \( \sigma_i\) la réflexion\footnote{Définition \ref{LEMooPXIOooSlMIIY}.} d'axe \( l_i\). Si \( \sigma_1\circ\sigma_2\) est une isométrie, alors \( l_1=l_2\).
+\end{proposition}
+
+\begin{proof}
+	Soit \( l_0\) la droite parallèle à \( l_i\) passant par \( 0\) (existe par la proposition \ref{PROPooPWNWooYuyrOc}\ref{ITEMooFWIWooBBORjU} et c'est bien une parallèle commune par \ref{PROPooADJNooMyXUxG}\ref{ITEMooXUBUooJoEKRi}). Soit \( u\in l_0\). Nous considérons \( b\in \eR^2\) tel que \( \sigma_1(0)=2b\). Nous avons donc \( b\in l_1\) et \( b\cdot u=0\).
+
+	Étant donné que la droite \( D=\{ \lambda b \}_{\lambda\in \eR}\) intersecte \( l_1\) (pour \( \lambda=1\)), elle intersecte aussi \( l_2\) (proposition \ref{PROPooADJNooMyXUxG}\ref{ITEMooOSSTooCzrUeT}). Donc il existe \( \mu\in\eR\) tel que \( \lambda b\in l_2\).
+
+	Le point \( y=(\sigma_2\circ\sigma_1)(0)\in \eR^2\) est l'unique point tel que
+	\begin{subequations}
+		\begin{numcases}{}
+			(y-2b)\cdot u=0\\
+			\frac{ y+2b }{ 2 }\in l_2.
+		\end{numcases}
+	\end{subequations}
+	Nous le cherchons sous la forme \( y=\lambda b\). D'abord \( (\lambda b-2b)\cdot u=0\) parce que \( b\cdot u=0\). Ensuite en posant \( \lambda=2(\mu-1)\), la seconde condition est vérifiée. Bref,
+	\begin{equation}
+		(\sigma_2\circ\sigma_1)(0)=2(\mu-1)b.
+	\end{equation}
+
+	Pour que la composée soit une isométrie il faut donc que \( (\mu-1)b=0\). Il y a deux possibilités: \( \mu=1\) et \( b=0\).
+	\begin{subproof}
+		\spitem[Si \( \mu=1\)]
+		%-----------------------------------------------------------
+		Dans ce cas \( b\in l_2\) et donc \( b\in l_1\cap l_2\). Les droites \( l_1\) et \( l_2\) sont donc confondues (proposition \ref{PROPooADJNooMyXUxG}\ref{ITEMooSXVYooBUvvxj}).
+
+		\spitem[Si \( b=0\)]
+		%-----------------------------------------------------------
+		Dans ce cas \( \sigma_1(0)=0\), et donc si \( l_2\neq l_1\) nous avons \( 0\not\in l_2\) et donc \( (\sigma_2\circ\sigma_1)(0)\neq 0\). Dans ce cas \( \sigma_1\circ\sigma_2\) n'est pas une isométrie.
+	\end{subproof}
+\end{proof}
+
 \begin{proposition}     \label{PROPooUSKEooUbNVfs}
 	Un élément de \( \SO(3)\) qui fixe deux vecteurs linéairement indépendants est l'identité.
 \end{proposition}
@@ -444,6 +609,7 @@ Pour le lemme suivant, et pour que la récurrence se passe bien nous disons que 
 
 \begin{proposition}     \label{PROPooLYCUooRQgGtF}
 	Soit un hyperplan \( H\) de \( \eR^n\) passant par l'origine. Il existe une base orthonormée \( \{ e_1,\ldots, e_n \}\) de \( \eR^n\) telle que \( \{ e_1,\ldots, e_{n-1} \}\) soit une base orthonormée de \( H\) et \( e_n\perp H\).
+	%TODOooYBKZooLVhTOo. Prouver ça.
 \end{proposition}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -461,6 +627,7 @@ Le fait qu'une isométrie puisse être décomposé en réflexions est le lemme \
 		\end{aligned}
 	\end{equation}
 	Cette application \( \epsilon\) est un morphisme de groupes.
+	%TODOooUWSKooCyNDcy. Prouver ça.
 
 	Nous disons que \( f\in\Isom(\eR^n)\) est \defe{positive}{isométrie positive} ou \defe{préserve l'orientation}{préserve l'orientation} si \( \epsilon(f)=1\), et nous notons
 	\begin{equation}
@@ -471,6 +638,19 @@ Le fait qu'une isométrie puisse être décomposé en réflexions est le lemme \
 \begin{lemma}       \label{LEMooVRELooESIWQl}
 	La partie \( \Isom^+(\eR^n)\) des isométries positives est un sous-groupe de \( \Isom(\eR^n)\).
 \end{lemma}
+
+\begin{proof}
+	Nous commençons par l'identité. Pour \(\id \colon \eR^n\to \eR^n  \), nous avons \( \psi^{-1}(\id)=(0,\id)\) et donc \( \epsilon(\id)=\det\big( \psi^{-1}(\id)_2 \big)=\det(\id)=1\).
+
+	En ce qui concerne le produit, nous considérons \( f,g\in\Isom^+(\eR^n)\) ainsi que \( v,w\in T(n)\) et \( A,B\in \gO(n)\) tels que \( f=\psi(v,A)\) et \( g=\psi(w,B)\). Le théorème \ref{THOooQJSRooMrqQct}\ref{ITEMooLJAXooZeSzor} nous donne
+	\begin{equation}
+		f\circ g=\psi(v,A)\circ\psi(w,B)=\psi\big( (v,A)\cdot (w,B) \big).
+	\end{equation}
+	Donc \( \psi^{-1}(f\circ g)=(v,A)\cdot (w,B)=(\ldots, A\circ B)\). La première composante ne nous intéresse pas. Au final
+	\begin{equation}
+		\epsilon(f\circ g)=\det\big( \psi^{-1}(f\circ g)_2 \big)=\det(A\circ B)=\det(A)\det(B)=1.
+	\end{equation}
+\end{proof}
 
 \begin{lemma}[\cite{ooZYLAooXwWjLa}]    \label{LEMooJABDooOKHwWv}
 	Si \( H\) est un hyperplan et si \( \sigma_{H}\) est la réflexion de cet hyperplan, alors \( \epsilon(\sigma_H)=-1\).

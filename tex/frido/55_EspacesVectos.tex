@@ -885,6 +885,17 @@ La proposition~\ref{DefALUAooSPcmyK} et le théorème~\ref{ThoGkkffA} sont valab
 	%TODOooKPPQooBOjTZJ. Prouver ça.
 \end{lemma}
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooARZGooMOlgsl}
+	Soient des espaces vectoriels \( E,F\) avec \( \dim(E)\geq \dim(F)\) et une application linéaire de rang maximum \(f \colon E\to F  \). Soit une base \( \{ e_1,\ldots,e_m \}\) de \( E\). Alors il existe une une application linéaire \(\phi \colon E\to E  \) qui
+	\begin{enumerate}
+		\item
+		      est une permutation des vecteurs de base,
+		\item
+		      \( (f\circ\phi)\big( \Span\{ e_1,\ldots,e_n \} \big)=\eR^n\).
+	\end{enumerate}
+	%TODOooCVSKooLXfzrV. Prouver ça.
+\end{lemma}
+
 
 \begin{theorem}[Théorème du rang]       \label{ThoGkkffA}
 	Soient \( E\) et \( F\) deux espaces vectoriels (de dimensions finies ou non) et soit \( f\colon E\to F\) une application linéaire.
@@ -1072,6 +1083,25 @@ C'est ce corolaire qui nous permet d'écrire \( f^{-1}\) sans plus de précision
 	\end{equation}
 	donc \( f^{-1}(\lambda x)=\lambda f^{-1}(x)\).
 \end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooVGDDooRmUDUi}
+	Soient une application linéaire \(f \colon E\to F  \) ainsi que \( v_1,\ldots,v_2\in E\). Alors
+	\begin{equation}
+		\Span\big( \{ f(v_i) \}_{i=1,\ldots,k} \big)=f\big( \Span(\{ v_i \}_{i=1,\ldots,k}) \big).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Dans un sens, un élément générique de \( \Span\big( \{ f(v_i) \}_{i=1,\ldots,k} \big)\) est
+	\begin{equation}
+		\sum_{i=1}^ka_jf(v_i)=f\big( \sum_ia_iv_i \big)\in f\big( \Span(\{ v_i \}_{i=1,\ldots,k}) \big).
+	\end{equation}
+	Dans l'autre sens, un élément générique de \( f\big( \Span(\{ v_i \}_{i=1,\ldots,k}) \big)\) est
+	\begin{equation}
+		f\big( \sum_ia_iv_i \big)=\sum_ia_if(v_i)\in\Span\big( \{ f(v_i) \}_{i=1,\ldots,k} \big).
+	\end{equation}
+\end{proof}
+
 
 \begin{proposition}     \label{PROPooHLUYooNsDgbn}
 	Soient un espace vectoriel \( E\) de dimension finie, un endomorphisme \( f\colon E\to E\) et une partie \( \{v_i\}_{i\in I}\) tel que \( \{f(v_i)\}_{i\in I}\) soit une base.
