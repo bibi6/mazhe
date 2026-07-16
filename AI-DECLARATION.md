@@ -21,6 +21,18 @@
 
 Donc tout ce qui est dans le Frido passe par (au moins) deux rédactions : vers ma feuille puis vers LaTeX.
 
+## Le cas des résultats intermédiaires
+
+Je dois faire la démonstration de A.
+
+Si je lis un humain, dans la démonstration de A écrire « en vertu de la proposition B, blabla », souvent je me permets de copier l'énoncé de B dans le Frido et de continuer (j'écris alors B dans ma liste de chose à faire).
+
+Si une IA écrit « en vertu de la proposition B », alors soit je retrouve un énoncé de B par un humain sur internet, soit je demande à l'IA de démontrer B avant de continuer.
+
+Bref, il n'y a pas de résultats dans démonstration dans le Frido dont l'énoncé viendrait seulement d'une IA.
+
+
+
 ## Trouver les parties assistées par IA
 
 Les démonstrations qui ont bénéficié d'une aide IA sont marquées de ces labels dans la biblio : 
@@ -28,6 +40,8 @@ Les démonstrations qui ont bénéficié d'une aide IA sont marquées de ces lab
 1. BIBooMistral
 2. BIBChatGPT
 3. BIBChatGPTDifficile
+
+Ce sont les références numéro 2,3 et 4.
 
 Je répète : il n'y a aucun copié-collé de la sortie d'un LLM vers le Frido. Si une théorème a une de ces sources, ça veut dire que j'ai posé des questions à une IA pour la démonstration, et que certaines de ses suggestions ont été suivies.
 
@@ -145,6 +159,12 @@ Cela dit, j'ai quand même gagné un peu en discutant avec l'AI.
 2. chatGPT m'a signalé que j'avais écrit à certains endroits \( A\cap B\) au lieu de \( A_1\cap A_2\).
 
 
--------
+## Les humains aussi sont des perroquets stochastiques qui font des erreurs
 
+Préambule : je ne veux pas jeter la moindre faute sur Arnaud Girand qui a fait un travail monumental et qui est cité à de nombreuses reprises dans le Frido. L'erreur est humaine.
+Cela étant dit : 
+
+https://math.webgirand.eu/pdf/dvp_agreg/schr.pdf
+
+Vous pouvez toujours chercher l'erreur dedans ... elle est subtile. Et elle se retrouve à l'identique dans énormément de recueils de développements pour l'agrégation.
 

@@ -1502,6 +1502,89 @@ Pour une fonction plateau sur \( \Omega\subset \eR^n\), voir le lemme d'Urysohn,
 	Notez que la condition \eqref{EQooQYBGooKyoNHA} n'est pas la convergence absolue de \( \sum_n\alpha_n(x)\) qui aurait été la condition \( \sum_n\| \alpha_n(x) \|_F<\infty\) ni la convergence normale qui aurait été \( \sum_n\| \alpha_n \|<\infty\).
 \end{normaltext}
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooWAUZooRHfGCl}
+	Soit \( \lambda>0\). Si
+	\begin{equation}
+		\sum_{k=0}^{\infty}a_k\| x \|^k<\infty
+	\end{equation}
+	pour tout \( x\in B(0,R)\) alors
+	\begin{equation}
+		\sum_{k=0}^{\infty}a_k\lambda^k\| x \|^k<\infty
+	\end{equation}
+	pour tout \( x\in B(0,R/\lambda)\).
+\end{lemma}
+
+\begin{proof}
+	Simple calcul. Si \( x\in B(0,R/\lambda)\) alors \( \lambda x\in B(0,R)\) et donc
+	\begin{equation}
+		\sum_{k=0}^{\infty}a_k\lambda^k\| x \|^k=\sum_{k=0}^{\infty}a_k\| \lambda x \|^k<\infty.
+	\end{equation}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooKQXDooSGexpm}
+	Soient deux espaces vectoriels de dimension finie \( E\) et \( F\). Sur \( E\) nous posons les normes \( \| . \|_1\) et \( \| . \|_2\) et sur \( F\) nous considérons les normes \( N_1\) et \( N_2\). Si
+	\begin{equation}
+		f \colon (E,\| . \|_1)\to (F,N_1)
+	\end{equation}
+	est analytique sur \( B(x_0,R)\) alors il existe un \( r>0\) tel que
+	\begin{equation}
+		f \colon (E,\| . \|_2)\to (F,N_2)
+	\end{equation}
+	soit analytique sur \( B(x_0,r)\).
+\end{proposition}
+
+\begin{proof}
+	Il suffit de suivre la définition \ref{DEFooAIHMooKbWsBt}. Nous avons
+	\begin{equation}
+		f(x)=\sum_{k=0}^{\infty}\alpha_k(x-x_0)^k
+	\end{equation}
+	avec
+	\begin{equation}
+		\sum_{k=0}^{\infty}\| \alpha_k \|_1\| x-x_0 \|_1^k<\infty
+	\end{equation}
+	pour tout \( x\in B(x_0,R)\).
+
+	Nous nous souvenons du théorème \ref{ThoNormesEquiv} qui dit que toutes les normes sont équivalente : il existe des \( \lambda_i\) et \( \mu_i\) tels que
+	\begin{subequations}
+		\begin{numcases}{}
+			\lambda_1\| x \|_1\leq \| x \|_2\leq \lambda_2\| x_1 \|\\
+			\mu_1N_1(y)\leq N_2(y)\leq \mu_2N_1(y)
+		\end{numcases}
+	\end{subequations}
+	pour tout \( x\in E\) et pour tout \( y\in F\). Nous avons alors
+	\begin{subequations}
+		\begin{align}
+			\| \alpha_k \|_2 & =\sup_{\| x_i \|_2\leq 1}N_2\big( \alpha_k(x_1,\ldots,x_k) \big)                                                \\
+			                 & \leq \sup_{\| x_i \|\leq 1/\lambda_1}\mu_2N_1\big( \alpha_k(x_1,\ldots,x_k) \big)                               \\
+			                 & =\sup_{\| x_i \|\leq 1}\mu_2N_1\Big( \alpha_l(\frac{ x_1 }{ \lambda_1 },\ldots,\frac{ x_k }{ \lambda_1 }) \Big) \\
+			                 & =\frac{ \mu_2 }{ \lambda_1^k }\sup_{\| x_i \|_1=1}N_1\big( \alpha_k(x_1,\ldots,x_k) \big)                       \\
+			                 & =\frac{ \mu_2 }{ \lambda_1^k }\| \alpha_k \|_1.
+		\end{align}
+	\end{subequations}
+	Nous avons alors
+	\begin{subequations}
+		\begin{align}
+			\sum_{k=0}^{\infty}\| \alpha_k \|_2\| x-x_0 \|_2^k & \leq\sum_{k=0}^{^\infty}\frac{ \mu_2 }{ \lambda_1^k }\| \alpha_k \|_1\lambda_2^k\| x-x_0 \|_1^k           \\
+			                                                   & =\mu_2\sum_{k=0}^{\infty}\left( \frac{ \lambda_2 }{ \lambda_1 } \right)^k\| \alpha_k \|_1\| x-x_0 \|_1^k.
+		\end{align}
+	\end{subequations}
+	Le lemme \ref{LEMooWAUZooRHfGCl} dit que la dernière somme est \( <\infty\) dès que \( x\in B(x_0,r)\) avec \( r=\lambda_1 /\lambda_2\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooADXXooXAPCBL}
+	Soient des espaces de Banach \( E_i\) et \( F\). Si l'application \(f \colon E_1\times \ldots \times E_n\to F  \) est analytique et si \( a_i\in E_i\), alors l'application partielle
+	\begin{equation}
+		\begin{aligned}
+			\tilde f\colon E_n & \to F                           \\
+			x                  & \mapsto f(a_1,\ldots,a_{n-1},x)
+		\end{aligned}
+	\end{equation}
+	est analytique.
+	%TODOooKTECooPmvGio. Prouver ça.
+\end{proposition}
+
+
+
 \begin{proposition}[Critère d'Abel\cite{MonCerveau}]	\label{PROPooHCYXooHlUEuV}
 	Soit une série entière \( \sum_{n=0}^{\infty}\alpha_k(x)\) de rayon de convergence \( R\).
 
@@ -1555,10 +1638,9 @@ Pour une fonction plateau sur \( \Omega\subset \eR^n\), voir le lemme d'Urysohn,
 	\end{equation}
 \end{proof}
 
-
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooMGWOooTeCDRk}
-	Toute application linéaire est analytique.
-\end{proposition}
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooZRNAooUrDJOI}
+	Toute application linéaire entre espaces vectoriels de dimensions finies est analytique.
+\end{lemma}
 
 \begin{proof}
 	Si \(f \colon E\to F  \) est linéaire, alors \( f(x)=\sum_{n=0}^{\infty}\alpha_n(x)\) avec \( \alpha_k(x)=0\) pour \( k\neq 1\) et \( \alpha_1(x)=f(x)\).
@@ -1659,6 +1741,27 @@ Pour une fonction plateau sur \( \Omega\subset \eR^n\), voir le lemme d'Urysohn,
 	\end{subproof}
 \end{proof}
 
+
+
+\begin{proposition}[Composition d'applications analytiques\cite{MonCerveau}]	\label{PROPooQGGHooXPBhLT}
+	Si \( E,F,G\) sont des espaces de Banach et si \(f \colon F\to G  \) et \(g \colon E\to F  \) sont analytiques, alors \(f\circ g \colon E \to G  \) est analytique.
+	%TODOooOKJZooERcskS. Prouver ça.
+	% Je suis d'ailleurs un peu étonné qu'il n'y avait pas encore la composition d'applications analytiques n'est pas encore prouvée.
+\end{proposition}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooFEMWooDwAYyO}
+	Soient un espace de Banach \( E\) ainsi que \( a\in E\). L'application
+	\begin{equation}
+		x\mapsto x+a
+	\end{equation}
+	est analytique.
+\end{proposition}
+
+\begin{proof}
+	Nous avons \( f(x)=x+a=a_0+a_1(x)\) en posant \( a_0=a\) et \( a_1(x)=x\). L'application \( a_1\) est \( 1\)-multilinéaire.
+\end{proof}
+
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooVGUFooSmJHhl}
 	Si \(f \colon E\to F  \) est analytique sur \( B(a,r)\), alors
 	\begin{equation}
@@ -1668,31 +1771,13 @@ Pour une fonction plateau sur \( \Omega\subset \eR^n\), voir le lemme d'Urysohn,
 		\end{aligned}
 	\end{equation}
 	est analytique sur \( B(a+h)\)
-	%TODOooPYCBooHIiSEw. Prouver ça.
 \end{lemma}
 
+\begin{proof}
+	C'est la composition de l'application analytique \( f\) avec l'application analytique \( x\mapsto x+h\). Il suffit alors d'appliquer les propositions \ref{PROPooFEMWooDwAYyO} et \ref{PROPooQGGHooXPBhLT}.
+\end{proof}
 
 
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooFEMWooDwAYyO}
-	Soient un espace de Banach \( E\) ainsi que \( a\in E\). L'application
-	\begin{equation}
-		x\mapsto x+a
-	\end{equation}
-	est analytique.
-	%TODOooRXHGooCxoHAr. Prouver ça.
-	% Une bonne question à se poser est de voir combien de temps il y a entre ceci et l'arrivée de TODOooTNQVooMxLtUn dans ma liste.
-\end{proposition}
-
-\begin{proposition}[Composition d'applications analytiques\cite{MonCerveau}]	\label{PROPooQGGHooXPBhLT}
-	Si \( E,F,G\) sont des espaces de Banach et si \(f \colon F\to G  \) et \(g \colon E\to F  \) sont analytiques, alors \(f\circ g \colon E \to G  \) est analytique.
-	%TODOooOKJZooERcskS. Prouver ça.
-	% Je suis d'ailleurs un peu étonné qu'il n'y avait pas encore la composition d'applications analytiques n'est pas encore prouvée.
-\end{proposition}
-
-\begin{lemma}[\cite{MonCerveau}]	\label{LEMooZRNAooUrDJOI}
-	Toute application linéaire entre espaces vectoriels de dimensions finies est analytique.
-	%TODOooFLWIooSiXTym. Prouver ça.
-\end{lemma}
 
 
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooLYIIooNDLRrH}

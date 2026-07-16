@@ -1412,6 +1412,13 @@ Lorsque \( A\) est une matrice, nous notons \( f_A\) l'application linéaire ass
 \end{proposition}
 
 
+
+\begin{proposition} \label{PropEJBZooTNFPRj}
+	Si \( A\) est la matrice d'une application linéaire, alors le rang de cette application linéaire est égal au rang de \( A \), c'est-à-dire à la taille de la plus grande matrice carrée de déterminant non nul contenue dans \( A\).
+	%TODOooBPTCooKkjOVc. Prouver ça.
+\end{proposition}
+
+
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooRYWLooZmsxFS}
 	Soit une matrice \( A\in \eM(n,\eK)\) de rang \( r\). Si nous notons \( v_i\) le vecteur de \( \eK^n\) formé par la \( i\)-ième colonne de \( A\), alors
 	\begin{equation}
@@ -1453,6 +1460,19 @@ Le lemme suivant dit que si une matrice est inversible, à permutation près des
 	\end{equation}
 	Il suffit maintenant de prendre la permutation \( \sigma\) qui permute\( k\) avec \( i_k\).
 \end{proof}
+
+\begin{theorem}[Théorème du rang constant\cite{BIBooPJBIooJEUAiF}]	\label{THOooSEAZooOYSsmP}
+	Soient un ouvert \( U\) de \( \eR^m\) et une application \(f \colon U\to \eR^n  \) de classe \( C^1\). Nous supposons que \(df \colon U\to \aL(\eR^m,\eR^n)  \) est de rang constant \( r\) sur \( U\).
+
+	Alors il existe un ouvert \( V\) de \( \eR^n\) contenant \( f(U)\) et un \( C^1\)-difféomorphisme \(\theta \colon V\to \eR^n  \) tel que
+	\begin{equation}
+		(\theta\circ f)(x_1,\ldots,x_m)=(x_1,\ldots,x_r,0,\ldots,0)
+	\end{equation}
+	pour tout \( x\in U\).
+
+	%TODOooVNZSooTGPjdG. Prouver ça.
+\end{theorem}
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Matrices équivalentes et semblables}
