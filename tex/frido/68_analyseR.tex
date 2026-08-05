@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2006-2025
+% Copyright (c) 2006-2026
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -503,6 +503,15 @@ et
 \end{equation}
 Notez que les dérivées de \( \varphi\) et des composantes de \( g\) sont calculées en \( (x,y)\), tandis que celles de \( f\) sont calculées en \( g(x,y)\).
 
+\begin{lemma}[Ouverture de la condition de rang maximum\cite{BIBChatGPT}]	\label{LEMooRSDHooDpNEjo}
+	Soit une fonction \(f \colon \eR^m\to \eR^n  \) de classe \( C^1\). Nous supposons que \( df_a\) est de rang \( m\). Alors il existe \( r>0\) tel que \( \rank(df_x)=m\) pour tout \( x\in B(a,r)\).
+\end{lemma}
+
+\begin{proof}
+	Le lemme \ref{LEMVecsaRgFixe} dit qu'il existe une base \( \{ e_1,\ldots,e_m \}\) de \( \eR^m\) telle que \( df_a(e_i)\neq 0\) pour tout \( i\). Vu que \( f\) est de classe \( C^1\), les fonctions \( x\mapsto df_x(e_i)\) sont continues. Donc on a un \( r>0\) tel que \( df_x(e_i)\neq 0\) pour tout \( x\in B(a,r)\). Pour chacun de ces \( x\), l'application \( df_x\) est de rang \( m\).
+\end{proof}
+
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Différentielle et dérivée complexe}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -511,6 +520,8 @@ Notez que les dérivées de \( \varphi\) et des composantes de \( g\) sont calcu
 \begin{normaltext}
 	Nous commençons par donner quelques éléments à propos de dérivée et de différentielle pour des fonctions \( \eC\to \eC\) parce que les séries entières vont souvent être des fonctions complexes. Le gros du chapitre sur les fonctions holomorphes est le chapitre~\ref{ChapICHIooXbLccl}.
 \end{normaltext}
+
+Une avalanche de conditions équivalentes à l'holomorphie sera donnée dans le théorème \ref{THOooOGOCooUalFaG}.
 
 Nous identifions \( \eR^2\) à \( \eC\) par l'application
 \begin{equation}
@@ -521,6 +532,27 @@ Nous identifions \( \eR^2\) à \( \eC\) par l'application
 \end{equation}
 Dans cette partie, nous désignons par \( \Omega\) un ouvert de \( \eC\).
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooLFNVooUOCGMF}
+	Si \(f \colon \eC\to \eC  \) est continue en \( 0\), alors
+	\begin{equation}
+		\lim_{z\to 0}f(z)=\lim_{z\to 0}f(\bar z).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	L'application de conjugaison complexe \(c \colon \eC\to \eC  \) est continue\footnote{Lemme \ref{LEMooSYTWooMDzrnX}.}. La continuité de \( f\) en \( 0\) donne l'existence de la limite que nous notons \( \lim_{z\to 0}f(z)=L\). Nous utilisons la caractérisation séquentielle de la continuité de \( f\) est \( 0\) (proposition \ref{PropXIAQSXr}). Pour toute suite \( (z_n)_{n\in \eN}\) telle que \( z_n\to 0\) nous avons \( \lim_{n\to \infty}f(z_n)=L\). En particulier nous avons \( c(z_n)\to 0\) et donc
+	\begin{equation}
+		\lim_{n\to \infty}f\big( c(z_n) \big)=0,
+	\end{equation}
+	c'est à dire \( \lim_{n\to \infty}(f\circ c)(z_n)=L\). Et vu que cette égalité est vraie pour toute suite \( z_n\to 0\), nous en déduisons
+	\begin{equation}
+		\lim_{z\to 0}(f\circ c)(z)=L.
+	\end{equation}
+\end{proof}
+
+
+
+
 \begin{definition}      \label{DEFooVJVXooKlnFkh}
 	Une fonction \( f\colon \Omega\to \eC\) est \defe{\( \eC\)-dérivable}{dérivable!au sens complexe} si la limite
 	\begin{equation}
@@ -529,11 +561,26 @@ Dans cette partie, nous désignons par \( \Omega\) un ouvert de \( \eC\).
 	existe. Dans ce cas, cette limite est la dérivée de \( f\) et est notée \( f'\).
 \end{definition}
 
-\begin{definition}  \label{DefMMpjJZ}
-	Soit \( \Omega\) un ouvert dans \( \eC\). Une fonction \( f\colon \Omega\to \eC\) est \defe{holomorphe}{holomorphe}\index{fonction!holomorphe} si elle est \( \eC\)-dérivable sur \( \Omega\).
+\begin{definition}[Fonction holomorphe]  \label{DefMMpjJZ}
+	En deux parties.
+	\begin{enumerate}
+		\item
+		      Une application \(f \colon \eC^n\to \eC  \) est \defe{holomorphe}{holomorphe} sur \( \Omega\) si \( df_z\) existe et est \( \eC\)-linéaire, c'est à dire si
+		      \begin{equation}
+			      df_z(ih)=idf_z(h).
+		      \end{equation}
+		\item
+		      Une application \(f \colon \eC^n\to \eC^n  \) est \defe{holomorphe}{holomorphe} si chacune de ses composantes est holomorphe.
+	\end{enumerate}
 \end{definition}
 
-Une avalanche de conditions équivalentes à l'holomorphie est donnée dans le théorème \ref{THOooOGOCooUalFaG}.
+
+\begin{proposition}	\label{PROPooBXIWooUvIJMW}
+	Soit \( \Omega\) un ouvert dans \( \eC\). Une fonction \( f\colon \Omega\to \eC\) est holomorphe\footnote{Définition \ref{DefMMpjJZ}.} si et seulement si elle est \( \eC\)-dérivable sur \( \Omega\).
+	%TODOooHAVRooGymwqI. Prouver ça.
+\end{proposition}
+
+
 
 \begin{definition}      \label{DEFooQSMCooOoWVZk}
 	Si \( K\) est un compact de \( \eC\), nous disons qu'une fonction est \defe{holomorphe}{holomorphe!sur un compact} sur \( K\) si il existe un ouvert contenant \( K\) sur lequel \( f\) est holomorphe.
@@ -647,8 +694,9 @@ La proposition suivante donne le lien entre \( df\) et la dérivée complexe \( 
 
 	Dans ce cas, le lien entre \( \eC\)-dérivée et différentielle est donné par
 	\begin{equation}        \label{EqPAEFooYNhYpz}
-		(df_{z_0})(z)=f'(z_0)z.
+		(df_{z_0})(z)=f'(z_0)z
 	\end{equation}
+	où \( f'\) est la dérivée complexe de \( f\).
 \end{proposition}
 
 \begin{proof}
@@ -726,6 +774,48 @@ La proposition suivante donne le lien entre \( df\) et la dérivée complexe \( 
 	\end{equation}
 \end{proof}
 
+Nous venons de voir dans \eqref{EqPAEFooYNhYpz} que si \( f'\) est la dérivée complexe de la fonction holomorphe \( f\), alors \( df_{z_0}\) est l'opérateur de multiplication par \( f'(z_0)\). Nous allons un peu approfondir ce lien pour lier la dérivée complexe et la dérivée usuelle.
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooKJOEooLRUzSA}
+	Si \(f \colon \eR\to \eC  \) est différentiable, alors \( df_{t_0}\) est l'opérateur de multiplication par \( f'(t_0)\) où \( f'\) est la dérivée usuelle.
+\end{lemma}
+
+\begin{proof}
+	Nous écrivons \( f(t)=u(t)+iv(t)\) pour les fonctions réelles \( u\) et \( v\). Par linéarité,
+	\begin{equation}
+		df_{t_0}(t)=du_{t_0}(t)+idv_{t_0}(t).
+	\end{equation}
+	Le lemme \ref{LEMooXZGQooYxDRRU} dit que \( du_{t_0}\) est l'opérateur de multiplication par \( u'(t_0)\). Donc
+	\begin{equation}
+		df_{t_0}(t)=\big( u'(t_0)+iv'(t_0) \big)t=f'(t_0)t.
+	\end{equation}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooBLGMooYeZZYJ}
+	Soient une application holomorphe \(f \colon \eC\to \eC  \) ainsi qu'un chemin \( C^1\) \(\gamma \colon \mathopen[ a,b\mathclose]\to \eC  \). Alors
+	\begin{equation}
+		(f\circ\gamma)'(t)=(f'\circ\gamma)(t)\gamma'(t)
+	\end{equation}
+	où \( f'\) est la dérivée complexe et les autres dérivées sont les dérivées usuelles.
+\end{proposition}
+
+\begin{proof}
+	Nous passons par la différentielle parce que la différentielle est l'opérateur de multiplication par la dérivée autant dans le cas «usuel» (lemme \ref{LEMooKJOEooLRUzSA}) que dans le cas complexe (équation \ref{EqPAEFooYNhYpz}). Nous avons
+	\begin{subequations}
+		\begin{align}
+			d(f\circ\gamma)_{t_0}(t) & =df_{\gamma(t_0)}(d\gamma)_{t_0}(t)                                  \\
+			                         & =f'\big( \gamma(t_0) \big)\gamma'(t_0)t.	\label{SUBEQooPWRLooOgzBMt}
+		\end{align}
+	\end{subequations}
+	Notez que pour \eqref{SUBEQooPWRLooOgzBMt} nous avons utilisé \ref{LEMooKJOEooLRUzSA} et \ref{EqPAEFooYNhYpz}.
+
+	Et comme \( d(f\circ\gamma)_{t_0}\) est l'opérateur de multiplication par \( (f\circ\gamma)'(t_0)\), nous en déduisons que
+	\begin{equation}
+		(f\circ\gamma)'(t_0)=f'\big( \gamma(t_0) \big)\gamma'(t_0)=(f'\circ\gamma)(t_0)\gamma'(t_0).
+	\end{equation}
+\end{proof}
+
+
 \begin{example}[Une application \( C^{\infty}\) mais pas \( \eC\)-dérivable]
 	Nous considérons la fonction
 	\begin{equation}
@@ -734,7 +824,7 @@ La proposition suivante donne le lien entre \( df\) et la dérivée complexe \( 
 			x+iy        & \mapsto x.
 		\end{aligned}
 	\end{equation}
-	Vu que c'est une application linéaire, elle est différentiable une infinité de fois et sa différentielle est elle-même. C'est donc une application \( C^{\infty}\).
+	Vu que c'est une application linéaire, elle est différentiable une infinité de fois et sa différentielle est elle-même\footnote{Lemme \ref{LEMooZSNMooCfjzOB}.}. C'est donc une application \( C^{\infty}\).
 
 	Elle n'est cependant pas \( \eC\)-dérivable. En effet le quotient différentiel est, pour \( \epsilon\in \eC\) :
 	\begin{equation}
@@ -762,6 +852,7 @@ Nous avons déjà démontré (lemme~\ref{LemdfaSurLesPartielles}) que si \( f\) 
 	\begin{equation}
 		\|f(b)-f(a)\|_n\leq \sup_{x\in[a,b]}\|df_x\|_{\aL(\eR^m,\eR^n)}\|b-a\|_m.
 	\end{equation}
+	%TODOooPPUSooVCscYV. Énoncer et prouver dans le cadre d'un espace vectoriel normé de dimension finie général.
 \end{theorem}
 \index{application!différentiable}
 \index{inégalité!de la moyenne}
@@ -780,11 +871,11 @@ La proposition suivante est une application fondamentale du théorème des accro
 	Soit \( U\) un ouvert connexe par arcs de \( \eR^m\) et une fonction \( f\colon U\to \eR^n\). Les conditions suivantes sont équivalentes :
 	\begin{enumerate}
 		\item\label{ItemPropCstDiffZeroi}
-		\( f\) est constante;
+		      \( f\) est constante;
 		\item\label{ItemPropCstDiffZeroii}
-		\( f\) est différentiable et \( df(a)=0\) pour tout \( a\in U\);
+		      \( f\) est différentiable et \( df(a)=0\) pour tout \( a\in U\);
 		\item\label{ItemPropCstDiffZeroiii}
-		les dérivées partielles \( \partial_1f,\ldots,\partial_mf\) existent et sont nulles sur \( U\).
+		      les dérivées partielles \( \partial_1f,\ldots,\partial_mf\) existent et sont nulles sur \( U\).
 	\end{enumerate}
 \end{proposition}
 \index{connexité!par arc!fonction différentiable}
@@ -1733,8 +1824,59 @@ Enfin pour celles qui aiment les notations matricielles de tout poil, il y a cet
 	\end{pmatrix}.
 \end{equation}
 
-%---------------------------------------------------------------------------------------------------------------------------
+
+%-------------------------------------------------------
 \subsection{Ordre supérieur}
+%----------------------------------------------------
+
+Les notions de classe \( C^k\) et \( C^{\infty}\) sont dans la définition \ref{DefPNjMGqy}.
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooXKBPooMsDLuq}
+	Toute application linéaire est de classe \( C^{\infty}\).
+	%TODOooZXSWooLmwyvh. Prouver ça.
+\end{lemma}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooJAUVooBhhDkD}
+	Si \( f\) et \( g\) sont des fonctions de classe \( C^{k}\), alors \( f+g\) et \( fg\) sont de classe \( C^k\).
+	%TODOooIGDNooBGMoLY. Prouver ça.
+\end{proposition}
+
+
+\begin{proposition}		\label{PROPooMGFBooHWGXyC}
+	Tout polynôme \(P \colon \eR^n\to \eR^m  \) est de classe
+	\( C^{\infty}\).
+\end{proposition}
+
+\begin{proof}
+	Nous posons \( e_n(x)=x^n\), et nous prouvons par récurrence que \( e_n\) est de classe \( C^{\infty}\). D'abord \( e_0\) est une fonction constante et donc est \( C^{\infty}\) lemme \ref{LEMooXKBPooMsDLuq}.
+
+	Ensuite si \( e_n\) est de classe \( C^{\infty}\), alors le lemme \ref{LEMooZQIAooVbgFKo} donne \( e_{n+1}(x)=xe_n(x)\) est \( C^{\infty}\) parce qu'il s'agit du produit de \( e_n\) par \( x\mapsto 0\) et que le produit conserve le caractère \( C^{\infty}\) par la proposition \ref{PROPooJAUVooBhhDkD}.
+\end{proof}
+
+
+\begin{proposition}[Exemple en dimension infinie\cite{MonCerveau}]        \label{PROPooZCUSooLUUrxi}
+	L'endomorphisme de dérivation sur l'espace des fonctions\footnote{Les classes \( C^k\), définition \ref{DefPNjMGqy}.} \( C^{\infty}(\eR,\eR)\) n'a pas de polynôme minimal.
+\end{proposition}
+
+\begin{proof}
+	Nous considérons l'opérateur de dérivation \(\mD \colon C^{\infty}(\eR,\eR)\to C^{\infty(\eR,\eR)}  \). Comme demandé dans la définition \ref{DefCVMooFGSAgL} nous considérons la partie
+	\begin{equation}
+		I_{\mD}=\{ P\in \eR[X]\tq P(\mD)=0 \}.
+	\end{equation}
+	Nous montrons que \( I_{\mD}=\{ 0 \}\). Soit \( P=\sum_{k=0}^{n}a_kX^k\in \eR[X]\). Nous considérons \( f(x)=x^{n+1}\) qui est de classe \( C^{\infty}\) parce que c'est ce que dit la proposition \ref{PROPooMGFBooHWGXyC}. Nous considérons aussi le plus petit \( k\) pour lequel \( a_k\neq 0\). Le lemme \ref{LEMooZQIAooVbgFKo}\ref{ITEMooQKYJooKqZhRS} donne
+	\begin{equation}
+		(a_k\mD^k)(f)(x)=a_k\frac{ n! }{ (n-k)! }x^{n-k}.
+	\end{equation}
+	Tous les autres termes de \( P(\mD)f\) sont de degrés plus petits. Donc \( P(\mD)f\) est un polynôme non nul.
+
+	Tout ça pour dire que \( I_{\mD}=\{ 0 \}\) et que donc \( \mD\) n'a pas de polynôme minimal.
+\end{proof}
+
+
+
+
+%---------------------------------------------------------------------------------------------------------------------------
+\subsection{Différentielle et dérivées partielles multiples}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Intuitivement, une fonction est de classe \( C^p\) si elle est \( p\) fois continûment différentiable. Cela est la définition \ref{DefPNjMGqy}.

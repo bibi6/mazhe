@@ -7,29 +7,26 @@ set -ue
 MAIN_DIR=$(pwd)
 VENV_DIR="$MAIN_DIR/venv"
 BIN_DIR="$VENV_DIR/bin"
-PYTHON_VERSION=3.10.12
+PYTHON_VERSION=3.13.1
 
 # Adapter à votre situation.
 pyenv_dir=$MAIN_DIR/pyenv
 PYTHON3="$pyenv_dir/versions/$PYTHON_VERSION/bin/python3"
 PYENV_ROOT=$pyenv_dir
 
-function install_pyenv()
+function clone_pyenv()
 {
-  git clone https://github.com/pyenv/pyenv.git $pyenv_dir
+  if [ ! -d "$pyenv_dir" ]; then
+    git clone https://github.com/pyenv/pyenv.git $pyenv_dir
+  fi
+}
+
+function compile_python()
+{
   echo $PYENV_ROOT
   cd pyenv/bin
-  PYENV_ROOT=$pyenv_dir ./pyenv install -s -v 3.10.12
+  PYENV_ROOT=$pyenv_dir ./pyenv install -s -v $PYTHON_VERSION
 }
-
-function install_pyenv()
-{
-    # Ceci est encore bogué parce que ça installe dans ~/.pyenv/versions
-    git clone https://github.com/pyenv/pyenv.git ./pyenv
-    cd pyenv/bin
-    ./pyenv install -v 3.10.12
-}
-
 
 function install_pytex()
 {
@@ -57,7 +54,8 @@ function pip_requirements()
 }
 
 
-install_pyenv
+clone_pyenv
+compile_python
 install_pytex
 create_venv
 pip_requirements

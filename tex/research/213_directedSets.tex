@@ -1,5 +1,5 @@
 % This is part of Giulietta
-% Copyright (c) 2016, 2018, 2021-2022
+% Copyright (c) 2016, 2018, 2021-2022, 2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -386,7 +386,7 @@ The link between measure and functional is given by the Riesz-Markov representat
 	\begin{equation}
 		C_f(x)=\{ g(x)\tq g\in C_f \}.
 	\end{equation}
-	This is a bounded set in \( \eC\) because each element is bounded by \( \| f \|\). The closure \( \overline{ C_f(x) }\) is then compact in \( \eC\). The function \( f\) being continuous, it is uniformly continuous on \( \overline{ C_f(x) }\) (proposition \ref{PROPooSHBAooVRdAFM}.). Let \( \epsilon>0\) and an open neighbourhood \( V\) of \( e\) as in the definition of uniform continuity. If \( x,y\in V\) we have
+	This is a bounded set in \( \eC\) because each element is bounded by \( \| f \|\). The closure \( \overline{ C_f(x) }\) is then compact in \( \eC\). The function \( f\) being continuous, it is uniformly continuous on \( \overline{ C_f(x) }\) (proposition \ref{PROPooBWUFooYhMlDp}.). Let \( \epsilon>0\) and an open neighbourhood \( V\) of \( e\) as in the definition of uniform continuity. If \( x,y\in V\) we have
 	\begin{equation}
 		| (L_sf)(x)-(L_sf)(y) |=| f(s^{-1}x)-f(s^{-1} y) |<\epsilon
 	\end{equation}
@@ -666,9 +666,8 @@ The link between measure and functional is given by the Riesz-Markov representat
 \subsection{Riesz-Markov representation theorem}
 %---------------------------------------------------------------------------------------------------------------------------
 
-%TODOooBQYGooFNefUp Revoir la partie unicité. À mon avis c'est possible que la tribu soit également unique.
-\begin{theorem}[Riesz-Markov representation theorem\cite{BIBooMGTQooQQVmPG,BIBooWEPLooDsLEvu,BIBooLREGooRSBfsj, MonCerveau}]      \label{THOooTWZWooHqGDAx}
-	Let \( X\) be a Hausdorff locally compact space. Let \( m\) be a positive linear form on \( C^0_c(X, \eR)\). There exists a unique measured\quext{I'm not completely sure about the unicity of the \( \sigma\)-algebra. At least if \( (\tribA_1,\mu_1)\) and \( (\tribA_2,\mu_2)\) satisfy the requirements, we have \( \mu_1=\mu_2\) on \( \tribA_1\cap\tribA_2\). Please, contact me if you have an opinion.} space \( (X,\tribA, \mu)\)  containing the Borel sets such that
+\begin{theorem}[Riesz-Markov representation theorem\cite{BIBooMGTQooQQVmPG,BIBooWEPLooDsLEvu,BIBooLREGooRSBfsj, BIBooBNSSooJVSjFi, MonCerveau}]      \label{THOooTWZWooHqGDAx}
+	Let \( X\) be a Hausdorff locally compact space. Let \( m\) be a positive linear form on \( C^0_c(X, \eR)\). There exists a unique measured space \( (X,\tribA, \mu)\)  containing the Borel sets such that
 	\begin{enumerate}
 		\item       \label{ITEMooAKLQooWLetDk}
 		      The integral build on \( \mu\) satisfies
@@ -691,6 +690,7 @@ The link between measure and functional is given by the Riesz-Markov representat
 		\item       \label{ITEMooLOQQooFcHyaM}
 		      The measured space \( (X,\tribA,\mu)\) is complete\footnote{Definition \ref{DefBWAoomQZcI}.}
 	\end{enumerate}
+	The unicity part is in the following sense : if \( (X,\tribA, \mu_1)\) and \( (X,\tribA,\mu_2)\) satisfy the conditions, then \( \mu_1=\mu_2\) on \( \tribA\).
 \end{theorem}
 
 \begin{proof}
@@ -701,7 +701,6 @@ The link between measure and functional is given by the Riesz-Markov representat
 	Let \( \tribA\) be a \( \sigma\)-algebra containing the Borel set and let \( \mu_1\), \( \mu_2\) be measures on \( (X,\tribA)\) satisfying the conditions.
 	\begin{subproof}
 		\spitem[Unicity on compacts parts]
-
 		Let \( K\) be compact in \( X\). Since it is closed, it is a Borel set and \( K\in \tribA\). Let \( \epsilon>0\). By \ref{ITEMooFLYHooTNUENu} and \ref{ITEMooKDTLooJuUTaW} there exists an open set \( V\) such that \( \mu_1(V)<\mu_1(K)+\epsilon\). From Urysohn's lemma \ref{LEMooECTNooKagaRU}, there exists a map \( f\in C^0_c(X,\eR)\) such that \( f(K)=\{ 1 \}\) and \( f(x)=0\) when \( x\notin V\). We have
 		\begin{subequations}
 			\begin{align}
@@ -805,7 +804,7 @@ The link between measure and functional is given by the Riesz-Markov representat
 		\spitem[If \( K\) is compact, \( \mu^+(K)<\infty\)]       \label{ITEMooQVOGooQvTTzw}
 		%----------------------------------------------------
 
-		From lemma \ref{LEMooAXESooYvyesg}, we consider an open set \( V\) such that \( K\subset V\) and \( \bar V\) is compact. Urysohn's lemma provides a function \( g\) such that \( \bar V\prec g\). If \( f\in C^0_c(X,\eR)\) satisfies \( f\prec V\), we have \( f\leq g\). Indeed if \( x\in\bar V\), \( g(x)=1\geq f(x)\) and if \( x\notin \bar V\), then \( f(x)=0\leq g(x)\).
+		From lemma \ref{LEMooKYMKooPxZjWN}, we consider an open set \( V\) such that \( K\subset V\) and \( \bar V\) is compact. Urysohn's lemma provides a function \( g\) such that \( \bar V\prec g\). If \( f\in C^0_c(X,\eR)\) satisfies \( f\prec V\), we have \( f\leq g\). Indeed if \( x\in\bar V\), \( g(x)=1\geq f(x)\) and if \( x\notin \bar V\), then \( f(x)=0\leq g(x)\).
 
 		We have
 		\begin{equation}
@@ -932,24 +931,31 @@ The link between measure and functional is given by the Riesz-Markov representat
 		% -----------------------------------------------------------------------------------------
 
 		\spitem[\( \mu^+(V_1\cup V_2)\leq \mu^+(V_1)+\mu^+(V_2)\)]        \label{ITEMooLPYWooONCYTi}
-		Let \( V_1\) and \( V_2\) be open sets in \( X\). Since \( V_1\cup V_2\) is open, using point \ref{ITEMooBRBTooAJBxGO} we have
+		Let \( V_1\) and \( V_2\) be open sets in \( X\). We consider \( V=V_1\cup V_2\) as topological vector space with the induced topology. Since \( V_1\cup V_2\) is open in \( X\), the induced topology makes no difficulties: the open parts of \( V_1\cup V_2\) are the same as the open parts of \( X\).
+
+		Since \(V= V_1\cup V_2\) is open, using point \ref{ITEMooBRBTooAJBxGO} we have
 		\begin{equation}
 			\mu^+(V_1\cup V_2)=\mu^o(V_1\cup V_2)=\sup\{ m(f):f\prec (V_1\cup V_2) \}.
 		\end{equation}
-		Let \( \epsilon>0\). There exists \( g\in C^0_C(X)\) such that \( g\prec V_1\cup V_2\) and
+		Let \( \epsilon>0\). Urysohn theorem \ref{THOooKYYEooLFcNpg} provides a function \( g\in C^0_c(X)\) such that \( g\prec V_1\cup V_2\) and
 		\begin{equation}        \label{LEMooFYAAooDaOYUy}
 			\mu^o(V_1\cup V_2)-\epsilon\leq m(g).
 		\end{equation}
-		Let \( K=\supp(g)\); we have \( K\subset V_1\cup V_2\).
-
-		We consider \( V_1\cup V_2\) as topological vector space with the induced topology. Since \( V_1\cup V_2\) is open in \( X\), the induced topology makes no difficulties: the open parts of \( V_1\cup V_2\) are the same as the open parts of \( X\). The sets \( V_1\) and \( V_2\) themselve form an open covering of \( V_1\cup V_2\). We use a \( C_c^0(V_1\cup V_2)\)-partition of unity\footnote{Theorem \ref{THOooUGQCooFVySMP} and lemma \ref{LEMooDZGCooIGFXnA}.}, i.e. functions \( \phi_i\colon V_1\cup V_2\to \mathopen[ 0 , 1 \mathclose]\) such that \( \phi_i\in C^0_c(V_1\cup V_2)\) and \( \supp(\phi_i)\subset V_i\).
-
+		Let \( K=\supp(g)\); we have \( K\subset V_1\cup V_2\), and we are in the position of proposition \ref{PROPooWWBLooJAUjnw}. Let \(\phi_1,\phi_2 \colon V_1\cup V_2\to \eR  \) be such that
+		\begin{enumerate}
+			\item
+			      \( \phi_1(x)+\phi_2(x)=1\) for every \( x\in K\),
+			\item
+			      \( h_i(K)\subset\mathopen[ 0,1\mathclose]\),
+			\item
+			      \( \supp(h_i)\subset V_1\).
+		\end{enumerate}
 		We consider the extensions
 		\begin{equation}
 			\begin{aligned}
 				h_i\colon X & \to \mathopen[ 0 , 1 \mathclose]        \\
 				x           & \mapsto \begin{cases}
-					                      \phi_i(x) & \text{is } x\in V_i \\
+					                      \phi_i(x) & \text{if } x\in V_i \\
 					                      0         & \text{otherwise. }
 				                      \end{cases}
 			\end{aligned}
@@ -961,7 +967,7 @@ The link between measure and functional is given by the Riesz-Markov representat
 			\item
 			      \( h_i\prec V_i\)
 			\item
-			      \( h_1+h_2=1\) on \( V_1\cup V_2\) and, in particular, on \( K\).
+			      \( h_1+h_2=1\) on \( K\)
 			\item
 			      \( h_ig\prec V_i\) because \( \supp(h_i)\subset V_i\)
 			\item
@@ -1594,4 +1600,3 @@ The link between measure and functional is given by the Riesz-Markov representat
 		\end{align}
 	\end{subequations}
 \end{proof}
-%TODOooDHLJooNhrjGq. Quand c'est fait, répondre à https://math.stackexchange.com/questions/3288683/unitary-representation-of-compact-lie-groups

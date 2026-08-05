@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2016,2018-2020, 2022-2023
+% Copyright (c) 2011-2016,2018-2020, 2022-2023, 2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -8,7 +8,7 @@
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{lemma}[\cite{MonCerveau}]       \label{LEMooTUQIooEyTLBa}
-	Soient un espace topologique \( X\) et un ouvert \( V\subset X\). Nous considérons une fonction \( \phi\in C^0_c(V,\eC)\). Alors l'extension
+	Soient un espace topologique séparé \( X\) et un ouvert \( V\subset X\). Nous considérons une fonction\footnote{Pour rappel, dans \( C^0_c\), le \( 0\) signifie «continue» et le \( c\) signifie «à support compact». Donc ici, \( \phi\) est à support compact dans \( V\).} \( \phi\in C^0_c(V,\eC)\). Alors l'extension
 	\begin{equation}
 		\begin{aligned}
 			h\colon X & \to\eC                              \\
@@ -20,6 +20,14 @@
 	\end{equation}
 	est continue sur \( X\).
 \end{lemma}
+
+\begin{proof}
+	La proposition \ref{PROPooOVKEooCkJmmO} dit qu'il est suffisant de montrer que \( h\) est continue en tout point. Si \( a\in V\), alors il existe un voisinage de \( a\) contenu dans \( V\) (parce que \( V\) est ouvert). Sur ce voisinage, \( h=\phi\) est continue, et donc \( h\) est continue en \( a\).
+
+	Supposons maintenant que \( a\not\in V\). Pour chaque \( x\in\supp(\phi)\), nous considérons deux ouverts disjoints \( A_x\) et \( B_x\) tels que \( x\in A_x\) et \( a\in B_x\) et tels que \( A_x\subset V\). Étant donné que \( \{ A_x \}_{x\in \supp(\phi)} \) recouvre le compact \( \supp(\phi)\), nous pouvons considérer un sous-ensemble fini \( I\subset\supp(\phi)\) tel que \( A=\bigcup_{i\in I}A_i\) recouvre \( \supp(\phi)\).
+
+	Nous posons alors \( B=\bigcap_{i\in I}B_i\). En tant que intersection finie d'ouverts, \( B\) est un ouvert qui contient \( a\). Nous avons \( A\cap B=\emptyset\). Donc \( h=0\) sur \( A\). Vu que \( h\) est identiquement nulle sur un voisinage de \( a\), l'application \( h\) est continue en \( a\).
+\end{proof}
 
 \begin{lemma}   \label{LemdCOMQM}
 	Soit \( E\), un espace vectoriel normé complet et \( (A_n)\) une suite emboîtée de fermés non vides dont le diamètre tend vers zéro. Alors l'intersection \( \bigcap_{n\in \eN}A_n\) contient exactement un point.
@@ -33,17 +41,6 @@
 	Nous devons montrer que \( x\in A_k\) pour tout \( k\). La queue de suite \( (x_n)_{n\geq k}\) est une suite de Cauchy dans \( A_k\) qui converge donc vers un élément de \( A_k\) (ici nous utilisons le fait que \( A_k\) est fermé). Par unicité de la limite, cette dernière doit être \( x\). Par conséquent \( x\in\bigcap_{n\in \eN}A_n\).
 \end{proof}
 
-\begin{theorem}[\cite{MaurayAnalSpec}]      \label{ThoCaMpKO}
-	Soient \( X\) et \( Y\) des espaces vectoriels normés. Pour une application linéaire \( f\colon X\to Y\), les assertions suivantes sont équivalentes :
-	\begin{enumerate}
-		\item
-		      \( f\) est continue sur \( X\),
-		\item
-		      \( f\) est continue en un point de \( X\),
-		\item
-		      \( f\) est bornée.
-	\end{enumerate}
-\end{theorem}
 
 \begin{proposition}[\cite{RasclAnaFonc}] \label{PropTTiRgAq}
 	Soit un espace normé \( X\), un espace de Banach \( F\) et une partie dense \( A\) de \( X\). Si l'application linéaire

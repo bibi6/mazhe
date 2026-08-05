@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2025
+% Copyright (c) 2011-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -166,19 +166,6 @@ L'ordre d'un groupe et l'ordre d'un élément d'un groupe sont deux choses diff�
 	\end{equation}
 \end{definition}
 
-\begin{definition}[normalisateur\cite{Kropholler}]          \label{DEFooZTSMooBislIy}
-	Soient un groupe \( G\) et un sous-groupe \( H\). Le \defe{normalisateur}{normalisateur} de \( H\) dans \( G\) est
-	\begin{equation}
-		\mN_G(H)=\{ g\in G\tq gH=Hg \}.
-	\end{equation}
-\end{definition}
-
-\begin{definition}[Sous-groupe normal]                      \label{DEFooNIIMooFkZgvX}
-	Un sous-groupe \( N\) de \( G\) est \defe{normal}{normal!sous-groupe} ou \defe{distingué}{sous-groupe distingué}\index{distingué!sous-groupe} si pour tout \( g\in G\) et pour tout \( n\in N\), \( gng^{-1}\in N\). Autrement dit lorsque \( gNg^{-1}\subset N\).
-
-	Lorsque \( N\) est normal dans \( G\) il est parfois noté \( N\normal G\)\nomenclature[R]{\(N \normal G\)}{Le sous-groupe \( N\) est normal dans \( G\)}.
-\end{definition}
-
 \begin{definition}      \label{DEFooUXXTooCCLmQe}
 	Un sous-groupe \( H\) de \( G\) est un sous-groupe \defe{caractéristique}{sous-groupe!caractéristique}\index{caractéristique!sous-groupe} si \( \alpha(H)\subset H\) pour tout automorphisme\footnote{Automorphisme de groupe, définition \ref{DEFooBEHTooMeCOTX}.} \( \alpha\) de \( G\).
 \end{definition}
@@ -196,9 +183,222 @@ L'ordre d'un groupe et l'ordre d'un élément d'un groupe sont deux choses diff�
 	\end{equation}
 \end{proof}
 
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Sous-groupe normal}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+\begin{definition}[Sous-groupe normal]                      \label{DEFooNIIMooFkZgvX}
+	Un sous-groupe \( N\) de \( G\) est \defe{normal}{normal!sous-groupe} ou \defe{distingué}{sous-groupe distingué}\index{distingué!sous-groupe} si pour tout \( g\in G\) et pour tout \( n\in N\), \( gng^{-1}\in N\). Autrement dit lorsque \( gNg^{-1}\subset N\).
+
+	Lorsque \( N\) est normal dans \( G\) il est parfois noté \( N\normal G\)\nomenclature[R]{\(N \normal G\)}{Le sous-groupe \( N\) est normal dans \( G\)}.
+\end{definition}
+
+\begin{propositionDef}[normalisateur\cite{Kropholler}]          \label{DEFooZTSMooBislIy}
+	Soient un groupe \( G\) et un sous-groupe \( H\). Le \defe{normalisateur}{normalisateur} de \( H\) dans \( G\) est
+	\begin{equation}
+		\mN_G(H)=\{ g\in G\tq gH=Hg \}.
+	\end{equation}
+	Le groupe \( H\) est normal dans \( \mN_G(H)\).
+\end{propositionDef}
+
+\begin{proof}
+	Soit \( g\in\mN_G(H)\) et \( h\in H\). Nous devons prouver que \( ghg^{-1}\in H\). Pour cela nous savons que \( gH=Hg\), donc il existe \( h'\in H\) tel que \( gh=h'g\). Nous avons alors
+	\begin{equation}
+		ghg^{-1}=h'gg^{-1}=h'\in H.
+	\end{equation}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooZJAQooARqTCG}
+	Si \( N\) est normal dans \( G\) et si \( N\neq G\) alors \( | G/N |\geq 2\).
+\end{lemma}
+
+\begin{proof}
+	Si \( g\in G\setminus N\), alors \( [g]_N\neq [e]_N\). Ce sont deux éléments différents de \( G/N\).
+\end{proof}
+
+
+\begin{normaltext}		\label{NORMooRIGBooJYzkza}
+	Si \( G\) est un groupe, et si \( H\) est un sous-groupe, nous notons \( \Sub(G)\) l'ensemble des sous-groupes de \( G\) et \( \Sub(G,H)\) l'ensemble des sous-groupes de \( G\) contenant \( H\).
+\end{normaltext}
+
+\begin{theorem}[Théorème de correspondance\cite{BIBooTXKYooAELPZR}]	\label{THOooWONFooXDjtFX}
+	Soient un groupe \( G\) et un sous-groupe normal \( N\). Nous ordonnons \( \Sub(G,N)\) et \( \Sub(G/N)\) par inclusion.
+	\begin{enumerate}
+		\item		\label{ITEMooSEWOooKwWYuS}
+		      Si \( K\in \Sub(G,N)\) alors \( K/N\in\Sub(G/N)\)
+		\item		\label{ITEMooCNVGooULzKvW}
+		      L'application
+		      \begin{equation}
+			      \begin{aligned}
+				      f\colon \Sub(G,N) & \to \Sub(G/N) \\
+				      K                 & \mapsto K/N
+			      \end{aligned}
+		      \end{equation}
+		      est un isomorphisme d'ensembles ordonnés\footnote{Définition \ref{DEFooQEIAooGzzdiu} :  bijection, croissante, d'inverse croissante.}
+		\item		\label{ITEMooGKTZooSglRTh}
+		      Si \( K,L\in\Sub(G,N)\) et si \( K\leq L\) alors \( K\) est normal dans \( L\) si et seulement si \( f(K) \) est normal dans \( f(L)\).
+	\end{enumerate}
+	\index{théorème de correspondance}
+\end{theorem}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooSEWOooKwWYuS}]
+		%-----------------------------------------------------------
+		Soit \( K\in \Sub(G,N)\); nous devons montrer que \( K/N\) est un sous-groupe de \( G/N\). En effet soient \( k,k'\in K\). Nous avons
+		\begin{equation}
+			[k]_N[k']_N=[kk']_N\in K/N.
+		\end{equation}
+		\spitem[Pour \ref{ITEMooCNVGooULzKvW}]
+		%-----------------------------------------------------------
+		D'abord notons que \( f\) prend bien ses valeurs dans \( \Sub(G/N)\) par le point \ref{ITEMooSEWOooKwWYuS}. Ensuite nous travaillons un peu. Nous considérons la projection canonique
+		\begin{equation}
+			\begin{aligned}
+				\rho\colon G & \to G/N        \\
+				x            & \mapsto [g]_N.
+			\end{aligned}
+		\end{equation}
+		\begin{subproof}
+			\spitem[Si \( L\in \Sub(G/N)\) alors \( \rho^{-1}(L)\in\Sub(G,N)\)]
+			%-----------------------------------------------------------
+			Déjà la proposition \ref{PROPooWTLOooQmomoU} nous dit que \( \rho^{-1}(L)\) est un sous-groupe de \( G\) parce que \( \rho\) est un morphisme. Nous devons montrer que \( N\subset\rho^{-1}(L)\). Vu que \( L\) est un sous-groupe de \( G/N\) nous avons \( [e]_N\in L\). En prenant \( \rho^{-1}\) est deux côtés,
+			\begin{equation}
+				\rho^{-1}\big( [e]_N \big)\subset \rho^{-1}(L).
+			\end{equation}
+			Et comme \( \rho^{-1}([e]_N)=N\), c'est bon.
+
+			\spitem[L'application \( g\)]
+			%-----------------------------------------------------------
+			Nous posons
+			\begin{equation}
+				\begin{aligned}
+					g\colon \Sub(G/N) & \to \Sub(G,N)         \\
+					L                 & \mapsto \rho^{-1}(L).
+				\end{aligned}
+			\end{equation}
+			Nous allons montrer que \( f\) et \( g\) sont réciproque. Mais avant cela, nous faisons un peu de travail préliminaire.
+
+			\spitem[Si \( K\in \Sub(G,N)\) alors \( \rho^{-1}\big( \rho(K) \big)=K\)]		\label{SUBITEMooIUBJooTPpKAE}
+			%-----------------------------------------------------------
+			Si \( x\in \rho^{-1}(\rho(K))\), alors il existe \( k\in K\) tel que \( \rho(x)=\rho(k)\), c'est à dire \( [x]_n=[k]_N\). Il existe donc \( n\in N\) tel que \( x=kn\). Et comme \( N\subset K\), cela donne \( x=kn\in K\).
+
+			Dans l'autre sens, si \( x\in K\), alors \( \rho(x)=[x]_N\in \rho(K)\). Donc \( \rho(x)\in \rho(K)\) et donc \( x\in\rho^{-1}\big( \rho(K) \big)\).
+
+			\spitem[Si \( L\in\Sub(G/N)\) alors \( \rho\big( \rho^{-1}(L) \big)=L\)]		\label{SUBITEMooAFBWooJUBSYd}
+			%-----------------------------------------------------------
+			Soit \( \alpha\in\rho\big( \rho^{-1}(L) \big)\). Alors il existe \( g\in \rho^{-1}(L)\) tel que \( \alpha=\rho(g)\). Mais vu que \( g\in\rho^{-1}(L)\), nous avons \( \rho(g)\in L\). Donc
+			\begin{equation}
+				\alpha=\rho(g)\in L.
+			\end{equation}
+			Dans l'autre sens, si \( \alpha\in L\), alors par définition de \( \rho^{-1}(\alpha)\), nous avons \( \alpha\in \rho\big( \rho^{-1}(\alpha) \big)\), et même \( \rho\big( \rho^{-1}(\alpha) \big)=\{ \alpha \}\).
+
+			\spitem[\( \rho^{-1}\big( \Sub(G/N) \big)\subset\Sub(G,N)\)]		\label{SUBITEMooZSPBooQHgtJL}
+			%-----------------------------------------------------------
+			Étant donné que \( \rho\) est une morphisme, \( \rho^{-1}\) d'un sous-groupe est un sous-groupe. Nous devons montrer que si\( L\in\Sub(G/N)\) alors \( N\subset\rho^{-1}(L)\). Nous avons \( L\in\Sub(G/N)\) et en particulier \( [e]_N\in L\). Vu que \( \rho^{-1}([e]_N)=N\), nous avons bien \( N\subset\rho^{-1}(L)\).
+
+			\spitem[\( g\circ f=\id\)]
+			%-----------------------------------------------------------
+			Notons d'abord que \( \rho\) s'applique à tout élément de \( G\) et donc, par extension à toute partie de \( G\). L'application \( f\) est en réalité la restriction de \( \rho\) aux parties de \( G\) qui sont dans \( \Sub(G,N)\).
+
+			Donc si \( K\in \Sub(G,N)\) alors
+			\begin{equation}
+				(g\circ f)(K)=g\big( f(K) \big)=g\big( \rho(K) \big)=\rho^{-1}\big( \rho(K) \big)=K
+			\end{equation}
+			par le point \ref{SUBITEMooIUBJooTPpKAE}.
+
+			\spitem[\( f\circ g=\id\)]
+			%-----------------------------------------------------------
+			Soit \( L\in \Sub(G/N)\). Alors
+			\begin{equation}
+				(f\circ g)(L)=f\big( \rho^{-1}(L) \big)=\rho\big( \rho^{-1}(L) \big)=L
+			\end{equation}
+			où nous avons utilisé le point \ref{SUBITEMooZSPBooQHgtJL} pour remplacer \( f\) par \( \rho\) et le point \ref{SUBITEMooAFBWooJUBSYd} pour la dernière égalité.
+
+			\spitem[Conclusion pour \ref{ITEMooCNVGooULzKvW}]
+			%-----------------------------------------------------------
+			Nous avons prouvé que \( f\) était une bijection. En ce qui concerne la croissance, toutes les applications sont croissantes pour l'inclusion : si \( A\subset B\) alors \( f(A)\subset f(B)\). Et en ce qui concerne la réciproque si \( A\subset B\) alors \( f^{-1}(A)\subset f^{-1}(B)\). En effet si \( x\in f^{-1}(A)\) alors il existe \( a\in A\) tel que \( f(x)=a\). Mais alors \( f(x)=a\in A\subset B\). Donc \( x\in f^{-1}(B)\).
+
+			Notre application \( f\) est donc une bijection croissante d'inverse croissante : un isomorphisme d'ensembles ordonnés.
+		\end{subproof}
+		\spitem[Pour \ref{ITEMooGKTZooSglRTh}]
+		%-----------------------------------------------------------
+		En deux parties.
+		\begin{subproof}
+			\spitem[\( \Rightarrow\)]
+			%-----------------------------------------------------------
+			Soient \( K,L\in\Sub(G,N)\) avec \( K\subset L\) et supposons que \( K\) soit normal dans \( L\). Un élément de \( f(K)\) est de la forme \( [k]_N\) avec \( k\in K\); idem pour un élément de \( f(L)\) qui est de la forme \( [l]_N\) avec \( l\in L\). Pour vérifier que \( f(K)\) est normal dans \( f(L)\), nous
+			\begin{equation}
+				[l]_N[k]_N[l]_N^{-1}=[lkl^{-1}]_N.
+			\end{equation}
+			Étant donné que \( k\) est normal dans \( L\), nous avons \( lkl^{-1}=k'\in K\) et donc \( [l]_N[k]_N[l]_N^{-1}=[lkl^{-1}]_N=[k']_N\in f(K) \).
+			\spitem[\( \Leftarrow\)]
+			%-----------------------------------------------------------
+			Nous supposons maintenant que \( f(K)\) est normal dans \( f(L)\), et nous prouvons que \( K\) est normal dans \( L\). Soient \( k\in K\) et \( l\in L\); par hypothèse
+			\begin{equation}
+				[l]_N[k]_N[l]_N^{-1}\in K/N
+			\end{equation}
+			Donc il existe \( k_N\in k\) tel que \( [lkl^{-1}]_N=[k_1]_N\), c'est à dire qu'il existe \( n\in N\) tel que
+			\begin{equation}
+				lkl^{-1}=k_1n.
+			\end{equation}
+			Mais \( N\subset K\), donc \( lkl^{-1}=k_1n\in K\), ce qui signifie que \( K\) est normal dans \( L\).
+		\end{subproof}
+	\end{subproof}
+\end{proof}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Groupe simple}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 \begin{definition}[Groupe simple]                 \label{DefGroupeSimple}
 	Un groupe est dit \defe{simple}{groupe simple}\index{groupe!simple} si il est non trivial et si les seuls sous-groupes normaux qu'il admet sont lui-même et le sous-groupe réduit à l'élément neutre.
 \end{definition}
+
+\begin{definition}[\cite{BIBooTXKYooAELPZR}]	\label{DEFooXUVOooRyJnbx}
+	Un sous-groupe normal \( N\) de \( G\) est \defe{normal maximal}{sous-groupe normal maximal} si il est différent de \( G\) et si il est maximal pour l'inclusion parmi tous les sous-groupes normaux contenant \( N\).
+\end{definition}
+
+
+\begin{proposition}[\cite{BIBooTXKYooAELPZR}]	\label{PROPooUWLHooVUxTHB}
+	Soient un groupe \( G\) et un sous-groupe normal \( N\) de \( G\). Alors \( N\) est normal maximal\footnote{Définition \ref{DEFooXUVOooRyJnbx}.} de \( G\) si et seulement si \( G/N\) est simple.
+\end{proposition}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( N\) est normal maximal dans \( G\), et nous devons prouver que \( G/N\) est simple. Soit \( L\) normal dans \( G/N\); nous considérons l'application
+		\begin{equation}
+			\begin{aligned}
+				f\colon \Sub(G,N) & \to \Sub(G/N)   \\
+				K                 & \mapsto \rho(K)
+			\end{aligned}
+		\end{equation}
+		du théorème de correspondance \ref{THOooWONFooXDjtFX}, et nous posons \( L'=f^{-1}(L)\in\Sub(G,N)\). Nous savons que \( L'\) sera normal dans \( G\) si et seulement si \( f(L')\) est normal dans \( f(G)=G/N\). Par hypothèse \( f(L')=L\) est normal dans \( G/N\), donc \( L'\) est normal dans \( G\). Mais \( L'\in\Sub(G,N)\) et \( N\) est maximal. Il y a deux possibilités : \( L'=N\) ou \( L'=G\).
+
+		Si \( L'=N\), alors
+		\begin{equation}
+			L=f(L')=f(N)=\{ [e]_N \},
+		\end{equation}
+		et donc \( L\) est trivial.
+
+		Si \( L'=G\) alors \( L=f(L')=f(G)=G/N\) et \( L\) est encore trivial.
+
+
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Dans l'autre sens,nous supposons que \( G/N\) est simple, et nous prouvons que \( N\) est maximalement normal dans \( G\). Nous prenons donc \( K\) : un sous-groupe normal de \( G\) contenant \( N\), et nous montrons que soit \( K=N\) soit \( K=G\).
+
+		Vu que \( K\) est normal dans \( G\), la partie \( f(K)\) est normale dans \( f(G)=G/N\) (théorème de correspondance encore). Étant donné que \( G/N\) est simple, nous en déduisons que \( f(K)\) est soit \( \{ [e]_N \}\) soit \( G/N\) au complet.
+
+		Si \( f(K)=\{ [e]_N \}\) alors \( K=N\). Pour l'autre possibilité, nous supposons que \( f(K)=G/N\). Soit \( g\in g\). Vu que \( [g]_N\in G/N=f(K)\), il existe \( k\in K\) tel que \( [g]_N=\rho(k)=[k]_N\). Donc \( g=kn\) pour un certain \( n\in N\) mais comme \( N\subset K\), nous avons \( nk\in K\) de telle sorte que \( g\in K\). Nous en déduisons que \( G=K\).
+	\end{subproof}
+\end{proof}
 
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -1158,6 +1358,47 @@ et de faire tourner la définition \ref{DEFooLNEXooYMQjRo}. La même chose tient
 	\end{itemize}
 \end{proof}
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooUWMYooIHdoeZ}
+	Soit un anneau \( (A,+,\cdot)\). Soit un ensemble fini \( I\) et pour chaque \( i\in I\) un élément \( x_i\in A\). Soit encore \( s\in A\). Alors nous avons
+	\begin{enumerate}
+		\item		\label{ITEMooUVAIooETyzyc}
+		      \begin{equation}
+			      \sum_{i\in I}sx_i=s\sum_{i\in I}x_i.
+		      \end{equation}
+		\item		\label{ITEMooQIILooDbRnRJ}
+		      \begin{equation}
+			      \sum_{i\in I}1=\Card(I).
+		      \end{equation}
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Nous commençons par prouver \ref{ITEMooUVAIooETyzyc}. Soit une bijection \(\varphi \colon \{ 1,\ldots,n \}\to I  \); par définition,
+	\begin{equation}
+		\sum_{i\in I}sx_i=\sum_{k=1}^nsx_{\varphi(k)}.
+	\end{equation}
+	Nous allons même écrire \( x_k\) pour \( x_{\varphi(k)}\). Sinon on devient fou avec les notations. Nous faisons une récurrence sur \( n\), c'est à dire sur le cardinal de \( I\) :
+	\begin{subequations}
+		\begin{align}
+			\sum_{k=1}^{n+1}sx_k & =\Big( \sum_{k=1}^nsx_k \Big)+sx_{k+1} & \text{def. de \( \sum\)}  \\
+			                     & =s\sum_{k=1}^nx_k+sx_{k+1}             & \text{hyp.rec.}           \\
+			                     & =s\big( \sum_{k=1}x_k+x_{k+1} \big)    & \text{assoc.}             \\
+			                     & =s\sum_{k=1}^{n+1}x_k                  & \text{def. de \( \sum\)}.
+		\end{align}
+	\end{subequations}
+
+	Et nous passons à \ref{ITEMooQIILooDbRnRJ}. Pour cela nous utilisons la définition \ref{PROPooDUSJooWNyqWm} avec la fonction
+	\begin{equation}
+		\begin{aligned}
+			f\colon I & \to \eN    \\
+			i         & \mapsto 1.
+		\end{aligned}
+	\end{equation}
+	Il suffit de vérifier que l'application \( s(A)=\Card(A)\) vérifie les conditions de \ref{PROPooDUSJooWNyqWm}. D'abord \( \Card(\emptyset)=0\). C'est bon. Et ensuite si \( K\subset I\) et si \( x\not\in K\) alors en utilisant \ref{LEMooKNKEooYQeDdo}\ref{ITEMooLAECooBLOpwZ},
+	\begin{equation}
+		\Card(K\cap\{ x \})=\Card(K)+1=\Card(K)+f(x).
+	\end{equation}
+\end{proof}
 
 \begin{proposition}[\cite{MonCerveau}]     \label{PROPooWJQQooFINSEc}
 	Soient un groupe fini \( G\) et une fonction \( f\colon G\to A\) où \( A\) est un anneau commutatif. Alors
@@ -1255,6 +1496,162 @@ Tout cela nous permet de définir une somme sympathique et bien connue.
 	C'est exactement la proposition \ref{DEFooLNEXooYMQjRo}, sauf qu'ici la loi de groupe est notée multiplicativement au lieu d'additivement.
 \end{proof}
 
+
+%-------------------------------------------------------
+\subsection{Cardinalité d'ensembles finis}
+%----------------------------------------------------
+
+
+
+\begin{proposition}[Cardinalité d'ensembles finis\cite{MonCerveau}]	\label{PROPooOTHMooPzPzdW}
+	À propos d'ensembles finis.
+	\begin{enumerate}
+		\item	\label{ITEMooBQDUooOoYhnI}
+		      Si \( A\) et \( B\) sont finis et vérifient \( A\cap B=\emptyset\), alors \( \Card(A\cup B)=\Card(A)+\Card(B)\).
+		\item		\label{ITEMooUCUFooBLByHz}
+		      Si \( I\) est fini et si les \( (A_i)_{i\in I}\) sont des ensembles disjoints, alors
+		      \begin{equation}
+			      \Card\left( \bigcup_{i\in I}A_i \right)=\sum_{i\in I}\Card(A_i).
+		      \end{equation}
+		      %TODOooOSEYooOBOjRo. Prouver ce point.	Attention il y en a deux.
+		\item		\label{ITEMooSXBMooFgAvyJ}
+		      Si \( A\) et \( B\) sont finis, alors \( A\cup B\) est fini.
+		\item	\label{ITEMooKYXFooWukErM}
+		      Si \( A\) et \( B\) sont finis, alors \( \Card(A\cup B)=\Card(A)+\Card(B)-\Card(A\cap B)\).
+		      %TODOooOSEYooOBOjRo. Prouver ce point.	Attention il y en a deux.
+		\item		\label{ITEMooFIEUooRmDcfo}
+		      Si \( I\) est un ensemble fini et si \( \{ A_i \}_{i\in I}\) sont des ensembles finis, alors \( \bigcup_{i\in I}A_i\) est fini.
+		\item		\label{ITEMooLVSVooHEwNWA}
+		      Si \( A\) et \( B\) sont finis, alors \( A\times B\) est fini et
+		      \begin{equation}
+			      \Card(A\times B)=\Card(A)\Card(B).
+		      \end{equation}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooBQDUooOoYhnI}]
+		%-----------------------------------------------------------
+		Nous considérons des bijections \(\varphi \colon \{ 1,\ldots,n \}\to A  \) et \(\sigma \colon \{ 1,\ldots,m \}\to B  \). Puis nous posons
+		\begin{equation}
+			\begin{aligned}
+				\alpha\colon \{ 1,\ldots,n+m \} & \to A\cup B                                               \\
+				s                               & \mapsto \begin{cases}
+					                                          \varphi(s)  & \text{si } s\in\{ 1,\ldots,n \}     \\
+					                                          \sigma(s-n) & \text{si }s\in\{ n+1,\ldots,n+m \}.
+				                                          \end{cases}
+			\end{aligned}
+		\end{equation}
+		\begin{subproof}
+			\spitem[\( \sigma\) est injective]
+			%-----------------------------------------------------------
+			Si \( \alpha(a)=\alpha(b)\), il y a \( 4\) possibilités suivant que \( a\) et \( b\) soient dans \( \{ 1,\ldots,n \}\) ou dans \( \{ n+1,\ldots,n+m \}\).
+			\begin{subproof}
+				\spitem[Si \( a,b\in\{ 1,\ldots,n \}\)]
+				%-----------------------------------------------------------
+				Alors \( \alpha(a)=\varphi(a)\) et \( \alpha(b)=\varphi(b)\). Donc \( \varphi(a)=\varphi(b)\) et comme \( \varphi\) est injective, nous avons \( a=b\).
+				\spitem[Si \( a\in\{ 1,\ldots,n \}\) et \( b\in \{ n+1,\ldots,m+n \}\)]
+				%-----------------------------------------------------------
+				Alors \( \alpha(a)=\varphi(a)\in A\) et \( \alpha(b)=\sigma(b-n)\in B\). Donc \( \alpha(a)=\alpha(b)\in A\cap B\). Mais comme \( A\cap B=\emptyset\), ce cas est impossible.
+				\spitem[Les deux autres cas \ldots]
+				%-----------------------------------------------------------
+				Sont laissés \randomGender{au lecteur}{à la lectrice}.
+			\end{subproof}
+			\spitem[\( \alpha\) est surjective]
+			%-----------------------------------------------------------
+			Soit \( x\in A\cup B\). Si \( x\in A\) alors \( x=\alpha\big( \varphi^{-1}(x) \big)\) et si \( x\in B\), alors \( x=\alpha\big( \sigma^{-1}(x)+n \big)\).
+		\end{subproof}
+		\spitem[Pour \ref{ITEMooSXBMooFgAvyJ}]
+		%-----------------------------------------------------------
+		Si \( A\cap B=X\), alors nous avons l'union disjointe \( A\cup B=A\cup(B\setminus A)\). Par hypothèse \( A\) est fini et par \ref{LEMooTUIRooEXjfDY}, la partie \( B\setminus A\) est finie. Donc par le point \ref{ITEMooBQDUooOoYhnI}, l'union est finie.
+
+		\spitem[Pour \ref{ITEMooKYXFooWukErM}]
+		%-----------------------------------------------------------
+		\spitem[Pour \ref{ITEMooFIEUooRmDcfo}]
+		%-----------------------------------------------------------
+		Nous y allons par récurrence sur \( \Card(I)\). Si \( \Card(I)=2\), c'est déjà fait au point \ref{ITEMooBQDUooOoYhnI}. Sinon on suppose que la proposition est vraie pour tout choix d'ensemble \( I\) et d'ensembles \( (A_i)_{i\in I}\). Nous supposons que \( \Card(I)=n+1\) et nous considérons une bijection \(\varphi \colon \{ 1,\ldots,n+1 \}\to I  \). Nous avons
+		\begin{subequations}
+			\begin{align}
+				\bigcup_{i\in I}A_i & =\bigcup_{k=1}^{n+1}A_{\varphi(k)}                   & \text{cf. \ref{NorooFridoIntro2}} \\
+				                    & =\bigcup_{k=1}^nA_{\varphi(k)}\cup A_{\varphi(n+1)}.
+			\end{align}
+		\end{subequations}
+		Le premier est fini par hypothèse de récurrence et le second par hypothèse.
+		\spitem[Pour \ref{ITEMooLVSVooHEwNWA}]
+		%-----------------------------------------------------------
+		Nous écrivons le produit \( A\times B \) sous la forme
+		\begin{equation}
+			A\times B=\bigcup_{a\in A}\left( \bigcup_{b\in B}\{ (a,b) \} \right).
+		\end{equation}
+		Fixons \( a\in A\). Pour \( b\in B\) nous notons \( A_b=\{ (a,b) \}\), de telle sorte à avoir \( \Card(A_b)=1\) et
+		\begin{subequations}
+			\begin{align}
+				\Card\left( \bigcup_{b\in B}\{ (a,b) \} \right) & =\Card\left( \bigcup_{b\in B}A_b \right)                                       \\
+				                                                & =\sum_{b\in B}\Card\big( \{ a,b \} \big) & \text{par \ref{ITEMooUCUFooBLByHz}} \\
+				                                                & =\sum_{b\in B}1                                                                \\
+				                                                & =\Card(B).                               & \text{lem. \ref{LEMooVFNOooZenJSl}}
+			\end{align}
+		\end{subequations}
+		En posant
+		\begin{equation}
+			X_a=\bigcup_{b\in B}\{ (a,b) \},
+		\end{equation}
+		nous venons de voir que \( \Card(X_a)=\Card(B)\). Et comme \( A\times B=\bigcup_{a\in A}X_a\), nous avons
+		\begin{subequations}
+			\begin{align}
+				\Card(A\times B) & =\sum_{a\in A}\Card(X_a)                                       \\
+				                 & =\sum_{a\in A}\Card(B)                                         \\
+				                 & =\Card(B)\sum_{a\in A}1  & \text{lem. \ref{LEMooUWMYooIHdoeZ}} \\
+				                 & =\Card(B)\Card(A).
+			\end{align}
+		\end{subequations}
+	\end{subproof}
+\end{proof}
+
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooRURDooRIGJnY}
+	Si \( \Card(A)=n\) et si \( a\in A\) alors \( \Card(A\setminus\{ a \})=n-1\).
+\end{lemma}
+
+\begin{proof}
+	Soit une bijection \(\varphi \colon \{ 1,\ldots,n \}\to A  \). Nous posons \( k=\varphi^{-1}(a)\). Nous posons
+	\begin{equation}
+		\begin{aligned}
+			\psi\colon \{ 1,\ldots,n-1 \} & \to A\setminus \{ a \}                     \\
+			s                             & \mapsto \begin{cases}
+				                                        \varphi(s)   & \text{si } s<k      \\
+				                                        \varphi(s+1) & \text{si }<s\geq k.
+			                                        \end{cases}
+		\end{aligned}
+	\end{equation}
+
+	\begin{subproof}
+		\spitem[\( \psi\) est injective]
+		%-----------------------------------------------------------
+		Soient \( s,t\) tels que \( \psi(s)=\psi(t)\).
+
+		Si\( s<k\) et \( t\geq k \) alors \( \psi(s)=\varphi(s)\) et \( \psi(t)=\varphi(t+1)\). Mais \( s<k\leq t<t+1\), donc \( s\neq t+1\) et donc \( \varphi(s)=\varphi(t+1) \) est impossible.
+
+		Si \( s<k\) et \( t<k\) alors \( \psi(s)=\varphi(s)\) et \( \psi(t)=\varphi(t)\). Donc \( \varphi(t)=\varphi(s)\) et donc \( s=t\).
+
+		Les deux derniers cas sont du même tonneau.
+
+		\spitem[\( \psi\) est surjective]
+		%-----------------------------------------------------------
+		Si \( b\in A\setminus\{ a \}\), alors \( b=\varphi(s)\) pour un certain \( s\neq k\). Si \( s<k\) alors \( b=\varphi(s)=\psi(s)\). Si \( s>k\) alors \( b=\varphi(s)=\psi(s-1)\) parce que si\( s>k\), alors \( s-1\geq k\) (proposition \ref{PROPooTQDJooFQGFpC}).
+
+		\spitem[\( \psi\) prend ses valeurs dans \( A\setminus\{ a \}\)]
+		%-----------------------------------------------------------
+		Supposons que \( \psi(s)=a\), c'est à dire \( \psi(s)=\varphi(k)\). Il y a deux possibilités : \( s<k\) ou \( s\geq k\).
+
+		Si \( s<k\) alors on aurait \( \psi(s)=\varphi(s)\neq \varphi(k)\) parce que \( s\neq k\). Donc ce cas est impossible.
+
+		Si \( s\geq k\) alors \( \psi(s)=\varphi(s+1)=\varphi(k)\). Donc \( s+1=k\), qui est également impossible parce que \( s\geq k\) (encore la proposition \ref{PROPooTQDJooFQGFpC}).
+	\end{subproof}
+\end{proof}
 
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
@@ -2946,7 +3343,7 @@ Lorsqu'on veut compter le nombre d'éléments d'un ensemble, il arrive souvent d
 	\begin{equation}        \label{EqNewtonB}
 		(x+y)^n=\sum_{k=0}^n{n\choose k}x^{n-k}y^k
 	\end{equation}
-	où les coefficients binomiaux sont donnés dans le lemme \ref{LEMooUTDTooXAmvdF}, et où nous utilisons les conventions d'écriture de \ref{NORMooROXXooXOybXN}.
+	où les coefficients binomiaux sont donnés dans la définition \ref{DEFooHXNFooOBKgqD}, et où nous utilisons les conventions d'écriture de \ref{NORMooROXXooXOybXN}.
 \end{proposition}
 \index{formule binomiale}
 

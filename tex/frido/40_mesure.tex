@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2016,2018-2019,2022-2024
+% Copyright (c) 2011-2016,2018-2019,2022-2024, 2026
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -512,16 +512,16 @@ Le lemme suivant complète la propriété~\ref{DefBTsgznn}\ref{ItemQFjtOjXiii} l
 	Résultats sur les unions croissantes d'ensembles mesurables dans \( (S,\tribA,\mu)\).
 	\begin{enumerate}
 		\item\label{ItemJWUooRXNPci}
-		Si \( (A_k)\) est une suite croissante d'ensembles \( \mu\)-mesurables dont l'union est mesurable, alors
-		\begin{equation}
-			\lim_{n\to \infty} \mu(A_k)=\mu(\bigcup_kA_k).
-		\end{equation}
+		      Si \( (A_k)\) est une suite croissante d'ensembles \( \mu\)-mesurables dont l'union est mesurable, alors
+		      \begin{equation}
+			      \lim_{n\to \infty} \mu(A_k)=\mu(\bigcup_kA_k).
+		      \end{equation}
 
 		\item\label{ItemJWUooRXNPcii}
-		Soit \( K_n\), une suite emboîtée d'éléments de \( \tribA\) tels que \( K_n\to S\). Si \( A\in\tribA\) alors
-		\begin{equation}
-			\lim_{n\to \infty} \mu(A\cap K_n)=\mu(A).
-		\end{equation}
+		      Soit \( K_n\), une suite emboîtée d'éléments de \( \tribA\) tels que \( K_n\to S\). Si \( A\in\tribA\) alors
+		      \begin{equation}
+			      \lim_{n\to \infty} \mu(A\cap K_n)=\mu(A).
+		      \end{equation}
 	\end{enumerate}
 \end{lemma}
 
@@ -647,6 +647,11 @@ Par exemple la fonction de Dirichlet est presque partout égale à la fonction \
 	\end{subproof}
 \end{proof}
 
+
+%-------------------------------------------------------
+\subsection{\( \lambda\)-système}
+%----------------------------------------------------
+
 \begin{definition}[\( \lambda\)-système\cite{PVWUyDH}]      \label{DefRECXooWwYgej}
 	Soit \( E\) un ensemble. Un ensemble \( \tribD\) de parties de \( E\) est un \defe{\( \lambda\)-système}{\( \lambda\)-système} lorsqu'il vérifie les conditions suivantes :
 	\begin{enumerate}
@@ -657,6 +662,8 @@ Par exemple la fonction de Dirichlet est presque partout égale à la fonction \
 	\end{enumerate}
 \end{definition}
 Note : une tribu est un \( \lambda\)-système.
+
+
 
 \begin{lemma}[\cite{PVWUyDH}]
 	Une intersection quelconque de \( \lambda\)-systèmes dans \( E\) est un \( \lambda\)-système dans \( E\).
@@ -726,6 +733,27 @@ Ce lemme est ce qui permet de définir le \( \lambda\)-système \defe{engendré}
 	\end{enumerate}
 	Maintenant que \( \tribE\) est une tribu nous avons \( \tribF\subset\tribE\) parce que \( \tribF\) est la plus petite tribu contenant \( \tribC\). Nous en déduisons que \( \tribE=\tribF\), ce qu'il fallait démontrer.
 \end{proof}
+
+
+%-------------------------------------------------------
+\subsection{\( \pi\)-système}
+%----------------------------------------------------
+
+
+\begin{definition}	\label{DEFooGYADooTudZmJ}
+	Soit un ensemble \( X\). Un \defe{\( \pi\)-système}{\( \pi\)-système} sur \( X\) est un ensemble de parties \( \mS\subset\partP(X)\) tel que si \( A,B\in\mS\) alors \( A\cap B\in \mS\).
+\end{definition}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooWFCWooCCzZLT}
+	Deux mesures qui coïncident sur un \( \phi\)-système coïncident sur la tribu engendrée.
+\end{proposition}
+
+
+%-------------------------------------------------------
+\subsection{Unicité des mesures}
+%----------------------------------------------------
+
 
 Le théorème suivant permet de prouver que la mesure de Lebesgue est l'unique mesure possible ayant les bonnes valeurs sur les intervalles (théorème~\ref{ThoDESooEyDOe}). Si vous voulez il y a aussi le théorème de Dynkin qui est un peu similaire\cite{BIBooEXABooKVzGao}.
 \begin{theorem}[Unicité des mesures\cite{PVWUyDH}] \label{ThoJDYlsXu}

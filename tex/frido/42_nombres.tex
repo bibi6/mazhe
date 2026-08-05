@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2025
+% Copyright (c) 2011-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -76,11 +76,23 @@
 		\item
 		      ensemble vide,
 		\item
-		      ensemble, appartenance, intersection, union,
+		      ensemble des parties.
+		\item
+		      ensemble, appartenance, intersection, union.
 		\item
 		      produit cartésien de plusieurs ensembles\footnote{Nous en proposons une définition dans un cadre général -- définition \ref{DEFooTYIMooZUsYJw} --, dont les fondements devraient être analysés de très près.}.
 		      % TODO réf futur OK.
 	\end{enumerate}
+
+	Si \( I\) est un ensemble et si pour chaque \( i\in I\) nous avons un ensemble \( A_i\), alors nous ne définissons pas ce qu'est
+	\begin{equation}
+		\bigcup_{i\in I}A_i.
+	\end{equation}
+	Et si \( J\) est un ensemble et qu'on a une bijection \(\varphi \colon I\to J  \) nous ne démontrons pas que
+	\begin{equation}
+		\bigcup_{i\in I}A_i=\bigcup_{j\in J}A_j.
+	\end{equation}
+
 	Ce sont toutes des choses dont la construction à partir des axiomes n'est en aucun cas évidente. En particulier, des «définitions» comme «l'intersection de deux ensembles est l'ensemble contenant exactement les éléments communs aux deux ensembles» ne sont pas correctes parce qu'elles passent à côté de l'existence et de l'unicité d'un tel ensemble.
 \end{normaltext}
 
@@ -172,7 +184,7 @@
 \begin{normaltext}\label{NORMooMethodePreuveInj}
 	La méthode la plus courante pour démontrer qu'une application \( f\colon E\to F\) est injective est de considérer \( x,y\in E\) tels que \( f(x)=f(y)\), et de prouver à partir de là que \( x=y\). Ou alors de supposer \( x\neq y\) et d'obtenir une contradiction.
 
-	La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=g(x)\) implique une équation faisant intervenir \( 1/(x-y)\).
+	La technique de la contradiction est évidemment la plus courante lorsque l'égalité \( f(x)=f(x)\) implique une équation faisant intervenir \( 1/(x-y)\).
 
 	La surjection et l'injection sont des propriétés bien différentes qu'il convient de prouver séparément. De plus une même «formule» peut définir une application injective, surjective, bijective ou non selon les ensembles sur lesquels nous la considérons.
 \end{normaltext}
@@ -252,11 +264,15 @@
 
 \begin{definition}[Produit cartésien infini\cite{BIBooRNUTooNwYWtS}]	\label{DEFooTYIMooZUsYJw}
 	Soit un ensemble \( I\) ainsi qu'une collection d'ensembles \( \{ A_i \}_{i\in I}\). Nous notons \( \prod_{i\in I}A_i\) l'ensemble des applications \(f \colon I\to \bigcup A_i  \) telles que \( f(i)\in A_i\).
+
+	Avec cette notation nous avons aussi
+	\begin{equation}
+		\Fun(X,Y)=\prod_{x\in X}Y.
+	\end{equation}
 \end{definition}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Ensemble ordonné}
-\label{SUBooEnsembleOrdonne}
 %---------------------------------------------------------------------------------------------------------------------------
 
 
@@ -285,9 +301,26 @@
 	Lorsque nous avons un ensemble \( E\) et une relation d'ordre \( \leq\) sur \( E\), nous disons que le couple \( (E,\leq)\) est un \defe{ensemble ordonné}{ensemble ordonné}.
 \end{definition}
 
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooQEIAooGzzdiu}
+	Un \defe{isomorphisme}{isomorphisme d'ensembles ordonnés} d'ensembles ordonnés est une bijection croissante dont l'inverse est croissante.
+\end{definition}
+
+
 \begin{definition}      \label{DEFooVGYQooUhUZGr}
 	Un ensemble ordonné est \defe{totalement ordonné}{ordre!total}\index{ensemble ordonné!totalement ordonné} si deux éléments quelconques si deux éléments sont toujours comparables : si \( x,y\in E\) alors nous avons soit \( x\leq y\) soit \( y\leq x\). Si les éléments ne sont pas tous comparables, nous disons que l'ordre est \defe{partiel}{ordre!partiel}.
 \end{definition}
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooZUAZooFlziuO}
+	Si \( E\) est un ensemble alors l'ensemble des parties muni de l'inclusion \( (\partP(E),\subset)\) est un ensemble partiellement ordonné.
+	%TODOooOLYFooEYDSLq. Prouver ça.
+\end{lemma}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooNPLNooTqXVYz}
+	Si \( (E,\leq )\) est un ensemble ordonné, alors \( (E,\geq)\) est également un ensemble ordonné.
+	%TODOooIBWGooWQIuON. Prouver ça.
+\end{proposition}
+
 
 \begin{example}  \label{ExeooOrdreInclusion}
 	Si \( E\) est un ensemble, l'inclusion est un ordre sur l'ensemble des parties de \( E\), mais pas un ordre total parce que si \( X,Y\) sont des parties de \( E\), alors nous n'avons pas automatiquement soit \( X\subset Y\) soit \( Y\subset X\).
@@ -295,16 +328,29 @@
 
 \begin{normaltext}\label{NORMooIntroIntervalleOrdonne}
 	On convient assez naturellement de la notation suivante: écrire \( x \leq y \leq z \) revient à écrire \( (x \leq y)\text{ et } (y \leq z) \). Cela s'étend à un nombre (fini) quelconque d'éléments, et \randomGender{le lecteur}{la lectrice} saura interpréter correctement, nous l'espérons, des inégalités du genre \( x_1 \leq x_2 \leq \dots \leq x_n \) dans les prochains développements.
-
-	La notion d'ordre permet d'introduire la notion d'intervalle, qui s'écrit assez simplement une fois la convention prise.
 \end{normaltext}
 
+
+
+
+%-------------------------------------------------------
+\subsection{Intervalle}
+%----------------------------------------------------
+
+
+La notion d'ordre permet d'introduire la notion d'intervalle, qui s'écrit assez simplement une fois la convention prise.
+
 \begin{definition}  \label{DefEYAooMYYTz}
-	Soit un ensemble totalement ordonné \( (E,\leq)\). Un \defe{intervalle}{intervalle!d'un ensemble ordonné} de \( E\) est une partie \( I\) telle que tout élément compris entre deux éléments de \( I \) soit dans \( I \). En language mathématique, la partie \( I \) de \( E\) est un intervalle si
+	Soit un ensemble totalement ordonné \( (E,\leq)\). Un \defe{intervalle}{intervalle!d'un ensemble ordonné} de \( E\) est une partie \( I\) telle que tout élément compris entre deux éléments de \( I \) soit dans \( I \). La partie \( I \) de \( E\) est un intervalle si
 	\[
 		\forall a,b\in I,\, \forall x \in E, (a\leq x\leq b \Rightarrow x\in I).
 	\]
 \end{definition}
+
+%-------------------------------------------------------
+\subsection{Minimum, maximum, minimal, maximal, etc.}
+%----------------------------------------------------
+
 
 \begin{definition}      \label{DEFooDNWRooTiMAzK}
 	Soit un ensemble ordonné \( (E,\leq)\) et une partie \( A\) de \( E\). Un élément \( p\in E\) est un \defe{minorant}{minorant} de \( A\) si pour tout \( a\in A\), les éléments \( p\) et \( a\) sont comparables et \( p\leq a\). Si de plus, \( p \in A \), on dira que \( p \) est un \defe{minimum}{minimum!ensemble ordonné} de \( A\).
@@ -314,9 +360,9 @@
 
 
 \begin{definition}[\cite{BIBooROFNooTKJKxG}]        \label{DEFooBZNRooYRPGme}
-	Soit un ensemble ordonné \( (E,\leq)\). Un élément \(M\in E\) est un \defe{élément maximal}{élément maximal} de \( E\) si pour tout \( x\in E\), dès que \( M\leq x\), on a \(x=M\).
+	Soient un ensemble ordonné \( (E,\leq)\), et une partie \( A\subset E\). Un élément \(M\in A\) est un \defe{élément maximal}{élément maximal} de \( A\) si pour tout \( x\in E\) si \( M\leq x\) alors \(x=M\).
 
-	De même, nous disons que \( m\in E\) est un \defe{élément minimal}{élément minimal} de \( E\) si pour tout \( x\in E\), nous avons \( x\leq m\Rightarrow x=m\).
+	De même, nous disons que \( m\in A\) est un \defe{élément minimal}{élément minimal} de \( A\) si pour tout \( x\in A\), nous avons \( x\leq m\Rightarrow x=m\).
 \end{definition}
 
 
@@ -328,6 +374,23 @@
 	Soit \( m \) le premier élément minimum de \( A \). Quel que soit \(x \in A \), on sait que \( x \) et \( m \) sont comparables, et que \( m \leq x \).
 
 	Supposons que \( p \in A \) soit un (autre) élément minimum de \( A \). Alors, par ce fait, on a \( p \leq m \); mais par définition de \( m \), on a aussi \( m \leq p \). Ainsi, par antisymétrie\footnote{Point \ref{ITEMooQTXOooTZXEnu} de la définition \ref{DefooFLYOooRaGYRk}.}, on a \( m = p\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooUJJEooPBUenw}
+	Si \( (E,\leq)\) est totalement ordonné, et si \( A\subset E\), un élément est un minimum de \( A\) si et seulement si il est minimal dans \( A\).
+\end{proposition}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( p\) est un minimum de \( A\). Soit \( x\in A\) avec \( x\leq p\). Vu que \( p\) est est minimum, il est un minorant et donc \( p\leq x\). Nous avons donc \( p\geq x\) et \( p\leq x\). Donc \( p=x\).
+
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( p\) est un élément minimal dans \( A\). Soit \( a\in A\). Il y a deux possibilités : soit \( a\leq m\) soit \( a>m\). Dans le premier cas \( a=m\), et dans le second \( m\leq a\).
+	\end{subproof}
 \end{proof}
 
 \begin{normaltext}\label{NORMooPlusPetitElement}
@@ -1991,6 +2054,14 @@ Nous donnons deux preuves de ce lemme.
 	\end{equation}
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooWTLOooQmomoU}
+	Si \(f \colon G\to H  \) est un morphisme de groupes, et si \( A\) est un sous-groupe de \( H\), alors \( f^{-1}(A)\) est un sous-groupe de \( G\).
+\end{proposition}
+
+\begin{proof}
+	Soient \( x,y\in f^{-1}(A)\). Nous posons \( a=f(x)\) et \( b=f(y)\). Vu que \( f\) est un morphisme, \( ab=f(xy)\), de telle sorte que \( xy\in f^{-1}(ab)\subset f^{-1}(A)\).
+\end{proof}
+
 \begin{lemma}       \label{LEMooDPISooRoAFmt}
 	Si \( G\) et \( H\) sont des groupes isomorphes, alors les groupes \( \Aut(G)\) et \( \Aut(H)\) sont isomorphes.
 \end{lemma}
@@ -2480,17 +2551,19 @@ Nous donnons deux preuves de ce lemme.
 		      \( | x-y |\leq | x-z |+| z-y |\).
 		\item		\label{ITEMooEFMLooYVCuHD}
 		      \( | xy |=| x | |y |\)
+		\item		\label{ITEMooLWPTooEvHzvO}
+		      Si \( x\geq a\) et \( x\geq -a\) alors \( x\geq | a |\).
 	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
 	Point par point
 	\begin{subproof}
-		\spitem[\ref{ITEMooSDNHooDnjScE}]
+		\spitem[Pour \ref{ITEMooSDNHooDnjScE}]
 		Si \( x\geq 0\) alors c'est vrai. Sinon, \( x\leq 0\) et \( | x |=-x\geq 0\) par le point~\ref{ITEMooRRUGooRUpYwt} de la proposition \ref{PROPooELXCooCYzEVD}.
 		\spitem[\ref{ITEMooLQLTooTJTPVM}]
 		Si \( x=0\) alors \( x=-x\) et \( | x |=0\).  Si \(x\neq 0\) alors \( -x\neq 0\) (par le lemme \ref{LEMooLTERooVKgqjn} point \ref{ITEMooWNPVooFeMQAp}).  Que l'on ait \( x\) positif ou \( x\) négatif, nous aurons toujours \( | x | \pm x\neq 0\).
-		\spitem[\ref{ITEMooVJAEooOEatzY}]
+		\spitem[Pour \ref{ITEMooVJAEooOEatzY}]
 		Il faut décomposer en deux cas selon que \( x\geq 0\) ou  \( x\leq 0\).
 
 		Lorsque \( x\leq 0\), on a \( | x |= - x\) par définition, et par ailleurs, \( -x\geq 0\) grâce au point \ref{ITEMooNKYCooCmqHsO} du lemme \ref{LEMooLTERooVKgqjn}, donc \( | -x |= - x = | x |\).
@@ -2502,7 +2575,7 @@ Nous donnons deux preuves de ce lemme.
 		cette dernière égalité étant justifiée par le point \ref{ITEMooXJGMooKNLlHU} du lemme \ref{LEMooLTERooVKgqjn}.
 
 		Nous avons donc bien \( | x |=| -x |\) quel que soit le cas considéré.
-		\spitem[\ref{ItemooOMKNooRlanvk}]
+		\spitem[Pour \ref{ItemooOMKNooRlanvk}]
 		Nous supposons que \( x\leq y\) et nous distinguons divers cas suivant la positivité de \( x\) et \( y\).
 		\begin{enumerate}
 			\item
@@ -2532,10 +2605,12 @@ Nous donnons deux preuves de ce lemme.
 		\spitem[Pour \ref{ITEMooEFMLooYVCuHD}]
 		% -------------------------------------------------------------------------------------------- 
 		Il suffit de prendre les 4 cas suivant les signes de \( x\) et \( y\), et d'utiliser les règles de signes du lemme \ref{LEMooXJTAooZauchx} dans la définition \eqref{EQooNONAooHLSERO}.
+
+		\spitem[Pour \ref{ITEMooLWPTooEvHzvO}]
+		%-----------------------------------------------------------
+		Il y a \( 2\) possibilités : \( a\geq 0\) et \( a<0\). Si \( a\geq 0\) alors \( | a |=a\). Donc \( x\geq a=| a |\). Si \( a<0\) alors \( | a |=-a\) et donc \( x\geq -a=| a |\).
 	\end{subproof}
 \end{proof}
-
-
 
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2547,6 +2622,25 @@ Nous donnons deux preuves de ce lemme.
 	Comme le dit la page de Wikipédia consacrée aux nombres entiers, il faut savoir ce dont on parle. Les collégiens français apprennent que les entiers sont les nombres positifs; les Québécois et les Belges y ajoutent les négatifs\dots
 
 	Dans le Frido, on dira \og entier naturel \fg\ voire \og naturel\fg\ pour les positifs, et \og entier relatif \fg\ voire \og entier \fg\ quand on accepte les négatifs. C'est un choix pas standard dont il faut avoir conscience.
+\end{normaltext}
+
+
+%-------------------------------------------------------
+\subsection{Importance des naturels dans les ensemble}
+%----------------------------------------------------
+
+\begin{normaltext}		\label{NORMooLNLHooLYKwDu}
+	Je suis certain qu'on peut définir les naturels comme étant un objet avec une propriété universelle bien particulière dans la catégorie des ensembles\footnote{Évidemment : \url{https://en.wikipedia.org/wiki/Natural_numbers_object}.}.
+
+	En tout cas j'ai l'impression qu'on ne peut rien prouver à propos des ensembles Dedekind-finis\footnote{Un ensemble des Dedekind-infini si il est en bijection avec une partie propre; c'est la définition du Frido de «infini» tout court.} sans passer par une bijection avec une partie des naturels.
+
+	Voici quelque résultats que je doute être possible de démontrer sans passer par les naturels.
+	\begin{enumerate}
+		\item
+		      La proposition \ref{PROPooGJLYooTQtlSV} dit que tout ensemble fini partiellement ordonné possède un élément maximal. Voir aussi \cite{BIBooFUKSooQARznK}.
+		\item
+		      Si \( E\) est fini, alors son ensemble des parties \( \partP(E)\) est fini.
+	\end{enumerate}
 \end{normaltext}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -2651,7 +2745,7 @@ Nous donnons deux preuves de ce lemme.
 \end{proof}
 
 \begin{theorem}[\cite{BIBooZFPUooIiywbk,BIBooMSSFooOOeRKE}]       \label{THOooEJPYooZFVnez}
-	Soient \( E\) un ensemble, \( g\) une application de \( E\) dans \( E\) et \( b\) un élément de \( E\).  Alors il existe une unique application \( f\colon \eN\to E\) telle que :
+	Soient \( E\) un ensemble, une application \(g \colon E\to E  \), et \( b\) un élément de \( E\).  Alors il existe une unique application \( f\colon \eN\to E\) telle que :
 	\begin{enumerate}
 		\item
 		      \( f(0)=b\)
@@ -2766,6 +2860,18 @@ Nous donnons deux preuves de ce lemme.
 		La fonction \( f\) ainsi construite vérifie ainsi les propriétés demandées.
 	\end{subproof}
 \end{proof}
+
+\begin{normaltext}
+	Le théorème \ref{THOooEJPYooZFVnez} permet de faire des démonstration par récurrence en posant \(P \colon \eN\to \{ 0,1 \}  \) où \( P(n)=0\) si la proposition à prouver est fausse pour \( n\) et \( P(n)=1\) si elle est vraie. Et on démontre que \( P(n)=1\) pour tout \( n\).
+
+	Parfois, implicitement, nous dirons que \( P(n)=1\) si la propriété est vraie pour tous les ensembles de cardinal plus petit ou égal à \( n\).
+\end{normaltext}
+
+\begin{normaltext}		\label{NORMooPUOAooGnFjaX}
+
+	Lorsque nous disons faire une récurrence sur le cardinal d'un ensemble, nous posons la fonction \(P \colon \eN\to \{ 0,1 \}  \) définie par \( P(n)=1\) si la propriété est vraie pour tout ensemble de cardinal \( n\) et \( P(n)=0\) si il existe un ensemble de cardinal \( n\) ne vérifiant pas la propriété.
+
+\end{normaltext}
 
 \begin{normaltext}[\cite{MonCerveau}]      \label{NORMooLNXMooWIblPf}
 	Le théorème \ref{THOooEJPYooZFVnez} nous permet de définir une suite \( (x_n)_{n\in \eN}\) par récurrence en posant par exemple\footnote{Les spépieu\randomGender{x}{ses} diront que \( + \) n'est pas encore défini, et ils auront raison. Qu'ils remplacent les \( +1 \) par des applications de \( s \) et les \( +2 \) par des double-applications de \( s \): tout fonctionne très bien.}
@@ -3386,6 +3492,18 @@ Nous donnons deux preuves de ce lemme.
 	\end{subproof}
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooTQDJooFQGFpC}
+	Soient \( s,k\in \eN\).
+	\begin{enumerate}
+		\item
+		      Si \( s>k\) alors \( s-1\geq k\).
+		\item
+		      Si \( s\geq k\) alors \( s+1>k\).
+	\end{enumerate}
+	%TODOooKBFVooWyeKYO. Prouver ça.
+\end{proposition}
+
+
 
 \begin{probleme}		\label{PROBooUCQFooTugfDl}
 	Je ne suis pas certain qu'il y ait moyen de prouver le lemme \ref{LEMooPCRFooXRGrUr} sans d'abord définir les naturels. Une raison est que la véracité de ce lemme est à peu près équivalente au théorème \ref{THOooEJPYooZFVnez} qui donne l'existence de \( \eN\).
@@ -3476,13 +3594,22 @@ Nous donnons deux preuves de ce lemme.
 	Toute partie non bornée de \( \eN\) donne lieu à un triplet naturel.
 \end{normaltext}
 
+
+
+\begin{proposition}[\cite{RWWJooJdjxEK}]	\label{PROPooZLEXooGyjNRk}
+	Toute partie non vide de \( \eN\) contient un unique élément minimal.
+	%TODOooTRFKooMiHhvx. Prouver ça.
+\end{proposition}
+
+
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooLDKQooSTiVlW}
 	Si \( A\subset \eN\), alors
 	\begin{equation}
 		\min\big( A\setminus\{ \min(A) \} \big)>\min(A).
 	\end{equation}
-	%TODOooASJSooFKNZyU. Prouver ça.
 \end{lemma}
+
+
 
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -3827,20 +3954,265 @@ Cette fonction est la \defe{fonction puissance}{puissance!entiers naturels} et n
 	Laquelle des deux inégalités est fausse ? Puisque \( n=s(x_0)\geq 1\) et que \( a\geq 1\), nous avons \( 1\leq n\times a\). Donc c'est la seconde inégalité qui est fausse. Nous avons donc \( n\times a>b\).
 \end{proof}
 
-\begin{propositionDef}      \label{DEFooNEVNooJlmJOC}
-	Soit \( A\) un ensemble muni d'une loi de composition interne\footnote{Peut-être un anneau, mais comme nous avons l'intention, dans les propositions \ref{PROPooXXGHooLafGsI} et suivantes, de faire des sommes vers \( (\eN,+)\), plutôt un monoïde.} notée \( +\). Si nous avons une application \( \alpha\colon \eN\to A\), alors il existe une unique application \(f \colon \eN\to A  \) telle que
-	\begin{subequations}		\label{SUBEQSooKJOFooOOxDKH}
-		\begin{numcases}{}
-			f(0)=\alpha(0)\\
-			f(k)=f(k-1)+\alpha(k).
-		\end{numcases}
-	\end{subequations}
 
-	La valeur de \( f(k)\) est notée \( \sum_{i=0}^k\alpha(i)\).
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Ensembles finis}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Voir \ref{NORMooLNLHooLYKwDu} pour comprendre le type de résultats que nous groupons ici.
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooKNKEooYQeDdo}
+	Soient un ensemble \( E\) de cardinal \( n\).
+	\begin{enumerate}
+		\item
+		      si \( a\in E\) alors \( \Card(E\setminus\{ a \})=n-1\).
+		\item		\label{ITEMooLAECooBLOpwZ}
+		      Si \( a\not\in E\) alors \( \Card(E\cup\{ a \})=n+1\).
+	\end{enumerate}
+	%TODOooUTRHooZEZoUK. Prouver ça.
+\end{lemma}
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooNTVKooTfvHfA}
+	Si \( E\) est un ensemble fini, alors son ensemble des parties \( \partP(E)\) est fini.
+\end{lemma}
+
+\begin{proof}
+	Nous y allons par récurrence sur le cardinal\footnote{Voir \ref{NORMooPUOAooGnFjaX}.} de \( E\). Nous supposons que pour tout ensemble \( E'\) de cardinal \( n\), l'ensemble \( \partP(E')\) est fini. Soit maintenant \( E\) de cardinal \( n+1\).
+
+	Soit \( a\in E\). La partie \( E'=E\setminus \{ a \}\) est de cardinal \( n\) par le lemme \ref{LEMooKNKEooYQeDdo}, donc \( \partP(E')\) est fini. En posant
+	\begin{equation}
+		\mS=\{ A\cup\{ a \}\tq A\in\partP(E') \},
+	\end{equation}
+	nous avons
+	\begin{equation}
+		\partP(E)=\partP(E')\cup \mS.
+	\end{equation}
+	De plus
+	\begin{equation}
+		\begin{aligned}
+			\varphi\colon \mS & \to \partP(E')            \\
+			B                 & \mapsto B\setminus\{ a \}
+		\end{aligned}
+	\end{equation}
+	est une bijection. Donc \( \mS\) est fini et \( \partP(E)\) est fini comme union d'ensembles finis.
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau,BIBooFUKSooQARznK}]	\label{PROPooGJLYooTQtlSV}
+	Tout ensemble fini partiellement ordonné\footnote{Définition \ref{DefooFLYOooRaGYRk}.} possède un élément maximal\footnote{C'est à dire un élément qui majore tous ceux avec qui il est comparable.}.
+
+	Tout ensemble fini partiellement ordonné possède un élément minimal\footnote{C'est à dire un élément qui minore tous ceux avec qui il est comparable.}.
+\end{proposition}
+
+\begin{proof}
+	Nous prouvons la contraposée, c'est à dire que si \( (E,\leq)\) n'a pas d'élément maximal, alors il est infini.
+	\begin{subproof}
+		\spitem[Axiome du choix, fonction \( s\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( (E,\leq)\) n'admet pas d'élément maximal. Donc pour tout \( x\in E\) l'ensemble \( A_x=\{ y\in E\tq x<y \}\) est non vide. L'axiome du choix\footnote{Je suis certain qu'on peut réexprimer ça avec le lemme de Zorn; ce serait plus conforme à ce qui est fait dans le Frido, mais on ne va pas plus se casser la tête. Si \randomGender{le lecteur}{la lectrice} se sent capable de faire l'adaptation, qu'\randomGender{il}{elle} m'emvoie la preuve adaptée.} nous permet de choisir un élément dans chaque \( A_x\) et donc créer une application
+		\begin{equation}
+			s \colon E\to E
+		\end{equation}
+		telle que \( s(x)\in A_x\) pour tout \( x\).
+
+		\spitem[La partie \( S\)]
+		%-----------------------------------------------------------
+		Soit \( x_0\in E\). Nous définissons la suite \( (x_n)_{n\in \eN}\) par récurrence\footnote{Théorème \ref{THOooEJPYooZFVnez}.} par \( x_{n+1}=s(x_n)\).
+
+		\spitem[\( x_i< x_j\) si \( i<j\)]		\label{SPITEMooNUVJooDKClNE}
+		%-----------------------------------------------------------
+		Nous fixons \( i\in \eN\) et nous prouvons par récurrence sur \( j\) que \( x_i<x_j\) dès que \( i<j\). La définition \ref{DEFooAXZSooTEMjlV} de l'ordre sur \( \eN\) dit que si \( j>i\) alors il existe \( k\in \eN\) tel que \( j=i+k\). On y va par récurrence sur \( k\). D'abord nous avons
+		\begin{equation}
+			x_{i+1}=s(x_i)>x_i,
+		\end{equation}
+		donc \( x_{i+1}\neq x_i\). En ce qui concerne la récurrence, si \( x_{i+k}>x_i\), alors
+		\begin{equation}
+			x_{i+n+1}=s(x_{i+n})>x_{i+n}>x_i.
+		\end{equation}
+		Nous avons le résultat par transitivité de l'inégalité.
+
+		\spitem[L'application \( \varphi\)]
+		%-----------------------------------------------------------
+		Nous posons \( X=\{ x_i \}_{i\in \eN}\), et nous posons
+		\begin{equation}
+			\begin{aligned}
+				\varphi\colon E & \to E                            \\
+				x               & \mapsto \begin{cases}
+					                          s(x) & \text{si } s\in X \\
+					                          x    & \text{sinon. }
+				                          \end{cases}
+			\end{aligned}
+		\end{equation}
+
+		\spitem[\( \varphi(E)\subset E\setminus\{ x_0 \}\)]
+		%-----------------------------------------------------------
+		D'abord notons que \( x_0\in X\), donc \( \varphi(x_0)=s(x_0)>x_0\), donc \( \varphi(x_0)\neq x_0\). Si \( y\in X\), alors il existe \( n\) tel que \( y=x_n\). Dans ce cas \( \varphi(y)=x_{n+1}>x_0\) par \ref{SPITEMooNUVJooDKClNE}. Si au contraire \( y\not\in X\) alors \( \varphi(y)=y\not\in X\) et en particulier \( y\neq x_0\).
+
+		\spitem[\( E\setminus\{ x_0 \}\subset\varphi(E)\)]
+		%-----------------------------------------------------------
+		Si \( y\in X\setminus\{ x_0 \}\) alors \( y=x_n=s(x_{n-1})=\varphi(x_{n-1})\). Si au contraire \( y\) n'est pas dans \( X\) alors \( y=\varphi(y)\in \varphi(E)\).
+
+		\spitem[\( E\setminus\{ x_0 \}=\varphi(E)\)]
+		%-----------------------------------------------------------
+		Ce sont les deux inclusions que nous venons de prouver.
+
+		\spitem[Conclusion]
+		%-----------------------------------------------------------
+		L'application \(\varphi \colon E\to E\setminus\{ x_0 \}  \) est une bijection entre \( E\) et le sous-ensemble propre \( E\setminus\{ x_0 \}\). Donc \( E\) est infini.
+	\end{subproof}
+
+	En ce qui concerne l'énoncé à propos de l'existence d'un élément minimal, il suffit de prendre un élément maximal pour l'ensemble ordonné \( (E,\geq)\) (proposition \ref{PROPooNPLNooTqXVYz}.)
+\end{proof}
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Symbole de sommation}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+\begin{propositionDef}[\cite{MonCerveau,BIBChatGPT}]	\label{PROPooDUSJooWNyqWm}
+	Soit un groupe commutatif \( (G,+)\). Soient un ensemble fini \( I\) et une application \(f \colon I\to G  \). Il existe une unique application
+	\begin{equation}
+		s \colon \partP(I)\to G
+	\end{equation}
+	telle que
+	\begin{enumerate}
+		\item
+		      \( s(\emptyset)=0\),
+		\item
+		      pour toute partie \( K\subset I\) et pour tout \( x\not\in K\),
+		      \begin{equation}
+			      s(K\cup\{ x \})=s(K)+f(x).
+		      \end{equation}
+	\end{enumerate}
+	Lorsque \( J\) est une partie de \( I\), nous notons
+	\begin{equation}		\label{EQooDVYXooEoNUiF}
+		\sum_{j\in J}f(j)=s(J).
+	\end{equation}
 \end{propositionDef}
 
 \begin{proof}
-	Application du théorème \ref{THOooEJPYooZFVnez}.
+	En deux parties.
+	\begin{subproof}
+		\spitem[Unicité]
+		%-----------------------------------------------------------
+		Soient \(s,t \colon \partP(I)\to G  \) vérifiant les propriétés. Nous posons
+		\begin{equation}
+			\mA=\{ J\subset I\tq s(J)\neq t(J) \}.
+		\end{equation}
+		Vu que \( \mA\) est une partie de \( \partP(I)\) qui est fini\footnote{Par le lemme \ref{LEMooNTVKooTfvHfA}.}, l'ensemble \( \mA\) est fini. Muni de l'inclusion, \( \mA\) est un ensemble partiellement ordonné par le lemme \ref{LEMooZUAZooFlziuO}.
+
+		Vu que \( s(\emptyset)=t(\emptyset)=0\), nous savons que \( \emptyset\not\in \mA\). Si \( \mA=\emptyset\), alors \( s=t\) et c'est bon. Sinon, nous considérons un élément minimal\footnote{Par la proposition \ref{PROPooGJLYooTQtlSV}.} \( J\in \mA\).
+
+		Soit \( a\in J\). Étant donné que \( J\) est minimal, l'ensemble \( K=J\setminus\{ a \}\) n'est pas dans \( \mA\). Donc \( s(K)=s(J)\). Mais
+		\begin{equation}
+			s(J)=s(K\cap\{ a \})=s(K)+f(a)=t(K)+f(a)=t(K\cap\{ a \})=t(J).
+		\end{equation}
+		Bref, \( s(J)=t(J)\), contredisant le fait que \( J\in\mA\). Donc \( \mA=\emptyset\), et \( s=t\).
+
+		\spitem[Existence]
+		%-----------------------------------------------------------
+		Nous y allons par récurrence sur le cardinal de \( I\). Nous supposons que pour tout triple \( (I,f,G)\) où \( I\) est un ensemble avec \( \Card(I)\leq n\), \( G\) est un groupe commutatif et \(f \colon I\to G  \) est une application, il existe une application \(s \colon \partP(I)\to G  \) vérifiant les conditions.
+
+		Soit maintenant \( (I,f,G)\) avec \( \Card(I)=n+1\). Soit \( a\in I\), et posons \( J=I\setminus\{ a \}\). Le triple \( (J,g,G)\) où \( g\) est la restriction de \( f\) à \( J\) vérifie les hypothèses de récurrence, et il existe donc une application \(s \colon \partP(J)\to G  \) vérifiant
+		\begin{enumerate}
+			\item
+			      \( t(\emptyset)=0\)
+			\item
+			      \( t\big( K\cup\{ x \} \big)=t(K)+g(x)\) pour tout \( x\in J=I\setminus\{ a \}\).
+		\end{enumerate}
+
+		Nous définissons ensuite l'application
+		\begin{equation}
+			\begin{aligned}
+				s\colon \partP(I) & \to G                                                     \\
+				S                 & \mapsto \begin{cases}
+					                            t(S)                      & \text{si } a\not\in S \\
+					                            t(S\setminus\{ a \})+f(a) & \text{si } a\in S.
+				                            \end{cases}
+			\end{aligned}
+		\end{equation}
+		Nous vérifions que ce \( s\) vérifie les condition. D'abord \( s(\emptyset)=t(\emptyset)=0\) parce que \( a\not\in\emptyset\). Ensuite nous considérons \( K\subset I\) et \( x\in I\setminus K\). Que vaut \( s(K\cup\{ x \})\) ? Il y a \( 4\) possibilités selon que \( a\in K\) ou \( x=a\).
+
+		\begin{subproof}
+			\spitem[Si \( a\in K\) et \( x=a\)]
+			%-----------------------------------------------------------
+			Pas possible parce que \( x\not\in K\).
+
+			\spitem[Si \( a\in K\) et \( x\neq a\)]
+			%-----------------------------------------------------------
+			Nous avons
+			\begin{subequations}
+				\begin{align}
+					s(K\cup\{ x \}) & =t\big( K\cup\{ x \}\setminus\{ a \} \big)+f(a) \\
+					                & =t(K\setminus\{ a \})+f(x)+f(a)                 \\
+					                & =s(K\cup\{ a \})+f(x)                           \\
+					                & =s(K)+f(x).
+				\end{align}
+			\end{subequations}
+
+			\spitem[Si \( a\not\in K\) et \( x=a\)]
+			%-----------------------------------------------------------
+			Alors nous avons
+			\begin{subequations}
+				\begin{align}
+					s(K\cup \{ x \}) & =s(K\cup\{ a \}) \\
+					                 & =t(K)+f(a)       \\
+					                 & =s(K)+f(x)
+				\end{align}
+			\end{subequations}
+			parce que \( s(K)=t(K)\) et \( f(a)=f(x)\).
+
+			\spitem[Si \( a\not\in K\) et \( x\neq a\)]
+			%-----------------------------------------------------------
+			Alors nous avons
+			\begin{subequations}
+				\begin{align}
+					s(K\cup\{ x \}) & =t(K\cup\{ x \}) \\
+					                & =t(K)+f(x)       \\
+					                & =s(K)+f(x).
+				\end{align}
+			\end{subequations}
+		\end{subproof}
+	\end{subproof}
+\end{proof}
+
+
+\begin{propositionDef}      \label{DEFooNEVNooJlmJOC}
+	Soit \( A\) un ensemble muni d'une loi de composition interne\footnote{Peut-être un anneau, mais comme nous avons l'intention, dans les propositions \ref{PROPooXXGHooLafGsI} et suivantes, de faire des sommes vers \( (\eN,+)\), plutôt un monoïde.} notée \( +\). Si nous avons une application \( f\colon \eN\to A\), alors il existe une unique application \(t \colon \eN\to A  \) telle que
+	\begin{subequations}		\label{SUBEQSooKJOFooOOxDKH}
+		\begin{numcases}{}
+			t(0)=f(0) 	\label{SUBEQooCCBKooQTbwrQ}\\
+			t(k)=t(k-1)+f(k).
+		\end{numcases}
+	\end{subequations}
+
+	Cette fonction vérifie
+	\begin{equation}		\label{EQooADXEooVshdnf}
+		t(k)=\sum_{i\{ 0,\ldots,k \}}f(i)
+	\end{equation}
+	où la somme est celle de \eqref{EQooDVYXooEoNUiF}.
+
+
+	La valeur de \( t(k)\) est notée \( \sum_{i=0}^k\alpha(i)\).
+\end{propositionDef}
+
+\begin{proof}
+	Existence et unicité sont une application du théorème \ref{THOooEJPYooZFVnez}. En ce qui concerne l'égalité \eqref{EQooADXEooVshdnf}, il suffit de montrer qu'en posant \( q(k)=s\big( \{ 0,\ldots,k \} \big)\), la fonction \( q\) vérifie bien les conditions \eqref{SUBEQSooKJOFooOOxDKH}.
+
+	D'abord \( q(0)=s(\{ 0 \})=s(\emptyset)+f(0)=f(0)\). Bien. Ensuite
+	\begin{subequations}
+		\begin{align}
+			q(k) & =s\big( \{ 0,\ldots,k \} \big)    \\
+			     & =s(\{ 0,\ldots,k-1 \}\cup\{ k \}) \\
+			     & =s(\{ 0,\ldots,k-1 \})+f(k)       \\
+			     & =q(k-1)+f(k).
+		\end{align}
+	\end{subequations}
+	Bien aussi.
+
+	Par unicité, nous en déduisons que \( q=t\).
 \end{proof}
 
 \begin{normaltext}	\label{NORooNotationSommeNaturels}
@@ -4645,9 +5017,6 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	Une version de la proposition \ref{PROPooMYYDooOABOdB} dans \( \eR\) sera le lemme \ref{LEMooKAXFooIPyzJC}.
 \end{normaltext}
 
-\begin{probleme}	\label{TODOooDefinirMultiplicationRelatifs}
-	Définir ici la multiplication dans \( \eZ \) comme extension de celle de \( \eN \). Montrer que ça en fait un anneau totalement ordonné.
-\end{probleme}
 
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooJMETooHQGwnv}
@@ -4663,6 +5032,7 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooADGIooTioqdu}
 	L'anneau \( \eZ\) est totalement ordonné\footnote{Définition \ref{DEFooWACWooDWvXKJ}.}
 	%TODOooBRCUooRjkxmG. Prouver ça.
+	% Pour ça, il faudra encore définir la multiplication dans Z comme extension de celle dans N.
 \end{proposition}
 
 \begin{lemma}       \label{LEMooSVDDooWsyxNP}

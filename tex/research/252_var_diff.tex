@@ -1,5 +1,5 @@
 % This is part of Giulietta
-% Copyright (c) 2010-2017, 2019, 2021-2025
+% Copyright (c) 2010-2017, 2019, 2021-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -563,7 +563,7 @@ We proof a generalization of the rank theorem \ref{ThoGkkffA}.
 \end{proof}
 
 \begin{theorem}[Constant rank theorem\cite{BIBooVYIRooZyqygg}]       \label{THOooSWKVooTJQsXc}
-	Let \( M\) and \( N\) be smooth manifolds of dimension \( m\) and \( n\). Let \( f\colon M\to N\) be a smooth map. Let \( p\in M\). We suppose that the rank of \( f\) is equal to \( k\) at every point \( x\) in a neighbourhood of \( p\).
+	Let \( M\) and \( N\) be smooth\quext{I'm almost sure that the whole is still valid for \( C^1\) manifolds.} manifolds of dimension \( m\) and \( n\). Let \( f\colon M\to N\) be a smooth map. Let \( p\in M\). We suppose that the rank of \( f\) is equal to \( k\) at every point \( x\) in a neighbourhood of \( p\).
 
 	There exists charts \( \varphi\colon U\to M\) around \( p\in M\) and \( \psi\colon V\to N\) around \( f(p)\in M\) such that
 	\begin{enumerate}
@@ -578,6 +578,7 @@ We proof a generalization of the rank theorem \ref{ThoGkkffA}.
 		      \end{equation}
 		      for every \( (x_1,\ldots, x_m)\in U\).
 	\end{enumerate}
+	%TODOooHITSooHtjDxd. Voir que ce tho est encore valide avec l'hypothèse C^1 au lieu de C^{infini}. Déjà dans ma liste.
 \end{theorem}
 
 \begin{proof}
@@ -743,21 +744,167 @@ We proof a generalization of the rank theorem \ref{ThoGkkffA}.
 	\end{subproof}
 \end{proof}
 
-
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-\section{Submanifold}
-%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Immersion and submersion}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 In this section, for \( n>r\), we consider the map
-\begin{equation}
+\begin{equation}		\label{EQooIMWDooOQqCYJ}
 	\begin{aligned}
 		j\colon \eR^r & \to \eR^n      \\
 		x             & \mapsto (x,0).
 	\end{aligned}
 \end{equation}
 
+\begin{definition}      \label{DEFooZKUIooXWVGvh}
+	Let a map $\dpt{f}{M_1}{M_2}$.
+	\begin{enumerate}
+		\item
+		      It is an \defe{immersion}{immersion} at $p\in M_1$ if $\dpt{df_p}{T_pM_1}{T_{f(p)}M_2}$ is injective\footnote{Differential of map, definition \ref{DEFooDRGUooDPFIJa}.}.
+		\item
+		      It is a \defe{submersion}{submersion} if $df_p$ is surjective.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Canonical immersion theorem\cite{BIBooUAYYooVSFLtg,BIBooMistral}]	\label{THOooERBHooVDgCge}
+	Let \(f \colon M\to N  \) be a \( C^1\) immersion. Then
+	\begin{enumerate}
+		\item
+		      \( \dim(M)\leq\dim(N)\).
+		\item
+		      Let \( p\in M\) and \(\varphi \colon U\to M  \) be a chart around \( p\). There exists a chart \(\psi_c \colon V\to N  \) around \( f(p)\) such that
+		      \begin{equation}
+			      \psi_c^{-1}\circ f\circ\varphi=j
+		      \end{equation}
+		      where \( j(x)=(x,0)\) is the inclusion map.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Let \( p\in M\). We have
+	\begin{equation}
+		\dim(M)=\dim(T_pM)\leq\dim(T_{f(p)}N)=\dim(N).
+	\end{equation}
+	The first equality is the proposition \ref{PROPooEJBWooSbvypo}\ref{ITEMooJEYEooLuJiqz} while the central inequality if the fact that \(df_o \colon T_pM\to T_{f(p)}N  \) is an injection (see lemma \ref{LEMooOMZUooDvwbhf}\ref{ITEMooTAONooSUTnHq}).
+
+	We consider charts \( \varphi\colon U\to M  \) around \( p\) and \(\psi \colon V\to N  \) around \( f(p)\) and we let
+	\begin{equation}
+		\begin{aligned}
+			F\colon U & \to V                          \\
+			F         & =\psi^{-1}\circ f\circ\varphi.
+		\end{aligned}
+	\end{equation}
+	The differential of \( F\) at \( \varphi^{-1}(p)\) is (chain rule, lemma \ref{LEMooGRRAooXxDMuw})
+	\begin{equation}
+		\begin{aligned}
+			dF_{\varphi^{-1}(p)}\colon \eR^m & \to \eR^n                                                       \\
+			dF_{\varphi^{-1}}                & =(d\psi^{-1})_{f(p)}\circ df_p\circ d\varphi_{\varphi^{-1}(p)}.
+		\end{aligned}
+	\end{equation}
+	By hypothesis, \( f\) is a immersion, so that \( dF\) has constant rang \( m\) on \( U\). We apply the constant rank theorem \ref{THOooSEAZooOYSsmP}. There exists a neighbourhood \( V'\) of \( \psi^{-1}\big( f(p) \big)\) and a \( C^1\) diffeomorphism \(\theta \colon \eR^n\to \eR^n  \) such that
+	\begin{equation}
+		(\theta\circ F)(x_1,\ldots x_m)=(x_1,\ldots,x_l,0,\ldots,0)
+	\end{equation}
+	for every \( x\in F^{-1}(V')\).
+
+	If we set \( \psi_c=\psi\circ \theta^{-1}\) we get the result
+	\begin{equation}
+		\psi_c^{-1}\circ f\circ\varphi=\theta\circ\psi^{-1}\circ f\circ\varphi=\theta\circ F=j.
+	\end{equation}
+\end{proof}
+
+
+\begin{theorem}[Canonical submersion theorem\cite{BIBooUAYYooVSFLtg}]	\label{THOooZQRLooUpkvAy}
+	Let \(f \colon M\to N  \) be a \( C^1\) submersion. Let \( p\in M\). We write \( m=\dim(M)\), \( n=\dim(N)\). Then
+	\begin{enumerate}
+		\item
+		      \( \dim(M)\geq \dim(N)\)
+		\item
+		      Let \( p\in M\). Let \(\psi \colon V\to N  \) be a chart around \( q=f(p)\). There exists a chart \(\varphi_c \colon U_c\to M  \) around \( p\) and a restriction \( V'\subset V\) such that
+		      \begin{equation}
+			      \psi^{-1}\circ f\circ\varphi_c=\proj_n.
+		      \end{equation}
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	We start with charts \(\varphi \colon U\to M  \) and \(\psi \colon V\to N  \) around \( p\) and \( f(p)\). Here \( U\subset \eR^m\) and \( V\subset \eR^n\). We consider the composition
+	\begin{equation}
+		\begin{aligned}
+			F\colon U & \to V                            \\
+			F         & = \psi^{-1}\circ f\circ \varphi.
+		\end{aligned}
+	\end{equation}
+	Since \( f\) is a submersion, the differential \( df_p\) is surjective, so that
+	\begin{equation}
+		dF_{\varphi^{-1}(p)}=(d\psi^{-1})_{f(p)}\circ df_p\circ d\varphi_{\varphi^{-1}(p)}\colon T_{\varphi^{-1}(p)}U\to T_{(\psi^{-1}\circ f)(p)}V.
+	\end{equation}
+	is linear and surjective. We know from proposition \ref{PROPooEJBWooSbvypo} the dimension of the tangent spaces : \( \dim(T_aU)=\dim(M)=m\) and \( \dim(T_bV)=\dim(N)=n\). Since there is a linear bijection between them, we conclude that \( m\geq n\).
+
+	Let \( \{ e_1,\ldots,e_m \}\) be a basis of \( \eR^m\). From lemma \ref{LEMooARZGooMOlgsl}, there exists a linear map \(\phi \colon \eR^m\to \eR^m  \) such that
+	\begin{equation}
+		d(\psi^{-1}\circ f\circ \varphi)_{\varphi^{-1}(p)}\circ \phi
+	\end{equation}
+	is surjective from \( \{ e_1,\ldots,e_n \}\). We define \( U_1=\phi^{-1}(U)\) and consider the chart
+	\begin{equation}
+		\varphi_1=\varphi\circ\phi \colon \phi^{-1}(U)\to M.
+	\end{equation}
+	By the way we used the fact that \( d\phi_a=\phi\) by lemma \ref{LEMooZSNMooCfjzOB}.
+
+	Here comes the trick. We define the map
+	\begin{equation}
+		\begin{aligned}
+			G\colon U_1 & \to \eR^m                                        \\
+			u           & \mapsto j\big( F_1(u) \big)+\sum_{k=n+1}^mu_ke_k
+		\end{aligned}
+	\end{equation}
+	where \(j \colon \eR^n\to \eR^m  \) is the inclusion \( j(x)=(x,0)\).
+
+	Notice that
+	\begin{equation}		\label{EQooKPCIooUInUbX}
+		F_1=\proj_n\circ G
+	\end{equation}
+	because \( \proj_n\) is the inverse of \( j\) and \( \proj_n(e_k)=0\) when \( k=n+1,\ldots,m\).
+
+	The differential is of \( G\) given by\footnote{If \( f(x)=x_k\), then \( df_a(h)=h_k\).}
+	\begin{equation}
+		dG_a(h)=j\big( (dF_1)_{a}(h) \big)+\sum_{k=n+1}^mh_ke_k.
+	\end{equation}
+	When \( h\) runs over \( \{ e_1,\ldots,e_n \}\) (in \( \eR^n\)), the part \( j\big( (dF_1)_a(h) \big)\) generates \( \{ e_1,\ldots,e_n \}\) (in \( \eR^m\)). And when \( u\) runs over \( \{ e_{n+1},\ldots,e_m \}\), the part \( \sum_{k=n+1}^mh_ke_k\) generates \( \{ e_{n+1},\ldots,e_m \}\). Thus \( dG_{\varphi^{-1}(p)}\) has maximal rank.
+
+	We can apply the local inversion theorem \ref{ThoXWpzqCn}. There exists a neighbourhood \( U_2\) of \( \varphi^{-1}(p)\) such that
+	\begin{equation}
+		G \colon U_2\to G(U_2)
+	\end{equation}
+	is a \( C^1\)-diffeomorphism. We denote by \(H \colon H(U_2)\to U_2  \) the inverse.
+
+	We consider the new chart \( \varphi_2=\varphi_1\circ H\) and now
+	\begin{subequations}
+		\begin{align}
+			\psi^{-1}\circ f\circ \varphi_2 & =\psi^{-1}\circ f\circ \varphi_1\circ H                                        \\
+			                                & =F_1\circ H                                                                    \\
+			                                & =\proj_n\circ G\circ H                  & \text{from \eqref{EQooKPCIooUInUbX}} \\
+			                                & =\proj_n.
+		\end{align}
+	\end{subequations}
+\end{proof}
+
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\section{Submanifold}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooUBLWooXnPzjn}
-	The map \(j \colon \eR^r\to \eR^n  \) is continuous.
+	Let \( n>R\); the map
+	\begin{equation}
+		\begin{aligned}
+			j\colon \eR^r & \to \eR^n      \\
+			x             & \mapsto (x,0).
+		\end{aligned}
+	\end{equation}
+	is continuous.
 \end{lemma}
 
 \begin{proof}
@@ -808,12 +955,11 @@ In this section, for \( n>r\), we consider the map
 %----------------------------------------------------
 
 
-
 \begin{definition}[submanifold]      \label{DEFooLQHWooMOTgzq}
 	Let \( M\) be a \( \mA\)-manifold. Let \( Q\subset M\).
 
 	If \( \{ (\varphi_{\alpha},U_{\alpha}) \}_{\alpha\in \Lambda}\) is an atlas\footnote{See \ref{PROPooNVVSooAVVLOM}.} with \( U_{\alpha}\subset \eR^n\) for every \( \alpha\in \Lambda\). For each \( q\in Q\) we consider
-	\begin{equation}		\label{EQooPIPMooWqyrsn}
+	\begin{equation}
 		\Lambda(q)=\{ \alpha\in\Lambda\tq
 		\begin{cases}
 			\varphi_{\alpha}^{-1}\big( \varphi_{\alpha}(U_{\alpha})\cap Q \big)= j(\eR^r)\cap U_{\alpha} = \{ (x_1,\ldots,x_r,0,\ldots,0)\in U_{\alpha} \} \\
@@ -822,6 +968,8 @@ In this section, for \( n>r\), we consider the map
 		\}.
 	\end{equation}
 	If there exists an atlas \( \Lambda\) of \( M\) such that \( \Lambda(q)\neq\emptyset\) for every \( q\in Q\), then we say that \( Q\) is a \( r\)-dimensional \defe{submanifold}{submanifold} of \( M\).
+
+	The proposition \ref{PROPooMKLBooTkqrph} will give a \( \mA\)-manifold structure on \( Q\).
 \end{definition}
 
 Let \( Q\) be a \( r\)-dimensional submanifold of \( M\). We consider an atlas \( \{ (\varphi_{\alpha},U_{\alpha})_{\alpha\in \Lambda} \}\) such that \( \Lambda(q)\neq \emptyset\) for every \( q\in Q\).
@@ -836,7 +984,7 @@ Let \( \Gamma=\bigcup_{q\in Q}\Lambda(q)\). For \( \alpha\in \Gamma\) we define
 	\end{align}
 \end{subequations}
 Then we consider the maps
-\begin{equation}
+\begin{equation}		\label{EQooMXNPooLAKIqk}
 	\begin{aligned}
 		\phi_{\alpha}\colon V_{\alpha} & \to Q                                 \\
 		x                              & \mapsto (\varphi_{\alpha}\circ j)(x).
@@ -946,17 +1094,18 @@ Then we consider the maps
 
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooMKLBooTkqrph}
-	Let \( Q\) be a \( r\)-dimensional submanifold of \( M\). We consider an atlas \( \{ (\varphi_{\alpha},U_{\alpha})_{\alpha\in \Lambda} \}\) such that \( \Lambda(q)\neq \emptyset\) for every \( q\in Q\).
+	Let \( Q\) be a \( r\)-dimensional submanifold\footnote{Definition \ref{DEFooLQHWooMOTgzq}.} of \( M\). We consider an atlas \( \{ (\varphi_{\alpha},U_{\alpha})_{\alpha\in \Lambda} \}\) such that \( \Lambda(q)\neq \emptyset\) for every \( q\in Q\).
 
 	We consider the projection \(\pr_r \colon \eR^n\to \eR^r  \).
 
 	Let \( \Gamma=\bigcup_{q\in Q}\Lambda(q)\). For \( \alpha\in \Gamma\) we define
-	\begin{subequations}
-		\begin{align}
-			S_{\alpha} & =\varphi_{\alpha}^{-1}\big( \varphi_{\alpha}(U_{\alpha})\cap Q \big) =j(\eR^r)\cap U_{\alpha} \\
-			V_{\alpha} & =\pr_r(S_{\alpha}).
-		\end{align}
-	\end{subequations}
+	\begin{equation}
+		S_{\alpha}  =\varphi_{\alpha}^{-1}\big( \varphi_{\alpha}(U_{\alpha})\cap Q \big) =j(\eR^r)\cap U_{\alpha},
+	\end{equation}
+	the set of points in \( U_{\alpha}\) which happen to be of the form \( (x_1,\ldots,x_r,0,\ldots,0)\) and
+	\begin{equation}
+		V_{\alpha}  =\pr_r(S_{\alpha}).
+	\end{equation}
 	Then we consider the maps
 	\begin{equation}
 		\begin{aligned}
@@ -966,12 +1115,24 @@ Then we consider the maps
 	\end{equation}
 
 
-	The maps \( \{ \phi_{\alpha} \}_{\alpha\in\Gamma}\) give \( Q\) a \( \mA\)-manifold of dimension \( r\) structure.
+	Then:
+	\begin{enumerate}
+		\item		\label{ITEMooEXSEooWBMZDH}
+		      We have the inverse \( \phi_{\alpha}^{-1}=\proj_r\circ\varphi_{\alpha}^{-1}\), more precisely the map
+		      \begin{equation}
+			      \proj_r\circ\varphi_{\alpha}^{-1} \colon Q\to V_{\alpha}
+		      \end{equation}
+		      satisfy
+		      \begin{equation}
+			      \phi_{\alpha}\circ\proj_r\circ\varphi_{\alpha}^{-1}=\id_{Q}.
+		      \end{equation}
+		\item
+		      The maps \( \{ \phi_{\alpha} \}_{\alpha\in\Gamma}\) give \( Q\) a \( \mA\)-manifold of dimension \( r\) structure.
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
-
-	For the manifold structure, we follow the theorem \ref{THOooFIHIooLiSUxH}.
+	The point \ref{ITEMooEXSEooWBMZDH} is nothing else than the lemma \ref{LEMooUYHPooLPfNVr}. For the manifold structure, we follow the theorem \ref{THOooFIHIooLiSUxH}.
 	\begin{subproof}
 		\spitem[\( V_{\alpha}\) is open in \( \eR^r\)]
 		%-----------------------------------------------------------
@@ -979,7 +1140,7 @@ Then we consider the maps
 
 		\spitem[\( \bigcup_{\alpha\in\Gamma}\phi_{\alpha}(V_{\alpha})=Q\)]
 		%-----------------------------------------------------------
-		Let \( q\in Q\). We have \( \Lambda(q)\subset \Gamma\). Let \( \alpha\in \Lambda(q)\); by definition \eqref{EQooPIPMooWqyrsn} we have \( q=\phi_{\alpha}(0)\).
+		Let \( q\in Q\). We have \( \Lambda(q)\subset \Gamma\). Let \( \alpha\in \Lambda(q)\); by definition \eqref{DEFooLQHWooMOTgzq} we have \( q=\phi_{\alpha}(0)\).
 
 		\spitem[\( \phi_{\alpha}\) is injective]
 		%-----------------------------------------------------------
@@ -1048,7 +1209,7 @@ Then we consider the maps
 	\end{subproof}
 	At this point, theorem \ref{THOooFIHIooLiSUxH} says that \( Q\) is a topological manifold.
 
-	The maps \( \phi_{\alpha}^{-1}\circ\phi_{\beta}\) are \( C^k\), smooth or analytic when \( \varphi_{\alpha}^{-1}\circ\varphi_{\beta}\) are. The reason is the equality \eqref{EQooVZPEooPwSXyX} and the fact that \( \proj_r\) and \( j\) are linear and then smooth and analytic\footnote{Proposition \ref{PROPooMGWOooTeCDRk}.}.
+	The maps \( \phi_{\alpha}^{-1}\circ\phi_{\beta}\) are \( C^k\), smooth or analytic when \( \varphi_{\alpha}^{-1}\circ\varphi_{\beta}\) are. The reason is the equality \eqref{EQooVZPEooPwSXyX} and the fact that \( \proj_r\) and \( j\) are linear and then smooth and analytic\footnote{Lemma \ref{LEMooZRNAooUrDJOI}.}.
 \end{proof}
 
 \begin{lemma}[\cite{BIBooDUPSooZjcTHL}]		\label{LEMooMGIZooIzoLNR}
@@ -1144,15 +1305,6 @@ Then we consider the maps
 	Following the notations of definition \ref{DEFooLQHWooMOTgzq}, we consider the charts \( \{ \varphi_{\alpha} \}_{\alpha\in\Lambda_i}\) of \( N_i\) and the special ones \( \Lambda_i(q)\) at \( q\). For every \( q\in N\) we have \( \Lambda_i(q)\neq \emptyset\), so that the charts \( \bigcup_{q\in N}\bigcup_{i\in I}\Lambda_i(q)\) satisfy the hypothesis of \ref{DEFooLQHWooMOTgzq}.
 \end{proof}
 
-\begin{definition}      \label{DEFooZKUIooXWVGvh}
-	Let a map $\dpt{f}{M_1}{M_2}$.
-	\begin{enumerate}
-		\item
-		      It is an \defe{immersion}{immersion} at $p\in M_1$ if $\dpt{df_p}{T_pM_1}{T_{f(p)}M_2}$ is injective\footnote{Differential of map, definition \ref{DEFooDRGUooDPFIJa}.}.
-		\item
-		      It is a \defe{submersion}{submersion} if $df_p$ is surjective.
-	\end{enumerate}
-\end{definition}
 
 
 \begin{proposition}[\cite{BIBooDUPSooZjcTHL}]       \label{PROPooEWUCooTStAvb}
@@ -1184,7 +1336,7 @@ Then we consider the maps
 	which vanishes because of the hypothesis \ref{EQooVUPBooZuIQfV}.
 \end{proof}
 
-\begin{proposition}[\cite{MonCerveau,BIBooARJKooLuqoxW}]     \label{PROPooZACHooCNgLSl}
+\begin{proposition}[\cite{MonCerveau,BIBChatGPT}]     \label{PROPooZACHooCNgLSl}
 	Let \( M\) and \( S\) be manifolds in the class \( \mA\) (\( C^k\), analytic). We suppose that \( S\subset M\) and that the inclusion \(i \colon S\to M  \) is \( \mA\)-regular:
 	\begin{enumerate}
 		\item

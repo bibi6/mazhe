@@ -12,6 +12,446 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooIZUYooPSjmsK",
+    "url": "https://www.math.uni-konstanz.de/~infusino/Lect6.pdf",
+    "title": "Completeness for t.v.s.",
+    "author": [
+      {
+        "family": "Maria Infusino"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMSVWooNUfZlK",
+    "url": "https://www.math.uni-konstanz.de/~infusino/Lect8.pdf",
+    "title": "Finite dimensional vector spaces",
+    "author": [
+      {
+        "family": "Maria Infusino"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooWPKPooAbnKXK",
+    "url": "https://en.wikipedia.org/wiki/Lie_group%E2%80%93Lie_algebra_correspondence",
+    "title": "Lie group–Lie algebra correspondence",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "4 juin 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooNSAHooUCPAgZ",
+    "url": "https://fr.wikipedia.org/wiki/Sous-groupe_%C3%A0_un_param%C3%A8tre",
+    "title": "Sous-groupe à un paramètre",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "2 juin 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPJBIooJEUAiF",
+    "url": "https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_du_rang_constan",
+    "title": "Théorème du rang constant",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "28 mai 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooCHYXooCqILLS",
+    "url": "https://ocw.mit.edu/courses/18-101-analysis-ii-fall-2005/cc178f35372e5589c19d65602e48d970_lecture30.pdf",
+    "title": "Lecture 30",
+    "author": [
+      {
+        "family": "Victor Guillemin"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooVJPMooOllpcn",
+    "url": "https://math.stackexchange.com/questions/3354282/why-do-two-vector-fields-commute-iff-their-flows-do",
+    "title": "Why do two vector fields commute iff their flows do?",
+    "author": [
+      {
+        "family": "Kadmos"
+      }
+    ],
+    "date": "17 nov 2024",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooNRCAooLccdiL",
+    "url": "https://www.math.toronto.edu/mgualt/courses/17-1300/docs/17-1300-notes.pdf",
+    "title": "Geometry and topology",
+    "author": [
+      {
+        "family": "Marco Gualtieri"
+      }
+    ],
+    "date": "2017",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooOUGZooCoBnry",
+    "url": "https://fr.wikipedia.org/wiki/Lemme_d%27Urysohn",
+    "title": "Lemme d'Urysohn",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "5 avril 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooJSLJooDOUqIt",
+    "url": "http://tomlr.free.fr/Math%E9matiques/G%E9o%20diff/3%20-%20Partitions.pdf",
+    "title": "Partitions de l'unité",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooBDJFooLZypXV",
+    "url": "https://fr.wikipedia.org/wiki/Adh%C3%A9rence_(math%C3%A9matiques)",
+    "title": "Adhérence (mathématiques)",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "25 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooBNSSooJVSjFi",
+    "url": "https://math.stackexchange.com/questions/5129807/unicity-part-of-riesz-representation-theorem",
+    "title": "unicity part of Riesz representation theorem",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "23 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTYSSooWPqfAx",
+    "url": "https://planetmath.org/ASpaceIsCompactIffAnyFamilyOfClosedSetsHavingFipHasNonemptyIntersection",
+    "title": "a space is compact iff any family of closed sets having fip has non-empty intersection",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "10 fev. 2018",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooFFDKooOsRapH",
+    "url": "https://fr.wikipedia.org/wiki/Topologie_finale",
+    "title": "Topologie finale",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "9 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTXKYooAELPZR",
+    "url": "https://fr.wikiversity.org/wiki/Th%C3%A9orie_des_groupes/Sous-groupe_distingu%C3%A9_et_groupe_quotient",
+    "title": "Théorie des groupes : Sous-groupe distingué et groupe quotient",
+    "author": [
+      {
+        "family": "Wikiversité"
+      }
+    ],
+    "date": "2 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTIRCooTIWtGD",
+    "url": "https://fr.wikiversity.org/wiki/Th%C3%A9orie_des_groupes/Th%C3%A9or%C3%A8me_de_Jordan-H%C3%B6lder",
+    "title": "Théorie des groupes : Théorème de Jordan-Hölder ",
+    "author": [
+      {
+        "family": "Wikiversité"
+      }
+    ],
+    "date": "2 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooVEBRooBViECB",
+    "url": "https://fr.wikiversity.org/wiki/Th%C3%A9orie_des_groupes/Sous-groupe_distingu%C3%A9_et_groupe_quotient#Les_trois_th%C3%A9or%C3%A8mes_d'isomorphisme",
+    "title": "Théorie des groupes : Sous-groupe distingué et groupe quotient",
+    "author": [
+      {
+        "family": "Wikiversité"
+      }
+    ],
+    "date": "26 mars 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooMistral",
+    "url": "https://chat.mistral.ai/chat/",
+    "title": "Quelques prompts assez simples.",
+    "author": [
+      {
+        "family": "mistral"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooLSELooOkzmFj",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec06.pdf",
+    "title": "LECTURE 6: SMOOTH SUBMANIFOLDS",
+    "author": [
+      {
+        "family": "Zuoqin Wang"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooUAYYooVSFLtg",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec05.pdf",
+    "title": "LECTURE 5: SUBMERSIONS, IMMERSIONS AND EMBEDDINGS",
+    "author": [
+      {
+        "family": "Zuoqin Wang"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooEJXFooVcandW",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/21F-Manifolds/Notes/Lec22.pdf",
+    "title": "LECTURE 22: THE EXTERIOR DERIVATIVE",
+    "author": [
+      {
+        "family": "Zuoqin Wang"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooZBZTooYmHemH",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/",
+    "title": "16F-Manifols",
+    "author": [
+      {
+        "family": "Zuoqin Wang"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/18F-Manifolds/",
+    "author": [
+      {
+        "family": "Wang",
+        "given": "Zuoquin"
+      }
+    ],
+    "id": "BIBooDUPSooZjcTHL",
+    "issued": {
+      "date-parts": [
+        [
+          2018
+        ]
+      ]
+    },
+    "title": "Differential manifold",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooTGSMooYDnTxb",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec18.pdf",
+    "title": "Orientation and integration",
+    "author": [
+      {
+        "family": "Wang Zuoquin"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPQXJooItBJGZ",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec17.pdf",
+    "title": "Differential forms",
+    "author": [
+      {
+        "family": "Wang Zuoquin"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooKCFIooSAYbJK",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec03.pdf",
+    "title": "Smooth functions",
+    "author": [
+      {
+        "family": "Wang Zuoquin"
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooJMRFooTAhhcg",
+    "url": "https://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds",
+    "author": [
+      {
+        "family": "Wang",
+        "given": "Zuoquin"
+      }
+    ],
+    "title": "16F",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooDEEYooRGFyDD",
+    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec16.pdf",
+    "title": "Lecture 16: multilinear algebra",
+    "author": [
+      {
+        "family": "Zuoqin Wang",
+        "given": ""
+      }
+    ],
+    "date": "",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPEDGooCQRqcV",
+    "url": "https://github.com/LaurentClaessens/mazhe/issues/275",
+    "title": "Sous-corps engendré",
+    "author": [
+      {
+        "family": "jeanas"
+      }
+    ],
+    "date": "15 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooFUKSooQARznK",
+    "url": "https://math.stackexchange.com/questions/5124332/finite-partially-ordered-set-has-a-maximal-element-without-natural-numbers",
+    "title": "Finite partially ordered set has a maximal element (without natural numbers)",
+    "author": [
+      {
+        "family": "Asaf Karagila"
+      }
+    ],
+    "date": "13 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooKYTNooKQzrGS",
+    "url": "https://en.wikipedia.org/wiki/Euler%27s_totient_function",
+    "title": "Euler's totient function",
+    "author": [
+      {
+        "family": "Wikipédia"
+      }
+    ],
+    "date": "11 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooQUMGooOxmczN",
+    "url": "https://gitlabpages.univ-lille.fr/m53lille/2023/Cours/Chap2-int%c3%a9grales_%c3%a0_param%c3%a8tres_intervalles_bornes.pdf",
+    "title": "INTÉGRALES DÉPENDANT D’UN PARAMÈTRE : CAS DES INTÉGRALES DÉFINIES",
+    "author": [
+      {
+        "family": ""
+      }
+    ],
+    "date": "4 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooPQGLooQqJGUH",
+    "url": "https://math.libretexts.org/Bookshelves/Analysis/Functions_Defined_by_Improper_Integrals_(Trench)",
+    "title": "Functions Defined by Improper Integrals (Trench)",
+    "author": [
+      {
+        "family": "William F. Trench"
+      }
+    ],
+    "date": "2 février 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooVMEDooNFFqpc",
+    "url": "https://webusers.imj-prg.fr/~jean-yves.ducloux/U4AH36/TD/Regle_Abel.pdf",
+    "title": "Complément : règles d’Abel (J-Y D)",
+    "author": [
+      {
+        "family": "Jean-Yves Ducloux"
+      }
+    ],
+    "date": "26 janvier 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooCQKFooJiwBtL",
+    "url": "https://en.wikibooks.org/wiki/Math_for_Non-Geeks/_Derivative_and_local_extrema",
+    "title": "Derivative and local extrema – Math for Non-Geeks",
+    "author": [
+      {
+        "family": "Wikibooks"
+      }
+    ],
+    "date": "25 janvier 2026",
+    "type": "article-journal"
+  },
+  {
+    "id": "BIBooAFQMooNudkHJ",
+    "url": "https://perso.univ-rennes1.fr/karim.bekka/CDHO/Week%20by%20week/2009-2010/CDHO11.pdf",
+    "title": "héorème fondamental du calcul différentiel et intégral",
+    "author": [
+      {
+        "family": "Karim Bekka"
+      }
+    ],
+    "date": "26 décembre 2025",
+    "type": "article-journal"
+  },
+  {
     "id": "BIBooSOTVooPkrzIg",
     "url": "https://fr.wikipedia.org/wiki/Formule_d%27it%C3%A9ration_de_Pascal",
     "title": "Formule d'itération de Pascal",
@@ -1495,7 +1935,7 @@
   },
   {
     "id": "BIBooFXRMooZUuwNV",
-    "url": "https://fr.wikipedia.org/wiki/Tribu_bor%C3%A9lienne",
+    "url": "https://fr.wikipedia.org/wiki/Tribu_borélienne",
     "title": "Tribu borélienne",
     "author": [
       {
@@ -1508,7 +1948,7 @@
   {
     "id": "BIBChatGPT",
     "url": "https://chatgpt.com",
-    "title": "Chat GPT avec un bon prompt, même pas compliqué la plupart des fois.",
+    "title": "Chat GPT avec un prompt pas très compliqué.",
     "author": [
       {
         "family": "Chat GPT"
@@ -1518,16 +1958,15 @@
     "type": "article-journal"
   },
   {
-    "id": "BIBooARJKooLuqoxW",
+    "id": "BIBChatGPTDifficile",
     "url": "https://chatgpt.com",
-    "title": "",
+    "title": "Chat GPT, en me battant pour lui faire cracher la démonstration et corriger ses erreurs.",
     "author": [
       {
-        "family": "ChatGPT"
+        "family": "Chat GPT"
       }
     ],
-    "date": "29 janvier 2025",
-    "note": "Same prompt as in \\url{https://math.stackexchange.com/questions/5028910}",
+    "date": "",
     "type": "article-journal"
   },
   {
@@ -1870,18 +2309,6 @@
     "type": "article-journal"
   },
   {
-    "id": "BIBooZBZTooYmHemH",
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/",
-    "title": "16F-Manifols",
-    "author": [
-      {
-        "family": "Zuoqin Wang"
-      }
-    ],
-    "date": "",
-    "type": "article-journal"
-  },
-  {
     "id": "BIBooXNMMooNOLQEL",
     "url": "https://math.stackexchange.com/q/3153700",
     "title": "Every connected orientable smooth manifold has exactly two orientations, Lee Proposition 15.9",
@@ -1963,18 +2390,6 @@
       }
     ],
     "date": "7 janvier 2024",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooEJXFooVcandW",
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/21F-Manifolds/Notes/Lec22.pdf",
-    "title": "LECTURE 22: THE EXTERIOR DERIVATIVE",
-    "author": [
-      {
-        "family": "Zuoqin Wang"
-      }
-    ],
-    "date": "",
     "type": "article-journal"
   },
   {
@@ -2155,67 +2570,6 @@
       }
     ],
     "date": "25 april 2021",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooTGSMooYDnTxb",
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec18.pdf",
-    "title": "Orientation and integration",
-    "author": [
-      {
-        "family": "Wang Zuoquin"
-      }
-    ],
-    "date": "",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooPQXJooItBJGZ",
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec17.pdf",
-    "title": "Differential forms",
-    "author": [
-      {
-        "family": "Wang Zuoquin"
-      }
-    ],
-    "date": "",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooKCFIooSAYbJK",
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec03.pdf",
-    "title": "Smooth functions",
-    "author": [
-      {
-        "family": "Wang Zuoquin"
-      }
-    ],
-    "date": "",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooJMRFooTAhhcg",
-    "url": "https://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds",
-    "author": [
-      {
-        "family": "Wang",
-        "given": "Zuoquin"
-      }
-    ],
-    "title": "16F",
-    "type": "article-journal"
-  },
-  {
-    "id": "BIBooDEEYooRGFyDD",
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/16F-Manifolds/Notes/Lec16.pdf",
-    "title": "Lecture 16: multilinear algebra",
-    "author": [
-      {
-        "family": "Zuoqin Wang",
-        "given": ""
-      }
-    ],
-    "date": "",
     "type": "article-journal"
   },
   {
@@ -3808,13 +4162,13 @@
     "type": "no-type"
   },
   {
+    "id": "BIBooLREGooRSBfsj",
     "url": "https://desvl.xyz/2020/09/19/The-Riesz-Markov-Kakutani-Representation-Theorem/",
     "author": [
       {
         "family": "Desvl"
       }
     ],
-    "id": "BIBooLREGooRSBfsj",
     "issued": {
       "date-parts": [
         [
@@ -3826,15 +4180,15 @@
     "type": "article-journal"
   },
   {
-    "url": "https://webspace.science.uu.nl/~crain101/topologie11/chapter5.pdf",
+    "id": "BIBooRNREooMaKTGj",
+    "url": "https://webspace.science.uu.nl/~crain101/topologie11/lecture-notes.pdf",
     "author": [
       {
         "family": "Crainic",
         "given": "Marius"
       }
     ],
-    "id": "BIBooRNREooMaKTGj",
-    "title": "chapter 5: partition of unity",
+    "title": "Inleiding Topologie 2011",
     "type": "article-journal"
   },
   {
@@ -3855,6 +4209,7 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooWEPLooDsLEvu",
     "url": "https://4dspace.mtts.org.in/expository-article-download.php?ai=160",
     "author": [
       {
@@ -3862,18 +4217,17 @@
         "given": "S."
       }
     ],
-    "id": "BIBooWEPLooDsLEvu",
     "title": "Riesz-Markov Representation Theorem",
     "type": "article-journal"
   },
   {
+    "id": "BIBooMGTQooQQVmPG",
     "url": "https://en.wikibooks.org/w/index.php?title=Measure_Theory/Riesz%27_representation_theorem&oldid=4042731",
     "author": [
       {
         "family": "Wikibooks"
       }
     ],
-    "id": "BIBooMGTQooQQVmPG",
     "issued": {
       "date-parts": [
         [
@@ -3916,13 +4270,13 @@
     "type": "article-journal"
   },
   {
+    "id": "BIBooXACUooPPyLuN",
     "url": "https://en.wikipedia.org/w/index.php?title=Finite_intersection_property&oldid=1076876990",
     "author": [
       {
         "literal": "Wikipedia contributors"
       }
     ],
-    "id": "BIBooXACUooPPyLuN",
     "issued": {
       "date-parts": [
         [
@@ -4508,25 +4862,6 @@
         "family": "orangeskid"
       }
     ]
-  },
-  {
-    "url": "http://staff.ustc.edu.cn/~wangzuoq/Courses/18F-Manifolds/",
-    "author": [
-      {
-        "family": "Wang",
-        "given": "Zuoquin"
-      }
-    ],
-    "id": "BIBooDUPSooZjcTHL",
-    "issued": {
-      "date-parts": [
-        [
-          2018
-        ]
-      ]
-    },
-    "title": "Differential manifold",
-    "type": "article-journal"
   },
   {
     "author": [
@@ -8049,7 +8384,7 @@
     "type": "article-journal"
   },
   {
-    "url": "http://fr.wikipedia.org/w/index.php?title=Id%C3%A9al_premier&oldid=145977206",
+    "url": "https://fr.wikipedia.org/wiki/Idéal_premier",
     "author": [
       {
         "family": "Wikipédia"
@@ -9953,6 +10288,7 @@
     "type": "no-type"
   },
   {
+    "id": "ooIIMKooJpdFyk",
     "url": "https://www.math.u-psud.fr/~perrin/CAPES/geometrie/isometries11-12.pdf",
     "author": [
       {
@@ -9960,7 +10296,6 @@
         "given": "Daniel"
       }
     ],
-    "id": "ooIIMKooJpdFyk",
     "title": "Isométries du plan",
     "type": "article-journal"
   },
@@ -10086,13 +10421,13 @@
     "type": "article-journal"
   },
   {
-    "url": "http://fr.wikipedia.org/w/index.php?title=Partition_de_l%27unit%C3%A9&oldid=122365411",
+    "id": "ooQCDSooCpqDvB",
+    "url": "https://fr.wikipedia.org/w/index.php?title=Partition_de_l%27unit%C3%A9&oldid=122365411",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "ooQCDSooCpqDvB",
     "issued": {
       "date-parts": [
         [
@@ -13600,7 +13935,7 @@
     "type": "article-journal"
   },
   {
-    "url": "http://www.ljll.math.upmc.fr/~lissy/Agreg/developpements/DecPol.pdf",
+    "title": "Décomposition polaire",
     "author": [
       {
         "family": "Lissy",
@@ -13608,8 +13943,8 @@
       }
     ],
     "id": "JJdQPyK",
-    "title": "Décomposition polaire",
-    "type": "article-journal"
+    "type": "article-journal",
+    "url": "http://www.ljll.math.upmc.fr/~lissy/Agreg/developpements/DecPol.pdf"
   },
   {
     "url": "http://www.iecn.u-nancy.fr/~munnier/files/cours_edo.pdf",
@@ -13635,14 +13970,14 @@
     "type": "article-journal"
   },
   {
-    "url": "http://perso.univ-rennes1.fr/arnaud.girand/pdf/dvp_agreg/dvp.pdf",
+    "id": "KXjFWKA",
+    "url": "https://math.webgirand.eu/pdf/dvp_agreg/dvp.pdf",
     "author": [
       {
         "family": "Girand",
         "given": "Arnaud"
       }
     ],
-    "id": "KXjFWKA",
     "title": "Développements pour l’agrégation externe de mathématiques",
     "type": "article-journal"
   },
@@ -16922,13 +17257,13 @@
     "type": "no-type"
   },
   {
-    "url": "http://fr.wikipedia.org/w/index.php?title=Fonction_de_M%C3%B6bius&oldid=91236321",
+    "id": "POkXeBE",
+    "url": "https://fr.wikipedia.org/w/index.php?title=Fonction_de_M%C3%B6bius&oldid=91236321",
     "author": [
       {
         "family": "Wikipédia"
       }
     ],
-    "id": "POkXeBE",
     "title": "Fonction de Möbius — Wikipédia, l’encyclopédie libre",
     "type": "no-type"
   },

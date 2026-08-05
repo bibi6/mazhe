@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2025
+% Copyright (c) 2011-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -162,7 +162,11 @@ Une construction des réels via les coupures de Dedekind est donnée dans \cite{
 	\end{equation}
 	Nous en déduisons que \( q=0\).
 \end{proof}
-Lorsque dans la suite nous parlerons d'un élément de \( \eQ\) comme étant un réel, nous aurons en tête l'image de cet élément par \( \varphi\).
+
+
+\begin{normaltext}		\label{NORMooJIRRooDuqmru}
+	Lorsque dans la suite nous parlerons d'un élément de \( \eQ\) comme étant un réel, nous aurons en tête l'image de cet élément par \( \varphi\).
+\end{normaltext}
 
 \begin{lemma}       \label{LEMooYLQBooFistHs}
 	Soient \( q,l\in \eQ\) tels que \( \bar q=\bar l\). Alors \( q=l\) dans \( \eQ\).
@@ -465,10 +469,19 @@ La proposition suivante est une version plus précise du lemme \ref{LEMooXNWSooH
 
 Voici une version dans \( \eR\) du lemme \ref{LEMooSVDDooWsyxNP}.
 \begin{lemma}       \label{LEMooKAXFooIPyzJC}
-	Soient \( a>0\) et \( b>1\) dans \( \eR\). Nous avons
-	\begin{equation}
-		ab>a.
-	\end{equation}
+	Soit \( a>0\) dans \( \eR\) et \( b>1\) dans \( \eR\). Alors
+	\begin{enumerate}
+		\item
+		      Si \( \lambda>1\) dans \( \eR\) nous avons
+		      \begin{equation}
+			      \lambda a>a.
+		      \end{equation}
+		\item 		\label{ITEMooDIVAooDjQXRL}
+		      Si \( 0<\lambda<1\) dans \( \eR\) nous avons
+		      \begin{equation}
+			      \lambda a<a.
+		      \end{equation}
+	\end{enumerate}
 	%TODOooNNQMooTEwglo. Prouver ça.
 \end{lemma}
 
@@ -479,7 +492,7 @@ Voici une version dans \( \eR\) du lemme \ref{LEMooSVDDooWsyxNP}.
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooWYPNooCcBERG}
 	Soient \( a\leq b\) dans \( \eR\).
 	\begin{enumerate}
-		\item
+		\item		\label{ITEMooDCOXooAKcSKk}
 		      Si \( \lambda>0\) alors \( \lambda a\leq \lambda b\).
 		\item
 		      Si \( \lambda <0\) alors \( \lambda a\geq \lambda b\).
@@ -716,6 +729,69 @@ Tant que nous y sommes dans les encadrements de réels\dots
 	%TODOooOPIQooYRWGRl. Prouver ça.
 \end{proposition}
 
+
+%-------------------------------------------------------
+\subsection{\( \eR\), \( \eQ\) et \( \eR\setminus \eQ\)}
+%----------------------------------------------------
+
+\begin{normaltext}		\label{NORMooXRGFooPCujZI}
+	Pour rappel, \( \eQ\)  est le corps des fractions de \( \eZ\), et \( \eR\) est l'ensemble des classes de suites de Cauchy dans \( \eQ\). Comme expliqué dans \ref{NORMooJIRRooDuqmru}, à partir du moment où \( \eR\) est défini, nous notons «\( \eQ\)» ce qui en réalité \( \varphi(\eQ)\) où \( \varphi\) est l'application qui à \( q\in \eQ\) fait correspondre la classe d'équivalence des suites de Cauchy dans \( \eQ\) convergeant dans \( \eQ\) vers \( q\). Voir la proposition \ref{PropooEPFCooMtDOfP}.
+\end{normaltext}
+
+\begin{normaltext}
+	Pour se convaincre que \( \eR\setminus \eQ\) n'est pas vide, on peut remarquer que la proposition \ref{PropooRJMSooPrdeJb} dit qu'il n'existe pas d'éléments \( q\in \eQ\) tel que \( q^2=2\). Or la proposition \ref{PROPooUHKFooVKmpte} dit qu'un tel élément existe dans \( \eR\).
+
+	Voila. Vous êtes convaincu ? Maintenant nous allons en faire une preuve un peu plus formelle,qui ne mélange pas \( \eQ\) et \( \varphi(\eQ)\).
+\end{normaltext}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooAYBFooHEUPZG}
+	Plusieurs choses plus ou moins reliées.
+	\begin{enumerate}
+		\item		\label{ITEMooTHFAooVPPHCc}
+		      La partie \( \eR\setminus \eQ\) n'est pas vide.
+		\item		\label{ITEMooVXUOooOVByJv}
+		      Si \( x\in \eR\setminus \eQ\), et si \( q\in \eQ\setminus\{ 0 \}\) alors \( qx\in \eR\setminus \eQ\).
+		\item		\label{ITEMooHXTAooGBWeLL}
+		      Si \( x\in \eR\setminus \eQ\) et si \( q\in \eQ\), alors \( x+q\in \eR\setminus \eQ\).
+		\item		\label{ITEMooFOQRooRoftNW}
+		      Soit \( \epsilon>0\) dans \( \eR\). Il existe \( x\in \eR\setminus\eQ\) tel que \( 0<x<\epsilon\).
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	En plusieurs points.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooTHFAooVPPHCc}]
+		%-----------------------------------------------------------
+		Les propositions \ref{PROPooLBRCooBtJqwt} et \ref{PROPooSTQXooHlIGVf} (au choix) donnent des suites de Cauchy \( (x_n)_{n\in \eN}\) dans \( \eQ\) qui ne convergent pas dans \( \eQ\). Il n'existe donc pas de \( q\in \eQ\) tel que \( (x_n)_{n\in \eN}\in \bar q=\varphi(q)\). Par contre la classe de \( (x_n)_{n\in \eN}\) est bien dans \( \eR\).
+
+		\spitem[Pour \ref{ITEMooHXTAooGBWeLL}]
+		%-----------------------------------------------------------
+		Si \( x+q=p\in \eQ\), alors \( x=p-q\in \eQ\).
+
+		\spitem[Pour \ref{ITEMooVXUOooOVByJv}]
+		%-----------------------------------------------------------
+		Supposons que \( qx = p\in \eQ\). Vu que \( q\neq 0\), nous avons \( x=pq^{-1}\in \eQ\) parce que \( \eQ\) est un corps (c'est même sa définition \ref{DEFooBPJNooRqrblS}).
+
+		\spitem[Pour \ref{ITEMooFOQRooRoftNW}]
+		%-----------------------------------------------------------
+		Soit \( \epsilon>0\). Soit \( r\in \eR\setminus \eQ\) (existence par \ref{ITEMooTHFAooVPPHCc}). Nous considérons :
+		\begin{enumerate}
+			\item
+			      \( \epsilon'\in \eQ\) avec \( \epsilon\in \eQ\) (par exemple \( 1/n\) donné par le lemme \ref{LemooHLHTooTyCZYL}\ref{ITEMooCVDSooAjimCL}).
+			\item
+			      \( q\in \eQ\) avec \( q>r\). Par exemple \( r<q<r+1\) sonné par le lemme \ref{LemooHLHTooTyCZYL}\ref{ITEMooGVTMooQsoTCi}.
+			\item
+			      \( p=\epsilon' q^{-1}\in \eQ\).
+		\end{enumerate}
+		Avec tout ça, la proposition \ref{PROPooWYPNooCcBERG}\ref{ITEMooDCOXooAKcSKk} nous donne \( pr<pq\). Au final :
+		\begin{equation}
+			pr<pq=\epsilon'<\epsilon.
+		\end{equation}
+		Vu que \( p\in \eQ\) et \( r\in \eR\setminus \eQ\), la proposition \ref{PROPooWYPNooCcBERG}\ref{ITEMooVXUOooOVByJv} assure que \( pr\in \eR\setminus\eQ\).
+	\end{subproof}
+\end{proof}
+
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Complétude}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -932,32 +1008,7 @@ Nous avons terminé avec la construction des réels. Les propriétés topologiqu
 \subsection{Intervalles}
 %---------------------------------------------------------------------------------------------------------------------------
 
-Nous avons déjà défini la notion d'intervalle pour un espace totalement ordonné en \ref{DefEYAooMYYTz}. Nous posons quelques notations dans \( \eR\).
-
-\begin{definition}  \label{DEFooAQBUooKLChOW}
-	Soient \( a\neq b\) dans \( \eR\). Nous définissons les parties suivantes de \( \eR\) :
-	\begin{enumerate}
-		\item
-		      \( \mathopen] a , b \mathclose[=\{ x\in \eR\tq a<x<b \}\)
-		\item
-		      \( \mathopen[ a , b \mathclose[=\{ x\in \eR\tq a\leq x<b \}\)
-		\item
-		      \( \mathopen] a , b \mathclose]=\{ x\in \eR\tq a<x\leq b \}\)
-		\item
-		      \( \mathopen[ a , b \mathclose]=\{ x\in \eR\tq a\leq x\leq b \}\)
-		\item
-		      \( \mathopen]-\infty , a \mathclose]=\{ x\in \eR\tq x\leq a \}\)
-		\item
-		      \( \mathopen]-\infty , a \mathclose[=\{ x\in \eR\tq x< a \}\)
-		\item
-		      \( \mathopen] a , \infty \mathclose[=\{ x\in \eR\tq x>a \}\)
-		\item
-		      \( \mathopen[ a , \infty \mathclose[=\{ x\in \eR\tq x\geq a \}\).
-		\item
-		      \( \mathopen] -\infty , \infty \mathclose[=\eR\).
-	\end{enumerate}
-	La proposition \ref{PROPooHPMWooQJXCAS} nous dira que tous les intervalles de \( \eR\) sont d'une de ces formes.
-\end{definition}
+Nous avons déjà défini la notion d'intervalle pour un espace totalement ordonné en \ref{DefEYAooMYYTz}.
 
 
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooCZLZooTtkXgR}
@@ -1214,7 +1265,27 @@ Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son
 \end{proof}
 
 \begin{proposition}[\cite{MonCerveau}]     \label{PROPooHPMWooQJXCAS}
-	Tous les intervalles\footnote{Définition \ref{DefEYAooMYYTz}.} de \( \eR\) sont d'une des formes listées dans la définition \ref{DEFooAQBUooKLChOW}.
+	Tous les intervalles\footnote{Définition \ref{DefEYAooMYYTz}.} de \( \eR\) sont d'une des formes suivantes :
+	\begin{enumerate}
+		\item
+		      \( \mathopen] a , b \mathclose[=\{ x\in \eR\tq a<x<b \}\)
+		\item
+		      \( \mathopen[ a , b \mathclose[=\{ x\in \eR\tq a\leq x<b \}\)
+		\item
+		      \( \mathopen] a , b \mathclose]=\{ x\in \eR\tq a<x\leq b \}\)
+		\item
+		      \( \mathopen[ a , b \mathclose]=\{ x\in \eR\tq a\leq x\leq b \}\)
+		\item
+		      \( \mathopen]-\infty , a \mathclose]=\{ x\in \eR\tq x\leq a \}\)
+		\item
+		      \( \mathopen]-\infty , a \mathclose[=\{ x\in \eR\tq x< a \}\)
+		\item
+		      \( \mathopen] a , \infty \mathclose[=\{ x\in \eR\tq x>a \}\)
+		\item
+		      \( \mathopen[ a , \infty \mathclose[=\{ x\in \eR\tq x\geq a \}\).
+		\item
+		      \( \mathopen] -\infty , \infty \mathclose[=\eR\).
+	\end{enumerate}
 \end{proposition}
 
 \begin{proof}
@@ -1274,11 +1345,6 @@ Par convention, si la partie n'est pas bornée vers le haut, nous dirons que son
 	\end{subproof}
 	Je vous laisse voir les autres cas.
 \end{proof}
-
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooBWXYooDcwXrp}
-	Si \( I\) est un intervalle fermé de \( \eR\), alors il existe \( a,b\in \eR\) tels que \( I=\mathopen[ a,b\mathclose]\).
-	%TODOooMDCKooVxqWpK. Prouver ça.
-\end{proposition}
 
 
 %///////////////////////////////////////////////////////////////////////////
@@ -1369,6 +1435,25 @@ L'exemple suivant est une source classique d'erreurs en ce qui concerne l'infimu
 \newcommand{\CaptionFigSuiteInverseAlterne}{Les quelques premiers points du type \( (-1)^n/n\).}
 \input{auto/pictures_tex/Fig_SuiteInverseAlterne.pstricks}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooQULXooVzUtAi}
+	Soient un ensemble \( E\).
+	\begin{enumerate}
+		\item		\label{ITEMooBOMOooTDUpgb}
+		      Soit une partie \( A\subset E\). Soient deux applications \(f,g \colon E\to \eR^+  \). Nous avons
+		      \begin{equation}
+			      \sup_{x\in A}\big( f(x)+g(x) \big)\leq\sup_{x\in A}f(x)+\sup_{x\in A}g(x).
+		      \end{equation}
+		\item		\label{ITEMooMWCRooSqwXgN}
+		      Si \( A\subset \eR^+\) et si \( \lambda\geq 0\) alors
+		      \begin{equation}
+			      \sup(\lambda A)=\lambda\sup(A).
+		      \end{equation}
+	\end{enumerate}
+	%TODOooTHDLooGxhHDz. Prouver ça.
+\end{proposition}
+
+
+
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Racines}
 %---------------------------------------------------------------------------------------------------------------------------
@@ -1423,6 +1508,7 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eQ^+\). Vous 
 		Nous en déduisons que \( r_1=r_2\).
 	\end{subproof}
 \end{proof}
+
 
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -1483,8 +1569,14 @@ Dans cette section, nous définissons \( \sqrt{ x }\) pour \( x\in\eQ^+\). Vous 
 
 \begin{lemma}       \label{LEMooMMSAooFiRkQd}
 	Si \( \lambda\in \eR\) n'est pas un entier, alors \( \integer(\lambda)+2>\lambda\).
-	%TODOooLAXFooNhrwsT. Prouver ça.
 \end{lemma}
+
+\begin{proof}
+	Par le définition \ref{LEMooLEXTooGAQxGB}, nous avons
+	\begin{equation}
+		\integer(\lambda)\leq \lambda\leq \integer(\lambda)+1<\integer(\lambda)+2.
+	\end{equation}
+\end{proof}
 
 %-------------------------------------------------------
 \subsection{Le tore}
@@ -1700,10 +1792,6 @@ La notion de module d'un nombre complexe \( | z |\) sera donnée beaucoup plus t
 \end{proof}
 
 
-\begin{definition}      \label{DEFooQDDVooRYDsAJ}
-	Si \( z=a+bi\) est un nombre complexe (avec \( a,b\in \eR\)), son \defe{complexe conjugué}{complexe conjugué} est le nombre \( a-bi\).
-\end{definition}
-
 L'étude de la série géométrique est reportée à (beaucoup) plus tard, à la proposition \ref{PROPooWOWQooWbzukS}. Dans l'immédiat il nous est possible de calculer la somme partielle.
 \begin{lemma}[Somme partielle de la série géométrique]      \label{LEMooAFSCooWEVlvp}
 	Soit \( q\in \eC\). Nous avons
@@ -1719,11 +1807,46 @@ L'étude de la série géométrique est reportée à (beaucoup) plus tard, à la
 	\end{equation}
 \end{proof}
 
-
 %-------------------------------------------------------
-\subsection{Norme et inégalités}
+\subsection{Conjugaison complexe}
 %----------------------------------------------------
 
-Rien ici. La norme sur \( \eC\) demande la racine carrée qui sera vue plus tard. Voir par exemple la proposition \ref{PROPooVSVMooZrqxdc} pour \( | x+y |\leq |x|+| y |\).
+\begin{definition}      \label{DEFooQDDVooRYDsAJ}
+	Si \( z=a+bi\) est un nombre complexe (avec \( a,b\in \eR\)), son \defe{complexe conjugué}{complexe conjugué} est le nombre \( a-bi\).
 
-Si vous cherchez des propriétés de la valeur absolue, c'est la proposition \ref{LemooANTJooYxQZDw}.
+	Le conjugué complexe de \( z\in \eC\) sera le plus souvent noté \( \bar z\).
+\end{definition}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooKBOIooRJPXAH}
+	Si \( x,y\in \eC\), alors nous avons \( \bar x\bar y=\overline{xy} \).
+\end{proposition}
+
+\begin{proof}
+	Il suffit de poser \( x=a+bi\) et \( y=c+di\). Un peu de calcul donne
+	\begin{equation}
+		\bar x\bar y=(a-bi)(c-di)=(ac-bd)-(ad+bc)i.
+	\end{equation}
+	De même \( xy=(ac-bd)+(ad+bc)i\), et donc bien
+	\begin{equation}
+		\overline{xy}=(ac-bd)-(ad+bc)i.
+	\end{equation}
+\end{proof}
+
+
+
+%-------------------------------------------------------
+\subsection{Norme, topologie, etc.}
+%----------------------------------------------------
+
+
+Rien ici. La norme sur \( \eC\) demande la racine carrée qui sera vue plus tard.
+
+Quelques liens :
+\begin{enumerate}
+	\item
+	      La norme sur \( \eC^n\) est dans la proposition \ref{DEFooGUXNooXwCsrq}.
+	\item
+	      La proposition \ref{PROPooVSVMooZrqxdc} pour \( | x+y |\leq |x|+| y |\).
+	\item
+	      Si vous cherchez des propriétés de la valeur absolue, c'est la proposition \ref{LemooANTJooYxQZDw}.
+\end{enumerate}

@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2011-2025
+% Copyright (c) 2011-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -144,6 +144,22 @@
 \end{proof}
 Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très compliqué et ça ne nous servira pas.
 
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooVFNOooZenJSl}
+	Si \( A\) est un ensemble fini, alors
+	\begin{equation}
+		\sum_{i\in I}1=\Card(I).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Si \(\varphi \colon \{ 1,\ldots,n \}\to I  \) est une bijection, la somme à calculer est
+	\begin{equation}
+		\sum_{i=1}^na_{\varphi(i)}
+	\end{equation}
+	où \( a_i=1\) pour tout \( i\). Cette somme est définie par \ref{DEFooNEVNooJlmJOC} (voir \ref{NORooNotationSommeNaturels}). Si \( \Card(I)=1\), alors la somme est \( \sum_{k=1}^11=1\) par \eqref{SUBEQooCCBKooQTbwrQ}.
+
+	Si la proposition est vraie pour tout ensemble de cardinal \( n\), alors nous considérons un ensemble \( I\) de cardinal \( n+1\), et nous devons calculer \( \sum_{k=1}^{n+1}1=\sum_{k=1}^n1+1=n+1\).
+\end{proof}
 
 \begin{lemma}       \label{LEMooRWUDooTgoRXH}
 	Si \( A\) est une partie infinie de \( \eN\), alors pour tout \( n\), la partie \( A\setminus\{ 0,\ldots, n \}\) est non vide.
@@ -153,30 +169,6 @@ Nous ne définissons pas ce qu'est le cardinal d'un ensemble infini; c'est très
 	Si \( A\setminus\{ 0,\ldots, n \}\) était vide, cela signifierait que \( A\) est une partie de \( \{ 0,\ldots, n \}\). Or nous savons que \( \{ 0,\ldots, n \}\) est fini (lemme \ref{LEMooYIWDooIQFSad}), et que toute partie d'un ensemble fini est finie (lemme \ref{LEMooTUIRooEXjfDY}). Donc nous aurions que \( A\) est fini, ce qui est contraire à l'hypothèse.
 \end{proof}
 
-\begin{proposition}[\cite{MonCerveau}]	\label{PROPooOTHMooPzPzdW}
-	À propos d'ensembles finis.
-	\begin{enumerate}
-		\item		\label{ITEMooFIEUooRmDcfo}
-		      Si \( I\) est un ensemble fini et si \( \{ A_i \}_{i\in I}\) sont des ensembles finis, alors \( \bigcup_{i\in I}A_i\) est fini.
-		\item		\label{ITEMooLVSVooHEwNWA}
-		      Si \( A\) et \( B\) sont finis, alors \( A\times B\) est fini.
-	\end{enumerate}
-	%TODOooVLQNooBumUlE. Prouver ça. On a une récurrence à faire, donc on ne peut en parler plus tôt.
-\end{proposition}
-
-\begin{lemma}[\cite{MonCerveau}]	\label{LEMooVFNOooZenJSl}
-	Si \( A\) est un ensemble fini, alors
-	\begin{equation}
-		\sum_{i\in A}1=\Card(A).
-	\end{equation}
-	%TODOooLGNRooDdqfrB. Prouver ça.
-\end{lemma}
-
-
-\begin{lemma}[\cite{MonCerveau}]	\label{LEMooRURDooRIGJnY}
-	Si \( \Card(A)=n\) et si \( a\in A\) alors \( \Card(A\setminus\{ a \})=n-1\).
-	%TODOooKFQHooGJEnzl. Prouver ça.
-\end{lemma}
 
 \begin{normaltext}
 	En termes de notations, si \( I\) et \( A\) sont des ensembles et si \(\sigma \colon I\to A  \) est une injection, nous notons souvent
@@ -385,25 +377,26 @@ Une démonstration sans utilisation des naturels est dans la proposition \ref{PR
 	\end{subproof}
 \end{proof}
 
-\begin{lemma}       \label{LEMooKUWUooPLWelf}
-	Toute partie finie non vide de \( \eN\) est majorée et minorée.
+\begin{lemma}     \label{LEMooGQUWooYJQfJB}
+	À propos de majorant, minorant et parties finies.
+	\begin{enumerate}
+		\item	\label{ITEMooOOOZooXTClck}
+		      Toute partie finie non vide de \( \eN\) est majorée et minorée.
+		\item		\label{ITEMooKXLXooVVwpnj}
+		      Une partie de \( \eN\) admet un maximum si et seulement si elle est finie.
+	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-	Cas particulier du lemme \ref{LEMooPCRFooXRGrUr}.
+	Le point \ref{ITEMooOOOZooXTClck} est une cas particulier du lemme \ref{LEMooPCRFooXRGrUr}. Le point \ref{ITEMooKXLXooVVwpnj} dans un sens est le point \ref{ITEMooOOOZooXTClck} tandis que dans l'autre sens, c'est le lemme \ref{LEMooPCRFooXRGrUr}.
 \end{proof}
-
-
-\begin{lemma}       \label{LEMooGQUWooYJQfJB}
-	Une partie de \( \eN\) admet un maximum si et seulement si elle est finie.
-	%TODOooRRGMooVNRcLR. Prouver ça.
-\end{lemma}
 
 
 \begin{definition}\label{DefEnsembleDenombrable}
 	Un ensemble est \defe{dénombrable}{dénombrable} si il peut être mis en bijection avec \( \eN\). Il est \defe{non dénombrable}{non dénombrable} si il est infini et ne peut pas être mis en bijection avec \( \eN\).
 \end{definition}
 Une chose vraiment amusante avec cette définition que l'on met en rapport avec la définition~\ref{DefEOZLooUMCzZR}, c'est qu'un ensemble fini n'est ni dénombrable ni non dénombrable\footnote{Beaucoup de sources disent qu'un ensemble est dénombrable lorsqu'il est en bijection avec une partie de \( \eN\). Cela laisse la porte ouverte aux ensembles finis. Par exemple Wikipédia\cite{ooLMVKooUiQUtb}.}.
+
 
 
 %--------------------------------------------------------------------------------------------------------------------------- 
@@ -659,7 +652,7 @@ Une chose vraiment amusante avec cette définition que l'on met en rapport avec 
 
 \begin{proof}
 	Étant donné que \( A\) est dénombrable, il existe une bijection \(\varphi \colon \eN\to A  \). L'application \(f\circ \varphi \colon \eN\to B  \) est donc une surjection de \( \eN\) vers \( B\). Donc \( B\) est fini ou dénombrable par le lemme \ref{LEMooDLWFooNAJbbq}.
-\end{proof}<++>
+\end{proof}
 
 
 \begin{lemma}       \label{LEMooSRZWooASgEfy}

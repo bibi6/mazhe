@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2025
+% Copyright (c) 2008-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -496,6 +496,30 @@ Le théorème suivant est une très importante caractérisation des fonctions co
 	La fonction \( f\colon t\mapsto t^2\) est continue et strictement croissante. Nous avons \( f(0)=0\) et\footnote{Faites deux cas suivant \( x\geq 1\) ou non si vous le voulez, moi je prends \( x+1\).} \( f(x+1)>x\). Donc le théorème des valeurs intermédiaires~\ref{ThoValInter} nous assure qu'il existe un unique \( y\in\mathopen[ 0 , x+1 \mathclose]\) tel que \( f(y)=x\).
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooPVUSooOICljj}
+	Soient \( x,y\in \eR\) tels que \( x^2=y^2\). Alors \( x=\pm y\).
+\end{proposition}
+
+\begin{proof}
+	Étant donné que \( y^2\geq0\), ce que dit le corolaire \ref{DEFooGQTYooORuvQb} est qu'il y a un unique \( p\geq 0\) tel que \( p^2=y^2\). Nous faisons quelque cas suivant la positivité de \( x\) et \( y\).
+	\begin{subproof}
+		\spitem[Si \( x,y\geq 0\)]
+		%-----------------------------------------------------------
+		Alors les nombres \( p_1=x\) et \( p_2=y\) vérifient tous les deux \( p_i\geq 0\) et \( p_i^2=y^2\). Donc \( p_1=p_2\).
+
+		\spitem[Si \( x\geq 0\) et \( y<0\)]
+		%-----------------------------------------------------------
+		Alors les nombres \( p_1=x\) et \( p_2=-y\) vérifient tous les deux \( p_i\geq 0\) et \( p_i^2=y^2\). Donc \( p_1=p_2\). Donc \( x=-y\).
+
+		\spitem[Si \( x< 0\) et \( y<0\)]
+		%-----------------------------------------------------------
+		Se traite de même.
+		\spitem[Si \( x< 0\) et \( y\geq 0\)]
+		%-----------------------------------------------------------
+		Allez-y.
+	\end{subproof}
+\end{proof}
+
 \begin{lemma}       \label{LEMooWSVNooKsymDy}
 	Quelques formules.
 	\begin{enumerate}
@@ -504,8 +528,13 @@ Le théorème suivant est une très importante caractérisation des fonctions co
 		\item       \label{ITEMooEPHBooCEeJOD}
 		      \( \sqrt{ \lambda^2 x }=| \lambda |\sqrt{ x }\) si \( x\geq 0\).
 	\end{enumerate}
-	%TODOooAOBZooLZouGN. Prouver ça.
 \end{lemma}
+
+\begin{proof}
+	Nous utilisons la proposition \ref{PROPooPVUSooOICljj}. Les nombres \( \sqrt{xy}\) et \( \sqrt{x}\sqrt{ y }\) sont deux nombres positifs dont le carré vaut \( xy\) qui est positif. Donc ils sont égaux.
+
+	De même nous avons \( (\sqrt{ \lambda^2 x})^2=\lambda^2 x\) et \( (| \lambda |\sqrt{ x })^2=\| \lambda \|^2x\). Encore une fois les deux sont égaux.
+\end{proof}
 
 \begin{lemma}       \label{LEMooSBOAooOOIotR}
 	La fonction racine carrée est strictement croissante.
@@ -578,8 +607,6 @@ Voilà. Vous êtes déjà content d'apprendre que l'on peut démontrer \( | z^n 
 		      \( \module{zz^\prime} = \module z \module{z^\prime}\);
 		\item     \label{ITEMooUJHPooUFdvqB}
 		      \( | z+z' |=\sqrt{ | z |^2+| z' |^2+2\real(z\bar z') }\).
-
-
 	\end{enumerate}
 \end{proposition}
 
@@ -1141,7 +1168,7 @@ est continue sur \( I\). Remarquons déjà que si \( I\) est un ouvert dans \( \
 
 Maintenant nous pouvons nous attaquer à la continuité de la racine carrée sur tout ouvert positif en utilisant le théorème~\ref{ThoContInvOuvert}.
 
-\begin{proposition}
+\begin{proposition}		\label{PROPooLMIMooKGDHUw}
 	L'application
 	\begin{equation}
 		\begin{aligned}
@@ -1174,11 +1201,11 @@ Maintenant nous pouvons nous attaquer à la continuité de la racine carrée sur
 \end{proof}
 
 %---------------------------------------------------------------------------------------------------------------------------
-\subsection{Second degré}
+\subsection{Second degré (parabole)}
 %---------------------------------------------------------------------------------------------------------------------------
 
 Nous résolvons à présent le polynôme du second degré.
-\begin{proposition}[\cite{BIBooYVBZooOrTJTr}]       \label{PROPooEZIKooKjJroH}
+\begin{proposition}[Second degré\cite{BIBooYVBZooOrTJTr}]       \label{PROPooEZIKooKjJroH}
 	Soit la fonction
 	\begin{equation}
 		\begin{aligned}
@@ -1256,4 +1283,49 @@ Nous résolvons à présent le polynôme du second degré.
 		\end{equation}
 		Donc ce sont bien des racines de \( f\) et ce sont les seules. Notez aussi qu'elles sont distinctes parce que \( \Delta\neq 0\).
 	\end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooVXIQooXmdlWk}
+	Soient \( a,b,c\in \eR\) avec \( a>0\) et considérons la fonction
+	\begin{equation}
+		\begin{aligned}
+			f\colon \eR & \to \eR           \\
+			x           & \mapsto ax^2+bx+c
+		\end{aligned}
+	\end{equation}
+	Nous posons \( m=-b/2a\). Soit \( r>0\). Alors
+	\begin{enumerate}
+		\item		\label{ITEMooFXUPooURDqPK}
+		      \( f(m-r)=f(m+r)\)
+		\item
+		      Pour tout \( x\in\mathopen] m-r,m+r\mathclose[\) nous avons \( f(x)<f(m-r)\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Notons tout d'abord que le théorème liant croissance et dérivée ne sera vu que dans la proposition \ref{PROPooKZPZooWjIsWg}; nous allons donc devoir nous débrouiller sans. Nous allons seulement pas mal calculer en utilisant le produit remarquable \( a^2-b^2=(a+b)(a-b)\).
+
+	Pour le point \ref{ITEMooFXUPooURDqPK} nous avons ce calcul :
+	\begin{subequations}
+		\begin{align}
+			f(m-r)-f(m+r) & =a\Big[  (m-r)^2-(m+r)^2 \Big]+b\Big[ (m-r)-(m+r) \Big] \\
+			              & =\ldots                                                 \\
+			              & =-4mra-2br                                              \\
+			              & =2br-2br                                                \\
+			              & =0.
+		\end{align}
+	\end{subequations}
+	Le même type de calcul donne, pour \( \lambda\in\mathopen] 0,1\mathclose[\) :
+	\begin{subequations}
+		\begin{align}
+			f(m-r)-f(m-\lambda r) & =a(m-r)^2+b(m-r)+c-a(m-\lambda r)^2-b(m-\lambda r)-c                        \\
+			                      & =a\Big[ \big( 2m-(\lambda+1)r \big)(\lambda -1)r \Big]+b(\lambda-1)r        \\
+			                      & =\big( \underbrace{2ma}_{=-b}-a(\lambda+1)r \big)(\lambda-1)r+br(\lambda-1) \\
+			                      & =\ldots                                                                     \\
+			                      & =-ar^2(\lambda^2-1).
+		\end{align}
+	\end{subequations}
+	Étant donné que \( a>0\) et que \( \lambda^2<1\), nous avons bien que \( f(m-r)-f(m-\lambda r)>0\).
+
+	Vous pouvez faire un calcul similaire pour\( f(m+r)-f(m+\lambda r)\).
 \end{proof}

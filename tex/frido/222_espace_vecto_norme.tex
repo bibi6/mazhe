@@ -1,24 +1,11 @@
 % This is part of Le Frido
-% Copyright (c) 2006-2025
+% Copyright (c) 2006-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Applications multilinéaires}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Voir la définition \ref{DEFooYWOBooUGJojy} des applications multilinéaires.
-\begin{lemmaDef}  \label{DefKPBYeyG}
-	Pour \( T\in \aL_k(E_1,\ldots,E_k,F)\) nous posons
-	\begin{equation}
-		\| T \|=\sup_{\| v_i \|=1}\| T(v_1,\ldots,v_k) \|_W.
-	\end{equation}
-
-	Cela définit une norme.
-	%TODOooKIUOooUCrggs. Prouver ça.
-	% À mon avis c'est un duplicat de DEFooTAUWooNDJJEO.
-\end{lemmaDef}
-Voir aussi \ref{DEFooTAUWooNDJJEO}.
 
 
 \begin{proposition} \label{PropUADlSMg}
@@ -214,11 +201,11 @@ Ne pas confondre la norme supremum avec la norme \( L^{\infty}\) (définition \r
 Trois notions de convergence à ne pas confondre :
 \begin{enumerate}
 	\item
-	      La convergence absolue,
+	      La convergence absolue, définition \ref{DefVFUIXwU},			% FIPXKBKEWWSgGKEvxnHm -- ceci est pour rendre cette ligne unique.
 	\item
-	      la convergence normale. C'est la même que la convergence absolue, mais dans le cas particulier d'un espace de fonctions muni de la norme uniforme.
+	      la convergence normale, définition \ref{DefVBrJUxo}. C'est la même que la convergence absolue, mais dans le cas particulier d'un espace de fonctions muni de la norme uniforme.
 	\item
-	      la convergence uniforme.
+	      la convergence uniforme, définition \ref{DEFooPABSooPMXMOV}.		% EYXLooOyDzXBoJFIMooQZPKAR -- pour rendre cette ligne unique.
 \end{enumerate}
 Voici les définitions.
 
@@ -552,7 +539,7 @@ La notion de convergence commutative est surtout intéressante pour les séries.
 
 Pour une revue des définitions de sommes dans le cas de \( \{ 0,\ldots, n \}\), des ensembles finis quelconques, voir le thème \ref{THEMEooMKLBooLGFCdx}. Maintenant nous donnons la définition pour une somme sur un ensemble infini.
 \begin{propositionDef}[Famille sommable]  \label{DefIkoheE}
-	Si \( \{ v_i \}_{i\in I}\) est une famille de vecteurs dans un espace vectoriel normé indexée par un ensemble quelconque \( I\). Nous disons que cette famille est \defe{sommable}{famille!sommable} de somme \( v\) si pour tout \( \epsilon>0\), il existe un \( J_0\) fini dans \( I\) tel que pour tout ensemble fini \( K\) tel que \( J_0\subset K\) nous avons\footnote{La somme sur la partie finie \( K\) est la définition \ref{DEFooLNEXooYMQjRo}.}
+	Si \( \{ v_i \}_{i\in I}\) est une famille de vecteurs dans un espace vectoriel normé indexée par un ensemble quelconque \( I\). Nous disons que cette famille est \defe{sommable}{famille!sommable} de somme \( v\) si pour tout \( \epsilon>0\), il existe un \( I_0\) fini dans \( I\) tel que pour tout ensemble fini \( K\) tel que \( I_0\subset K\) nous avons\footnote{La somme sur la partie finie \( K\) est la définition \ref{DEFooLNEXooYMQjRo}.}
 	\begin{equation}
 		\| \sum_{j\in K}v_j-v \|<\epsilon.
 	\end{equation}
@@ -830,9 +817,40 @@ Attention : dans le lemme suivant, nous supposons que \( (a_k)_{k\in \eN}\) est 
 	\end{itemize}
 \end{proof}
 
+
 %-------------------------------------------------------
 \subsection{Sommation associative}
 %----------------------------------------------------
+
+\begin{proposition}[Associativité\cite{MonCerveau}]	\label{PROPooHGXZooXHIHeh}
+	Soit une famille sommable \( (u_i)_{i\in I}\) de réels positifs. Soit une partition (disjointe) \(  \{ I_j \}_{j\in J}  \) de \( I\). Nous posons\footnote{Existe par le lemme \ref{LEMooSBYEooNXzqJU}.}
+	\begin{equation}
+		S_j=\sum_{i\in I_J}u_i.
+	\end{equation}
+	Alors \( (S_j)_{j\in J}\) est sommable et
+	\begin{equation}
+		\sum_{i\in I}u_I=\sum_{j\in J}S_j=\sum_{j\in J}\left( \sum_{i\in I_j}u_i \right).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Notons \( v=\sum_{i\in I}u_i\). Soit \( \epsilon>0\). Il nous faut un \( J_0\) fini dans \( J\) tel que si \( K\subset J\) est fini et \( J_0\subset K\) alors \( \| \sum_{j\in K}S_j-v \|\leq \epsilon\).
+
+	Étant donné que \( (u_i)_{i\in I}\) est sommable, il existe \( I_0\) fini dans \( I\) tel que pour tout \( L\) fini dans \( I\) tel que \( I_0\subset K\), nous ayons \( \| \sum_{i\in L}u_i-v \|\leq \epsilon\).
+
+	Nous posons
+	\begin{equation}
+		J_0=\{ j\in J\tq I_{j}\cap I_0\neq 0 \}.
+	\end{equation}
+	Cela est une partie finie de \( J\) parce que \( I_0\) est fini et les \( I_j\) sont disjoints. Si \( K\subset J\) est fini et vérifie \( J_0\subset K\), alors en posant \( L=\bigcup_{j\in K}I_j\) nous avons (avec la proposition \ref{PROPooJLQAooAEbIvZ}) :
+	\begin{equation}
+		\sum_{j\in K}S_j  =\sum_{j\in K}\sum_{i\in I_j}u_I  =\sum_{i\in L}u_i
+	\end{equation}
+	et donc
+	\begin{equation}
+		\| \sum_{j\in K}s_j-v \| = 	 	\| \sum_{i\in L}u_i-v \|<\epsilon.
+	\end{equation}
+\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Somme non dénombrables}
@@ -1088,6 +1106,31 @@ Une grande partie du jeu est maintenant de trouver des liens entre \( \sum_{k\in
 \end{proof}
 
 
+%-----------------------------------
+\subsubsection{Critère de Cauchy pour les séries}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooNNMFooUHMcSE}
+	Soit une suite \( (u_n)\) dans un espace de Banach telle que \( \sum_{k=0}^{\infty}u_k<\infty\). Alors
+	\begin{equation}
+		\lim_{p\to \infty}\sum_{k=p}^qu_k=0,
+	\end{equation}
+	plus précisément, pour tout \( \epsilon>0\), il existe \( N>0\) tel que si \( q\geq p\geq N\), alors
+	\begin{equation}
+		|\sum_{k=p}^q u_k |<\epsilon.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Soit \( \epsilon>0\). La suite des sommes partielles
+	\begin{equation}
+		s_n=\sum_{k=0}^nu_k
+	\end{equation}
+	est convergente dans \( \eC\) et est donc une suite de Cauchy. Il existe donc \( N\in \eN\) tel que si \( p,q\geq N\), \( | s_p-s_p |<\epsilon\) et donc tel que
+	\begin{equation}
+		| \sum_{k=p+1}^qu_k |<\epsilon.
+	\end{equation}
+\end{proof}
+
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 \subsubsection{Critère de Cauchy uniforme}
 %///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1125,7 +1168,7 @@ Grosso modo, cela dit que si qu'une suite de Cauchy pour la norme uniforme est u
 
 
 \begin{proposition}[Critère de Cauchy uniforme pour les séries\cite{BIBooPCEDooMHkbnu}]	\label{PROPooEBYWooOXUwry}
-	Soit un ensemble \( X\) et un espace vectoriel normé \( V\). Une suite \( (f_n)_{n\in \eN}\) d'applications \(f_n \colon X\to V  \) est uniformément sommable sur \( X\) si et seulement si pour tout \( \epsilon>0\), il existe un \( N\in \eN\) tel que si \( p>q\geq N\), alors pour tout \( x\in X\) nous avon
+	Soit un ensemble \( X\) et un espace vectoriel normé \( V\). Une suite \( (f_n)_{n\in \eN}\) d'applications \(f_n \colon X\to V  \) est uniformément sommable sur \( X\) si et seulement si pour tout \( \epsilon>0\), il existe un \( N\in \eN\) tel que si \( p>q\geq N\), alors pour tout \( x\in X\) nous avons
 	\begin{equation}
 		\big| \sum_{k=q+1}^pf_k(x) \big|<\epsilon.
 	\end{equation}

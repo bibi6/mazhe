@@ -1,5 +1,5 @@
 % This is part of Le Frido
-% Copyright (c) 2008-2025
+% Copyright (c) 2008-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -317,20 +317,22 @@ Pour définir la distance entre \( a\) et \( b\) sur le tore, nous allons d'abor
 	\end{subproof}
 \end{proof}
 
-Pour \( a\in \eR\) nous considérons les applications
-\begin{equation}
-	\begin{aligned}
-		d_a\colon \eR & \to \eR                         \\
-		b             & \mapsto \min_{x\in [b]}| a-x |,
-	\end{aligned}
-\end{equation}
-et
-\begin{equation}
-	\begin{aligned}
-		\tau_a\colon \eR & \to \eR                                    \\
-		x                & \mapsto \min \Big( [x]\cap B(a,1/2) \Big).
-	\end{aligned}
-\end{equation}
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooPXMUooTOQCLa}
+	Pour \( a\in \eR\) nous considérons les applications
+	\begin{equation}
+		\begin{aligned}
+			d_a\colon \eR & \to \eR                         \\
+			b             & \mapsto \min_{x\in [b]}| a-x |,
+		\end{aligned}
+	\end{equation}
+	et
+	\begin{equation}
+		\begin{aligned}
+			\tau_a\colon \eR & \to \eR                                               \\
+			x                & \mapsto \min \Big( [x]\cap \overline{B(a,1/2)} \Big).
+		\end{aligned}
+	\end{equation}
+\end{definition}
 
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooRMLSooNOKXkQ}
 	Soient \( a,b\in \eR\). Nous avons
@@ -492,17 +494,19 @@ et
 \label{SUBSECooZVJPooCBqBuk}
 
 
-Pour \( a\in \eR^2\) et \( r>0\) nous posons
-\begin{equation}
-	Q(a,r)=\{ x\in \eR^2\tq | x_i-a_i |<r,\,i=1,2 \}.
-\end{equation}
-Et en nous servant de la fonction \( \tau\) déjà définie dans le cas réel, nous posons
-\begin{equation}
-	\begin{aligned}
-		\tau_a\colon \eR^2 & \to \overline{Q(a,1/2)}                              \\
-		x                  & \mapsto \big( \tau_{a_1}(x_1),\tau_{a_2}(x_2) \big).
-	\end{aligned}
-\end{equation}
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooJNJQooThnhle}
+	Pour \( a\in \eR^2\) et \( r>0\) nous posons
+	\begin{equation}
+		Q(a,r)=\{ x\in \eR^2\tq | x_i-a_i |<r,\,i=1,2 \}.
+	\end{equation}
+	Et en nous servant de la fonction \( \tau\) déjà définie dans le cas réel, nous posons
+	\begin{equation}
+		\begin{aligned}
+			\tau_a\colon \eR^2 & \to \overline{Q(a,1/2)}                              \\
+			x                  & \mapsto \big( \tau_{a_1}(x_1),\tau_{a_2}(x_2) \big).
+		\end{aligned}
+	\end{equation}
+\end{definition}
 
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooWYCAooYVhcoD}
 	Pour \( a,b\in \eR^2\) nous avons
@@ -649,12 +653,196 @@ Et en nous servant de la fonction \( \tau\) déjà définie dans le cas réel, n
 	\end{subproof}
 \end{proof}
 
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooGUUCooWujZAv}
+	Soit \( q\in \eR^2\). Si \( r<1/2\) alors
+	\begin{equation}
+		p \colon B(q,r)\to  p\big( B(q,r) \big)
+	\end{equation}
+	est injective.
+\end{lemma}
+
+\begin{proof}
+	Soient \( a,b\in B(q,r)\) tels que \( [a]=[b]\). Il existe \( k\in \eZ^2\) tel que \( b=a+k\). Nous avons alors d'une part
+	\begin{equation}
+		\| a-b \|=\| k \|.
+	\end{equation}
+	Et d'autre part,
+	\begin{equation}
+		\| a-b \|\leq \| a-q \|+\| b-q \|<2r<1.
+	\end{equation}
+	Donc \( \| k \|<1\) et donc \( k=0\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooUENHooYsXspd}
+	Soit \( q\in \eR^2\). Si \( r<1/2\), alors l'application
+	\begin{equation}
+		p \colon B(q,r)\to B\big( [q],r \big)
+	\end{equation}
+	est une bijection bicontinue\footnote{Continue, inverse continue.}.
+\end{proposition}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[\( p\big( q,r \big)\subset B\big( [q],r \big)\)]
+		%-----------------------------------------------------------
+		Soit \( s\in B(q,r)\). Nous avons
+		\begin{subequations}
+			\begin{align}
+				d\big( [q],[s] \big) & =\| \tau_q(s)-q \|                                             \\
+				                     & =\min_{x\in[s]}\| q-x \| & \text{lem. \ref{LEMooWYCAooYVhcoD}} \\
+				                     & \leq \| q-s \|                                                 \\
+				                     & <r.
+			\end{align}
+		\end{subequations}
+
+		\spitem[Injective]
+		%-----------------------------------------------------------
+		Si \( r<1/2\) alors le lemme \ref{LEMooGUUCooWujZAv} dit que \(p \colon B(q,r)\to  B([q],r) \) est injective.
+
+		\spitem[Surjective]
+		%-----------------------------------------------------------
+		Soit \( [s]\in B([q], r)\). Nous avons :
+		\begin{equation}
+			d([s],[q])=\| \tau_q(s)-q \|<r.
+		\end{equation}
+		Mais \( \tau_q(s)=\min\big( [s]\cap \overline{B(q,1/2)} \big)\).  Donc \( \tau_q(s)\in [s]\) et il existe \( k\in \eZ^2\) tel que \( \tau_q(s)=s+k\). En posant \(s_0= \tau_q(z)\), nous avons \( p(s_0)=[s]\), et \( \| s_0-q \|<r\).
+
+		\spitem[Continue]
+		%-----------------------------------------------------------
+		L'application \( p\) est continue par définition de la topologie quotient sur \( \eR^2/\sim\).
+
+		\spitem[Inverse continue]
+		%-----------------------------------------------------------
+		Si \( r<1/2\), l'application \(p \colon B(q,r)\to B([q],r)  \) est une bijection continue. Prenons \( r_2<r\). Alors l'application restreinte
+		\begin{equation}
+			p \colon \overline{B(q,r_2)}\to p\big( \overline{B(q,r_2)} \big)
+		\end{equation}
+		est une bijection continue définie sur un compact. Le lemme \ref{LEMooPLGTooATIGov} dit que la réciproque
+		\begin{equation}
+			p^{-1} \colon p\big( \overline{B(q,r_2)} \big)\to \overline{B(q,r_2)}
+		\end{equation}
+		est continue.
+
+		Donc l'application \(p^{-1} \colon     p\big( B(q,r_2) \big)   \to B(q,r_2)  \) est continue. Et comme \( p\big( B(q,r_2) \big)=B([q],r_2)\), nous concluons que
+		\begin{equation}
+			p \colon B(q,r_2)\to B([q],r_2)
+		\end{equation}
+		est une bijection continue de réciproque continue.
+	\end{subproof}
+\end{proof}
+
+%-------------------------------------------------------
+\subsection{La sphère}
+%----------------------------------------------------
+
+
+\begin{lemma}       \label{LEMooQFQFooDlxkw}
+	Une sphère de \( \eR^n\) est connexe par arcs si \( n >1\)
+	\index{connexe par arcs!sphère}
+\end{lemma}
+
+\begin{proof}
+	En plein de parties. Nous commençons par considérer seulement la sphère unité \( S=\{ x\in \eR^,n\tq \| x \|=1 \}\).
+	\begin{subproof}
+		\spitem[Pour le cercle (\( n=2\))]		\label{SPITEMooGDRIooZJXAIC}
+		%-----------------------------------------------------------
+		Nous considérons les chemins parcourant le haut et le bas du cercle :
+		\begin{equation}
+			\begin{aligned}
+				H\colon \mathopen[ -1,1\mathclose] & \to S^1                              \\
+				t                                  & \mapsto \big( t,\sqrt{ 1-t^2 } \big)
+			\end{aligned}
+		\end{equation}
+		et
+		\begin{equation}
+			\begin{aligned}
+				B\colon \mathopen[ -1,1\mathclose] & \to S^1                                \\
+				t                                  & \mapsto \big( t,-\sqrt{ 1-t^2 } \big).
+			\end{aligned}
+		\end{equation}
+		Soient \( a,b\in S^1\). Si ils sont tous les deux dans l'image de \( h\), le lemme \ref{LEMooMMTBooYExLZH}\ref{ITEMooSBTKooKOtFfw} construit un chemin continu dans \( S^1\) allant de \( a\) à \( b\) à l'aide de \( H\). Si ils sont tous les deux dans l'image de \( B\), c'est la même chose en utilisant \( B\).
+
+		Si l'un est dans l'image de \( H\) et l'autre dans l'image de \( B\), nous commençons par utiliser \ref{LEMooMMTBooYExLZH}\ref{ITEMooSBTKooKOtFfw} (avec \( H\) ou \( B\) suivant le signe de \( a_2\)) pour joindre \( a\) à \( (1,0)\) et idem pour joindre \( b\) à \( (1,0)\). Le lemme \ref{LEMooMMTBooYExLZH}\ref{ITEMooEKYEooMDHSHH} permet alors de composer les deux chemins.
+
+		\spitem[Si \( n>2\), cas non antipodaux]
+		%-----------------------------------------------------------
+		Soient \( a,b\in S\). Nous supposons que \( a\) et \( b\) ne sont pas alignés avec \( 0\). Nous considérons le plan \( P=\{ \alpha a+\mu b\tq \lambda,\mu\in \eR \}\). Les éléments de \( P\) qui sont sur \( S\) sont ceux qui vérifient \( \| \lambda a+\mu b \|^2=(\lambda a+\mu b)\cdot (\lambda a+\mu b)=1\), c'est à dire
+		\begin{equation}
+			\lambda^2\| a \|^2+2\lambda\mu a\cdot b+\mu\| b \|^2=1.
+		\end{equation}
+		Ici \( \| a \|=\| b \|=1\). Résolvons\footnote{En suivant la proposition \ref{PROPooEZIKooKjJroH}.} ça pour avoir \( \mu\) en termes de \( \lambda\) :
+		\begin{equation}
+			\mu=- \lambda \alpha\pm\sqrt{ \lambda^2(\alpha^2-1)+1 }
+		\end{equation}
+		où nous avons noté \( \alpha=a\cdot b\). Grâce à Cauchy-Schwarz (théorème \ref{ThoAYfEHG}) nous avons \( | \alpha |= | a\cdot b |\leq \| a \|\| b \|=1\). Donc \( (\alpha^1-1)\in \mathopen] -1,0\mathclose]\). Nous pouvons donc considérer
+		\begin{equation}
+			\begin{aligned}
+				\gamma\colon \mathopen[ 0,1\mathclose] & \to S                                                                           \\
+				\lambda                                & \mapsto \lambda a+\big( -\alpha \lambda+\sqrt{ \lambda^2(\alpha^2-1)+1 } \big).
+			\end{aligned}
+		\end{equation}
+		Par construction nous avons toujours \( \gamma(t)\in S\). Mais nous avons aussi \( \gamma(0)=b\) et \( \gamma(1)=a\). En plus \( \gamma\) est continue entre autres parce que la racine carrée est continue par la proposition \ref{PROPooLMIMooKGDHUw}.
+
+		\spitem[Si \( a\) et \( b\) sont antipodaux]
+		%-----------------------------------------------------------
+		Alors nous prenons un point \( c\) ailleurs, et nous appliquons deux fois le cas non antipodal : une fois pour joindre \( a\) à \( c\) et une fois pour joindre \( c\) à \( b\).
+	\end{subproof}
+	Si ce n'est pas la sphère unité, alors nous avons \( m\in \eR^n\) et \( R\in \eR^+\) tels que
+	\begin{equation}
+		S=\{ x\in \eR^n\tq \| x-m \|=R \}.
+	\end{equation}
+	Nous considérons la sphère unité \( S_0=\{ x\in \eR^n\tq\| x \|=1 \}\) que nous savons déjà être connexe par arcs. Nous avons la bijection continue
+	\begin{equation}
+		\begin{aligned}
+			f\colon S_0 & \to S         \\
+			x           & \mapsto Rx+m.
+		\end{aligned}
+	\end{equation}
+	Si \( a,b\in S\), alors la connexité par arcs de \( S_0\) permet de trouver une application continue \(\gamma_0 \colon \mathopen[ 0,1,\mathclose]\to S_0  \) telle que \( \gamma_0(0)=f^{-1}(a)\) et \( \gamma_0(1)=f^{-1}(b)\). Il suffit maintenant de prendre \( \gamma=f\circ\gamma_0\) pour avoir une application continue qui joint \( a\) et \( b\) dans \( S\).
+\end{proof}
+
+
+
+\begin{lemma}       \label{LEMooDYNSooOmJbYq}
+	Un ouvert connexe par arcs dans \( \eR^n\) (\( n \geq 2\)) reste connexe par arcs même si on lui enlève un point.
+\end{lemma}
+
+\begin{proof}
+	Soit \( A\) ouvert et connexe par arcs dans \( \eR^n\). Soit \( p\in A\); nous devons prouver que \( A\setminus\{ p \}\) est connexe par arcs. Soient \( a,b\in A\setminus\{ p \}\) ainsi qu'un chemin \( \gamma\) liant \( a\) à \( b\) dans \( A\).
+
+	Si \( p\) n'est pas dans l'image de \( \gamma\), alors c'est bon.
+
+	Sinon nous supposons que \( \gamma(t_0)=p\). Vu que \( A\) est ouvert, il contient une boule autour de \( p\). En diminuant le rayon de cette boule, nous pouvons supposer que \( \overline{B(p,r)}\subset A\) et \( a,b\not\in \overline{B(p,r)}\).
+
+	Nous considérons l'application continue
+	\begin{equation}
+		\begin{aligned}
+			d\colon \mathopen[ 0,1\mathclose] & \to \eR^+                  \\
+			t                                 & \mapsto \| \gamma(t)-p \|.
+		\end{aligned}
+	\end{equation}
+	Elle vérifie \( d(0)>r\), \( d(t_1)=0\) et \( d(1)>r\). D'après le théorème des valeurs intermédiaires \ref{ThoValInter}, il existe \( u_0\in\mathopen] 0,t_0\mathclose[\) tel que \( d(u_0)=r\) et \( u_1\in\mathopen] t_0,1\mathclose[\) tel que \( d(u_1)=r\).
+
+	La partie
+	\begin{equation}
+		Z=\{ t\in\mathopen[ 0,1\mathclose]\tq d(t)=r \}
+	\end{equation}
+	est bornée (parce que dans \( \mathopen[ 0,1\mathclose]\)) et fermée (son complémentaire est ouvert par continuité de \( d\)). Donc elle est compacte\footnote{Borel-Lebesgue \ref{ThoXTEooxFmdI}.}. Elle a donc un maximum et un minimum. Soit \( u_m=\min(Z)\) et \( u_M=\max(Z)\). Nous notons \( x=\gamma(u_m)\) et \( y=\gamma(u_M)\).
+
+	Par la connexité du cercle (lemme \ref{LEMooQFQFooDlxkw}, point \ref{SPITEMooGDRIooZJXAIC}), il existe un chemin \( \gamma_c\) sur le cercle \( \| x-m \|=r\) liant \( x\) à \( y\). Il suffit maintenant de mettre bout à bout (lemme \ref{LEMooMMTBooYExLZH}\ref{ITEMooEKYEooMDHSHH}) les chemins \( \gamma\) entre \( a\) et \( x\) puis le chemin \( \gamma_c\) liant \( x\) à \( y\) et encore \( \gamma\) entre \( y\) et \( b\) pour avoir un chemin liant \( a\) et \( b\).
+
+	Ce chemin reste dans \( A\) parce que \( \gamma\) y reste et \( \gamma_c\) reste dans \( \overline{B(p,r)}\subset A\). De plus ce chemin ne passe pas par \( p\) parce que \( \gamma\) reste en dehors de \( B(p,r)\) lorsque \( t\in\mathopen[ 0,u_m\mathclose]\cup \mathopen[ u_M,1\mathclose]\).
+\end{proof}
+
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Théorème spectral autoadjoint}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \begin{theorem}[Théorème spectral autoadjoint] \label{ThoRSBahHH}
-	Un endomorphisme autoadjoint d'un espace euclidien
+	Un endomorphisme autoadjoint\footnote{Définition \ref{DefLZMcvfj}.} d'un espace euclidien
 	\begin{enumerate}
 		\item
 		      est diagonalisable dans une base orthonormée,
@@ -952,6 +1140,27 @@ L'intérêt du lemme suivant sera apparent en \ref{NORMooNKBCooKziIjx}.
 	pour tout \( x\in \eC^n\).
 	%TODOooULEVooVipGnA. Prouver ça. Prouver que EQooRRVCooVmcRrp est bien un produit hermitien.
 \end{definition}
+
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooSYTWooMDzrnX}
+	La conjugaison complexe est continue.
+\end{lemma}
+
+\begin{proof}
+	La norme sur \( \eC\) est donnée par la définition \ref{DEFooGUXNooXwCsrq} à partir de laquelle on voir que la conjugaison complexe est une isométrie :
+	\begin{equation}
+		\| \bar z \|=\| z \|.
+	\end{equation}
+\end{proof}
+
+\begin{lemma}[\cite{MonCerveau}]	\label{LEMooGEVOooKeVQbb}
+	Si \( z_1,z_2\in \eC\) nous avons
+	\begin{equation}
+		| z_1z_2 |=| z_1 || z_2 |.
+	\end{equation}
+	%TODOooVXNTooAkvVXG. Prouver ça.
+\end{lemma}
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Diagonalisation : cas complexe, ce qu'on a}
@@ -1417,6 +1626,12 @@ Le produit mixte s'écrit donc sous forme d'un déterminant. Nous retenons cette
 	\end{vmatrix}.
 \end{equation}
 
+
+%-------------------------------------------------------
+\subsection{Complétion de bases, procédé de Gram-Schmidt}
+%----------------------------------------------------
+
+
 Un grand intérêt du produit vectoriel est qu'il fournit un vecteur qui est simultanément perpendiculaire aux deux vecteurs donnés.
 \begin{proposition}     \label{PROPooTUVKooOQXKKl}
 	Le produit vectoriel\footnote{Définition \ref{DEFooTNTNooRjhuJZ}.} \( a\times b\) est un vecteur orthogonal à \( a\) et \( b\).
@@ -1516,10 +1731,6 @@ Ces résultats admettent une intéressante généralisation.
 \end{proof}
 
 
-%---------------------------------------------------------------------------------------------------------------------------
-\subsection{Procédé de Gram-Schmidt}
-%---------------------------------------------------------------------------------------------------------------------------
-
 \begin{proposition}[Procédé de Gram-Schmidt]    \label{PropUMtEqkb}
 	Un espace euclidien possède une base orthonormée.
 \end{proposition}
@@ -1556,7 +1767,7 @@ Ces résultats admettent une intéressante généralisation.
 		\langle e_j, f_k\rangle =\langle e_j, v_k\rangle -\sum_{i=1}^{k-1}\langle v_k, e_i\rangle \underbrace{\langle e_i, e_j\rangle}_{=\delta_{ij}} =0
 	\end{equation}
 \end{proof}
-Cet algorithme de Gram-Schmidt nous donne non seulement l'existence de bases orthonormée pour tout espace euclidien, mais aussi le moyen d'en construire à partir de n'importe quelle base.
+Cet algorithme de Gram-Schmidt nous donne non seulement l'existence de bases orthonormée pour tout espace euclidien, mais aussi le moyen d'en construire à partir de n'importe quelle base. Il est également possible de compléter une base avec des vecteurs perpendiculaires aux vecteurs déjà donnés en utilisant le lemme \ref{LEMooFRWKooVloCSM}.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Pseudo-réduction simultanée}
@@ -2340,11 +2551,21 @@ Le lemme suivant est valable en dimension infinie. Nous en toucherons un mot dan
 
 La proposition suivante dit qu'une application linéaire est continue si et seulement si elle est bornée. Un résultat similaire pour les applications multilinéaires est dans la proposition \ref{PROPooDQBOooByBvmj}.
 
-\begin{proposition}[Bornée si et seulement si continue\cite{GKPYTMb}]       \label{PROPooQZYVooYJVlBd}
-	Soient \( E\) et \( F\) des espaces vectoriels normés. Une application linéaire \( E\to F\) est bornée si et seulement si elle est continue.
-\end{proposition}
+\begin{theorem}[Bornée si et seulement si continue\cite{MaurayAnalSpec,GKPYTMb}]      \label{ThoCaMpKO}     \label{PROPooQZYVooYJVlBd}
+	Soient \( E\) et \( F\) des espaces vectoriels normés. Pour une application linéaire \( f\colon E\to F\), les assertions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item		\label{ITEMooIQDEooUVuQxu}
+		      \( f\) est continue en un point de \( E\),
+		\item		\label{ITEMooQMQPooXCyQXyBV}
+		      \( f\) est continue sur \( E\),
+		\item		\label{ITEMooBOYYooGjePma}
+		      \( f\) est bornée.
+	\end{enumerate}
+\end{theorem}
 
 \begin{proof}
+	La proposition \ref{PROPooHKGZooDaNaHU} donne déjà l'équivalence \ref{ITEMooIQDEooUVuQxu} \( \Leftrightarrow\) \ref{ITEMooQMQPooXCyQXyBV}.
+
 	Nous commençons par supposer que \( A\) est bornée. Par le lemme~\ref{LEMooFITMooBBBWGI}, pour tout \( x,y\in E\), nous avons
 	\begin{equation}
 		\| A(x)-A(y) \|=\| A(x-y) \|\leq \| A \|\| x-y \|.
@@ -2358,8 +2579,6 @@ La proposition suivante dit qu'une application linéaire est continue si et seul
 	Nous supposons maintenant que \( \| A \|\) n'est pas borné : l'ensemble \( \{ \| A(x) \|\tq \| x \|=1 \}\) contient des valeurs arbitrairement grandes. Alors pour tout \( k\geq 1\) il existe \( x_k\in B(0,1)\) tel que \( \| A(x_k) \|>k\). La suite \( x_k/k\) tend vers zéro parce que \( \| x_k \|=1\), mais \( \| A(x_k) \|\geq 1\) pour tout \( k\). Cela montre que \( A\) n'est pas continue.
 \end{proof}
 
-
-Nous avons vu dans la proposition~\ref{PROPooQZYVooYJVlBd} que pour une application linéaire, être bornée est équivalent à être continue. Nous allons maintenant voir un certain nombre d'exemples illustrant ce fait.
 
 \begin{example}[Une application linéaire non continue]  \label{ExHKsIelG}
 	Soit \( V\) l'espace vectoriel normé des suites \emph{finies} de réels muni de la norme usuelle \( \| c \|=\sqrt{\sum_{i=0}^{\infty}| c_i |^2}\) où la somme est finie. Nous nommons \( \{ e_k \}_{k\in \eN}\) la base usuelle de cet espace, et nous considérons l'opérateur \( f\colon V\to V\) donnée par \( f(e_k)=ke_k\). C'est évidemment linéaire, mais ce n'est pas continu en zéro. En effet la suite \( u_k=e_k/k\) converge vers \( 0\) alors que \( f(u_k)=e_k\) ne converge pas.
@@ -2735,6 +2954,290 @@ Voyons comment montrer cela de façon plus directe (bien que le raisonnement pr�
 \end{proof}
 
 
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Applications multilinéaires}
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\label{SECooBNZHooGfhPRK}
+
+%-------------------------------------------------------
+\subsection{Norme}
+%----------------------------------------------------
+
+
+\begin{lemma}[\cite{MonCerveau,BIBChatGPT}]	\label{LEMooIEXNooPOHokX}
+	Soit un espace de Banach \( F\). Nous considérons une application \( k\)-multilinéaire \(A \colon (\eR^n)^k\to \eR  \). Nous posons
+	\begin{equation}
+		\begin{aligned}
+			a\colon \eR^n & \to \eR                \\
+			x             & \mapsto A(x,\ldots,x).
+		\end{aligned}
+	\end{equation}
+	Alors
+	\begin{enumerate}
+		\item		\label{ITEMooHELXooHqYioG}
+		      Il existe un unique\quext{L'unicité n'est pas démontrée. Écrivez une démonstration sur une feuille de papier, et envoyez-moi une photo de la feuille.} choix de \( \{ a_{\alpha} \}_{\alpha\in\Lambda_k}\) tel que
+		      \begin{equation}
+			      a(x)=\sum_{| \alpha |=k}a_{\alpha}x^{\alpha}.
+		      \end{equation}
+		      %TODOooIFSUooCbVCxg. Prouver la partie unicité.
+		      Ce choix est donné par
+		      \begin{equation}
+			      a_{\alpha}=\frac{ k! }{ \alpha! }A(e_1^{\alpha_1},\ldots,a_n^{\alpha_n}).
+		      \end{equation}
+		\item		\label{ITEMooHMZUooGjtmEB}
+		      Nous avons l'inégalité, pour tout \( x\in \eR^n\) :
+		      \begin{equation}
+			      \sum_{| \alpha |=k}\| a_{\alpha}x^{\alpha} \|\leq \| A \|\big( | x_1 |+\ldots+| x_n | \big)^k\leq n^{k/2}\| A \|\| x \|^k.
+		      \end{equation}
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	Nous commençons par le point \ref{ITEMooHELXooHqYioG}. En plusieurs parties.
+	\begin{subproof}
+		\spitem[Plein de Définitions]
+		%-----------------------------------------------------------
+		Soit \( x\in \eR^n\). Nous avons
+		\begin{equation}		\label{EQooAJCPooQnXdyI}
+			a(x)=A\big( \sum_{i_1}x_{i_1}e_{i_1},\ldots,\sum_{i_k}x_{i_k}e_{i_k} \big)=\sum_{i_1,\ldots,i_k=1}^nA(e_{i_1},\ldots,e_{i_k})x_{i_1}\ldots x_{i_k}.
+		\end{equation}
+		Pour les besoins de la preuve nous posons
+		\begin{equation}
+			M=\big\{ (i_1,\ldots,i_k)\in \{ 1,\ldots,n \}^k \big\}
+		\end{equation}
+		et
+		\begin{equation}
+			\Lambda_k=\big\{  (\alpha_1,\ldots,\alpha_n)\in \eN^n\tq\sum_{i=1}^n\alpha_i=k  \big\}.
+		\end{equation}
+		Pour chaque \( s\in M\) et \( i\in\{ 1,\ldots,n \}\) considérons les indices de \( s\) égaux à \( i\), c'est-à-dire
+		\begin{equation}
+			P_i(s)=\big\{ j\in \{ 1,\ldots,k \}\tq s_j=i  \big\},
+		\end{equation}
+		et le nombre de fois que \( i\) apparaît dans \( s\), c'est-à-dire
+		\begin{equation}
+			f_i(s)=\Card\big( P_i(s) \big),
+		\end{equation}
+		et enfin nous posons
+		\begin{equation}
+			f(s)=\big( f_1(s),\ldots,f_n(s) \big).
+		\end{equation}
+		\spitem[Les \( P_i(s)\) forment une partition de \( \{ 1,\ldots,k \}\)]
+		%-----------------------------------------------------------
+		D'abord si \( l\in P_j(s)\cap P_i(s)\) alors \( s_l=i\) et \( s_l=j\), ce qui donne \( i=j\). Donc \( P_i(s)\cap P_j(s)=\emptyset\) dès que \( i\neq j\). Ensuite si \( l\in \{ 1,\ldots,k \}\), en posant \( j=s_l\) nous avons \( l\in P_j(s)\subset\bigcup_{i=1}^nP_i(s)\).
+
+		Bref nous avons bien
+		\begin{equation}		\label{EQooNLPRooFFwhYb}
+			\{ 1,\ldots,k \}=\bigcup_{i=1}^nP_i(s)
+		\end{equation}
+		et l'union est disjointe.
+
+		\spitem[\( f(s)\in \Lambda_k\)]
+		%-----------------------------------------------------------
+		Étant donné que \( f_i(s)=\Card\big( P_i(s) \big)\), et que l'union \eqref{EQooNLPRooFFwhYb} est disjointe\footnote{Nous utilisons le lemme \ref{LEMooVFPNooVmdUXY}\ref{ITEMooBUCZooYLCuIe}.} nous avons
+		\begin{equation}
+			\sum_{i=1}^nf_i(s)=\sum_{i=1}^n\Card(P_i(s))=\Card\big( \bigcup_{i=1}^nP_i(s) \big)=\Card\{ 1,\ldots,k \}=k.
+		\end{equation}
+
+		\spitem[\(f \colon M\to \Lambda_k  \) est surjective]
+		%-----------------------------------------------------------
+		Pour \(\alpha\in\Lambda_k\) nous posons
+		\begin{equation}
+			s=(\underbrace{1,\ldots,1}_{\text{\( \alpha_1\) fois}}, \underbrace{2,\ldots,2}_{\text{\( \alpha_2\) fois}},\ldots,\underbrace{n,\ldots,n}_{\text{\( \alpha_n\) fois}}).
+		\end{equation}
+		Vu que \( \alpha_1+\ldots+\alpha_n=k\), ce \( s\) est bien dans \( M=\{ 1,\ldots,n \}^k\). Avec ça, l'ensemble des positions dans \( s\) où apparaît le \( 1\) est \( \{ 1,\ldots,\alpha_1 \}\), de telle sorte que \( P_1(s)=\{ 1,\ldots,\alpha_1 \}\) et donc \( f_1(s)=\alpha_1\). De même pour les autres \( i=1,\ldots,n\). Donc \( \Card\big( P_i(s) \big)=\alpha_i\), et
+		\begin{equation}
+			f(s)=\alpha.
+		\end{equation}
+
+		\spitem[Stabilisateur]
+		%-----------------------------------------------------------
+		Le groupe symétrique \( S_k\) agit sur \( M\) par \( \sigma(s)_i=s_{\sigma(i)}\). Soient \( \alpha\in \Lambda_k\) et \( s\in f^{-1}(\alpha)\). Question : quel est le stabilisateur\footnote{Définition \ref{DEFooMDYGooLrOERP}.} de \( s\) dans \( S_k\) ?
+
+		Étant donne que \( s\) contient \( \alpha_i\) fois le nombre \( i\) aux positions \( P_i(s)\), le groupe \( S_{\alpha_i}\) peut agir sur \( P_i(s)\) sans changer \( s\). Le stabilisateur de \( s\) est donc
+		\begin{equation}
+			\Stab(s)= S_{\alpha_1}\times\ldots\times S_{\alpha_n}.
+		\end{equation}
+
+		\spitem[Orbite]
+		%-----------------------------------------------------------
+		Soit encore \( s\in f^{-1}(\alpha)\). Quelle est l'orbite de \( s\) sous \( S_k\) ? Si \( S_k\) agit sur \( s\), alors le nombre de \( 1,\ldots,n\) dans \( \sigma(s)\) sera le même que dans \( s\); ils auront juste changé de place. Autrement dit, les ensembles \( P_i(s)\) et \( P_i\big( \sigma(s) \big)\) ne sont pas identiques, mais leur cardinal sont égaux. Donc \( \sigma(s)\) est encore dans \( f^{-1}(\alpha)\). Autrement dit, pour l'orbite de \( s\) nous avons
+		\begin{equation}		\label{EQooFIBBooVcZiOB}
+			\mO_s=f^{-1}(\alpha).
+		\end{equation}
+
+		\spitem[Quelques factorielles]
+		%-----------------------------------------------------------
+		C'est le moment d'utiliser le théorème orbite-stabilisateur \ref{Propszymlr} :
+		\begin{equation}
+			\Card(\mO_s)=\frac{ \Card(S_k) }{ \Card\big( \Stab(s) \big)}=\frac{ k! }{ \alpha_1!\ldots \alpha_n! }.
+		\end{equation}
+		En utilisant \eqref{EQooFIBBooVcZiOB} et les notations \ref{EQooMZAMooMJuLKD},
+		\begin{equation}		\label{EQooFQONooJhLOER}
+			\Card\big( f^{-1}(\alpha) \big)=\frac{ k! }{ \alpha! }.
+		\end{equation}
+
+		\spitem[\( \{ f^{-1}(\alpha) \}_{\alpha\in \Lambda_k}\) est une partition de \( M\)]
+		%-----------------------------------------------------------
+		D'une part si \( s\in f^{-1}(\alpha)\cap f^{-1}(\beta)\), alors \( f(s)=\alpha\) et \( f(s)=\beta\) de telle sorte que \( \alpha=\beta\). D'autre part si \( s\in M\), en posant \( \alpha=f(s)\) nous avons bien \( s\in f^{-1}(\alpha)\). Bref
+		\begin{equation}
+			M=\bigcup_{\alpha\in \Lambda_k}f^{-1}(\alpha)
+		\end{equation}
+		et l'union est disjointe.
+
+		\spitem[Retour à la fonction \( a\)]
+		%-----------------------------------------------------------
+		Nous pouvons maintenant décomposer la somme \eqref{EQooAJCPooQnXdyI} en
+		\begin{subequations}
+			\begin{align}
+				a(x) & =\sum_{s\in M}A(e_{s_1},\ldots,e_{s_k})x_{s_1}\ldots x_{s_k}                                          \\
+				     & =\sum_{\alpha\in\Lambda_k}\sum_{s\in f^{-1}(\alpha)}  A(e_{s_1},\ldots,e_{s_k})x_{s_1}\ldots x_{s_k}.
+			\end{align}
+		\end{subequations}
+		Notez que si \( f(s)=f(t)\) alors \( \Card(P_i(s))=\Card\big( P_i(t) \big)\), c'est-à-dire que \( A(e_{s_1},\ldots,e_{s_k}) \) et \( A(e_{t_1},\ldots,e_{t_k})\) contiennent autant de \( e_i\) l'un que l'autre. Étant donné que \( A\) est symétrique, ça donne \( A(e_{s_1},\ldots, e_{s_k})=A(e_{t_1},\ldots,e_{t_k})\). Idem pour \( x_{s_1}\ldots x_{s_k}=x_{t_1}\ldots x_{t_k}\).
+
+		Donc tous les termes de
+		\begin{equation}
+			\sum_{s\in f^{-1}(\alpha)}A(e_{s_1},\ldots s_k)x_{s_1}\ldots x_{s_k}
+		\end{equation}
+		sont égaux et valent
+		\begin{equation}		\label{EQooCUAOooWhhhAY}
+			A(\underbrace{e_1,\ldots,e_1}_{\text{\( \alpha_1\) fois}},\ldots,\underbrace{e_n,\ldots,e_n}_{\text{\( \alpha_n\) fois}})x_1^{\alpha_1}\ldots x_n^{\alpha_n}=A(e_1^{\alpha_1},\ldots,e_n^{\alpha_n})x^{\alpha}.
+		\end{equation}
+		La seconde égalité est juste une notation plus compacte.
+
+		\spitem[Et enfin]
+		%-----------------------------------------------------------
+		En utilisant \eqref{EQooFQONooJhLOER} et \eqref{EQooCUAOooWhhhAY} nous trouvons bien
+		\begin{equation}
+			a(x)=\sum_{\alpha\in \Lambda_k}a_{\alpha}x^{\alpha}
+		\end{equation}
+		avec
+		\begin{equation}
+			a_{\alpha}=\frac{ k! }{ \alpha! }A(e_1^{\alpha_1},\ldots,e_n^{\alpha_n}).
+		\end{equation}
+		Cela termine la preuve de \ref{ITEMooHELXooHqYioG}.
+	\end{subproof}
+	Nous passons à la preuve de \ref{ITEMooHMZUooGjtmEB}. Pour chaque \( \alpha\in\Lambda_k\) nous avons
+	\begin{equation}
+		\| a_{\alpha}x^{\alpha} \|=\| \frac{ k! }{ \alpha! }A(e_1^{\alpha_1},\ldots,e_n^{\alpha_n})x^{\alpha} \|\leq \frac{ k! }{ \alpha! }\| A \|| x |^{\alpha}
+	\end{equation}
+	où \( | x |^{\alpha}=| x_1 |^{\alpha_1}\ldots | x_n |^{\alpha_n}\). En posant \( y=\big( | x_1 |,\ldots,| x_n | \big)\) nous avons donc
+	\begin{equation}
+		\| a_{\alpha}x^{\alpha} \|\leq \frac{ k! }{ \alpha! }\| A \|y^{\alpha}.
+	\end{equation}
+	En sommant et en utilisant le théorème multinomial \ref{THOooNHAUooQvuytn}, il vient
+	\begin{subequations}
+		\begin{align}
+			\sum_{\alpha\in \Lambda_k}\| a_{\alpha}x^{\alpha} \| & \leq \sum_{\alpha\in\Lambda_k}\frac{ k! }{ \alpha! }\| A \|y^{\alpha} \\
+			                                                     & =\| A \|(y_1+\ldots+y_n)^k                                            \\
+			                                                     & =\| A \|\big( | x_1 |+\ldots+| x_n | \big)^k.
+		\end{align}
+	\end{subequations}
+	Cela est la première inégalité de \ref{ITEMooHMZUooGjtmEB}. Pour la seconde, il suffit d'utiliser l'équivalence de norme de la proposition \ref{PropLJEJooMOWPNi}\ref{ItemABSGooQODmLNi}.
+\end{proof}
+
+
+%-------------------------------------------------------
+\subsection{Continuité}
+%----------------------------------------------------
+
+
+\begin{lemma}[\cite{BIBooFWFPooGfRwtt}]	\label{LEMooGQWQooUfqURv}
+	Soit une forme \( n\)-multilinéaire \( \alpha\in\aL_n(E_1,\ldots,E_n;F)\). Nous avons la formule
+	\begin{equation}
+		\alpha(x_1,\ldots,x_n)-\alpha(a_1,\ldots,a_n)=\sum_{i=1}^n\alpha(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n).
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Nous y allons par récurrence.
+	\begin{subproof}
+		\spitem[\( n=2\)]
+		%-----------------------------------------------------------
+		Vu que \( \alpha\) est multilinéaire, nous avons \( \alpha(x_1,x_2)=\alpha(x_1-a_1,x_2)+\alpha(a_1,x_2)\). Avec ça, nous avons
+		\begin{subequations}
+			\begin{align}
+				\alpha(x_1,x_2)-\alpha(a_1,a_2) & =\alpha(x_1-a_1,x_2)+\alpha(a_1,x_2)-\alpha(a_1,a_2) \\
+				                                & =\alpha(x_1-a_1,x_2)+\alpha(a_1,x_2-a_2).
+			\end{align}
+		\end{subequations}
+		\spitem[La récurrence]
+		%-----------------------------------------------------------
+		Nous supposons que la formule est valable pour toute application \( n\)-multilinéaire, et nous considérons une application \( n+1\)-multilinéaire \( \alpha\in\aL_{n+1}(E,F)\). Nous considérons aussi des éléments \( x_i, a_i\in E_i\) pour \( i=1,\ldots,n+1\). Nous posons
+		\begin{equation}
+			\begin{aligned}
+				\alpha'\colon E_1\times\ldots\times E_n & \to F                                   \\
+				y_1,\ldots,y_n                          & \mapsto \alpha(y_1,\ldots,y_n,x_{n+1}).
+			\end{aligned}
+		\end{equation}
+		Cela est une application \( n\)-multilinéaire. Nous avons ce calcul :
+		\begin{subequations}
+			\begin{align}
+				 & \alpha(x_1,  \ldots,x_{n+1})  -\alpha(a_1,\ldots,a_{n+1})      \nonumber                                                      \\& =\alpha'(x_1,\ldots,x_n)-\alpha'(a_1,\ldots,a_n)+\alpha'(a_1,\ldots,a_n)-\alpha(a_1,\ldots,a_{n+1}) \\
+				 & =\sum_{i=1}^n\alpha'(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n)+\alpha'(a_1,\ldots,a_n)-\alpha(a_1,\ldots,a_{n+1})        \\
+				 & =\sum_{i=1}^n\alpha'(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n)+\alpha(a_1,\ldots,a_n,x_{n+1})-\alpha(a_1,\ldots,a_{n+1}) \\
+				 & =\sum_{i=1}^n\alpha'(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n)+\alpha(a_1,\ldots,a_n,x_{n+1}-a_{n+1})                    \\
+				 & =\sum_{i=1}^{n+1}\alpha(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n)
+			\end{align}
+		\end{subequations}
+	\end{subproof}
+\end{proof}
+
+
+\begin{proposition}[\cite{BIBooINSNooUzJOru}]	\label{PROPooDQBOooByBvmj}
+	Soient des espaces vectoriels normés \( E_1,\ldots, E_n\) et \( F\). Une application \( n\)-multilinéaire \(\alpha \colon E_1\times \ldots E_n\to F  \) est continue\footnote{Pour la topologie sur \( E_1\times\ldots\times E_n\), c'est celle de la norme produit \ref{LEMooFQMSooLmdIvD}.} si et seulement si il existe \( \lambda>0\) tel que
+	\begin{equation}		\label{EQooGTVEooZsvzAM}
+		\| \alpha(x_1,\ldots,x_n) \|\leq \lambda \| x_1 \|\ldots \| x_n \|.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( \alpha\) est continue. En particulier, elle est continue en \( (0,\ldots,0)\in E_1\times \ldots\times E_n\). Nous considérons \( r>0\) tel que
+		\begin{equation}
+			\alpha\big( B(0,2r) \big)\subset B(0,1).
+		\end{equation}
+		Nous posons \( \lambda=1/r^{n}\), et nous allons voir que ça fait le boulot. Soit \( (x_1,\ldots,x_n)\in E_1\times \ldots \times E_n\) avec \( x_i\neq 0\) pour tout \( i\). Nous posons \( z_i=rx_i/\| x_i \|\), de telle sorte que \( \| z_1 \|=\ldots =\| z_n \|=r\) et donc que \( (z_1,\ldots,z_n)\in B(0,2r)\) et donc
+		\begin{equation}
+			\| \alpha(z_1,\ldots,z_n) \|<1.
+		\end{equation}
+		Mais \( \alpha(z_1,\ldots,z_n)=r^n/\prod_i\| x_i \|\). Donc avec \( \lambda=1/r^n\) nous trouvons
+		\begin{equation}
+			\| \alpha(x_1,\ldots,x_n) \|\leq \lambda \prod_{i}\| x_i \|.
+		\end{equation}
+
+		Si \( x_i=0\), alors c'est encore plus simple parce que la relation \eqref{EQooGTVEooZsvzAM} se réduit à \( 0\leq 0\).
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( \lambda>0\) vérifie \( \| \alpha(x_1,\ldots,x_n) \|\leq \lambda \prod_i\| x_i \|\) pour tout \( (x_1,\ldots,x_n)\in E_1\times \ldots\times E_n\). En utilisant le lemme \ref{LEMooGQWQooUfqURv}, nous avons, pour tout \( x_i\) et \( a_i\) :
+		\begin{subequations}
+			\begin{align}
+				\| \alpha(x_1,\ldots,x_n)-\alpha(a_1,\ldots,a_n) \| & =\| \sum_{i=1}^n\alpha(a_1,\ldots,a_{i-1},x_i-a_i,x_{i+1},\ldots,x_n) \|                                                             \\
+				                                                    & \leq \sum_{i=1}^n  \lambda  \| x_i-a_i \|\cdot \prod_{j=1}^{i-1}\| a_j \|\cdot\prod_{j=i+1}^n\| x_j \|.		\label{SUBEQooYDGCooJFBaxN}
+			\end{align}
+		\end{subequations}
+		Et maintenant nous prenons \( 0<\epsilon<1\) et \( (x_1,\ldots,x_n)\in B\big( (a_1,\ldots,a_n),\epsilon \big)\), de telle sorte que \( \| x_i-a_i \|<\epsilon\) pour tout \( i\) et que
+		\begin{equation}
+			\| x_i \|<\| a_i \|+\epsilon\leq \| a_i \|+1.
+		\end{equation}
+		Nous posons \( M=\max_{j=1,\ldots,n}\| a_j \|\) : \( \| x_j \|\leq \| a_i \|+1\leq M+1\) et nous majorons sauvagement chacun des produits de \eqref{SUBEQooYDGCooJFBaxN} par \( (M+1)^n\) :
+		\begin{subequations}
+			\begin{align}
+				\| \alpha(x_1,\ldots,x_n)-\alpha(a_1,\ldots,a_n) \| & \leq \sum_{i=1}^n\lambda \| x_i-a_i \|(M+1)^{2n} \\
+				                                                    & \leq n\lambda \epsilon (M+1)^{2n}.
+			\end{align}
+		\end{subequations}
+		Nous avons donc bien prouvé que \( \alpha(x_1,\ldots,x_n)\stackrel{F}{\longrightarrow} \alpha(a_1,\ldots,a_n) \) lorsque \( (x_1,\ldots,x_n)\stackrel{ E_1\times \ldots\times E_n}{\longrightarrow} (a_1,\ldots,a_n) \).
+
+	\end{subproof}
+\end{proof}
+
+
+
 %-------------------------------------------------------
 \subsection{Continuité de la composition}
 %----------------------------------------------------
@@ -2756,4 +3259,153 @@ Voyons comment montrer cela de façon plus directe (bien que le raisonnement pr�
 		\| \alpha(A_1,\ldots,A_n) \|\leq \| A_1 \|\ldots \| A_n \|.
 	\end{equation}
 	Donc \( \lambda=1\) fait fonctionner la proposition \ref{PROPooDQBOooByBvmj}.
+\end{proof}
+
+
+%-------------------------------------------------------
+\subsection{Norme}
+%----------------------------------------------------
+
+
+Voir la définition \ref{DEFooYWOBooUGJojy} des applications multilinéaires.
+
+
+La proposition suivante doit surement beaucoup à la proposition \ref{PROPooDQBOooByBvmj}.
+\begin{propositionDef}[\cite{MonCerveau}]	\label{DEFooTAUWooNDJJEO}
+	Soient des espaces vectoriels normés \( E_1,\ldots,E_n\) et \( F\). Si \(\alpha \colon E_1\times\ldots \times E_n\to F  \) est \( n\)-multilinéaire\footnote{Définition \ref{DefFRHooKnPCT}.}, alors
+	\begin{enumerate}
+		\item
+		      Nous avons
+		      \begin{equation}
+			      \begin{aligned}[]
+				      \inf & \{ \lambda\in \eR\tq\,\forall (x_1,\ldots,x_n)\in E_1\times \ldots E_n,\, \| \alpha(x_1,\ldots,x_n) \|\leq \lambda \| x_1 \|\ldots\| x_n \| \} \\
+				           & =\sup\{ \| \alpha(x_1,\ldots,x_n) \|\tq\| x_i \|\leq 1 \}
+			      \end{aligned}
+		      \end{equation}
+		\item
+		      Ce nombre est définit une norme sur l'espace des applications \( n\)-linéaires.
+	\end{enumerate}
+	Voir aussi la définition \ref{LEMooORANooRLJYWw}.
+\end{propositionDef}
+
+\begin{proof}
+	Nous posons
+	\begin{equation}
+		A=\{ \| \alpha(x_1,\ldots,x_n)\| \tq \| x_i \| \leq 1 \},
+	\end{equation}
+	et
+	\begin{equation}
+		B=\{ \lambda\in \eR\tq \| \alpha(x_1,\ldots,x_n) \|\leq \lambda\| x_1 \|\ldots \| x_n \| \},
+	\end{equation}
+	et ensuite \( M=\sup(A)\), \( m=\inf(B)\).
+
+	\spitem[\( m\leq M\)]
+	%-----------------------------------------------------------
+	Pour cela nous prouvons que \( M\in B\). Pour \( x_1,\ldots,x_n\in E_1\times\ldots\times E_n\) nous posons \( y_i=x_i/\| x_i \|\) de telle sorte que
+	\begin{subequations}
+		\begin{align}
+			\| \alpha(x_1,\ldots,x_n) \| & =\| x_1 \|\ldots\| x_n \|\| \alpha(y_1,\ldots,y_n) \| \\
+			                             & \leq M\| x_1 \|\ldots \| x_n \|.
+		\end{align}
+	\end{subequations}
+	Cela prouve que \( M\in B\) et donc que \( M\geq m\) parce que \( m=\inf(B)\).
+
+	\spitem[\( M\leq m\)]
+	%-----------------------------------------------------------
+	Nous montrons que \( M\leq \lambda\) pour tout \( \lambda\in B\). Soient donc \( \lambda\in B\) et \( \| x_i \|\leq 1\). Vu que \( \lambda\in B\) nous avons
+	\begin{equation}
+		\lambda\geq \frac{ \| \alpha(x_1)\ldots \alpha(x_n) \| }{ \| x_1 \|\ldots \| x_n \| }.
+	\end{equation}
+	Nous avons
+	\begin{subequations}
+		\begin{align}
+			\| \alpha(x_1,\ldots,x_n) \| & \leq \frac{ \| \alpha(x_1,\ldots,x_n) \| }{ \| x_1 \|\ldots \| x_n \| } \\
+			                             & \leq \lambda.
+		\end{align}
+	\end{subequations}
+	En prenant le supremum sur les \( \| x_i \|\leq 1\) nous trouvons \( M\leq \lambda\). Étant donné que cela est vrai pour tout \( \lambda\in B\) nous avons \( M\leq \inf(B)=m\).
+
+	\spitem[C'est une norme]
+	%-----------------------------------------------------------
+	Pour \( \alpha\in \aL_k(E_1,\ldots,E_n,F)\) nous notons
+	\begin{subequations}
+		\begin{align}
+			N(\alpha) & = \inf\{ \lambda\in \eR\tq\,\forall (x_1,\ldots,x_n)\in E_1\times \ldots E_n,\, \| \alpha(x_1,\ldots,x_n) \|\leq \lambda \| x_1 \|\ldots\| x_n \| \} \\
+			          & =\sup\{ \| \alpha(x_1,\ldots,x_n) \|\tq\| x_i \|\leq 1 \}
+		\end{align}
+	\end{subequations}
+	Nous prouvons que \( N\) est une norme sur \( \aL_k\).
+
+	\spitem[\( N(\alpha)=0\) implique \( \alpha=0\)]
+	%-----------------------------------------------------------
+	Nous supposons que \( \alpha\neq 0\), c'est à dire qu'il existe \( a_1,\ldots,a_n\) tels que \( \alpha(a_1,\ldots,a_n)\neq 0\). Nous posons \( y_i=a_i/\| a_i \|\). Nous avons
+	\begin{equation}
+		\alpha(y_1,\ldots,y_n)=\frac{ \alpha(a_1,\ldots,a_n) }{ \| a_1 \|\ldots \| a_n \| },
+	\end{equation}
+	et donc
+	\begin{subequations}
+		\begin{align}
+			\| \alpha \| & =\sup\{ \| \alpha(x_1,\ldots,x_n) \|\tq \| x_i \|\leq 1 \} \\
+			             & \geq \| \alpha(y_1,\ldots,y_n) \|                          \\
+			             & >0.
+		\end{align}
+	\end{subequations}
+
+	\spitem[Inégalité triangulaire]
+	%-----------------------------------------------------------
+	Soient \( x_1,\ldots,x_n\) tels que \( \| x_i \|\leq 1\). Nous avons
+	\begin{subequations}
+		\begin{align}
+			N(\alpha+\beta) & \leq \| (\alpha+\beta)(x_1,\ldots,x_n) \|                     \\
+			                & =\| \alpha(x_1,\ldots,x_n)+\beta(x_1,\ldots,x_n) \|           \\
+			                & \leq \| \alpha(x_1,\ldots,x_n) \|+\| \beta(x_1,\ldots,x_n) \| \\
+			                & \leq N(\alpha)+N(\beta).
+		\end{align}
+	\end{subequations}
+\end{proof}
+
+
+\begin{lemmaDef}[\cite{MonCerveau}]	\label{LEMooORANooRLJYWw}
+	Soit une forme \( k\)-multilinéaire \(A \colon (\eR^n)^k\to \eR  \) ainsi que
+	\begin{equation}
+		\begin{aligned}
+			a\colon \eR^n & \to \eR                \\
+			x             & \mapsto A(x,\ldots,x).
+		\end{aligned}
+	\end{equation}
+	Si nous notons
+	\begin{equation}
+		a(x)=\sum_{\alpha\in\Lambda_k}a_{\alpha}x^{\alpha},
+	\end{equation}
+	alors l'opération\footnote{Qui est bien définie par le lemme \ref{LEMooIEXNooPOHokX}\ref{ITEMooHELXooHqYioG}.}
+	\begin{equation}
+		\begin{aligned}
+			N\colon \aL_k(\eR^n) & \to \eR                                            \\
+			A                    & \mapsto    \max_{\alpha\in\Lambda_k}| a_{\alpha} |
+		\end{aligned}
+	\end{equation}
+	est une norme.
+\end{lemmaDef}
+
+\begin{proof}
+	Il faut vérifier les conditions de la définition \ref{DefNorme} parmi lesquelles nous n'allons faire que l'inégalité triangulaire. Soient les applications \( k\)-multilinéaires \( A\) et \( B\) donnant
+	\begin{equation}
+		\begin{aligned}[]
+			a(x) & =\sum_{\alpha\in\Lambda_k}a_{\alpha}x^{\alpha}  \\
+			b(x) & =\sum_{\alpha\in\Lambda_k}b_{\alpha}x^{\alpha}.
+		\end{aligned}
+	\end{equation}
+	Étant donnée l'associativité des sommes finies, nous avons
+	\begin{equation}
+		(a+b)(x)=\sum_{\alpha\in\Lambda_k}(a_{\alpha}+b_{\alpha})x^{\alpha},
+	\end{equation}
+	et donc le calcul suivant :
+	\begin{subequations}
+		\begin{align}
+			N(A+B) & =\max_{\alpha\in\Lambda_k}| a_{\alpha}+b_{\alpha} |                                  \\
+			       & \leq\max_{\alpha\in\Lambda_k}\big( | a_{\alpha} |+| b_{\alpha} | \big)               \\
+			       & \leq \max_{\alpha\in\Lambda_k}| a_{\alpha} |+\max_{\alpha\in\Lambda_k}| b_{\alpha} | \\
+			       & =\| A \|+\| B \|.
+		\end{align}
+	\end{subequations}
 \end{proof}

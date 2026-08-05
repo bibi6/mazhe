@@ -1,5 +1,5 @@
 % This is part of (almost) Everything I know in mathematics
-% Copyright (c) 2013,2016, 2019, 2021-2022, 2025
+% Copyright (c) 2013,2016, 2019, 2021-2022, 2025-2026
 %   Laurent Claessens
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -125,9 +125,6 @@ If $A$ is a part of the topological space $X$, the \defe{boundary}{boundary} is 
 	Let $X$ be a topological space, $K\subset X$ a compact and $\dpt{\phi}{K}{X}$ a continuous map. Then $\phi(K)$ is compact in $X$.
 \end{proposition}
 
-\begin{definition}		\label{DEFooERRQooNOpCXD}
-	A family $\{ X_i \}_{i\in I}$ of subsets of a topological space $E$ is said to be \defe{locally finite}{locally finite} if each $x\in E$ has a neighbourhood $V$ such that $V\cap X_i \neq \emptyset$ for only finitely many values of $i$.
-\end{definition}
 
 \begin{lemma}[\cite{MonCerveau}]		\label{LEMooGRPUooVhmqDH}
 	Let \( \{ X_i \}_{i\in I}\) be an open locally finite\footnote{Definition \ref{DEFooERRQooNOpCXD}.} covering of a topological space \( X\). Then \( \{ \bar X_i \}_{i\in I}\) is a locally finite covering.
@@ -139,14 +136,7 @@ If $A$ is a part of the topological space $X$, the \defe{boundary}{boundary} is 
 	Let \( i\in I\) and \(a\in V\cap \bar X_i\). Since \( a\in V\) and since  \( V\) is open, \( a\) has an open neighbourhood \( A\subset V\). Since \( a\in\bar X_i\), we have \( A\cap X_i\neq \emptyset\). Thus \( V\cap X_i\neq \emptyset\) and \(  i\in I'\).
 \end{proof}
 
-\begin{definition}	\label{DefParacompact}
-	A topological space $E$ is \defe{paracompact}{paracompact} if every open cover admits a locally finite subcovering.
-\end{definition}
 
-
-\begin{definition}
-	A topological space $E$ is \defe{locally compact}{compact!locally} if $\forall x\in E$, there exists a compact neighbourhood of $x$ in $E$.
-\end{definition}
 
 For example, a (non-empty) open subset of $\eR^n$ is \emph{never} compact\footnote{The compacts subsets of $\eR^n$ are the closed and bounded subsets.} but \emph{always} locally compact.
 
@@ -169,6 +159,7 @@ For example, a (non-empty) open subset of $\eR^n$ is \emph{never} compact\footno
 
 \begin{lemma}\label{lem:Urysohn}
 	If $X$ is a normal space, $F$ a closed subset of $X$ and $\mU$ an open set containing $F$, then there exists a continuous function $\dpt{f}{X}{[0,1]}$ such that $f(F)=0$ and $f(X\setminus\mU)=1$.
+	%TODOooATAJooJZaIKH. Prouver ça. Mais certainement juste trouver un énoncé qui va bien et déjà fait.
 \end{lemma}
 
 \begin{definition}
@@ -332,9 +323,6 @@ The fact that a convergence notion gives rise to a topology is summarized by the
 	A topological vector space is locally convex if and only if its topology can be defined from a family of seminorms.
 \end{proposition}
 
-\begin{lemma}[\cite{MonCerveau}]        \label{LEMooDVZWooWKRQWC}
-	Let \( X\) be a locally convex vector space. Let \( K\) be compact in \( X\) and let \( U\) be an open set containing \( 0\). There exists \( \lambda\in \eR\) such that \( K\subset \lambda U\).
-\end{lemma}
 
 \begin{lemma}   \label{LEMooAHUMooBwxzPj}
 	Let \( U\) be convex, \( u_1, u_2\in U\) and \( a,b\in \eR^+\). Then there exists \( u\in U\) such that
@@ -428,9 +416,6 @@ One can see that this notion only depend on the topology of $\scrE(\mU)$. Let us
 	\end{equation}
 \end{definition}
 
-\begin{proposition} \label{PROPooSHBAooVRdAFM}
-	If \( K\) is compact in the topological group \( G\), and if \( f\) is continuous on \( K\), then it is uniformly continuous\footnote{Definition \ref{DEFooUEBTooDqipcL}.} on \( K\).
-\end{proposition}
 
 \section{Metrisable groups}\label{sec:metrisable_groups}
 %+++++++++++++++++++++++++++
@@ -628,7 +613,7 @@ The smallest open set containing a point $x$ is the set of points below $x$ whic
 \section{Partition of unity}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\begin{definition}[\cite{ooQCDSooCpqDvB}]       \label{DEFooKFXLooFRLaBG}
+\begin{definition}[Partition of unity\cite{ooQCDSooCpqDvB}]       \label{DEFooKFXLooFRLaBG}
 	Let \( X\) be a topological space. A \defe{partition of unity}{partition!of unity} of \( X\) is a family of continuous functions \( \{ \psi_j \}_{j\in J}\) such that
 	\begin{enumerate}
 		\item
@@ -643,28 +628,15 @@ The smallest open set containing a point $x$ is the set of points below $x$ whic
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}[\cite{ooQCDSooCpqDvB}]
-	Let \( X\) be a topological space and \( \{ U_i \}_{i\in I}\) be a locally finite cover of \( X\). A partition of unity is \defe{subordinate}{partition!of unity!subordinate} to that cover if it is indexed by \( I\) (\( J=I\) in the definition~\ref{DEFooKFXLooFRLaBG}) and such that \( \supp(\psi_i)\subset U_i\) for every \( i\in I\).
-\end{definition}
-
-\begin{theorem}[\cite{ooQCDSooCpqDvB}]      \label{THOooPCHDooITWKpC}
-	Let \( \Omega\) be an open set in \( \eR^d\) and \( \{ U_i \}_{i\in I}\) be an open cover of \( \Omega\). There exists
-	\begin{enumerate}
-		\item
-		      a \(  C^{\infty}\) partition of unity \( \{ \psi_j \}_{j\in J}\) such that \( \supp(\psi_j)\) is compact in one of the \( U_i\);
-		\item       \label{ITEMooFGMJooQPLqGY}
-		      a \(  C^{\infty}\) partition of unity \( \{ \alpha_i \}_{i\in I}\) subordinated to the cover, such that for every compact \( K\) only a finite number of these \( \psi_i\)'s is non zero.
-	\end{enumerate}
-\end{theorem}
-% C'est probablement mieux de démontrer THOooUGQCooFVySMP à la place de celui-ci.
-
-\begin{remark}
-	This theorem does not furnish a smooth compactly supported partition of unity subordinated to the given cover. Either you choose the partition to be compactly supported, either you choose them subordinated to the cover.
-\end{remark}
 
 \begin{definition}[\cite{ooQCDSooCpqDvB}]
 	Let \( X\) be a topological space and \( \{ U_i \}_{i\in I}\) be a locally finite cover of \( X\). A partition of unity is \defe{subordinate}{partition!of unity!subordinate} to that cover if it is indexed by \( I\) (\( J=I\) in the definition~\ref{DEFooKFXLooFRLaBG}) and such that \( \supp(\psi_i)\subset U_i\) for every \( i\in I\).
 \end{definition}
+
+\begin{definition}[\cite{ooQCDSooCpqDvB}]
+	Let \( X\) be a topological space and \( \{ U_i \}_{i\in I}\) be a locally finite cover of \( X\). A partition of unity is \defe{subordinate}{partition!of unity!subordinate} to that cover if it is indexed by \( I\) (\( J=I\) in the definition~\ref{DEFooKFXLooFRLaBG}) and such that \( \supp(\psi_i)\subset U_i\) for every \( i\in I\).
+\end{definition}
+
 
 \begin{corollary}  \label{CORooMSWPooCxvuhm}
 	If \( \Omega\) is bounded and \( \{U_i \}_{i\in I}\) is an open cover of \( \Omega\), there exists a partition of unity subordinated to \( \{ U_i \}_{i\in I}\) such that each \( \psi_i\) belongs to \( \swD(U_i)\).
@@ -675,7 +647,7 @@ The smallest open set containing a point $x$ is the set of points below $x$ whic
 \end{proof}
 
 \begin{definition}[\cite{BIBooRNREooMaKTGj}]        \label{DEFooTUYIooCRkgDm}
-	Let \( X\) be a topological space. A part \( \mA\subset C^0(X)\) is \defe{normal}{normal!family of functions} is for every disjoint parts \( A,B\subset X\), there exists \( f\colon X\to \mathopen[ 0 , 1 \mathclose]\) such that
+	Let \( X\) be a topological space. A part \( \mA\subset C^0(X)\) is \defe{normal}{normal!family of functions} is for every closed disjoint parts \( A,B\subset X\), there exists \( f\colon X\to \mathopen[ 0 , 1 \mathclose]\) such that
 	\begin{enumerate}
 		\item
 		      \( f(X)\in\mathopen[ 0 , 1 \mathclose]\),
@@ -686,22 +658,206 @@ The smallest open set containing a point $x$ is the set of points below $x$ whic
 	\end{enumerate}
 \end{definition}
 
-\begin{lemma}       \label{LEMooDZGCooIGFXnA}
-	If \( X\) is a locally compact topological space, the part \( C^0_c(X)\) is normal\footnote{Definition \ref{DEFooTUYIooCRkgDm}.}
+\begin{lemma}[\cite{BIBooRNREooMaKTGj}]	\label{LEMooIVULooNwymBx}
+	Le \( X\) be an Haudorff locally compact paracompact\footnote{Definition \ref{DefParacompact}.} topological space. Let \( \mA\subset C^0(X)\) be such that \( f,g\in \mA\) implies \( f+g,f/g\in\mA\). We suppose that for every open part \( U\) and every \( x\in U\) there exists a map \( f\in\mA\) such that \( f\geq 0\), \( \supp(f)\subset U\) and \( f(x)>0\).
+
+	If \( K\) is compact and \( U\) is open, there exists \( f\in\mA\) such that \( \supp(f)\subset U\) and \( f(K)>0\).
 \end{lemma}
 
-\begin{definition}      \label{DEFooEDFIooHKnGdE}
-	Let \( X\) be a topological space and \( U=\{ U_1,\ldots, U_n \}\) be an open covering of \( X\). A \defe{partition of unity subordinated}{partition of unity} to \( U\) is a set of functions \( \{ \phi_i \}_{i=1,\ldots, n}\) such that
+\begin{proof}
+	Let \( x\in K\). We consider an open part \( V_x\) such that \( x\in V_x\subset U\). By hypothesis, we have a map \( f_x\in \mA\) such that \( f_x\geq 0\), \( \supp(f_x)\subset V_x\) and \( f_x(x)>0\). Since \( f_x\in\mA\subset C^0(X)\), the part
+	\begin{equation}
+		S_x=\{ f_x\neq 0 \}
+	\end{equation}
+	is open and \( x\in S_x\). The family \( \{ S_x \}_{x\in K}\) is an open covering of \( K\). We have points \( x_1,\ldots,x_n\in K\) such that \( \{ S_i \}_{i=1,\ldots,n}\) is a finite subcovering of \( K\). We consider \( f=f_1+\ldots+f_n\in \mA\). Since \( x\in K\) we have \( f_i(x)\geq 0\) for every \( i\) and \( f(x)>0\) for at least one \( i\). We conclude that \( f(K)>0\). Moreover
+	\begin{equation}
+		\supp(f_i)\subset V_i\subset U,
+	\end{equation}
+	so that \( \supp(f)\subset U\).
+\end{proof}
+
+
+\begin{lemma}[Shrinking lemma\cite{BIBooRNREooMaKTGj}]	\label{LEMooKDPXooDixeXt}
+	Let \( X\) be an Hausdorff paracompact topological space. Then :
 	\begin{enumerate}
 		\item
-		      \( \phi_i(X)\subset \mathopen[ 0 , 1 \mathclose]\)
-		\item
-		      \( \supp(\phi_i)\subset U_i\)
-		\item
-		      \( \sum_{i=1}^n\phi(x)=1\) for every \( x\in X\).
+		      \( X\) is normal\footnote{Definition \ref{DEFooNNKVooLtzImT}.}.
+		\item		\label{ITEMooQSTJooGankqT}
+		      If \( \{ U_i \}_{i\in I}\) is an open covering of \( X\), there exists a locally finite open covering \( \{ V_i \}_{i\in I}\) such that \( \bar V_i\subset U_i\).
 	\end{enumerate}
-	If \( \mA\subset C^0(X)\) we say that \( \{ \phi_i \}\) is a \( \mA\)-partition of unity of \( \phi_i\in \mA\) for every \( i\).
-\end{definition}
+	%TODOooPBDDooQHwajd. Prouver ça.
+	% la première partie est PROPooJOYRooSIIDtK
+\end{lemma}
+
+\begin{proof}
+	The space \( X\) is normal, proposition \ref{PROPooJOYRooSIIDtK}. We focus on point \ref{ITEMooQSTJooGankqT}. Let \( \{ U_i \}_{i\in I}\) be an open covering of \( X\). We consider
+	\begin{equation}
+		\mA=\{ V\in \tau_X\tq\bar V\subset U_i\,\text{for some \( i\in I\)}\}
+	\end{equation}
+	where \( \tau_X\) is the topology of \( X\), that is the set of open parts of \( X\).
+	\begin{subproof}
+		\spitem[\( \mA\) is a covering of \( X\)]
+		%-----------------------------------------------------------
+		Let \( x\in X\). The part \( \{ x \}\) is closed\footnote{Because \( X\) is Hausdorff.}. Let \( i\in I\) be such that \( x\in U_i\). Lemma \ref{LEMooVVASooEXYKOZ} says that there is \( V\in\tau_X\) such that
+		\begin{equation}
+			\{ x \}\subset V\subset \bar V\subset U_i.
+		\end{equation}
+
+		\spitem[Subcovering]
+		%-----------------------------------------------------------
+		Since \( X\) is normal, we consider an open locally finite subcovering \( \{ B_j \}_{j\in J}\).
+
+		\spitem[The map \( f\)]
+		%-----------------------------------------------------------
+		Since each \( B_j\) is an element of \( \mA\), for each \(j\in J\), there exists a \( i\in I\) such that \( \bar B_j\subset U_i\). We consider a map \(f \colon J\to I  \) such that
+		\begin{equation}
+			\bar B_i\subset U_{f(j)}.
+		\end{equation}
+		Then we consider
+		\begin{equation}
+			V_i=\bigcup_{j\in f^{-1}(i)}B_j
+		\end{equation}
+		With the convention that \( V_i=\emptyset\) when \( f^{-1}(i)\) is empty.
+
+		\spitem[\( \bar V_i\subset U_i\)]
+		%-----------------------------------------------------------
+		From proposition \ref{PROPooRDVDooFYHgPV} we know that \( \bar V_i=\bigcup_{j\in f^{-1}(i)}\bar B_j\). But we know that \( \bar B_j\subset U_{f(j)}\); thus if \( j\in f^{-1}(i)\), then \( \bar B_j\subset U_i\).
+
+		\spitem[\( \bigcup_{i\in I}V_i=X\)]
+		%-----------------------------------------------------------
+		Since \( B_j\subset V_{f(j)}\), we have
+		\begin{equation}
+			X=\bigcup_{j\in J}B_j\subset\bigcup_{j\in J}V_{f(j)}\subset\bigcup_{i\in I}V_i.
+		\end{equation}
+
+		\spitem[\( \{ V_i \}_{i\in I}\) is locally finite]
+		%-----------------------------------------------------------
+		Let \( S\) be open. Let \( S=\{ i\in I\tq V_i\cap S\neq 0 \}\). We consider a map \(g \colon L\to J  \) such that \( S\cap B_{g(i)}\neq \emptyset\). The map \( g\) is injective. Thus if \( L\) is infinite, \( g(L)\) is infinite too (proposition \ref{PROPooWKSIooHcfYPN}).
+
+		Let \( x\in X\). There exists an open neighbourhood \( S\) of \( x\) such that \( \{ j\in J\tq B_j\cap S\neq\emptyset \}\) is finite. The set \( L\) corresponding to that \( S\) is finite.
+	\end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooCXATooMLdiKy}
+	Let \( \Omega\) be open in \( \eR^d\)\quext{I'm sure that it will be valid for every metric space.}. Let \( \{ U_i \}_{i\in I}\) be an open covering of \( \Omega\). There exists a locally finite covering \( \{ V_j \}_{j\in J}\) with a map \(f \colon J\to I  \) such that
+	\begin{enumerate}
+		\item
+		      \( V_j\) is open
+		\item
+		      \( \bar V_j\subset U_{f(j)}\)
+		\item
+		      \( \bar V_j\) is compact.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	For \( x\in \Omega\) we consider \( i\in I\) such that \( x\in U_i\). Then we consider \( \delta>0\) such that \( \overline{B(x,\delta)}\subset U_i\) and we define
+	\begin{equation}
+		V_x=B(x,\delta/2).
+	\end{equation}
+	The set\( \{ V_x \}_{x\in \Omega}\) is an open covering of \( \Omega\). The shrinking lemma \ref{LEMooKDPXooDixeXt} produces a locally finite subcovering \( \{ W_x \}_{x\in \Omega}\) with \( \bar W_x\subset V_x\).
+
+	We have \( \bar W_x\subset\overline{B(x,\delta/2)}\subset U_i\). Since \( \bar W_x\) is closed in the compact \( \overline{B(x,\delta/2)}\), it is compact.
+\end{proof}
+
+\begin{theorem}[\cite{BIBooRNREooMaKTGj}]	\label{THOooUEKKooLuCvbr}
+	Le \( X\) be an Haudorff locally compact paracompact\footnote{Definition \ref{DefParacompact}.} topological space. Let \( \mA\subset C^0(X)\) be such that \( f,g\in \mA\) implies \( f+g,f/g\in\mA\). The following are equivalent :
+	\begin{enumerate}
+		\item
+		      \( \mA\) is normal\footnote{Definition \ref{DEFooTUYIooCRkgDm}.}.
+		\item
+		      For every open part \( U\) and every \( x\in U\) there exists a map \( f\in\mA\) such that \( f\geq 0\), \( \supp(f)\subset U\) and \( f(x)>0\).
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	First we suppose that \( \mA\) is normal. Let \( U\) be open and \( x\in U\). The parts \( \{ x \}\) and \( X\setminus U\) are closed (lemma \ref{LEMooXNSCooQYkmAN}). Since \( \mA\) is normal, we have a map \( f\in\mA\) such that \( f(X)\subset \mathopen[ 0,1\mathclose]\), \( f(X\setminus U)=\{ 0 \}\) and \( f(\{ x \})=\{ 1 \}\).
+
+	The real work starts here. We have to prove the converse. Let \( A\) and \( B\) be disjoint closed parts of \( X\).
+
+	\begin{subproof}
+		\spitem[The parts \( D_x\)]
+		%-----------------------------------------------------------
+		\begin{subproof}
+			\spitem[For \(x\in X\setminus A\)]
+			%-----------------------------------------------------------
+			The part \( X\setminus A\) is open; if \( x\in X\setminus A\), the proposition \ref{PROPooACXGooHcQpxF} gives a neighbourhood \( D_x\subset\bar D_x\subset X\setminus A\) such that \( \bar D_x\) is compact.
+			\spitem[For \( x\in X\setminus B\)]
+			If \( x\in X\setminus B\), we consider an open set \( D_x\)  such that
+			\begin{equation}		\label{EQooTGWCooOQSUyk}
+				x\in D_x\subset \bar D_x\subset X\setminus B
+			\end{equation}
+			with \( \bar D_x\) being compact.
+		\end{subproof}
+		\spitem[The parts \( U_x\)]
+		%-----------------------------------------------------------
+		Since \( X\) is Hausdorff and paracompact, for each \( x\in X\), the proposition \ref{PROPooACXGooHcQpxF} provides an open part \( U_x\) satisfying \( x\subset U_x\subset\bar U_x\subset D_x\) with \( \bar U_x\) being compact.
+
+		The set \( \{ U_x \}_{x\in X}\) is an open covering of \( X\).
+
+		\spitem[The parts \( V_i\)]
+		%-----------------------------------------------------------
+		We use the shrinking lemma \ref{LEMooKDPXooDixeXt} on the open covering \( \{ U_x \}_{x\in X}\). We have a locally finite open covering \( \{ V_x \}_{x\in X}\) with \( \bar V_x\subset U_x\). We write \( I=\{ x\in X\tq V_x\neq \emptyset \}\), and we have
+		\begin{equation}
+			\bigcup_{i\in I}V_i=X.
+		\end{equation}
+
+		\spitem[Relatively compact]
+		%-----------------------------------------------------------
+		We have \( \bar V_i\subset U_i\subset\bar U_i\) and \( \bar U_i\) is compact. Thus \( \bar V_i\) is closed in a compact. The part \( \bar V_i\) is compact and \( U_i\) is open. We are in the setting of lemma \ref{LEMooIVULooNwymBx} and we have functions \( f_i\in\mA\) such that \( \supp(f_i)\subset U_i\) and \( f_i(\bar V_i)>0\).
+
+		\spitem[The function \( f\)]
+		%-----------------------------------------------------------
+		We define
+		\begin{equation}
+			\begin{aligned}
+				f\colon X & \to \eR                                                         \\
+				x         & \mapsto    \frac{ \sum_{i\in I_1}f_i(x) }{\sum_{i\in I}d_i(x)}.
+			\end{aligned}
+		\end{equation}
+		The map \( f\) belongs to \( \mA\) because \( \mA\) is stable under additions and quotient.
+
+		\spitem[\( I_1,I_2\)]
+		%-----------------------------------------------------------
+		We consider the parts
+		\begin{equation}
+			I_1=\{ i\in I\tq U_i\cap A\neq\emptyset \}
+		\end{equation}
+		and
+		\begin{equation}
+			I_2=\{ i\in I\tq U_i\cap A=\emptyset \}.
+		\end{equation}
+		We have \( I=I_1\cup I_2\) and the union is disjoint.
+
+		\spitem[\( f(A)=\{ 1 \}\)]
+		%-----------------------------------------------------------
+		Let \( a\in A\). If \( i\in I_2\), then \( a\not\in U_i\), so that \( \sum_{i\in I}f_i(a)=\sum_{i\in I_1}f_i(a)\). Then \( f(a)=1\).
+
+		\spitem[\( f(B)=\{ 0 \}\)]
+		%-----------------------------------------------------------
+		Let \( b\in B\). We prove that \( f(b)=0\) by proving that \( f_i(b)=0\) for every \( i\in I_1\). By contradiction, let \( i\in I_1\) be such that \( f_i(b)=0\). We know that \( b\in\supp(f_i)\subset U_i\), so that \( b\in U_i\cap B\).
+
+		Remember that \( U_i=U_x\) for some \( x\in X\). There are two possibilities : \( x\in A\) or \( x\in X\setminus A\).
+		\begin{subproof}
+			\spitem[If \( x\in A\)]
+			%-----------------------------------------------------------
+			Then \( x\in X\setminus B\) and then by \eqref{EQooTGWCooOQSUyk},
+			\begin{equation}
+				b\in U_x\subset D_x\subset X\setminus B.
+			\end{equation}
+			This is not possible if \( b\in B\).
+
+			\spitem[If \( x\not\in A\)]
+			%-----------------------------------------------------------
+			Then \( D_x\subset X\setminus A\) and
+			\begin{equation}
+				b\in U_i=subset D_x\subset X\setminus A.
+			\end{equation}
+			But \( i\in I_1\), which implies \( U_i\cap A\neq\emptyset\).
+		\end{subproof}
+	\end{subproof}
+\end{proof}
+
 
 \begin{theorem}[\cite{BIBooRNREooMaKTGj}]       \label{THOooUGQCooFVySMP}
 	Let \( X\) be a topological space. Let \( \mA\subset C^0(X)\) be
@@ -714,4 +870,203 @@ The smallest open set containing a point $x$ is the set of points below $x$ whic
 		      if \( f,g\in\mA\) and \( g(x)\neq 0\) for every \( x\in X\), then \( f/g\in \mA\).
 	\end{enumerate}
 	For every finite open covering \( U_1,\ldots, U_n\) of \( X\), there exists a \( \mA\)-partition of unity\footnote{Definition \ref{DEFooEDFIooHKnGdE}.} subordinated to \( \{ U_i \}\).
+	%TODOooZOKOooCpleJE. Prouver ça.
+	% Avant de prouver, regarder si c'est vraiment utilisé quelque part. Je doute.
 \end{theorem}
+
+\begin{proposition}[\cite{BIBooLREGooRSBfsj}]	\label{PROPooWWBLooJAUjnw}
+	Let \( X\) be an Hausdorff locally compact topological space. Let \( K\) be compact in \( X\) and \( V_1,\ldots,V_n\) be an open covering of \( K\). There exists maps \( h_i\in C^0(X) \) such that
+	\begin{enumerate}
+		\item
+		      \( h_i(X)\subset\mathopen[ 0,1\mathclose]\).
+		\item
+		      \( \supp(h_i)\subset V_i\),
+		\item
+		      \( \sum_{i=1}^nh_i(x)=1\) for every \( x\in K\).
+	\end{enumerate}
+	%TODOooDYMTooHWYayA. Prouver ça.
+\end{proposition}
+
+\begin{theorem}[partition of unity\cite{ooQCDSooCpqDvB,MonCerveau}]      \label{THOooPCHDooITWKpC}
+	Let \( \Omega\) be open in \( \eR^d\). Let \( \{ U_i \}_{i\in I}\) be an open covering of \( \Omega\). There exists
+	\begin{enumerate}
+		\item	 \label{ITEMooINBLooIbUpxq}
+		      A covering \( \{ V_j \}_{j\in J}\), a map \(f \colon J\to I  \) and smooth maps \(\alpha_j \colon \Omega\to \eR  \) such that
+		      \begin{enumerate}
+			      \item
+			            \( \alpha_j(\Omega)\subset\mathopen[ 0,1\mathclose]\),
+			      \item
+			            \( \bar V_j\) is compact,
+			      \item
+			            \( V_j\subset U_{f(j)}\),
+			      \item
+			            \( \supp(\alpha_j)\subset V_j\).
+		      \end{enumerate}
+		      In particular, \( \supp(\alpha_j)\) is compact in one of the \( U_i\).
+		\item       \label{ITEMooFGMJooQPLqGY}
+		      A \( C^{\infty}\)-partition of unity \( \{ \phi_i \}_{i\in I}\) subordinated to the \( U_i\) such that for every compact \( K\), \( \{ i\in I\tq \phi_i|_{K}\neq 0 \}\) is finite.
+	\end{enumerate}
+	This theorem does not provide a compactly supported partition of unity subordinated to the covering. Either it is compactly supported, or it is subordinated. In genera you cannot have both.
+\end{theorem}
+
+\begin{proof}
+	Two parts.
+	\begin{proofpart}
+		For \ref{ITEMooINBLooIbUpxq}
+	\end{proofpart}
+
+	Several steps for this part.
+	\begin{subproof}
+		\spitem[First step: relatively compact en localy finite]
+		%-----------------------------------------------------------
+		We suppose that the parts \( U_i\) are relatively compacts and that \( \{ U_i \}_{i\in I}\) is locally finite.
+
+		\begin{subproof}
+			\spitem[Subcoverings]
+			%-----------------------------------------------------------
+
+			The Shrinking lemma \ref{LEMooKDPXooDixeXt}\ref{ITEMooQSTJooGankqT} allows us to consider a locally finite subcovering \( \{ V_i \}_{i\in I}\) such that
+			\begin{equation}
+				\bar V_i\subset U_i.
+			\end{equation}
+			Then we consider (again) an open subcovering \( \{ W_i \}_{i\in I}\) such that \( \bar W_i\subset V_i\). We have:
+			\begin{equation}
+				W_i\subset\bar W_i\subset V_i\subset \bar V_i\subset U_i.
+			\end{equation}
+			Since \( V_i\) is open, \( V_i^c\) is closed and disjoint from \( \bar W_i\). Thus the Urysohn lemma \ref{LEMooKMZPooUOwlpt} says that we have a map \(\beta_i \colon \eR^n\to \mathopen[ 0,1\mathclose]  \) such that
+			\begin{equation}
+				\begin{aligned}[]
+					\beta_i(\bar W_i) & =\{ 1 \}  \\
+					\beta_i(V_i^c)    & =\{ 0 \}.
+				\end{aligned}
+			\end{equation}
+
+			\spitem[The function \( \rho_{\epsilon}\)]
+			%-----------------------------------------------------------
+			We introduce the map
+			\begin{equation}
+				\begin{aligned}
+					\rho_{\epsilon}\colon \eR^n & \to \eR                                                                                                             \\
+					x                           & \mapsto \begin{cases}
+						                                      0                                                                         & \text{if } \| x \|\geq \epsilon \\
+						                                      \frac{ k }{ \epsilon^n }\exp\big( -\| x \|^2/(\epsilon^2-\| x \|^2) \big) & \text{if } \| x \|<\epsilon.
+					                                      \end{cases}
+				\end{aligned}
+			\end{equation}
+			The constant \( k\) is fixed in order to have \( \int_{\eR^n}\rho_{\epsilon}=1\). We know from proposition \ref{PROPooFTGEooAouzOO} that with \( \epsilon=1/n\) we get a regularizing sequence (definition \ref{DEFooRIFYooUUUoha}).
+
+			\spitem[The map \( \gamma_i\)]
+			%-----------------------------------------------------------
+			Since \( \bar V_i\) is compact in \( U_i\), the proposition \ref{PROPooYTMRooExvGrN} gives \( \epsilon_i>0\) such that \( B(\bar V_i, \epsilon_i)\subset U_i\). We define
+			\begin{equation}
+				\gamma_i=\beta_i*\rho_{\epsilon_i}.
+			\end{equation}
+
+			\spitem[\( \gamma_i>0\) on \( \bar W_i\)]		\label{SPITEMooKCNRooOYFFRU}
+			%-----------------------------------------------------------
+			Let \( x\in\bar W_i\subset U_i\). We have
+			\begin{equation}
+				\gamma_i(x)=(\beta_i*\rho_{\epsilon_i})(x)=\int_{\eR^d}\beta_i(y)\rho_{\epsilon_i}(x-y)dy.
+			\end{equation}
+			The functions \( \beta_i\) and \( \rho_{\epsilon_i}\) are continuous and everywhere positive (not strictly). Thus it is sufficient to find an \( y\in \eR^d\) such that \( \beta_i(y)\rho_{\epsilon_i}(x-y)>0\) in order the integral to be strictly positive. Remember : \( \beta_i(\bar W_i)=\{ 1 \}\) and \( \beta_i(V_i^c)=\{ 0 \}\).
+
+			Since \( x\in \bar W_i\), there exists \( y\in B(x,\epsilon_i)\cap W_i\). For such a \( y\) we have \( \| x-y \|<\epsilon_i\) (and then \( \rho_{\epsilon_i}(x-y)>0\)) and \( \beta_i(y)\in \beta_i(W_i)=\{ 1 \}\).
+
+			\spitem[\( \supp(\gamma_i)\subset U_i\)]
+			%-----------------------------------------------------------
+			We know that \( \beta_i(V_i^c)=\{ 0 \}\) and \( \bar V_i\subset U_i\). Thus \( \supp(\beta_i)\subset V_i\subset\bar V_i\subset U_i\). Using commutativity of the convolution product (lemma \ref{LEMooMRWZooHjrnHD}) we write
+			\begin{equation}
+				\gamma_i(x)=\int_{\eR^d}\rho_{\epsilon_i}(y)\beta_i(x-y)dy.
+			\end{equation}
+			Let \( x\not\in U_i\) and consider \( y\in \eR^d\) such that \( \rho_{\epsilon_i}(y)\beta_i(x-y)\neq 0\). From \( \rho_{\epsilon_i}(y)\neq 0\) we deduce \( \| y \|<\epsilon_i\).
+
+			The value of \( \epsilon_i\) was chosen in such a way that \( B(\bar V_i,\epsilon_i)\subset U_i\). In order to have \( \beta_i(x-y)\neq 0\) we need \( x-y\in V_i\). Let \( v=x-y\in V_i\). Since \( B(\bar V_i,\epsilon_i)\subset U_i\) we have \( \| x-v \|>\epsilon_i\) because \( x\) is outside of \( B(v,\epsilon_i)\). But \( x-v=y\). Thus \( \| y \|>\epsilon_i\). Contradiction.
+
+			\spitem[\( \gamma_i\in C^{\infty}(\eR^d)\)]
+			%-----------------------------------------------------------
+			The map \( \beta_i\) is continuous and \( \supp(\beta_i)\subset \bar V_i\). Thus \( \beta_i\) is a compactly supported continuous function. We deduce that \( \beta_i\in L^1(\eR^d)\). On the other hand, \( \rho_{\epsilon_i}\) is \( C^{\infty}\). The corollary \ref{CORooBSPNooFwYQrc} says that \( \gamma_i=\beta_i*\rho_{\epsilon_i}\) is \( C^{\infty}\).
+
+			\spitem[The map \( s\)]
+			%-----------------------------------------------------------
+			For \( x\in \eR^d\) we define
+			\begin{equation}
+				I_x=\{ i\in I\tq \gamma_i(x)\neq 0 \}.
+			\end{equation}
+			This is a finite part of \( I\) because \( \supp(\gamma_i)\subset U_i\) and \( \{ U_i \}_{i\in I}\) is locally finite. We define
+			\begin{equation}
+				\begin{aligned}
+					s\colon \eR^d & \to \eR                             \\
+					x             & \mapsto \sum_{i\in I_x}\gamma_i(x).
+				\end{aligned}
+			\end{equation}
+
+			\spitem[The map \( s\) is \( C^{\infty}\)]
+			%-----------------------------------------------------------
+			Let \( x\in \eR^d\). Let \( S\) be an open neighbourhood of \( x\) such that \( J=\{ i\in I\tq U_i\cap S \}\) is finite. If we restrict \( s\) on \( S\) we have
+			\begin{equation}
+				s(y)=\sum_{j\in J}\gamma_j(y)
+			\end{equation}
+			so that \( s\) is the finite sum \( s=\sum_{j\in J}\gamma_j\) of smooth functions. Thus \( s\) is smooth.
+
+			\spitem[\( s(x)>0\) for every \( x\)]
+			%-----------------------------------------------------------
+			We know that \( \rho_{\epsilon_i}\) and \( \beta_i\) are (not strictly) positive everywhere. Thus
+			\begin{equation}
+				\gamma_i(x)=(\beta_i*\rho_{\epsilon_i})(x)=\int_{\eR^d}\beta_i(y)\rho_{\epsilon_i}(x-y)dy\geq 0
+			\end{equation}
+			for every \( x\). If \( x\in \eR^d\), we have \( x\in W_i\) for some \( i\). For this particular \( i\in I\) we have \( \gamma_i(x)>0\) (by point \ref{SPITEMooKCNRooOYFFRU}). Thus \( s(x)\) is a finite sum of positive numbers out of whose at least one is strictly positive.
+
+			\spitem[The function \( \alpha_i\)]
+			%-----------------------------------------------------------
+			Since \( s(x)>0\) for every \( x\) we can define
+			\begin{equation}
+				\alpha_i(x)=\frac{ \gamma_i(s) }{ s(x) }.
+			\end{equation}
+			As a quotient of smooth functions \( \alpha_i\) is smooth and \( \sum_i\alpha_i(x)=1\) for every \( x\).
+		\end{subproof}
+
+		\spitem[True proof: general case]		\label{ITEMooADGPooEsplza}
+		%-----------------------------------------------------------
+		We do not suppose anymore that \( \{ U_i \}_{i\in I}\) is locally finite and relatively compact. We know from proposition \ref{PROPooLFPXooUBytkm} that \( \Omega\) is paracompact. The proposition \ref{PROPooCXATooMLdiKy} provides an open locally finite and relatively compact covering \( \{ V_j \}_{j\in J}\) and a map \(f \colon J\to I  \) such that \( V_j\subset U_{f(j)}\).
+
+		We use the first part of the proof on the covering \( \{ V_j \}_{j\in J}\). We have a set \( \{ \alpha_j \}_{j\in J}\) of smooth maps \(\alpha_j \colon \Omega\to \mathopen[ 0,1\mathclose]  \) such that \( \sum_{j\in J}\alpha_j=1\) and \( \supp(\alpha_j)\) is compact in \( V_j\).
+
+	\end{subproof}
+
+	\begin{proofpart}
+		For \ref{ITEMooFGMJooQPLqGY}
+	\end{proofpart}
+
+	We start from the construction done in the part \ref{ITEMooADGPooEsplza}. So we have a locally finite covering \( \{ V_j \}_{j\in J}\) and a map \(f \colon J\to I  \) such that \( \bar V_j\) is compact and \( V_j\subset U_{f(j)}\). We have the maps \( \{ \alpha_j \}_{j\in J}\) satisfying the point \ref{ITEMooINBLooIbUpxq}. For each \( x\in \Omega\) we consider a neighbourhood \( S_x\) such that
+	\begin{equation}
+		J_x=\{ j\in J\tq V_j\cap S_x\neq\emptyset \}
+	\end{equation}
+	is finite. Then we define
+	\begin{equation}
+		\psi_i(x)= \sum_{j\in f^{-1}(i)\cap J_x}\alpha_j(x) =\sum_{j\in f^{-1}(i)}\alpha_j(x).
+	\end{equation}
+	The second equality comes from the fact that \( \alpha_j(x)=0\) when \( j\in  f^{-1}(i)\setminus J_x\) because \( \supp(\alpha_j)\subset V_j\subset U_{f(j)}\).
+
+	\begin{subproof}
+		\spitem[\( \psi_i\) is smooth]
+		%-----------------------------------------------------------
+
+		The map \( \psi_i\) is \( C^{\infty}\) because it is locally a finite sum of \( C^{\infty}\) functions.
+
+		\spitem[\( J_i\)]
+		%-----------------------------------------------------------
+		Let \( J_i=f^{-1}(i)\). We show that these sets form a partition of \( I\). First, if \( k\in J_i\cap J_l\) then \( k\in f^{-1}(i)\) and \( k\in f^{-1}(l)\). Then \( f(k)=i\) and \( f(k)=l\), so that \( k=l\). This shows that \( J_i\cap J_l=\emptyset\) when \( k\neq l\). Second, if \( j\in J\), then \( j\in f^{-1}\big( f(j) \big)\), so that \( j\in J_{f(j)}\).
+
+		\spitem[\( \sum_i\psi_i=1\)]
+		%-----------------------------------------------------------
+		Using the proposition \ref{PROPooHGXZooXHIHeh} we have
+		\begin{equation}
+			\sum_{i\in I}\psi_i(x)=\sum_{i\in I}\sum_{j\in f^{-1}(i)}\alpha_j(x)=\sum_{j\in J}\alpha_j(x)=1.
+		\end{equation}
+
+		\spitem[\( \psi_i(\Omega)\subset\mathopen[ 0,1,\mathclose]\)]
+		%-----------------------------------------------------------
+		As sum of positive numbers we have \( \psi_i(x)\geq 0\). On the other hand, if \( \psi_i(x)>1\), then \( \sum_i\psi_i(x)>1\) while we proved that \( \sum_i\psi_i(x)=1\).
+	\end{subproof}
+
+\end{proof}

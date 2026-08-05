@@ -1,5 +1,5 @@
 % This is part of Mes notes de mathématique
-% Copyright (c) 2008-2025
+% Copyright (c) 2008-2026
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
 
@@ -66,6 +66,20 @@ Mine de rien, le fait que les deux opérations usuelles soient continues a de be
 
 	Nous avons prouvé que \( f\) est continue en chaque point de \( E\). La proposition \ref{PROPooOVKEooCkJmmO} dit que \( f\) est alors continue sur \( E\).
 \end{proof}
+
+
+\begin{proposition}[\cite{BIBooIZUYooPSjmsK}]	\label{PROPooRCSQooAgTRDi}
+	À propos de complétude.
+	\begin{enumerate}
+		\item		\label{ITEMooVUXEooBQTpIM}
+		      Dans un espace vectoriel topologique Hausdorff, toute partie complète est fermée.
+		\item
+		      Dans un espace vectoriel topologique, toute partie fermée est complète.
+	\end{enumerate}
+	%TODOooCGOPooGmjtee. Prouver ça.
+\end{proposition}
+
+
 
 %-------------------------------------------------------
 \subsection{De complexe à réel}
@@ -266,22 +280,6 @@ Toute base de voisinage de \( 0 \) se transporte en tout point de l'espace vecto
 \end{proof}
 
 
-\begin{proposition}[Limite de fonction composée\cite{BIBooVGIJooVIPUHC}]        \label{PROPooFGWXooFjvTYj}
-	Soient des fonctions \( f,g\colon \eR\to \eR\) telles que
-	\begin{subequations}
-		\begin{align}
-			\lim_{y\to l} f(y)=z \\
-			\lim_{x\to a} g(x)=l.
-		\end{align}
-	\end{subequations}
-	Nous supposons qu'il existe un intervalle ouvert \( I\) contenant \( l\) tel que \( g(x)\neq l\) sur \( I\setminus\{ a \}\).
-
-	Alors
-	\begin{equation}
-		\lim_{x\to a} (f\circ g)(x)=\lim_{y\to l} f(y)=z.
-	\end{equation}
-\end{proposition}
-
 \begin{proposition}[Limite de fonction composée\cite{BIBooVGIJooVIPUHC}]       \label{PROPooKNVHooXlQyVA}
 	Soient des fonctions \( f,g\colon \eR\to \eR\) telles que
 	\begin{subequations}
@@ -296,12 +294,17 @@ Toute base de voisinage de \( 0 \) se transporte en tout point de l'espace vecto
 	\begin{equation}
 		\lim_{x\to a} (f\circ g)(x)=\lim_{y\to l} f(y)=z.
 	\end{equation}
+	%TODOooLRAGooZDvUHL. Prouver ça.
 \end{proposition}
 
 \begin{proposition}     \label{PROPooBEHTooBrLWuh}
 	Toute application linéaire entre espaces vectoriels topologiques de dimension finie est continue.
-	% non, sérieux ce résulat n'est pas démontré ailleurs ?
+	Si \( E\) est un espace vectoriel topologique Hausdorff de dimension finie et si Si \( Y\) est un espace topologique vectoriel, alors toute fonction linéaire \( E \to Y \) est continue.
 \end{proposition}
+
+\begin{proof}
+	C'est la proposition \ref{PROPooZWQWooBkdLfv}\ref{ITEMooSEPKooZVfyoD}.
+\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Corps topologique}
@@ -312,22 +315,231 @@ Toute base de voisinage de \( 0 \) se transporte en tout point de l'espace vecto
 \end{definition}
 
 \begin{propositionDef}      \label{PROPooAWAKooKRmbGT}
-	Si \( (\eK, | . |)\) est un corps totalement ordonné avec sa valeur absolue usuelle\footnote{Définition \ref{DEFooJXKVooErANPh}.}, alors l'application
-	\begin{equation}
-		\begin{aligned}
-			d\colon \eK\times \eK & \to \eR^+       \\
-			(x,y)                 & \mapsto | x-y |
-		\end{aligned}
-	\end{equation}
-	est une distance\footnote{Distance, définition \ref{DefMVNVFsX}.}.
-
-	Un corps valué muni de sa topologie métrique\footnote{Définition \ref{ThoORdLYUu}.} est un corps topologique\footnote{Définition \ref{DEFooWKLOooPdsxQl}.}.
+	Si \( (\eK, | . |)\) est un corps totalement ordonné avec sa valeur absolue usuelle\footnote{Définition \ref{DEFooJXKVooErANPh}.}, alors
+	\begin{enumerate}
+		\item		\label{ITEMooSSJRooNCfbXa}
+		      l'application
+		      \begin{equation}
+			      \begin{aligned}
+				      d\colon \eK\times \eK & \to \eR^+       \\
+				      (x,y)                 & \mapsto | x-y |
+			      \end{aligned}
+		      \end{equation}
+		      est une distance\footnote{Distance, définition \ref{DefMVNVFsX}.}.
+		\item		\label{ITEMooONQPooDAXbBh}
+		      Un corps valué muni de sa topologie métrique\footnote{Définition \ref{ThoORdLYUu}.} est un corps topologique\footnote{Définition \ref{DEFooWKLOooPdsxQl}.}.
+		\item		\label{ITEMooFCDZooMilJfr}
+		      Le corps topologique \( \eK^d\) est complet.
+		      %TODOooZDARooOhUkNE. Prouver cette partie.
+	\end{enumerate}
 \end{propositionDef}
 
 \begin{proof}
-	Il s'agit des différentes propriétés du lemme \ref{LemooANTJooYxQZDw}.
+	Les points \ref{ITEMooSSJRooNCfbXa} et \ref{ITEMooONQPooDAXbBh} sont les différentes propriétés du lemme \ref{LemooANTJooYxQZDw}.
 \end{proof}
 
+
+%-------------------------------------------------------
+\subsection{Les applications linéaires sont continues}
+%----------------------------------------------------
+
+
+\begin{proposition}[\cite{BIBooMSVWooNUfZlK}]	\label{PROPooWZHBooFXDRKH}
+	Soit un espace vectoriel topologique \( E\) sur le corps \( \eK\). Nous considérons une application linéaire \(f \colon E\to \eK  \) non identiquement nulle. Il y a équivalence entre :
+	\begin{enumerate}
+		\item
+		      \( f\) est continue,
+		\item
+		      \( \ker(f)\) est fermé dans \( E\),
+		\item
+		      \( \ker(f)\) n'est pas dense dans \( E\),
+		\item
+		      \( f\) est borné sur un voisinage de \( 0\) dans \( E\).
+	\end{enumerate}
+	%TODOooDOLAooFHqKyb. Prouver ça.
+\end{proposition}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooWZXCooXfyLMK}
+	Si \(f_i \colon E_i\to F_i  \) sont des applications continues entre espaces vectoriels topologiques, alors l'application
+	\begin{equation}
+		\begin{aligned}
+			f_1\times \ldots \times f_n\colon E_1\times\ldots\times E_n & \to F_1\times \ldots\times F_n                \\
+			(v_1,\ldots,v_n)                                            & \mapsto \big( f_1(v_1),\ldots, f_n(v_n) \big)
+		\end{aligned}
+	\end{equation}
+	est continue
+	%TODOooJBZCooGbtwdp. Prouver ça.
+\end{proposition}
+
+
+\begin{proposition}[Continuité des appplication linéaires\cite{BIBooMSVWooNUfZlK}]	\label{PROPooZWQWooBkdLfv}
+	Soit un espace vectoriel topologique Hausdorff de dimension finie \( d\) sur le corps \( \eK\). Alors :
+	\begin{enumerate}
+		\item		\label{ITEMooVOTHooLiauZy}
+		      \( E\) est topologiquement isomorphe à \( \eK^d\).
+		\item		\label{ITEMooZEFFooUQOJuv}
+		      Toute application linéaire \( E\to \eK\) est continue.
+		\item		\label{ITEMooSEPKooZVfyoD}
+		      Si \( Y\) est un espace topologique vectoriel, alors toute fonction linéaire \( E \to Y \) est continue.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Soit \( E\), un espace vectoriel topologique Hausdorff de dimension \( d\). Nous considérons une base \( \{ e_1,\ldots,e_d \}\) de \( E\) et l'application
+	\begin{equation}
+		\begin{aligned}
+			\varphi\colon \eK^d & \to E                 \\
+			(x_1,\ldots,x_d)    & \mapsto \sum_ix_ie_i.
+		\end{aligned}
+	\end{equation}
+	Cette application est un isomorphisme d'espaces vectoriels par la proposition \ref{PROPooOMUHooYFXJSY}.
+
+	\begin{subproof}
+		\spitem[\( \varphi\) est continue]		\label{SPITEMooXXKTooEsRBbL}
+		%-----------------------------------------------------------
+		Nous considérons l'application
+		\begin{equation}
+			\begin{aligned}
+				A\colon E^d      & \to E              \\
+				(v_1,\ldots,v_d) & \mapsto \sum_iv_i.
+			\end{aligned}
+		\end{equation}
+		Elle est continue parce que  \( E\) est un espace vectoriel topologique.
+
+		En utilisant les application \( T_{e_i}\) de la proposition \ref{PROPooDXLFooFghbWk} et les applications produit de la proposition \ref{PROPooWZXCooXfyLMK}, nous avons
+		\begin{equation}
+			\varphi(x_1,\ldots,x_d)=A\big( R_{e_1}(x_1),\ldots,T_{e_d}(x_d) \big)=A\circ (  T_{e_1}\times\ldots \times T_{e_d}  )(x_1,\ldots,x_d).
+		\end{equation}
+		Donc \( \varphi\) est une composée d'applications continues.
+
+		\spitem[\( \varphi^{-1}\) est continue si \( d=1\)]
+		%-----------------------------------------------------------
+		Tout élément de \( E\) est de la forme \( \lambda e_1\) et nous avons
+		\begin{equation}
+			\begin{aligned}
+				\varphi^{-1}\colon E & \to \eK          \\
+				\lambda e_1          & \mapsto \lambda.
+			\end{aligned}
+		\end{equation}
+		Nous avons alors
+		\begin{subequations}
+			\begin{align}
+				\ker(\varphi^{-1}) & =\{ x\in E\tq \varphi^{-1}(x)=0 \}                \\
+				                   & =\{ \lambda e_1\tq \varphi^{-1}(\lambda e_1)=0 \} \\
+				                   & =\{ \lambda e_1\tq \lambda=0 \}                   \\
+				                   & =\{ 0 \}.
+			\end{align}
+		\end{subequations}
+		Étant donné que \( E\) est Hausdorff, la partie \( \{ 0 \}\) est fermée. Donc \( \varphi^{-1}\) est continue par la proposition \ref{PROPooWZHBooFXDRKH}.
+
+		\spitem[\ref{ITEMooVOTHooLiauZy} si \( d=1\)]
+		%-----------------------------------------------------------
+		Le point \ref{ITEMooVOTHooLiauZy} est prouvé dans le cas \( d=1\) parce que \( \varphi\) fait l'isomorphisme.
+
+		\spitem[\(L \colon E\to \eK  \) est continue si \( d=1\)]
+		%-----------------------------------------------------------
+		Nous supposons encore que \( d=1\) et nous prouvons que toute application linéaire \(L \colon E\to \eK  \) est continue. Soit \( a\neq 0\in E\) tel que \( L(a)\neq 0\). Si \( x\in E\), il existe \( \lambda\in \eK\) tel que \( x=\lambda a\). Nous avons
+		\begin{equation}
+			L(x)=L(\lambda a)=\lambda L(a),
+		\end{equation}
+		et donc \( L=L(a)\varphi^{-1}\). Étant donné que \( \varphi^{-1}\) est continue, \( L\) est continue.
+
+		\spitem[Noyau de \( L\)]
+		%-----------------------------------------------------------
+		Nous supposons maintenant que \( \dim(E)=d\geq 1\). Soit une application linéaire non nulle \(L \colon E\to \eK  \). Soit \( a\neq 0\) dans \( E\) tel que \( L(a)\neq 0\). Nous posons \( \lambda=1/L(a)\) et nous avons
+		\begin{equation}
+			L(x-\lambda L(x)a)=L(x)-\lambda L(x)L(a)=L(x)-L(x)=0.
+		\end{equation}
+		Donc
+		\begin{equation}	\label{EQooBVAAooVOzdbo}
+			x-\lambda a L(x)\in \ker (L)
+		\end{equation}
+		Nous considérons la projection canonique
+		\begin{equation}
+			\begin{aligned}
+				\phi\colon E & \to E/\ker(L) \\
+				x            & \mapsto [x]
+			\end{aligned}
+		\end{equation}
+		La relation \eqref{EQooBVAAooVOzdbo} montre que \( [x]=[\lambda a L(x)]\) ou encore que
+		\begin{equation}
+			\phi(x)=L(x)\lambda \phi(a).
+		\end{equation}
+
+		\spitem[\( E/\ker(L)=\Span\big( \phi(a) \big)\)]
+		%-----------------------------------------------------------
+		Tout élément de \( E/\ker(L)\) est de la forme \( [x]\) pour un certain \( x\in E\). Donc tout élément de \( E/\ker(L)\) est de la forme \( \lambda L(x)[a]\). Donc
+		\begin{equation}
+			E/\ker(L)\subset \Span\big( \phi(a) \big).
+		\end{equation}
+		L'inclusion inverse est simplement le fait que \( \phi(a)\in E/\ker(L)\).
+
+		\spitem[Déductions]
+		%-----------------------------------------------------------
+		Par \ref{PROPooDJLTooHZjSrA}, nous avons \( \dim\big( \ker(L) \big)=d-1\). Par hypothèse de récurrence, nous avons que \( \ker(L)\) est topologiquement isomorphe à \( \eK^{d-1}\).
+
+		\spitem[\( \ker(L) \) est complet puis fermé]
+		%-----------------------------------------------------------
+		Soit un isomorphisme d'espaces topologiques \(\alpha \colon \ker(L)\to \eK^{d-1}  \). Soit une suite de Cauchy \( (c_k)_{k\in \eN}\) dans \( \ker(L)\). La suite \( \alpha(c_k)\) est de Cauchy dans \( \eK^{d-1}\). Étant donné que \( \eK^{d-1}\) est complet\footnote{Proposition \ref{PROPooAWAKooKRmbGT}\ref{ITEMooFCDZooMilJfr}.}, il existe \( c\in \eK^{d-1}\) tel que \( \alpha(c_k)\stackrel{ \eK^{d-1}}{\longrightarrow}  c\). Étant donné que \( \alpha^{-1}\) est continue, nous avons
+		\begin{equation}
+			c_k\to \alpha^{-1}(c)\in \ker(L).
+		\end{equation}
+		Cela montre que \( \ker(L)\) est complet.
+
+		La proposition \ref{PROPooRCSQooAgTRDi}\ref{ITEMooVUXEooBQTpIM} montre alors que \( \ker(L)\) est fermé.
+
+		\spitem[\ref{ITEMooZEFFooUQOJuv}, \( d\geq 1\)]
+		%-----------------------------------------------------------
+		Vu que \( \ker(L)\) est fermé, la proposition \ref{PROPooWZHBooFXDRKH} déduit que \( L\) est continue.
+
+		\spitem[\( \varphi^{-1}\) est continue pour \( d\geq 1\)]
+		%-----------------------------------------------------------
+		Nous devons prouver que \( E\) est topologiquement isomorphe à \( \eK^d\). Pour cela nous considérons l'application
+		\begin{equation}
+			\begin{aligned}
+				\varphi\colon \eK^d & \to E                 \\
+				(x_1,\ldots,x_d)    & \mapsto \sum_ix_ie_i.
+			\end{aligned}
+		\end{equation}
+		Nous avons déjà prouvé que \( \varphi\) est continue dans le point \ref{SPITEMooXXKTooEsRBbL}. Nous devons encore prouver que \( \varphi^{-1}\) est continue. Nous considérons les applications coordonnées
+		\begin{equation}
+			\begin{aligned}
+				L_j\colon x & \to \eK     \\
+				x           & \mapsto x_j
+			\end{aligned}
+		\end{equation}
+		de telle sorte que \( x=\sum_i L_i(x)e_i\). En tant qu'application \( E\to \eK\), chacune des \( L_j\) est continue. Nous avons
+		\begin{equation}
+			\varphi^{-1}(x)=\big( L_1(x),\ldots,L_d(x) \big)=(L_1\times\ldots\times L_d)(x).
+		\end{equation}
+		Donc \( \varphi^{-1}\) est continue en tant que composée d'applications continues.
+
+		\spitem[\ref{ITEMooVOTHooLiauZy} pour \( d\geq 1\)]
+		%-----------------------------------------------------------
+		Nous avons montré que \( \varphi\) et \( \varphi^{-1}\) sont continues (le fait que \( \varphi\) soit une bijection provient du fait que \( \{ e_i \}_{i=1,\ldots,d}\) est une base). Donc \( \varphi\) est un isomorphisme d'espaces vectoriels.
+
+		\spitem[Pour \ref{ITEMooSEPKooZVfyoD}]
+		%-----------------------------------------------------------
+		Soient un espace vectoriel topologique \( Y\) et une application linéaire \(f \colon E\to Y  \). Nous devons prouver que \( f\) est continue. Soit une base \( \{ e_i \}_{i=1,\ldots,d}\) de \( E\). Nous posons \( b_i=f(e_i)\) de sorte que
+		\begin{equation}
+			f(\sum_ix_ie_i)=\sum_ix_ib_i.
+		\end{equation}
+		Nous reprenons les applications \( T_v\) de la proposition \ref{PROPooDXLFooFghbWk}. Nous avons
+		\begin{subequations}
+			\begin{align}
+				f(x) & = \sum_xx_ib_i                                                                   \\
+				     & = A\big( x_1b_1,\ldots,x_db_d \big)                                              \\
+				     & = A\circ(T_{b_1}\times\ldots\times T_{b_d})(x_1,\ldots,x_d)                      \\
+				     & = \big(  A\circ (T_{b_1\times \ldots\times T_{b_d}})\circ \varphi^{-1} \big)(x).
+			\end{align}
+		\end{subequations}
+		Cela prouve que
+		\begin{equation}
+			f=A\circ(T_{b_1}\times \ldots\times T_{b_d})\circ\varphi^{-1}.
+		\end{equation}
+		Donc \( f\) est continue en tant que composition d'applications continues.
+	\end{subproof}
+\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Voisinage symétrique et équilibré}
@@ -603,11 +815,37 @@ Toute base de voisinage de \( 0 \) se transporte en tout point de l'espace vecto
 		\item
 		      pour tout \( A\in \mB\), et pour tout \( \rho>0\), il existe \( W\in \mB\) tel que \( W\subset \rho A\).
 	\end{enumerate}
+	%TODOooCDVPooIfFNnv. Prouver ça.
 \end{theorem}
-% À mon avis il ne faut pas démontrer ceci, parce qu'il n'est utilisé nulle part.
-% À virer
 
-\ssdem
+\begin{lemma}[\cite{MonCerveau}]        \label{LEMooDVZWooWKRQWC}
+	Soit un espace vectoriel localement convexe\footnote{Définition \ref{DefPJokvAa}.} \( X\). Soient un compact \( K\subset X\) et un ouvert \( U\) contenant \( 0\). Il existe \( \lambda\in \eR\) tel que \( K\subset \lambda U\).
+\end{lemma}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[Si \( U\) est convexe]
+		%-----------------------------------------------------------
+		Soit \( x\in K\). Étant donné que \( x/n\to 0\) et que \( U\) est un voisinage de \( 0\), il existe \( n\) tel que \( x/n\in U\). Pour chaque \( x\in K\) nous considérons \( \lambda\in \eR^+\) tel que \( x\in \lambda_xU\). Les parties \( \{ \lambda_x U \}_{x\in K}\) forment un recouvrement de \( K\) par des ouverts.
+
+		Nous en extrayons un sous-recouvrement fini, c'est à dire \( x_1,\ldots,x_n\in K\) tels que \( K\subset\bigcup_{i=1}^n\lambda_{x_i}U\). Et au passage nous notons \( \lambda_i=\lambda_{x_i}\). Et enfin nous posons
+		\begin{equation}
+			\lambda=\max\{ \lambda_1,\ldots,\lambda_n \}.
+		\end{equation}
+		Nous montrons que si \( y\in K\) alors \( y\in \lambda U\). Soit \( y\in K\). Vu que les \( \lambda_i U\) forment un recouvrement de \( K\), il existe \( i\) et \( u\in U\) tels que
+		\begin{equation}
+			y=\lambda_i u=\frac{ \lambda_i }{ \lambda }\lambda U.
+		\end{equation}
+		La partie \( \lambda U\) est convexe et contient \( 0\), donc \( \mu (\lambda U)\subset \lambda U\) pour tout \( \mu\in\mathopen[ 0,1\mathclose]\). Étant donné que \( \lambda_i/\lambda\leq 1\) nous avons
+		\begin{equation}
+			y=\lambda_i u=\frac{ \lambda_i }{ \lambda }(\lambda u)\in\frac{ \lambda_i }{ \lambda }\lambda U\subset \lambda U.
+		\end{equation}
+		\spitem[Si \( U\) n'est pas convexe]
+		%-----------------------------------------------------------
+		Étant donné que \( X\) est localement convexe nous pouvons considérer un voisinage convexe \( U'\) de zéro tel que \( U'\subset U\). Par le point précédent il existe \( \lambda>0\) tel que \( K\subset \lambda U'\subset \lambda U\).
+	\end{subproof}
+\end{proof}
 
 Voici une réciproque du théorème \ref{THOooPTLOooJLaHGE}.
 
@@ -735,9 +973,7 @@ Voici une réciproque du théorème \ref{THOooPTLOooJLaHGE}.
 \end{proof}
 
 
-
-
-\begin{lemma}       \label{LEMooJDJVooHUKdSe}
+\begin{lemma}[\cite{MonCerveau}]       \label{LEMooJDJVooHUKdSe}
 	Soient un espace vectoriel topologique \( V\) ainsi qu'une suite \( (x_n)\) dans \( V\). Nous avons
 	\begin{equation}
 		x_n\stackrel{V}{\longrightarrow}x
@@ -746,14 +982,29 @@ Voici une réciproque du théorème \ref{THOooPTLOooJLaHGE}.
 	\begin{equation}
 		x_n-x\stackrel{V}{\longrightarrow}0.
 	\end{equation}
-	%TODOooIHMAooQswLAX. Prouver ça.
 \end{lemma}
 
-Dans la proposition \ref{PROPooZRCBooKiJhDg}, nous considérons un espace vectoriel topologique. Il n'y a pas de produit. Pour la convergence
-\begin{equation}
-	x_ky_k\stackrel{ xy}{\longrightarrow},
-\end{equation}
-voir la proposition \ref{PROPooIQOAooJPMoDD}.
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		soit un voisinage \( u\) de \( 0\) dans \( x\). La partie \( U+x\) est un voisinage de \( x\), et donc il existe \( N>0\) tel que si \( n\geq N\), alors \( x_n\in U+x\). Si \( x_n\in U+x\), alors \( x_n-x\in U\). Cela signifie que \( x_n-x\stackrel{ X}{\longrightarrow} 0\).
+
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Même raisonnement, mais en partant d'un voisinage \( U\) de \( x\).
+	\end{subproof}
+\end{proof}
+
+
+\begin{normaltext}
+	Dans la proposition \ref{PROPooZRCBooKiJhDg}, nous considérons un espace vectoriel topologique. Il n'y a pas de produit. Pour la convergence
+	\begin{equation}
+		x_ky_k\stackrel{ xy}{\longrightarrow},
+	\end{equation}
+	voir la proposition \ref{PROPooIQOAooJPMoDD}.
+\end{normaltext}
 
 \begin{proposition}[\cite{MonCerveau}]        \label{PROPooZRCBooKiJhDg}
 	Soit \( V\), un espace vectoriel topologique. Soient deux suites convergentes \( x_n\stackrel{V}{\longrightarrow}x\) et \( y_n\stackrel{V}{\longrightarrow}y\) ainsi que \( \lambda\in \eK\). Alors
@@ -1122,10 +1373,6 @@ La proposition \ref{PropContinueCompactBorne} dira que l'image d'un compact par 
 \subsection{Continuité de la réciproque sur un compact}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{lemma}       \label{LEMooNEEVooSeHYzx}
-	Soit un espace compact \( K\) et un espace topologique séparé \( X\). Si \( f\colon K\to X\) est une bijection continue, alors \( f\) est un isomorphisme d'espaces topologiques.
-\end{lemma}
-% Pour la preuve c'est LEMooPLGTooATIGov
 
 \begin{lemma}[\cite{BIBooXCATooQEETws}]     \label{LEMooPLGTooATIGov}
 	Soit une application continue et bijective \( f\colon K\to X \) où \( K\) est compact et \( X\) est métrique. Alors la réciproque \(f^{-1}\colon X\to K\) est continue.
@@ -1134,6 +1381,13 @@ La proposition \ref{PropContinueCompactBorne} dira que l'image d'un compact par 
 \begin{proof}
 	Nous allons montrer que si \( F\) est fermé dans \( K\), alors \( (f^{-1})^{-1}(F)\) est fermé dans \( X\). Le lemme \ref{LEMooATLRooEKnlro} conclura. Si \( F\) est fermé dans \( K\), alors \( F\) est compact (lemma \ref{LemnAeACf}\ref{ITEMooNKAKooQoNddr}). Le théorème \ref{ThoImCompCotComp} dit que l'image d'un compact par une application continue est compacte. Donc \( f(F)\) est compact dans \( X\). Mais comme \( X\) est métrique, tout compact est fermé (lemme \ref{LemnAeACf}\ref{ITEMooAZWVooLyPDeY}). Bref, \( f(F)\) est fermé.
 \end{proof}
+
+
+\begin{lemma}       \label{LEMooNEEVooSeHYzx}
+	Soit un espace compact \( K\) et un espace topologique séparé \( X\). Si \( f\colon K\to X\) est une bijection continue, alors \( f\) est un isomorphisme d'espaces topologiques.
+	%TODOooAGNXooGsPfbV. Prouver ça.
+	% ça m'a tout l'air d'être LEMooPLGTooATIGov.
+\end{lemma}
 
 \begin{lemma}[\cite{MonCerveau}]        \label{LEMooKSDKooDbKKeB}
 	Soit un espace vectoriel normé \( V\) ainsi qu'une application continue \( f\colon \mathopen[ a , b \mathclose]\to V\). Nous supposons que \( f\colon \mathopen[ a , b \mathclose[\to V\) est injective.
