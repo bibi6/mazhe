@@ -301,8 +301,6 @@
 	Lorsque nous avons un ensemble \( E\) et une relation d'ordre \( \leq\) sur \( E\), nous disons que le couple \( (E,\leq)\) est un \defe{ensemble ordonné}{ensemble ordonné}.
 \end{definition}
 
-
-
 \begin{definition}[Application croissante, décroissante et monotone]		\label{DEFooFTZAooLrtNEo}
 	Soient des ensembles ordonnés \( E\) et \( F\). Soit une application \(f \colon E\to F  \).
 	\begin{enumerate}
@@ -311,6 +309,10 @@
 		\item
 		      La fonction \( f\) est dite \defe{monotone}{fonction!monotone} sur \( I\) si elle est, soit croissante, soit décroissante, sur \( I\).
 	\end{enumerate}
+\end{definition}
+
+\begin{definition}[\cite{MonCerveau}]	\label{DEFooQEIAooGzzdiu}
+	Un \defe{isomorphisme}{isomorphisme d'ensembles ordonnés} d'ensembles ordonnés est une bijection croissante\footnote{Application croissante, définition \ref{DEFooFTZAooLrtNEo}.} dont la réciproque est croissante.
 \end{definition}
 
 \begin{definition}[\cite{MonCerveau}]	\label{DEFooQEIAooGzzdiu}
@@ -3051,7 +3053,6 @@ Nous donnons deux preuves de ce lemme.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \subsection{Addition sur les naturels}
-\label{SUBooAdditionNaturels}
 %---------------------------------------------------------------------------------------------------------------------------
 
 \begin{propositionDef}[\cite{RWWJooJdjxEK,MonCerveau}]      \label{PROPooVFOXooXmwpFh}
@@ -3127,7 +3128,7 @@ Nous donnons deux preuves de ce lemme.
 		\item       \label{ITEMooSGRVooPAVFYK}
 		      L'élément \( 0\) est neutre.
 		\item       \label{ITEMooNUTHooJWWzGv}
-		      Tous les éléments de \( \eN\) sont réguliers\footnote{Élément régulier pour une opération, définition \ref{DEFooIJIEooZaAdSs}.} par rapport à l'addition.
+		      Tous les éléments de \( \eN\) sont réguliers\footnote{Élément régulier pour une opération, définition \ref{DEFooIJIEooZaAdSs}.} par rapport à l'addition, c'est à dire que si \( a+x=a+y\) alors \( x=y\).
 	\end{enumerate}
 \end{proposition}
 
@@ -3237,18 +3238,21 @@ Nous donnons deux preuves de ce lemme.
 \label{SUBooOrdreNaturels}
 %---------------------------------------------------------------------------------------------------------------------------
 
-\begin{definition}[\cite{RWWJooJdjxEK}]     \label{DEFooAXZSooTEMjlV}
+\begin{definition}[Relation d'ordre\cite{RWWJooJdjxEK}]     \label{DEFooAXZSooTEMjlV}
 	Pour \( a,b\in \eN\), nous notons \( a\leq b\) si il existe \( x\in \eN\) tel que \( a+x=b\).
 
 	Nous notons également \( a<b \) si \( a\leq b\) et \( a\neq b\).
 \end{definition}
 
-\begin{propositionDef}	\label{PROPooDEFSoustractionN}
+\begin{propositionDef}	\label{PROPooDEFSoustractionN}    \label{LEMooVOTAooALatDu}
 	Soit \( a,b\in \eN\), tels que \( a\leq b\). L'élément  \( x\in \eN\) tel que \( a+x=b\) est unique, on note \( x = b - a \), et on dit que \( x \) est la \defe{différence}{différence!entiers naturels} entre \( b \) et \( a \)  (ou la \defe{soustraction}{soustraction!dans \( \eN \)} de \( a \) à \( b \)).
 \end{propositionDef}
 
 \begin{proof}
+	L'existence est juste la définition \ref{DEFooAXZSooTEMjlV}.
+	
 	S'il existe deux entiers naturels \( x \) et \( x' \) tels que \( a + x = b \) et \( a + x' = b\), alors nous avons \( a + x = a + x' \). Mais la régularité de l'addition dans \( \eN \) (proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}), nous obtenons directement \( x = x' \), d'où l'unicité.
+
 \end{proof}
 
 \begin{lemma}       \label{LEMooWMYPooLTMyWb}
@@ -3359,6 +3363,100 @@ Nous donnons deux preuves de ce lemme.
 	\end{subproof}
 \end{proof}
 
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooAKLVooBkRIAT}
+	Soient \( a,b,k\in \eN\). Nous avons
+	\begin{enumerate}
+		\item			\label{ITEMooFMQCooSjuCDV}
+		      \begin{equation}
+			      (a-k)+b=(a+b)-k.
+		      \end{equation}
+		\item		\label{ITEMooKHLDooEEXjmF}
+		      \begin{equation}
+			      (a-k)+k=(a+k)-k=a.
+		      \end{equation}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	En plusieurs parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooFMQCooSjuCDV}]
+		%-----------------------------------------------------------
+
+		Nous posons \( A=(a-k)+b\) et \( B=(a+b)-k\). En utilisant l'associativité et la symétrie de l'addition,
+		\begin{subequations}
+			\begin{align}
+				A+k & =(a-k)+b+k             \\
+				    & =\big( (a-k)+k \big)+n \\
+				    & =a+b
+			\end{align}
+		\end{subequations}
+		parce que par définition \( (a-k)+k=a\). Nous avons aussi
+		\begin{equation}
+			\big( (a+b)-k \big)+k=a+b.
+		\end{equation}
+		Donc \( A+k=B+k\) et donc \( A=B\) par \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}, nous avons \( A=B\).
+
+		\spitem[Pour \ref{ITEMooKHLDooEEXjmF}]
+		%-----------------------------------------------------------
+		En utilisant le point \ref{ITEMooFMQCooSjuCDV} avec \( b=k\) nous avons déjà \( (a-k)+k=(a+k)-k \). Or par définition l'élément \( (a+k)-k\) est le \( x\) tel que \( x+k=a+k\). Cela est forcément \( x=a\) par la proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}.
+	\end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooJSZHooVDzBDE}
+	Plusieurs choses.
+	\begin{enumerate}
+		\item		\label{ITEMooVSLRooGhGFgX}
+		      Soit \( a\leq b\) dans \( \eN\). Si \( k\leq a\) et \( k\leq b\) alors
+		      \begin{equation}
+			      a-k\leq b-k.
+		      \end{equation}
+		\item		\label{ITEMooYGOAooWRbKdj}
+		      Nous avons
+		      \begin{equation}
+			      a-k<a
+		      \end{equation}
+		      pour tout \( k\neq 0\) dans \( \eN\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Nous commençons par prouver \ref{ITEMooVSLRooGhGFgX}. Vu que \( a\leq b\), il existe un \( y\in \eN\) tel que \( a+y=b\), et ce \( y\) est nommé \( b-a\) (par définition \ref{LEMooVOTAooALatDu} de la soustraction). Voyons maintenant
+	\begin{subequations}
+		\begin{align}
+			(a-k)+y & =(a+y)-k & \text{prop. \ref{PROPooAKLVooBkRIAT}} \\
+			        & =b-k     & \text{pcq. \( a+y=b\)}.
+		\end{align}
+	\end{subequations}
+	Cela signifie que \( a-k\leq b-k\).
+
+	Pour \ref{ITEMooYGOAooWRbKdj}. D'abord nous avons \((a-k)+k=a \) par la proposition \ref{PROPooAKLVooBkRIAT}\ref{ITEMooKHLDooEEXjmF}. Cela prouve que \( a-1\leq a\). Ensuite nous supposons que \( a-k=a\) et nous prouvons que \( k=0\). Pour cela nous ajourons \( a\) des deux côtés :
+	\begin{equation}
+		(a-k)+k=a+k.
+	\end{equation}
+	En utilisant à nouveau le fait que \( (a-k)+k=a\) nous avons \( a=a+k\). Et nous en déduisons \( k=0\) avec la proposition \ref{PROPooTLTSooGNMTmV}\ref{ITEMooNUTHooJWWzGv}.
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooHRCOooBkEvud}
+	Soient \( a,x\in \eN\). Nous avons \( x\leq a-1\) si et seulement si \( x<a\).
+\end{proposition}
+
+\begin{proof}
+	En deux sens.
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( x\leq a-1\). Grâce à la proposition \ref{PROPooJSZHooVDzBDE}\ref{ITEMooYGOAooWRbKdj} nous avons \( x\leq a-1<a\).
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Nous supposons que \( x<a\). Par le lemme \ref{LEMooPVRQooXPMKTt}\ref{ITEMooWCOIooMWrCag}, nous avons \( x+a\leq a\). La proposition \ref{PROPooJSZHooVDzBDE} donne alors
+		\begin{equation}
+			(x+1)-1\leq a-1.
+		\end{equation}
+		Et maintenant la proposition \ref{PROPooAKLVooBkRIAT}\ref{ITEMooKHLDooEEXjmF} donne \( x\leq a-1\).
+	\end{subproof}
+\end{proof}
 
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooAKLVooBkRIAT}
 	Soient \( a,b,k\in \eN\). Nous avons
@@ -3622,13 +3720,27 @@ Nous donnons deux preuves de ce lemme.
 \begin{proposition}[\cite{MonCerveau}]	\label{PROPooTQDJooFQGFpC}
 	Soient \( s,k\in \eN\).
 	\begin{enumerate}
-		\item
+		\item		\label{ITEMooPQETooJYjhUj}
 		      Si \( s>k\) alors \( s-1\geq k\).
-		\item
+		\item		\label{ITEMooZLXQooPRLNoN}
 		      Si \( s\geq k\) alors \( s+1>k\).
 	\end{enumerate}
-	%TODOooKBFVooWyeKYO. Prouver ça.
 \end{proposition}
+
+\begin{proof}
+	En deux parties.
+	\begin{subproof}
+		\spitem[Pour \ref{ITEMooPQETooJYjhUj}]
+		%-----------------------------------------------------------
+		Nous supposons que \( s>k\). Il existe \( x\in \eN\) tel que \( s+x=k\) et \( x\neq 0\) parce que \( s\neq k\). En utilisant la proposition \ref{PROPooAKLVooBkRIAT} nous avons \( k+(x-1)=s-1\), c'est à dire \( k\geq s-1\).
+		\spitem[Pour \ref{ITEMooZLXQooPRLNoN}]
+		%-----------------------------------------------------------
+		Nous savons que \( s+x=k\) pour un certain \( x\in \eN\). Nous avons alors
+		\begin{equation}
+			(s+1)+x=k+1>k.
+		\end{equation}
+	\end{subproof}
+\end{proof}
 
 
 
@@ -3723,12 +3835,6 @@ Nous donnons deux preuves de ce lemme.
 
 
 
-\begin{proposition}[\cite{RWWJooJdjxEK}]	\label{PROPooZLEXooGyjNRk}
-	Toute partie non vide de \( \eN\) contient un unique élément minimal.
-	%TODOooTRFKooMiHhvx. Prouver ça.
-\end{proposition}
-
-
 \begin{lemma}[\cite{MonCerveau}]	\label{LEMooLDKQooSTiVlW}
 	Si \( A\subset \eN\), alors
 	\begin{equation}
@@ -3739,7 +3845,6 @@ Nous donnons deux preuves de ce lemme.
 \begin{proof}
 	Soient \( m=\min(A)\) et \( m'=\min\big( A\setminus\{ m \} \big)\). Il y a trois possibilités : \( m>m'\), \( m=m'\) et \( m<m'\). Supposons que \( m'\leq m\). Étant donné que \( m'\in A\), nous avons \( m\leq m'\). Et donc \( m=m'\), ce qui est impossibe parce que \( m'\in A\setminus\{ m \}\).
 \end{proof}
-
 
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -4178,6 +4283,7 @@ Cette fonction est la \defe{fonction puissance}{puissance!entiers naturels} et n
 		Cela donne une suite strictement décroissante dans \( \eN\), ce qui n'est pas possible par la proposition \ref{PROPooONYBooQuqAPR}.
 	\end{subproof}
 \end{proof}
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Ensembles finis}
