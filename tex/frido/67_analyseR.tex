@@ -628,6 +628,54 @@ Au final, ce que nous avons prouvé est que
 	Donc la limite \eqref{EQooDUQNooHrWalt} est bien zéro.
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooUXWIooTVVURR}
+	Soit une fonction \(f \colon \eR\to \eR  \) telle que \( \lim_{x\to 0}f(x)=0\). Alors
+	\begin{equation}
+		\lim_{(x,y)\to (0,0)}f(x)=0.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Soit \( \epsilon>0\). Il existe \( \delta>0\) tel que si \(| x |\leq \delta \) alors \( | f(x) |<\epsilon\). Étant donné que \( | x |\leq \| (x,y) \|\), si \( (x,y)\in B\big( (0,0),\delta \big)\) nous avons \( | x |\leq \delta\) et donc \( | f(x) |<\epsilon\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooIOMBooXoNBTM}
+	Soient des applications \(f \colon E\to \eR  \) et \(g \colon F\to \eR  \). Nous supposons que \( f\) est différentiable en \( a\in E\) et que \( g\) est différentiable en \( b\in F\). Alors l'application
+	\begin{equation}
+		\begin{aligned}
+			P\colon E\times F & \to \eR          \\
+			(x,y)             & \mapsto f(x)g(y)
+		\end{aligned}
+	\end{equation}
+	est différentiable en \( (a,b)\) et
+	\begin{equation}
+		dP_{(a,b)}(u,v)=df_a(u)g(b)+f(a)dg_b(v).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous posons
+	\begin{equation}
+		\begin{aligned}
+			\tilde f\colon E\times F & \to \eR      \\
+			(x,y)                    & \mapsto f(x)
+		\end{aligned}
+	\end{equation}
+	et similairement pour \( \tilde g\). Nous avons alors \( P(x,y)=\tilde f(x,y)\tilde g(x,y)\). Il nous suffit alors de prouver que \( \tilde f\) et \( \tilde g\) sont différentiables. Nous prouvons que \( d\tilde f_{(a,b)}(u,v)=df_a(u)\). Cela est un calcul :
+	\begin{subequations}
+		\begin{align}
+			\lim_{h\to 0}\frac{ \tilde f\big( (a,b)+(h_1,h_2) \big) -\tilde f(a,b)-df_a(h_1) }{ \| h \| } & =\lim_{h\to 0}\frac{ f(a+h_1)-f(a)-df_a(h_1) }{ \| h \| }                   \\
+			                                                                                              & \leq \lim_{(h_1,h_2)\to (0,0)}\frac{ f(a+h_1)-f(a)-df_a(h_1) }{ \| h_1 \| }
+		\end{align}
+	\end{subequations}
+	parce que \( \| h_1 \|\leq \| (h_1,h_2) \|\). Nous déduisons que le tout est nul par la proposition \ref{PROPooONYBooQuqAPR} et le fait que
+	\begin{equation}
+		\lim_{h_1\to 0} \frac{ f(a+h_1)-f(a)-df_a(h_1) }{ \| h_1 \| }=0
+	\end{equation}
+	par définition de la différentiabilité de \( f\).
+\end{proof}
+
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Autres trucs sur la différentielle}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -747,96 +795,6 @@ Le plan \( T_a\) avec \( a=(a_1,a_2)\) a pour équation dans \( \eR^3\):
 	\end{equation*}
 \end{definition}
 
-
-\begin{example}\label{EXOooMWGTooLZpgxM}\label{exo0035}
-
-	Étudiez la continuité, la dérivabilité et la continuité de la dérivée de chacune des fonctions suivantes:
-	\begin{enumerate}
-		\item $x \mapsto \left\{ \begin{array}{ll} 0 & \mbox{si } x \not= 0 \\ 1 & \mbox{sinon} \end{array} \right.  $
-		\item $x \mapsto \left\{ \begin{array}{ll} \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right.  $
-		\item $x \mapsto \left\{ \begin{array}{ll} x \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right. $
-		\item\label{Item0035d} $x \mapsto \left\{ \begin{array}{ll} x^2 \sin(\frac{1}{x}) & \mbox{si } x \not= 0 \\ 0 & \mbox{sinon} \end{array} \right.  $
-	\end{enumerate}
-
-	Dans ces exercices, les fonctions données sont dérivables et à dérivée
-	continue sur $\eR_0$ car pour $a \in \eR_0$, il existe toujours une
-	boule autour de $a$ dans laquelle la fonction est composée de
-	fonctions dérivables ($\sin$, $\frac 1x$, $\ldots$). L'intérêt de
-	l'exercice est donc d'établir (ou réfuter) la continuité et la
-	dérivabilité en $0$.
-
-	\begin{enumerate}
-
-		\item
-		      Notons $f$ cette fonction. $f$ n'est pas continue en $0$ car
-		      \begin{equation*}
-			      \limite[x \neq 0] x 0 f(x) = \limite[x \neq 0] x 0 0 = 0 \neq f(0)
-		      \end{equation*}
-		      En particulier $f$ n'est pas dérivable en $0$ (et donc la continuité
-		      de sa dérivée n'a pas de sens en $0$).
-
-		\item
-		      Dans ce cas-ci, la limite « restreinte »
-		      \begin{equation*}
-			      \limite[x \neq 0] x 0 f(x) = \limite[x \neq 0] x 0 \sin\left(\frac 1 x\right)
-		      \end{equation*}
-		      n'existe pas puisque, par exemple, pour la suite de terme général
-		      \begin{equation*}
-			      x_k = \frac 1 {\frac \pi 2 + 2k \pi}
-		      \end{equation*}
-		      on a bien $\limite k \infty x_k = 0$ mais
-		      \begin{equation*}
-			      \limite k \infty f(x_k) = 1 \neq f(0)
-		      \end{equation*}
-		      puisque pour tout $k \in \eN$, $f(x_k) = 1$. Donc la fonction n'est pas continue.
-
-		\item
-		      Montrons que la fonction, notée $f$, est continue en $0$. Pour tout $x$ réel, nous avons
-		      \begin{equation*}
-			      0 \leq \abs{f(x)} = \abs x \abs{\sin \left(\frac 1 x\right)} \leq
-			      \abs x
-		      \end{equation*}
-		      ce qui montre que $\limite x 0 f(x) = 0$ par la règle de l'étau.
-
-		      Par ailleurs, $f$ n'est pas dérivable en $0$ car la limite
-		      \begin{equation*}
-			      \limite[x \neq 0] x 0 \frac{f(x) - f(0)}{x-0} = \limite[x\neq 0] x 0 \sin\left(\frac{1}{x}\right)
-		      \end{equation*}
-		      n'existe pas, comme on l'a vu précédemment.
-
-		\item
-		      Montrons que cette fonction, notée $f$, est
-		      dérivable en $0$ (ce qui prouvera qu'elle y est continue). Calculons
-		      \begin{equation*}
-			      \limite[x \neq 0] x 0 \frac{f(x)}{x} = \limite[x\neq 0] x 0 x \sin
-			      \left(
-			      \frac 1 x
-			      \right) = 0
-		      \end{equation*}
-		      où la dernière égalité a été montrée à l'exercice précédent. Nous
-		      avons donc $f^\prime(0) = 0$.
-
-		      Par ailleurs, en utilisant les règles de calcul usuelles sur les
-		      dérivées, nous obtenons pour $x \neq 0$
-		      \begin{equation*}
-			      f^\prime(x) = \sin
-			      \left(
-			      \frac 1 x
-			      \right) - \frac 1 x \cos
-			      \left(
-			      \frac 1 x
-			      \right)
-		      \end{equation*}
-		      qui est une fonction ne possédant pas de limite en $0$ puisque, par exemple,
-		      si $x_k$ est tel que
-		      \begin{equation*}
-			      \frac 1{x_k} = \frac\pi4 + 2k\pi
-		      \end{equation*}
-		      alors la suite $(x_k)_{k\in\eN}$ tend vers $0$, mais $f^\prime(x_k)$ tend vers $+\infty$ lorsque $k \rightarrow +\infty$. La dérivée n'est donc pas continue en zéro.
-
-	\end{enumerate}
-
-\end{example}
 
 
 
