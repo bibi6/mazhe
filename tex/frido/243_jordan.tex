@@ -1,8 +1,7 @@
 % This is part of Le Frido
-% Copyright (c) 2010-2016,2018-2020, 2022-2023
+% Copyright (c) 2010-2016,2018-2020, 2022-2023, 2026
 %   Laurent Claessens, Carlotta Donadello
 % See the file fdl-1.3.txt for copying conditions.
-
 
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -49,6 +48,11 @@ Les définitions de chemins, de lacets et de courbes de Jordan sont dans \ref{DE
 		L'application \( \gamma\colon \mathopen[ a , b \mathclose[\to \Gamma \) est une bijection continue parce que \( \gamma\) est un lacet de Jordan. Son quotient \( \tilde \gamma\colon S^1\to \Gamma\) est donc une bijection continue depuis le compact \( S^1\). Le lemme \ref{LEMooNEEVooSeHYzx} conclut que c'est un homéomorphisme.
 	\end{subproof}
 \end{proof}
+
+%-------------------------------------------------------
+\subsection{Lemmes pour la parties composantes connexe}
+%----------------------------------------------------
+
 
 \begin{corollary}		\label{CORooPGFLooUTVZMi}
 	À propos de courbes simples et de Jordan.
@@ -850,6 +854,689 @@ Dans le lemme suivant, \( S^1(a,r)\) est la sphère centrée en \( a\) et de ray
 	Dans ce cas nous aurions \( C=A\cup B=\eC\setminus S^1(0,1)\). Mais cela est impossible parce que \( A\) et \( B\) forment un recouvrement de \( \eC\setminus S^1\) par deux ouverts disjoints.
 
 	Donc \( A\) et \( B\) sont des composantes connexes de \( \eC\setminus S^1\). Et ce sont les deux seules parce que \( A\cup B=\eC\setminus S^1\).
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooIOROooDwIFFU}
+	Si \( A\) est borné dans l'espace vectoriel normé \( V\) de dimension finie \( E\), alors la partie \( V\setminus A\) possède une unique composante connexe non bornée.
+\end{proposition}
+
+\begin{proof}
+	Soit \( R>0\) tel que \( A\subset B(0,R/2)\). Soient \( C_1\) et \( C_2\) des composantes connexes non bornées de \( V\setminus A\). Soient \( x_i\in C_i\) satisfaisant \( | x_i |>R\). La partie \( V\setminus B(0,R/2)\) étant connexe par arcs, il existe un chemin continu entre \( x_1\) et \( x_2\). La proposition \ref{PROPooQUPRooPtyHoP} dit que \( C_1=C_2\).
+	%TODOooNFCIooUnMVYZ. Justifier que le complémentaire de B(0,R) est connexe par arcs.
+\end{proof}
+
+%-------------------------------------------------------
+\subsection{Lemmes pout la partie frontière}
+%----------------------------------------------------
+
+
+\begin{proposition}[\cite{BIBooSWTOooXRGMUg}]
+	Si \( A\) est ouvert dans \( \eR\) alors \( \partial A\) sépare \( A\) et \( \eR^2\setminus \bar A\). C'est-à-dire que sit \( p\in A\) et \( q\in \eR^2\setminus\bar A\), alors tout chemin continu de \( p\) à \( q\) intersecte \( \partial A\).
+\end{proposition}
+
+\begin{proof}
+	Soit un arc \( \Gamma\) joignant \( p\) à \( q\)sans intersecter \( \partial A\). Nous posons
+	\begin{subequations}
+		\begin{align}
+			S_1 & =\Gamma\cap A                      \\
+			S_2 & =\Gamma\cap(\eR^2\setminus \bar A)
+		\end{align}
+	\end{subequations}
+	Ce sont deux ouverts disjoints de \( \Gamma\). Notez que \( A\cup\partial A=\bar A\), ce telle sorte que
+	\begin{equation}
+		\eR^2=A\cup\partial A\cup(\eR^2\setminus \bar A).
+	\end{equation}
+	Donc
+	\begin{equation}
+		\Gamma=(\Gamma\cap A)\cup(\Gamma\cap\partial A)\cup(\Gamma\cap(\eR^2\setminus A))
+	\end{equation}
+	Étant donné que \( \Gamma\cap\partial A=\emptyset\) par hypothèse, nous avons bien \( \Gamma=S_1\cup S_2\) en tant qu'union d'ouverts disjoints. Donc \( \Gamma\) serait non connexe, ce qui est impossible parce que \( \Gamma\) est l'image du connexe \( \mathopen[ 0,1\mathclose]\) par un chemin continu.
+\end{proof}
+
+\begin{definition}[\cite{BIBooSWTOooXRGMUg}]	\label{DEFooARBEooDWQjwn}
+	Soit un ouvert \( A\). Nous disons qu'un point \( s\in\partial A\) est \defe{accessible}{point accessible de \( \partial A\)} si il existe un chemin continu \(c \colon \mathopen[ 0,1\mathclose]\to \bar A  \) tel que \( c(1)=s\) et \( c\big( \mathopen[ 0,1\mathclose[ \big)\subset A\).
+\end{definition}
+
+\begin{proposition}[\cite{BIBooSWTOooXRGMUg}]	\label{PROPooCASWooIoWegN}
+	Si \( A\) est ouvert, alors les points accessibles\footnote{point accessible, définition \ref{DEFooARBEooDWQjwn}.} de \( \partial A\) sont denses dans \( \partial A\).
+\end{proposition}
+
+\begin{proof}
+	Soit \( s\in\partial A\). Nous considérons \( B(s,r)\). Étant donné que \( s\in\partial A\), il existe un \( a\in A\cap B(s,r)\). Toute frontière est fermée (proposition \ref{PROPooTHOPooCOGmZD}), et \( \overline{B(s,r)} \) est compact. Donc \( \partial A\cap\overline{B(s,r)}\) est un fermé dans un compact. Donc \( \partial A\cap\overline{B(s,r)}\) est compact. Nous considérons alors la fonction
+	\begin{equation}
+		\begin{aligned}
+			f\colon \eR^2 & \to \eR            \\
+			s             & \mapsto \| x-s \|.
+		\end{aligned}
+	\end{equation}
+	Cette fonction continue a un minimum sur le compact \( \partial A\cap\overline{B(s,r)}\). Ce minimum ne vaut pas \( 0\) parce que \( f\) ne vaut zéro que en \( x=a\not\in \partial A\). Soit \( q\in \partial A\) réalisant le minimum. Le segment \( \ell_{q,a}\) joignant \( a\) à \( q\) n'intersecte pas \( \partial A\) parce qu'une telle intersection contredirait la minimalité de \( q\). Donc \( q\) est atteignable.
+
+	Étant donné que \( q\in B(s,r)\) et que \( r\) était arbitraire, il y a bien des points atteignables arbitrairement proches de \( s\). Donc les points atteignables sont denses dans \( \partial A\).
+\end{proof}
+
+
+\begin{propositionDef}[\cite{BIBooMistral}]	\label{PROPooWLQEooYpufqW}
+	Soient un disque \( D=\overline{B(c,r)}\) et \( p\in \partial D\). Nous notons \( v=c-p\). Pour \( u\in S^1\), les conditions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item
+		      \( u\cdot v>0\)
+		\item
+		      \( p+tu\in \Int(D)\) pour tout \( t\) assez petit.
+	\end{enumerate}
+	Dans ce cas, nous disons que \( u\in S^1\) \defe{pointe vers l'intérieur de \( D\)}{vers l'intérieur de \( D\)}.
+\end{propositionDef}
+
+\begin{proof}
+	Un petit calcul :
+	\begin{subequations}
+		\begin{align}
+			| p+tu-c |^2 & =| p-c+tu |^2                                     \\
+			             & =| p-c |^2+2t(p-c)\cdot u+t^2| u |^2              \\
+			             & =r^2-2tu\cdot v+t^2.		\label{SUBEQooXTXZooMzyCpB}
+		\end{align}
+	\end{subequations}
+	\begin{subproof}
+		\spitem[\( \Rightarrow\)]
+		%-----------------------------------------------------------
+		Si \( u\cdot v>0\), alors l'expression \eqref{SUBEQooXTXZooMzyCpB} est plus petite que \( r^2\) dès que \( t\) est petit.
+		\spitem[\( \Leftarrow\)]
+		%-----------------------------------------------------------
+		Pour que l'expression \eqref{SUBEQooXTXZooMzyCpB} soit plus petite que \( r^2\) pour le petits \( t\), il faut que \( u\cdot v>0\).
+	\end{subproof}
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooCYYSooHVnjDl}
+	Soient des disques (pleins) \( D_i\) \( i=1,\ldots,n\) qui ne sont deux à deux pas tangents\footnote{cercles tangents, définition \ref{PROPooOCXJooSDeEoB}.}. Nous notons
+	\begin{equation}
+		K=\bigcup_{i=1}^nD_i,
+	\end{equation}
+	et \( \Omega\) la composante connexe non bornée\footnote{Voir la proposition \ref{PROPooIOROooDwIFFU}.} de \( \eR^2\setminus K\). Nous posons
+	\begin{equation}
+		\Gamma=\{ x\in\partial K\tq \forall r>0,\,B(x,r)\cap\Omega\neq\emptyset \}.
+	\end{equation}
+	Nous supposons que tous les cercles s'intersectent en \( p\in \Gamma\).
+
+	Alors :
+	\begin{enumerate}
+		\item		\label{ITEMooBQWZooEJuptl}
+		      il existe \( u\in S^1\) qui ne pointe vers l'intérieur\footnote{Voir la définition \ref{PROPooWLQEooYpufqW}.} d'aucun des cercles.
+		\item		\label{ITEMooAKPPooVyhNfC}
+		      il existe un ouvert de \(S^1\) de directions qui ne pointent vers l'intérieur d'aucun des cercles.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Supposons que ce ne soit pas le cas. Alors pour tout \( u\in S^1\), il existe \( i\) tel que \( u\cdot v_i>0\). Nous allons prouver qu'alors \( p\in\Int(K)\). Nous considérons la fonction
+	\begin{equation}
+		\begin{aligned}
+			f\colon S^1 & \to \eR                    \\
+			u           & \mapsto \max_i u\cdot v_i.
+		\end{aligned}
+	\end{equation}
+	Étant donné que toutes les applications \( u\cdot v_i\) sont continues, l'application \( f\) est continue (proposition \ref{PROPooQNXVooNtBaxH}). Continue sur le compact \( S^1\) ? Ah bien elle a un minimum\footnote{Théorème de Weierstrass \ref{ThoWeirstrassRn}.} que nous notons \( \delta\). Ce \( \delta\) est strictement positif parce que \( f\) ne s'annule pas. Nous avons :
+	\begin{equation}
+		\delta=\min_{u\in S^1}f(u)>0.
+	\end{equation}
+	Autre façon de le dire : pour tout \( u\in S^1\), il existe \( i\) tel que \( u\cdot v_i>\delta\).
+
+	Nous montrons à présent que \( B(p,2\delta)\subset K\). Soit \( x\in B(p,2\delta)\) que nous écrivons sous la forme \( x=p+tu\) avec \( u\in S^1\) et \( 0< t <2\delta\). Il existe \( i\) tel que \( u\cdot v_i\geq \delta\). Nous avons alors
+	\begin{subequations}
+		\begin{align}
+			| x-c_i |^2 & =| p-c_i+tu |^2                          \\
+			            & =| p-c_i |^2+2t(p-c_i)\cdot u+t^2| u |^2 \\
+			            & =r^2-2t\delta+t^2.
+		\end{align}
+	\end{subequations}
+	Étant donné que \( t>0\), le signe de \( -2t\delta+t^2\) est le même que celui de \( t-2\delta\), qui est négatif. Donc \( |x-c_i|^2<r_i^2\), ce qui montre qu'on a bien \( x\in D_i\subset K\).
+
+	Nous avons montré que \( p\) était intérieur à \( K\), ce qui est contraire aux hypothèses. Cela fini de prouver \ref{ITEMooBQWZooEJuptl}.
+
+	Nous passons à la preuve de \ref{ITEMooAKPPooVyhNfC}. Supposons que \( u\) est une direction qui ne pointe vers l'intérieur d'aucun cercle. Nous avons \( u\cdot v_i\leq 0\) pour tout \( i\). Si \( u\cdot v_i<0\) pour tout \( i\), c'est bon parce que pour chaque \( i\), il y a un voisinage de \( u\) dans lequel \( u\cdot v_i\) reste strictement négatif.
+
+	Supposons que \( u\cdot v_i=u\cdot v_j=0\) pour certains \( i\) et \( j\). Alors les disques \( D_i\) et \( D_j\) sont tangents par la définition \ref{PROPooOCXJooSDeEoB}\ref{ITEMooZUKWooPUVpwH}. Donc nous avons au maximum un unique \( i\) tel que \( u\cdot v_i=0\). Si \( R_{\theta}\) est la rotation d'angle \( \theta\) dans le sens de \( u\) vers \( v\), alors nous avons \( R_{-\theta}u\cdot v_i<0\) pour tout \( \theta\in\mathopen] 0,\pi/2,\mathclose[\). En prenant \( \theta\) dans un intervalle \( \mathopen] 0,\epsilon\mathclose[\) assez petit, nous avons alors \( R_{-\theta}u\cdot u_i<0\) pour tout \( i\).
+\end{proof}
+
+
+\begin{normaltext}
+	Dans la suite, j'assume complètement de mélanger \( \eC\) et \( \eR^2\). Quand vous voyez \( e^{i\theta}\), vous pouvez lire \( \cos(\theta)e_1+\sin(\theta)e_2\) dans \( \eR^2\).
+\end{normaltext}
+
+\begin{proposition}[\cite{MonCerveau,BIBooMistral}]	\label{PROPooDHCWooBOjxEQ}
+	Nous considérons le disque \( C_1=\overline{B(c,r)}\), un point \( p\in \partial C_1\), et le vecteur \( v=c-p\). Soit ensuite le cercle \( C_2\)
+	\begin{equation}
+		\begin{aligned}
+			\gamma\colon \mathopen[ 0,2\pi\mathclose[ & \to \eC                     \\
+			\theta                                    & \mapsto c_2+r_2e^{i\theta}.
+		\end{aligned}
+	\end{equation}
+	Nous supposons que \( \gamma(\theta_0)=p\) et que \( \gamma'(\theta_0)=u\). Et nous supposons que \( u\cdot v>0\). Alors il existe \( \epsilon>0\) tel que
+	\begin{enumerate}
+		\item
+		      \( \gamma\big( \mathopen[ \theta_0,\theta_0+\epsilon\mathclose] \big)\subset C_1\),
+		\item
+		      \( \gamma\big( \mathopen[ \theta_0-\epsilon,\theta_0\mathclose[ \big)\cap C_1=\emptyset.\)
+	\end{enumerate}
+	Autrement dit, au point d'intersection, \( C_2\) traverse \( C_1\) : il vient de l'extérieur et rentre à l'intérieur.
+\end{proposition}
+
+
+\begin{proof}
+	Nous faisons un développement limité (proposition \ref{PropUTenzfQ}) de \( \gamma\) autour de \( \theta_0\) :
+	\begin{equation}
+		\gamma(0)=p+(\theta-\theta_0)u+\alpha(\theta-\theta_0).
+	\end{equation}
+	Ensuite nous calculons :
+	\begin{subequations}
+		\begin{align}
+			\| \gamma(\theta)-c \|^2 & =\| p-c+(\theta-\theta_0)u+\alpha(\theta-\theta_0) \|^2                                                                                                                                            \\
+			                         & =\| (p-c)+(\theta-\theta_0)u \|^2+\beta(\theta-\theta_0)                                                                                                   & \text{prop. \ref{PROPooFEUKooKHDuMM}} \\
+			                         & =\underbrace{\| p-c \|^2}_{=r^2}+2(\theta-\theta_0)u\cdot \underbrace{(p-c)}_{=-v}+| \theta-\theta_0 |^2\underbrace{\| u \|^2}_{=1}+\beta(\theta-\theta_0)
+		\end{align}
+	\end{subequations}
+	où \(\beta \colon \eR\to \eR  \) a la propriété \( \lim_{t\to 0}\beta(t)/t=0\). Notez que la fonction \( t\mapsto t^2\) a également cette propriété, donc on peut écrire
+	\begin{equation}
+		| \theta-\theta_0 |^2+\beta(\theta-\theta_0)=\beta_2(\theta-\theta_0)
+	\end{equation}
+	pour une certaine fonction \( \beta_2\) ayant encore la même propriété. Au final,
+	\begin{equation}
+		\| \gamma(\theta)-c \|=r^2-2(\theta-\theta_0)u\cdot v+\beta_2(\theta-\theta_0).
+	\end{equation}
+	Étant donné que \( u\cdot v>0\), le tout est strictement plus petit que \( r^2\) lorsque \( \theta>\theta_0\) tout en restant suffisamment proche de \( \theta_0\) pour que \( \beta_2(\theta-\theta_0)\) ne puisse pas compenser\footnote{C'est le lemme \ref{LEMooXRDQooIAVgTm} qui dit ça plus clairement.}.
+\end{proof}
+
+
+\begin{normaltext}		\label{NORMooGADXooWShKTZ}
+
+	Nous nous sommes fixés \( p\in R^2\). Nous n'allons pas le noter partout. Pour \( \theta\in \eR\) et \( r\in \eR^+\), nous notons :
+	\begin{subequations}
+		\begin{align}
+			u(\theta)   & =\begin{pmatrix}
+				               \cos(\theta) \\
+				               \sin(\theta)
+			               \end{pmatrix},                       \\
+			v(r,\theta) & =ru\big( \theta+\frac{ \pi }{2} \big) \\
+			c(r,\theta) & =p+v(r,\theta)
+		\end{align}
+	\end{subequations}
+	et
+	\begin{subequations}		\label{EQooNQYRooPaYRuV}
+		\begin{align}
+			\gamma_{r,\theta}(t) & =c(r,\theta)+r\begin{pmatrix}
+				                                     \cos(t) \\
+				                                     \sin(t)
+			                                     \end{pmatrix} \\
+			                     & =c(r,\theta)+ru(t)           \\
+			                     & =p+ru(\theta+\pi/2)+ru(t),
+		\end{align}
+	\end{subequations}
+	ainsi que
+	\begin{subequations}
+		\begin{align}
+			\tilde v(r,\theta) & =ru(\theta-\pi/2)     \\
+			\tilde c(r,\theta) & =p+\tilde v(r,\theta)
+		\end{align}
+	\end{subequations}
+	et
+	\begin{equation}		\label{EQooXPTFooBCszbW}
+		\tilde \gamma_{r,\theta}(t)=\tilde c(r,\theta)+r u(-t),
+	\end{equation}
+	et encore
+	\begin{subequations}
+		\begin{align}
+			D_{r,\theta}        & = \overline{  B\big( c(r,\theta),r \big)  }        \\
+			\tilde D_{r,\theta} & = \overline{  B\big( \tilde (r,\theta),r \big)  }.
+		\end{align}
+	\end{subequations}
+\end{normaltext}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooCSGEooIXXVLb}
+	Tout est comme dans \ref{NORMooGADXooWShKTZ}. Alors
+	\begin{enumerate}
+		\item		\label{ITEMooXOCYooGBpdzs}
+		      \( \gamma_{r,\theta}(\theta-\pi/2)=p\).
+		\item		\label{ITEMooNLBNooUeMEmE}
+		      \( \gamma'_{r,\theta}(\theta-\pi/2)=ru(\theta)\).
+		\item	\label{ITEMooGPMYooCFCApF}
+		      \( \tilde \gamma_{r,\theta}(-\theta-\pi/2)=p\)
+		\item		\label{ITEMooZZHWooDLoYRl}
+		      \( \tilde \gamma_{r,\theta}(-\theta-\pi/2)=u(\theta)\).
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	Nous allons utiliser les formules de trigonométrie de la proposition \ref{PROPooMWMDooJYIlis} et du lemma \ref{LEMooJAWBooJGfZIL} ainsi que les dérivées données dans le lemme \ref{LEMooBBCAooHLWmno}. Et à part ça, on calcule :
+	\begin{subequations}
+		\begin{align}
+			\gamma_{r,\theta}(\theta-\pi/2) & =c(r,\theta)+r\begin{pmatrix}
+				                                                \cos(\theta-\pi/2) \\
+				                                                \sin(\theta-\pi/2)
+			                                                \end{pmatrix}    \\
+			                                & =p+v(r,\theta)+r\begin{pmatrix}
+				                                                  \sin(\theta) \\
+				                                                  -\cos(\theta)
+			                                                  \end{pmatrix}      \\
+			                                & =p+ru(\theta+\pi/2)+r\begin{pmatrix}
+				                                                       \sin(\theta) \\
+				                                                       -\cos(\theta).
+			                                                       \end{pmatrix}
+		\end{align}
+	\end{subequations}
+	Mais en utilisant les formules de trigonométriques,
+	\begin{equation}
+		u(\theta+\pi/2)+\begin{pmatrix}
+			\sin(\theta) \\
+			-\cos(\theta)
+		\end{pmatrix}=\begin{pmatrix}
+			\cos(\theta+\pi/2) \\
+			\sin(\theta+\pi/2)
+		\end{pmatrix}+\begin{pmatrix}
+			\sin(\theta) \\
+			-\cos(\theta)
+		\end{pmatrix}=0.
+	\end{equation}
+	Et donc \( \gamma_{r,\theta}(\theta-\pi/2)=p\).
+
+	En ce qui concerne la dérivée, on a en général :
+	\begin{equation}
+		\gamma_{r,\theta}(t)=r\begin{pmatrix}
+			-\sin(t) \\
+			\cos(t)
+		\end{pmatrix}
+	\end{equation}
+	et donc
+	\begin{equation}
+		\gamma'_{r,\theta}(\theta-\pi/2)=r\begin{pmatrix}
+			-\sin(\theta-\pi/2) \\
+			\cos(\theta-\pi/2)
+		\end{pmatrix}=
+		r\begin{pmatrix}
+			\cos(\theta) \\
+			\sin(\theta)
+		\end{pmatrix}=ru(r,\theta).
+	\end{equation}
+	Cela prouver \ref{ITEMooXOCYooGBpdzs} et \ref{ITEMooNLBNooUeMEmE}. En ce qui concerne \ref{ITEMooGPMYooCFCApF} et \ref{ITEMooZZHWooDLoYRl}, ce sont mêmes calculs, mais avec plus de signes auxquels il faut faire attention.
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooTAKFooGsvUhi}
+	Si \( \theta\in\mathopen] \beta,\beta+\pi,\mathclose[\) alors pour des petits \( t\),
+	\begin{equation}
+		\gamma_{\theta,l}(\theta-\pi/2+t)\in D_{\beta,r}.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous faisons un développement limité : il existe une fonction \(\epsilon \colon \eR\to \eR^2  \) telle que \( \epsilon(t)/t\to 0\) et
+	\begin{subequations}
+		\begin{align}
+			\gamma_{\theta,l}(\theta-\pi/2+t) & =\gamma_{\theta,l}(\theta-\pi/2)+t\gamma'_{\theta,l}(\theta-\pi/2)+\epsilon(t) \\
+			                                  & =p+tlu(\theta)+\epsilon(t).
+		\end{align}
+	\end{subequations}
+	Et nous calculons en utilisant les mêmes techniques que dans la preuve de \ref{PROPooDHCWooBOjxEQ} :
+	\begin{subequations}
+		\begin{align}
+			\| \gamma_{\theta,l}(\theta-\pi/2+t)-c(\beta,r) \|^2 & =\| tlu(\theta)-ru(\beta+\pi/2) \|^2+\epsilon_2(t)                                        \\
+			                                                     & =r^2+t^2l^2-2tlru(\theta)\cdot u(\beta+\pi+2)+\epsilon_2(t).		\label{SUBEQooTLBAooNNnYjV}
+		\end{align}
+	\end{subequations}
+	Nous calculons le produit scalaire :
+	\begin{subequations}
+		\begin{align}
+			u(\theta)\cdot u(\beta+\pi/2) & =\begin{pmatrix}
+				                                 \cos(\theta) \\
+				                                 \sin(\theta)
+			                                 \end{pmatrix}\cdot
+			\begin{pmatrix}
+				\cos(\beta+\pi+/2) \\
+				\sin(\beta+\pi/2)
+			\end{pmatrix}                                                               \\
+			                              & =\sin(\theta)\cos(\beta)-\cos(\theta)\sin(\beta) \\
+			                              & =\sin(\theta-\beta).
+		\end{align}
+	\end{subequations}
+	Étant donné que nous avions dit que \( \theta-\beta\in\mathopen] 0,\pi\mathclose[\), nous avons \( \sin(\theta-\beta)>0\).
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooMWKYooCXZznB}
+	Soit \( \theta,\alpha\in \eR\) ainsi que \( r,l\in \eR^+\). Si \( \alpha\in\mathopen] \theta,\theta+\pi\mathclose[\), alors
+	\begin{enumerate}
+		\item
+		      nous avons:
+		      \begin{equation}
+			      \gamma_{l,\alpha}\big( \mathopen] \theta-\pi/2,\theta-\pi/2+\epsilon\mathclose] \big)\subset B\big( c(r,\theta),r \big),
+		      \end{equation}
+		\item
+		      et
+		      \begin{equation}
+			      \gamma_{l,\alpha}\big( \mathopen] \theta-\pi/2-\epsilon,\theta-\pi/2\mathclose[ \big)\cap B\big( c(r,\theta),r \big)=\emptyset.
+		      \end{equation}
+	\end{enumerate}
+	Autrement dit en \( p\), le cercle \( \gamma_{l,\alpha}\) entre dans le cercle \( \gamma_{r,\theta}\). En remettant dans \eqref{SUBEQooTLBAooNNnYjV}, nous trouvons
+	\begin{equation}
+		\| \gamma_{\theta,l}(\theta-\pi/2+t)-c(\beta,r) \|^2<r^2
+	\end{equation}
+	dès que \( t\) est petit et positif.
+\end{proposition}
+
+\begin{proof}
+	En vertu des propositions \ref{PROPooDHCWooBOjxEQ} et \ref{PROPooCSGEooIXXVLb}, il suffit de prouver que
+	\begin{equation}
+		u(\alpha,l)\cdot v(t,\theta)>0.
+	\end{equation}
+	Il faut calculer :
+	\begin{subequations}
+		\begin{align}
+			\begin{pmatrix}
+				\cos(\alpha) \\
+				\sin(\alpha)
+			\end{pmatrix}\cdot l\begin{pmatrix}
+				                    \cos(\theta+\pi/2) \\
+				                    \sin(\theta+\pi/2)
+			                    \end{pmatrix} & =l\cos(\alpha)\cos(\theta+\pi/2)+l\sin(\alpha)\sin(\theta+\pi/2) \\
+			                                    & =-l\cos(\alpha)\sin(\theta)+\sin(\alpha)\cos(\theta)           \\
+			                                    & =l\sin(\alpha-\theta).
+		\end{align}
+	\end{subequations}
+	Nous avons supposé que \( \alpha\in\mathopen] \theta,\theta+\pi\mathclose[\), de sorte que \( \alpha-\theta\in\mathopen] 0,\pi\mathclose[\). Donc le lemme \ref{LEMooFESYooBoiuol}\ref{ITEMooBRVEooFhxohI} nous assure que \( \sin(\alpha-\theta)>0\).
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooNGGUooFgZaqT}
+	Si \( t\) est assez petit, et si \( \theta\leq \alpha_0+\pi\), alors
+	\begin{equation}
+		p+tu(\alpha_0)\in \tilde D_{r,\theta}.
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous calculons :
+	\begin{subequations}
+		\begin{align}
+			\| t+tu(\alpha_0)-\tilde c(r,\theta) \|^2 & =\| tu(\alpha_0)-ru(\theta-\pi/2) \|^2        \\
+			                                          & =r^2+t^2-2tru(\alpha_0)\cdot u(\theta-\pi/2).
+		\end{align}
+	\end{subequations}
+	Par ailleurs nous avons
+	\begin{equation}
+		u(\alpha_0)\cdot u(\theta-\pi/2)=\sin(\theta-\alpha_0).
+	\end{equation}
+	Étant donné que \( \theta\in\mathopen] \alpha_0,\alpha_0+\pi\mathclose[\), nous avons \( \theta-\alpha_0\in \mathopen] 0,\pi\mathclose[\) et donc \( \sin(\theta-\alpha_0)>0\). Donc si \( t\) est petit, nous avons bien
+	\begin{equation}
+		\| p+tu(\alpha_0)-\tilde c(r,\theta) \|^2\leq r^2.
+	\end{equation}
+\end{proof}
+
+
+\begin{proposition}[\cite{MonCerveau,BIBChatGPTDifficile,BIBooPBIWooJtbKgk}]	\label{PROPooITHUooXrBYMG}
+	Soient des disques (pleins) \( D_i\) \( i=1,\ldots,n\) qui ne sont deux à deux pas tangents. Nous notons
+	\begin{equation}
+		K=\bigcup_{i=1}^nD_i,
+	\end{equation}
+	et \( \Omega\) la composante connexe non bornée\footnote{Voir la proposition \ref{PROPooIOROooDwIFFU}.} de \( \eR^2\setminus K\). Nous posons
+	\begin{equation}
+		\Gamma=\{ x\in\partial K\tq \forall r>0,\,B(x,r)\cap\Omega\neq\emptyset \}.
+	\end{equation}
+	Soit \( p\in \Gamma\).
+
+	Alors il existe \( r>0\) tel que \( \Gamma\cap B(p,r)\) est l'union de deux arcs de cercles qui s'intersectent en \( p\).
+\end{proposition}
+
+\begin{proof}
+	Nous divisons la preuves en plein de petites étapes.
+
+	\begin{subproof}
+		\spitem[Le bord]
+		%-----------------------------------------------------------
+		En vertu de la proposition \ref{PROPooEZETooTNStnO}, les éléments de \( \partial K\) sont des élements des \( \partial D_i\).
+		\spitem[Oublier les autres disques]
+		%-----------------------------------------------------------
+		Il y a un nombre fini de disques qui ne touchent pas \( p\); leur adhérence est donc compacte et la distance à \( p\) y est donc bornée par le bas par un nombre strictement positif. Bref, nous commençons par prendre un rayon \( r_a>0\) tel que \( B(p,r_a)\) n'intersecte que des disques qui passent par \( p\). À partir de maintenant à chaque fois que nous parlerons d'une boule autour de \( p\), nous sous-entendrons que le rayon est au moins aussi petit que \( r_a\).
+
+		\spitem[Un vecteur extérieur]
+		%-----------------------------------------------------------
+		La proposition \ref{PROPooCYYSooHVnjDl} nous donne un vecteur \( n\in S^1\) tel que \( n\cdot v_i<0\) pour tout \( i\). Nous le notons \( n=u(\alpha_0)\) pour un certain \( \alpha_0\in\mathopen[ 0,2\pi\mathclose[\).
+
+		\spitem[Tous les arcs de cercles]
+		%-----------------------------------------------------------
+		Le bord de chacun des disques \( D_i\) peut être paramétré de deux façons : avec un \( \gamma_i\) de type \eqref{EQooNQYRooPaYRuV} et un \( \tilde \gamma_i\) de type \eqref{EQooXPTFooBCszbW}. Nous notons \( \beta_i\) et \( \tilde \beta_i\) des angles tels que \( \gamma_i(\beta_i)=p\) et \( \tilde \gamma_i(\tilde \beta_i)=p\).
+
+		L'application \(u \colon \mathopen[ \alpha_0,\alpha_0+2\pi\mathclose[\to S^1  \) est une bijection. Nous considérons les ensembles
+		\begin{equation}
+			A=\{ u^{-1}\big( \gamma_i'(\beta_i) \big) \}_{i=1,\ldots,n}\cup\{ u^{-1}\big( \tilde \gamma_i(\tilde \beta_i) \big) \}_{i=1,\ldots,n}
+		\end{equation}
+		et
+		\begin{equation}
+			B=\{ \gamma_i \}_{i=1,\ldots,n}\cup\{ \tilde \gamma_i \}_{i=1,\ldots,n}.
+		\end{equation}
+		Vu qu'il n'y a pas de cercles tangents, il y a une bijection \(\phi \colon A\to B  \).
+
+		Enfin nous ordonnons les angles de \( A\) dans l'odre croisstant \( \{ \alpha_k \}_{k=1,\ldots,2n}\). Autrement dit \( A=\{ \alpha_k \}_{k=1,\ldots,2n}\) avec \( \alpha_k<\alpha_{k+1}\) parce qu'il n'y a pas de \( \alpha_k=\alpha_l\) vu qu'il n'y a pas de cercles tangents.
+
+		Nous avons
+		\begin{equation}
+			\partial D_i\cap B(p,r_a)=\{ \gamma_i(\theta) \}_{\theta\in\mathopen[ \beta_i,\beta_i+h_i\mathclose]}\cup\{ \tilde \gamma_i(\theta) \}_{\theta\in\mathopen[ \tilde \beta_i,\tilde \theta_i+h_i\mathclose]}
+		\end{equation}
+		où les \( h_i\) sont petits et sans importance. Il nous reste à savoir lesquels de ces points font partie de \( \Gamma\).
+
+		\spitem[Si \( \alpha_k\leq \alpha_0+\pi\) alors \( \phi(\alpha_k)\) est un des \( \gamma_i\)]
+		%-----------------------------------------------------------
+		C'est la proposition \ref{PROPooNGGUooFgZaqT}.
+		\spitem[Si \( \alpha_0+\pi<\alpha_k<\alpha_0+2\pi \) alors \( \phi(\alpha_k)\) est un des \( \tilde \gamma_i\)]
+		%-----------------------------------------------------------
+		Supposons que \( \partial D_i\) soit l'image de \( \gamma_{r,\theta}\) avec \( \alpha_0+\pi<\theta<\alpha_0+2\pi\). Alors nous montrons que le petit bout de droite \( \{ p+tu(\alpha_0) \}_{t\in\mathopen] 0,\epsilon\mathclose[}\) intersecte l'intérieur de \( K\) (ce qui n'est pas possible parce que \( \alpha_0\)) a été choisit pour que cela ne se produise pas. C'est juste un calcul :
+		\begin{equation}		\label{EQooLAEUooYOpFHb}
+			\| p+tu(\alpha_0)-c(r,\theta) \|^2=r^2+t^2-2tru(\alpha_0)\cdot u(\theta+\pi/2).
+		\end{equation}
+		Et encore du calcul pour le produit scalaire :
+		\begin{subequations}
+			\begin{align}
+				u(\alpha_0)\cdot u(\theta+\pi/2) & =\begin{pmatrix}
+					                                    \cos(\alpha_0) \\
+					                                    \sin(\alpha_0)
+				                                    \end{pmatrix}\cdot\begin{pmatrix}
+					                                                      \sin(\theta) \\
+					                                                      \cos(\theta)
+				                                                      \end{pmatrix}                      \\
+				                                 & =\sin(\alpha_0)\cos(\theta)-\cos(\alpha_0)\sin(\theta) \\
+				                                 & =\sin(\alpha_0-\theta).
+			\end{align}
+		\end{subequations}
+		Mais nous avons supposé que
+		\begin{equation}
+			\alpha_0+\pi<\theta<\alpha_0+2\pi.
+		\end{equation}
+		Nous avons alors successivement :
+		\begin{subequations}
+			\begin{align}
+				-\alpha_0-\pi & >-\theta               >-\alpha_0-2\pi \\
+				-\pi          & <\alpha_0-\theta       >-2\pi          \\
+				\pi           & <\alpha_0-\theta+2\pi  >0.
+			\end{align}
+		\end{subequations}
+		Donc \( \sin(\alpha_0-\theta)=\sin(\alpha_0-\theta+2\pi)>0\). Par conséquent, l'inégalité \eqref{EQooLAEUooYOpFHb} nous montre que \( \| p+tu(\alpha_0)-c(r,\theta) \|^2<r\) lorsque \( t\) est petit.
+
+		\spitem[Les directions de frontières]
+		%-----------------------------------------------------------
+		Nous posons
+		\begin{equation}
+			E=\{ \alpha_k\tq k=1,\ldots,2n\tq\,\exists\epsilon\tq \phi(\alpha_k)\big( \mathopen] 0,\epsilon\mathclose] \big)\cap \Int(K)=\emptyset \}
+		\end{equation}
+		Ce sont les directions pour lesquelles l'arc de cercle correspondant ne rentre pas dans \( K\). Nous aurons alors
+		\begin{equation}
+			\partial K\cap B(p,r_a)=\bigcup_{\alpha\in E}\phi(\alpha)\big( \mathopen[ 0,\epsilon\mathclose[ \big).
+		\end{equation}
+
+		Enfin nous posons \( \alpha_m=\min\{ \alpha_k \}_{k=1,\ldots,2n}\) et \( \alpha_M=\max\{ \alpha_k \}_{k=1,\ldots,2n}\). Nous allons prouver que \( E=\{ \alpha_m,\alpha_M \}\).
+
+		\spitem[\( \alpha_0+\pi\not\in E\)]
+		%-----------------------------------------------------------
+		Par définition, \( p+tu(\alpha_0)\not\in K\) pour tout \( t>0\) assez petit. Vu qu'il s'agit d'une droite, pour les \( t<0\) assez petits, cette droite doit être à l'intérieur d'un des disques.
+
+		\spitem[\( \mathopen\rbrack \alpha_m,\alpha_m+\pi\mathclose\lbrack\cap E=\emptyset\)]
+		%-----------------------------------------------------------
+		Soit \( \alpha_k\) avec \( \alpha_k\in\mathopen] \alpha_m=\alpha_m+\pi,\mathclose[\). Nous montrons que \( \alpha_m\not\in E\). Déjà nous savons que \( \phi(\alpha_k)\) est un \( \gamma_i\) (et non un \( \tilde \gamma_i\)). Étant donné que
+		\begin{equation}
+			\alpha_k<\alpha_0+\pi<\alpha_m+\pi,
+		\end{equation}
+		la proposition \ref{PROPooTAKFooGsvUhi} dit alors que \( \phi(\alpha_k)\) entre dans l'intérieur du disque de \( \phi(\alpha_m)\). Donc \( \alpha_k\not\in E\).
+		\spitem[\( \mathopen\rbrack \alpha_0+\pi,\phi_M\lbrack\cap E=\emptyset\)]
+		%-----------------------------------------------------------
+		Même raison, mais en utilisant la proposition \ref{PROPooNGGUooFgZaqT}.
+
+		\spitem[Ce qu'il reste de \( E\)]
+		%-----------------------------------------------------------
+		À part \( \alpha_m\) et \( \alpha_M\), tous les éléments de \( \mathopen[ \alpha_0,\alpha_0+2\pi\mathclose[\) ont été exclus de \( E\). Il reste à montrer que \( \alpha_m\) et \( \alpha_M\) sont dans \( E\).
+
+		\spitem[\( \alpha_m\in E\)]
+		%-----------------------------------------------------------
+		Nous savons que \( \phi(\alpha_m)=\gamma_{\alpha_m,r}\) pour un certain \( r\). Il faut prouver que ce chemin ne rentre pas dans les disques \( D_{\theta,l}\) pour \( \alpha_m<\theta<\alpha_0+\pi\) ni dans les disques \( \tilde D_{\alpha,l}\) avec \( \alpha_0+\pi<\theta<\alpha_M\).
+
+		Nous commençons par faire un développement limité et faire toutes les mêmes techniques que dans la proposition \ref{PROPooDHCWooBOjxEQ} :
+		\begin{equation}
+			\gamma_{\alpha_l,r}\big( \alpha_m-\pi/2+t \big)=p+tru(\alpha_m)+\epsilon(t),
+		\end{equation}
+		et ensuite
+		\begin{subequations}
+			\begin{align}
+				\| \gamma_{\alpha_m,r}(\alpha_m-\pi/2+t)-c(l,\theta) \| & =\| tru(\alpha_m)+\epsilon_1(t)-lu(\theta+\pi/2) \|            \\
+				                                                        & =t^2r^2+t^2-2trlu(\alpha_m)\cdot u(\theta+\pi/2)+\epsilon_2(t) \\
+				                                                        & =l^2-2trlu(\alpha_m)\cdot u(\theta-\pi/2)+\epsilon_3(t).
+			\end{align}
+		\end{subequations}
+		Étant donné que \( \alpha_m<\theta<\alpha_0+\pi\), nous écrivons \( \theta=\alpha_m+s\) avec \( 0<s<\pi\) et nous calculons le produit scalaire. En utilisant plein de formules de trigonométie, nous trouvons
+		\begin{equation}
+			u(\alpha_m)\cdot u(\theta+\pi/2)=\sin(\alpha_m-\theta)=-\sin(s)<0,
+		\end{equation}
+		et donc au final
+		\begin{equation}
+			\| \gamma_{\alpha_m,r}(\alpha_m-\pi/2+t)-c(l,\theta) \|=l^2+2trl\sin(s)+\epsilon_3(t).
+		\end{equation}
+		Étant donné que \( \sin(s)>0\), le tout est strictement plus grand que \( l^2\) lorsque \( t\) est petit. Donc \( \gamma_{\alpha_m,r}\) reste bien en dehors de \( D_{\theta,r}\).
+
+		\spitem[Le reste c'est la confiance]
+		%-----------------------------------------------------------
+		J'avoue n'avoir pas fait les calculs pour montrer que \( \gamma_{\alpha_m,r}\) n'entre dans aucun des \( \tilde D_{l,\theta}\) (\( \alpha_0+\pi<\theta<\alpha_M\)) ni toutes les vérifications correspondantes pour \( \alpha_M\) (qui correspond à \( \tilde \gamma_{\alpha_M,r}\)).
+	\end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooCMQHooGFlsiq}
+	Soient des boules \( \{ B_i \}_{i\in \eN}\). Nous notons \( D_i=\bar B_i\) ainsi que
+	\begin{equation}
+		K_n=\bigcup_{i=1}^nD_i.
+	\end{equation}
+	Nous avons
+	\begin{equation}
+		\partial K_{n+1}\subset(\partial K_n\setminus B_{n+1})\cup\big(\partial D_{n+1}\setminus\Int(K_n)\big)
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+	Nous avons \( K_{n+1}=D_{n+1}\cup K_n\) et donc \( \partial K_{n+1}\subset\partial D_{n+1}\cup\partial K_n\) par la proposition \ref{PROPooKQXDooEnNJyn}. Nous savons que les points de \( B_{n+1}=\Int(D_{n+1})\) ne sont pas dans \( \partial K_{n+1}\), donc
+	\begin{subequations}
+		\begin{align}
+			\partial K_{n+1} & \subset\big( \partial D_{n+1}\cup\partial K_n\big)\setminus B_{n+1}     \\
+			                 & =(\partial D_{n+1}\setminus B_{n+1})\cup(\partial K_n\setminus B_{n+1}) \\
+			                 & =\partial D_{n+1}\cup(\partial K_n\setminus B_{n+1})                    \\
+		\end{align}
+	\end{subequations}
+	Le même raisonnement tient pour enlever \( \Int(K_n)\) à \( \partial D_{n+1}\).
+\end{proof}
+
+\begin{proposition}[\cite{BIBooPBIWooJtbKgk,MonCerveau}]	\label{PROPooXYNJooQGYgfw}
+	Soient des disques \( D_i\) deux à deux non tangents. Nous posons \( K_n=\bigcup_{i=1}^nD_i\), et nous supposons que \( K_n\) est connexe pour tout \( n\). Alors
+	\begin{equation}
+		\Gamma=\{ x\in\partial K\tq \forall r>0,\,B(x,r)\cap\Omega\neq\emptyset \}
+	\end{equation}
+	est une courbe continue fermée.
+\end{proposition}
+
+\begin{proof}
+	Nous y allons par récurrence sur \( n\). Le cas \( n=1\) est un simple disque, dont la frontière est le cercle. En ce qui concerne la récurrence, nous notons \( \gamma_{n+1}\) le chemin du bord de \( D_{n+1}\) (c'est un cercle) et \( \sigma_n\) le chemin de \( \partial K_n\), qui est continu et fermé par hypothèse.
+
+	Il y a deux possibilités : soit \( \partial K_{n+1}=\partial K_n\), soit non. Si oui, alors il n'y a rien à faire. Si non, alors il existe un point\footnote{Nous confondons \( \gamma_{n+1}\) est est un chemin avec son image.} \( q_0\in \gamma_{n+1}\) tel que \( q_0\in\partial K_{n+1}\). Et nous paramétrons \( \gamma_{n+1}\) de telle sorte à avoir \( \gamma_{n+1}(0)=\gamma_{n+1}(2\pi)=q_0\).
+
+	\begin{subproof}
+		\spitem[Les arcs]
+		%-----------------------------------------------------------
+
+
+		Le chemin \( \gamma_{n+1}\) intersecte \( \sigma_n\) en un nombre fini de points parce que \( \sigma_n\) est une union d'arcs de cercles et qu'un cercle en coupe un autre au maximum en deux points. Nous les notons (dans l'ordre) \( q_1,\ldots,q_N\) et nous notons \( t_i\in\mathopen[ 0,2\pi\mathclose[\) tel que \( q_i=\gamma_{n+1}(t_i)\). Et \( u_i\) tel que \( q_i=\sigma_n(u_i)\).
+
+		Étant donné que \( \Gamma_{n+1}\) est dans \( \partial K_n\cup \partial D_{n+1}\), les seuls candidats à être dans \( \Gamma\) sont les parties à être dans \( \partial K_{n+1}\) parmi les parties
+		\begin{equation}
+			\gamma_{n+1}\big( \mathopen[ t_i,t_{i+1}\mathclose] \big)
+		\end{equation}
+		et
+		\begin{equation}
+			\sigma_n\big( \mathopen[ u_i,u_{i+1}\mathclose] \big).
+		\end{equation}
+
+		\spitem[De \( q_1\) à \( q_2\)]
+		%-----------------------------------------------------------
+		Étant donné que les cercles ne sont pas tangents si \( q_1\in \gamma_{n+1}\cap D_i\), alors \( \gamma_{n+1}(t_1+h)\in \Int(D_i)\) pour tout \( h\) assez petit. Donc il y a des points de \( \gamma_{n+1}\big( \mathopen] t_1,t_2\mathclose[ \big)\) qui sont dans l'intérieur de \( K_n\). Par le passage de douanes (proposition \ref{LEMooLKWEooItGnkP}), ces points sont donc dans l'intérieur de \(K_n \).
+
+		Soit \( x\in\sigma_n\big( \mathopen] u_1,u_2\mathclose[ \big)\). Nous avons \( x\in\partial K_n\). La distance avec \( x\) est une application continue et non nulle sur le compact \( D_{n+1}\). Il y a donc un minimum non nul; donc \( d(x,D_{n+1})>0\). La proposition \ref{PROPooIIRLooIPdjqO} nous assure alors que
+		\begin{equation}
+			x\in \partial(K_n\cup D_{n+1})=\partial K_{n+1}.
+		\end{equation}
+		Donc \( \sigma_N\big( \mathopen[ u_1,u_2\mathclose] \big)\subset \partial K_{n+1}\).
+
+		\spitem[De \( q_2\) à \( q_3\)]
+		%-----------------------------------------------------------
+		C'est l'inverse. Maintenant \( \gamma_{n+1}\) est hors de \( K_n\), donc il est dans la frontière tandis que \( \sigma_n\) est dans l'intérieur de \( D_{n+1}\).
+
+		\spitem[Et ainsi de suite]
+		%-----------------------------------------------------------
+		De \( q_k\) à \( q_{k+1}\), ça dépend de la parité de \( k\) un sur deux, \( \gamma_{n+1}\) est la frontière et l'autre, c'est \( \sigma_n\).
+	\end{subproof}
+\end{proof}
+
+\begin{proposition}[\cite{BIBooPBIWooJtbKgk}]	\label{PROPooTUPHooLnSCkd}
+	Soient deux arcs de Jordan \(\gamma \colon \mathopen[ 0,1\mathclose]\to \eR^2  \) et \(\sigma \colon \mathopen[ 0,1\mathclose]\to \eR^2  \) contenus dans un rectangle (dont les côtés sont parallèles aux axes). Nous nommons \( G\) et \( S\) leurs images et nous supposons :
+	\begin{enumerate}
+		\item
+		      Ils ne s'intersectent pas : \( G\cap S=\emptyset\),
+		\item
+		      Le chemin \( \gamma\) intersecte le rectangle en un et un seul point, situé sur le côté gauche du rectangle.
+		\item
+		      Le chemin \( \sigma\) intersecte le rectangle en un et un seul point, situé sur le côté droit du rectangle.
+	\end{enumerate}
+	Alors il existe un chemin continu du bord supérieur du rectangle vers le bord inférieur du rectangle qui n'intersecte aucune des deux courbes.
+\end{proposition}
+
+\begin{proof}
+	En plusieurs petites parties.
+	\begin{subproof}
+		\spitem[Le segment vertical]
+		%-----------------------------------------------------------
+
+		Étant donné que la fonction «distance avec le côté droit» est continue sur le compact \( G\), elle a un minimum qui est strictement positif parce que \( G\) n'intersecte pas le rectangle sur le côté droit. Nous considérons \( h\) strictement plus grand que ce minimum tout en étant plus petit que le côté droit. Nous notons \( \ell\) la droite verticale d'abscisse \( h\).
+
+		Par construction \( \ell\cap G=\emptyset\). Si \( \ell\) n'intersecte pas \( S\), alors on est bon. Si il y a des intersections, alors il faut un peu plus travailler.
+		\spitem[Le recouvrement]
+		%-----------------------------------------------------------
+		La fonction
+		\begin{equation}
+			\begin{aligned}
+				f\colon S & \to \eR        \\
+				x         & \mapsto d(x,G)
+			\end{aligned}
+		\end{equation}
+		est continue sur le compact \( S\). Donc elle a un minimum strictement positif (parce que \( S\) et \( G\) ne s'intersectent pas). Nous considérons \( r>0\) strictement plus petit que ce minimum. L'ensemble \( \{ B(x,r) \}_{x\in S}\) recouvre le compact \( S\) avec des ouverts. Donc il y a un sous-recouvrement fini que nous notons \( \{ B(x_i,r) \}_{i=1,\ldots,n}\). Nous notons aussi \( D_j=\overline{B(x_i,r_i)}\).
+
+		Nous repassons ensuite ces boules une par une de façon à s'assurer qu'aucune n'est tangente à une autre. Pour cela, nous allons nous assurer qu'aucune n'est tangente à une précédente. Supposons que \( D_i\) est tangente à \( D_j\) avec \( i>j\). En remplaçant \( r_i\) par un \( r_i'\in\mathopen] r_i,r\mathclose[\), nous gardons la propriété de recouvrir \( S\) tout en évitant la tangence avec \( D_j\) et en n'intersectant toujours pas \( G\). Parmi l'infinité de choix, seul un nombre fini provoque une tangence avec un autre \( D_k\). Nous les évitons.
+
+		De cette manière nous avons \( \{ B(x_i,r'_i) \}_{i=1,\ldots,n}\) qui recouvre \( S\), n'intersecte pas \( G\) et tels qu'aucune boule n'est tangente à aucune autre. Et nous notons \( K=\bigcup_{i=1}^nD_i\).
+
+		\spitem[Le chemin]
+		%-----------------------------------------------------------
+		Nous nommons \( a\) point d'intersection entre \( \ell\) et \( K\) qui est le plus haut (proche du bord haut du rectangle) et \( b\) celui qui est le plus bas. Le chemin que nous cherchons suit \( l\) entre le bord haut et \( a\), puis suit le bord de \( K\) jusqu'à \( b\). Cela est possible parce que le bord est un chemin continu fermé (proposition \ref{PROPooXYNJooQGYgfw}) n'intersectant le bord droit du rectangle qu'un un seul point. Il y a forcément un des deux sens dans lequel on peut parcourir \( \partial K\) de \( a\) à \( b\) sans intersecter le rectangle.
+
+		Enfin le chemin se termine en suivant \( \ell\) jusqu'au bord inférieur du rectangle.
+	\end{subproof}
 \end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 

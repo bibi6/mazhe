@@ -350,7 +350,7 @@
 		\item
 		      Nous avons \( x\geq x\) sans problèmes.
 		\item
-		      Si \( x\geq y\) et \( y\geq z\), alors \( y\leq x\) et \( z\leq y\). Cela donne \( z\leq x\), c'est à dire  \( x\geq z\).
+		      Si \( x\geq y\) et \( y\geq z\), alors \( y\leq x\) et \( z\leq y\). Cela donne \( z\leq x\), c'est-à-dire  \( x\geq z\).
 		\item
 		      Si \( x\geq y\) et \( y\geq x\), on a \( y\leq x\) et \( x\leq y\) et donc \( x=y\).
 	\end{enumerate}
@@ -1608,7 +1608,7 @@ Voici une proposition qui dit que si on n'a pas de maximum, on est infini. Une p
 
 				      Bref, ce cas est impossible.
 				\item
-				      Si \( u\neq x\) et \( v=x\), alors c'est le même cas que le précédent avec quelque adaptations.
+				      Si \( u\neq x\) et \( v=x\), alors c'est le même cas que le précédent avec quelques adaptations.
 				\item
 				      Si \( u\neq x\) et \( v\neq x\), alors \( \varphi(u)=\sigma(u)\) et \( \varphi(v)=\sigma(v)\), de telle sorte que \( \sigma(u)=\sigma(v)\) et donc \( u=v\) par injectivité de \( \sigma\).
 			\end{itemize}
@@ -1690,6 +1690,19 @@ Voici une proposition qui dit que si on n'a pas de maximum, on est infini. Une p
 	La partie \ref{ITEMooNCCUooBGrtdn} est prouvée. La partie \ref{ITEMooKQMFooSzmXrd} est maintenant facile. La partie \ref{ITEMooNCCUooBGrtdn} dit que \( \sigma(A)\) est une partie finie de \( B\), mais si \( \sigma\) est surjective, alors \( \sigma(A)=B\).
 \end{proof}
 
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooGJLEooCQdegS}
+	Toute union finie d'ensembles finis et finie.
+	%TODOooKMEXooVttdhP. Prouver ça.
+\end{proposition}
+
+
+\begin{proposition}[\cite{MonCerveau}]	\label{PROPooYCDWooXBWVrW}
+	Soient un ensemble infini \( A\), un ensemble fini \( B\) et une application \(\phi \colon A\to B  \). Alors il existe un \( s\in B\) tel que \( \phi^{-1}(s)\) est infini.
+\end{proposition}
+
+\begin{proof}
+	Nous avons \( A=\bigcup_{b\in B}\phi^{-1}(b)\). Donc si \( \phi^{-1}(b)\) était fini pour tout \( b\in B\), l'ensemble \( A\) serait une union finie d'ensembles finis et donc fini par la proposition \ref{PROPooGJLEooCQdegS}.
+\end{proof}
 
 %--------------------------------------------------------------------------------------------------------------------------- 
 \subsection{Théorème de Cantor-Schröder-Bernstein}
@@ -2668,7 +2681,7 @@ Nous donnons deux preuves de ce lemme.
 
 	En tout cas j'ai l'impression qu'on ne peut rien prouver à propos des ensembles Dedekind-finis\footnote{Un ensemble des Dedekind-infini si il est en bijection avec une partie propre; c'est la définition du Frido de «infini» tout court.} sans passer par une bijection avec une partie des naturels.
 
-	Voici quelque résultats que je doute être possible de démontrer sans passer par les naturels.
+	Voici quelques résultats que je doute être possible de démontrer sans passer par les naturels.
 	\begin{enumerate}
 		\item
 		      La proposition \ref{PROPooGJLYooTQtlSV} dit que tout ensemble fini partiellement ordonné possède un élément maximal. Voir aussi \cite{BIBooFUKSooQARznK}.
@@ -3128,7 +3141,7 @@ Nous donnons deux preuves de ce lemme.
 		\item       \label{ITEMooSGRVooPAVFYK}
 		      L'élément \( 0\) est neutre.
 		\item       \label{ITEMooNUTHooJWWzGv}
-		      Tous les éléments de \( \eN\) sont réguliers\footnote{Élément régulier pour une opération, définition \ref{DEFooIJIEooZaAdSs}.} par rapport à l'addition, c'est à dire que si \( a+x=a+y\) alors \( x=y\).
+		      Tous les éléments de \( \eN\) sont réguliers\footnote{Élément régulier pour une opération, définition \ref{DEFooIJIEooZaAdSs}.} par rapport à l'addition, c'est-à-dire que si \( a+x=a+y\) alors \( x=y\).
 	\end{enumerate}
 \end{proposition}
 
@@ -3732,7 +3745,7 @@ Nous donnons deux preuves de ce lemme.
 	\begin{subproof}
 		\spitem[Pour \ref{ITEMooPQETooJYjhUj}]
 		%-----------------------------------------------------------
-		Nous supposons que \( s>k\). Il existe \( x\in \eN\) tel que \( s+x=k\) et \( x\neq 0\) parce que \( s\neq k\). En utilisant la proposition \ref{PROPooAKLVooBkRIAT} nous avons \( k+(x-1)=s-1\), c'est à dire \( k\geq s-1\).
+		Nous supposons que \( s>k\). Il existe \( x\in \eN\) tel que \( s+x=k\) et \( x\neq 0\) parce que \( s\neq k\). En utilisant la proposition \ref{PROPooAKLVooBkRIAT} nous avons \( k+(x-1)=s-1\), c'est-à-dire \( k\geq s-1\).
 		\spitem[Pour \ref{ITEMooZLXQooPRLNoN}]
 		%-----------------------------------------------------------
 		Nous savons que \( s+x=k\) pour un certain \( x\in \eN\). Nous avons alors
@@ -4285,6 +4298,77 @@ Cette fonction est la \defe{fonction puissance}{puissance!entiers naturels} et n
 \end{proof}
 
 
+
+
+
+%-------------------------------------------------------
+\subsection{Division euclidienne}
+%----------------------------------------------------
+
+
+\begin{theorem}[division euclidienne \cite{RWWJooJdjxEK}]       \label{THOooKDJVooRIJRHP}
+	Pour tout \( a\in \eN\), pour tout \( b\in \eN\setminus\{ 0 \}\), il existe un unique couple \( (q,r)\in \eN^2\) tel que \( a=bq+r\) avec \( 0\leq r<b\).
+\end{theorem}
+
+\begin{proof}
+	Existence puis unicité.
+	\begin{subproof}
+		\spitem[Existence]
+
+		Nous posons
+		\begin{equation}
+			A=\{ bx\tq x\in \eN,bx\leq a \}.
+		\end{equation}
+		L'ensemble \( A\) contient \( 0\) (avec \( x=0\)) et est majoré par \( a\). Donc il possède un plus grand élément que nous notons \( bq\). Puisque \( bq\in A\), nous avons \( bq\leq a\) et donc il existe \( r\in \eN\) tel que
+		\begin{equation}        \label{EQooIUICooLenNBP}
+			bq+r=a.
+		\end{equation}
+		Il reste à montrer que \( r<b\). Supposons que \( r\geq b\). Il existerait alors un \( x\) tel que \( b+x=r\). En mettant ça dans \eqref{EQooIUICooLenNBP},
+		\begin{equation}
+			bq+b+x=a,
+		\end{equation}
+		c'est-à-dire \( b(q+1)+x=a\), qui signifierait \( b(q+1)\leq a\), ce qui est faux parce que \( bq\) est le plus grand élément de \( A\).
+		\spitem[Unicité]
+		Supposons que nous ayons
+		\begin{equation}
+			a=bq+r=bq'+r'
+		\end{equation}
+		avec \( 0\leq r<b\) et \( 0\leq r'<b\). Il y a trois possibilités : \( q'<q\), \( q'=q\) et \( q'>q\).
+		\begin{subproof}
+			\spitem[Si \( q'<q\)]
+			Alors il existe \( x\in \eN\) tel que \( q'+x=q\), et nous avons
+			\begin{equation}
+				b(q'+x)+r=bq'+bx+r,
+			\end{equation}
+			ce qui, après distribution et simplification, donne \( r'=bx+r\). Puisque nous avons \( x\geq 1\), il vient
+			\begin{equation}
+				r'=bx+r\geq b+r\geq b.
+			\end{equation}
+			Cela n'est pas possible parce que \( r'<b\). Le cas \( q'<q\) n'est pas possible.
+			\spitem[Si \( q'=q\)]
+			Nous avons alors immédiatement \( bq+r=bq+r'\) et donc \( r=r'\). Unicité.
+			\spitem[Si \( q'>q\)]
+			En posant \( q+x=q'\) nous trouvons la même impossibilité que dans le cas \( q'<q\).
+		\end{subproof}
+	\end{subproof}
+\end{proof}
+
+\begin{definition}	\label{DEFooDivisibleNombrePairImpair}
+	Quelques définitions associées au théorème \ref{THOooKDJVooRIJRHP}. Soit \( a \) et \( b \) deux entiers naturels.
+	\begin{enumerate}
+		\item
+		      Dans le couple \( (q,r)\in \eN^2\) tel que \( a=bq+r\) avec \( 0\leq r<b\), fourni par ce théorème, \( q \) est appelé \defe{quotient}{division euclidienne!quotient dans \( \eN \)} et \( r \) est appelé \defe{reste}{division euclidienne!reste dans \( \eN \)}.
+		\item
+		      Si \( r=0\) (et donc s'il existe un \( q \in \eN\) tel que \( a = bq \), nous disons que \( a\) est \defe{divisible}{nombre entier!divisible} par \( b\).
+		\item
+		      Si \( n\) est divisible par \( 2\), alors nous disons qu'il est \defe{pair}{nombre entier!pair}.
+		\item\label{ITEMooDLHHooTmWSnN}
+		      Si \( n\) n'est pas divisible par \( 2\), alors nous disons qu'il est \defe{impair}{nombre entier!impair}.
+	\end{enumerate}
+\end{definition}
+
+
+
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Ensembles finis}
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4330,13 +4414,13 @@ Voir \ref{NORMooLNLHooLYKwDu} pour comprendre le type de résultats que nous gro
 
 
 \begin{proposition}[\cite{MonCerveau,BIBooFUKSooQARznK}]	\label{PROPooGJLYooTQtlSV}
-	Tout ensemble fini partiellement ordonné\footnote{Définition \ref{DefooFLYOooRaGYRk}.} possède un élément maximal\footnote{C'est à dire un élément qui majore tous ceux avec qui il est comparable.}.
+	Tout ensemble fini partiellement ordonné\footnote{Définition \ref{DefooFLYOooRaGYRk}.} possède un élément maximal\footnote{C'est-à-dire un élément qui majore tous ceux avec qui il est comparable.}.
 
-	Tout ensemble fini partiellement ordonné possède un élément minimal\footnote{C'est à dire un élément qui minore tous ceux avec qui il est comparable.}.
+	Tout ensemble fini partiellement ordonné possède un élément minimal\footnote{C'est-à-dire un élément qui minore tous ceux avec qui il est comparable.}.
 \end{proposition}
 
 \begin{proof}
-	Nous prouvons la contraposée, c'est à dire que si \( (E,\leq)\) n'a pas d'élément maximal, alors il est infini.
+	Nous prouvons la contraposée, c'est-à-dire que si \( (E,\leq)\) n'a pas d'élément maximal, alors il est infini.
 	\begin{subproof}
 		\spitem[Axiome du choix, fonction \( s\)]
 		%-----------------------------------------------------------
@@ -4961,6 +5045,7 @@ Autrement dit, les nombres en écriture de position se classent par ordre lexico
 	\end{subequations}
 	Et voilà.
 \end{proof}
+
 
 %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Les entiers relatifs}
