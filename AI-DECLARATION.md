@@ -33,13 +33,27 @@ Bref, il n'y a pas de résultats dans démonstration dans le Frido dont l'énonc
 
 ## Cas d'usage
 
-### Canard en plasitque
+### Canard en plastique
 
 Pour la proposition PROPooITHUooXrBYMG, la démonstration donnée sur [cut the knot](https://www.cut-the-knot.org/blue/JCT/JCT_Part7.shtml) n'est pas claire pour moi. Je l'ai donnée à ChatGPT et à Mistral et après en avoir parlé pendant un bon bout de temps, j'ai fini par écrire une preuve moi-même.
 
 Bref, cette démonstration est entièrement de moi, mais j'en ai dégagé la philosophie générale en discutant avec l'IA. La preuve donnée par cut-the-knot n'est finalement pratiquement pas utilisée.
 
 Cependant les échanges que j'ai eu avec chatGpt n'ont pas été tout à fait vains. C'est lui qui m'a montré l'importance du produit scalaire 'u. v_i' qui intervient de façon centrale dans les propositions  PROPooOCXJooSDeEoB et PROPooCYYSooHVnjDl.
+
+### Technique que je ne connaissais pas
+
+Pour démontrer PROPooBXAZooNpGjjJ, je ne connaissais pas la technique du déterminant de deux vecteurs. C'est mistral qui me l'a montrée.
+Si j'avais sorti cette démonstration d'un livre, personne ne serait venu dire « Tu aurais du réfléchir plus pour découvrir par toi même, en utilisant un livre pour avoir la réponse, tu suis la voie de la facilité ».
+
+### Retrouver des résultats
+
+Parfois certains résultats ne sont pas faciles à retrouver dans le Frido. C'est pour ça qu'il y a un index thématique. Vibe de Mistral est assez efficace pour les retrouver.
+Par exemple avec cette demande : 
+«
+Je voudrais savoir si le Frido démontre qu'un système d'équations linéaire a une unique solution SSI son déterminant est non nul. Est-ce que ce résultat est quelque part ?
+»
+il me retrouve la proposition PropYQNMooZjlYlA qui prouve qu'une application linéaire est un automorphisme si et seulement si son déterminant est non nul.
 
 
 ## Trouver les parties assistées par IA
